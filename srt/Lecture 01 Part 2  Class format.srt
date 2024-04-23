@@ -1,0 +1,344 @@
+1
+00:00:00,000 --> 00:00:12,840
+And the type of numerical techniques we are going to study in this course include what's called finite difference, finite volume, finite element, boundary element.
+
+2
+00:00:13,680 --> 00:00:25,700
+So these four methods, each of them are suitable for different type of partial differential equations under different geometric and environmental conditions.
+
+3
+00:00:25,700 --> 00:00:38,640
+These methods are going to convert or approximate a partial differential equation with equations that we can put into and solve in computers.
+
+4
+00:00:38,640 --> 00:00:44,200
+So computers are good at manipulating numbers.
+
+5
+00:00:46,380 --> 00:00:55,640
+And these methods convert differential equations, approximate them into equations that...
+
+6
+00:00:55,700 --> 00:01:05,540
+computers can solve directly. They can, for example, solve into solutions of matrix equations, AX equal to B.
+
+7
+00:01:07,000 --> 00:01:17,100
+And then we are also going to talk about direct and iterative solution methods for actually solving this kind of AX equal to B equations.
+
+8
+00:01:18,240 --> 00:01:22,480
+And many of you think AX equal to B is easy.
+
+9
+00:01:22,980 --> 00:01:25,420
+If you know MATLAB or other...
+
+10
+00:01:25,700 --> 00:01:32,980
+packages, you can just solve with one line of code.
+
+11
+00:01:34,020 --> 00:01:35,400
+In MATLAB, that's backslash.
+
+12
+00:01:35,940 --> 00:01:37,620
+How many of you know backslash?
+
+13
+00:01:38,340 --> 00:01:39,300
+Okay, that's good.
+
+14
+00:01:39,840 --> 00:01:42,440
+In Python, it's linear algebra dot solve.
+
+15
+00:01:42,920 --> 00:01:44,100
+How many of you know that?
+
+16
+00:01:44,820 --> 00:01:45,720
+Okay, so good.
+
+17
+00:01:45,720 --> 00:01:55,220
+But the type of AX equal to B we may get in partial differential equations may be beyond the capability of backslash.
+
+18
+00:01:55,700 --> 00:01:57,700
+Or linear algebra dot solve.
+
+19
+00:01:57,700 --> 00:02:03,700
+That's because they are so large.
+
+20
+00:02:03,700 --> 00:02:15,700
+They can be orders of magnitude larger than the kind of even memory requirement of just directly solving AX equal to B.
+
+21
+00:02:15,700 --> 00:02:21,700
+And that is why we will be talking about iterative solution methods for solving these kind of equations.
+
+22
+00:02:21,700 --> 00:02:23,700
+Which is a result of discretizing a partial differential equation.
+
+23
+00:02:23,700 --> 00:02:24,260
+And that is why we will be talking about iterative solution methods for solving these kind of equations.
+
+24
+00:02:24,260 --> 00:02:31,380
+Or discretizing a partial differential equation using finite difference, finite volume, finite element, or boundary element method.
+
+25
+00:02:33,300 --> 00:02:35,220
+So this class-
+
+26
+00:02:35,220 --> 00:02:38,340
+the good news is that there is no exam.
+
+27
+00:02:39,380 --> 00:02:41,380
+No midterm, no final.
+
+28
+00:02:43,380 --> 00:02:45,380
+But don't be happy yet.
+
+29
+00:02:46,500 --> 00:02:50,500
+Because we have eight project sets.
+
+30
+00:02:51,220 --> 00:02:54,220
+And each project set can be-
+
+31
+00:02:54,260 --> 00:03:06,760
+very exhausting or very time-consuming task. So these projects, they are
+
+32
+00:03:06,760 --> 00:03:11,940
+quite different from the kind of homework assignments you may be used to
+
+33
+00:03:11,940 --> 00:03:19,020
+in undergraduate studies. They usually require you to take a problem that is
+
+34
+00:03:19,020 --> 00:03:26,100
+not yet very well formulated. So you take a problem that may not be immediately
+
+35
+00:03:26,100 --> 00:03:33,640
+obvious how to start even go to solve it. And then you need to not only apply what
+
+36
+00:03:33,640 --> 00:03:40,320
+you learned in class, but also you may have to try things yourself or even go
+
+37
+00:03:40,320 --> 00:03:47,220
+to the Internet, look for solutions or even look for papers and read what is
+
+38
+00:03:47,220 --> 00:03:49,000
+in the literature to figure out the solution.
+
+39
+00:03:49,000 --> 00:03:58,540
+Another thing is the amount of coding and debugging you may expect to do to
+
+40
+00:03:58,540 --> 00:04:05,080
+solve these projects can be pretty intensive. That aspect depends a lot on
+
+41
+00:04:05,080 --> 00:04:12,200
+how much experience you have on coding. So if you have written a hundred
+
+42
+00:04:12,200 --> 00:04:15,240
+thousand lines of code in your lifetime, you probably don't really worry about
+
+43
+00:04:15,240 --> 00:04:17,200
+that. But if you are new to coding, you might have to do a lot of work to solve it.
+
+44
+00:04:17,200 --> 00:04:18,960
+So if you have written a hundred thousand lines of code in your lifetime, you probably don't really worry about that. But if you are new to
+
+45
+00:04:18,960 --> 00:04:24,820
+programming then it may take a significant amount of time for you to
+
+46
+00:04:24,820 --> 00:04:33,400
+just get familiar with being able to program a significant code starting
+
+47
+00:04:33,400 --> 00:04:43,320
+from scratch to solve a problem. And on top of being able to write software,
+
+48
+00:04:43,320 --> 00:04:46,500
+write code to solve problems,
+
+49
+00:04:46,500 --> 00:04:48,540
+you should expect a reasonable amount of time to solve these problems. And once
+
+50
+00:04:48,540 --> 00:04:59,600
+a huge difference between writing numerical code and writing regular code for other computer science applications.
+
+51
+00:04:59,600 --> 00:05:05,040
+And this difference especially shows up in the debugging phase.
+
+52
+00:05:05,040 --> 00:05:12,900
+So debugging a regular computer code is easy compared to debugging numerical code.
+
+53
+00:05:12,900 --> 00:05:23,660
+Because debugging regular computer code, if something blows up or if something has a memory leak or something, you can procedurally, you can really...
+
+54
+00:05:23,660 --> 00:05:30,500
+If you are a veteran programmer, you know how to trace the bug, find where it is.
+
+55
+00:05:30,500 --> 00:05:40,360
+But debugging a numerical code not only requires regular computer science skills, but requires a lot of mathematical reasoning.
+
+56
+00:05:40,360 --> 00:05:42,160
+If your code
+
+57
+00:05:42,160 --> 00:05:49,260
+doesn't really crash, doesn't really segmentation fault, but slowly goes to infinity,
+
+58
+00:05:49,260 --> 00:05:52,260
+instead of producing the answer you expect,
+
+59
+00:05:52,260 --> 00:06:00,820
+how do you trace the bug? How do you find out which part of the code, which line of code is responsible for that slowly diverging to infinity?
+
+60
+00:06:00,820 --> 00:06:03,720
+Or just producing an utterly wrong answer?
+
+61
+00:06:03,720 --> 00:06:07,120
+That's very non-obvious.
+
+62
+00:06:07,120 --> 00:06:12,120
+Developing that skill is a significant portion of this class.
+
+63
+00:06:12,120 --> 00:06:19,120
+So especially in the beginning, expect to spend a lot of time developing that skill.
+
+64
+00:06:19,120 --> 00:06:24,180
+And this is the most...
+
+65
+00:06:24,180 --> 00:06:32,160
+By talking to students who took this class before, this is probably the single most challenging part of this course.
+
+66
+00:06:32,160 --> 00:06:39,660
+Is doing the projects and figuring out how to debug my code that doesn't produce the right answer.
+
+67
+00:06:39,660 --> 00:06:40,920
+OK.
+
+68
+00:06:40,920 --> 00:06:41,920
+The worst thing you can do is to use a lot of your time to develop your code.
+
+69
+00:06:41,920 --> 00:06:44,820
+And the worst thing you can do is to start the project too late.
+
+70
+00:06:44,820 --> 00:06:50,980
+Because you expect to write this amount of code, but the time it may take for you to debug it may be
+
+71
+00:06:50,980 --> 00:06:56,360
+a lot longer than you need to write it.
+
+72
+00:06:56,360 --> 00:07:01,180
+And the collaboration policy is unstellar, but in a nutshell,
+
+73
+00:07:01,180 --> 00:07:06,220
+you are very much encouraged to discuss with each other.
+
+74
+00:07:06,220 --> 00:07:11,320
+And that's why I have everybody introduce yourself to other people.
+
+75
+00:07:11,320 --> 00:07:17,660
+So discussion, collaboration is very encouraged, but...
+
+76
+00:07:17,660 --> 00:07:22,320
+The outcome of the discussion should completely be in your mind.
+
+77
+00:07:22,320 --> 00:07:27,860
+You're not supposed to type down stuff during your discussion and take it home with you.
+
+78
+00:07:27,860 --> 00:07:33,080
+Absolutely no sharing of code or any documentation.
+
+79
+00:07:33,080 --> 00:07:37,920
+OK, so any discussion you need to...
+
+80
+00:07:37,920 --> 00:07:41,080
+absorb the result of the discussion in your mind.
+
+81
+00:07:41,320 --> 00:07:48,820
+And code and write documentation, write the reports completely separately.
+
+82
+00:07:48,820 --> 00:07:52,320
+Understood?
+
+83
+00:07:52,320 --> 00:07:53,920
+Alright.
+
+84
+00:07:53,920 --> 00:07:55,160
+OK.
+
+85
+00:07:55,160 --> 00:07:57,020
+Any questions so far?
+
+86
+00:07:57,020 --> 00:08:01,080
+Before we go into the technical portion of this lecture?
+

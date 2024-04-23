@@ -1,0 +1,1012 @@
+1
+00:00:00,000 --> 00:00:08,000
+So there are three elements in here, three things we need to calculate. One is the area of each triangle.
+
+2
+00:00:08,000 --> 00:00:15,000
+And what is the gradient of each of these basis functions on the triangle.
+
+3
+00:00:15,000 --> 00:00:19,000
+Okay, so let's figure out how to calculate the area first.
+
+4
+00:00:19,000 --> 00:00:23,000
+So to make it easier, let's make a script.
+
+5
+00:00:23,000 --> 00:00:29,000
+Go to script, find element 2D.
+
+6
+00:00:29,000 --> 00:00:40,000
+Okay, I'm going to assume I already have the P, T, and IB calculated.
+
+7
+00:00:40,000 --> 00:00:45,000
+So what I'm going to do is I'm going to first try to calculate the area.
+
+8
+00:00:45,000 --> 00:00:52,000
+Area is going to be zeros, the number of elements.
+
+9
+00:00:52,000 --> 00:00:53,000
+So let me first...
+
+10
+00:00:53,000 --> 00:00:59,000
+Okay, so number of elements is equal to the length of the triangles.
+
+11
+00:00:59,000 --> 00:01:02,000
+So it's triangles, the second dimension.
+
+12
+00:01:02,000 --> 00:01:05,000
+So any is the number of triangles.
+
+13
+00:01:05,000 --> 00:01:06,000
+So A...
+
+14
+00:01:06,000 --> 00:01:09,000
+Let me reserve the big A for the matrix.
+
+15
+00:01:09,000 --> 00:01:11,000
+So let me call it small a to be the area.
+
+16
+00:01:11,000 --> 00:01:12,000
+So let me see.
+
+17
+00:01:12,000 --> 00:01:16,000
+So this is the area, small a.
+
+18
+00:01:16,000 --> 00:01:17,000
+Okay.
+
+19
+00:01:20,000 --> 00:01:22,000
+So small a is equal to any at 1.
+
+20
+00:01:23,000 --> 00:01:29,000
+And I'm going to go over all the triangles.
+
+21
+00:01:29,000 --> 00:01:31,000
+Okay.
+
+22
+00:01:31,000 --> 00:01:36,000
+The area is going to be equal to...
+
+23
+00:01:36,000 --> 00:01:39,000
+It's really...
+
+24
+00:01:39,000 --> 00:01:46,000
+So I need to figure out two of the edges and do a cross product between the two edges.
+
+25
+00:01:46,000 --> 00:01:49,000
+That divided by 2 is going to be the area.
+
+26
+00:01:49,000 --> 00:01:50,000
+Right.
+
+27
+00:01:50,000 --> 00:01:53,000
+So let me first compute the vertices.
+
+28
+00:01:53,000 --> 00:01:55,000
+So v1...
+
+29
+00:01:55,000 --> 00:02:02,000
+Okay, so let me say v is equal to zeros, 2, 3.
+
+30
+00:02:02,000 --> 00:02:05,000
+So I have a vertex array.
+
+31
+00:02:05,000 --> 00:02:07,000
+The first dimension is x and y.
+
+32
+00:02:07,000 --> 00:02:13,000
+The second dimension is the three vertices of the triangle.
+
+33
+00:02:13,000 --> 00:02:18,000
+So v1 is equal to my p of...
+
+34
+00:02:18,000 --> 00:02:19,000
+Okay.
+
+35
+00:02:19,000 --> 00:02:27,000
+My p of column and my t of 1 and i.
+
+36
+00:02:27,000 --> 00:02:28,000
+Right.
+
+37
+00:02:28,000 --> 00:02:33,000
+So this is the location of the first vertex.
+
+38
+00:02:33,000 --> 00:02:38,000
+So my second vertex...
+
+39
+00:02:38,000 --> 00:02:42,000
+To make it a little bit clearer, let me just call it v1.
+
+40
+00:02:42,000 --> 00:02:45,000
+Let me just call it v2.
+
+41
+00:02:45,000 --> 00:02:47,000
+Let me just call it v3.
+
+42
+00:02:47,000 --> 00:02:49,000
+So 2 and 3.
+
+43
+00:02:49,000 --> 00:02:50,000
+All right.
+
+44
+00:02:50,000 --> 00:02:52,000
+So these are the three vertices.
+
+45
+00:02:52,000 --> 00:02:56,000
+Each one is just two numbers, x and y.
+
+46
+00:02:56,000 --> 00:03:05,000
+So ai is the cross product, which is really the dot product of v1 minus v2.
+
+47
+00:03:05,000 --> 00:03:16,000
+And basically the rotated vector of v1 minus v3.
+
+48
+00:03:16,000 --> 00:03:17,000
+Right.
+
+49
+00:03:17,000 --> 00:03:18,000
+So let me here...
+
+50
+00:03:18,000 --> 00:03:24,000
+I'm just going to make it a matrix times...
+
+51
+00:03:24,000 --> 00:03:28,000
+The rotated vector is 0, 1 minus 1, 0.
+
+52
+00:03:28,000 --> 00:03:29,000
+Right.
+
+53
+00:03:29,000 --> 00:03:31,000
+So it's this...
+
+54
+00:03:31,000 --> 00:03:38,000
+You basically take one of the edges, you rotate it by 90 degrees, and you dot product with the other edge.
+
+55
+00:03:38,000 --> 00:03:40,000
+That's the cross product.
+
+56
+00:03:40,000 --> 00:03:41,000
+All right.
+
+57
+00:03:41,000 --> 00:03:45,000
+So that divided by 2 is going to be the area.
+
+58
+00:03:47,000 --> 00:03:50,000
+So you want it to be 3.
+
+59
+00:03:50,000 --> 00:03:51,000
+Oh, yes.
+
+60
+00:03:51,000 --> 00:03:52,000
+One of them should be 3.
+
+61
+00:03:52,000 --> 00:03:53,000
+Thank you.
+
+62
+00:03:53,000 --> 00:03:56,000
+So let's run it to see what I get.
+
+63
+00:03:56,000 --> 00:04:01,000
+I get an a that is equal to a bunch of things.
+
+64
+00:04:01,000 --> 00:04:08,000
+And the magnitude seems to match the size of the areas.
+
+65
+00:04:08,000 --> 00:04:11,000
+All right.
+
+66
+00:04:11,000 --> 00:04:12,000
+Okay.
+
+67
+00:04:12,000 --> 00:04:15,000
+Any questions on this?
+
+68
+00:04:15,000 --> 00:04:17,000
+No?
+
+69
+00:04:17,000 --> 00:04:18,000
+Okay.
+
+70
+00:04:18,000 --> 00:04:20,000
+So next we have the area.
+
+71
+00:04:20,000 --> 00:04:25,000
+Next is to compute the gradients of the basis functions.
+
+72
+00:04:25,000 --> 00:04:26,000
+Okay.
+
+73
+00:04:26,000 --> 00:04:36,000
+In order to compute the gradient, let's use the fact that if I have the gradient of phi i,
+
+74
+00:04:36,000 --> 00:04:44,000
+the gradient of phi i dot with any vector, let's say the vector of v...
+
+75
+00:04:44,000 --> 00:04:52,000
+The location of the vertex i minus the location of the vertex j, for example.
+
+76
+00:04:52,000 --> 00:04:55,000
+This should be equal to what?
+
+77
+00:04:55,000 --> 00:05:01,000
+The gradient of that particular basis function that is equal to 1 at v i and 0 at v j.
+
+78
+00:05:01,000 --> 00:05:05,000
+What should it be?
+
+79
+00:05:05,000 --> 00:05:09,000
+The gradient of a linear function dot with a vector should be what?
+
+80
+00:05:09,000 --> 00:05:12,000
+This should be the value of that phi i at v i minus the location of the vertex j.
+
+81
+00:05:12,000 --> 00:05:15,000
+So this should be the gradient of phi i at v i minus the value...
+
+82
+00:05:15,000 --> 00:05:18,000
+Let me say it's x i and x j.
+
+83
+00:05:18,000 --> 00:05:19,000
+Sorry.
+
+84
+00:05:19,000 --> 00:05:23,000
+So x is the location of the vertices.
+
+85
+00:05:23,000 --> 00:05:24,000
+Right?
+
+86
+00:05:24,000 --> 00:05:30,000
+So if I have a gradient of phi i dot with the difference between the two locations,
+
+87
+00:05:30,000 --> 00:05:35,000
+this should be phi i at x i minus phi i at x j.
+
+88
+00:05:35,000 --> 00:05:36,000
+Right?
+
+89
+00:05:36,000 --> 00:05:40,000
+This should be what?
+
+90
+00:05:40,000 --> 00:05:41,000
+Should be 1.
+
+91
+00:05:41,000 --> 00:05:42,000
+Right?
+
+92
+00:05:42,000 --> 00:05:48,000
+Because unless i is equal to j.
+
+93
+00:05:48,000 --> 00:05:55,000
+So for any x j that is in the triangle but different from i,
+
+94
+00:05:55,000 --> 00:05:59,000
+the gradient dot this should be equal to 1.
+
+95
+00:05:59,000 --> 00:06:00,000
+Okay?
+
+96
+00:06:00,000 --> 00:06:02,000
+So let me...
+
+97
+00:06:02,000 --> 00:06:06,000
+Now we have the three x's in the triangle.
+
+98
+00:06:06,000 --> 00:06:09,000
+There are two independent j's I can use.
+
+99
+00:06:11,000 --> 00:06:16,000
+So that allows me to form two linear equations whose right hand side are just 1 and 1.
+
+100
+00:06:16,000 --> 00:06:18,000
+The left hand side is...
+
+101
+00:06:18,000 --> 00:06:27,000
+The left hand side is a matrix that is formed by...
+
+102
+00:06:27,000 --> 00:06:30,000
+Let me see.
+
+103
+00:06:30,000 --> 00:06:32,000
+So x...
+
+104
+00:06:32,000 --> 00:06:36,000
+x1 minus x2.
+
+105
+00:06:36,000 --> 00:06:39,000
+So let's call it y1 minus y2.
+
+106
+00:06:39,000 --> 00:06:40,000
+x1 minus x3.
+
+107
+00:06:40,000 --> 00:06:42,000
+y1 minus y3.
+
+108
+00:06:42,000 --> 00:06:45,000
+So these are x and y coordinates.
+
+109
+00:06:45,000 --> 00:06:53,000
+Dot with the x-directional gradient of the first basis and y gradient of the first basis.
+
+110
+00:06:53,000 --> 00:06:55,000
+That should be equal to 1 and 1.
+
+111
+00:06:55,000 --> 00:06:59,000
+Right?
+
+112
+00:06:59,000 --> 00:07:08,000
+So this gives us linear equations to solve for the gradient as a vector.
+
+113
+00:07:08,000 --> 00:07:09,000
+So let's form the matrix.
+
+114
+00:07:09,000 --> 00:07:11,000
+And compute it.
+
+115
+00:07:11,000 --> 00:07:17,000
+So to form the matrix we just need v1 minus v2.
+
+116
+00:07:17,000 --> 00:07:20,000
+So that is our first row.
+
+117
+00:07:20,000 --> 00:07:24,000
+So we need to transpose it to get a row vector.
+
+118
+00:07:24,000 --> 00:07:31,000
+And v1 minus v3 transpose to get a row vector.
+
+119
+00:07:31,000 --> 00:07:37,000
+So this inverse times the right hand side, 1, 1.
+
+120
+00:07:37,000 --> 00:07:43,000
+This is going to be the gradient of the first basis.
+
+121
+00:07:43,000 --> 00:07:44,000
+Right?
+
+122
+00:07:44,000 --> 00:07:51,000
+And I can do these three times to get the gradients of the three basis functions associated with that triangle.
+
+123
+00:07:51,000 --> 00:07:56,000
+So g2 should be 2, 3.
+
+124
+00:07:56,000 --> 00:07:59,000
+This should be 3, 1.
+
+125
+00:07:59,000 --> 00:08:02,000
+This should be 2, 3.
+
+126
+00:08:02,000 --> 00:08:05,000
+This should be 1 and 2.
+
+127
+00:08:05,000 --> 00:08:15,000
+So each of the matrix is formed by the difference between one vector and the other two vectors on the triangle.
+
+128
+00:08:15,000 --> 00:08:21,000
+Okay, so now we get the three gradients.
+
+129
+00:08:21,000 --> 00:08:31,000
+So now we have all the formula we need to compute the value of the matrix.
+
+130
+00:08:31,000 --> 00:08:32,000
+Right?
+
+131
+00:08:32,000 --> 00:08:33,000
+But the matrix is a summation over all the values.
+
+132
+00:08:33,000 --> 00:08:34,000
+Right?
+
+133
+00:08:34,000 --> 00:08:37,000
+So we have the summation over all the elements.
+
+134
+00:08:37,000 --> 00:08:49,000
+Now instead of going through all the pairs of i and j and figure out all the elements that are shared by the basis function i and the basis function j.
+
+135
+00:08:49,000 --> 00:08:54,000
+We loop over the elements and accumulate these values of a and j.
+
+136
+00:08:54,000 --> 00:09:01,000
+So we loop over all the k's and look for whichever pairs of i and j this k contributes to.
+
+137
+00:09:01,000 --> 00:09:03,000
+We just add it on top of it.
+
+138
+00:09:04,000 --> 00:09:09,000
+So what I'm going to do is I'm going to make a matrix a is equal to 0.
+
+139
+00:09:09,000 --> 00:09:16,000
+What's the size of this matrix?
+
+140
+00:09:16,000 --> 00:09:17,000
+Should be the number of points.
+
+141
+00:09:17,000 --> 00:09:18,000
+Right?
+
+142
+00:09:18,000 --> 00:09:25,000
+So let's also make it mp is equal to size of p and 2.
+
+143
+00:09:25,000 --> 00:09:32,000
+So that's the size of the matrix mp by mp.
+
+144
+00:09:32,000 --> 00:09:41,000
+So this element has three basis functions that it can contribute to.
+
+145
+00:09:41,000 --> 00:09:53,000
+So what I have to have is let me call it i1, i2, and i3.
+
+146
+00:09:53,000 --> 00:10:00,000
+And these are just the i1.
+
+147
+00:10:00,000 --> 00:10:02,000
+Let's simplify it.
+
+148
+00:10:02,000 --> 00:10:05,000
+i2 and i3.
+
+149
+00:10:05,000 --> 00:10:06,000
+Right?
+
+150
+00:10:06,000 --> 00:10:10,000
+So these are computing the three vertex points.
+
+151
+00:10:10,000 --> 00:10:18,000
+And the same indices is going to, we're going to compute the contribution to.
+
+152
+00:10:18,000 --> 00:10:24,000
+So i1 and i1 is going to be, is going to be accumulated by something.
+
+153
+00:10:24,000 --> 00:10:26,000
+Right?
+
+154
+00:10:26,000 --> 00:10:29,000
+So and we also have, basically we have nine.
+
+155
+00:10:29,000 --> 00:10:33,000
+Values that we'll contribute to.
+
+156
+00:10:33,000 --> 00:10:37,000
+So we have i2, i2.
+
+157
+00:10:37,000 --> 00:10:40,000
+We have i3, i3.
+
+158
+00:10:40,000 --> 00:10:43,000
+We also have the cross terms.
+
+159
+00:10:43,000 --> 00:10:47,000
+For example, i1, i3.
+
+160
+00:10:47,000 --> 00:10:49,000
+i2, i1.
+
+161
+00:10:49,000 --> 00:10:52,000
+So let's start rigorously.
+
+162
+00:10:52,000 --> 00:10:54,000
+So i1, i2.
+
+163
+00:10:54,000 --> 00:10:56,000
+i1, i3.
+
+164
+00:10:56,000 --> 00:10:58,000
+i2, i3.
+
+165
+00:10:58,000 --> 00:10:59,000
+And.
+
+166
+00:10:59,000 --> 00:11:04,000
+Let's do this now.
+
+167
+00:11:04,000 --> 00:11:06,000
+And when we.
+
+168
+00:11:06,000 --> 00:11:10,000
+The other side should be exactly the same.
+
+169
+00:11:10,000 --> 00:11:14,000
+Because the matrix is symmetric.
+
+170
+00:11:14,000 --> 00:11:16,000
+Right?
+
+171
+00:11:16,000 --> 00:11:21,000
+So let's only construct one part of it.
+
+172
+00:11:21,000 --> 00:11:22,000
+For now.
+
+173
+00:11:22,000 --> 00:11:28,000
+So the formula, according to the formula, this is summed by a of i.
+
+174
+00:11:28,000 --> 00:11:30,000
+The area.
+
+175
+00:11:30,000 --> 00:11:31,000
+Times.
+
+176
+00:11:31,000 --> 00:11:33,000
+The gradient of phi i.
+
+177
+00:11:33,000 --> 00:11:34,000
+Times the gradient of phi j.
+
+178
+00:11:34,000 --> 00:11:37,000
+So dot of g1 and g1.
+
+179
+00:11:37,000 --> 00:11:38,000
+Right?
+
+180
+00:11:38,000 --> 00:11:41,000
+This is dot of.
+
+181
+00:11:41,000 --> 00:11:43,000
+g1.
+
+182
+00:11:43,000 --> 00:11:46,000
+g2 and g1.
+
+183
+00:11:46,000 --> 00:11:47,000
+g2 and g2.
+
+184
+00:11:47,000 --> 00:11:48,000
+Sorry.
+
+185
+00:11:48,000 --> 00:11:50,000
+So this is.
+
+186
+00:11:50,000 --> 00:11:52,000
+2 and 2.
+
+187
+00:11:52,000 --> 00:11:55,000
+This is 3 and 3.
+
+188
+00:11:55,000 --> 00:11:57,000
+3 and 3.
+
+189
+00:11:58,000 --> 00:12:01,000
+And this is 1 and 2.
+
+190
+00:12:01,000 --> 00:12:02,000
+This is 1 and 3.
+
+191
+00:12:02,000 --> 00:12:06,000
+2 and 3.
+
+192
+00:12:06,000 --> 00:12:08,000
+So here should be dot of g1 and g2.
+
+193
+00:12:08,000 --> 00:12:11,000
+Here should be dot of g1 and g3.
+
+194
+00:12:11,000 --> 00:12:14,000
+Here should be dot of g2 and g3.
+
+195
+00:12:14,000 --> 00:12:16,000
+And let's.
+
+196
+00:12:16,000 --> 00:12:20,000
+I mean, if we care about computational efficiency, you won't do this.
+
+197
+00:12:20,000 --> 00:12:24,000
+But let's do this just for the sake of clarity.
+
+198
+00:12:24,000 --> 00:12:27,000
+So I'm also going to be making.
+
+199
+00:12:27,000 --> 00:12:28,000
+The transpose of.
+
+200
+00:12:28,000 --> 00:12:31,000
+The transpose part of the matrix to be.
+
+201
+00:12:31,000 --> 00:12:37,000
+Adding up on the same value.
+
+202
+00:12:37,000 --> 00:12:39,000
+Okay.
+
+203
+00:12:39,000 --> 00:12:40,000
+Any.
+
+204
+00:12:40,000 --> 00:12:41,000
+Anything.
+
+205
+00:12:41,000 --> 00:12:43,000
+Any bug in this.
+
+206
+00:12:43,000 --> 00:12:45,000
+You can spot.
+
+207
+00:12:45,000 --> 00:12:47,000
+1, 2, 1, 2, 1, 3, 2, 3.
+
+208
+00:12:47,000 --> 00:12:48,000
+2, 1.
+
+209
+00:12:48,000 --> 00:12:50,000
+Okay.
+
+210
+00:12:50,000 --> 00:12:53,000
+Looks good to me.
+
+211
+00:12:53,000 --> 00:12:54,000
+All right.
+
+212
+00:12:54,000 --> 00:12:56,000
+Since we have constructed the matrix.
+
+213
+00:12:57,000 --> 00:13:01,000
+So let's run it.
+
+214
+00:13:01,000 --> 00:13:02,000
+Okay.
+
+215
+00:13:02,000 --> 00:13:04,000
+Looks like it ran.
+
+216
+00:13:04,000 --> 00:13:06,000
+And we have a matrix A.
+
+217
+00:13:06,000 --> 00:13:09,000
+So spy A should be.
+
+218
+00:13:09,000 --> 00:13:10,000
+Something.
+
+219
+00:13:10,000 --> 00:13:12,000
+Like that.
+
+220
+00:13:12,000 --> 00:13:14,000
+Most of the A is.
+
+221
+00:13:14,000 --> 00:13:16,000
+Empty, which means it's 0.
+
+222
+00:13:16,000 --> 00:13:19,000
+And so for what we see as blue dots.
+
+223
+00:13:19,000 --> 00:13:22,000
+These are the locations on the matrix that are non-zero.
+
+224
+00:13:22,000 --> 00:13:24,000
+These are the coupling terms.
+
+225
+00:13:24,000 --> 00:13:26,000
+These are the neighbors.
+
+226
+00:13:26,000 --> 00:13:27,000
+Of.
+
+227
+00:13:27,000 --> 00:13:28,000
+Basis functions.
+
+228
+00:13:28,000 --> 00:13:29,000
+So.
+
+229
+00:13:29,000 --> 00:13:30,000
+This.
+
+230
+00:13:30,000 --> 00:13:31,000
+Is.
+
+231
+00:13:31,000 --> 00:13:32,000
+All.
+
+232
+00:13:32,000 --> 00:13:33,000
+Of.
+
+233
+00:13:33,000 --> 00:13:34,000
+Bases.
+
+234
+00:13:34,000 --> 00:13:35,000
+Functions.
+
+235
+00:13:35,000 --> 00:13:36,000
+Right.
+
+236
+00:13:36,000 --> 00:13:37,000
+So for me.
+
+237
+00:13:37,000 --> 00:13:38,000
+What I want.
+
+238
+00:13:38,000 --> 00:13:39,000
+All.
+
+239
+00:13:39,000 --> 00:13:40,000
+Is.
+
+240
+00:13:40,000 --> 00:13:41,000
+To do.
+
+241
+00:13:41,000 --> 00:13:42,000
+Is.
+
+242
+00:13:42,000 --> 00:13:43,000
+Is.
+
+243
+00:13:43,000 --> 00:13:44,000
+Is.
+
+244
+00:13:44,000 --> 00:13:45,000
+To make this.
+
+245
+00:13:45,000 --> 00:13:46,000
+A.
+
+246
+00:13:46,000 --> 00:13:47,000
+A value.
+
+247
+00:13:47,000 --> 00:13:48,000
+So.
+
+248
+00:13:48,000 --> 00:13:50,000
+I'm going to call this.
+
+249
+00:13:50,000 --> 00:13:51,000
+tiene.
+
+250
+00:13:51,000 --> 00:13:52,000
+This.
+
+251
+00:13:52,000 --> 00:13:53,000
+Bases.
+
+252
+00:13:53,000 --> 00:13:54,000
+And.
+
+253
+00:13:54,000 --> 00:13:55,000
+This.
+

@@ -1,0 +1,5232 @@
+1
+00:00:00,000 --> 00:00:05,200
+The last part of this PDE class we talk about integral equation methods and we have a
+
+2
+00:00:05,200 --> 00:00:12,000
+just as an outline of what we'll do in this section. I'm going to talk a little bit as an overview today
+
+3
+00:00:12,000 --> 00:00:22,000
+and the ones that, how many of you are aero-astro? I should have asked the other way. How many are not aero-astro?
+
+4
+00:00:22,000 --> 00:00:27,000
+So because most of the students are aero-astro and the thing that they mostly use for
+
+5
+00:00:27,000 --> 00:00:35,000
+aerodynamics are what are called potential flow theory and there you're solving surface integral equations
+
+6
+00:00:35,000 --> 00:00:42,000
+that calculate drag on aircraft and because of that we talk mostly about surface integral equations
+
+7
+00:00:42,000 --> 00:00:48,000
+but I'll also say something about volume integral equations for non-uniform materials, but not as much.
+
+8
+00:00:48,000 --> 00:00:55,000
+So we'll talk a little bit about integral equation basics. I'm going to give you the 15 minute, well, hour and a half
+
+9
+00:00:55,000 --> 00:00:57,000
+version of integral equation basics.
+
+10
+00:00:57,000 --> 00:01:03,000
+So I'm going to talk about integral equations today, which means I'll say a lot of things somewhat vaguely,
+
+11
+00:01:03,000 --> 00:01:08,000
+not technically very formally, to give you kind of a framework of what the whole subject is about
+
+12
+00:01:08,000 --> 00:01:12,000
+so you can hang the details as we go through it.
+
+13
+00:01:12,000 --> 00:01:18,000
+We'll talk next time about quadrature and cubature, so I'll give you a little bit of the theory of quadrature.
+
+14
+00:01:18,000 --> 00:01:24,000
+Some of you have had an undergraduate numerical analysis class, may have seen some of these ideas before,
+
+15
+00:01:24,000 --> 00:01:27,000
+but I think you'll see them in this more linear algebra thing.
+
+16
+00:01:27,000 --> 00:01:32,000
+So algebraic context, you can more easily generalize them to newer methods.
+
+17
+00:01:32,000 --> 00:01:38,000
+Then we'll talk about first and second kind theory and probably the most important idea in this topic,
+
+18
+00:01:38,000 --> 00:01:40,000
+which is the Niestrom methods.
+
+19
+00:01:40,000 --> 00:01:44,000
+And these are the integral equation methods that pretty much everybody uses
+
+20
+00:01:44,000 --> 00:01:50,000
+and they turn out to be much easier to implement than other choices you might make by just sorting through the literature.
+
+21
+00:01:50,000 --> 00:01:55,000
+Then we'll talk, after that we'll have most of the material we need to do, most of the problems on the problem set.
+
+22
+00:01:55,000 --> 00:01:56,000
+I'll talk a little bit about the theory of quadrature.
+
+23
+00:01:57,000 --> 00:02:01,000
+We'll talk about the issues about formulating integral equations,
+
+24
+00:02:01,000 --> 00:02:06,000
+then the potential theory of principal values and something called the radiation condition.
+
+25
+00:02:06,000 --> 00:02:12,000
+And then we'll talk about some other issues about what are called first and second kind integral equations.
+
+26
+00:02:12,000 --> 00:02:16,000
+So when we mentioned in the early part of the course about second kind theory,
+
+27
+00:02:16,000 --> 00:02:21,000
+we're not very clear about, so if this is second kind, what's first kind and why is it harder?
+
+28
+00:02:21,000 --> 00:02:22,000
+And I'll say a little bit about that.
+
+29
+00:02:22,000 --> 00:02:26,000
+And in the last lecture, we'll talk about what are called fast solvers.
+
+30
+00:02:26,000 --> 00:02:31,000
+This is why everybody who's interested in integral equations is interested in integral equations.
+
+31
+00:02:31,000 --> 00:02:35,000
+When we're done with today, you're going to think, well, I have finite element methods,
+
+32
+00:02:35,000 --> 00:02:38,000
+I have finite volume methods, and they generate sparse matrices,
+
+33
+00:02:38,000 --> 00:02:42,000
+which I can solve either iteratively or directly with fast methods.
+
+34
+00:02:42,000 --> 00:02:45,000
+And I have these integral equation methods which generate dense matrices,
+
+35
+00:02:45,000 --> 00:02:47,000
+which are formally n cubed to solve.
+
+36
+00:02:47,000 --> 00:02:49,000
+Why would one ever do that?
+
+37
+00:02:49,000 --> 00:02:53,000
+And the reason is because in the last two or three decades,
+
+38
+00:02:53,000 --> 00:02:56,000
+fast solvers have turned those dense matrices into sparse ones.
+
+39
+00:02:56,000 --> 00:03:01,000
+And they've turned those sparse matrices and brought those methods into very common practical use.
+
+40
+00:03:01,000 --> 00:03:07,000
+So to try to give you all of that story in this one first class,
+
+41
+00:03:07,000 --> 00:03:10,000
+I'm not going to do a perfect job of that by far.
+
+42
+00:03:10,000 --> 00:03:13,000
+I'm just going to try to show you some of the main ideas
+
+43
+00:03:13,000 --> 00:03:16,000
+and some of the simple intuitions to keep in mind
+
+44
+00:03:16,000 --> 00:03:19,000
+as we talk about some of the more formal ideas.
+
+45
+00:03:19,000 --> 00:03:22,000
+I'll talk a little bit about exterior versus interior problems.
+
+46
+00:03:22,000 --> 00:03:24,000
+When you define elements or find out difference methods,
+
+47
+00:03:24,000 --> 00:03:26,000
+you're often talking about the interior problem.
+
+48
+00:03:26,000 --> 00:03:28,000
+You have a domain, you have a boundary,
+
+49
+00:03:28,000 --> 00:03:31,000
+you know what the values are on the boundary,
+
+50
+00:03:31,000 --> 00:03:34,000
+and you try to figure out what the fields are in the interior.
+
+51
+00:03:34,000 --> 00:03:38,000
+But there are lots of problems that are exterior problems.
+
+52
+00:03:38,000 --> 00:03:43,000
+So figuring out what the temperature is in your aquarium
+
+53
+00:03:43,000 --> 00:03:46,000
+based on the boundary conditions of what the heat flow is
+
+54
+00:03:46,000 --> 00:03:49,000
+and the temperature on the surface is an interior problem.
+
+55
+00:03:49,000 --> 00:03:52,000
+Throwing an ice cube in the ocean and trying to figure out how fast it melts,
+
+56
+00:03:52,000 --> 00:03:54,000
+that's an exterior problem because the ocean is deferential.
+
+57
+00:03:54,000 --> 00:03:58,000
+The ocean is, to first order, infinite.
+
+58
+00:03:58,000 --> 00:04:01,000
+And then we'll talk about test function selection at this time,
+
+59
+00:04:01,000 --> 00:04:04,000
+and I'll say a little bit about some issues in 3D.
+
+60
+00:04:04,000 --> 00:04:06,000
+But again, this is going to be fast.
+
+61
+00:04:06,000 --> 00:04:10,000
+It's going to be a little vague, well, a lot vague.
+
+62
+00:04:10,000 --> 00:04:13,000
+Don't try to get the precise details of everything.
+
+63
+00:04:13,000 --> 00:04:17,000
+Here in this first class, it's to try to give you the structure.
+
+64
+00:04:17,000 --> 00:04:19,000
+It's to try to give you what are the big ideas.
+
+65
+00:04:19,000 --> 00:04:21,000
+I'll try to underline those carefully,
+
+66
+00:04:21,000 --> 00:04:24,000
+but there'll be some things that look like important details,
+
+67
+00:04:24,000 --> 00:04:27,000
+and if they are, we'll come back to them later.
+
+68
+00:04:27,000 --> 00:04:30,000
+And if they're not, then don't worry that you didn't get them.
+
+69
+00:04:30,000 --> 00:04:33,000
+But it's really helpful to have,
+
+70
+00:04:33,000 --> 00:04:36,000
+for many of you who've probably never seen integral equations before,
+
+71
+00:04:36,000 --> 00:04:39,000
+certainly never seen numerical techniques for solving integral equations,
+
+72
+00:04:39,000 --> 00:04:43,000
+so you need maybe a little context for what kind of things you're doing.
+
+73
+00:04:43,000 --> 00:04:46,000
+So as I said before,
+
+74
+00:04:46,000 --> 00:04:49,000
+I don't have to put up with me pointing at the screen,
+
+75
+00:04:49,000 --> 00:04:53,000
+but they took away my green laser at the airport.
+
+76
+00:04:53,000 --> 00:04:54,000
+My green laser pointer.
+
+77
+00:04:54,000 --> 00:04:58,000
+And I said, see, it says it's dangerous.
+
+78
+00:04:58,000 --> 00:05:00,000
+Don't take your laser pointer to the airport.
+
+79
+00:05:00,000 --> 00:05:02,000
+It was a nice green one, too.
+
+80
+00:05:02,000 --> 00:05:04,000
+I don't have any more.
+
+81
+00:05:04,000 --> 00:05:06,000
+So you have the temperature in the tank.
+
+82
+00:05:06,000 --> 00:05:08,000
+You know the temperature on the surface of the tank,
+
+83
+00:05:08,000 --> 00:05:11,000
+or you know the heat coming into the tank,
+
+84
+00:05:11,000 --> 00:05:14,000
+or you throw an ice cube into a large bath.
+
+85
+00:05:14,000 --> 00:05:17,000
+And maybe what you want to know is what's the heat distribution.
+
+86
+00:05:17,000 --> 00:05:19,000
+So maybe you know the temperature on the tank,
+
+87
+00:05:19,000 --> 00:05:22,000
+and you want to know how fast heat's coming into the tank.
+
+88
+00:05:22,000 --> 00:05:25,000
+You can calculate the heat flow by getting,
+
+89
+00:05:25,000 --> 00:05:28,000
+if you knew the thermal conductivity near the surface
+
+90
+00:05:28,000 --> 00:05:31,000
+and the normal derivative of the temperature near the surface.
+
+91
+00:05:31,000 --> 00:05:34,000
+So if you're doing this with finite difference methods,
+
+92
+00:05:34,000 --> 00:05:42,000
+for a temperature in the tank,
+
+93
+00:05:42,000 --> 00:05:45,000
+so suppose I have heat flow.
+
+94
+00:05:45,000 --> 00:05:49,000
+I have a domain omega and a boundary gamma.
+
+95
+00:05:52,000 --> 00:05:57,000
+And suppose I know the temperature on gamma.
+
+96
+00:05:57,000 --> 00:06:00,000
+So what kind of boundary condition is this?
+
+97
+00:06:00,000 --> 00:06:03,000
+Dursley or Neumann?
+
+98
+00:06:03,000 --> 00:06:04,000
+Dursley.
+
+99
+00:06:04,000 --> 00:06:05,000
+Dursley.
+
+100
+00:06:05,000 --> 00:06:07,000
+And spell Dursley how?
+
+101
+00:06:07,000 --> 00:06:10,000
+That way.
+
+102
+00:06:10,000 --> 00:06:16,000
+I never remember whether it's an E or an L.
+
+103
+00:06:16,000 --> 00:06:18,000
+It's French.
+
+104
+00:06:18,000 --> 00:06:20,000
+So suppose we have this problem.
+
+105
+00:06:20,000 --> 00:06:22,000
+How do we figure out what the heat flow is?
+
+106
+00:06:22,000 --> 00:06:25,000
+Suppose I have in omega,
+
+107
+00:06:25,000 --> 00:06:29,000
+it satisfies the plus in of some potential,
+
+108
+00:06:29,000 --> 00:06:31,000
+is equal to zero,
+
+109
+00:06:31,000 --> 00:06:33,000
+and I have some thermal conductivity.
+
+110
+00:06:33,000 --> 00:06:36,000
+How do I figure out what the heat flow is into this tank
+
+111
+00:06:36,000 --> 00:06:39,000
+if I'm using finite difference methods?
+
+112
+00:06:39,000 --> 00:06:45,000
+Well, the first thing is you set up a grade
+
+113
+00:06:45,000 --> 00:06:48,000
+of using finite element methods.
+
+114
+00:06:48,000 --> 00:06:49,000
+Then what do you do?
+
+115
+00:06:49,000 --> 00:06:51,000
+How do you figure out what the heat flow is
+
+116
+00:06:51,000 --> 00:06:54,000
+once you've set that up?
+
+117
+00:06:54,000 --> 00:06:55,000
+You're going to need the normal derivative
+
+118
+00:06:55,000 --> 00:06:56,000
+of the temperature at the surface.
+
+119
+00:06:56,000 --> 00:06:59,000
+How will you get it?
+
+120
+00:06:59,000 --> 00:07:04,000
+So you know what the temperature is at these surface points.
+
+121
+00:07:04,000 --> 00:07:07,000
+That is given.
+
+122
+00:07:07,000 --> 00:07:10,000
+How will you find the normal derivative of the temperature?
+
+123
+00:07:10,000 --> 00:07:12,000
+Using the interior points.
+
+124
+00:07:12,000 --> 00:07:13,000
+Yeah, you use the interior points,
+
+125
+00:07:13,000 --> 00:07:15,000
+and you take differences.
+
+126
+00:07:15,000 --> 00:07:20,000
+You can get dt gamma dn
+
+127
+00:07:20,000 --> 00:07:26,000
+by using finite differences.
+
+128
+00:07:26,000 --> 00:07:28,000
+Or if you're doing finite element methods,
+
+129
+00:07:28,000 --> 00:07:30,000
+you can use the basis function
+
+130
+00:07:30,000 --> 00:07:32,000
+to un-differentiate those
+
+131
+00:07:32,000 --> 00:07:34,000
+and get the normal derivative.
+
+132
+00:07:34,000 --> 00:07:36,000
+But that's the way you think about solving
+
+133
+00:07:36,000 --> 00:07:40,000
+for this kind of thermal conductivity problem.
+
+134
+00:07:40,000 --> 00:07:41,000
+For integral equations,
+
+135
+00:07:41,000 --> 00:07:43,000
+we would do it a somewhat different way,
+
+136
+00:07:43,000 --> 00:07:45,000
+and I'm going to try to show you that in a moment.
+
+137
+00:07:45,000 --> 00:07:47,000
+So we do heat distribution in the tank.
+
+138
+00:07:47,000 --> 00:07:49,000
+We set up the finite difference grade.
+
+139
+00:07:49,000 --> 00:07:53,000
+We solve for the temperatures everywhere inside.
+
+140
+00:07:53,000 --> 00:07:57,000
+And if we only want the heat flowing to the tank,
+
+141
+00:07:57,000 --> 00:08:00,000
+how many of those temperatures do we actually need
+
+142
+00:08:00,000 --> 00:08:03,000
+when we do a finite difference method?
+
+143
+00:08:03,000 --> 00:08:05,000
+If we're interested in heat flow,
+
+144
+00:08:05,000 --> 00:08:07,000
+we only need the temperatures near the surface of the tank.
+
+145
+00:08:07,000 --> 00:08:11,000
+How many do we have to solve for?
+
+146
+00:08:11,000 --> 00:08:13,000
+Do we have any nice way of solving
+
+147
+00:08:13,000 --> 00:08:15,000
+for just the surface temperatures?
+
+148
+00:08:15,000 --> 00:08:17,000
+No, we've got to solve for them all.
+
+149
+00:08:17,000 --> 00:08:18,000
+All right.
+
+150
+00:08:18,000 --> 00:08:21,000
+So that's one of the things about volume methods,
+
+151
+00:08:21,000 --> 00:08:24,000
+like finite element methods or finite difference methods,
+
+152
+00:08:24,000 --> 00:08:27,000
+is they require that you discretize the entire volume.
+
+153
+00:08:27,000 --> 00:08:30,000
+That's one of the things we're going to be able to escape
+
+154
+00:08:30,000 --> 00:08:32,000
+using integral equation methods.
+
+155
+00:08:32,000 --> 00:08:35,000
+And the place where that becomes particularly annoying
+
+156
+00:08:35,000 --> 00:08:39,000
+is when the domain for which you're trying to get heat flow.
+
+157
+00:08:39,000 --> 00:08:42,000
+So you're trying to figure out how fast an ice cube melts.
+
+158
+00:08:42,000 --> 00:08:43,000
+It's a famous problem.
+
+159
+00:08:43,000 --> 00:08:46,000
+That's one of the things they used to give to MIT freshmen.
+
+160
+00:08:46,000 --> 00:08:47,000
+They would show up,
+
+161
+00:08:47,000 --> 00:08:49,000
+and the big question would be,
+
+162
+00:08:49,000 --> 00:08:52,000
+how fast does the ice cube melt?
+
+163
+00:08:52,000 --> 00:08:54,000
+And about 10% of the freshmen at MIT
+
+164
+00:08:54,000 --> 00:08:58,000
+would get it to within 10% of the time it took
+
+165
+00:08:58,000 --> 00:09:01,000
+and the rest would have no idea.
+
+166
+00:09:01,000 --> 00:09:06,000
+MIT gets an extraordinarily talented undergraduate pool.
+
+167
+00:09:06,000 --> 00:09:10,000
+We can do it by solving the exterior problem.
+
+168
+00:09:10,000 --> 00:09:14,000
+But the exterior problem is infinite in extent.
+
+169
+00:09:14,000 --> 00:09:17,000
+How do we stop the mesh?
+
+170
+00:09:17,000 --> 00:09:19,000
+At what point do we...
+
+171
+00:09:19,000 --> 00:09:21,000
+I mean, we obviously can't fill all of infinity
+
+172
+00:09:21,000 --> 00:09:23,000
+with a finite difference mesh.
+
+173
+00:09:23,000 --> 00:09:25,000
+What do we do instead?
+
+174
+00:09:27,000 --> 00:09:29,000
+So I have an ice cube.
+
+175
+00:09:29,000 --> 00:09:31,000
+I know what its temperature is.
+
+176
+00:09:31,000 --> 00:09:32,000
+It's sitting in the ocean,
+
+177
+00:09:32,000 --> 00:09:34,000
+which has a given thermal conductivity.
+
+178
+00:09:34,000 --> 00:09:36,000
+And I want to know how fast the heat's leaving the ice cube.
+
+179
+00:09:36,000 --> 00:09:39,000
+How do I answer that question with finite difference methods?
+
+180
+00:09:39,000 --> 00:09:40,000
+Yeah?
+
+181
+00:09:40,000 --> 00:09:42,000
+So, again, no flux.
+
+182
+00:09:42,000 --> 00:09:44,000
+Really far away, maybe.
+
+183
+00:09:44,000 --> 00:09:45,000
+Yeah, so no flux.
+
+184
+00:09:45,000 --> 00:09:46,000
+So we're going to come back to...
+
+185
+00:09:46,000 --> 00:09:49,000
+This is one of the subtlest things I can honestly come back to.
+
+186
+00:09:49,000 --> 00:09:52,000
+If there's no flux, there's no heat leaving the domain.
+
+187
+00:09:52,000 --> 00:09:54,000
+So how does heat leave the ice cube?
+
+188
+00:09:54,000 --> 00:09:56,000
+Where does it go?
+
+189
+00:09:56,000 --> 00:10:00,000
+So your suggestion's a great one.
+
+190
+00:10:00,000 --> 00:10:03,000
+Somewhere you have to truncate the mesh.
+
+191
+00:10:03,000 --> 00:10:06,000
+You just had two choices as to how to truncate the mesh.
+
+192
+00:10:06,000 --> 00:10:07,000
+You picked one, no flux.
+
+193
+00:10:07,000 --> 00:10:09,000
+What was the other one you could have picked?
+
+194
+00:10:09,000 --> 00:10:10,000
+Zero.
+
+195
+00:10:10,000 --> 00:10:12,000
+Yeah, you could have made the temperature zero.
+
+196
+00:10:12,000 --> 00:10:13,000
+It's far enough away.
+
+197
+00:10:13,000 --> 00:10:15,000
+The ocean is like an isotherm.
+
+198
+00:10:15,000 --> 00:10:18,000
+Eventually far enough away from the ice cube.
+
+199
+00:10:18,000 --> 00:10:24,000
+You swim a mile away from the ice cube, the ocean's still had whatever it is, 37 degrees,
+
+200
+00:10:24,000 --> 00:10:25,000
+whatever it's sitting at.
+
+201
+00:10:25,000 --> 00:10:27,000
+It's not going to be affected by the ice cube.
+
+202
+00:10:27,000 --> 00:10:30,000
+It's probably good enough to put a fixed temperature.
+
+203
+00:10:30,000 --> 00:10:35,000
+But if you pick no flux, and I promise we'll come back to that, then you have this problem.
+
+204
+00:10:35,000 --> 00:10:36,000
+And we'll talk about that later.
+
+205
+00:10:36,000 --> 00:10:41,000
+But for the moment, let's think about, okay, so we have to do this exterior problem.
+
+206
+00:10:41,000 --> 00:10:44,000
+We have to put all this exterior mesh, all these unknowns.
+
+207
+00:10:44,000 --> 00:10:50,000
+So we get far enough away where we can say the temperature is a fixed constant.
+
+208
+00:10:50,000 --> 00:10:54,000
+When all we care about are the values near the surface of the ice cube.
+
+209
+00:10:54,000 --> 00:10:56,000
+It's like a lot of work.
+
+210
+00:10:56,000 --> 00:10:58,000
+Well, there are lots of problems like that.
+
+211
+00:10:58,000 --> 00:11:10,000
+Problems where what you're interested in is the surface quantities, and you end up having to calculate quantities in a body, either in the interior or in the exterior.
+
+212
+00:11:10,000 --> 00:11:13,000
+For those of you who are at Rathstrom, which one do you always care about?
+
+213
+00:11:13,000 --> 00:11:19,000
+Which surface quantity are you most interested?
+
+214
+00:11:19,000 --> 00:11:21,000
+Well, two, actually.
+
+215
+00:11:21,000 --> 00:11:23,000
+What's one of them?
+
+216
+00:11:23,000 --> 00:11:24,000
+Drag.
+
+217
+00:11:24,000 --> 00:11:25,000
+Say again?
+
+218
+00:11:25,000 --> 00:11:26,000
+Drag.
+
+219
+00:11:26,000 --> 00:11:27,000
+Drag.
+
+220
+00:11:27,000 --> 00:11:28,000
+So one of them is drag.
+
+221
+00:11:28,000 --> 00:11:30,000
+So the air is flying through the, the plane is flying through the air, and you want to reduce the drag.
+
+222
+00:11:30,000 --> 00:11:32,000
+What's the other one you care about?
+
+223
+00:11:32,000 --> 00:11:33,000
+Lift.
+
+224
+00:11:33,000 --> 00:11:34,000
+Lift, all right.
+
+225
+00:11:34,000 --> 00:11:35,000
+So you can't do lift with a potential flux.
+
+226
+00:11:35,000 --> 00:11:37,000
+But you need to drag.
+
+227
+00:11:37,000 --> 00:11:38,000
+Okay.
+
+228
+00:11:38,000 --> 00:11:41,000
+So, but there are lots of problems like that.
+
+229
+00:11:41,000 --> 00:11:42,000
+And I have a few.
+
+230
+00:11:42,000 --> 00:11:43,000
+Okay.
+
+231
+00:11:43,000 --> 00:11:47,000
+So, capacitance calculation.
+
+232
+00:11:47,000 --> 00:11:48,000
+You have plates.
+
+233
+00:11:48,000 --> 00:11:50,000
+You put a voltage across the parallel plates.
+
+234
+00:11:50,000 --> 00:11:52,000
+And you want to know what's the capacitance.
+
+235
+00:11:52,000 --> 00:11:55,000
+All you have to do is figure out the surface charge.
+
+236
+00:11:55,000 --> 00:12:00,000
+Well, maybe, you know, those of you who like, you know, I'm an electrical engineer, so this is the first thing I think about.
+
+237
+00:12:00,000 --> 00:12:04,000
+Capacitance is, here is one of these little airbag accelerometers.
+
+238
+00:12:04,000 --> 00:12:06,000
+It's actually one of the early versions of the ones.
+
+239
+00:12:06,000 --> 00:12:07,000
+That's the one.
+
+240
+00:12:07,000 --> 00:12:09,000
+The one you're looking at is one of the early versions.
+
+241
+00:12:09,000 --> 00:12:10,000
+It's now.
+
+242
+00:12:10,000 --> 00:12:12,000
+So if you ever, no, no, no, no.
+
+243
+00:12:12,000 --> 00:12:14,000
+If you're graduate students, you can't afford a car.
+
+244
+00:12:14,000 --> 00:12:15,000
+So you don't know what it's like to drive.
+
+245
+00:12:15,000 --> 00:12:18,000
+But if you did, you'd have an airbag in your car.
+
+246
+00:12:18,000 --> 00:12:20,000
+And it would have an accelerometer in it.
+
+247
+00:12:20,000 --> 00:12:22,000
+It's one of these little things.
+
+248
+00:12:22,000 --> 00:12:24,000
+And they, it's really important to know what the drag forces are.
+
+249
+00:12:24,000 --> 00:12:26,000
+And you can compute these things.
+
+250
+00:12:26,000 --> 00:12:28,000
+But again, it's a complicated surface.
+
+251
+00:12:28,000 --> 00:12:31,000
+And you, all you care about are the drag forces on it.
+
+252
+00:12:31,000 --> 00:12:33,000
+Well, that may not be all you care about.
+
+253
+00:12:33,000 --> 00:12:37,000
+But when you're trying to figure out how quickly it will move.
+
+254
+00:12:37,000 --> 00:12:41,000
+The one you're all very familiar with, although hopefully won't see much of it.
+
+255
+00:12:41,000 --> 00:12:45,000
+We won't see more of those in the very near future.
+
+256
+00:12:45,000 --> 00:12:48,000
+And this is the surface of an integrated circuit.
+
+257
+00:12:48,000 --> 00:12:53,000
+So people who do capacitance calculations to figure out how fast a microprocessor is going to be.
+
+258
+00:12:53,000 --> 00:12:54,000
+They extract capacitance.
+
+259
+00:12:54,000 --> 00:12:56,000
+These very complicated geometries.
+
+260
+00:12:56,000 --> 00:13:00,000
+It's hard to see here, but there are about 10,000 of those green wires.
+
+261
+00:13:00,000 --> 00:13:01,000
+They're all part of one interconnect.
+
+262
+00:13:01,000 --> 00:13:04,000
+It's a signal being sent out in a microprocessor.
+
+263
+00:13:04,000 --> 00:13:09,000
+And they use what are called fast methods to do these kinds of calculations.
+
+264
+00:13:09,000 --> 00:13:11,000
+All of them are exterior problems.
+
+265
+00:13:11,000 --> 00:13:13,000
+They all share this property.
+
+266
+00:13:13,000 --> 00:13:15,000
+The MEMS, the aircraft design, the signal line.
+
+267
+00:13:15,000 --> 00:13:17,000
+These are all exterior field problems.
+
+268
+00:13:17,000 --> 00:13:24,000
+You care about the fields outside the conductor, outside the aircraft, outside the MEMS device.
+
+269
+00:13:24,000 --> 00:13:27,000
+The quantities you're interested in are on the surface of the device.
+
+270
+00:13:27,000 --> 00:13:35,000
+So on the MEMS device, when an aircraft is dragged, if a signal line hits the surface charge, you can calculate the capacitances.
+
+271
+00:13:35,000 --> 00:13:41,000
+And one more thing we need for these integral equation methods is the exterior domain has got to be linear.
+
+272
+00:13:41,000 --> 00:13:43,000
+It's linear in space invariant.
+
+273
+00:13:43,000 --> 00:13:50,000
+So we're not talking about problems where the outside domain is a gradually stiffening molasses.
+
+274
+00:13:50,000 --> 00:13:57,000
+So it's like water near you and it gets like molasses further away and it gradually varies.
+
+275
+00:13:57,000 --> 00:13:59,000
+We're not talking about problems like that.
+
+276
+00:13:59,000 --> 00:14:02,000
+We're talking about ones where the exterior problem is uniform.
+
+277
+00:14:02,000 --> 00:14:05,000
+So these come up a lot too, but not as much as you would think.
+
+278
+00:14:05,000 --> 00:14:10,000
+And there are some new methods in this area for dealing with problems with spatially inhomogeneous problems.
+
+279
+00:14:10,000 --> 00:14:14,000
+So spatially inhomogeneous material, but we're not going to talk so much about those.
+
+280
+00:14:14,000 --> 00:14:20,000
+We only have about six lectures left and I can choose the topics.
+
+281
+00:14:20,000 --> 00:14:21,000
+All right.
+
+282
+00:14:21,000 --> 00:14:26,000
+So you have the tools you need to solve these problems.
+
+283
+00:14:26,000 --> 00:14:31,000
+The problem is if you have an exterior problem, we're interested in the quantity on the surface.
+
+284
+00:14:31,000 --> 00:14:37,000
+You have to fill the entire exterior domain with a mesh so that you can calculate these surface quantities.
+
+285
+00:14:37,000 --> 00:14:40,000
+And it would be nice if you didn't have to do that.
+
+286
+00:14:40,000 --> 00:14:50,000
+If you could somehow figure out the surface quantities by not filling the entire exterior domain with mesh.
+
+287
+00:14:50,000 --> 00:14:55,000
+So I'm going to give you an example of one, a relatively simple one.
+
+288
+00:14:55,000 --> 00:15:08,000
+.
+
+289
+00:15:08,000 --> 00:15:10,000
+So suppose I have a circle.
+
+290
+00:15:10,000 --> 00:15:15,000
+My domain omega is a circle.
+
+291
+00:15:15,000 --> 00:15:18,000
+And it may not look like a circle, but it has a meaning.
+
+292
+00:15:18,000 --> 00:15:33,000
+And I know that the value on the surface, the potential on the surface, everywhere in gamma is equal to one.
+
+293
+00:15:33,000 --> 00:15:36,000
+What's the field everywhere outside?
+
+294
+00:15:38,000 --> 00:15:46,000
+.
+
+295
+00:15:46,000 --> 00:15:51,000
+Can you tell me what it is?
+
+296
+00:15:51,000 --> 00:15:52,000
+All right.
+
+297
+00:15:52,000 --> 00:15:55,000
+So you're thinking, all right, so now I've got to integrate over a circle.
+
+298
+00:15:55,000 --> 00:15:59,000
+And you're thinking about some, I remember, integration formulas.
+
+299
+00:15:59,000 --> 00:16:03,000
+No.
+
+300
+00:16:03,000 --> 00:16:07,000
+If we know outside that the plastic unit size equals to zero,
+
+301
+00:16:07,000 --> 00:16:13,000
+I can generate a solution, a potential that satisfies this.
+
+302
+00:16:13,000 --> 00:16:17,000
+This is the differential of the PDE.
+
+303
+00:16:17,000 --> 00:16:24,000
+And I can generate that solution by putting a point charge in the center.
+
+304
+00:16:24,000 --> 00:16:32,000
+And if this were, instead of a circle, were, I'm actually going to think of it as a sphere.
+
+305
+00:16:32,000 --> 00:16:33,000
+.
+
+306
+00:16:33,000 --> 00:16:39,000
+And I want to think about the three-dimensional problem, because you're more familiar with that.
+
+307
+00:16:39,000 --> 00:16:50,000
+If this were a sphere and I had a single charge in the center, what's the potential due to that single charge?
+
+308
+00:16:50,000 --> 00:16:52,000
+I have a charge at a point.
+
+309
+00:16:52,000 --> 00:16:57,000
+Let's call this position x equals zero.
+
+310
+00:16:57,000 --> 00:17:01,000
+What's the potential due to that charge?
+
+311
+00:17:01,000 --> 00:17:03,000
+Because it's one over the distance away from the charge.
+
+312
+00:17:03,000 --> 00:17:10,000
+Yeah, so if I have a position x prime, and this is at x equals zero,
+
+313
+00:17:10,000 --> 00:17:14,000
+then this potential is q over what?
+
+314
+00:17:14,000 --> 00:17:17,000
+4 pi over .
+
+315
+00:17:17,000 --> 00:17:21,000
+All right, so now you're, so now there's a difference between, so I'm more of a mathematician.
+
+316
+00:17:21,000 --> 00:17:22,000
+So you can imagine, yeah.
+
+317
+00:17:22,000 --> 00:17:30,000
+Yeah, so my, the 4 pi, I'm picking my units so that that disappears.
+
+318
+00:17:30,000 --> 00:17:33,000
+We're, at some point, we'll have to worry about the 2 pi's and 4 pi's,
+
+319
+00:17:33,000 --> 00:17:35,000
+but not at the moment.
+
+320
+00:17:35,000 --> 00:17:39,000
+So in some units, this is the potential.
+
+321
+00:17:39,000 --> 00:17:42,000
+Is this correct everywhere outside?
+
+322
+00:17:42,000 --> 00:17:47,000
+Does this satisfy the PBE everywhere?
+
+323
+00:17:47,000 --> 00:17:50,000
+Well, so before we head on, let's look at a few slides ahead,
+
+324
+00:17:50,000 --> 00:17:53,000
+because we'll have some of the details on the slides.
+
+325
+00:17:53,000 --> 00:17:54,000
+So we have this point charge.
+
+326
+00:17:54,000 --> 00:18:00,000
+If this were 2D, the distance would be just the log,
+
+327
+00:18:00,000 --> 00:18:02,000
+there would be a log function instead of just this thing.
+
+328
+00:18:03,000 --> 00:18:09,000
+So in 2D, this 1 over r that you think of, point charge, a position outside,
+
+329
+00:18:09,000 --> 00:18:12,000
+in 3D, it's 1 over distance.
+
+330
+00:18:12,000 --> 00:18:18,000
+In 2D, it's this log of distance, which has a lot of counterintuitive properties to it.
+
+331
+00:18:18,000 --> 00:18:21,000
+So I don't usually use that in terms of examples,
+
+332
+00:18:21,000 --> 00:18:25,000
+but you should have in mind that the potential due to a point charge in 2D
+
+333
+00:18:25,000 --> 00:18:30,000
+is the log of the distance between the point charge and the place you're measuring it.
+
+334
+00:18:30,000 --> 00:18:33,000
+And the way you can see this,
+
+335
+00:18:33,000 --> 00:18:38,000
+the way that this potential satisfies either in 2D or 3D,
+
+336
+00:18:38,000 --> 00:18:42,000
+these potentials satisfy the Laplace's equation.
+
+337
+00:18:42,000 --> 00:18:45,000
+How do you know?
+
+338
+00:18:45,000 --> 00:18:50,000
+How do you know this satisfies the Laplace's equation?
+
+339
+00:18:50,000 --> 00:18:57,000
+What formal theory do you appeal to to know this satisfies the Laplace's equation?
+
+340
+00:18:57,000 --> 00:19:01,000
+At any point except where the point charge is?
+
+341
+00:19:01,000 --> 00:19:03,000
+What would you do?
+
+342
+00:19:03,000 --> 00:19:05,000
+You could plug it into the PD.
+
+343
+00:19:05,000 --> 00:19:06,000
+You could plug it into the PD, right?
+
+344
+00:19:06,000 --> 00:19:10,000
+You could just differentiate it and see, does it actually equal 0?
+
+345
+00:19:10,000 --> 00:19:13,000
+And if you do that, if you go ahead and calculate the derivatives,
+
+346
+00:19:13,000 --> 00:19:18,000
+if you add them up in 3D for the Laplace's equation or 2D for the Laplace's equation,
+
+347
+00:19:18,000 --> 00:19:21,000
+you'll see if you laboriously differentiate it,
+
+348
+00:19:21,000 --> 00:19:28,000
+and this is something that you should do sometime eventually
+
+349
+00:19:28,000 --> 00:19:30,000
+to convince yourself that it really does work out,
+
+350
+00:19:30,000 --> 00:19:33,000
+because at some point, you know, the fact of the matter is that it just works.
+
+351
+00:19:33,000 --> 00:19:36,000
+So, you know, the distance turned out to satisfy the Laplace's equation.
+
+352
+00:19:36,000 --> 00:19:40,000
+You wonder, so how did they come up with the Laplace's equation in the first place?
+
+353
+00:19:40,000 --> 00:19:42,000
+And did they think of the Laplace's equation,
+
+354
+00:19:42,000 --> 00:19:46,000
+and then discover the point charges produced solutions to the Laplace's equation?
+
+355
+00:19:46,000 --> 00:19:50,000
+Or did they think about point charges and then come up with the Laplace's equation?
+
+356
+00:19:50,000 --> 00:19:53,000
+Well, that's Laplace.
+
+357
+00:19:53,000 --> 00:20:00,000
+But given that, that's not exactly the solution to this problem.
+
+358
+00:20:00,000 --> 00:20:02,000
+What have we left out?
+
+359
+00:20:02,000 --> 00:20:07,000
+So we now have, by the potential to this point charge,
+
+360
+00:20:07,000 --> 00:20:15,000
+Q over X prime gives me the potential everywhere outside that sphere.
+
+361
+00:20:15,000 --> 00:20:18,000
+What's its value exactly on the sphere?
+
+362
+00:20:18,000 --> 00:20:25,000
+Does it match my Dirichlet boundary condition?
+
+363
+00:20:25,000 --> 00:20:31,000
+Well, what things do you need to know to figure that out?
+
+364
+00:20:32,000 --> 00:20:35,000
+I said Q equal to one.
+
+365
+00:20:35,000 --> 00:20:42,000
+Does that mean it matches potential at the surface of the sphere?
+
+366
+00:20:42,000 --> 00:20:45,000
+What are the points on the surface of the sphere?
+
+367
+00:20:45,000 --> 00:20:51,000
+What values of magnitude of X prime do they have?
+
+368
+00:20:51,000 --> 00:20:53,000
+Is it a big sphere?
+
+369
+00:20:53,000 --> 00:20:55,000
+Is it a little sphere?
+
+370
+00:20:55,000 --> 00:21:00,000
+What number do we use to characterize whether it's big or little?
+
+371
+00:21:00,000 --> 00:21:01,000
+Radius.
+
+372
+00:21:01,000 --> 00:21:02,000
+Radius.
+
+373
+00:21:02,000 --> 00:21:06,000
+So if we knew the radius of the sphere, can we figure this out?
+
+374
+00:21:06,000 --> 00:21:10,000
+If we knew the radius of the sphere in R is equal to 10,
+
+375
+00:21:10,000 --> 00:21:15,000
+can you tell me what Q is so that you get a potential that satisfies the boundary conditions
+
+376
+00:21:15,000 --> 00:21:22,000
+and the PD by picking a certain Q?
+
+377
+00:21:22,000 --> 00:21:24,000
+And what value of Q should that be?
+
+378
+00:21:24,000 --> 00:21:25,000
+10.
+
+379
+00:21:25,000 --> 00:21:29,000
+So that says that psi at Q over 10 should be equal to?
+
+380
+00:21:29,000 --> 00:21:30,000
+One.
+
+381
+00:21:30,000 --> 00:21:31,000
+One.
+
+382
+00:21:31,000 --> 00:21:34,000
+So that is, which means Q is?
+
+383
+00:21:34,000 --> 00:21:35,000
+10.
+
+384
+00:21:35,000 --> 00:21:36,000
+10.
+
+385
+00:21:36,000 --> 00:21:47,000
+And that satisfies the boundary conditions.
+
+386
+00:21:47,000 --> 00:21:53,000
+So if we have a solution that satisfies the PDE everywhere, outside the sphere,
+
+387
+00:21:53,000 --> 00:21:58,000
+and matches the boundary conditions, are we done?
+
+388
+00:21:58,000 --> 00:22:00,000
+Do we have the solution to the condition?
+
+389
+00:22:01,000 --> 00:22:06,000
+Could there be another one?
+
+390
+00:22:06,000 --> 00:22:15,540
+Well, for the moment, if we assume something about what happens at infinity, and this is
+
+391
+00:22:15,540 --> 00:22:19,180
+one of these subtle things that you happen to trip over in answering the question the
+
+392
+00:22:19,180 --> 00:22:22,760
+first time that I'm not going to answer yet, but we will come back to.
+
+393
+00:22:22,760 --> 00:22:26,500
+But for the moment, we can think as long as the potential goes down to zero at infinity,
+
+394
+00:22:26,500 --> 00:22:27,500
+then we have a solution, right?
+
+395
+00:22:27,500 --> 00:22:30,280
+This potential goes down to zero at infinity.
+
+396
+00:22:30,280 --> 00:22:34,300
+It satisfies the boundary conditions.
+
+397
+00:22:34,300 --> 00:22:40,700
+So you give me any exterior domain.
+
+398
+00:22:40,700 --> 00:22:41,700
+It has a surface.
+
+399
+00:22:41,700 --> 00:22:46,000
+I put a point charge in the middle of that domain.
+
+400
+00:22:46,000 --> 00:22:50,700
+It produces a solution that satisfies Laplace's equation everywhere in three space.
+
+401
+00:22:50,700 --> 00:22:55,700
+And I just set its value so it matches the boundary condition.
+
+402
+00:22:55,700 --> 00:22:57,940
+It couldn't work.
+
+403
+00:22:57,940 --> 00:22:58,940
+You have one example.
+
+404
+00:22:58,940 --> 00:22:59,940
+It worked really well in the sphere.
+
+405
+00:22:59,940 --> 00:23:00,260
+It worked really well in the sphere.
+
+406
+00:23:00,280 --> 00:23:01,280
+What if this weren't a sphere?
+
+407
+00:23:01,280 --> 00:23:02,280
+What if it were an egg shape?
+
+408
+00:23:02,280 --> 00:23:03,280
+Did that still work?
+
+409
+00:23:03,280 --> 00:23:13,560
+What would go wrong if instead of a sphere I had an egg shape, and I said, the surface
+
+410
+00:23:13,560 --> 00:23:22,100
+on my egg, and ellipsoid, the surface on my egg is unit potential, and I want to use this
+
+411
+00:23:22,100 --> 00:23:23,100
+formula.
+
+412
+00:23:23,100 --> 00:23:26,800
+Will I get exactly the same potential from this formula?
+
+413
+00:23:26,800 --> 00:23:27,800
+Will it work for an egg?
+
+414
+00:23:27,800 --> 00:23:29,940
+If it works for a sphere, but it won't work for an egg.
+
+415
+00:23:29,940 --> 00:23:36,940
+We'll work for surface and bottle, surface and airplane.
+
+416
+00:23:36,940 --> 00:23:40,940
+Well, so we have this idea, right?
+
+417
+00:23:40,940 --> 00:23:47,940
+We put a point source in the interior, which is outside the domain of our interest.
+
+418
+00:23:47,940 --> 00:23:50,940
+Our interest is the outside problem, the exterior domain.
+
+419
+00:23:50,940 --> 00:23:58,940
+We put a point charge in the interior, and we can generate a solution that satisfies the Laplace's equation.
+
+420
+00:23:58,940 --> 00:24:05,940
+And that's great, except for this problem of the boundary conditions.
+
+421
+00:24:05,940 --> 00:24:12,940
+So it works really well if we put the point charge in the center of the sphere, and our domain is described by the surface of the sphere.
+
+422
+00:24:12,940 --> 00:24:14,940
+We're publishing them after, and all that will be sufficient.
+
+423
+00:24:14,940 --> 00:24:20,940
+But we are not. We are engineers, and we actually have to solve real problems, which are not, unfortunately, spheres.
+
+424
+00:24:20,940 --> 00:24:27,940
+Very few, for example, spheres will fly, unless they're filled with hydrogen or helium.
+
+425
+00:24:27,940 --> 00:24:28,940
+Thank you.
+
+426
+00:24:28,940 --> 00:24:32,940
+What do we do now?
+
+427
+00:24:32,940 --> 00:24:34,940
+So we have a square set.
+
+428
+00:24:34,940 --> 00:24:41,940
+Could we transform our problem so that it puts into a sphere, so it looks like you can just transfer?
+
+429
+00:24:41,940 --> 00:24:42,940
+So that's a great idea.
+
+430
+00:24:42,940 --> 00:24:49,940
+And there are all these techniques based on doing variable transformations to try to turn it into a sphere.
+
+431
+00:24:49,940 --> 00:24:54,940
+It's really hard to come up with a transformation that takes an F14 into a sphere.
+
+432
+00:24:54,940 --> 00:24:57,940
+It's a hard problem to do that transformation.
+
+433
+00:24:57,940 --> 00:25:02,940
+It doesn't mean there aren't lots of techniques for problems like this where you use that.
+
+434
+00:25:02,940 --> 00:25:03,940
+There are problems that...
+
+435
+00:25:03,940 --> 00:25:05,940
+So it's a very good technique.
+
+436
+00:25:05,940 --> 00:25:09,940
+Trying to come up with those transformations, particularly in 3D, is hard.
+
+437
+00:25:09,940 --> 00:25:11,940
+But that doesn't mean it's not a good idea.
+
+438
+00:25:11,940 --> 00:25:16,940
+But we're going to need something that maybe isn't so sophisticated.
+
+439
+00:25:16,940 --> 00:25:18,940
+So what else...
+
+440
+00:25:18,940 --> 00:25:21,940
+What if we put a second point charge in there?
+
+441
+00:25:21,940 --> 00:25:24,940
+Is the potential due to two point charges?
+
+442
+00:25:24,940 --> 00:25:26,940
+Does that also satisfy Laplace's equation?
+
+443
+00:25:27,940 --> 00:25:32,940
+If Laplace's equation has what property that means if I have one solution to Laplace's equation
+
+444
+00:25:32,940 --> 00:25:35,940
+and another solution to Laplace's equation,
+
+445
+00:25:35,940 --> 00:25:39,940
+their weighted combination is also a solution to Laplace's equation because Laplace's equation is?
+
+446
+00:25:39,940 --> 00:25:40,940
+Linear.
+
+447
+00:25:40,940 --> 00:25:41,940
+Linear.
+
+448
+00:25:41,940 --> 00:25:42,940
+Alright.
+
+449
+00:25:42,940 --> 00:25:43,940
+So...
+
+450
+00:25:43,940 --> 00:25:45,940
+But if we have two...
+
+451
+00:25:45,940 --> 00:25:48,940
+So we know how to do a sphere with one charge.
+
+452
+00:25:48,940 --> 00:25:52,940
+Now, if we were doing really a 2D problem and had the logarithmic green sub-tune,
+
+453
+00:25:52,940 --> 00:25:53,940
+we could do the same thing.
+
+454
+00:25:53,940 --> 00:25:57,940
+We could figure out what the magnitude of the point charge is,
+
+455
+00:25:57,940 --> 00:26:04,940
+just by making sure we matched the one boundary condition we have at this radius r.
+
+456
+00:26:04,940 --> 00:26:05,940
+So, provided...
+
+457
+00:26:05,940 --> 00:26:07,940
+Oh, we didn't just have to have a surface of the sphere.
+
+458
+00:26:07,940 --> 00:26:11,940
+We also had the surface of the sphere where the potential is uniform on the surface.
+
+459
+00:26:11,940 --> 00:26:14,940
+So that's really a very tightly concerned problem.
+
+460
+00:26:14,940 --> 00:26:19,940
+But if we have an arbitrary surface with an arbitrary set of points...
+
+461
+00:26:19,940 --> 00:26:22,940
+And now I'm going to start writing these things down in 2D.
+
+462
+00:26:22,940 --> 00:26:26,940
+And in fact, some of the problems are done in 2D because it's just a lot easier to visualize.
+
+463
+00:26:26,940 --> 00:26:29,940
+But I warn you, these logarithmic greens functions,
+
+464
+00:26:29,940 --> 00:26:31,940
+they're really hard to get your head around.
+
+465
+00:26:31,940 --> 00:26:34,940
+Because it means you're talking about problems that are infinitely long.
+
+466
+00:26:34,940 --> 00:26:39,940
+And when it comes to electromagnetics, that makes some degree of sense.
+
+467
+00:26:39,940 --> 00:26:41,940
+If you're talking about a flying aircraft,
+
+468
+00:26:41,940 --> 00:26:44,940
+I don't even know how you think about an infinitely long flying aircraft.
+
+469
+00:26:44,940 --> 00:26:47,940
+I don't know what these 2D things mean.
+
+470
+00:26:47,940 --> 00:26:50,940
+So, it's hard to develop intuition in 3-space,
+
+471
+00:26:50,940 --> 00:26:53,940
+but it's much easier to write the equation down.
+
+472
+00:26:53,940 --> 00:26:55,940
+So, I'm going to start with the first one.
+
+473
+00:26:55,940 --> 00:26:57,940
+It's much easier to write the equations down.
+
+474
+00:26:57,940 --> 00:27:00,940
+So, we're going to look at things like that,
+
+475
+00:27:00,940 --> 00:27:05,940
+but if you're trying to sort of intuit them by thinking of flow problems,
+
+476
+00:27:05,940 --> 00:27:07,940
+thermal flow works okay.
+
+477
+00:27:07,940 --> 00:27:10,940
+But I always find it a difficulty,
+
+478
+00:27:10,940 --> 00:27:15,940
+even though it's much easier to write down problems and do examples in 2D.
+
+479
+00:27:15,940 --> 00:27:20,940
+So, suppose we now have the potential as a weighting combination
+
+480
+00:27:20,940 --> 00:27:22,940
+of these potentials to the point charges.
+
+481
+00:27:22,940 --> 00:27:25,940
+So, we have each point charge is at some different point.
+
+482
+00:27:25,940 --> 00:27:27,940
+So, we have a different location in the interior.
+
+483
+00:27:27,940 --> 00:27:31,940
+We're going to sum over all those potentials due to all those point charges
+
+484
+00:27:31,940 --> 00:27:34,940
+and a log in front of it with a weighting coefficient.
+
+485
+00:27:34,940 --> 00:27:36,940
+We're going to sum those all up and they're all going to be,
+
+486
+00:27:36,940 --> 00:27:40,940
+we're going to start referring to that logarithmic function in 2D
+
+487
+00:27:40,940 --> 00:27:44,940
+or one of our in 3D as the Green's function for Laplace's equation.
+
+488
+00:27:44,940 --> 00:27:49,940
+For most of this, we're just going to be doing Laplace's equation.
+
+489
+00:27:49,940 --> 00:27:53,940
+If there's some time, well, with six lectures,
+
+490
+00:27:53,940 --> 00:27:55,940
+it probably won't do much other than Laplace's equation.
+
+491
+00:27:55,940 --> 00:28:00,940
+But for this, just so we don't have to keep writing down 2 in 3D
+
+492
+00:28:00,940 --> 00:28:02,940
+or the square root of the sum of the squares,
+
+493
+00:28:02,940 --> 00:28:05,940
+we'll write it down as a Green's function.
+
+494
+00:28:05,940 --> 00:28:07,940
+Now, what we can do is to say,
+
+495
+00:28:07,940 --> 00:28:10,940
+well, if I put enough point charges down,
+
+496
+00:28:10,940 --> 00:28:13,940
+I can write down a system of equations.
+
+497
+00:28:13,940 --> 00:28:16,940
+I have these points, so I take my domain.
+
+498
+00:28:16,940 --> 00:28:19,940
+I sprinkle point charges in there, a bunch of them.
+
+499
+00:28:19,940 --> 00:28:22,940
+And then I'm going to pick the magnitude of these point charges
+
+500
+00:28:22,940 --> 00:28:25,940
+to match the boundary conditions.
+
+501
+00:28:25,940 --> 00:28:31,940
+So where should I match the boundary conditions?
+
+502
+00:28:31,940 --> 00:28:34,940
+How many boundary conditions can I match?
+
+503
+00:28:34,940 --> 00:28:36,940
+If I put 100 points inside that square,
+
+504
+00:28:36,940 --> 00:28:42,940
+how many points on the surface of the square can I match?
+
+505
+00:28:42,940 --> 00:28:45,940
+Well, I have 100 degrees of freedom.
+
+506
+00:28:45,940 --> 00:28:47,940
+Is the system of equations I'm going to get?
+
+507
+00:28:47,940 --> 00:28:49,940
+Exactly how do I set that up?
+
+508
+00:28:49,940 --> 00:28:54,940
+Well, so let's imagine that we have some Green test points
+
+509
+00:28:54,940 --> 00:28:57,940
+on the surface of the square.
+
+510
+00:28:57,940 --> 00:29:00,940
+So we're going to write down something that takes us
+
+511
+00:29:00,940 --> 00:29:06,940
+from these point source weights.
+
+512
+00:29:13,940 --> 00:29:17,940
+Well, that's going to be alpha 1 to alpha n.
+
+513
+00:29:17,940 --> 00:29:21,940
+We have this matrix that's going to be number of point sources.
+
+514
+00:29:24,940 --> 00:29:46,940
+And we're going to set that equal to, if we have a Dirichlet problem,
+
+515
+00:29:46,940 --> 00:29:49,940
+we're going to have a set of potentials at these test points.
+
+516
+00:29:49,940 --> 00:29:52,940
+And then we have to decide how many test points we want to have.
+
+517
+00:29:52,940 --> 00:29:53,940
+So we're going to have a set of potentials at these test points.
+
+518
+00:29:53,940 --> 00:29:55,940
+And then we're going to have a set of potentials at these test points.
+
+519
+00:29:55,940 --> 00:29:56,940
+And then we're going to have a set of potentials at these test points.
+
+520
+00:29:56,940 --> 00:29:58,940
+Well, if we have n weights, how many test points should we have?
+
+521
+00:29:58,940 --> 00:30:01,940
+So we say, well, n.
+
+522
+00:30:01,940 --> 00:30:03,940
+Why n?
+
+523
+00:30:03,940 --> 00:30:07,940
+Why as many test points as I have weights?
+
+524
+00:30:07,940 --> 00:30:12,940
+What will be true about the system of equations?
+
+525
+00:30:12,940 --> 00:30:15,940
+It will be square.
+
+526
+00:30:15,940 --> 00:30:19,940
+Provided, so we ought to be able to invert this.
+
+527
+00:30:19,940 --> 00:30:21,940
+If we had more test points than we had weights, or base,
+
+528
+00:30:21,940 --> 00:30:24,940
+point sources, we'd get a least square solution.
+
+529
+00:30:24,940 --> 00:30:29,940
+We could do that too.
+
+530
+00:30:29,940 --> 00:30:30,940
+In MATLAB, you can't even tell.
+
+531
+00:30:30,940 --> 00:30:32,940
+You just use the slash command.
+
+532
+00:30:32,940 --> 00:30:34,940
+It takes care of it for you.
+
+533
+00:30:34,940 --> 00:30:37,940
+But from your programming, it doesn't really care whether you have more test points
+
+534
+00:30:37,940 --> 00:30:40,940
+or fewer test points than you have weights.
+
+535
+00:30:40,940 --> 00:30:42,940
+So there are lots of different methods for doing this.
+
+536
+00:30:42,940 --> 00:30:45,940
+But for the moment, we're just going to think that we have as many weights
+
+537
+00:30:45,940 --> 00:30:48,940
+as we have test points, but this is not fundamental.
+
+538
+00:30:48,940 --> 00:30:49,940
+And what goes inside of here is this matrix.
+
+539
+00:30:49,940 --> 00:30:55,940
+What goes inside of here is this int function that goes from point source location,
+
+540
+00:30:55,940 --> 00:31:12,940
+x i, to test point location, x j.
+
+541
+00:31:12,940 --> 00:31:16,940
+Which is which?
+
+542
+00:31:16,940 --> 00:31:17,940
+Which is the test point?
+
+543
+00:31:17,940 --> 00:31:19,940
+Which is the source point?
+
+544
+00:31:19,940 --> 00:31:21,940
+Which is the test point?
+
+545
+00:31:21,940 --> 00:31:26,940
+For grid functions in Laplace's equation, does it matter?
+
+546
+00:31:26,940 --> 00:31:30,940
+So Laplace's equation, we always have the idea that it's symmetric.
+
+547
+00:31:30,940 --> 00:31:34,940
+That is, if I have the point source in my right hand and my test point in my left hand,
+
+548
+00:31:34,940 --> 00:31:37,940
+the interaction is the same as if the point charge is in my left hand
+
+549
+00:31:37,940 --> 00:31:39,940
+and my test point is in my right hand.
+
+550
+00:31:39,940 --> 00:31:44,940
+When we're distance, distance doesn't care which way you're going.
+
+551
+00:31:44,940 --> 00:31:48,940
+The distance along the road doesn't matter where you start.
+
+552
+00:31:48,940 --> 00:31:49,940
+Okay.
+
+553
+00:31:49,940 --> 00:31:53,940
+So, how well is this going to work?
+
+554
+00:31:53,940 --> 00:31:56,940
+And what things have we figured out yet?
+
+555
+00:31:56,940 --> 00:32:05,940
+So we have n point sources, n test points, and then we can set up a system of equations.
+
+556
+00:32:05,940 --> 00:32:10,940
+And once we get the weights, can we get the potential everywhere outside?
+
+557
+00:32:10,940 --> 00:32:14,940
+Can I, once I've done that, can I only get the potential at the test points,
+
+558
+00:32:14,940 --> 00:32:18,940
+or can I evaluate it anywhere outside?
+
+559
+00:32:18,940 --> 00:32:20,940
+Anywhere.
+
+560
+00:32:20,940 --> 00:32:22,940
+You can evaluate it anywhere.
+
+561
+00:32:22,940 --> 00:32:29,940
+I just pick a point x, and I sum up n contributions from these n source points
+
+562
+00:32:29,940 --> 00:32:31,940
+with the distance to this test point.
+
+563
+00:32:31,940 --> 00:32:39,940
+So I now have actually a representation as a weighted combination of source point potentials.
+
+564
+00:32:39,940 --> 00:32:43,940
+That weighted combination of source point potentials tells me the potential everywhere.
+
+565
+00:32:43,940 --> 00:32:47,940
+What if I wanted the normal derivative, or the derivative in any direction?
+
+566
+00:32:47,940 --> 00:32:51,940
+What would I do with those point sources?
+
+567
+00:32:51,940 --> 00:32:56,940
+So they produce potentials that go like 1 over r in 3D, or like log r in 2D.
+
+568
+00:32:56,940 --> 00:33:01,940
+If I want to know what the normal derivative of the potential is at any point in the exterior,
+
+569
+00:33:01,940 --> 00:33:04,940
+can I do that?
+
+570
+00:33:04,940 --> 00:33:10,940
+I just differentiate the Green's function once.
+
+571
+00:33:10,940 --> 00:33:14,940
+And now I have a weighted combination of differentiated Green's functions
+
+572
+00:33:14,940 --> 00:33:16,940
+that I can use to calculate the normal derivative that I've got.
+
+573
+00:33:17,940 --> 00:33:21,940
+So I have an ice cube I throw in the ocean.
+
+574
+00:33:21,940 --> 00:33:24,940
+I represent the ice cube with point sources.
+
+575
+00:33:24,940 --> 00:33:26,940
+I calculate what those point sources are.
+
+576
+00:33:26,940 --> 00:33:29,940
+And then I have a representation of potential everywhere outside
+
+577
+00:33:29,940 --> 00:33:33,940
+that I can differentiate and actually figure out the heat leaving the ice cube.
+
+578
+00:33:33,940 --> 00:33:37,940
+This is not whatever half the freshman who comes in at MIT did.
+
+579
+00:33:37,940 --> 00:33:41,940
+They have other approximations to this,
+
+580
+00:33:41,940 --> 00:33:46,940
+including throwing an ice cube in a bucket of water and timing that thing.
+
+581
+00:33:47,940 --> 00:33:54,940
+OK, so we still don't know two things.
+
+582
+00:33:54,940 --> 00:33:59,940
+What two things don't we know?
+
+583
+00:33:59,940 --> 00:34:06,940
+So I said put test points on the surface and put source points in the interior
+
+584
+00:34:06,940 --> 00:34:09,940
+and just set the weights for the source points in the interior
+
+585
+00:34:09,940 --> 00:34:14,940
+so that they produce a potential that matches the given potential test points.
+
+586
+00:34:14,940 --> 00:34:16,940
+But I didn't say what.
+
+587
+00:34:17,940 --> 00:34:21,940
+Where should I put the test points?
+
+588
+00:34:21,940 --> 00:34:24,940
+Where? Where should I put them?
+
+589
+00:34:24,940 --> 00:34:28,940
+Spread them around.
+
+590
+00:34:28,940 --> 00:34:31,940
+What should I do with the source points?
+
+591
+00:34:31,940 --> 00:34:35,940
+Should I cluster them in the center?
+
+592
+00:34:35,940 --> 00:34:38,940
+Should I move them to the edge?
+
+593
+00:34:38,940 --> 00:34:44,940
+What happens to the potential to one of those sources when you get too close to it?
+
+594
+00:34:44,940 --> 00:34:46,940
+What does it do?
+
+595
+00:34:47,940 --> 00:34:48,940
+Divergence.
+
+596
+00:34:48,940 --> 00:34:50,940
+Divergence in a particular way.
+
+597
+00:34:50,940 --> 00:34:51,940
+What does it do?
+
+598
+00:34:51,940 --> 00:34:54,940
+If I get too close to a point source, what happens?
+
+599
+00:34:54,940 --> 00:34:57,940
+The potential goes to, the field goes to?
+
+600
+00:34:57,940 --> 00:34:59,940
+Infinity.
+
+601
+00:34:59,940 --> 00:35:01,940
+Infinity?
+
+602
+00:35:01,940 --> 00:35:04,940
+So that may be what you meant by divergence.
+
+603
+00:35:04,940 --> 00:35:06,940
+So it goes to infinity.
+
+604
+00:35:06,940 --> 00:35:10,940
+Numerically, that might not be such a good thing.
+
+605
+00:35:10,940 --> 00:35:14,940
+If some of your matrix elements are really close to infinity and others are like one,
+
+606
+00:35:14,940 --> 00:35:16,940
+it's not so good.
+
+607
+00:35:16,940 --> 00:35:19,940
+So we have this problem now.
+
+608
+00:35:19,940 --> 00:35:23,940
+Where should we put the sources?
+
+609
+00:35:23,940 --> 00:35:25,940
+We could put them near the edge.
+
+610
+00:35:25,940 --> 00:35:32,940
+The problem with putting near the edge, then every test point will have a point source that it is affected by most strongly.
+
+611
+00:35:32,940 --> 00:35:38,940
+So their distance to the part will be very small and that entry in the diagonal matrix will be near infinity.
+
+612
+00:35:38,940 --> 00:35:41,940
+And all the other points won't matter very much.
+
+613
+00:35:41,940 --> 00:35:44,940
+So you might get large errors if you do that.
+
+614
+00:35:46,940 --> 00:35:52,940
+So that might say don't put the points too close to the edge because then the interactions get too large.
+
+615
+00:35:52,940 --> 00:35:54,940
+What if I cluster them all in the center?
+
+616
+00:35:54,940 --> 00:35:56,940
+Could anything go wrong there?
+
+617
+00:35:56,940 --> 00:35:57,940
+Not enough leverage.
+
+618
+00:35:57,940 --> 00:35:58,940
+Say again?
+
+619
+00:35:58,940 --> 00:36:01,940
+Not enough leverage over any given .
+
+620
+00:36:01,940 --> 00:36:07,940
+So you're right, but I'm going to make you be a little more precise about what you mean by leverage.
+
+621
+00:36:07,940 --> 00:36:13,940
+So if I pull off one of those points and say how does it affect all my test points?
+
+622
+00:36:13,940 --> 00:36:15,940
+And then I pull off the points source.
+
+623
+00:36:15,940 --> 00:36:20,940
+I'm going to put the points source right next to it and see how it affects all my test points.
+
+624
+00:36:20,940 --> 00:36:28,940
+Those two points sources when I cluster them in the center are going to have almost identical effects on the test point.
+
+625
+00:36:28,940 --> 00:36:35,940
+What will that mean about the system of equations we generate to solve for the test point waves?
+
+626
+00:36:35,940 --> 00:36:44,940
+So I'll have one row or one column or other corresponding to one test point and another column corresponding to a test point right next to it.
+
+627
+00:36:44,940 --> 00:36:47,940
+Those columns will be almost equal to each other.
+
+628
+00:36:47,940 --> 00:36:52,940
+What does that mean about the system of equations when the columns are almost identical?
+
+629
+00:36:52,940 --> 00:36:55,940
+Yeah?
+
+630
+00:36:55,940 --> 00:36:58,940
+They're very close to not being linearly independent.
+
+631
+00:36:58,940 --> 00:37:06,940
+Not being linearly independent which means the matrix is ill-conditioned or possibly even close to singular.
+
+632
+00:37:06,940 --> 00:37:11,940
+If it's ill-conditioned, then that too will cause you problems.
+
+633
+00:37:11,940 --> 00:37:13,940
+It means that you will get...
+
+634
+00:37:13,940 --> 00:37:22,940
+If it's ill-conditioned, you may have test point values that are ones and twos and you may get these weights being 10 million or 100 million.
+
+635
+00:37:22,940 --> 00:37:26,940
+So you have one weight is 100 million and the other one next to it will be minus 100 million.
+
+636
+00:37:26,940 --> 00:37:29,940
+And then you'll get weird errors because of that.
+
+637
+00:37:29,940 --> 00:37:34,940
+So these methods, they have all these different names.
+
+638
+00:37:34,940 --> 00:37:36,940
+They're called De-singularized methods.
+
+639
+00:37:36,940 --> 00:37:38,940
+They have all the...
+
+640
+00:37:38,940 --> 00:37:39,940
+I forgot what they say.
+
+641
+00:37:39,940 --> 00:37:41,940
+A whole bunch of different names for it.
+
+642
+00:37:41,940 --> 00:37:43,940
+The problems with these two placements are...
+
+643
+00:37:43,940 --> 00:37:57,940
+If it's close to the boundary, then what happens is at the test point you get finite values and then in between the test points the two point sources don't exactly cancel out.
+
+644
+00:37:57,940 --> 00:38:00,940
+And you get these things going to infinity.
+
+645
+00:38:00,940 --> 00:38:03,940
+And if you cluster them in the center, the matrix becomes singular.
+
+646
+00:38:03,940 --> 00:38:05,940
+Both of them produce problems.
+
+647
+00:38:05,940 --> 00:38:07,940
+So I wanted to show you...
+
+648
+00:38:07,940 --> 00:38:09,940
+But that doesn't mean you can't use these methods.
+
+649
+00:38:09,940 --> 00:38:12,940
+And in fact, there have been renewed interest in these methods.
+
+650
+00:38:12,940 --> 00:38:18,940
+Because there are some new algorithms for figuring out how to place these points in good positions.
+
+651
+00:38:18,940 --> 00:38:24,940
+But I just wanted to show you a computational result just so you have an idea in mind of the way the errors form in these methods.
+
+652
+00:38:24,940 --> 00:38:28,940
+So the neat thing about them is this.
+
+653
+00:38:28,940 --> 00:38:35,940
+No matter what you do, wherever you put the point sources, wherever you put the test points, however your condition matrix is,
+
+654
+00:38:35,940 --> 00:38:38,940
+the solution you get...
+
+655
+00:38:38,940 --> 00:38:40,940
+Does it always satisfy Laplace's equation?
+
+656
+00:38:42,940 --> 00:38:50,940
+And so you're constructing a solution that always, always, always, always satisfies the Laplace's equation.
+
+657
+00:38:50,940 --> 00:38:55,940
+So very different from finite element methods, finite difference methods.
+
+658
+00:38:55,940 --> 00:38:58,940
+Where those solutions don't always satisfy the PE.
+
+659
+00:38:58,940 --> 00:39:01,940
+These always satisfy the PE.
+
+660
+00:39:01,940 --> 00:39:04,940
+What they do is satisfy the boundary conditions.
+
+661
+00:39:04,940 --> 00:39:11,940
+So if you do these kinds of methods, you definitely satisfy the boundary conditions at certain test points and not in between.
+
+662
+00:39:12,940 --> 00:39:16,940
+So yes, you produce a solution that satisfies the PE.
+
+663
+00:39:16,940 --> 00:39:18,940
+But if you don't match the boundary conditions, they can be quite off.
+
+664
+00:39:18,940 --> 00:39:21,940
+And when you're looking at these things that look like crowns,
+
+665
+00:39:21,940 --> 00:39:27,940
+there are plots of the potential on this circle in between the test points.
+
+666
+00:39:27,940 --> 00:39:31,940
+So you can see at the test points, the potentials are exactly one.
+
+667
+00:39:31,940 --> 00:39:34,940
+So we set the potential of the circle to be exactly one.
+
+668
+00:39:34,940 --> 00:39:40,940
+And then we put these source points, the ones in red, just inside.
+
+669
+00:39:40,940 --> 00:39:42,940
+And then set up the system of equations.
+
+670
+00:39:42,940 --> 00:39:45,940
+And calculate it with n equals 20 and n equals 40 points.
+
+671
+00:39:45,940 --> 00:39:52,940
+It's a little hard to see from here, but the error for n equals 40 is about, is a good factor of,
+
+672
+00:39:52,940 --> 00:39:59,940
+let's see, it's about a factor of five down from n equals 20 or roughly a factor of four, actually.
+
+673
+00:39:59,940 --> 00:40:04,940
+But in addition, you see that the worst case errors are in between the test points.
+
+674
+00:40:04,940 --> 00:40:09,940
+So right at the test points, it gets exactly the right potential for the surface.
+
+675
+00:40:09,940 --> 00:40:12,940
+And in between the test points, it's not matching the boundary conditions.
+
+676
+00:40:12,940 --> 00:40:19,940
+So, and then you go outside and then, well, what do you know about the errors in Laplace's equations?
+
+677
+00:40:19,940 --> 00:40:23,940
+Where, do you know the, how many of you know the maximum modulus principle?
+
+678
+00:40:23,940 --> 00:40:28,940
+All right, so here's the thing to know about Laplace's equation.
+
+679
+00:40:28,940 --> 00:40:33,940
+The Laplace's equation, if you have something that satisfies Laplace's equation,
+
+680
+00:40:33,940 --> 00:40:38,940
+and you have two solutions to Laplace's equation, and it's over a domain,
+
+681
+00:40:38,940 --> 00:40:41,940
+and you know where the surface of the domain is, where's the worst case error?
+
+682
+00:40:41,940 --> 00:40:48,940
+Well, it's an interior and exterior problem.
+
+683
+00:40:48,940 --> 00:40:51,940
+Worst case error is always on the surface.
+
+684
+00:40:51,940 --> 00:40:55,940
+So the difference between the two of them will never get worse than it is at the surface.
+
+685
+00:40:55,940 --> 00:41:01,940
+So because of that, if you know you, if you know what the errors are on the surface of this exterior domain,
+
+686
+00:41:01,940 --> 00:41:02,940
+the errors always go down.
+
+687
+00:41:02,940 --> 00:41:06,940
+The difference between the exact solution and one you might numerically compute,
+
+688
+00:41:06,940 --> 00:41:10,940
+as long as they're both solutions to Laplace's equations, the maximum error is at the boundary.
+
+689
+00:41:10,940 --> 00:41:13,940
+This is the great thing about Laplace's equation.
+
+690
+00:41:13,940 --> 00:41:17,940
+It means that when you do these integral equation methods that look at surfaces,
+
+691
+00:41:17,940 --> 00:41:20,940
+you only have to look at the errors on the surfaces.
+
+692
+00:41:20,940 --> 00:41:25,940
+All right, so, but that's kind of a thing we're going to change,
+
+693
+00:41:25,940 --> 00:41:29,940
+and one of the things we'll come back to and look at a lot.
+
+694
+00:41:29,940 --> 00:41:33,940
+But we can get a lot of intuition from those kind of point source methods.
+
+695
+00:41:33,940 --> 00:41:38,940
+But what we really do is smear the point sources into a density.
+
+696
+00:41:38,940 --> 00:41:41,940
+So imagine you have these point sources, and you put them in a crucible,
+
+697
+00:41:41,940 --> 00:41:46,940
+and you smash them up, and you turn them into kind of a smear,
+
+698
+00:41:46,940 --> 00:41:48,940
+which you put on the surface.
+
+699
+00:41:48,940 --> 00:41:52,940
+So now you have this kind of charge density smear on your surface.
+
+700
+00:41:52,940 --> 00:41:56,940
+And since it's not a point charge anymore, the closer you get to the surface,
+
+701
+00:41:56,940 --> 00:41:58,940
+the less actual charge there is.
+
+702
+00:41:58,940 --> 00:42:00,940
+So there's a finite charge density.
+
+703
+00:42:00,940 --> 00:42:05,940
+So if you're, unlike a point charge, which has an infinite charge density right where the point source is,
+
+704
+00:42:05,940 --> 00:42:07,940
+this smear has a finite charge density.
+
+705
+00:42:07,940 --> 00:42:08,940
+So you can get a point charge density.
+
+706
+00:42:08,940 --> 00:42:10,940
+So it doesn't produce these infinities,
+
+707
+00:42:10,940 --> 00:42:15,940
+but it replaces writing down these sums of point source potentials with an integral.
+
+708
+00:42:15,940 --> 00:42:18,940
+So now you may all recognize the superposition integral,
+
+709
+00:42:18,940 --> 00:42:22,940
+but if you have charge on the surface, and you want to know what the potential is everywhere,
+
+710
+00:42:22,940 --> 00:42:26,940
+you integrate that charge on the surface over the surface of your domain,
+
+711
+00:42:26,940 --> 00:42:29,940
+and that gives you the potential everywhere outside.
+
+712
+00:42:29,940 --> 00:42:32,940
+So now we're going to try to estimate the charge density.
+
+713
+00:42:32,940 --> 00:42:36,940
+And that's the next step in this thing, which is,
+
+714
+00:42:36,940 --> 00:42:37,940
+okay, so if we're talking about a point charge density,
+
+715
+00:42:37,940 --> 00:42:46,940
+we're going to write down a system of equations where we have this charge density on the surface,
+
+716
+00:42:46,940 --> 00:42:50,940
+it produces a potential, and now we want to know what that charge density is.
+
+717
+00:42:50,940 --> 00:42:53,940
+We know what the Green's function is, we want to figure out what this charge density is.
+
+718
+00:42:53,940 --> 00:42:56,940
+So that's a continuum charge density.
+
+719
+00:42:56,940 --> 00:43:01,940
+But with a continuum charge density, when we come up with the numerical methods for computing it,
+
+720
+00:43:01,940 --> 00:43:03,940
+what's the first thing we do?
+
+721
+00:43:05,940 --> 00:43:07,940
+So in this class, what have you done?
+
+722
+00:43:07,940 --> 00:43:14,940
+You come up with some representation for that continuous density in terms of
+
+723
+00:43:14,940 --> 00:43:19,940
+piecewise polynomials, finite elements,
+
+724
+00:43:19,940 --> 00:43:25,940
+you call these things a, let's just turn on basis.
+
+725
+00:43:25,940 --> 00:43:29,940
+So we're going to come up with, so what's a good basis for this?
+
+726
+00:43:29,940 --> 00:43:33,940
+How should we represent this continuous charge density on the surface?
+
+727
+00:43:33,940 --> 00:43:35,940
+So we had point charges, and that was easy.
+
+728
+00:43:35,940 --> 00:43:36,940
+We could just sum up the potentials together.
+
+729
+00:43:36,940 --> 00:43:38,940
+We could just sum up the potentials due to point charges.
+
+730
+00:43:38,940 --> 00:43:41,940
+We could get this matrix, we could write it down.
+
+731
+00:43:41,940 --> 00:43:44,940
+So now we're saying, okay, well, we don't want to use point charges
+
+732
+00:43:44,940 --> 00:43:47,940
+because the potential due to point charges go to infinity.
+
+733
+00:43:47,940 --> 00:43:50,940
+We're going to use charge density because you get close to charge density
+
+734
+00:43:50,940 --> 00:43:53,940
+and it doesn't go to infinity.
+
+735
+00:43:53,940 --> 00:43:57,940
+And now we have to figure out, okay, if we're putting a density,
+
+736
+00:43:57,940 --> 00:44:01,940
+it's like we're coating the surface with cream cheese or butter.
+
+737
+00:44:01,940 --> 00:44:03,940
+I don't think charge density is alike.
+
+738
+00:44:03,940 --> 00:44:04,940
+It's actually more like molasses.
+
+739
+00:44:04,940 --> 00:44:05,940
+It's a different thing.
+
+740
+00:44:06,940 --> 00:44:08,940
+It's a different joke.
+
+741
+00:44:08,940 --> 00:44:10,940
+Charge density is like molasses.
+
+742
+00:44:10,940 --> 00:44:13,940
+I just don't want you going out there and thinking,
+
+743
+00:44:13,940 --> 00:44:20,940
+well, this electrical engineering professor said that charge is like molasses.
+
+744
+00:44:20,940 --> 00:44:27,940
+Okay, so what's a good representation for the charge density?
+
+745
+00:44:27,940 --> 00:44:31,940
+What should we use?
+
+746
+00:44:31,940 --> 00:44:34,940
+So if we're talking about 2D, what's the surface of a domain in 2D?
+
+747
+00:44:34,940 --> 00:44:35,940
+What's the surface of a domain in 2D?
+
+748
+00:44:35,940 --> 00:44:38,940
+It's just a line drawn on a piece of paper.
+
+749
+00:44:38,940 --> 00:44:40,940
+It's this curve.
+
+750
+00:44:40,940 --> 00:44:42,940
+So we're talking about this line charge.
+
+751
+00:44:42,940 --> 00:44:48,940
+How should we represent this line charge that's going to be distributed now?
+
+752
+00:44:48,940 --> 00:44:55,940
+Well, you could use straight piecewise constant charge densities.
+
+753
+00:44:55,940 --> 00:44:57,940
+So these are piecewise constant line charges.
+
+754
+00:44:57,940 --> 00:45:00,940
+This is going to be our basis function.
+
+755
+00:45:00,940 --> 00:45:04,940
+And this is one of those subtle points.
+
+756
+00:45:05,940 --> 00:45:08,940
+So you're going to use striping and plotting,
+
+757
+00:45:08,940 --> 00:45:10,940
+and that's going to give you the position you usually want.
+
+758
+00:45:10,940 --> 00:45:11,940
+And it's a non-tumor room.
+
+759
+00:45:11,940 --> 00:45:12,940
+If you have too much space on the dunnoism side here,
+
+760
+00:45:12,940 --> 00:45:31,480
+you might consider 궁
+
+761
+00:45:31,480 --> 00:45:34,940
+What will I do in this space?
+
+762
+00:45:34,940 --> 00:45:37,220
+I mean, golf's not such a good one anymore.
+
+763
+00:45:37,780 --> 00:45:39,220
+It used to work 30 years ago, right?
+
+764
+00:45:39,280 --> 00:45:41,460
+The golf balls have these sort of facets on them.
+
+765
+00:45:43,060 --> 00:45:44,560
+But you think of it as like a polygon.
+
+766
+00:45:45,580 --> 00:45:49,020
+So we're making a geometric approximation
+
+767
+00:45:49,020 --> 00:45:52,060
+along with assuming that the charge density
+
+768
+00:45:52,060 --> 00:45:53,620
+is constant along this line.
+
+769
+00:45:54,060 --> 00:45:55,620
+So we're going to say on each of these lines,
+
+770
+00:45:55,720 --> 00:45:56,880
+the charge density will be constant.
+
+771
+00:45:58,960 --> 00:46:00,440
+So you may be thinking, wait a second.
+
+772
+00:46:01,600 --> 00:46:03,000
+I started out with point charges,
+
+773
+00:46:03,000 --> 00:46:04,180
+and I get too close to the point charge,
+
+774
+00:46:04,220 --> 00:46:04,880
+and it goes to infinity.
+
+775
+00:46:04,940 --> 00:46:07,480
+What about a line charge?
+
+776
+00:46:07,960 --> 00:46:10,100
+Do you get too close to a line charge as it goes to infinity?
+
+777
+00:46:11,820 --> 00:46:12,660
+Turns out, no.
+
+778
+00:46:12,760 --> 00:46:14,880
+But you have to actually go through the calculation to see that.
+
+779
+00:46:16,260 --> 00:46:19,200
+In 3D, you use sheets of charge,
+
+780
+00:46:19,520 --> 00:46:22,880
+and sheets of charge of a finite charge density
+
+781
+00:46:22,880 --> 00:46:24,540
+don't go to infinity as you approach it.
+
+782
+00:46:24,920 --> 00:46:26,900
+But we're going to look at that a little more carefully,
+
+783
+00:46:27,020 --> 00:46:28,680
+but not most likely today.
+
+784
+00:46:29,660 --> 00:46:32,620
+And this kind of geometric approximation,
+
+785
+00:46:32,980 --> 00:46:34,460
+it's not like integral equations.
+
+786
+00:46:34,580 --> 00:46:34,920
+It's not like integral equations.
+
+787
+00:46:34,920 --> 00:46:35,160
+It's not like integral equations.
+
+788
+00:46:35,160 --> 00:46:35,260
+It's not like integral equations.
+
+789
+00:46:35,260 --> 00:46:36,320
+You've seen something like that.
+
+790
+00:46:36,640 --> 00:46:38,540
+You start representing spheres of triangles,
+
+791
+00:46:38,920 --> 00:46:40,100
+you have the same sort of thing, right?
+
+792
+00:46:40,140 --> 00:46:41,660
+The triangles that you use to find out,
+
+793
+00:46:41,900 --> 00:46:43,840
+you do 2T, you find elements of triangles,
+
+794
+00:46:44,240 --> 00:46:45,360
+you get the same sort of thing.
+
+795
+00:46:45,480 --> 00:46:47,740
+You are approximating a curved surface
+
+796
+00:46:47,740 --> 00:46:50,400
+with piecewise constant straight sections,
+
+797
+00:46:50,480 --> 00:46:52,340
+or you might use curve-based syllables.
+
+798
+00:46:53,040 --> 00:46:54,400
+And you can try to improve this,
+
+799
+00:46:54,500 --> 00:46:56,320
+but we're not going to worry so much about that.
+
+800
+00:46:56,760 --> 00:46:58,380
+And now what we're going to do is
+
+801
+00:46:58,380 --> 00:47:02,300
+we're going to write down our integral equation
+
+802
+00:47:02,300 --> 00:47:04,560
+as the Green's function is still the same,
+
+803
+00:47:04,560 --> 00:47:06,540
+because that just is about the PDE.
+
+804
+00:47:06,540 --> 00:47:08,740
+And we're going to use this weighted combination
+
+805
+00:47:08,800 --> 00:47:11,940
+of line charges, and we're going to use
+
+806
+00:47:11,940 --> 00:47:13,500
+that to calculate the potential.
+
+807
+00:47:13,800 --> 00:47:15,920
+And now we have this other question, which is,
+
+808
+00:47:16,400 --> 00:47:18,520
+so we took our domain, right?
+
+809
+00:47:18,520 --> 00:47:19,600
+We started out this way.
+
+810
+00:47:27,160 --> 00:47:28,440
+I apologize for reusing the board,
+
+811
+00:47:28,440 --> 00:47:30,800
+but I remember the cameras only pointing
+
+812
+00:47:30,800 --> 00:47:32,000
+at these and not the other two.
+
+813
+00:47:34,560 --> 00:47:37,120
+So we started out, here's our sphere,
+
+814
+00:47:37,120 --> 00:47:39,700
+and we maybe put point charges inside.
+
+815
+00:47:39,700 --> 00:47:51,680
+And we had test points on the sphere.
+
+816
+00:47:52,820 --> 00:47:54,700
+And now we're going to replace that
+
+817
+00:47:55,200 --> 00:47:57,780
+with these piecewise constant straight sections.
+
+818
+00:48:01,280 --> 00:48:02,600
+It's supposed to be like a sphere.
+
+819
+00:48:04,560 --> 00:48:07,960
+So we're going to put a sigma one,
+
+820
+00:48:07,960 --> 00:48:11,020
+a sigma two, a sigma three, et cetera.
+
+821
+00:48:13,620 --> 00:48:18,020
+Those are the replacements for my point charges for my sphere,
+
+822
+00:48:18,020 --> 00:48:20,080
+which you can see clearly goes through these points.
+
+823
+00:48:23,420 --> 00:48:24,640
+Where do I put the test points?
+
+824
+00:48:26,800 --> 00:48:29,160
+So I now have, well, how many unknowns do I have?
+
+825
+00:48:32,160 --> 00:48:34,260
+I break it up into n lines.
+
+826
+00:48:34,560 --> 00:48:36,120
+And piecewise constant lines.
+
+827
+00:48:37,000 --> 00:48:39,320
+One, two, three, four, five, six, n.
+
+828
+00:48:41,180 --> 00:48:44,320
+How many test points do I need to get a square system?
+
+829
+00:48:45,860 --> 00:48:46,940
+I need n test points.
+
+830
+00:48:47,160 --> 00:48:47,840
+Where should I put them?
+
+831
+00:48:53,740 --> 00:48:55,880
+Should I put them at the ends or in the middle?
+
+832
+00:48:57,240 --> 00:48:58,060
+Should I put them here?
+
+833
+00:49:03,060 --> 00:49:03,700
+Or at the ends?
+
+834
+00:49:04,560 --> 00:49:07,660
+The x's or the o's?
+
+835
+00:49:07,660 --> 00:49:10,320
+How many say x's?
+
+836
+00:49:10,320 --> 00:49:13,060
+How many say o's?
+
+837
+00:49:13,060 --> 00:49:19,060
+Oh, well, this is how you get Trump the president.
+
+838
+00:49:23,720 --> 00:49:25,620
+Well, so x's seem like a good idea.
+
+839
+00:49:25,620 --> 00:49:26,880
+They're in the middle of the lines.
+
+840
+00:49:26,880 --> 00:49:29,620
+But what about the n points?
+
+841
+00:49:29,620 --> 00:49:31,360
+They seem a little extreme.
+
+842
+00:49:31,360 --> 00:49:34,060
+I'm like, oh, political, I'm sorry.
+
+843
+00:49:34,560 --> 00:49:36,560
+I'm going to have to be recorded, too.
+
+844
+00:49:36,560 --> 00:49:38,280
+I'll have to bleep it.
+
+845
+00:49:38,280 --> 00:49:44,600
+So why the midpoints and not the endpoints?
+
+846
+00:49:44,600 --> 00:49:45,780
+Well, there are a couple reasons.
+
+847
+00:49:45,780 --> 00:49:47,860
+Something is, of course, that the endpoints now
+
+848
+00:49:47,860 --> 00:49:50,840
+have this sort of sudden inflection.
+
+849
+00:49:50,840 --> 00:49:54,520
+But the endpoints are actually on the sphere.
+
+850
+00:49:54,520 --> 00:49:56,960
+So it might seem like that's a good idea.
+
+851
+00:49:56,960 --> 00:50:02,760
+What about in 3D, where I break the surface up into triangles?
+
+852
+00:50:02,760 --> 00:50:04,040
+Can I use endpoints then in 3D?
+
+853
+00:50:04,040 --> 00:50:04,480
+Yeah.
+
+854
+00:50:04,480 --> 00:50:04,560
+Yeah.
+
+855
+00:50:04,560 --> 00:50:05,060
+Yeah.
+
+856
+00:50:05,060 --> 00:50:05,560
+Yeah.
+
+857
+00:50:05,560 --> 00:50:07,560
+Will there be as many endpoints as there
+
+858
+00:50:07,560 --> 00:50:10,020
+are centroids in the triangle?
+
+859
+00:50:10,020 --> 00:50:14,800
+I imagine taking a sphere and turning it into polygons,
+
+860
+00:50:14,800 --> 00:50:17,000
+the things with triangulations.
+
+861
+00:50:17,000 --> 00:50:22,160
+Will you have the right number of points and unknowns?
+
+862
+00:50:22,160 --> 00:50:23,700
+Well, you will if you put the point
+
+863
+00:50:23,700 --> 00:50:24,960
+in the center of the triangle.
+
+864
+00:50:24,960 --> 00:50:26,660
+Because then you've got one point for a triangle.
+
+865
+00:50:26,660 --> 00:50:29,620
+You put it on the vertices, eh, not so clear.
+
+866
+00:50:29,620 --> 00:50:31,240
+So in 2D, you can do either one.
+
+867
+00:50:31,240 --> 00:50:32,520
+In 3D, center.
+
+868
+00:50:32,520 --> 00:50:34,480
+But it turns out there's some other advantages.
+
+869
+00:50:34,480 --> 00:50:36,940
+Just putting things in the center, which is that you get,
+
+870
+00:50:36,940 --> 00:50:41,040
+you usually get better accuracy because it's a midpoint rule.
+
+871
+00:50:41,040 --> 00:50:43,900
+It tends to cancel out linear variations.
+
+872
+00:50:43,900 --> 00:50:49,060
+But again, for the moment, not the important part for us.
+
+873
+00:50:49,060 --> 00:50:50,660
+So this is the idea.
+
+874
+00:50:50,660 --> 00:50:53,880
+We're going to try to take our original problem, which
+
+875
+00:50:53,880 --> 00:50:56,100
+has a charge density on the surface.
+
+876
+00:50:56,100 --> 00:50:58,480
+We're going to try to calculate that charge density
+
+877
+00:50:58,480 --> 00:51:02,240
+by making sure it produces potentials that match
+
+878
+00:51:02,240 --> 00:51:04,400
+the given potentials on the surface.
+
+879
+00:51:04,400 --> 00:51:08,040
+So we generate these piecewise constant representations
+
+880
+00:51:08,040 --> 00:51:09,200
+of the charge.
+
+881
+00:51:09,200 --> 00:51:11,000
+And we'll just integrate them.
+
+882
+00:51:11,000 --> 00:51:13,720
+And what we have to do is calculate these line integrals.
+
+883
+00:51:13,720 --> 00:51:14,960
+And it's sort of a pain in the neck,
+
+884
+00:51:14,960 --> 00:51:17,140
+but it's not that hard to do.
+
+885
+00:51:17,140 --> 00:51:18,160
+But one can.
+
+886
+00:51:18,160 --> 00:51:20,800
+And you set up a system of equations.
+
+887
+00:51:20,800 --> 00:51:21,760
+So this is the idea.
+
+888
+00:51:21,760 --> 00:51:23,420
+Now you have a 2D method.
+
+889
+00:51:23,420 --> 00:51:27,040
+You pick a set of points on your surface in 2D.
+
+890
+00:51:27,040 --> 00:51:27,960
+You take this curve.
+
+891
+00:51:27,960 --> 00:51:29,940
+You connect the points with lines.
+
+892
+00:51:29,940 --> 00:51:31,560
+Those define your line chart.
+
+893
+00:51:31,560 --> 00:51:33,540
+Then you calculate the weights of the line chart
+
+894
+00:51:33,540 --> 00:51:33,900
+and the points.
+
+895
+00:51:33,900 --> 00:51:35,740
+So you can do this with the test points.
+
+896
+00:51:35,740 --> 00:51:37,700
+And then you just have to evaluate the line chargers
+
+897
+00:51:37,700 --> 00:51:39,720
+by making sure it produces the correct potential
+
+898
+00:51:39,720 --> 00:51:41,260
+at all of the test points.
+
+899
+00:51:41,260 --> 00:51:43,780
+And you just have to evaluate this Green's function,
+
+900
+00:51:43,780 --> 00:51:47,700
+which is the integral over a line charge of the potential
+
+901
+00:51:47,700 --> 00:51:49,040
+of these test points.
+
+902
+00:51:49,040 --> 00:51:51,360
+And then once you have those weights,
+
+903
+00:51:51,360 --> 00:51:53,400
+what can you do with them?
+
+904
+00:51:53,400 --> 00:51:55,960
+Now I have this weighted combination of line chargers.
+
+905
+00:51:55,960 --> 00:51:58,620
+What can I do with that?
+
+906
+00:51:58,620 --> 00:52:01,540
+Can I evaluate the potential outside?
+
+907
+00:52:01,540 --> 00:52:03,040
+Yeah, I can use the weighted combination
+
+908
+00:52:03,040 --> 00:52:08,440
+outside. Can I evaluate the derivative of the potential outside? Sure, I now have an
+
+909
+00:52:08,440 --> 00:52:12,580
+analytic function for the potential everywhere outside. I can differentiate it,
+
+910
+00:52:12,580 --> 00:52:20,380
+calculate flows, anything I want. So it's a numerical procedure that only counts
+
+911
+00:52:20,380 --> 00:52:25,240
+on us being able to calculate the integrals of 1 over r over lines, which
+
+912
+00:52:25,240 --> 00:52:29,440
+seems like a relatively simple problem. Turns out it has some subtleties to it.
+
+913
+00:52:29,440 --> 00:52:32,800
+I'll talk a little bit about this towards the end, and we'll talk about more
+
+914
+00:52:32,800 --> 00:52:41,380
+tomorrow. Excuse me, Wednesday. Alright, so now I have this question. Is that the
+
+915
+00:52:41,380 --> 00:52:46,420
+right thing to do? Should we make sure that we pick the weights on the
+
+916
+00:52:46,420 --> 00:52:53,620
+line charges so that they give exactly the right potential at test points? That
+
+917
+00:52:53,620 --> 00:52:57,520
+seems like we're just sampling at test points.
+
+918
+00:52:58,080 --> 00:52:59,440
+We could also do this.
+
+919
+00:52:59,440 --> 00:53:04,420
+We could also do something else. What do we do in finite element methods? What do we try to do?
+
+920
+00:53:04,420 --> 00:53:09,340
+How do we pick the weights of the finite elements? Plug it into the weak form of
+
+921
+00:53:09,340 --> 00:53:13,360
+the integral and make sure the residual is what?
+
+922
+00:53:16,260 --> 00:53:22,820
+Alright, so Professor Wang's out of the room. One thing to remember about finite elements.
+
+923
+00:53:22,820 --> 00:53:29,280
+It's the most important thing. That idea. The really great thing is
+
+924
+00:53:29,280 --> 00:53:34,040
+for these finite element basis functions, you plug them into the integral operator,
+
+925
+00:53:34,040 --> 00:53:42,120
+into the weak form, and you calculate the weights so that the potential
+
+926
+00:53:42,120 --> 00:53:45,840
+produces is orthogonal to that basis set. And we refer to that sometimes as the
+
+927
+00:53:45,840 --> 00:53:51,840
+Galerka method. Very powerful idea. There's also a representation in a certain space
+
+928
+00:53:51,840 --> 00:53:59,100
+of the PD. We can do the same thing for integral equations. The difference is the
+
+929
+00:53:59,100 --> 00:54:03,500
+theory for partial differential equations. It's probably one of the few places where
+
+930
+00:54:03,500 --> 00:54:08,860
+this is true. The theory for partial differential equations is much easier to get at than the
+
+931
+00:54:08,860 --> 00:54:12,220
+theory for integral equations because you have this projection on the surface and you
+
+932
+00:54:12,220 --> 00:54:15,460
+get these what are called fractional sublux spaces. So we're not going to do very much
+
+933
+00:54:15,460 --> 00:54:21,800
+of that. But there is something amazing about this when you do this.
+
+934
+00:54:21,800 --> 00:54:28,920
+So we have two problems. And I'm going to say what this is in a moment. So we have these two ideas.
+
+935
+00:54:29,100 --> 00:54:36,100
+We could pick the line charge weights so that we get exactly the right potential of a test point.
+
+936
+00:54:36,100 --> 00:54:41,100
+Or we could make them orthogonal to our basis. We could make the errors orthogonal to our basis.
+
+937
+00:54:41,100 --> 00:54:48,100
+If our basis are lines, then we're basically saying the average potential on the line is right.
+
+938
+00:54:48,100 --> 00:54:56,100
+So it can be off everywhere, but on average it's right. And that's usually called the Galerka method.
+
+939
+00:54:56,100 --> 00:54:59,100
+And then you can come up with all sorts of variance where you come up with a test point.
+
+940
+00:54:59,100 --> 00:55:05,100
+You can come up with test bases and representation bases and you mix them up in some ways.
+
+941
+00:55:05,100 --> 00:55:08,100
+And for certain kinds of intervals, it's really important to do that.
+
+942
+00:55:08,100 --> 00:55:16,100
+For the Laplace's equation, it's usually easiest just to think about the Galerka method where they're both the same.
+
+943
+00:55:16,100 --> 00:55:24,100
+So if we do this, we do collocation where we have test points and the weights on the basis function,
+
+944
+00:55:24,100 --> 00:55:29,100
+we get this matrix that relates the test point potential to the test point.
+
+945
+00:55:29,100 --> 00:55:32,100
+And then we do the same thing with the other two methods.
+
+946
+00:55:32,100 --> 00:55:37,100
+So we have the two methods that relate the test point potential to the weights on the lines.
+
+947
+00:55:37,100 --> 00:55:41,100
+And there's something sort of weird when we think about these two methods.
+
+948
+00:55:41,100 --> 00:55:48,100
+So we got one that says I calculate the potential to this line charge and then either integrate it over this other line charge
+
+949
+00:55:48,100 --> 00:55:51,100
+or I just test it to the center of this other line charge.
+
+950
+00:55:51,100 --> 00:55:54,100
+So I have kind of two things going on.
+
+951
+00:55:54,100 --> 00:55:58,100
+I'm going to write a picture of that so you can keep it in mind.
+
+952
+00:55:58,100 --> 00:56:01,100
+And we're saying here are our test points in the middle.
+
+953
+00:56:01,100 --> 00:56:05,100
+And we're saying this line charge goes to this test point.
+
+954
+00:56:05,100 --> 00:56:10,100
+Sorry, I want something more compelling.
+
+955
+00:56:10,100 --> 00:56:12,100
+Suppose my line charge is like this.
+
+956
+00:56:12,100 --> 00:56:17,100
+And like that.
+
+957
+00:56:17,100 --> 00:56:21,100
+So I have this line charge and it goes to this test point.
+
+958
+00:56:21,100 --> 00:56:25,100
+And I also have this second line charge.
+
+959
+00:56:25,100 --> 00:56:27,100
+It goes to this test point.
+
+960
+00:56:27,100 --> 00:56:30,100
+Going to this test point.
+
+961
+00:56:30,100 --> 00:56:39,100
+Or I take the same thing, I think.
+
+962
+00:56:39,100 --> 00:56:49,100
+And I have the line charge, the big line charge, goes to the entire little line charge.
+
+963
+00:56:49,100 --> 00:56:55,100
+And the little line charge goes to predict potentials across the big line charge.
+
+964
+00:56:55,100 --> 00:56:57,100
+And one of these is this.
+
+965
+00:56:57,100 --> 00:57:04,100
+As the x is, this is collocation.
+
+966
+00:57:04,100 --> 00:57:10,100
+And the other one is galergic.
+
+967
+00:57:10,100 --> 00:57:15,100
+Looking at those two methods, can you tell me something about the matrices they'll produce?
+
+968
+00:57:15,100 --> 00:57:21,100
+So one is calculate the weights of the line charges based on making sure you match the test point potentials.
+
+969
+00:57:21,100 --> 00:57:26,100
+The other one is calculate the, so that was this collocation idea.
+
+970
+00:57:27,100 --> 00:57:37,100
+And the other one is calculate the line charge by calculating potential producers over the other line and integrating.
+
+971
+00:57:37,100 --> 00:57:47,100
+So the problem with collocation is that I have one big line over here and a short one here.
+
+972
+00:57:47,100 --> 00:57:51,100
+One big line which is my right arm and the short one which is the yellow trough.
+
+973
+00:57:51,100 --> 00:57:56,100
+Is the interaction, is this right arm line charge.
+
+974
+00:57:56,100 --> 00:58:01,100
+And its potential, the potential produces this test point in the middle of the yellow trough.
+
+975
+00:58:01,100 --> 00:58:08,100
+Is that the same as the yellow trough's line charge and its influence on the potential in the center of my arm?
+
+976
+00:58:08,100 --> 00:58:11,100
+Are those two interactions the same?
+
+977
+00:58:11,100 --> 00:58:14,100
+Right line charge really big.
+
+978
+00:58:14,100 --> 00:58:17,100
+Test point potential on this little trough.
+
+979
+00:58:17,100 --> 00:58:23,100
+Little trough and its influence on the test point potential in my much larger right arm.
+
+980
+00:58:23,100 --> 00:58:25,100
+Are those two interactions going to be identical?
+
+981
+00:58:26,100 --> 00:58:30,100
+No.
+
+982
+00:58:30,100 --> 00:58:36,100
+But the Green's function has a symmetry but the discretization doesn't seem to capture that.
+
+983
+00:58:36,100 --> 00:58:40,100
+So there's something funny about this collocation method.
+
+984
+00:58:40,100 --> 00:58:47,100
+What's going to be true about the matrix that you generate to calculate these weights then for collocation using test point potentials?
+
+985
+00:58:47,100 --> 00:58:50,100
+What property will it not have?
+
+986
+00:58:50,100 --> 00:58:53,100
+It will not be, it ends with an S.
+
+987
+00:58:53,100 --> 00:58:55,100
+It ends with metric.
+
+988
+00:58:56,100 --> 00:58:59,100
+It's not going to be symmetric.
+
+989
+00:58:59,100 --> 00:59:03,100
+But the Green's function is symmetric so that seems sort of odd.
+
+990
+00:59:03,100 --> 00:59:14,100
+But if we use, if we instead, instead of using the, instead we do a Galerkin method.
+
+991
+00:59:14,100 --> 00:59:24,100
+When we say now we're going to take the potential due to line charge and test it by taking its integral over the other line.
+
+992
+00:59:24,100 --> 00:59:31,100
+So now I'm taking the potential due to my right arm and integrating it over the yellow trough.
+
+993
+00:59:31,100 --> 00:59:36,100
+And taking the potential due to the yellow trough and integrating it over my right arm.
+
+994
+00:59:36,100 --> 00:59:39,100
+Both interactions are going to be identical.
+
+995
+00:59:39,100 --> 00:59:42,100
+You can just see it from the integration.
+
+996
+00:59:42,100 --> 00:59:47,100
+So the Galerkin method for these problems because the kernel or the Green's function is symmetric.
+
+997
+00:59:47,100 --> 00:59:50,100
+The Galerkin method has preserved that symmetry.
+
+998
+00:59:50,100 --> 00:59:52,100
+So there's something very appealing about that.
+
+999
+00:59:52,100 --> 00:59:53,100
+In fact it's.
+
+1000
+00:59:53,100 --> 00:59:55,100
+The way in which you make energy arguments.
+
+1001
+00:59:55,100 --> 01:00:01,100
+Just as you do for Van-Nolen methods when you have what we refer to as self adjoint operators.
+
+1002
+01:00:01,100 --> 01:00:03,100
+Okay so.
+
+1003
+01:00:03,100 --> 01:00:09,100
+The, nevertheless so it's, you know, it seems clear that it's better to use Galerkin methods.
+
+1004
+01:00:09,100 --> 01:00:12,100
+And so we should all use Galerkin methods.
+
+1005
+01:00:12,100 --> 01:00:17,100
+Except of course that means you have to do this extra integration which, you know, when you're writing the code you say.
+
+1006
+01:00:17,100 --> 01:00:22,100
+Oh yeah I'll do a single point in the center of the line as kind of a simple quadrature scheme.
+
+1007
+01:00:22,100 --> 01:00:24,100
+And I'll get around to doing the rest of them later.
+
+1008
+01:00:24,100 --> 01:00:27,100
+And, you know, later never comes.
+
+1009
+01:00:27,100 --> 01:00:30,100
+So people use collocation all the time but Galerkin's better.
+
+1010
+01:00:30,100 --> 01:00:31,100
+Yep.
+
+1011
+01:00:31,100 --> 01:00:34,100
+Can you repeat the difference between collocation and Galerkin please?
+
+1012
+01:00:34,100 --> 01:00:41,100
+So collocation was the one where I have the line charge and I calculate the weights on the line charge.
+
+1013
+01:00:41,100 --> 01:00:45,100
+By making sure it matches test points in the center of the lines.
+
+1014
+01:00:45,100 --> 01:00:47,100
+That was collocation.
+
+1015
+01:00:47,100 --> 01:00:50,100
+And Galerkin was I calculate the line charge weights based on making sure that it matches the test points.
+
+1016
+01:00:50,100 --> 01:00:51,100
+Okay.
+
+1017
+01:00:51,100 --> 01:00:55,100
+Based on making sure that it is potential, correct potential averaged over the line.
+
+1018
+01:00:55,100 --> 01:00:58,100
+Alright.
+
+1019
+01:00:58,100 --> 01:01:02,100
+So we have now a whole collection of different things.
+
+1020
+01:01:02,100 --> 01:01:07,100
+Regardless of which one you use.
+
+1021
+01:01:07,100 --> 01:01:09,100
+Alright.
+
+1022
+01:01:09,100 --> 01:01:10,100
+So what do the residuals look like?
+
+1023
+01:01:10,100 --> 01:01:12,100
+So here's a quick picture if you want to.
+
+1024
+01:01:12,100 --> 01:01:16,100
+So here's an answer to your question that's a better thing which is a picture.
+
+1025
+01:01:16,100 --> 01:01:17,100
+Alright.
+
+1026
+01:01:17,100 --> 01:01:19,100
+So for Galerkin.
+
+1027
+01:01:19,100 --> 01:01:21,100
+They.
+
+1028
+01:01:21,100 --> 01:01:25,100
+The test functions and the basis functions are.
+
+1029
+01:01:25,100 --> 01:01:28,100
+The basis functions of collocation and Galerkin are the same.
+
+1030
+01:01:28,100 --> 01:01:29,100
+They're representing the source.
+
+1031
+01:01:29,100 --> 01:01:33,100
+But in collocation the test functions are like impulses.
+
+1032
+01:01:33,100 --> 01:01:37,100
+And in Galerkin they're averages over line charges.
+
+1033
+01:01:37,100 --> 01:01:43,100
+So is that maybe a better picture for what the difference between the two is?
+
+1034
+01:01:43,100 --> 01:01:46,100
+But regardless of which one.
+
+1035
+01:01:46,100 --> 01:01:48,100
+Well now you can also think about what the errors look like.
+
+1036
+01:01:48,100 --> 01:01:51,100
+So in the residual for.
+
+1037
+01:01:51,100 --> 01:01:54,100
+The collocation methods the residuals go to zero.
+
+1038
+01:01:54,100 --> 01:01:56,100
+At the test points for a collocation method.
+
+1039
+01:01:56,100 --> 01:02:01,100
+So you have this nice thing where you get exactly the right.
+
+1040
+01:02:01,100 --> 01:02:03,100
+Boundary condition at.
+
+1041
+01:02:03,100 --> 01:02:04,100
+A set of test points.
+
+1042
+01:02:04,100 --> 01:02:08,100
+That doesn't mean you get the right answer anywhere except those test points.
+
+1043
+01:02:08,100 --> 01:02:10,100
+But in the Galerkin method.
+
+1044
+01:02:10,100 --> 01:02:12,100
+Your residual.
+
+1045
+01:02:12,100 --> 01:02:14,100
+Your errors in the boundary.
+
+1046
+01:02:14,100 --> 01:02:18,100
+Are sort of averaged over each of these lines.
+
+1047
+01:02:18,100 --> 01:02:20,100
+So one is it's exactly right at certain points.
+
+1048
+01:02:20,100 --> 01:02:22,100
+The other one is.
+
+1049
+01:02:22,100 --> 01:02:24,100
+Never right.
+
+1050
+01:02:24,100 --> 01:02:28,100
+So.
+
+1051
+01:02:28,100 --> 01:02:30,100
+Does that mean.
+
+1052
+01:02:30,100 --> 01:02:32,100
+What does that mean for the potential outside?
+
+1053
+01:02:32,100 --> 01:02:33,100
+Remember.
+
+1054
+01:02:33,100 --> 01:02:36,100
+Both of these things produce solutions.
+
+1055
+01:02:36,100 --> 01:02:39,100
+That satisfy Laplace's equation everywhere outside.
+
+1056
+01:02:39,100 --> 01:02:41,100
+Doesn't matter what the weights are.
+
+1057
+01:02:41,100 --> 01:02:43,100
+You still satisfy Laplace's equation.
+
+1058
+01:02:43,100 --> 01:02:47,100
+So these methods are just telling you about errors at the boundary.
+
+1059
+01:02:47,100 --> 01:02:49,100
+It's how poorly you satisfy the boundary condition.
+
+1060
+01:02:49,100 --> 01:02:53,100
+And then that gives you an idea about how big your errors are.
+
+1061
+01:02:53,100 --> 01:02:55,100
+So.
+
+1062
+01:02:55,100 --> 01:02:57,100
+The.
+
+1063
+01:02:57,100 --> 01:02:59,100
+So I don't want to start that.
+
+1064
+01:02:59,100 --> 01:03:00,100
+I want to.
+
+1065
+01:03:00,100 --> 01:03:02,100
+I want to say one more point about this because it's more important than that.
+
+1066
+01:03:02,100 --> 01:03:05,100
+I'll say a little bit about 3D problems.
+
+1067
+01:03:05,100 --> 01:03:06,100
+So I'll come back to this virus.
+
+1068
+01:03:06,100 --> 01:03:09,100
+We'll make sure I've made this point.
+
+1069
+01:03:09,100 --> 01:03:10,100
+These matrices.
+
+1070
+01:03:10,100 --> 01:03:13,100
+What's true about these matrices?
+
+1071
+01:03:13,100 --> 01:03:17,100
+Does every line charge affect every test point?
+
+1072
+01:03:19,100 --> 01:03:37,100
+So if I write down this a matrix that goes from from alphas one to alpha n and gives me test point potentials.
+
+1073
+01:03:37,100 --> 01:03:39,100
+Is this what's true about this matrix?
+
+1074
+01:03:39,100 --> 01:03:43,100
+Does every line charge contribute contribute a template or test point?
+
+1075
+01:03:43,100 --> 01:03:45,100
+So what's true about this matrix?
+
+1076
+01:03:45,100 --> 01:03:46,100
+It's not the sparks.
+
+1077
+01:03:46,100 --> 01:03:47,100
+It's not sparks.
+
+1078
+01:03:47,100 --> 01:03:48,100
+It's.
+
+1079
+01:03:48,100 --> 01:03:50,100
+More than that.
+
+1080
+01:03:50,100 --> 01:03:52,100
+Sparks is dense, but galerkin method.
+
+1081
+01:03:52,100 --> 01:03:55,100
+What about galerkin?
+
+1082
+01:03:55,100 --> 01:03:56,100
+Is a better.
+
+1083
+01:03:56,100 --> 01:04:04,100
+Does it generate a sparse matrix?
+
+1084
+01:04:04,100 --> 01:04:13,100
+Does every line charge contribute to the average of the potential every, every, every test line?
+
+1085
+01:04:13,100 --> 01:04:14,100
+It does.
+
+1086
+01:04:14,100 --> 01:04:17,100
+So what does that mean about the galerkin matrix?
+
+1087
+01:04:17,100 --> 01:04:18,100
+It's not sparse.
+
+1088
+01:04:18,100 --> 01:04:19,100
+Sparse or dense?
+
+1089
+01:04:19,100 --> 01:04:20,100
+Sparse.
+
+1090
+01:04:20,100 --> 01:04:21,100
+Dense.
+
+1091
+01:04:21,100 --> 01:04:22,100
+Dense.
+
+1092
+01:04:22,100 --> 01:04:32,220
+So how many of you remember offhand if I'm doing a 2D Laplace equation with a finite
+
+1093
+01:04:32,220 --> 01:04:38,460
+difference matrix with n unknowns, n points in a grid?
+
+1094
+01:04:38,460 --> 01:04:41,340
+How does the, and I solve it with sparse gas elimination.
+
+1095
+01:04:41,340 --> 01:04:43,340
+Did you do this one?
+
+1096
+01:04:43,340 --> 01:04:46,840
+Do you know how long it takes to solve?
+
+1097
+01:04:46,840 --> 01:04:55,120
+So if I have n degrees of freedom in an integral equation method, what does it take to solve
+
+1098
+01:04:55,120 --> 01:04:56,120
+the system?
+
+1099
+01:04:56,120 --> 01:05:02,520
+And just do Gaussian elimination, it's going to take n cubed operations.
+
+1100
+01:05:02,520 --> 01:05:07,840
+If the matrix is a typical sparse finite difference matrix in 2D, anybody know what it is for
+
+1101
+01:05:07,840 --> 01:05:08,840
+sparse matrix factorization?
+
+1102
+01:05:08,840 --> 01:05:09,840
+Yep.
+
+1103
+01:05:09,840 --> 01:05:10,840
+N.
+
+1104
+01:05:10,840 --> 01:05:11,840
+N.
+
+1105
+01:05:11,840 --> 01:05:12,840
+Not quite n.
+
+1106
+01:05:12,840 --> 01:05:14,660
+It's the needier to solve for its n.
+
+1107
+01:05:14,660 --> 01:05:16,660
+It's n to the 3 halves.
+
+1108
+01:05:16,660 --> 01:05:17,480
+Right?
+
+1109
+01:05:17,480 --> 01:05:20,780
+And there's a, there are a number of different ways of thinking about that, but usually you
+
+1110
+01:05:20,780 --> 01:05:21,780
+use iterative methods.
+
+1111
+01:05:21,780 --> 01:05:22,780
+Just did not agree.
+
+1112
+01:05:22,780 --> 01:05:23,780
+I lost two levels.
+
+1113
+01:05:23,780 --> 01:05:24,780
+You did not.
+
+1114
+01:05:24,780 --> 01:05:25,780
+All right.
+
+1115
+01:05:25,780 --> 01:05:30,320
+So then you could, so you have an order n-way of toying.
+
+1116
+01:05:30,320 --> 01:05:35,080
+So here's one thing that is interesting though about these dense matrices.
+
+1117
+01:05:35,080 --> 01:05:42,940
+What do you think happens to the condition number of those matrices as you refine the
+
+1118
+01:05:42,940 --> 01:05:43,940
+discretization?
+
+1119
+01:05:43,940 --> 01:05:44,940
+Versus what...
+
+1120
+01:05:44,940 --> 01:05:48,440
+So what happens to a finite difference matrix when you refine the discretization?
+
+1121
+01:05:48,440 --> 01:05:50,440
+If you make it finer and finer and finer?
+
+1122
+01:05:50,440 --> 01:05:52,440
+What happens to the condition number?
+
+1123
+01:05:53,440 --> 01:05:59,440
+How many iterations do you need to get, say, a conjugate gradient algorithm to convert before you do multigrid?
+
+1124
+01:06:01,940 --> 01:06:04,940
+It goes up and up and up, which is why you have to do multigrid.
+
+1125
+01:06:06,940 --> 01:06:08,940
+These matrices, we'll see.
+
+1126
+01:06:09,440 --> 01:06:11,440
+Their condition number remains bounded.
+
+1127
+01:06:11,440 --> 01:06:15,440
+It's an amazing thing. It means you can use a Newton solver.
+
+1128
+01:06:15,440 --> 01:06:17,440
+So we'll come to that.
+
+1129
+01:06:17,440 --> 01:06:19,440
+I want to at least point to a few of these things.
+
+1130
+01:06:19,440 --> 01:06:24,440
+So I want to say one or two things about 3D problems, and I just want to show you pictures.
+
+1131
+01:06:24,440 --> 01:06:31,440
+So one of the very early uses of these kind of surface integral equations
+
+1132
+01:06:31,440 --> 01:06:37,440
+were to assess wave loads on ship hulls and tension-link platforms.
+
+1133
+01:06:37,440 --> 01:06:41,440
+Actually, it used to go to Newman, who was in our Ocean Engineering Department,
+
+1134
+01:06:41,440 --> 01:06:45,440
+who retired just a few years ago, was like the world's expert on doing these things.
+
+1135
+01:06:47,440 --> 01:06:50,440
+So now you have a ship hull, and now you're going to take the surface,
+
+1136
+01:06:50,440 --> 01:06:52,440
+and you're going to represent it with something.
+
+1137
+01:06:53,440 --> 01:06:57,440
+If it's 2D and you have a curve, you can connect it up with straight lines.
+
+1138
+01:06:57,440 --> 01:07:00,440
+In 3D, you have to connect it up with panels,
+
+1139
+01:07:00,440 --> 01:07:04,440
+and if you try to keep all the points on the panels in the same plane,
+
+1140
+01:07:04,440 --> 01:07:09,440
+you get what are sometimes called, and this is because the panels don't actually connect up to each other,
+
+1141
+01:07:09,440 --> 01:07:11,440
+there is the term called leaky panels.
+
+1142
+01:07:11,440 --> 01:07:14,440
+Because they used to use them for ship hulls.
+
+1143
+01:07:14,440 --> 01:07:17,440
+But they would have gaps between them.
+
+1144
+01:07:17,440 --> 01:07:20,440
+But if your surface is like a cube, you can just discretize the surface.
+
+1145
+01:07:20,440 --> 01:07:23,440
+So we can do a 3D problem, even though we're talking about mostly 2D.
+
+1146
+01:07:23,440 --> 01:07:26,440
+Then instead of lines, we have panels.
+
+1147
+01:07:26,440 --> 01:07:30,440
+We calculate the, we have the representation as point charges on panels.
+
+1148
+01:07:30,440 --> 01:07:34,440
+We calculate the potential by integrating over those panels.
+
+1149
+01:07:34,440 --> 01:07:39,440
+And we set up a system of equations where we put co-location points on the center,
+
+1150
+01:07:39,440 --> 01:07:41,440
+which are our panels.
+
+1151
+01:07:41,440 --> 01:07:44,440
+We have as our unknowns the charge density on each of the panels.
+
+1152
+01:07:44,440 --> 01:07:48,440
+And we solve for the charge density, and now we have a surface charge representation,
+
+1153
+01:07:48,440 --> 01:07:51,440
+which we can use to calculate the potential anywhere we want it.
+
+1154
+01:07:51,440 --> 01:07:59,440
+And one of the difficulties is that you have to calculate this integral over a panel of this 1 over r function,
+
+1155
+01:07:59,440 --> 01:08:01,440
+and evaluate it at test points.
+
+1156
+01:08:01,440 --> 01:08:04,440
+As long as the panel is here and the test point is here, that works fine.
+
+1157
+01:08:04,440 --> 01:08:09,440
+But if they get too close to each other, like if you want to calculate the potential on a particular panel,
+
+1158
+01:08:09,440 --> 01:08:17,440
+if they're close, if you're close by, you can sort of break it up into four panels and do it that way,
+
+1159
+01:08:17,440 --> 01:08:21,440
+and treat it as point charges, so you can do approximations.
+
+1160
+01:08:21,440 --> 01:08:27,440
+But the problem is, what happens when you have a panel and you have a point on the panel?
+
+1161
+01:08:27,440 --> 01:08:29,440
+Now here's the question.
+
+1162
+01:08:29,440 --> 01:08:35,440
+Is the integral over a panel of the source of the charge on the panel,
+
+1163
+01:08:35,440 --> 01:08:38,440
+does it produce a potential on the panel that's infinite?
+
+1164
+01:08:38,440 --> 01:08:43,440
+As I approach it, so here I am at my test point, and I'm coming close towards the panel,
+
+1165
+01:08:43,440 --> 01:08:45,440
+and I land on the panel.
+
+1166
+01:08:45,440 --> 01:08:48,440
+Now if I'm a bug, do I get zapped?
+
+1167
+01:08:48,440 --> 01:08:51,440
+Does it go to infinity?
+
+1168
+01:08:51,440 --> 01:08:53,440
+What do you think?
+
+1169
+01:08:53,440 --> 01:08:58,440
+Now it doesn't go to infinity, and a quick way to see that,
+
+1170
+01:08:58,440 --> 01:09:02,440
+you can just carve a disk out of the center of the panel and say,
+
+1171
+01:09:02,440 --> 01:09:05,440
+okay, well, I'll carve a disk out, and now I have a panel.
+
+1172
+01:09:05,440 --> 01:09:07,440
+Can I get a piece of paper I can borrow?
+
+1173
+01:09:07,440 --> 01:09:08,440
+No.
+
+1174
+01:09:08,440 --> 01:09:13,440
+So we're going to do this.
+
+1175
+01:09:13,440 --> 01:09:17,440
+I'm going to come back and put that in the corner.
+
+1176
+01:09:17,440 --> 01:09:18,440
+So we're going to do this.
+
+1177
+01:09:18,440 --> 01:09:22,440
+We're going to say, we're going to carve a circle out of the center of the panel,
+
+1178
+01:09:22,440 --> 01:09:25,440
+and we're going to say, so here's my panel now with a hole cut in it,
+
+1179
+01:09:25,440 --> 01:09:27,440
+and my test point is here.
+
+1180
+01:09:27,440 --> 01:09:32,440
+So the charge on the rest of the panel, it's not going to produce an infinity on this point,
+
+1181
+01:09:32,440 --> 01:09:34,440
+because it's far enough away.
+
+1182
+01:09:34,440 --> 01:09:37,440
+The problem is, what does this thing do?
+
+1183
+01:09:37,440 --> 01:09:45,440
+Well, but this thing is a disk, and now you can use a coordinate transformation
+
+1184
+01:09:45,440 --> 01:09:51,440
+and actually evaluate that integral analytically, and you discover it's finite.
+
+1185
+01:09:51,440 --> 01:09:54,440
+So for sure, this is kind of an interesting thing.
+
+1186
+01:09:54,440 --> 01:09:57,440
+You start out with point charges, which generate infinity,
+
+1187
+01:09:57,440 --> 01:10:00,440
+and now you have this thing where the potential, as you go towards the panel,
+
+1188
+01:10:00,440 --> 01:10:05,440
+it goes to some finite value and then goes back down again.
+
+1189
+01:10:05,440 --> 01:10:06,440
+All right.
+
+1190
+01:10:06,440 --> 01:10:08,440
+So you have this finite as you get to the panel.
+
+1191
+01:10:08,440 --> 01:10:09,440
+It also has to jump.
+
+1192
+01:10:09,440 --> 01:10:10,440
+Why is that?
+
+1193
+01:10:10,440 --> 01:10:12,440
+So I have a panel with, say, positive charge on it.
+
+1194
+01:10:12,440 --> 01:10:15,440
+I know the potential has to go up and then back down again.
+
+1195
+01:10:15,440 --> 01:10:21,440
+Why does the sign of the slope of the potential have to change signs?
+
+1196
+01:10:21,440 --> 01:10:23,440
+If I'm over here, which way is this field point?
+
+1197
+01:10:23,440 --> 01:10:26,440
+Which way is the field point on the other side?
+
+1198
+01:10:26,440 --> 01:10:28,440
+In the opposite direction.
+
+1199
+01:10:28,440 --> 01:10:32,440
+So you know it has to look something like this, because it's got to change slopes.
+
+1200
+01:10:32,440 --> 01:10:35,440
+So what if we differentiate that potential?
+
+1201
+01:10:35,440 --> 01:10:37,440
+Right at this panel?
+
+1202
+01:10:37,440 --> 01:10:39,440
+Well, then things are going to get a little weird.
+
+1203
+01:10:39,440 --> 01:10:42,440
+And we'll come back to a little bit about that later.
+
+1204
+01:10:42,440 --> 01:10:43,440
+All right.
+
+1205
+01:10:43,440 --> 01:10:47,440
+So how does one calculate this term?
+
+1206
+01:10:47,440 --> 01:10:49,440
+There are a whole lot of different methods,
+
+1207
+01:10:49,440 --> 01:10:53,440
+and we're going to talk a little bit about that next time.
+
+1208
+01:10:53,440 --> 01:10:58,440
+For this course, we have a code that calculates these integrals analytically.
+
+1209
+01:10:58,440 --> 01:11:02,440
+It's not that interesting a thing to do it analytically.
+
+1210
+01:11:02,440 --> 01:11:03,440
+It used to be.
+
+1211
+01:11:03,440 --> 01:11:04,440
+And as I said, it's not that interesting.
+
+1212
+01:11:04,440 --> 01:11:09,440
+And as I said, a fellow who recently retired would hate me if I said it's not that important,
+
+1213
+01:11:09,440 --> 01:11:12,440
+because he was like an expert in calculating these integrals
+
+1214
+01:11:12,440 --> 01:11:16,440
+using some very fancy theory in geometry through general panels.
+
+1215
+01:11:16,440 --> 01:11:20,440
+But we're going to have an analytic way of doing it,
+
+1216
+01:11:20,440 --> 01:11:22,440
+but we're also going to talk a little about numerical ways of doing it,
+
+1217
+01:11:22,440 --> 01:11:25,440
+because the ones you can do analytically are for flat panels,
+
+1218
+01:11:25,440 --> 01:11:29,440
+and the world is not, in fact, flat.
+
+1219
+01:11:29,440 --> 01:11:32,440
+Something we've known for actually quite a number of years.
+
+1220
+01:11:32,440 --> 01:11:33,440
+All right.
+
+1221
+01:11:33,440 --> 01:11:35,440
+So we wanted to summarize it.
+
+1222
+01:11:35,440 --> 01:11:37,440
+There's a lot of things.
+
+1223
+01:11:37,440 --> 01:11:39,440
+We went from starting with integral formulation,
+
+1224
+01:11:39,440 --> 01:11:41,440
+the exterior problem,
+
+1225
+01:11:41,440 --> 01:11:43,440
+starting with point sources,
+
+1226
+01:11:43,440 --> 01:11:46,440
+and noticing a really important set of things.
+
+1227
+01:11:46,440 --> 01:11:49,440
+One of them is dense matrices.
+
+1228
+01:11:49,440 --> 01:11:53,440
+So dense matrices, n cubed to factor,
+
+1229
+01:11:53,440 --> 01:11:55,440
+why would you ever use these methods?
+
+1230
+01:11:55,440 --> 01:11:59,440
+And from 1950 to 1990,
+
+1231
+01:11:59,440 --> 01:12:02,440
+that was the reason everybody used Pinot Noir methods,
+
+1232
+01:12:02,440 --> 01:12:05,440
+and then somewhere in the 90s,
+
+1233
+01:12:05,440 --> 01:12:06,440
+past methods were developed,
+
+1234
+01:12:06,440 --> 01:12:08,440
+and we'll talk about them, but not till the end of the term.
+
+1235
+01:12:08,440 --> 01:12:10,440
+So I'm going to ask you to suspend disbelief and say,
+
+1236
+01:12:10,440 --> 01:12:13,440
+well, okay, we're going to do integral equation methods,
+
+1237
+01:12:13,440 --> 01:12:16,440
+and then you'll tell us that we can actually solve interesting problems with them at the end.
+
+1238
+01:12:16,440 --> 01:12:21,440
+We'll find some order-ending ways of solving certain kinds of problems with these methods.
+
+1239
+01:12:21,440 --> 01:12:25,440
+And we talked about these standard collocation and Galerkin methods,
+
+1240
+01:12:25,440 --> 01:12:28,440
+and we talked a little bit about these problems in 3D.
+
+1241
+01:12:28,440 --> 01:12:30,440
+So next time we're going to talk about calculating these integrals,
+
+1242
+01:12:30,440 --> 01:12:32,440
+and we're going to come back and look at these things,
+
+1243
+01:12:32,440 --> 01:12:34,440
+these integral equations,
+
+1244
+01:12:34,440 --> 01:12:38,440
+and believe it or not, we're going to go all the way from starting with point sources
+
+1245
+01:12:38,440 --> 01:12:40,440
+to smearing things onto lines and panels,
+
+1246
+01:12:40,440 --> 01:12:43,440
+all the way back to turning things back into points.
+
+1247
+01:12:43,440 --> 01:12:45,440
+And that'll happen at the end of the next lecture.
+
+1248
+01:12:45,440 --> 01:12:51,440
+It's really good to take something you're learning and keep returning to it.
+
+1249
+01:12:51,440 --> 01:12:55,440
+But in fact, there are some really important ideas in how you solve integral equations
+
+1250
+01:12:55,440 --> 01:12:57,440
+that are called Nistre methods,
+
+1251
+01:12:57,440 --> 01:13:02,440
+which sort of go back and forth with these ideas of points and panels and lines.
+
+1252
+01:13:02,440 --> 01:13:07,440
+And the reason we're going to do that next time is because when you face a problem,
+
+1253
+01:13:07,440 --> 01:13:10,440
+it's one of the things you're going to have to decide about.
+
+1254
+01:13:10,440 --> 01:13:15,440
+It's one of the degrees of freedom that's not sorted out for you in the literature.
+
+1255
+01:13:15,440 --> 01:13:16,440
+You're going to have to pick.
+
+1256
+01:13:16,440 --> 01:13:21,440
+Is this a formulation I can use, Nistre or point methods, or line methods, or panel methods?
+
+1257
+01:13:21,440 --> 01:13:23,440
+And is Galerkin important or not?
+
+1258
+01:13:23,440 --> 01:13:27,440
+Those are some of the things that if you develop a method for a particular problem you're trying to solve,
+
+1259
+01:13:27,440 --> 01:13:32,440
+you'll have to think through, and you'll have to decide which of these things will work for you and which won't.
+
+1260
+01:13:32,440 --> 01:13:34,440
+And some of them will and some of them won't.
+
+1261
+01:13:34,440 --> 01:13:37,440
+So next time we're actually going to go back over some of these things,
+
+1262
+01:13:37,440 --> 01:13:39,440
+but first we're going to talk about posture.
+
+1263
+01:13:39,440 --> 01:13:43,440
+We're going to talk about numerical methods for computing integral.
+
+1264
+01:13:43,440 --> 01:13:45,440
+And then just so I'm set up for that,
+
+1265
+01:13:45,440 --> 01:13:48,440
+and since there are more of you here now than there were before,
+
+1266
+01:13:48,440 --> 01:13:50,440
+we'll also try to do the poll online.
+
+1267
+01:13:50,440 --> 01:13:53,440
+For doing the problem sets, which will start next week,
+
+1268
+01:13:53,440 --> 01:13:55,440
+I'll have evening sessions for that.
+
+1269
+01:13:55,440 --> 01:13:59,440
+If you have constraints about both Monday and Wednesday evenings
+
+1270
+01:13:59,440 --> 01:14:01,440
+that you couldn't make either of those days,
+
+1271
+01:14:01,440 --> 01:14:05,440
+let me know, and if there are only one or two of you,
+
+1272
+01:14:05,440 --> 01:14:08,440
+I'll just arrange something, but if a lot of you do, then we'll switch days.
+
+1273
+01:14:08,440 --> 01:14:13,440
+Or if any of you want to, I'll offer a preference now about which days would be good.
+
+1274
+01:14:13,440 --> 01:14:17,440
+Anybody want to pick something other than Monday and Wednesday?
+
+1275
+01:14:17,440 --> 01:14:22,440
+Anybody have a different day? Tuesday or Thursday?
+
+1276
+01:14:22,440 --> 01:14:28,440
+Okay, so we'll probably start Monday and Wednesday, or maybe Wednesday of next week.
+
+1277
+01:14:28,440 --> 01:14:31,440
+We'll cover enough this week to do all of them.
+
+1278
+01:14:31,440 --> 01:14:33,440
+We'll go through the first of the problems.
+
+1279
+01:14:33,440 --> 01:14:35,440
+And we'll just have the problem set sessions,
+
+1280
+01:14:35,440 --> 01:14:37,440
+and I'm going to, again, encourage you to come,
+
+1281
+01:14:37,440 --> 01:14:42,440
+because these problem sets, this is not about evaluation.
+
+1282
+01:14:42,440 --> 01:14:45,440
+This comes very late in the term.
+
+1283
+01:14:45,440 --> 01:14:48,440
+It's much better that you get some experience trying to use these methods
+
+1284
+01:14:48,440 --> 01:14:50,440
+so you can decide if they're going to work for you for certain problems,
+
+1285
+01:14:50,440 --> 01:14:53,440
+because they're fantastic methods for certain kinds of problems,
+
+1286
+01:14:53,440 --> 01:14:55,440
+and useless in other ones.
+
+1287
+01:14:55,440 --> 01:14:58,440
+So having you get through the problem sets and figure out how to use them,
+
+1288
+01:14:58,440 --> 01:15:00,440
+it's a toolkit you keep around.
+
+1289
+01:15:00,440 --> 01:15:02,440
+So come to the problem sets.
+
+1290
+01:15:02,440 --> 01:15:04,440
+We expect everybody to get through them.
+
+1291
+01:15:04,440 --> 01:15:06,440
+They come so late in the term,
+
+1292
+01:15:06,440 --> 01:15:10,440
+we can't ask you to really have a mastery of all the aspects of it.
+
+1293
+01:15:10,440 --> 01:15:12,440
+So it's much better that you pick up the big picture
+
+1294
+01:15:12,440 --> 01:15:15,440
+and you ask questions for the things we've left out in the lecture
+
+1295
+01:15:15,440 --> 01:15:17,440
+so we can't possibly cover all the details.
+
+1296
+01:15:17,440 --> 01:15:20,440
+But we do want you to be able to actually do some computations with these methods
+
+1297
+01:15:20,440 --> 01:15:22,440
+so you get a sense of how they work.
+
+1298
+01:15:22,440 --> 01:15:29,440
+So, again, in the evenings, anybody has conflicts or issues about evening times,
+
+1299
+01:15:29,440 --> 01:15:31,440
+let me know and we'll find some other ones.
+
+1300
+01:15:31,440 --> 01:15:34,440
+But then we won't start that until probably Wednesday of next week,
+
+1301
+01:15:34,440 --> 01:15:37,440
+but I'll get the problem set up so you can see what it is this week,
+
+1302
+01:15:37,440 --> 01:15:39,440
+and we'll do an eStream next time.
+
+1303
+01:15:39,440 --> 01:15:40,440
+All right.
+
+1304
+01:15:40,440 --> 01:15:45,440
+Hopefully the video came out, the fun didn't die, and I'll post that too.
+
+1305
+01:15:45,440 --> 01:15:47,440
+All right. Thanks.
+
+1306
+01:15:56,440 --> 01:15:57,440
+Thanks very much for staying.
+
+1307
+01:15:57,440 --> 01:15:58,440
+You don't have to say for all of them.
+
+1308
+01:15:59,440 --> 01:16:01,440
+No, it's still there.
+

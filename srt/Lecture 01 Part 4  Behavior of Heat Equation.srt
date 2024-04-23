@@ -1,0 +1,412 @@
+1
+00:00:00,000 --> 00:00:07,760
+So we're going to look at these equations individually, but before that, let's take MATLAB
+
+2
+00:00:07,760 --> 00:00:23,720
+and look at the evolution, the behavior of this equation as we draw it.
+
+3
+00:00:25,220 --> 00:00:28,540
+So do you see the fonts clearly enough?
+
+4
+00:00:28,540 --> 00:00:33,220
+Do you see what I'm typing clearly enough?
+
+5
+00:00:33,220 --> 00:00:34,380
+Okay.
+
+6
+00:00:34,380 --> 00:00:39,640
+So first of all, I need two parameters, u and kappa.
+
+7
+00:00:39,640 --> 00:00:45,560
+So this is to help you understand the behavior of this equation when the right-hand side
+
+8
+00:00:45,560 --> 00:00:48,840
+f is equal to zero.
+
+9
+00:00:48,840 --> 00:00:55,580
+So let's look at our first case when u is equal to zero and kappa, let's say, is equal
+
+10
+00:00:55,580 --> 00:00:56,580
+to one.
+
+11
+00:00:56,580 --> 00:00:57,580
+Okay.
+
+12
+00:00:57,580 --> 00:00:58,500
+So let's look at it.
+
+13
+00:00:58,500 --> 00:01:01,400
+Let's look at this, the behavior of this equation.
+
+14
+00:01:01,400 --> 00:01:07,020
+What I'm going to do is I'm going to ask one of you to come over here and draw a particular
+
+15
+00:01:07,020 --> 00:01:10,180
+initial condition on the screen.
+
+16
+00:01:10,180 --> 00:01:15,360
+And this is going to demonstrate how the solution is going to evolve as a function of time.
+
+17
+00:01:15,360 --> 00:01:18,000
+So initial condition is t equal to zero.
+
+18
+00:01:18,000 --> 00:01:23,880
+And after you draw the solution, you just draw it from the left to the right or from
+
+19
+00:01:23,880 --> 00:01:25,200
+the right to the left.
+
+20
+00:01:25,200 --> 00:01:27,240
+And this is periodic.
+
+21
+00:01:27,240 --> 00:01:28,340
+So the domain is periodic.
+
+22
+00:01:28,340 --> 00:01:33,020
+Whatever is here should also be here.
+
+23
+00:01:33,020 --> 00:01:37,280
+And you should see how the solution evolves as time increases.
+
+24
+00:01:37,280 --> 00:01:43,580
+So can I have somebody, brave person, to come over here to draw an initial condition?
+
+25
+00:01:43,580 --> 00:01:44,580
+Please.
+
+26
+00:01:44,580 --> 00:01:45,580
+Thank you.
+
+27
+00:01:45,580 --> 00:01:46,580
+What's your name again?
+
+28
+00:01:46,580 --> 00:01:47,580
+Happy.
+
+29
+00:01:47,580 --> 00:01:48,580
+Happy.
+
+30
+00:01:48,580 --> 00:01:49,580
+Okay.
+
+31
+00:01:49,580 --> 00:01:50,580
+Thank you.
+
+32
+00:01:50,580 --> 00:01:51,580
+Thank you.
+
+33
+00:01:51,580 --> 00:01:52,580
+Thank you.
+
+34
+00:01:52,580 --> 00:01:53,580
+Thank you.
+
+35
+00:01:53,580 --> 00:01:54,580
+Thank you.
+
+36
+00:01:54,580 --> 00:01:55,580
+Thank you.
+
+37
+00:01:55,580 --> 00:01:56,580
+Thank you.
+
+38
+00:01:56,580 --> 00:01:57,580
+Thank you.
+
+39
+00:01:57,580 --> 00:01:58,100
+Thank you.
+
+40
+00:01:58,340 --> 00:01:59,340
+Thank you.
+
+41
+00:01:59,340 --> 00:02:00,340
+Thank you.
+
+42
+00:02:00,340 --> 00:02:01,340
+Thank you.
+
+43
+00:02:01,340 --> 00:02:02,340
+Thank you, Happy.
+
+44
+00:02:02,340 --> 00:02:04,340
+And the solution you draw, what happens?
+
+45
+00:02:04,340 --> 00:02:09,100
+Can somebody describe to me what happens after Happy draws the initial condition?
+
+46
+00:02:09,100 --> 00:02:11,340
+It's smooth out.
+
+47
+00:02:11,340 --> 00:02:15,340
+It's smoothies out very quickly.
+
+48
+00:02:15,340 --> 00:02:16,340
+Right.
+
+49
+00:02:16,340 --> 00:02:18,580
+So the solution, Happy went, Happy was drawing the solution.
+
+50
+00:02:18,580 --> 00:02:25,020
+Some people was smiling, laughing because he was drawing a very jaggy, very non-smooth
+
+51
+00:02:25,020 --> 00:02:26,020
+solution.
+
+52
+00:02:26,020 --> 00:02:27,460
+And as soon as he pulls the hand, you see the solution is going to be smooth.
+
+53
+00:02:27,460 --> 00:02:27,720
+And you can see that the solution is going to be smooth.
+
+54
+00:02:27,720 --> 00:02:27,820
+Right.
+
+55
+00:02:27,820 --> 00:02:34,820
+So the hand, as time starts to increase, the solution becomes smooth very, very fast.
+
+56
+00:02:34,820 --> 00:02:35,820
+Right.
+
+57
+00:02:35,820 --> 00:02:36,820
+Okay.
+
+58
+00:02:36,820 --> 00:02:37,820
+Very good.
+
+59
+00:02:37,820 --> 00:02:40,500
+So, Happy, I want to ask you a question.
+
+60
+00:02:40,500 --> 00:02:54,820
+If I don't want that to happen, if I want the solution to decrease, to smooth out in
+
+61
+00:02:54,820 --> 00:02:55,820
+a much slower rate.
+
+62
+00:02:55,820 --> 00:02:56,820
+Okay.
+
+63
+00:02:57,820 --> 00:02:59,820
+What should I change over here?
+
+64
+00:02:59,820 --> 00:03:02,820
+I think you should lower the value of kappa.
+
+65
+00:03:02,820 --> 00:03:04,820
+I should lower the value of kappa.
+
+66
+00:03:04,820 --> 00:03:05,820
+That's exactly right.
+
+67
+00:03:05,820 --> 00:03:11,820
+So because kappa is multiplied on this second order derivative term, and we are going to
+
+68
+00:03:11,820 --> 00:03:19,820
+see later, it controls how much diffusion or how fast, how strong this term is in smoothing
+
+69
+00:03:19,820 --> 00:03:21,820
+out the solution.
+
+70
+00:03:21,820 --> 00:03:22,820
+All right.
+
+71
+00:03:22,820 --> 00:03:25,820
+So let's change it dramatically.
+
+72
+00:03:25,820 --> 00:03:27,820
+By a factor of a thousand.
+
+73
+00:03:27,820 --> 00:03:34,820
+And can somebody else come and draw a different solution, initial condition, and see how the
+
+74
+00:03:34,820 --> 00:03:35,820
+effect is?
+
+75
+00:03:35,820 --> 00:03:36,820
+Please.
+
+76
+00:03:36,820 --> 00:03:41,820
+I almost got a cramps here.
+
+77
+00:03:41,820 --> 00:03:47,820
+So I'm going to start with this one.
+
+78
+00:03:47,820 --> 00:03:48,820
+Okay.
+
+79
+00:03:48,820 --> 00:03:49,820
+So this is the initial condition.
+
+80
+00:03:49,820 --> 00:03:50,820
+I'm going to start with this one.
+
+81
+00:03:50,820 --> 00:03:51,820
+So I'm going to start with this one.
+
+82
+00:03:51,820 --> 00:03:52,820
+I'm going to start with this one.
+
+83
+00:03:52,820 --> 00:03:53,820
+And then I'm going to start with this one.
+
+84
+00:03:53,820 --> 00:03:54,820
+So this is a 커 exploit in terms of the spiritual URL system.
+
+85
+00:03:54,820 --> 00:03:55,060
+So I'm going talk about Lao's
+
+86
+00:03:55,060 --> 00:03:56,060
+Star using .
+
+87
+00:03:56,060 --> 00:03:56,520
+Sorry.
+
+88
+00:03:56,520 --> 00:03:56,820
+This is a
+
+89
+00:03:56,820 --> 00:03:58,820
+sou Yummy egg the
+
+90
+00:03:58,820 --> 00:04:02,820
+oy
+
+91
+00:04:02,820 --> 00:04:03,820
+Or the
+
+92
+00:04:15,820 --> 00:04:16,820
+Great.
+
+93
+00:04:16,820 --> 00:04:18,820
+Yes.
+
+94
+00:04:18,820 --> 00:04:20,820
+I mean, I can open this today.
+
+95
+00:04:20,820 --> 00:04:21,820
+I can open it and I can have the following.
+
+96
+00:04:21,820 --> 00:04:22,820
+It says,
+
+97
+00:04:22,820 --> 00:04:23,820
+And that's what I'm doing.
+
+98
+00:04:23,820 --> 00:04:29,340
+and if you look very carefully you should see for example if you observe
+
+99
+00:04:29,340 --> 00:04:36,720
+here you should see the solution is smoothed out very very slowly right so
+
+100
+00:04:36,720 --> 00:04:42,240
+this here it is increasing slowly and here for example the peak is going to be
+
+101
+00:04:42,240 --> 00:04:47,400
+dropping very very slowly so that's the effect of copper when you make copper
+
+102
+00:04:47,400 --> 00:04:58,100
+smaller the strength of the diffusion gets a lot smaller so let's analyze that
+
+103
+00:04:58,100 --> 00:05:04,020
+using what's called a Fourier series
+

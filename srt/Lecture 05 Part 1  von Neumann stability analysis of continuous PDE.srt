@@ -1,0 +1,300 @@
+1
+00:00:00,000 --> 00:00:04,680
+How to analyze stability. So last time we touched a little bit on how to do
+
+2
+00:00:04,680 --> 00:00:12,400
+stability analysis looking at the norm of a matrix. Today we'll learn the
+
+3
+00:00:12,400 --> 00:00:18,280
+most powerful method of doing stability analysis for PDEs. It's called the
+
+4
+00:00:18,280 --> 00:00:25,120
+von Neumann stability analysis. I'm gonna start with a very simple example.
+
+5
+00:00:25,120 --> 00:00:30,320
+Still we are solving this equation partial u partial t equal to a kappa
+
+6
+00:00:30,320 --> 00:00:37,400
+times partial square u partial x square. And von Neumann stability analysis is
+
+7
+00:00:37,400 --> 00:00:44,160
+not just for any domain. It's for domains without a boundary. So what does that
+
+8
+00:00:44,160 --> 00:00:52,080
+mean? It means von Neumann stability analysis cannot analyze the effect of
+
+9
+00:00:52,080 --> 00:00:54,120
+complex boundary conditions.
+
+10
+00:00:54,120 --> 00:00:55,100
+It doesn't mean that the boundary conditions are not
+
+11
+00:00:55,100 --> 00:01:00,160
+stable. It can only analyze the stability of your discretization
+
+12
+00:01:00,160 --> 00:01:05,180
+itself. The discretization of the differential equation itself instead of
+
+13
+00:01:05,180 --> 00:01:11,340
+the boundary. So when you look at the differential equation and you want
+
+14
+00:01:11,340 --> 00:01:17,480
+to know if it's stable or not, you want to both make sure the discretization of
+
+15
+00:01:17,480 --> 00:01:22,020
+the PDE is stable and also the boundary condition is well-posed.
+
+16
+00:01:22,020 --> 00:01:24,900
+The discrete boundary condition is well posed. So for von Neumann stability analysis
+
+17
+00:01:24,900 --> 00:01:32,940
+analysis takes care of the first part. Alright, so remember in our first lecture
+
+18
+00:01:32,940 --> 00:01:41,880
+we did Fourier analysis, right? We split u into a summation of different
+
+19
+00:01:41,880 --> 00:01:51,360
+Fourier modes. k goes from minus infinity to infinity. u hat of k times e to the j
+
+20
+00:01:51,360 --> 00:02:06,300
+which is the square root of minus 1 times k times x. Alright, so this is, this
+
+21
+00:02:06,300 --> 00:02:19,560
+can be done for periodic domain of x goes from 0 to 2 pi, right? So domains
+
+22
+00:02:19,560 --> 00:02:20,980
+without a boundary means
+
+23
+00:02:20,980 --> 00:02:27,460
+the best way to think of a domain without boundary is periodic. So if you
+
+24
+00:02:27,460 --> 00:02:32,920
+go out of one end you come back to the other. In two dimensions you can do a
+
+25
+00:02:32,920 --> 00:02:37,160
+doubly periodic domain. It's like a computer screen. If you go out of the
+
+26
+00:02:37,160 --> 00:02:40,180
+right hand side you come back from the left hand side like playing a video game.
+
+27
+00:02:40,180 --> 00:02:47,920
+Mathematically that domain, periodic domain in two dimensions is officially
+
+28
+00:02:47,920 --> 00:02:49,480
+called a torus.
+
+29
+00:02:49,480 --> 00:02:50,980
+Why?
+
+30
+00:02:50,980 --> 00:02:57,440
+Because a one dimensional periodic domain is like a circle, right? So you go out
+
+31
+00:02:57,440 --> 00:03:10,460
+of one end, you come back from the other. A torus is like, it's like, it's
+
+32
+00:03:10,460 --> 00:03:15,680
+like, it's like that. So, so it's, there are two periodic dimensions one periodic
+
+33
+00:03:15,680 --> 00:03:20,780
+is along the ring and the other periodic is around it's a wrong, it's like a dot.
+
+34
+00:03:20,980 --> 00:03:22,900
+so you have a double periodic domain.
+
+35
+00:03:23,680 --> 00:03:24,740
+But in this case,
+
+36
+00:03:25,640 --> 00:03:30,080
+the Newman stability analysis applies both to 1D, 2D, and 3D.
+
+37
+00:03:30,620 --> 00:03:33,500
+So let's first look at this problem in 1D.
+
+38
+00:03:34,220 --> 00:03:38,320
+So when we express a function on the periodic domain
+
+39
+00:03:38,320 --> 00:03:40,340
+as a Fourier series,
+
+40
+00:03:41,460 --> 00:03:43,640
+that essentially decouples
+
+41
+00:03:43,640 --> 00:03:47,920
+the different Fourier modes for a linear PDE.
+
+42
+00:03:47,920 --> 00:03:52,660
+Because when I plug this into the equation,
+
+43
+00:03:53,240 --> 00:03:55,960
+we get the left-hand side becomes a summation of
+
+44
+00:03:55,960 --> 00:03:58,740
+d u hat k dt
+
+45
+00:03:58,740 --> 00:04:02,760
+e to the ijx.
+
+46
+00:04:03,260 --> 00:04:06,520
+So that is the left-hand side.
+
+47
+00:04:06,520 --> 00:04:08,980
+And the right-hand side becomes
+
+48
+00:04:08,980 --> 00:04:13,080
+kappa times summation of u hat k
+
+49
+00:04:13,080 --> 00:04:16,280
+when you take twice derivative.
+
+50
+00:04:17,920 --> 00:04:21,880
+The jk comes out of the exponential two times.
+
+51
+00:04:21,880 --> 00:04:25,240
+So jk squared is minus k squared
+
+52
+00:04:25,240 --> 00:04:28,780
+times e to the jkx.
+
+53
+00:04:31,700 --> 00:04:34,100
+Both are summation over k
+
+54
+00:04:34,100 --> 00:04:35,980
+goes from minus infinity to infinity.
+
+55
+00:04:36,500 --> 00:04:38,640
+So if you match the coefficients,
+
+56
+00:04:39,840 --> 00:04:44,760
+the coefficients on this side is this,
+
+57
+00:04:44,860 --> 00:04:46,140
+on that side is this.
+
+58
+00:04:46,880 --> 00:04:47,840
+What you get is,
+
+59
+00:04:47,920 --> 00:04:50,240
+d u hat k dt
+
+60
+00:04:50,240 --> 00:04:52,240
+equal to kappa
+
+61
+00:04:52,240 --> 00:04:55,380
+times minus k squared
+
+62
+00:04:55,380 --> 00:04:56,720
+times u hat of k.
+
+63
+00:04:57,380 --> 00:05:00,620
+So you know all the coefficients are decaying
+
+64
+00:05:00,620 --> 00:05:02,400
+except for the k equal to 0, 1.
+
+65
+00:05:03,500 --> 00:05:04,900
+And the bigger the k is,
+
+66
+00:05:05,620 --> 00:05:07,440
+the bigger the magnitude of k is,
+
+67
+00:05:07,540 --> 00:05:09,620
+the faster the coefficient decays.
+
+68
+00:05:11,020 --> 00:05:13,460
+That is voluminous stability analysis
+
+69
+00:05:13,460 --> 00:05:15,860
+for the continuous differential equation.
+
+70
+00:05:17,920 --> 00:05:20,860
+But we can apply exactly the same thing
+
+71
+00:05:20,860 --> 00:05:24,580
+for the discrete differential equation.
+
+72
+00:05:25,160 --> 00:05:25,440
+All right.
+
+73
+00:05:25,900 --> 00:05:29,280
+Let's look at after discretization.
+
+74
+00:05:30,180 --> 00:05:32,080
+So after discretization,
+
+75
+00:05:32,480 --> 00:05:33,860
+we have...
+

@@ -1,0 +1,492 @@
+1
+00:00:00,000 --> 00:00:10,440
+right so let me make let me make a title 100 iterations okay and let's compare
+
+2
+00:00:10,440 --> 00:00:26,040
+with with the original solution you exact I should be dividing by 255 also
+
+3
+00:00:26,040 --> 00:00:34,860
+okay so this is my original solution title exact solution so I have the exact
+
+4
+00:00:34,860 --> 00:00:44,460
+compared to a hundred relations what do we see darker right somehow the solution
+
+5
+00:00:44,460 --> 00:00:50,480
+is after hundred regions is darker than the exact solution so that hasn't
+
+6
+00:00:50,480 --> 00:00:55,920
+exactly converged yet and let's look at what is
+
+7
+00:00:55,920 --> 00:00:56,020
+the exact solution so let's look at what is the exact solution so let's look at
+
+8
+00:00:56,020 --> 00:00:56,620
+what is the exact solution so let's look at what is the exact solution so let's look at the
+
+9
+00:00:56,620 --> 00:00:59,720
+which we have been marking the approximateintelectual as a
+
+10
+00:01:00,120 --> 00:01:00,940
+comes from the differences so
+
+11
+00:01:03,040 --> 00:01:05,380
+okay so
+
+12
+00:01:07,200 --> 00:01:08,240
+after the 100 iterations
+
+13
+00:01:09,080 --> 00:01:11,400
+as long as really
+
+14
+00:01:11,660 --> 00:01:14,840
+I have an answer
+
+15
+00:01:14,960 --> 00:01:16,680
+so
+
+16
+00:01:16,840 --> 00:01:17,340
+that means
+
+17
+00:01:18,940 --> 00:01:19,720
+after the
+
+18
+00:01:20,900 --> 00:01:21,700
+centacking
+
+19
+00:01:23,060 --> 00:01:23,900
+it seems that
+
+20
+00:01:24,640 --> 00:01:25,220
+the
+
+21
+00:01:25,220 --> 00:01:31,860
+dimension must agree. So my uexec after expanded, I call it uexpanded.
+
+22
+00:01:31,860 --> 00:01:42,320
+Right? Okay. This is my solution error. That's interesting because it's like, of
+
+23
+00:01:42,320 --> 00:01:47,980
+course we know that if you subtract, if you add these 100
+
+24
+00:01:47,980 --> 00:01:51,920
+iterations with the solution error, I get the exact solution. That's just the
+
+25
+00:01:51,920 --> 00:01:56,320
+definition of the solution error. But there is something interesting that the
+
+26
+00:01:56,320 --> 00:02:01,180
+100 iteration solution seems to be picking up the contours pretty well, like
+
+27
+00:02:01,180 --> 00:02:07,100
+all the sharp features, right? While the solution error seems to contain a blurred
+
+28
+00:02:07,100 --> 00:02:17,720
+image of the original solution. So let's keep iterating. Let's do this equal, let's
+
+29
+00:02:17,720 --> 00:02:21,100
+look at what's the solution after a thousand iterations.
+
+30
+00:02:21,100 --> 00:02:21,600
+Now,
+
+31
+00:02:21,920 --> 00:02:26,720
+I did the thousand iterations. Let's make another figure.
+
+32
+00:02:26,720 --> 00:02:37,400
+I am sure you divide by 255.
+
+33
+00:02:37,400 --> 00:02:47,480
+Title, a thousand iterations. Now it's a lot better in that there it's not as
+
+34
+00:02:47,480 --> 00:02:51,680
+dark as 100 iterations, right? A thousand- a hundred. A thousand is
+
+35
+00:02:51,680 --> 00:02:51,800
+not you.
+
+36
+00:02:51,800 --> 00:02:58,340
+now a lot brighter but it's still not as bright as the true solution exact
+
+37
+00:02:58,340 --> 00:03:06,300
+solution a thousand iterations and if we start to look at where's MATLAB if we
+
+38
+00:03:06,300 --> 00:03:19,700
+look at the the solution error so figure I am sure you expand it I will change
+
+39
+00:03:19,700 --> 00:03:26,460
+this to solution error after thousand iterations that's what I get so now
+
+40
+00:03:26,460 --> 00:03:32,000
+it's not even a blurred image it's just completely blurred so I
+
+41
+00:03:32,000 --> 00:03:43,440
+basically get a very smooth white blurb of light okay right so now now what
+
+42
+00:03:43,440 --> 00:03:48,620
+I can see is that because the solution error contains completely smoothed
+
+43
+00:03:48,620 --> 00:03:49,620
+features
+
+44
+00:03:49,620 --> 00:03:49,680
+so I can change this to solution error so that
+
+45
+00:03:49,700 --> 00:03:55,640
+what I can expect is that the solution after a thousand iterations should
+
+46
+00:03:55,640 --> 00:04:04,280
+already contain all the anything that is not as smooth as basically a smooth
+
+47
+00:04:04,280 --> 00:04:14,420
+hill right on the solution. Now let's do more. So we know it'll finally converge.
+
+48
+00:04:14,420 --> 00:04:20,960
+So let's just brute force it, make two other zeros. It may run for a while, right,
+
+49
+00:04:20,960 --> 00:04:27,560
+but after it finishes we know it should converge pretty much to the right
+
+50
+00:04:27,560 --> 00:04:33,780
+solution. Now the question as it is running is can we know a priori what we
+
+51
+00:04:33,780 --> 00:04:40,360
+were observing? Can we know how the convergence is going to happen? What
+
+52
+00:04:40,360 --> 00:04:43,920
+modes converge is faster, what modes converge is slower?
+
+53
+00:04:43,920 --> 00:04:44,420
+So we know that the convergence is going to happen. What modes converge is faster, what modes converge is slower?
+
+54
+00:04:44,420 --> 00:04:50,260
+So why after many iterations I still get a solution error that is like a very
+
+55
+00:04:50,260 --> 00:05:01,600
+smoothed blurb of light? Yes? Right, remember our eigenvalue eigenvector
+
+56
+00:05:01,600 --> 00:05:09,060
+analysis on the error equation? The error is going to decay to zero, right, which
+
+57
+00:05:09,060 --> 00:05:12,300
+now we have finished.
+
+58
+00:05:12,300 --> 00:05:19,060
+So let's do the solution exact I am sure.
+
+59
+00:05:19,060 --> 00:05:25,760
+Solution, okay, solution after now it's 100,000 iterations.
+
+60
+00:05:25,760 --> 00:05:39,640
+Expanded. So now this is the solution error which is completely dark now, which is a
+
+61
+00:05:39,640 --> 00:05:41,800
+good sign.
+
+62
+00:05:41,800 --> 00:05:48,560
+Figure I am sure you title.
+
+63
+00:05:48,560 --> 00:05:58,300
+So this is my solution after many, many iterations and comparing this to the exact solution we
+
+64
+00:05:58,300 --> 00:06:06,860
+can't see any difference, right? So the solution converged, but it took a lot of iterations.
+
+65
+00:06:06,860 --> 00:06:11,680
+So right, so the Jacobi iteration converges for this problem, but not particularly for
+
+66
+00:06:11,680 --> 00:06:12,680
+this problem.
+
+67
+00:06:12,680 --> 00:06:18,440
+So what does that mean if we look back into this error equation?
+
+68
+00:06:18,440 --> 00:06:34,940
+We know that after every iteration, the exponent on this lambda, on this eigenvalues are going
+
+69
+00:06:34,940 --> 00:06:36,440
+to be increased by one.
+
+70
+00:06:36,440 --> 00:06:38,440
+So lambdas that are close to zero.
+
+71
+00:06:38,440 --> 00:06:40,440
+So lambda that are close to zero.
+
+72
+00:06:40,440 --> 00:06:41,560
+So lambda that are close to zero.
+
+73
+00:06:41,560 --> 00:06:41,680
+So lambda that are close to zero.
+
+74
+00:06:41,680 --> 00:06:42,680
+So lambda that are close to zero.
+
+75
+00:06:42,680 --> 00:06:48,180
+Would be taken to zero very fast if you take power of k, right?
+
+76
+00:06:48,180 --> 00:06:54,720
+So if, I mean it doesn't have even to be close to zero even if lambda has an entry that is
+
+77
+00:06:54,720 --> 00:06:57,560
+point nine.
+
+78
+00:06:57,560 --> 00:07:02,780
+After a thousand iterations it's going to be pretty much zero, right?
+
+79
+00:07:02,780 --> 00:07:11,560
+So point nine to a thousand is like 10 to the minus 64.
+
+80
+00:07:11,560 --> 00:07:15,960
+Basically even after a hundred iterations if I have an eigenvalue equal to point nine
+
+81
+00:07:15,960 --> 00:07:18,020
+it'll be pretty much zero.
+
+82
+00:07:18,020 --> 00:07:23,740
+So anything that is away from one with a sufficient distance is going to be zero.
+
+83
+00:07:23,740 --> 00:07:30,080
+So even after a thousand iterations we still have some mode there.
+
+84
+00:07:30,080 --> 00:07:33,840
+Means that has to be very close to one, right?
+
+85
+00:07:33,840 --> 00:07:38,680
+So point nine nine it's also going to be pretty much zero after a thousand iterations.
+
+86
+00:07:38,680 --> 00:07:41,440
+Point nine nine nine would still have something there.
+
+87
+00:07:41,560 --> 00:07:51,540
+So we probably have an eigenvalue in the matrix that is as large as point nine nine nine,
+
+88
+00:07:51,540 --> 00:07:52,540
+right?
+
+89
+00:07:52,540 --> 00:07:57,440
+We know it wouldn't exceed one because if it exceeds one it'll diverge.
+
+90
+00:07:57,440 --> 00:08:04,340
+So but it must have an eigenvalue that is almost one.
+
+91
+00:08:04,340 --> 00:08:07,600
+And can we guess what the corresponding eigenvector is?
+
+92
+00:08:07,600 --> 00:08:11,440
+What is the corresponding column in V look like?
+
+93
+00:08:11,440 --> 00:08:19,180
+Is the eigenvector corresponding to the very close to one eigenvalue representing a smooth
+
+94
+00:08:19,180 --> 00:08:22,420
+feature or an oscillatory feature?
+
+95
+00:08:22,420 --> 00:08:23,420
+After .
+
+96
+00:08:23,420 --> 00:08:26,180
+Yes, the error was smooth after many iterations.
+
+97
+00:08:26,180 --> 00:08:33,060
+That means the remaining part, right, after you take K to be large, the remaining part
+
+98
+00:08:33,060 --> 00:08:40,280
+would correspond to the column of V corresponding to a large eigenvalue.
+
+99
+00:08:40,280 --> 00:08:41,380
+By large I mean close to one.
+
+100
+00:08:41,380 --> 00:08:46,320
+Not .9 but .999.
+
+101
+00:08:46,320 --> 00:08:53,280
+So that is a way we are going to analyze the behavior of these iterative methods starting
+
+102
+00:08:53,280 --> 00:08:54,780
+from next lecture.
+
+103
+00:08:54,780 --> 00:09:01,100
+And then we are also going to be talking about what can we do to accelerate it.
+
+104
+00:09:01,100 --> 00:09:03,360
+And that's going to be our multigrid method.
+
+105
+00:09:03,360 --> 00:09:04,360
+Yes?
+
+106
+00:09:04,360 --> 00:09:09,360
+I have a question about your code and why we don't need to use f in the formulation
+
+107
+00:09:09,360 --> 00:09:10,360
+of u k plus.
+
+108
+00:09:10,360 --> 00:09:11,360
+Yes.
+
+109
+00:09:11,380 --> 00:09:12,380
+You used the previous guess.
+
+110
+00:09:12,380 --> 00:09:13,380
+But in that figure right there.
+
+111
+00:09:13,380 --> 00:09:14,380
+Here?
+
+112
+00:09:14,380 --> 00:09:15,380
+Yeah.
+
+113
+00:09:15,380 --> 00:09:16,380
+Yeah.
+
+114
+00:09:16,380 --> 00:09:17,380
+Why don't we need to use f?
+
+115
+00:09:17,380 --> 00:09:18,380
+f is added here.
+
+116
+00:09:18,380 --> 00:09:29,680
+So I can, so here I can either initialize u k p plus one to be zero and add the f into
+
+117
+00:09:29,680 --> 00:09:30,680
+here.
+
+118
+00:09:30,680 --> 00:09:39,200
+Here I just took the alternative approach of initializing this to the f term to this,
+
+119
+00:09:39,200 --> 00:09:40,380
+I initialized the next iteration to this term.
+
+120
+00:09:40,380 --> 00:09:41,380
+Okay.
+
+121
+00:09:41,380 --> 00:09:43,780
+And then added this term in the loop.
+
+122
+00:09:43,780 --> 00:09:44,780
+Right.
+
+123
+00:09:44,780 --> 00:09:49,780
+So it's this line that added the f term.
+

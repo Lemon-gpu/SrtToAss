@@ -1,0 +1,400 @@
+1
+00:00:00,000 --> 00:00:06,400
+So one thing I want to point out is the discrete conservation properties of any final volume scheme.
+
+2
+00:00:07,240 --> 00:00:11,000
+So now we have a working scheme, we want to point out its advantage.
+
+3
+00:00:11,480 --> 00:00:15,200
+And that actually corresponds to your question, which is, can we use final difference?
+
+4
+00:00:15,700 --> 00:00:19,880
+Yes we can, but we are losing something important in a conservation scheme.
+
+5
+00:00:20,200 --> 00:00:27,240
+So if we have a differential equation in the conservation law form,
+
+6
+00:00:27,240 --> 00:00:37,980
+and we can integrate, when we integrate over any interval, not just one grid point,
+
+7
+00:00:38,500 --> 00:00:42,840
+let's say A to B, where A and B can be very different, U to X,
+
+8
+00:00:42,840 --> 00:00:45,520
+we know from the conservative form of the equation,
+
+9
+00:00:46,120 --> 00:00:53,000
+this is equal to F of U at A minus F of U at B, right?
+
+10
+00:00:53,980 --> 00:00:56,840
+So this is a natural conservation.
+
+11
+00:00:57,240 --> 00:01:03,260
+So this is a conservation type of expression, because the, sorry, I have a DDT here,
+
+12
+00:01:03,620 --> 00:01:08,680
+the time derivative of a total amount of stuff is equal to what's going in minus what's going out.
+
+13
+00:01:10,480 --> 00:01:19,440
+Okay, and in a lot of cases, the numerical schemes may not satisfy that conservation.
+
+14
+00:01:20,540 --> 00:01:26,960
+So I have, I think last year or two years ago, I saw an interesting cell phone app.
+
+15
+00:01:27,240 --> 00:01:28,120
+It's called Wind Tunnel.
+
+16
+00:01:28,240 --> 00:01:31,640
+I don't know how many of you have looked at it.
+
+17
+00:01:31,740 --> 00:01:32,560
+You looked at it?
+
+18
+00:01:32,780 --> 00:01:38,060
+Anybody else have looked at the, like it's a free app, iPhone or Android called Wind Tunnel.
+
+19
+00:01:39,260 --> 00:01:48,380
+It solves the fluid flow equation with, on your screen, and you can draw any shape on the screen.
+
+20
+00:01:49,200 --> 00:01:53,120
+What's interesting is that it looks very real, actually.
+
+21
+00:01:53,520 --> 00:01:57,060
+But what's interesting is that you can draw something like a band,
+
+22
+00:01:57,240 --> 00:02:05,400
+like a bag around the screen, and you're going to see like some flow is going to go into the bag and never comes out.
+
+23
+00:02:05,560 --> 00:02:09,220
+So things keeps going into this bag that you draw on the screen.
+
+24
+00:02:09,320 --> 00:02:11,160
+You can play with it after a while.
+
+25
+00:02:11,660 --> 00:02:21,020
+So that's a very interesting example of a PDU solver not satisfying conservation law.
+
+26
+00:02:22,560 --> 00:02:25,980
+Do you mind drawing the bag and see if it conserves the mass?
+
+27
+00:02:27,240 --> 00:02:30,400
+Okay, so you have a screen, right?
+
+28
+00:02:30,820 --> 00:02:35,460
+And you have flow, I mean, they have visualization of smoke or something.
+
+29
+00:02:36,520 --> 00:02:41,660
+And if you can draw, let's say you can draw an airfoil with an opening here,
+
+30
+00:02:42,240 --> 00:02:46,980
+and you're going to see the smoke goes into the airfoil and there is no place for it to come out.
+
+31
+00:02:48,580 --> 00:02:54,460
+What I'm trying to say is that finite volume schemes would never create something like that.
+
+32
+00:02:56,200 --> 00:02:57,220
+Because if you have a screen, you can draw a bag, and you can draw a bag around the screen.
+
+33
+00:02:57,240 --> 00:03:01,020
+If you discretize the equation using a finite volume scheme,
+
+34
+00:03:01,560 --> 00:03:12,280
+you have dui dt equal to f, so I want to multiply delta x on this side,
+
+35
+00:03:13,280 --> 00:03:17,100
+fi minus half minus fi plus half.
+
+36
+00:03:18,600 --> 00:03:21,580
+All right, let me keep writing this.
+
+37
+00:03:22,420 --> 00:03:27,220
+dui plus 1 dt is equal to f of i plus half.
+
+38
+00:03:27,440 --> 00:03:30,640
+minus fi plus 1 and half.
+
+39
+00:03:32,480 --> 00:03:35,240
+Now, what's important in finite volume is that
+
+40
+00:03:35,240 --> 00:03:42,940
+the way we computed this fi plus half is exactly the way we computed this fi plus half.
+
+41
+00:03:43,960 --> 00:03:44,520
+Right?
+
+42
+00:03:44,520 --> 00:03:47,840
+So it's the same number in our code.
+
+43
+00:03:49,000 --> 00:03:53,820
+So the f interface is a vector of length n plus 1.
+
+44
+00:03:54,460 --> 00:03:56,520
+The same fi.
+
+45
+00:03:57,300 --> 00:03:59,940
+But when you add them together, it takes 1 integral.
+
+46
+00:03:59,940 --> 00:04:01,940
+And once we come to the point where we can spread it out,
+
+47
+00:04:02,620 --> 00:04:06,240
+the derivative is that if ui is 1,
+
+48
+00:04:07,520 --> 00:04:10,520
+when ui is an integral of length n plus half,
+
+49
+00:04:11,320 --> 00:04:16,420
+it's used for computing the derivative of ui and ui plus 1.
+
+50
+00:04:17,960 --> 00:04:20,000
+Okay, so that's very important.
+
+51
+00:04:20,000 --> 00:04:23,200
+If you violate that, it's no longer a finite volume scheme.
+
+52
+00:04:23,200 --> 00:04:28,980
+The discrete integral, I mean, if you sum over these two,
+
+53
+00:04:29,200 --> 00:04:31,880
+remember this is a cell average, this is also a cell average.
+
+54
+00:04:31,880 --> 00:04:36,520
+The summation of these two is actually the total amount of u inside these two grid points.
+
+55
+00:04:37,200 --> 00:04:44,660
+It is equal to one flux minus the other flux at these two ends of this interval.
+
+56
+00:04:45,240 --> 00:04:51,420
+Although the value of this flux involves approximation, but the form is still the same.
+
+57
+00:04:51,420 --> 00:04:57,960
+So you can keep writing that all the way to f of n, let's say, at the very end.
+
+58
+00:04:57,960 --> 00:05:02,780
+This is equal to f of n minus half minus f of n plus half.
+
+59
+00:05:02,920 --> 00:05:09,200
+If you add all of this together, every pair cancels except for the very first one and very last one.
+
+60
+00:05:09,720 --> 00:05:11,980
+Although the form of this flux involves approximation,
+
+61
+00:05:12,740 --> 00:05:17,960
+but the fact that the interior flux cancel each other has no problem.
+
+62
+00:05:19,120 --> 00:05:20,960
+So, for example, if you draw...
+
+63
+00:05:21,420 --> 00:05:27,540
+If you have boundary condition saying that the last flux has to be zero at some point,
+
+64
+00:05:28,220 --> 00:05:32,780
+that's equivalent of if you draw a bag where the end you have no flux.
+
+65
+00:05:33,140 --> 00:05:40,000
+Then it means that if I have flow goes into the first cell,
+
+66
+00:05:40,140 --> 00:05:45,980
+then the time derivative of my total mass inside all this volume has to increase.
+
+67
+00:05:46,800 --> 00:05:50,000
+And in an aerodynamic solver, for example, as the mass increases,
+
+68
+00:05:50,000 --> 00:05:51,320
+the pressure is going to increase.
+
+69
+00:05:51,420 --> 00:05:59,080
+And ultimately, it's going to push the flow back out of the inlet of the bag.
+
+70
+00:06:00,500 --> 00:06:08,180
+So you can't have something that flows into a closed volume indefinitely if you use finite volume.
+
+71
+00:06:10,460 --> 00:06:16,880
+If discrete conservation of mass or momentum or energy is important for you,
+
+72
+00:06:17,940 --> 00:06:21,080
+then it's another motivation to use finite volume.
+
+73
+00:06:21,420 --> 00:06:24,420
+Instead of another way of discretization.
+
+74
+00:06:26,180 --> 00:06:30,920
+And also, we are going to be talking about it a little bit later.
+
+75
+00:06:30,920 --> 00:06:38,040
+Another advantage of finite volume is it is a lot easier to deal with non-uniform,
+
+76
+00:06:38,040 --> 00:06:41,620
+non-Cartesian complex mesh,
+
+77
+00:06:42,840 --> 00:06:47,840
+which is useful for complex geometry using finite volume compared to finite difference.
+
+78
+00:06:49,040 --> 00:06:49,540
+Okay.
+
+79
+00:06:49,540 --> 00:06:50,540
+Finite difference is...
+
+80
+00:06:51,420 --> 00:06:57,040
+It's very easy to use for Cartesian uniform grid.
+
+81
+00:06:57,560 --> 00:06:59,680
+As the grid gets more and more complex,
+
+82
+00:07:00,680 --> 00:07:03,920
+the complexity of finite difference scheme becomes...
+
+83
+00:07:03,920 --> 00:07:06,660
+Increases very rapidly.
+
+84
+00:07:07,300 --> 00:07:09,420
+While finite volume scheme, they stay...
+
+85
+00:07:10,560 --> 00:07:13,260
+We're going to see like in 1D uniform mesh,
+
+86
+00:07:13,380 --> 00:07:17,140
+it is not easy to do a finite volume scheme with more than first order.
+
+87
+00:07:17,880 --> 00:07:21,140
+But the same complexity actually carries to 2D,
+
+88
+00:07:21,420 --> 00:07:23,180
+3D unstructured mesh.
+
+89
+00:07:23,180 --> 00:07:29,420
+So your complexity won't increase much as you go to very complex geometry.
+
+90
+00:07:30,540 --> 00:07:31,040
+Alright.
+
+91
+00:07:31,040 --> 00:07:36,540
+So this is the pros and cons of finite difference versus finite volume.
+
+92
+00:07:36,540 --> 00:07:39,540
+If you choose a way of discretizing.
+
+93
+00:07:42,260 --> 00:07:48,260
+By the way, there are schemes in finite difference that also have discrete conservation properties.
+
+94
+00:07:48,260 --> 00:07:50,020
+But it's not automatic.
+
+95
+00:07:50,020 --> 00:07:51,220
+You need to be very...
+
+96
+00:07:51,220 --> 00:07:53,220
+You need to work hard to get that.
+
+97
+00:07:53,220 --> 00:07:59,220
+Kind of choose your discretization schemes, do a lot of analysis to get that.
+
+98
+00:07:59,220 --> 00:08:01,220
+While you find that volume is automatic.
+
+99
+00:08:01,220 --> 00:08:06,220
+No matter what kind of flux you use, what kind of approximation you use on the flux,
+
+100
+00:08:06,220 --> 00:08:11,220
+it discretely conserves what you are conserving.
+

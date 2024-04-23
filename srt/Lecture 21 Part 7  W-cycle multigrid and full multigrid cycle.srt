@@ -1,0 +1,684 @@
+1
+00:00:00,000 --> 00:00:06,280
+So that promotes the fact that like the coarse grid iterations are almost free
+
+2
+00:00:06,280 --> 00:00:15,240
+in 3D, promotes the use of this so-called W cycle. Okay, in 1D it doesn't, it makes
+
+3
+00:00:15,240 --> 00:00:21,660
+more sense to perform the V cycle as we did before. So this looks like a V. The
+
+4
+00:00:21,660 --> 00:00:29,420
+W cycle, it looks pretty complicated because on every, so basically it
+
+5
+00:00:29,420 --> 00:00:36,140
+replicates this by effect of two and then on every V it replicates this by
+
+6
+00:00:36,140 --> 00:00:40,340
+effect of two, right? So that looks like, that's what makes it looks like a W.
+
+7
+00:00:40,340 --> 00:00:47,560
+But if you think of in the code, this is very easy to do. If I want to perform a
+
+8
+00:00:47,560 --> 00:00:50,220
+W cycle, what do I do?
+
+9
+00:00:50,220 --> 00:00:51,560
+The only thing I do is I just, I just do this.
+
+10
+00:00:51,560 --> 00:00:51,640
+The only thing I do is I just do this. The only thing I do is I just do this.
+
+11
+00:00:51,640 --> 00:01:02,620
+The only thing I need to do is that. Okay, so that would be a W cycle. I'm performing two
+
+12
+00:01:02,620 --> 00:01:11,980
+multi-grid iterations when I'm going to a coarser grid, right? So this is at the
+
+13
+00:01:11,980 --> 00:01:17,440
+finest grid, I'm going to the coarser level and this is one call to this
+
+14
+00:01:17,440 --> 00:01:21,540
+multi-grid. This is my second call.
+
+15
+00:01:21,540 --> 00:01:29,880
+And it is also customary to, so yeah, so this is, so what I was doing is this S is
+
+16
+00:01:29,880 --> 00:01:36,400
+performed twice, one pre-smoothing, one post-smoothing in the coarse grid. But like, it doesn't make much difference.
+
+17
+00:01:36,400 --> 00:01:44,420
+So this would be one call, the second call to the second finest grid. And when I mean
+
+18
+00:01:44,420 --> 00:01:51,440
+multi-grid call of the second finest grid, I'm also making one call and two call.
+
+19
+00:01:51,540 --> 00:01:57,780
+To the third finest grid. And so is here.
+
+20
+00:01:57,780 --> 00:02:03,680
+So this is a hierarchical, almost like a fractal structure I'm calling here.
+
+21
+00:02:03,680 --> 00:02:11,600
+And in the code, this is what I would be doing if I want to use a W cycle multi-grid.
+
+22
+00:02:11,600 --> 00:02:21,440
+If you use W cycle multi-grid, well, just to do the same thing here, the result wouldn't
+
+23
+00:02:21,440 --> 00:02:27,680
+expect to be a lot more different from just the V cycle. It's probably a little bit better.
+
+24
+00:02:27,680 --> 00:02:34,960
+But remember, the coarser grid solution is almost free, right?
+
+25
+00:02:34,960 --> 00:02:41,080
+And in 1D, let's take a look at the cost analysis of the W cycle.
+
+26
+00:02:41,080 --> 00:02:49,080
+So in 1D, it doesn't make that much sense to do the W cycle multi-grid as I just did
+
+27
+00:02:49,080 --> 00:02:50,680
+before.
+
+28
+00:02:50,680 --> 00:03:05,460
+Because the cost of the cost of n grid point, if I keep doing this, would be proportional
+
+29
+00:03:05,460 --> 00:03:09,720
+to n plus two times the cost.
+
+30
+00:03:09,720 --> 00:03:13,200
+So this is the iterations I perform on this grid.
+
+31
+00:03:13,200 --> 00:03:18,920
+Two times the cost of the coarser grid.
+
+32
+00:03:18,920 --> 00:03:19,920
+Right?
+
+33
+00:03:19,920 --> 00:03:20,440
+Okay.
+
+34
+00:03:20,680 --> 00:03:29,300
+And if the cost of this, if I perform that iteratively, that'll be two times n over
+
+35
+00:03:29,300 --> 00:03:35,440
+two plus two times the cost of n over four.
+
+36
+00:03:35,440 --> 00:03:36,920
+Right?
+
+37
+00:03:36,920 --> 00:03:41,040
+Oh, I shouldn't be...
+
+38
+00:03:41,040 --> 00:03:42,040
+Right.
+
+39
+00:03:42,040 --> 00:03:44,160
+So, okay.
+
+40
+00:03:44,160 --> 00:03:48,980
+If I keep doing this, this will be n plus n plus n plus et cetera.
+
+41
+00:03:48,980 --> 00:03:49,980
+So the...
+
+42
+00:03:49,980 --> 00:03:50,480
+Okay.
+
+43
+00:03:50,480 --> 00:03:51,480
+So the cost is going to be proportional to the number of levels.
+
+44
+00:03:51,480 --> 00:03:56,480
+However many levels you have in the multi-grid, the cost is going to be proportional to the
+
+45
+00:03:56,480 --> 00:04:01,200
+number of levels instead of bounded by a factor of two.
+
+46
+00:04:01,200 --> 00:04:06,720
+But starting from 2D, this makes a lot more sense.
+
+47
+00:04:06,720 --> 00:04:17,200
+Because in 2D, the cost of n total grid points is equal to n plus two times the cost of n
+
+48
+00:04:17,200 --> 00:04:18,280
+over four.
+
+49
+00:04:18,280 --> 00:04:19,280
+Okay?
+
+50
+00:04:19,280 --> 00:04:20,280
+Right?
+
+51
+00:04:20,280 --> 00:04:27,280
+So, if I do this iteratively, I'm going to get n plus n plus n plus n plus n plus n plus
+
+52
+00:04:27,280 --> 00:04:33,280
+n plus n plus n plus n plus n plus n plus n plus n plus n plus n plus n plus n plus n plus n
+
+53
+00:04:33,280 --> 00:04:37,520
+n over four plus two times the cost of n over sixteen.
+
+54
+00:04:37,520 --> 00:04:45,600
+And if you expand this, it'll be n plus half n plus a fourth n, et cetera.
+
+55
+00:04:45,600 --> 00:04:47,280
+So it's the same as our one-dimensional V-cycle cost.
+
+56
+00:04:47,280 --> 00:04:48,280
+Okay?
+
+57
+00:04:48,280 --> 00:04:49,280
+Okay.
+
+58
+00:04:49,280 --> 00:04:50,280
+Okay.
+
+59
+00:04:50,280 --> 00:04:51,280
+Okay.
+
+60
+00:04:51,280 --> 00:04:55,280
+This is less or equal to, I mean, strictly less than 2n.
+
+61
+00:04:55,280 --> 00:04:56,280
+Right?
+
+62
+00:04:56,280 --> 00:05:04,280
+So, doing a multi-grid cycle in 2D is you're going to get a cost that is bounded by twice
+
+63
+00:05:04,280 --> 00:05:08,920
+the cost of the fine-grid operation.
+
+64
+00:05:08,920 --> 00:05:17,360
+And in 3D, it makes a lot of sense to do the multi-grid because the cost of n is going
+
+65
+00:05:17,360 --> 00:05:19,280
+to be n plus two times n.
+
+66
+00:05:19,280 --> 00:05:20,280
+So, if you do the math, it'll be the same series as the two-dimensional V-cycle.
+
+67
+00:05:20,280 --> 00:05:21,280
+This is going to be strictly less than 4 over 3 times n.
+
+68
+00:05:21,280 --> 00:05:22,280
+Right?
+
+69
+00:05:22,280 --> 00:05:23,280
+So, even doing the multi-grid cycle, you're going to get a cost that is going to be less
+
+70
+00:05:23,280 --> 00:05:24,280
+than 4 over 3 times n.
+
+71
+00:05:24,280 --> 00:05:25,280
+Okay?
+
+72
+00:05:25,280 --> 00:05:26,280
+Okay.
+
+73
+00:05:26,280 --> 00:05:27,280
+Okay.
+
+74
+00:05:27,280 --> 00:05:28,280
+Okay.
+
+75
+00:05:28,280 --> 00:05:29,280
+Okay.
+
+76
+00:05:29,280 --> 00:05:30,280
+Okay.
+
+77
+00:05:30,280 --> 00:05:31,280
+Okay.
+
+78
+00:05:31,280 --> 00:05:32,280
+Okay.
+
+79
+00:05:32,280 --> 00:05:33,280
+Okay.
+
+80
+00:05:33,280 --> 00:05:34,280
+Okay.
+
+81
+00:05:34,280 --> 00:05:35,280
+Okay.
+
+82
+00:05:35,280 --> 00:05:36,280
+Okay.
+
+83
+00:05:36,280 --> 00:05:37,280
+Okay.
+
+84
+00:05:37,280 --> 00:05:38,280
+Okay.
+
+85
+00:05:38,280 --> 00:05:39,280
+Okay.
+
+86
+00:05:39,280 --> 00:05:40,280
+Okay.
+
+87
+00:05:40,280 --> 00:05:41,280
+Okay.
+
+88
+00:05:41,280 --> 00:05:42,280
+Okay.
+
+89
+00:05:42,280 --> 00:05:43,280
+Okay.
+
+90
+00:05:43,280 --> 00:05:44,280
+Okay.
+
+91
+00:05:44,280 --> 00:05:45,280
+Okay.
+
+92
+00:05:45,280 --> 00:05:46,280
+Okay.
+
+93
+00:05:46,280 --> 00:05:47,280
+Okay.
+
+94
+00:05:47,280 --> 00:05:48,280
+Okay.
+
+95
+00:05:48,280 --> 00:05:49,280
+Okay.
+
+96
+00:05:49,280 --> 00:05:50,280
+Okay.
+
+97
+00:05:50,280 --> 00:05:51,280
+Okay.
+
+98
+00:05:51,280 --> 00:05:52,280
+Okay.
+
+99
+00:05:52,280 --> 00:05:53,280
+Okay.
+
+100
+00:05:53,280 --> 00:05:54,280
+Okay.
+
+101
+00:05:54,280 --> 00:05:55,280
+Okay.
+
+102
+00:05:55,280 --> 00:05:56,280
+Okay.
+
+103
+00:05:56,280 --> 00:05:57,280
+Okay.
+
+104
+00:05:57,280 --> 00:05:58,280
+Okay.
+
+105
+00:05:58,280 --> 00:05:59,280
+Okay.
+
+106
+00:05:59,280 --> 00:06:00,280
+Okay.
+
+107
+00:06:00,280 --> 00:06:01,280
+Okay.
+
+108
+00:06:02,280 --> 00:06:03,280
+Okay.
+
+109
+00:06:03,280 --> 00:06:04,280
+Okay.
+
+110
+00:06:04,280 --> 00:06:05,280
+Okay.
+
+111
+00:06:05,280 --> 00:06:06,280
+Okay.
+
+112
+00:06:06,280 --> 00:06:07,280
+Okay.
+
+113
+00:06:07,280 --> 00:06:08,280
+Okay.
+
+114
+00:06:08,280 --> 00:06:09,280
+Okay.
+
+115
+00:06:09,280 --> 00:06:10,280
+Okay.
+
+116
+00:06:10,280 --> 00:06:11,280
+Okay.
+
+117
+00:06:11,280 --> 00:06:12,280
+Okay.
+
+118
+00:06:12,280 --> 00:06:13,280
+Okay.
+
+119
+00:06:13,280 --> 00:06:14,280
+Okay.
+
+120
+00:06:14,280 --> 00:06:15,280
+Okay.
+
+121
+00:06:15,280 --> 00:06:16,280
+Okay.
+
+122
+00:06:16,280 --> 00:06:17,280
+Okay.
+
+123
+00:06:17,280 --> 00:06:24,720
+even cheaper. You can imagine. Yes, this is the reason they put gamma here. I copied
+
+124
+00:06:24,720 --> 00:06:33,960
+this from another lecture notes is because they basically have a loop
+
+125
+00:06:33,960 --> 00:06:41,940
+here. So for gamma goes from 1 to 2, you do that. Right, so that's the
+
+126
+00:06:41,940 --> 00:06:50,220
+gamma you would be having in the plot. So you are iterating here and this is
+
+127
+00:06:50,220 --> 00:07:01,220
+what the gamma shows. Alright, so it's a yeah. Any other questions? And you can do
+
+128
+00:07:01,220 --> 00:07:06,260
+a super W cycle if you make gamma goes from 1 to 3, for example. I don't see
+
+129
+00:07:06,260 --> 00:07:11,900
+anybody doing that in fact, but like can probably do that.
+
+130
+00:07:11,940 --> 00:07:21,940
+Okay, but I do see a lot of people doing this. So this is what people call a full
+
+131
+00:07:21,940 --> 00:07:31,180
+multigrid. It is motivated by the fact that an initial guess is actually
+
+132
+00:07:31,180 --> 00:07:38,160
+pretty important for the convergence of many problems. And for linear problems,
+
+133
+00:07:38,160 --> 00:07:41,820
+it's relatively easy to do.
+
+134
+00:07:41,940 --> 00:07:46,620
+It's not that difficult to just use a zero initial guess and especially for
+
+135
+00:07:46,620 --> 00:07:51,120
+nonlinear problems, it's very important to have a good initial guess. So what
+
+136
+00:07:51,120 --> 00:07:57,120
+this does is that instead of starting from the finest grid, you
+
+137
+00:07:57,120 --> 00:08:02,780
+start from the closest grid. And on the closest grid, you don't start solving the
+
+138
+00:08:02,780 --> 00:08:06,840
+error equation because you don't have the residual from the fine grid. You
+
+139
+00:08:06,840 --> 00:08:11,180
+start by solving the equation, the partial differential equation itself on
+
+140
+00:08:11,180 --> 00:08:17,360
+the closest grid. And then you perform an interpolation. They call prolongation, so
+
+141
+00:08:17,360 --> 00:08:21,860
+restriction and prolongation is the technical terminology they use in
+
+142
+00:08:21,860 --> 00:08:26,660
+multigrid, representing these two interpolations. So prolongation is
+
+143
+00:08:26,660 --> 00:08:31,820
+interpolating from cost, interpolating the solution from cost to fine grid.
+
+144
+00:08:31,820 --> 00:08:38,120
+Restriction is interpolating the residual from fine to cost grid. Right, this is
+
+145
+00:08:38,120 --> 00:08:41,040
+always what you'll be doing. So in the
+
+146
+00:08:41,180 --> 00:08:45,360
+prolongation, interpolate the solution from the cost to fine grid. And that solution is
+
+147
+00:08:45,360 --> 00:08:52,700
+used as an initial guess for the finer grid. So this is then performing one V
+
+148
+00:08:52,700 --> 00:09:00,320
+cycle on the second closest grid. And that solution is going to be used as an
+
+149
+00:09:00,320 --> 00:09:04,720
+initial guess. The interpolated solution is then used as the initial guess for the
+
+150
+00:09:04,720 --> 00:09:10,860
+third closest grid. And then performing one iteration on the closest grid, you
+
+151
+00:09:10,860 --> 00:09:18,960
+would get initial guess for the finest grid. Also, you don't have to do exactly
+
+152
+00:09:18,960 --> 00:09:25,560
+one V cycle before you jump to the final grid. So this is a customary of what
+
+153
+00:09:25,560 --> 00:09:32,620
+people have been using for full multigrid. And you start solving, for
+
+154
+00:09:32,620 --> 00:09:40,020
+example, a 13 by 7 problem performing one, two, three, four, five multigrid cycles,
+
+155
+00:09:40,860 --> 00:09:48,260
+as an initial guess for the final grid. So you perform a few iterations, a few
+
+156
+00:09:48,260 --> 00:09:53,740
+multigrid cycles on the second closest grid as an initial condition for the next
+
+157
+00:09:53,740 --> 00:10:02,560
+final grid. So here, every point is one multigrid cycle. And basically because,
+
+158
+00:10:02,560 --> 00:10:09,060
+especially for 3D problems, these closest grid iterations are
+
+159
+00:10:09,060 --> 00:10:10,760
+almost free for you.
+
+160
+00:10:10,860 --> 00:10:19,560
+Right? So it's a, you can converge these closest grid solutions to pretty small residual
+
+161
+00:10:19,560 --> 00:10:25,100
+and use that as an initial guess for the final grid. Yes?
+
+162
+00:10:25,100 --> 00:10:30,240
+Why does the residual norm go back up?
+
+163
+00:10:30,240 --> 00:10:38,860
+Why does the residual norm goes back up as you start a final grid solution? What do you
+
+164
+00:10:38,860 --> 00:10:39,860
+think? Any people?
+
+165
+00:10:39,860 --> 00:10:40,860
+Yeah.
+
+166
+00:10:40,860 --> 00:10:49,620
+Take a guess. Huh? Interpolation, exactly. Because at here, this is the, this residual
+
+167
+00:10:49,620 --> 00:10:56,760
+is different from this residual. This residual is the residual of a different equation, of
+
+168
+00:10:56,760 --> 00:11:03,640
+the equation on the cost grid. While this residual is the residual of a final grid equation.
+
+169
+00:11:03,640 --> 00:11:08,360
+I mean, if you look at this, this is at the same point. So this is the same solution,
+
+170
+00:11:08,360 --> 00:11:10,740
+just interpolated to the final grid.
+
+171
+00:11:10,860 --> 00:11:17,400
+I'm evaluating the solution on a different mesh, on a different equation, different discretization.
+

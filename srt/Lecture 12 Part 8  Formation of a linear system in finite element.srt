@@ -1,0 +1,232 @@
+1
+00:00:00,000 --> 00:00:13,020
+So we have integration from a to b phi j times f minus summation of i goes from 1 to n, a i phi i dx equal to 0.
+
+2
+00:00:13,320 --> 00:00:15,680
+So let's pull these things out.
+
+3
+00:00:16,220 --> 00:00:19,400
+So the first term is phi j f times dx.
+
+4
+00:00:20,060 --> 00:00:24,300
+And then the summation can be pulled out of the integral.
+
+5
+00:00:24,640 --> 00:00:28,640
+a i's are not a function of x, so it can be pulled out of the integral.
+
+6
+00:00:28,640 --> 00:00:35,780
+And the integral becomes integration from a to b phi j phi i dx is equal to 0.
+
+7
+00:00:37,560 --> 00:00:38,320
+Alright.
+
+8
+00:00:39,980 --> 00:00:41,660
+f is a known function.
+
+9
+00:00:43,560 --> 00:00:55,640
+If we can construct an explicit set of faces, phi 1, phi 2, etc.,
+
+10
+00:00:55,640 --> 00:00:58,640
+then we can compute this integration.
+
+11
+00:00:58,640 --> 00:01:00,640
+So we can write the integral for any f.
+
+12
+00:01:02,480 --> 00:01:14,480
+Right, so let's define a vector b that is equal to integration of a to b phi 1 f dx,
+
+13
+00:01:14,480 --> 00:01:22,480
+integration a to b phi 2 f dx, all the way to integration of phi n f dx.
+
+14
+00:01:23,480 --> 00:01:24,480
+Okay.
+
+15
+00:01:25,480 --> 00:01:27,480
+Also, if we can construct an explicit form of phi,
+
+16
+00:01:27,480 --> 00:01:28,480
+we can write the integral for any f.
+
+17
+00:01:28,640 --> 00:01:30,480
+So integration of phi 1, phi 2, etc.,
+
+18
+00:01:30,480 --> 00:01:32,640
+we can also define a matrix A.
+
+19
+00:01:32,640 --> 00:01:43,520
+That is the integral of pairwise products of these basis functions.
+
+20
+00:01:43,520 --> 00:01:50,080
+Integration of phi 1, phi 1 dx, integration of phi 1, phi 2 dx,
+
+21
+00:01:50,080 --> 00:01:53,200
+integration of phi 1, phi n dx.
+
+22
+00:01:53,200 --> 00:01:54,680
+Da da da.
+
+23
+00:01:54,680 --> 00:01:57,480
+This is integration of phi n, phi 1 dx, etc.
+
+24
+00:01:57,480 --> 00:02:00,320
+It's actually integration of phi n, phi n, dx.
+
+25
+00:02:01,020 --> 00:02:01,260
+Right?
+
+26
+00:02:01,340 --> 00:02:02,500
+So we can get this matrix.
+
+27
+00:02:04,720 --> 00:02:06,560
+Now, this is a matrix.
+
+28
+00:02:06,780 --> 00:02:07,440
+This is a vector.
+
+29
+00:02:07,440 --> 00:02:15,840
+This equality becomes a times a equal to b.
+
+30
+00:02:18,960 --> 00:02:19,160
+Right?
+
+31
+00:02:19,160 --> 00:02:19,220
+Right?
+
+32
+00:02:23,560 --> 00:02:32,340
+So the function approximation within a linear space becomes ax equal to b, which we know how to solve.
+
+33
+00:02:33,840 --> 00:02:38,800
+The process of finite element actually in general is like that.
+
+34
+00:02:38,800 --> 00:02:49,140
+It is to construct the right-hand side and the matrix by performing integrals of basis functions.
+
+35
+00:02:49,160 --> 00:02:51,020
+And known functions.
+
+36
+00:02:51,540 --> 00:02:51,620
+Right?
+
+37
+00:02:51,700 --> 00:02:58,780
+So basically, you do integrals either numerically using quadrature or analytically if the function is simply enough.
+
+38
+00:02:59,180 --> 00:03:01,700
+To construct a matrix and the right-hand side.
+
+39
+00:03:02,480 --> 00:03:05,940
+We solve the matrix to get linear combination of the basis functions.
+
+40
+00:03:05,940 --> 00:03:14,320
+And the linear combination of the basis functions is going to give us g star that we know is the optimal.
+
+41
+00:03:15,060 --> 00:03:18,040
+That satisfies all the...
+
+42
+00:03:18,040 --> 00:03:19,100
+That satisfies this.
+
+43
+00:03:19,160 --> 00:03:21,280
+Linear equations for any g prime.
+
+44
+00:03:21,280 --> 00:03:24,600
+G prime we call test function within the linear space.
+
+45
+00:03:25,400 --> 00:03:30,660
+And because of these linear equations comes out of a projection.
+
+46
+00:03:31,100 --> 00:03:41,480
+We know that the g prime we get actually minimizes the distance between g in the space and the particular function f.
+
+47
+00:03:43,080 --> 00:03:49,140
+So in solving differential equations, we are not approximating a particular function.
+
+48
+00:03:49,140 --> 00:03:56,000
+But we still will be able to use the concept of projection to minimize something.
+
+49
+00:03:56,740 --> 00:03:56,860
+Right?
+
+50
+00:03:57,760 --> 00:04:02,940
+Usually the residual of a differential equation or some other quantities.
+
+51
+00:04:03,100 --> 00:04:07,180
+We minimize a certain quantity that we derive from the differential equation.
+
+52
+00:04:07,840 --> 00:04:10,380
+And the minimization turns out to be a projection.
+
+53
+00:04:11,120 --> 00:04:13,880
+Projection turns out to be a system of differential equations.
+
+54
+00:04:14,360 --> 00:04:19,120
+Using a basis, the system of differential equations turns into a matrix.
+
+55
+00:04:19,140 --> 00:04:21,080
+We solve the matrix equation.
+
+56
+00:04:21,080 --> 00:04:23,160
+We get the linear combination coefficients.
+
+57
+00:04:24,540 --> 00:04:29,940
+And by recombining the basis functions, we get to the solution to the differential equation.
+
+58
+00:04:30,580 --> 00:04:33,880
+That's generally how finite elements work.
+

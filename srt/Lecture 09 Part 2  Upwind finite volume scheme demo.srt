@@ -1,0 +1,752 @@
+1
+00:00:00,000 --> 00:00:21,460
+So we are going to say ss is equal to this, and we are going to decide, so let's say f interface is equal to, so let's say is equal to f on the left, so 1, 2, and minus 1.
+
+2
+00:00:21,460 --> 00:00:33,520
+So this is saying I first choose on the left, and then I'm going to loop for i goes from 1 to length of f interface.
+
+3
+00:00:34,780 --> 00:00:49,040
+So let's actually make it easier. So let's say f interface is equal to just an empty array, and so let's do a loop to length of u.
+
+4
+00:00:51,460 --> 00:01:13,320
+And f interface, well, let's do it to 2 to the length of u, because we have one less, we are only computing the, we only need to use this upwind formula on the interior interfaces, right?
+
+5
+00:01:13,320 --> 00:01:21,440
+Okay, so f interface is equal to f interface, and I want to append one more.
+
+6
+00:01:21,460 --> 00:01:39,680
+And the one I want to append would be depend, depend if ss of i minus 1 is greater than 0, then I want to use which side?
+
+7
+00:01:41,900 --> 00:01:51,160
+If it's greater than 0, I want to use the left side, yes, I want to use f of i minus 1, right?
+
+8
+00:01:51,160 --> 00:01:51,440
+Because.
+
+9
+00:01:51,460 --> 00:01:54,060
+Because I'm looping i goes from 2 to the end.
+
+10
+00:01:54,260 --> 00:01:59,980
+If I'm looping from i goes from 1 to length of u minus 1, then this would be i.
+
+11
+00:02:00,220 --> 00:02:01,340
+This would also be i.
+
+12
+00:02:04,080 --> 00:02:12,220
+Else f interface is equal to f interface f of i.
+
+13
+00:02:13,940 --> 00:02:17,740
+Any questions about this f interface assignment?
+
+14
+00:02:20,400 --> 00:02:20,880
+Okay.
+
+15
+00:02:21,460 --> 00:02:31,900
+So let me make it, let me also append the 0 and 0 at the both ends.
+
+16
+00:02:34,480 --> 00:02:36,800
+So this is the boundary conditions.
+
+17
+00:02:37,300 --> 00:02:40,340
+We use the same boundary conditions as we used last time.
+
+18
+00:02:40,340 --> 00:02:50,580
+And then du dt would be equal to f interface 1 to n minus 1 minus f interface.
+
+19
+00:02:51,460 --> 00:03:05,980
+You can also add simple
+
+20
+00:03:05,980 --> 00:03:08,540
+step-by-step seguences since we're using the shape that we've already hamstrung our
+
+21
+00:03:08,660 --> 00:03:08,820
+tests with, and using the observation común values.
+
+22
+00:03:08,880 --> 00:03:09,920
+Next we have 2x, which follows f interface.
+
+23
+00:03:09,960 --> 00:03:10,920
+Having said that, we are blessed to know that f interface follows f demo, so we're more
+
+24
+00:03:11,020 --> 00:03:11,180
+launched, but we still have a little more bigger gap.
+
+25
+00:03:11,260 --> 00:03:12,160
+in dynamic configuration, for volume and mean width.
+
+26
+00:03:12,200 --> 00:03:12,260
+and 2013, x is equal to 2x buy a length of x.
+
+27
+00:03:13,180 --> 00:03:13,560
+And all the values are actual by Killer aspect only.
+
+28
+00:03:13,580 --> 00:03:13,680
+The only value in душit is.
+
+29
+00:03:13,720 --> 00:03:14,100
+If I enter x,
+
+30
+00:03:14,960 --> 00:03:15,020
+Great lecture.
+
+31
+00:03:15,520 --> 00:03:16,500
+IfI sport,Then the animation changes to give answer of horas innen,
+
+32
+00:03:16,580 --> 00:03:17,040
+wives depends on zone previous j value in six block,
+
+33
+00:03:17,120 --> 00:03:17,440
+so that the a time kind of we have a De worldly U.
+
+34
+00:03:17,660 --> 00:03:18,320
+So all right.
+
+35
+00:03:18,420 --> 00:03:19,920
+You can go to my have actually run an Threataland
+
+36
+00:03:21,460 --> 00:03:29,380
+yeah let's try it so I'm going to use a
+
+37
+00:03:29,380 --> 00:03:37,060
+arm so I'm going to use that say again
+
+38
+00:03:37,060 --> 00:03:41,320
+the same initial condition x equal to x
+
+39
+00:03:41,320 --> 00:03:47,560
+interface is equal to our link space of
+
+40
+00:03:47,560 --> 00:03:53,140
+0 1 and let's do 101 so that n is equal
+
+41
+00:03:53,140 --> 00:03:58,880
+to 100 so x would be equal to x
+
+42
+00:03:58,880 --> 00:04:03,680
+interface 1 to n minus 1 plus x
+
+43
+00:04:03,680 --> 00:04:08,920
+interface 2 to n divided by 2 so yeah so
+
+44
+00:04:08,920 --> 00:04:13,240
+x is going to be in the middle of the two
+
+45
+00:04:13,240 --> 00:04:15,940
+axes I'm going to use u equal to sine of
+
+46
+00:04:15,940 --> 00:04:17,520
+x times 2 pi
+
+47
+00:04:17,520 --> 00:04:23,820
+so if I plot x and u it'll be this sine
+
+48
+00:04:23,820 --> 00:04:29,500
+wave we used in our last lecture okay so
+
+49
+00:04:29,500 --> 00:04:34,020
+let's say we set u is equal to u 0
+
+50
+00:04:34,020 --> 00:04:37,500
+equal to u transpose that's for OD45
+
+51
+00:04:37,500 --> 00:04:40,200
+I think it accepts a column vector and
+
+52
+00:04:40,200 --> 00:04:46,400
+tu is equal to OD45 ddt upwind
+
+53
+00:04:46,400 --> 00:04:47,400
+and
+
+54
+00:04:47,400 --> 00:04:50,140
+we solve it last time we solve it for
+
+55
+00:04:50,140 --> 00:04:57,840
+for 0.1 seconds and u 0 okay so let's do
+
+56
+00:04:57,840 --> 00:05:03,780
+close plot x and u so this is still fine
+
+57
+00:05:03,780 --> 00:05:06,780
+this is also our last lecture we had the
+
+58
+00:05:06,780 --> 00:05:09,840
+same thing but I think we saw a problem
+
+59
+00:05:09,840 --> 00:05:14,400
+when we saw it for 0.3 seconds and this
+
+60
+00:05:14,400 --> 00:05:16,900
+time when we saw for 0.3 seconds we
+
+61
+00:05:16,900 --> 00:05:19,180
+still get a good solution right so so
+
+62
+00:05:19,180 --> 00:05:23,400
+let's do and colon so we get a solution
+
+63
+00:05:23,400 --> 00:05:25,680
+that has a shockwave sitting in the
+
+64
+00:05:25,680 --> 00:05:28,240
+middle and let's actually solve it for
+
+65
+00:05:28,240 --> 00:05:34,800
+one second we do the same we see okay we
+
+66
+00:05:34,800 --> 00:05:37,480
+get a we got a we got a shockwave and
+
+67
+00:05:37,480 --> 00:05:40,720
+the magnitude of this shockwave has
+
+68
+00:05:40,720 --> 00:05:45,280
+diminished from size about 1 to all the
+
+69
+00:05:45,280 --> 00:05:46,240
+way to 0.4.
+
+70
+00:05:46,900 --> 00:05:51,340
+if we plot all the solution at once so
+
+71
+00:05:51,340 --> 00:05:55,360
+we see the sine wave goes into the
+
+72
+00:05:55,360 --> 00:05:58,280
+shockwave and the shockwave starts to
+
+73
+00:05:58,280 --> 00:05:59,140
+decay
+
+74
+00:05:59,140 --> 00:06:03,940
+alright so that seems a nice solution
+
+75
+00:06:03,940 --> 00:06:06,580
+and you can it's interesting you can see
+
+76
+00:06:06,580 --> 00:06:09,400
+also see like how OD45 adapts the
+
+77
+00:06:09,400 --> 00:06:12,080
+time step over here initially it chooses
+
+78
+00:06:12,080 --> 00:06:14,900
+pretty conservative time step and it
+
+79
+00:06:14,900 --> 00:06:16,740
+starts to know it can cause them and
+
+80
+00:06:16,740 --> 00:06:21,180
+at this point it's a it starts to also
+
+81
+00:06:21,180 --> 00:06:25,440
+when the shockwave forms it looks like
+
+82
+00:06:25,440 --> 00:06:28,020
+the time step is decreased also a little
+
+83
+00:06:28,020 --> 00:06:31,140
+bit any questions about this upwind
+
+84
+00:06:31,140 --> 00:06:36,300
+scheme yes so the error comes from our
+
+85
+00:06:36,300 --> 00:06:40,500
+so you can think of several ways to
+
+86
+00:06:40,500 --> 00:06:43,980
+think of where the error come from so in
+
+87
+00:06:43,980 --> 00:06:45,940
+in a Taylor series analysis
+
+88
+00:06:46,740 --> 00:06:48,600
+you can think of the error coming from
+
+89
+00:06:48,600 --> 00:06:52,200
+the dispersion we have a second order
+
+90
+00:06:52,200 --> 00:06:55,620
+scheme we have we know like a second
+
+91
+00:06:55,620 --> 00:06:56,880
+order scheme from our previous
+
+92
+00:06:56,880 --> 00:06:59,500
+experience has very little dissipation
+
+93
+00:06:59,500 --> 00:07:03,660
+if any and has a lot of dispersion error
+
+94
+00:07:03,660 --> 00:07:06,000
+and the amount of dispersion error is
+
+95
+00:07:06,000 --> 00:07:09,540
+proportional to Delta x square and it's
+
+96
+00:07:09,540 --> 00:07:12,060
+also proportional to some derivative of
+
+97
+00:07:12,060 --> 00:07:14,580
+the function i think is third order
+
+98
+00:07:14,580 --> 00:07:16,080
+derivative if I'm not wrong.
+
+99
+00:07:16,740 --> 00:07:19,260
+so so it's proportional to third order
+
+100
+00:07:19,260 --> 00:07:21,540
+derivative times Delta x square if you
+
+101
+00:07:21,540 --> 00:07:24,000
+have a discontinuity how big is the
+
+102
+00:07:24,000 --> 00:07:27,500
+third order derivative it's going to be
+
+103
+00:07:27,500 --> 00:07:29,820
+huge right it's going to be when you
+
+104
+00:07:29,820 --> 00:07:32,300
+have something that is very oscillatory
+
+105
+00:07:32,300 --> 00:07:35,340
+like like a shockwave you have a very
+
+106
+00:07:35,340 --> 00:07:37,520
+very large third order derivative so
+
+107
+00:07:37,520 --> 00:07:39,940
+that causes a lot of dispersion error so
+
+108
+00:07:39,940 --> 00:07:42,680
+from that perspective last lecture we
+
+109
+00:07:42,680 --> 00:07:45,300
+also looked at the central difference
+
+110
+00:07:45,300 --> 00:07:46,180
+scheme
+
+111
+00:07:46,180 --> 00:07:50,800
+being something that conserves the cubed
+
+112
+00:07:50,800 --> 00:07:56,080
+solution so the conservation of these
+
+113
+00:07:56,080 --> 00:07:59,860
+higher-order statistics is going to of
+
+114
+00:07:59,860 --> 00:08:02,440
+the higher-order quantity is going to
+
+115
+00:08:02,440 --> 00:08:05,320
+prevent the solution from getting
+
+116
+00:08:05,320 --> 00:08:09,480
+dissipated right because because if you
+
+117
+00:08:09,480 --> 00:08:12,940
+have a solution like this at later time
+
+118
+00:08:12,940 --> 00:08:16,180
+it definitely has a has a small
+
+119
+00:08:16,180 --> 00:08:20,620
+integrated u cubed than the original
+
+120
+00:08:20,620 --> 00:08:24,880
+solution that's also something the
+
+121
+00:08:24,880 --> 00:08:28,480
+second-order central flux scheme cannot
+
+122
+00:08:28,480 --> 00:08:33,700
+capture correctly. The reason for
+
+123
+00:08:33,700 --> 00:08:37,660
+choosing that is one it so from
+
+124
+00:08:37,660 --> 00:08:39,940
+monumous stability analysis actually
+
+125
+00:08:39,940 --> 00:08:41,940
+from the modified equation analysis we
+
+126
+00:08:41,940 --> 00:08:44,560
+see that using an up-ending scheme is
+
+127
+00:08:44,560 --> 00:08:45,400
+going to
+
+128
+00:08:46,180 --> 00:08:50,860
+numerical dissipation right and it is
+
+129
+00:08:50,860 --> 00:08:52,900
+actually dissipation that we need over
+
+130
+00:08:52,900 --> 00:08:57,580
+here we need the scheme to be dissipated
+
+131
+00:08:57,580 --> 00:09:00,160
+by the shockwave the shockwave is
+
+132
+00:09:00,160 --> 00:09:03,120
+actually a inherently dissipative
+
+133
+00:09:03,120 --> 00:09:07,240
+phenomenon and if you look at a shock
+
+134
+00:09:07,240 --> 00:09:09,520
+wave of a real fluid flow of like
+
+135
+00:09:09,520 --> 00:09:13,000
+aerodynamics in a supersonic flow the
+
+136
+00:09:13,000 --> 00:09:16,060
+shockwave is very very thin so so here
+
+137
+00:09:16,060 --> 00:09:17,860
+like mathematically a shockwave is a
+
+138
+00:09:17,860 --> 00:09:21,580
+discontinuity in a real physics you
+
+139
+00:09:21,580 --> 00:09:23,920
+don't really have any discontinuities
+
+140
+00:09:23,920 --> 00:09:25,600
+but you have something extremely thin
+
+141
+00:09:25,600 --> 00:09:28,300
+it's so thin that the shockwave is on
+
+142
+00:09:28,300 --> 00:09:32,140
+the order of like 10 to 100 of the the
+
+143
+00:09:32,140 --> 00:09:34,240
+mean free path of the molecules so it's
+
+144
+00:09:34,240 --> 00:09:36,500
+like really really small and the
+
+145
+00:09:36,500 --> 00:09:38,800
+dissipation although the shockwave is
+
+146
+00:09:38,800 --> 00:09:41,180
+very thin the amount of physical
+
+147
+00:09:41,180 --> 00:09:44,140
+dissipation occurring during inside the
+
+148
+00:09:44,140 --> 00:09:45,940
+shockwave is is massive.
+
+149
+00:09:46,060 --> 00:09:48,340
+That's just because the length scale is
+
+150
+00:09:48,340 --> 00:09:50,260
+so small and molecules from one side
+
+151
+00:09:50,260 --> 00:09:52,720
+goes to the other side and they mix
+
+152
+00:09:52,720 --> 00:09:55,540
+together the amount of dissipation it's
+
+153
+00:09:55,540 --> 00:09:57,440
+so a lot of dissipation is appearing
+
+154
+00:09:57,440 --> 00:10:00,840
+there so even though we have an inviscid
+
+155
+00:10:00,840 --> 00:10:02,920
+equation we approximate the equation as
+
+156
+00:10:02,920 --> 00:10:05,440
+inviscid there is still a lot of
+
+157
+00:10:05,440 --> 00:10:07,720
+dissipation going on at discontinuities
+
+158
+00:10:07,720 --> 00:10:11,020
+and that is like the physical reason why
+
+159
+00:10:11,020 --> 00:10:15,460
+we need a dissipative scheme to resolve
+
+160
+00:10:15,460 --> 00:10:20,140
+discontinuities. That satisfies what you
+
+161
+00:10:20,140 --> 00:10:27,580
+are curious about. Any other questions?
+
+162
+00:10:27,580 --> 00:10:30,780
+And in fact a lot of modern numerical
+
+163
+00:10:30,780 --> 00:10:33,100
+methods they are trying to be high order
+
+164
+00:10:33,100 --> 00:10:34,980
+away from the shockwaves but at the
+
+165
+00:10:34,980 --> 00:10:37,240
+shockwaves you need a lot of numerical
+
+166
+00:10:37,240 --> 00:10:39,400
+dissipation because you can never be
+
+167
+00:10:39,400 --> 00:10:41,860
+your grid can never resolve the shockwave.
+
+168
+00:10:41,860 --> 00:10:43,900
+If your grid can resolve the
+
+169
+00:10:43,900 --> 00:10:45,440
+shockwave if your grid size is
+
+170
+00:10:45,460 --> 00:10:47,980
+actually like ten times the mean free
+
+171
+00:10:47,980 --> 00:10:50,260
+path of the molecules you don't need any
+
+172
+00:10:50,260 --> 00:10:52,600
+numerical dissipations you just need
+
+173
+00:10:52,600 --> 00:10:55,240
+physical dissipations you put the amount
+
+174
+00:10:55,240 --> 00:10:58,720
+of viscosity of air into the scheme and
+
+175
+00:10:58,720 --> 00:11:01,060
+you can have the appropriate amount of
+
+176
+00:11:01,060 --> 00:11:03,200
+dissipation but your grid can never
+
+177
+00:11:03,200 --> 00:11:05,440
+resolve that so that in that case you
+
+178
+00:11:05,440 --> 00:11:07,300
+need numerical dissipation to do the
+
+179
+00:11:07,300 --> 00:11:10,120
+same amount of work. Yes?
+
+180
+00:11:10,120 --> 00:11:14,140
+If your grid could resolve that can you just use one more difference?
+
+181
+00:11:14,140 --> 00:11:15,340
+If your grid can resolve that, yeah.
+
+182
+00:11:15,460 --> 00:11:17,680
+You can use finite differencing and
+
+183
+00:11:17,680 --> 00:11:21,220
+with not with not with this equation
+
+184
+00:11:21,220 --> 00:11:23,620
+but with the equation that includes the
+
+185
+00:11:23,620 --> 00:11:26,460
+physical viscosity so include a second
+
+186
+00:11:26,460 --> 00:11:29,440
+order derivative in x term and then you
+
+187
+00:11:29,440 --> 00:11:31,000
+can yeah you can use finite difference
+
+188
+00:11:31,000 --> 00:11:33,320
+you actually converge to a real
+

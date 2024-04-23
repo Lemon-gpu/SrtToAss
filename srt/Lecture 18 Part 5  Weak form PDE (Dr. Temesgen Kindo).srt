@@ -1,0 +1,228 @@
+1
+00:00:00,000 --> 00:00:09,660
+So then the other form is the general form PDE. This is also a template and the
+
+2
+00:00:09,660 --> 00:00:18,760
+template is this first equation. So it's shorter, it has fewer terms, but it's
+
+3
+00:00:18,760 --> 00:00:26,340
+more general. Basically what we specify here is E, D, and gamma,
+
+4
+00:00:26,340 --> 00:00:31,620
+applicate gamma, and the source term. And then the same templates, you have
+
+5
+00:00:31,620 --> 00:00:38,280
+templates for boundary conditions. So let's see how this will fit. If you
+
+6
+00:00:38,280 --> 00:00:44,760
+compare for example the general form template and the coefficient form
+
+7
+00:00:44,760 --> 00:00:53,280
+template, the coefficient form, if you have a source term, I mean an absorption
+
+8
+00:00:53,280 --> 00:00:56,320
+term like Au, for example, there isn't really a way
+
+9
+00:00:56,320 --> 00:01:00,920
+to put that term in the journal form, but what can you
+
+10
+00:01:00,920 --> 00:01:03,720
+do? You can always move it to the source term. The source
+
+11
+00:01:03,720 --> 00:01:05,460
+term can take anything.
+
+12
+00:01:05,460 --> 00:01:08,780
+You can write anything that didn't fit in the template,
+
+13
+00:01:08,780 --> 00:01:12,180
+you can fit it into the source term.
+
+14
+00:01:12,180 --> 00:01:16,920
+But either of these two templates, you can use them.
+
+15
+00:01:16,920 --> 00:01:22,260
+But then in the WIT form, what you get is nothing.
+
+16
+00:01:22,260 --> 00:01:26,960
+You get blank, and you have to directly specify your WIT form.
+
+17
+00:01:26,960 --> 00:01:32,000
+So here, you're getting more, basically you're removing the
+
+18
+00:01:32,000 --> 00:01:35,060
+training wheels in terms of how much control you have, but then
+
+19
+00:01:35,060 --> 00:01:38,300
+of course when you are working with the WIT form, you need to
+
+20
+00:01:38,300 --> 00:01:43,920
+be familiar, you need to be comfortable with first taking
+
+21
+00:01:43,920 --> 00:01:47,700
+the strong form, deriving it into a WIT form, but you get
+
+22
+00:01:47,700 --> 00:01:49,100
+extreme flexibility.
+
+23
+00:01:49,100 --> 00:01:52,220
+Since there is no template, you can do whatever you want.
+
+24
+00:01:52,220 --> 00:01:52,260
+.
+
+25
+00:01:52,260 --> 00:02:01,800
+I should probably skip this slide.
+
+26
+00:02:01,800 --> 00:02:03,220
+You have seen this, right?
+
+27
+00:02:03,220 --> 00:02:05,000
+You start with strong form.
+
+28
+00:02:05,000 --> 00:02:08,200
+If the strong form was zero, you can multiply it by any
+
+29
+00:02:08,200 --> 00:02:11,100
+weighting function, and it should be zero everywhere.
+
+30
+00:02:11,100 --> 00:02:13,660
+If you integrated it, it should be zero for any weighting
+
+31
+00:02:13,660 --> 00:02:14,560
+function.
+
+32
+00:02:14,560 --> 00:02:18,860
+Of course, you pick the space of the weighting and the
+
+33
+00:02:18,860 --> 00:02:22,220
+solution, but skipping that.
+
+34
+00:02:22,220 --> 00:02:31,760
+So you can use integration by parts, Gauss divergence theorem
+
+35
+00:02:31,760 --> 00:02:36,360
+to move this to the boundary, and that's what you will have
+
+36
+00:02:36,360 --> 00:02:37,460
+for the WIT form.
+
+37
+00:02:37,460 --> 00:02:42,460
+The only thing is now how do I specify the W's when you are
+
+38
+00:02:42,460 --> 00:02:46,020
+specifying, now when you are typing, so far we were typing
+
+39
+00:02:46,020 --> 00:02:50,860
+quantities in terms of the dependent variables.
+
+40
+00:02:50,860 --> 00:02:52,180
+So saying U.
+
+41
+00:02:52,180 --> 00:02:55,620
+If you are solving for U or T, if you are solving for T.
+
+42
+00:02:55,620 --> 00:02:59,920
+But now here, we have a second variable, and the way you specify
+
+43
+00:02:59,920 --> 00:03:04,480
+in console is if you call the variable U, then when you want
+
+44
+00:03:04,480 --> 00:03:09,220
+to access the weighting function associated with that equation,
+
+45
+00:03:09,220 --> 00:03:11,280
+you're going to say test of U.
+
+46
+00:03:11,280 --> 00:03:17,580
+So or if your independent variable was M, then for W, you
+
+47
+00:03:17,580 --> 00:03:22,140
+will write test M. So the test operator basically
+
+48
+00:03:22,140 --> 00:03:27,180
+says I am taking the weighting function associated with this
+
+49
+00:03:27,180 --> 00:03:28,180
+primary variable.
+
+50
+00:03:28,180 --> 00:03:33,600
+There is a blog article if you are interested in this that
+
+51
+00:03:33,600 --> 00:03:38,800
+explains in detail how to implement WIT forms.
+
+52
+00:03:38,800 --> 00:03:42,180
+But you basically have a choice between WIT form, strong form,
+
+53
+00:03:42,180 --> 00:03:47,900
+and for the strong form, you can have the coefficient form, the
+
+54
+00:03:47,900 --> 00:03:49,880
+general form, and other forms as well.
+
+55
+00:03:49,880 --> 00:03:52,100
+Like for example, you can do the classical
+
+56
+00:03:52,140 --> 00:03:56,300
+PDA interfaces for things like Laplace equation, which are
+
+57
+00:03:56,300 --> 00:03:58,180
+commonly encountered.
+

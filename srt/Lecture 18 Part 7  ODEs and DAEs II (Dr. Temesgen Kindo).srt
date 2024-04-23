@@ -1,0 +1,1176 @@
+1
+00:00:00,000 --> 00:00:05,140
+But let's say I want to solve this algebraic equation, just finding roots, right?
+
+2
+00:00:05,480 --> 00:00:08,960
+I want to solve u cubed is equal to 8 for u.
+
+3
+00:00:09,240 --> 00:00:13,680
+Now the template is f of everything is 0.
+
+4
+00:00:14,060 --> 00:00:16,600
+So then you have to write it in this template, right?
+
+5
+00:00:16,920 --> 00:00:24,320
+Then what you will do is you specifically write u cubed minus 8, because that is going to be 0.
+
+6
+00:00:24,720 --> 00:00:26,380
+And then you put your initial value.
+
+7
+00:00:26,380 --> 00:00:28,200
+So let's see how to solve this.
+
+8
+00:00:28,200 --> 00:00:37,440
+File, new, model wizard.
+
+9
+00:00:37,680 --> 00:00:39,360
+This is going to be a 0D problem.
+
+10
+00:00:40,140 --> 00:00:42,500
+There is no special variation to it.
+
+11
+00:00:43,040 --> 00:00:45,880
+I come to this, global ODAs and DAEs.
+
+12
+00:00:46,600 --> 00:00:47,460
+I add this.
+
+13
+00:00:48,140 --> 00:00:49,700
+I'm going to solve a stationary problem.
+
+14
+00:00:50,520 --> 00:00:51,040
+I'm done.
+
+15
+00:00:53,240 --> 00:00:57,860
+Now, here I write I'm going to solve for u.
+
+16
+00:00:58,200 --> 00:01:02,120
+And the equation is I'm not going to say u cubed is equal to 8.
+
+17
+00:01:02,580 --> 00:01:06,820
+I have to write whatever it is needs to be set to 0.
+
+18
+00:01:07,440 --> 00:01:10,740
+So now u cubed minus 8.
+
+19
+00:01:11,160 --> 00:01:12,580
+And what's the initial value?
+
+20
+00:01:13,100 --> 00:01:16,860
+Well, for a stationary problem, that's meaningless.
+
+21
+00:01:17,280 --> 00:01:21,540
+For time dependent problem, I mean, for time dependent problem, it's meaningful.
+
+22
+00:01:22,340 --> 00:01:25,220
+But for a stationary problem, it's only a numerical item.
+
+23
+00:01:25,980 --> 00:01:26,940
+Let me compute this.
+
+24
+00:01:28,200 --> 00:01:30,240
+This is a reasonably simple problem, right?
+
+25
+00:01:30,240 --> 00:01:31,280
+We even know the solution.
+
+26
+00:01:32,000 --> 00:01:35,080
+But it's saying, we have to find a solution.
+
+27
+00:01:35,900 --> 00:01:37,240
+What do you think is going on?
+
+28
+00:01:42,100 --> 00:01:42,400
+Huh?
+
+29
+00:01:44,100 --> 00:01:44,440
+Anybody?
+
+30
+00:01:45,840 --> 00:01:52,440
+Let's think in terms of just real, whatever.
+
+31
+00:01:52,440 --> 00:01:52,580
+Yeah.
+
+32
+00:01:52,580 --> 00:01:56,080
+If we talk, if we assume it's going to be a real solution.
+
+33
+00:01:56,080 --> 00:01:57,580
+Let me show you the equation.
+
+34
+00:01:57,580 --> 00:01:57,820
+Okay.
+
+35
+00:01:57,820 --> 00:01:57,920
+Okay.
+
+36
+00:01:57,920 --> 00:01:57,980
+Okay.
+
+37
+00:01:57,980 --> 00:01:58,080
+Okay.
+
+38
+00:01:58,080 --> 00:01:58,180
+Okay.
+
+39
+00:01:58,200 --> 00:01:58,280
+Okay.
+
+40
+00:01:58,360 --> 00:01:59,180
+I was solving it anyway.
+
+41
+00:02:01,340 --> 00:02:01,800
+Here.
+
+42
+00:02:03,860 --> 00:02:04,380
+Okay.
+
+43
+00:02:07,020 --> 00:02:07,180
+Okay.
+
+44
+00:02:07,180 --> 00:02:07,680
+Any suggestions?
+
+45
+00:02:08,200 --> 00:02:08,360
+Yes?
+
+46
+00:02:13,520 --> 00:02:14,060
+Okay.
+
+47
+00:02:18,440 --> 00:02:18,460
+Okay.
+
+48
+00:02:22,140 --> 00:02:22,380
+Okay.
+
+49
+00:02:22,720 --> 00:02:23,320
+Okay.
+
+50
+00:02:24,940 --> 00:02:25,500
+Okay.
+
+51
+00:02:26,140 --> 00:02:27,800
+Okay.
+
+52
+00:02:27,920 --> 00:02:28,080
+Okay.
+
+53
+00:02:28,080 --> 00:02:28,160
+Okay.
+
+54
+00:02:28,160 --> 00:02:28,200
+Okay.
+
+55
+00:02:28,200 --> 00:02:30,200
+to change the integral value.
+
+56
+00:02:30,200 --> 00:02:31,200
+Yeah.
+
+57
+00:02:31,200 --> 00:02:34,200
+You're the new expression in the class.
+
+58
+00:02:34,200 --> 00:02:37,200
+So anyway, let's assume we are solving this using the Newton
+
+59
+00:02:37,200 --> 00:02:39,200
+method, right?
+
+60
+00:02:39,200 --> 00:02:41,200
+If we are solving this with the Newton method,
+
+61
+00:02:41,200 --> 00:02:45,200
+we're trying to form f of u is equal to 0 for u.
+
+62
+00:02:45,200 --> 00:02:48,200
+We don't know how to approach this,
+
+63
+00:02:48,200 --> 00:02:52,200
+but we can always state it, right?
+
+64
+00:02:52,200 --> 00:02:59,200
+This is actually a question I always ask myself.
+
+65
+00:02:59,200 --> 00:03:02,200
+When I run into a new numerical problem that I don't know how
+
+66
+00:03:02,200 --> 00:03:06,200
+to deal with, you ask yourself, what would Taylor do?
+
+67
+00:03:06,200 --> 00:03:09,200
+Once I Google, what would Taylor do?
+
+68
+00:03:09,200 --> 00:03:12,200
+And there are and one piece for what would Taylor do?
+
+69
+00:03:12,200 --> 00:03:15,200
+But it's for Taylor Swift.
+
+70
+00:03:15,200 --> 00:03:18,200
+That is a point that I know there would be for .
+
+71
+00:03:18,200 --> 00:03:21,200
+But anyway, so the way you do it, you
+
+72
+00:03:21,200 --> 00:03:22,200
+are trying to find.
+
+73
+00:03:22,200 --> 00:03:24,200
+You are trying to find a distance, a displacement that
+
+74
+00:03:24,200 --> 00:03:26,200
+will take you closer to your solution.
+
+75
+00:03:26,200 --> 00:03:31,200
+And if you put the Taylor expansion of this,
+
+76
+00:03:31,200 --> 00:03:36,200
+then you are going to have f prime of u delta u.
+
+77
+00:03:36,200 --> 00:03:38,200
+And we ignore the I-order terms.
+
+78
+00:03:38,200 --> 00:03:43,200
+So now if you set this to be 0 in a one-dimensional case,
+
+79
+00:03:43,200 --> 00:03:45,200
+I mean in a scalar problem, what you're getting
+
+80
+00:03:45,200 --> 00:03:51,200
+is the distance you need to move on is going to be f of u
+
+81
+00:03:51,200 --> 00:03:52,200
+over mu.
+
+82
+00:03:52,200 --> 00:03:56,200
+So you're going to have f prime of u negative.
+
+83
+00:03:56,200 --> 00:04:01,200
+And if f prime is 0, or if this is a scalar,
+
+84
+00:04:01,200 --> 00:04:04,200
+your vector system of equations you are solving,
+
+85
+00:04:04,200 --> 00:04:07,200
+f minus f, which is the residual, is going
+
+86
+00:04:07,200 --> 00:04:10,200
+to be your Jacobian matrix like this.
+
+87
+00:04:10,200 --> 00:04:14,200
+And if this is singular, you're going to run into a problem.
+
+88
+00:04:14,200 --> 00:04:16,200
+And here we are solving u cubed minus 8.
+
+89
+00:04:16,200 --> 00:04:17,200
+What is the root?
+
+90
+00:04:17,200 --> 00:04:18,200
+The derivative.
+
+91
+00:04:18,200 --> 00:04:20,200
+3u squared.
+
+92
+00:04:20,200 --> 00:04:21,200
+Check it out.
+
+93
+00:04:21,200 --> 00:04:22,200
+It's 0.
+
+94
+00:04:22,200 --> 00:04:25,200
+So that's what we are getting here.
+
+95
+00:04:25,200 --> 00:04:32,200
+So let's change the initial value and recompute.
+
+96
+00:04:32,200 --> 00:04:37,200
+And our solution here, if I evaluate, it's 2.
+
+97
+00:04:37,200 --> 00:04:41,200
+So that was the problem with the initial starting point.
+
+98
+00:04:41,200 --> 00:04:45,200
+So all these ideas that you keep talking
+
+99
+00:04:45,200 --> 00:04:49,200
+in your numerical analysis classes, they have consequences.
+
+100
+00:04:49,200 --> 00:04:56,200
+And a lot of times when we have people difficulty using the software,
+
+101
+00:04:56,200 --> 00:05:00,200
+it's because you miss things like this.
+
+102
+00:05:00,200 --> 00:05:04,200
+And then we'll be like, hey, why isn't this working?
+
+103
+00:05:04,200 --> 00:05:05,200
+This is really a simple problem.
+
+104
+00:05:05,200 --> 00:05:11,200
+And you guys cannot solve this and pay me back.
+
+105
+00:05:11,200 --> 00:05:16,200
+Anyway, moving on.
+
+106
+00:05:16,200 --> 00:05:18,200
+Since Comsol doesn't distinguish in this interval,
+
+107
+00:05:18,200 --> 00:05:24,200
+you don't have different interfaces for algebraic and global equations.
+
+108
+00:05:24,200 --> 00:05:30,200
+So before I actually go to differential equations,
+
+109
+00:05:30,200 --> 00:05:33,200
+I want to talk a little bit about domain algebraic equations.
+
+110
+00:05:33,200 --> 00:05:35,200
+What we solve now is a global algebraic equation.
+
+111
+00:05:35,200 --> 00:05:37,200
+But let's say we want to solve a problem.
+
+112
+00:05:37,200 --> 00:05:40,200
+Instead of u cubed being equal to 8,
+
+113
+00:05:40,200 --> 00:05:45,200
+you want to solve u cubed is equal to some function of location.
+
+114
+00:05:45,200 --> 00:05:46,200
+So what is going to happen?
+
+115
+00:05:46,200 --> 00:05:50,200
+Every point is going to have its own solution.
+
+116
+00:05:50,200 --> 00:05:53,200
+At every point, the problem is algebraic.
+
+117
+00:05:53,200 --> 00:05:58,200
+But it is going to have different parameters.
+
+118
+00:05:58,200 --> 00:06:00,200
+So in any problem like this,
+
+119
+00:06:00,200 --> 00:06:03,200
+you're going to have an algebraic field equation.
+
+120
+00:06:03,200 --> 00:06:08,200
+For example, when you are solving sometimes multiphysics problems,
+
+121
+00:06:08,200 --> 00:06:11,200
+there will be some kind of dynamic constraints
+
+122
+00:06:11,200 --> 00:06:15,200
+between different variables, some algebraic constraints.
+
+123
+00:06:15,200 --> 00:06:19,200
+And sometimes you know that directly, one in terms of the other.
+
+124
+00:06:19,200 --> 00:06:25,200
+So you have, let's say maybe you know p is some function of temperature
+
+125
+00:06:25,200 --> 00:06:27,200
+and other quantity.
+
+126
+00:06:27,200 --> 00:06:30,200
+If you know this, you can just directly type this.
+
+127
+00:06:30,200 --> 00:06:35,200
+But most of the time, you have some implicit equation, right?
+
+128
+00:06:35,200 --> 00:06:37,200
+p, d, whatever is of 0.
+
+129
+00:06:37,200 --> 00:06:42,200
+And at every point, this algebraic relation has to be satisfied.
+
+130
+00:06:42,200 --> 00:06:44,200
+But then every point has its own solution.
+
+131
+00:06:44,200 --> 00:06:50,200
+So that's what you use domain algebraic equations for instead of global.
+
+132
+00:06:50,200 --> 00:06:54,200
+Just like that, we also have global and domain ODEs.
+
+133
+00:06:54,200 --> 00:06:59,200
+Let's say we are solving this population projection problem,
+
+134
+00:06:59,200 --> 00:07:03,200
+the local prey-predator equation.
+
+135
+00:07:03,200 --> 00:07:08,200
+Which one is the prey and which one is the predator in this equation?
+
+136
+00:07:08,200 --> 00:07:13,200
+Between u and v, if one was prey and one was predator.
+
+137
+00:07:13,200 --> 00:07:18,200
+Predator.
+
+138
+00:07:18,200 --> 00:07:21,200
+Look at the interaction terms.
+
+139
+00:07:21,200 --> 00:07:23,200
+Assuming all coefficients are positive,
+
+140
+00:07:23,200 --> 00:07:26,200
+a1, b1, a2, b2 are all positive.
+
+141
+00:07:26,200 --> 00:07:28,200
+Or non-negative at least.
+
+142
+00:07:28,200 --> 00:07:31,200
+u is the prey.
+
+143
+00:07:31,200 --> 00:07:33,200
+u is the prey, why would you say that?
+
+144
+00:07:33,200 --> 00:07:35,200
+Because when u and v meet, it's...
+
+145
+00:07:35,200 --> 00:07:41,200
+Yeah, basically when u and v meet, it's u's damage and v's gain.
+
+146
+00:07:41,200 --> 00:07:46,200
+So u is the prey, the other one is the predator.
+
+147
+00:07:46,200 --> 00:07:52,200
+So the way to specify this is we don't differentiate between algebraic and global equations.
+
+148
+00:07:52,200 --> 00:07:54,200
+You use the same global equation interface.
+
+149
+00:07:54,200 --> 00:07:56,200
+The only thing is...
+
+150
+00:07:56,200 --> 00:07:59,200
+I already have a solved model for this.
+
+151
+00:07:59,200 --> 00:08:02,200
+The only thing that you have to consider here is
+
+152
+00:08:02,200 --> 00:08:04,200
+when you enter this equation,
+
+153
+00:08:04,200 --> 00:08:08,200
+now instead of just being an algebraic equation, you are going to have derivatives.
+
+154
+00:08:08,200 --> 00:08:10,200
+Remember when we talked about derivative operators?
+
+155
+00:08:10,200 --> 00:08:12,200
+So if I...
+
+156
+00:08:12,200 --> 00:08:15,200
+Here also you enter everything is equal to 0.
+
+157
+00:08:15,200 --> 00:08:19,200
+So if I want du over dt is equal to something,
+
+158
+00:08:19,200 --> 00:08:21,200
+I would move the right-hand side to the left.
+
+159
+00:08:21,200 --> 00:08:29,200
+And I would write du over dt minus a1 u1 minus u over k minus b1 v is equal to 0.
+
+160
+00:08:29,200 --> 00:08:33,200
+Initial values of this I have parameterized here.
+
+161
+00:08:33,200 --> 00:08:39,200
+Initial prey and predator concentrations, carrying capacity,
+
+162
+00:08:39,200 --> 00:08:42,200
+these interaction terms.
+
+163
+00:08:42,200 --> 00:08:43,200
+But...
+
+164
+00:08:43,200 --> 00:08:47,200
+So now if you have this,
+
+165
+00:08:47,200 --> 00:08:51,200
+then you have to add the time-dependent solvers, specify the time you want,
+
+166
+00:08:51,200 --> 00:08:55,200
+and you just solve that.
+
+167
+00:08:55,200 --> 00:08:59,200
+So for example here what I get is for the initial values I started with,
+
+168
+00:08:59,200 --> 00:09:02,200
+the prey population goes down,
+
+169
+00:09:02,200 --> 00:09:04,200
+the predator population goes up.
+
+170
+00:09:04,200 --> 00:09:07,200
+At some point it runs out of food,
+
+171
+00:09:07,200 --> 00:09:09,200
+so then it will start...
+
+172
+00:09:09,200 --> 00:09:11,200
+declining.
+
+173
+00:09:11,200 --> 00:09:17,200
+But the major point here is that the global differential and algebraic equations,
+
+174
+00:09:17,200 --> 00:09:21,200
+they are just time derivatives, no special derivative.
+
+175
+00:09:21,200 --> 00:09:24,200
+You use the same interface.
+
+176
+00:09:24,200 --> 00:09:26,200
+Clear so far?
+
+177
+00:09:26,200 --> 00:09:28,200
+Okay.
+
+178
+00:09:28,200 --> 00:09:32,200
+Now...
+
+179
+00:09:32,200 --> 00:09:34,200
+We can have domain ODEs as well.
+
+180
+00:09:34,200 --> 00:09:36,200
+Here it's global ODEs.
+
+181
+00:09:36,200 --> 00:09:37,200
+Let's think about this.
+
+182
+00:09:37,200 --> 00:09:40,200
+Instead of talking about population projection,
+
+183
+00:09:40,200 --> 00:09:43,200
+maybe this is prey-predator relationship in one area,
+
+184
+00:09:43,200 --> 00:09:46,200
+let's say you are talking about a whole area.
+
+185
+00:09:46,200 --> 00:09:50,200
+Then different areas can have their own carrying capacity.
+
+186
+00:09:50,200 --> 00:09:54,200
+Different areas can have their own...
+
+187
+00:09:54,200 --> 00:09:55,200
+populations.
+
+188
+00:09:55,200 --> 00:10:01,200
+Maybe prey-predator interactions are going to have different outcomes based on location.
+
+189
+00:10:01,200 --> 00:10:03,200
+Maybe there is climate effect.
+
+190
+00:10:03,200 --> 00:10:05,200
+There's a special effect.
+
+191
+00:10:05,200 --> 00:10:06,200
+But...
+
+192
+00:10:06,200 --> 00:10:07,200
+But...
+
+193
+00:10:07,200 --> 00:10:12,200
+Still what we are having is ordinary differential equations at every point.
+
+194
+00:10:12,200 --> 00:10:17,200
+So here what we are assuming is there is no interaction between population at one point
+
+195
+00:10:17,200 --> 00:10:20,200
+or at another point.
+
+196
+00:10:20,200 --> 00:10:27,200
+So every point is independent of the neighbors.
+
+197
+00:10:27,200 --> 00:10:31,200
+So there is no keeping up with the Genesis or with the Cartesian
+
+198
+00:10:31,200 --> 00:10:34,200
+or whoever it is that people keep up with now.
+
+199
+00:10:34,200 --> 00:10:36,200
+Every point has its own evolution.
+
+200
+00:10:36,200 --> 00:10:39,200
+Irrespective of what happens on the neighbors.
+
+201
+00:10:39,200 --> 00:10:41,200
+But every point is different from another point.
+
+202
+00:10:41,200 --> 00:10:44,200
+So it's not a global equation.
+
+203
+00:10:44,200 --> 00:10:52,200
+Now the question here is how will this equation, this population model, become a partial differential equation?
+
+204
+00:10:52,200 --> 00:10:54,200
+Now we have...
+
+205
+00:10:54,200 --> 00:10:56,200
+I've made domain ODEs from global ODEs.
+
+206
+00:10:56,200 --> 00:11:02,200
+Can it become a PDE?
+
+207
+00:11:02,200 --> 00:11:04,200
+Any idea how it can become a PDE?
+
+208
+00:11:04,200 --> 00:11:14,200
+Any physical effects that can be treated to be mythic about it?
+
+209
+00:11:14,200 --> 00:11:26,200
+When we had a single population, this population equation was something like this.
+
+210
+00:11:26,200 --> 00:11:29,200
+For example, the predetermined population is going to be...
+
+211
+00:11:29,200 --> 00:11:33,200
+This derivative is going to be something containing U and W.
+
+212
+00:11:34,200 --> 00:11:38,200
+Can I have this term?
+
+213
+00:11:38,200 --> 00:11:39,200
+In this equation.
+
+214
+00:11:39,200 --> 00:11:44,200
+Is there any physical effect that can ever make it have this?
+
+215
+00:11:44,200 --> 00:11:46,200
+Transport?
+
+216
+00:11:46,200 --> 00:11:47,200
+Transport.
+
+217
+00:11:47,200 --> 00:11:50,200
+So in terms of population, what would that be?
+
+218
+00:11:50,200 --> 00:11:52,200
+Migration.
+
+219
+00:11:52,200 --> 00:11:56,200
+Yep.
+
+220
+00:11:56,200 --> 00:11:59,200
+This is not a proposal to solve today.
+
+221
+00:11:59,200 --> 00:12:02,200
+Especially...
+
+222
+00:12:02,200 --> 00:12:03,200
+What?
+
+223
+00:12:03,200 --> 00:12:06,200
+We prepared the presentation before.
+
+224
+00:12:06,200 --> 00:12:12,200
+Anyway, if you have migration, then we can assume...
+
+225
+00:12:12,200 --> 00:12:21,200
+One thing to assume is people migrate from high concentrated areas to low concentrated areas.
+
+226
+00:12:21,200 --> 00:12:25,200
+Maybe if that is the effect, you will have diffusion.
+
+227
+00:12:25,200 --> 00:12:28,200
+And you have an advection term in this equation.
+
+228
+00:12:28,200 --> 00:12:31,200
+So now if you have migration where people want to run away from high concentration areas,
+
+229
+00:12:31,200 --> 00:12:39,200
+you can have the advection term, the diffusion term.
+
+230
+00:12:39,200 --> 00:12:43,200
+But can you have any advection, any reason for adding advection?
+
+231
+00:12:43,200 --> 00:12:49,200
+Yeah, what would it be?
+
+232
+00:12:49,200 --> 00:12:59,200
+Yeah, so in terms of population projection, population analysis problem,
+
+233
+00:12:59,200 --> 00:13:03,200
+what would be an advection effect?
+
+234
+00:13:03,200 --> 00:13:04,200
+What would motivate...
+
+235
+00:13:04,200 --> 00:13:06,200
+Basically advection is...
+
+236
+00:13:06,200 --> 00:13:09,200
+Diffusion is you move based on the concentration, right?
+
+237
+00:13:09,200 --> 00:13:15,200
+Whereas advection is just a velocity irrespective of the concentration.
+
+238
+00:13:15,200 --> 00:13:17,200
+You have it with us.
+
+239
+00:13:17,200 --> 00:13:22,200
+People moving in a certain direction, and that's not going to be concentration dependent.
+
+240
+00:13:22,200 --> 00:13:24,200
+Why would that happen?
+
+241
+00:13:24,200 --> 00:13:26,200
+Why would anything like that happen?
+
+242
+00:13:26,200 --> 00:13:27,200
+.
+
+243
+00:13:27,200 --> 00:13:28,200
+.
+
+244
+00:13:28,200 --> 00:13:30,200
+Yeah, something like that.
+
+245
+00:13:30,200 --> 00:13:32,200
+Like more food or like some resource.
+
+246
+00:13:32,200 --> 00:13:36,200
+Remember the California boat rush, for example, right?
+
+247
+00:13:36,200 --> 00:13:40,200
+People find out, oh, there is good things at that place.
+
+248
+00:13:40,200 --> 00:13:45,200
+So irrespective of whatever population you have in this place, you might want to move.
+
+249
+00:13:45,200 --> 00:13:48,200
+So in that case, you might add advection terms.
+
+250
+00:13:48,200 --> 00:13:51,200
+The diffusion coefficient is positive.
+
+251
+00:13:51,200 --> 00:13:53,200
+What if we have negative diffusion coefficient?
+
+252
+00:13:53,200 --> 00:13:55,200
+.
+
+253
+00:13:55,200 --> 00:13:56,200
+.
+
+254
+00:13:56,200 --> 00:14:01,200
+So what is the assumption in having a positive diffusion coefficient?
+
+255
+00:14:01,200 --> 00:14:06,200
+We're saying move motion away from high concentration area.
+
+256
+00:14:06,200 --> 00:14:09,200
+What would then making that negative mean?
+
+257
+00:14:09,200 --> 00:14:11,200
+.
+
+258
+00:14:11,200 --> 00:14:12,200
+Huh?
+
+259
+00:14:12,200 --> 00:14:13,200
+.
+
+260
+00:14:13,200 --> 00:14:14,200
+Yeah, right?
+
+261
+00:14:14,200 --> 00:14:16,200
+What would that make out of the country?
+
+262
+00:14:16,200 --> 00:14:17,200
+.
+
+263
+00:14:17,200 --> 00:14:18,200
+.
+
+264
+00:14:18,200 --> 00:14:19,200
+.
+
+265
+00:14:19,200 --> 00:14:20,200
+.
+
+266
+00:14:20,200 --> 00:14:21,200
+.
+
+267
+00:14:21,200 --> 00:14:22,200
+.
+
+268
+00:14:22,200 --> 00:14:23,200
+.
+
+269
+00:14:23,200 --> 00:14:24,200
+.
+
+270
+00:14:24,200 --> 00:14:25,200
+.
+
+271
+00:14:25,200 --> 00:14:26,200
+.
+
+272
+00:14:26,200 --> 00:14:27,200
+.
+
+273
+00:14:27,200 --> 00:14:28,200
+.
+
+274
+00:14:28,200 --> 00:14:29,200
+.
+
+275
+00:14:29,200 --> 00:14:30,200
+.
+
+276
+00:14:30,200 --> 00:14:31,200
+.
+
+277
+00:14:31,200 --> 00:14:32,200
+.
+
+278
+00:14:32,200 --> 00:14:33,200
+.
+
+279
+00:14:33,200 --> 00:14:34,200
+.
+
+280
+00:14:34,200 --> 00:14:35,200
+.
+
+281
+00:14:35,200 --> 00:14:36,200
+.
+
+282
+00:14:36,200 --> 00:14:39,200
+It makes that, it helps everything, stuff that you can find, make it more obvious,
+
+283
+00:14:39,200 --> 00:14:43,200
+why it is happening, where nothing's happening.
+
+284
+00:14:43,200 --> 00:14:44,200
+.
+
+285
+00:14:44,200 --> 00:14:45,200
+.
+
+286
+00:14:45,200 --> 00:14:46,200
+.
+
+287
+00:14:46,200 --> 00:14:47,200
+.
+
+288
+00:14:47,200 --> 00:14:48,200
+.
+
+289
+00:14:48,200 --> 00:14:49,200
+.
+
+290
+00:14:49,200 --> 00:14:50,200
+.
+
+291
+00:14:50,200 --> 00:14:51,200
+.
+
+292
+00:14:51,200 --> 00:14:52,200
+.
+
+293
+00:14:52,200 --> 00:14:53,200
+.
+
+294
+00:14:53,200 --> 00:14:56,680
+and if migration is just to the higher direction,
+

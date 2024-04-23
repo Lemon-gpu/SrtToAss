@@ -1,0 +1,1368 @@
+1
+00:00:00,000 --> 00:00:06,400
+Yeah, change the spatial discretization or change the time discretization, right?
+
+2
+00:00:06,400 --> 00:00:09,000
+So let me explain both cases.
+
+3
+00:00:09,540 --> 00:00:13,400
+So first of all, forward Euler is not the only way to integrate differential equations.
+
+4
+00:00:14,640 --> 00:00:23,940
+If you look at MATLAB's ODE45, it is using something that is a lot better than forward Euler.
+
+5
+00:00:24,740 --> 00:00:29,920
+Not only it is more accurate, it is fourth order and fifth order, but also the stability region is different.
+
+6
+00:00:30,540 --> 00:00:38,900
+For example, there is a well-known Rangakata scheme called RK4, fourth order Rangakata scheme,
+
+7
+00:00:39,420 --> 00:00:47,560
+whose stability region for real of lambda t and the imaginary of delta t lambda, the same thing, is something like that.
+
+8
+00:00:51,560 --> 00:00:58,020
+All right, so for the Rangakata scheme, fourth order, the scheme is stable in this region,
+
+9
+00:00:58,160 --> 00:00:59,560
+which actually includes...
+
+10
+00:01:00,000 --> 00:01:04,900
+All these points we are talking about lying on the imaginary axis.
+
+11
+00:01:06,460 --> 00:01:10,920
+So one solution is just to use RK4 to solve the equation.
+
+12
+00:01:13,020 --> 00:01:16,940
+It will be slightly more lines of code you need to write, but like, no problem.
+
+13
+00:01:17,840 --> 00:01:19,200
+Or just use ODE45.
+
+14
+00:01:20,020 --> 00:01:20,700
+You'll be okay.
+
+15
+00:01:22,040 --> 00:01:22,420
+All right?
+
+16
+00:01:23,160 --> 00:01:24,700
+So that is one solution.
+
+17
+00:01:24,700 --> 00:01:29,700
+Change time discretization.
+
+18
+00:01:30,000 --> 00:01:39,640
+Another potential solution is change spatial discretization.
+
+19
+00:01:39,640 --> 00:01:43,740
+Spatial discretization.
+
+20
+00:01:45,860 --> 00:01:47,140
+All right.
+
+21
+00:01:48,960 --> 00:01:54,080
+So, for example, let's do a trade-off.
+
+22
+00:01:54,080 --> 00:01:55,080
+Instead of using...
+
+23
+00:01:56,020 --> 00:01:59,080
+Instead of using...
+
+24
+00:02:00,000 --> 00:02:00,520
+This is D.
+
+25
+00:02:00,640 --> 00:02:03,760
+Instead of using the more accurate central difference scheme,
+
+26
+00:02:04,640 --> 00:02:10,760
+let's use I plus 1 minus UI over delta t.
+
+27
+00:02:11,900 --> 00:02:16,780
+Let's bias towards one side to see what does it change stability.
+
+28
+00:02:17,240 --> 00:02:21,700
+We know it makes the accuracy worse, but can it make stability better?
+
+29
+00:02:22,660 --> 00:02:22,900
+Right?
+
+30
+00:02:22,900 --> 00:02:26,600
+So sometimes we have to do a trade-off between stability and accuracy.
+
+31
+00:02:26,980 --> 00:02:28,900
+So in this case, we plug in the same...
+
+32
+00:02:30,000 --> 00:02:31,620
+Free expansion here.
+
+33
+00:02:31,880 --> 00:02:38,600
+UI is equal to summation K of U head of K e to the J Ki delta x.
+
+34
+00:02:39,140 --> 00:02:42,960
+We get D U head of K dt on the left-hand side.
+
+35
+00:02:43,540 --> 00:02:49,700
+So this is from here plus U times U head of K from here.
+
+36
+00:02:49,700 --> 00:02:58,700
+And exponential of J K delta x minus...
+
+37
+00:03:00,000 --> 00:03:02,000
+U over...
+
+38
+00:03:02,000 --> 00:03:05,660
+Oh, so this is delta x over delta x equal to zero.
+
+39
+00:03:06,680 --> 00:03:06,880
+Right?
+
+40
+00:03:07,020 --> 00:03:08,840
+Is it clear how I got this?
+
+41
+00:03:09,840 --> 00:03:15,340
+This is basically plugging I plus 1 into here and factor it out.
+
+42
+00:03:16,260 --> 00:03:26,660
+The common term that is e to the J Ki delta x got pulled out, right, from both the D U dt and also this term and also this term.
+
+43
+00:03:27,340 --> 00:03:29,220
+So we are left with this.
+
+44
+00:03:30,000 --> 00:03:42,640
+And what we have is D U head of K dt equal to minus U, this guy over here, times U head of K.
+
+45
+00:03:43,620 --> 00:03:46,080
+Now, this is our lambda.
+
+46
+00:03:48,440 --> 00:03:51,040
+Any idea where it is on the complex plane?
+
+47
+00:03:54,520 --> 00:03:56,360
+So let's draw the complex plane.
+
+48
+00:03:56,980 --> 00:03:58,580
+And hopefully it is on this side.
+
+49
+00:03:58,660 --> 00:03:59,960
+So let's draw it a little bit like that.
+
+50
+00:04:00,000 --> 00:04:04,160
+So real of lambda, imaginary of lambda.
+
+51
+00:04:06,500 --> 00:04:07,360
+All right.
+
+52
+00:04:09,940 --> 00:04:13,400
+E to the J K delta x.
+
+53
+00:04:14,020 --> 00:04:18,960
+And again, remember K times delta x ranges from minus pi to pi.
+
+54
+00:04:19,640 --> 00:04:24,680
+Just because of the range of K and the relation between N and delta x.
+
+55
+00:04:25,860 --> 00:04:28,220
+So N times delta x equal to 2 pi.
+
+56
+00:04:28,460 --> 00:04:29,960
+And K goes from minus.
+
+57
+00:04:30,160 --> 00:04:32,440
+N over 2 to N over 2 minus 1.
+
+58
+00:04:33,740 --> 00:04:42,440
+So e to the J times something that ranges from minus pi to pi goes in where on the complex plane?
+
+59
+00:04:42,440 --> 00:04:52,460
+So let's say just a J x.
+
+60
+00:04:54,500 --> 00:04:55,760
+J x.
+
+61
+00:04:57,420 --> 00:04:58,660
+What is it?
+
+62
+00:04:58,900 --> 00:04:59,980
+It's a unit.
+
+63
+00:05:00,140 --> 00:05:00,340
+It's a unit circle.
+
+64
+00:05:00,460 --> 00:05:00,760
+Exactly.
+
+65
+00:05:01,640 --> 00:05:03,940
+That's the unit circle.
+
+66
+00:05:05,240 --> 00:05:05,660
+Okay.
+
+67
+00:05:06,240 --> 00:05:12,680
+As x goes from, when x is minus pi, it's over here.
+
+68
+00:05:12,680 --> 00:05:14,260
+And you go over here.
+
+69
+00:05:16,500 --> 00:05:18,040
+And goes all the way to here.
+
+70
+00:05:18,180 --> 00:05:18,880
+That's a unit circle.
+
+71
+00:05:19,960 --> 00:05:20,240
+Okay.
+
+72
+00:05:20,920 --> 00:05:24,260
+Unit circle minus 1 is going to shift it to here.
+
+73
+00:05:24,640 --> 00:05:26,400
+So that's this.
+
+74
+00:05:27,540 --> 00:05:28,420
+And, okay.
+
+75
+00:05:28,560 --> 00:05:29,980
+So minus 1 is going to shift.
+
+76
+00:05:30,360 --> 00:05:31,560
+It's going to shift it to here.
+
+77
+00:05:31,560 --> 00:05:34,560
+So the green line is e to the J x minus 1.
+
+78
+00:05:36,320 --> 00:05:36,820
+All right.
+
+79
+00:05:38,220 --> 00:05:39,980
+So this is the green one.
+
+80
+00:05:40,340 --> 00:05:42,500
+And that is multiplied.
+
+81
+00:05:43,240 --> 00:05:49,000
+So actually let me put it as lambda delta t.
+
+82
+00:05:49,940 --> 00:05:57,640
+So our analysis, we want to look at where this lambda delta t is.
+
+83
+00:05:57,640 --> 00:05:59,540
+Which is minus u.
+
+84
+00:05:59,540 --> 00:06:11,780
+So that's u times delta t over delta x times this green circle over here.
+
+85
+00:06:11,780 --> 00:06:16,000
+So we are expanding this green circle by a coefficient.
+
+86
+00:06:16,380 --> 00:06:21,160
+That is u times delta t divided by delta x.
+
+87
+00:06:24,420 --> 00:06:28,180
+So is that going to make us stable for forward roller?
+
+88
+00:06:29,540 --> 00:06:37,240
+So this part is on this green circle, right?
+
+89
+00:06:37,880 --> 00:06:39,740
+And we are multiplying green circle.
+
+90
+00:06:40,100 --> 00:06:41,280
+Remember, this is the origin.
+
+91
+00:06:41,380 --> 00:06:43,800
+We are multiplying the green circle by this number.
+
+92
+00:06:44,720 --> 00:06:46,960
+And if, for example, u is negative.
+
+93
+00:06:47,400 --> 00:06:50,340
+If u is negative, then this number is a positive number.
+
+94
+00:06:50,520 --> 00:06:52,000
+We are expanding this circle.
+
+95
+00:06:52,580 --> 00:06:55,780
+Expanding or shrinking this circle depending on if this is positive or negative.
+
+96
+00:06:55,780 --> 00:06:57,560
+For example, if.
+
+97
+00:06:58,660 --> 00:06:59,460
+If.
+
+98
+00:06:59,540 --> 00:07:03,820
+Minus u delta t over delta x is equal to 0.5.
+
+99
+00:07:06,960 --> 00:07:07,960
+What is it?
+
+100
+00:07:08,220 --> 00:07:09,300
+So this is minus 1.
+
+101
+00:07:09,420 --> 00:07:10,300
+This is minus 2.
+
+102
+00:07:10,300 --> 00:07:19,000
+If it's equal to 0.5, then my lambda delta t is going to be this circle shrinked by a factor of 2.
+
+103
+00:07:19,240 --> 00:07:22,480
+So instead of this being minus 2, this will be minus 1.
+
+104
+00:07:22,680 --> 00:07:25,280
+And instead of minus 1, it will be minus half.
+
+105
+00:07:26,780 --> 00:07:28,480
+This is actually within.
+
+106
+00:07:29,540 --> 00:07:34,280
+The stability region of forward roller, which is a circle that is twice as big as this.
+
+107
+00:07:34,920 --> 00:07:36,660
+So this is the stability region.
+
+108
+00:07:37,440 --> 00:07:47,100
+And all my eigenvalues lies on this smaller circle, which is completely contained in this big stability region.
+
+109
+00:07:50,720 --> 00:07:51,240
+Right?
+
+110
+00:07:51,240 --> 00:07:56,580
+So this is just an example of minus u times delta t over delta x equal to 0.5.
+
+111
+00:07:57,720 --> 00:07:59,200
+And in fact.
+
+112
+00:07:59,540 --> 00:08:04,380
+As long as this number lies in between 0 and 1.
+
+113
+00:08:05,480 --> 00:08:08,460
+The green circle is going to be contained in this black circle.
+
+114
+00:08:08,460 --> 00:08:08,560
+So.
+
+115
+00:08:11,540 --> 00:08:13,340
+Yes, that's a very good question.
+
+116
+00:08:14,440 --> 00:08:15,440
+If, for example.
+
+117
+00:08:16,500 --> 00:08:17,100
+You.
+
+118
+00:08:17,320 --> 00:08:17,420
+Okay.
+
+119
+00:08:17,680 --> 00:08:17,780
+So.
+
+120
+00:08:18,000 --> 00:08:21,460
+So if there are two cases where the scheme is unstable.
+
+121
+00:08:21,660 --> 00:08:26,460
+One case is if u delta t over delta x is positive.
+
+122
+00:08:27,040 --> 00:08:29,280
+Which means when I take a minus sign.
+
+123
+00:08:29,280 --> 00:08:30,040
+It's negative.
+
+124
+00:08:31,680 --> 00:08:35,440
+What is the effect of multiplying the green circle by a negative number?
+
+125
+00:08:35,900 --> 00:08:37,580
+What does it show up in the complex plane?
+
+126
+00:08:40,760 --> 00:08:44,460
+It flips into the right half of the complex plane.
+
+127
+00:08:45,040 --> 00:08:45,260
+Right?
+
+128
+00:08:46,120 --> 00:08:47,020
+So let's.
+
+129
+00:08:47,200 --> 00:08:48,560
+Let's add a page.
+
+130
+00:08:49,560 --> 00:08:49,760
+So.
+
+131
+00:08:50,980 --> 00:08:51,500
+Again.
+
+132
+00:08:51,780 --> 00:08:52,660
+Let's draw.
+
+133
+00:08:52,660 --> 00:08:56,820
+The stability region of forward roller.
+
+134
+00:08:57,560 --> 00:08:58,160
+Like this.
+
+135
+00:08:58,300 --> 00:08:58,900
+Minus 2.
+
+136
+00:08:59,280 --> 00:09:00,100
+Minus 1.
+
+137
+00:09:01,560 --> 00:09:03,400
+So let's draw the good case.
+
+138
+00:09:05,900 --> 00:09:07,120
+So this is.
+
+139
+00:09:08,040 --> 00:09:09,060
+Minus u.
+
+140
+00:09:09,280 --> 00:09:11,040
+Times delta t over delta x.
+
+141
+00:09:11,140 --> 00:09:11,440
+Again.
+
+142
+00:09:11,560 --> 00:09:12,100
+In this case.
+
+143
+00:09:12,180 --> 00:09:13,660
+This is called the CFL number.
+
+144
+00:09:13,880 --> 00:09:14,620
+Is within.
+
+145
+00:09:17,680 --> 00:09:19,120
+0 and 1.
+
+146
+00:09:19,500 --> 00:09:20,640
+So this is the green side.
+
+147
+00:09:20,640 --> 00:09:22,020
+This is the green circle.
+
+148
+00:09:22,820 --> 00:09:23,640
+The other case.
+
+149
+00:09:24,120 --> 00:09:24,480
+Is.
+
+150
+00:09:25,960 --> 00:09:28,920
+Minus u delta t over delta x.
+
+151
+00:09:29,280 --> 00:09:29,780
+Is.
+
+152
+00:09:30,040 --> 00:09:31,520
+Actually less than 0.
+
+153
+00:09:31,780 --> 00:09:32,940
+It'll flip the green.
+
+154
+00:09:33,620 --> 00:09:34,740
+To the blue side.
+
+155
+00:09:35,280 --> 00:09:37,280
+So it'll be a circle over here.
+
+156
+00:09:37,280 --> 00:09:38,620
+Which is completely unstable.
+
+157
+00:09:40,520 --> 00:09:41,480
+The third case.
+
+158
+00:09:42,280 --> 00:09:42,780
+Is.
+
+159
+00:09:43,520 --> 00:09:47,280
+Minus u delta t over delta x is greater than 1.
+
+160
+00:09:47,660 --> 00:09:48,400
+That means.
+
+161
+00:09:48,580 --> 00:09:50,600
+The green circle is going to expand.
+
+162
+00:09:51,720 --> 00:09:53,280
+Beyond the stability region.
+
+163
+00:09:53,280 --> 00:09:53,940
+It'll be.
+
+164
+00:09:54,320 --> 00:09:56,400
+A red circle that is like that.
+
+165
+00:09:59,280 --> 00:10:00,160
+Again.
+
+166
+00:10:00,420 --> 00:10:02,560
+It is completely beyond the stability region.
+
+167
+00:10:03,140 --> 00:10:03,980
+Therefore it doesn't work.
+
+168
+00:10:05,660 --> 00:10:06,620
+So the scheme.
+
+169
+00:10:06,960 --> 00:10:08,340
+We just derived.
+
+170
+00:10:08,540 --> 00:10:09,340
+Only works.
+
+171
+00:10:10,240 --> 00:10:12,280
+If u is negative.
+
+172
+00:10:13,800 --> 00:10:14,280
+And.
+
+173
+00:10:14,880 --> 00:10:17,100
+u times delta t over delta x.
+
+174
+00:10:17,220 --> 00:10:18,020
+Has a magnitude.
+
+175
+00:10:18,460 --> 00:10:19,480
+Less than 1.
+
+176
+00:10:21,200 --> 00:10:21,960
+Okay.
+
+177
+00:10:22,440 --> 00:10:23,700
+So in this case.
+
+178
+00:10:24,260 --> 00:10:25,240
+The stability.
+
+179
+00:10:25,240 --> 00:10:25,520
+The.
+
+180
+00:10:28,120 --> 00:10:28,680
+Criterion.
+
+181
+00:10:29,280 --> 00:10:29,780
+Is.
+
+182
+00:10:29,780 --> 00:10:30,780
+Minus u delta t over delta x.
+
+183
+00:10:30,780 --> 00:10:31,280
+Is.
+
+184
+00:10:31,280 --> 00:10:31,780
+Minus u delta t over delta x.
+
+185
+00:10:31,780 --> 00:10:32,280
+So.
+
+186
+00:10:32,840 --> 00:10:33,340
+U.
+
+187
+00:10:33,680 --> 00:10:34,180
+Negative.
+
+188
+00:10:35,660 --> 00:10:36,380
+And.
+
+189
+00:10:37,080 --> 00:10:39,180
+U delta t over delta x.
+
+190
+00:10:39,580 --> 00:10:40,280
+Less than 1.
+
+191
+00:10:40,480 --> 00:10:41,160
+So again.
+
+192
+00:10:41,160 --> 00:10:41,860
+This.
+
+193
+00:10:41,860 --> 00:10:42,360
+Is.
+
+194
+00:10:42,360 --> 00:10:43,300
+In this equation.
+
+195
+00:10:43,300 --> 00:10:45,440
+This is called the CFL number.
+
+196
+00:10:47,960 --> 00:10:48,800
+In both cases.
+
+197
+00:10:49,020 --> 00:10:52,000
+Our stability criterion involves the CFL number has a.
+
+198
+00:10:52,160 --> 00:10:53,760
+Has a magnitude less than something.
+
+199
+00:10:53,960 --> 00:10:54,460
+Yes.
+
+200
+00:10:59,280 --> 00:11:01,780
+Sorry.
+
+201
+00:11:01,780 --> 00:11:02,520
+What's your question.
+
+202
+00:11:02,520 --> 00:11:03,660
+What is the black circle?
+
+203
+00:11:04,520 --> 00:11:05,760
+What is the black circle?
+
+204
+00:11:05,760 --> 00:11:06,920
+The black circle is.
+
+205
+00:11:07,260 --> 00:11:08,460
+The stability.
+
+206
+00:11:10,460 --> 00:11:11,240
+Region.
+
+207
+00:11:12,340 --> 00:11:12,720
+Of.
+
+208
+00:11:12,980 --> 00:11:14,160
+Forward oler.
+
+209
+00:11:17,240 --> 00:11:17,740
+It is.
+
+210
+00:11:18,320 --> 00:11:20,720
+Imaginary of lambda delta t.
+
+211
+00:11:20,840 --> 00:11:23,440
+And the real of lambda delta t.
+
+212
+00:11:24,140 --> 00:11:27,080
+So lambda is the eigenvalue.
+
+213
+00:11:28,020 --> 00:11:28,520
+Of.
+
+214
+00:11:29,280 --> 00:11:29,780
+Is.
+
+215
+00:11:29,780 --> 00:11:30,280
+Is.
+
+216
+00:11:30,280 --> 00:11:30,780
+So now.
+
+217
+00:11:30,780 --> 00:11:31,280
+Is.
+
+218
+00:11:31,280 --> 00:11:31,780
+Is the.
+
+219
+00:11:32,480 --> 00:11:33,920
+Is the coefficient.
+
+220
+00:11:34,260 --> 00:11:36,500
+Of the differential equation of the ODE.
+
+221
+00:11:38,080 --> 00:11:40,160
+And delta t is the time step of the ODE.
+
+222
+00:11:40,780 --> 00:11:41,280
+U.
+
+223
+00:11:42,680 --> 00:11:43,600
+Very good point.
+
+224
+00:11:43,980 --> 00:11:44,480
+If.
+
+225
+00:11:44,820 --> 00:11:45,320
+If I.
+
+226
+00:11:45,860 --> 00:11:47,460
+Like I think your point is.
+
+227
+00:11:47,580 --> 00:11:48,660
+If I look at.
+
+228
+00:11:48,660 --> 00:11:50,820
+If I define x to be minus x.
+
+229
+00:11:51,200 --> 00:11:52,520
+Then in the differential equation.
+
+230
+00:11:52,520 --> 00:11:54,660
+My time derivative is still the same.
+
+231
+00:11:54,980 --> 00:11:56,520
+My spatial derivative flips up.
+
+232
+00:11:56,980 --> 00:11:58,680
+So I get a u that is opposite.
+
+233
+00:11:58,680 --> 00:12:00,920
+So that can be an excellent solution.
+
+234
+00:12:02,780 --> 00:12:05,480
+Alternatively or basically equivalently.
+
+235
+00:12:06,540 --> 00:12:07,880
+Instead of.
+
+236
+00:12:08,880 --> 00:12:09,680
+Taking.
+
+237
+00:12:11,900 --> 00:12:12,920
+What we call.
+
+238
+00:12:14,020 --> 00:12:15,480
+Where's the equation.
+
+239
+00:12:15,640 --> 00:12:16,980
+Instead of taking.
+
+240
+00:12:17,060 --> 00:12:17,920
+Oh no this is.
+
+241
+00:12:17,920 --> 00:12:18,740
+This is.
+
+242
+00:12:18,740 --> 00:12:19,240
+The.
+
+243
+00:12:19,300 --> 00:12:19,560
+Okay.
+
+244
+00:12:19,720 --> 00:12:21,000
+Instead of taking the.
+
+245
+00:12:21,580 --> 00:12:23,180
+Forward difference.
+
+246
+00:12:23,600 --> 00:12:25,720
+Involving i plus one and i.
+
+247
+00:12:26,780 --> 00:12:28,460
+The equivalent of flipping sine.
+
+248
+00:12:28,460 --> 00:12:29,580
+Flipping the sine of x.
+
+249
+00:12:29,580 --> 00:12:31,360
+Is like taking a what difference.
+
+250
+00:12:32,660 --> 00:12:33,760
+A backward difference.
+
+251
+00:12:33,760 --> 00:12:34,260
+Exactly.
+
+252
+00:12:35,120 --> 00:12:35,620
+So.
+
+253
+00:12:35,860 --> 00:12:36,360
+That is.
+
+254
+00:12:36,860 --> 00:12:37,360
+Now.
+
+255
+00:12:38,620 --> 00:12:39,120
+If.
+
+256
+00:12:41,560 --> 00:12:43,060
+U is greater than zero.
+
+257
+00:12:43,400 --> 00:12:44,980
+Then the proper scheme.
+
+258
+00:12:45,260 --> 00:12:46,400
+I should be using.
+
+259
+00:12:46,600 --> 00:12:48,120
+Is du i dt.
+
+260
+00:12:48,700 --> 00:12:51,820
+Plus big u times u i minus u.
+
+261
+00:12:52,080 --> 00:12:55,160
+i minus one divided by delta x is equal to zero.
+
+262
+00:12:55,160 --> 00:12:56,700
+That's taking a backward.
+
+263
+00:12:57,760 --> 00:12:58,260
+Scheme.
+
+264
+00:12:58,460 --> 00:12:59,700
+The stability.
+
+265
+00:13:00,240 --> 00:13:03,500
+Criterion of this one would be u greater than zero.
+
+266
+00:13:03,680 --> 00:13:06,740
+And also u delta t over delta x.
+
+267
+00:13:07,160 --> 00:13:07,840
+Less than one.
+
+268
+00:13:07,960 --> 00:13:09,960
+Actually you saved me a lot of analysis.
+
+269
+00:13:10,180 --> 00:13:13,300
+Because the analysis here is exactly like flipping space.
+
+270
+00:13:13,700 --> 00:13:14,680
+And do the same analysis.
+
+271
+00:13:15,960 --> 00:13:16,880
+That's great.
+
+272
+00:13:18,920 --> 00:13:19,560
+Right.
+
+273
+00:13:20,340 --> 00:13:20,760
+Okay.
+
+274
+00:13:21,020 --> 00:13:22,040
+So in both cases.
+
+275
+00:13:23,160 --> 00:13:24,920
+When we look at the.
+
+276
+00:13:25,940 --> 00:13:27,180
+Discretized operator.
+
+277
+00:13:27,180 --> 00:13:28,300
+And let me actually.
+
+278
+00:13:28,460 --> 00:13:29,840
+Write it down here.
+
+279
+00:13:29,840 --> 00:13:31,780
+So this is our scheme.
+
+280
+00:13:31,780 --> 00:13:32,780
+Partial.
+
+281
+00:13:32,780 --> 00:13:34,780
+I was trying to use red.
+
+282
+00:13:34,780 --> 00:13:36,780
+Partial.
+
+283
+00:13:36,780 --> 00:13:38,780
+So du i dt.
+
+284
+00:13:38,780 --> 00:13:39,780
+Plus u.
+
+285
+00:13:39,780 --> 00:13:43,780
+u i plus one minus u i over delta x.
+
+286
+00:13:43,780 --> 00:13:44,780
+Equal to zero.
+
+287
+00:13:44,780 --> 00:13:46,780
+So in both cases.
+
+288
+00:13:46,780 --> 00:13:48,780
+We are biasing.
+
+289
+00:13:48,780 --> 00:13:50,780
+The spatial points we are using.
+
+290
+00:13:50,780 --> 00:13:52,780
+Towards which side.
+
+291
+00:13:52,780 --> 00:13:54,780
+When u is less than zero.
+
+292
+00:13:54,780 --> 00:13:56,780
+We are biasing towards the right.
+
+293
+00:13:56,780 --> 00:13:57,140
+So.
+
+294
+00:13:57,140 --> 00:13:57,640
+We are.
+
+295
+00:13:57,640 --> 00:13:58,140
+We are.
+
+296
+00:13:58,140 --> 00:13:59,140
+We are biasing towards the right side.
+
+297
+00:13:59,140 --> 00:14:00,140
+When u is less than zero.
+
+298
+00:14:00,140 --> 00:14:03,140
+We are biasing towards the left side.
+
+299
+00:14:03,140 --> 00:14:06,140
+And do you remember how the differential equation behaves.
+
+300
+00:14:06,140 --> 00:14:08,140
+For positive or negative u.
+
+301
+00:14:08,140 --> 00:14:11,140
+It's like a wave.
+
+302
+00:14:11,140 --> 00:14:12,140
+Right.
+
+303
+00:14:12,140 --> 00:14:13,140
+And for different.
+
+304
+00:14:13,140 --> 00:14:15,140
+Let me actually just go back to.
+
+305
+00:14:15,140 --> 00:14:17,140
+I think lecture two.
+
+306
+00:14:17,140 --> 00:14:18,140
+No.
+
+307
+00:14:18,140 --> 00:14:20,140
+Is it lecture three.
+
+308
+00:14:20,140 --> 00:14:21,140
+No.
+
+309
+00:14:21,140 --> 00:14:22,140
+Maybe lecture one.
+
+310
+00:14:22,140 --> 00:14:26,140
+Is it demos.
+
+311
+00:14:26,140 --> 00:14:27,140
+Yeah.
+
+312
+00:14:27,140 --> 00:14:28,140
+Convection.
+
+313
+00:14:28,140 --> 00:14:29,140
+Yeah.
+
+314
+00:14:29,140 --> 00:14:30,140
+Okay.
+
+315
+00:14:30,140 --> 00:14:31,140
+Okay.
+
+316
+00:14:31,140 --> 00:14:32,140
+So we are using.
+
+317
+00:14:32,140 --> 00:14:33,140
+One zero.
+
+318
+00:14:33,140 --> 00:14:34,140
+So if we do that.
+
+319
+00:14:34,140 --> 00:14:35,140
+We are having a positive view.
+
+320
+00:14:35,140 --> 00:14:36,140
+And the solution goes towards the right.
+
+321
+00:14:36,140 --> 00:14:37,140
+Right.
+
+322
+00:14:37,140 --> 00:14:38,140
+If we have.
+
+323
+00:14:38,140 --> 00:14:39,140
+And in this case.
+
+324
+00:14:39,140 --> 00:14:40,140
+When solution goes to right.
+
+325
+00:14:40,140 --> 00:14:41,140
+We are using left biased.
+
+326
+00:14:41,140 --> 00:14:42,140
+Great points.
+
+327
+00:14:42,140 --> 00:14:43,140
+On the other way.
+
+328
+00:14:43,140 --> 00:14:44,140
+We are looking at the u minus one.
+
+329
+00:14:44,140 --> 00:14:45,140
+The solution goes towards the left.
+
+330
+00:14:45,140 --> 00:14:46,140
+And.
+
+331
+00:14:46,140 --> 00:14:47,140
+We are.
+
+332
+00:14:47,140 --> 00:14:48,140
+Having a.
+
+333
+00:14:48,140 --> 00:14:49,140
+This.
+
+334
+00:14:49,140 --> 00:14:50,140
+This.
+
+335
+00:14:50,140 --> 00:14:51,140
+This.
+
+336
+00:14:51,140 --> 00:14:52,140
+That.
+
+337
+00:14:52,140 --> 00:14:53,140
+And.
+
+338
+00:14:53,140 --> 00:14:54,140
+This.
+
+339
+00:14:54,140 --> 00:14:55,140
+This.
+
+340
+00:14:55,140 --> 00:14:56,140
+That.
+
+341
+00:14:56,140 --> 00:14:57,140
+This.
+
+342
+00:14:57,140 --> 00:14:59,200
+and it goes towards the left.
+

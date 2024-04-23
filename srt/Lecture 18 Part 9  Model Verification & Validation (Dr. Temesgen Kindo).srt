@@ -1,0 +1,236 @@
+1
+00:00:00,000 --> 00:00:05,000
+So when you are talking about verification and validation, there are two topics, right?
+
+2
+00:00:05,000 --> 00:00:11,000
+There is the validation, which is, are we solving, is the equation actually representing the physics?
+
+3
+00:00:11,000 --> 00:00:15,000
+This isn't something a software can decide or a numerical system can decide.
+
+4
+00:00:15,000 --> 00:00:20,000
+It's something you decide based on your experiments or something physical.
+
+5
+00:00:20,000 --> 00:00:25,000
+Whereas the verification is, am I solving that equation accurately?
+
+6
+00:00:25,000 --> 00:00:32,000
+So basically you go from a physical model to a mathematical model to a numerical solution or to an analytical solution.
+
+7
+00:00:32,000 --> 00:00:40,000
+So the verification part is, did I make the right transition from the physical model to a PDE or a mathematical model?
+
+8
+00:00:40,000 --> 00:00:44,000
+But what we focus now is the verification, the last step.
+
+9
+00:00:44,000 --> 00:00:49,000
+And that we compare with exact solution, with benchmark solutions.
+
+10
+00:00:49,000 --> 00:00:55,000
+But what we can do is when you don't have exact solution, when you don't have experimental data,
+
+11
+00:00:55,000 --> 00:00:58,000
+there is this thing called the method of manufactured solution.
+
+12
+00:00:58,000 --> 00:01:04,000
+It's pretty cool. Actually, I was very psyched when I first found out about it when I was doing the grad school project.
+
+13
+00:01:04,000 --> 00:01:07,000
+Google is method of manufactured solution.
+
+14
+00:01:07,000 --> 00:01:13,000
+There is a big document from the Sandia National Lab that explains every detail.
+
+15
+00:01:13,000 --> 00:01:15,000
+They use it for their nuclear testing.
+
+16
+00:01:15,000 --> 00:01:22,000
+So the idea is maybe this equation is nonlinear or coupled, so you don't really know how to derive an exact solution.
+
+17
+00:01:22,000 --> 00:01:24,000
+You assume a solution.
+
+18
+00:01:24,000 --> 00:01:25,000
+You start with a solution.
+
+19
+00:01:25,000 --> 00:01:26,000
+You start with an assumed solution.
+
+20
+00:01:26,000 --> 00:01:32,000
+You're going to say, hey, let's assume U is equal to this in terms of F and in terms of whatever space and time.
+
+21
+00:01:32,000 --> 00:01:34,000
+You make that assumption.
+
+22
+00:01:34,000 --> 00:01:35,000
+Now, plug it into the ODE.
+
+23
+00:01:35,000 --> 00:01:36,000
+What do you get?
+
+24
+00:01:36,000 --> 00:01:37,000
+Into the PDE.
+
+25
+00:01:37,000 --> 00:01:40,000
+If you plug it into the PDE, you get a source term.
+
+26
+00:01:40,000 --> 00:01:46,000
+And then if you evaluate that solution at the boundaries, you get boundary condition.
+
+27
+00:01:46,000 --> 00:01:50,000
+And if you evaluate that at T is equal to zero, you get initial conditions.
+
+28
+00:01:50,000 --> 00:01:54,000
+Now, what you are going to ask is, if I now take this source term, initial condition,
+
+29
+00:01:54,000 --> 00:02:01,000
+and boundary condition that I derived out of the assumed solution and put it into my numerical solver,
+
+30
+00:02:01,000 --> 00:02:04,000
+will it give me back the assumed solution?
+
+31
+00:02:04,000 --> 00:02:06,000
+Do you get the idea?
+
+32
+00:02:06,000 --> 00:02:13,000
+And here, the only thing is that you should assume uniqueness of your solution, right?
+
+33
+00:02:13,000 --> 00:02:19,000
+If within a certain boundary condition and initial condition you can have multiple solutions, this may not work.
+
+34
+00:02:19,000 --> 00:02:23,000
+But otherwise, it's a very convenient way of testing.
+
+35
+00:02:23,000 --> 00:02:37,000
+So, the homework problem is in the booklet, Comsolve Mathematics, you got that on Monday, maybe?
+
+36
+00:02:37,000 --> 00:02:40,000
+Let me give you a booklet with exercises.
+
+37
+00:02:40,000 --> 00:02:49,000
+There, there is this exercise, the BASMA exercise, where in that case, you are going to solve it using the Newton physics interface.
+
+38
+00:02:49,000 --> 00:02:52,000
+There in the booklet, it gives detailed instruction about the BASMA exercise.
+
+39
+00:02:52,000 --> 00:02:56,000
+There is also a section about using the electric current and the heat transfer.
+
+40
+00:02:56,000 --> 00:03:02,000
+And then for the coupling, to use the electromagnetic heat source to model this.
+
+41
+00:03:02,000 --> 00:03:07,000
+Your homework is to do that problem using equation-based modeling.
+
+42
+00:03:07,000 --> 00:03:12,000
+Using PDs directly, not using heat transfer or multi-physics.
+
+43
+00:03:12,000 --> 00:03:16,000
+So first, you know you can click on this physics and see what the equation is.
+
+44
+00:03:16,000 --> 00:03:20,000
+So find the equations from there and the boundary conditions from that booklet.
+
+45
+00:03:20,000 --> 00:03:25,000
+Then, solve it using PD interface.
+
+46
+00:03:25,000 --> 00:03:29,000
+So basically, two PDs and then you need to couple them.
+
+47
+00:03:29,000 --> 00:03:35,000
+So you need to know what the equation for the joule heating is and add it.
+
+48
+00:03:35,000 --> 00:03:38,000
+Is the exercise clear?
+
+49
+00:03:38,000 --> 00:03:39,000
+Yes?
+
+50
+00:03:39,000 --> 00:03:43,000
+Could you send us a soft copy of the booklet? I don't think everyone has got it.
+
+51
+00:03:43,000 --> 00:03:49,000
+Okay, if you haven't, I will ask Mian to send you a soft copy for everyone.
+
+52
+00:03:50,000 --> 00:03:52,000
+Who wants a hard copy?
+
+53
+00:03:57,000 --> 00:03:59,000
+The last guy there, great to be signed.
+
+54
+00:03:59,000 --> 00:04:02,000
+Any questions? Anything all clear?
+
+55
+00:04:02,000 --> 00:04:04,000
+Alright, thank you for coming.
+
+56
+00:04:07,000 --> 00:04:09,000
+Do you all write your names in here?
+
+57
+00:04:09,000 --> 00:04:11,000
+Do you sign in?
+
+58
+00:04:11,000 --> 00:04:14,000
+Anybody who didn't sign in?
+
+59
+00:04:14,000 --> 00:04:16,000
+Check your names here.
+

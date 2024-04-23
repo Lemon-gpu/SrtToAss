@@ -1,0 +1,992 @@
+1
+00:00:00,000 --> 00:00:02,760
+One second.
+
+2
+00:00:02,760 --> 00:00:04,120
+Actually record this one.
+
+3
+00:00:04,120 --> 00:00:07,720
+So for example, if you have a fluid flow problem, what you
+
+4
+00:00:07,720 --> 00:00:10,520
+care about is the velocity field and the pressure field.
+
+5
+00:00:10,520 --> 00:00:15,120
+And sometimes a typical mistake people make is they
+
+6
+00:00:15,120 --> 00:00:16,800
+say, what is the velocity input?
+
+7
+00:00:16,800 --> 00:00:18,080
+What's the flow rate output?
+
+8
+00:00:18,080 --> 00:00:18,760
+Things like that.
+
+9
+00:00:18,760 --> 00:00:21,880
+But they forget to give a pressure constraint.
+
+10
+00:00:21,880 --> 00:00:25,640
+So then basically it's not a unique solution system.
+
+11
+00:00:25,640 --> 00:00:28,800
+You could have the pressure adding any constant to the
+
+12
+00:00:28,800 --> 00:00:31,160
+entire system and it'll still be the solution.
+
+13
+00:00:31,160 --> 00:00:33,640
+So in that case, COMSOL either cannot give you a converged
+
+14
+00:00:33,640 --> 00:00:35,940
+solution or it'll give you an arbitrary solution.
+
+15
+00:00:35,940 --> 00:00:39,620
+And the better way, a more predictive way of getting a
+
+16
+00:00:39,620 --> 00:00:42,520
+right result is to add a pressure point constraint on
+
+17
+00:00:42,520 --> 00:00:44,940
+one of the points, like a gauge fixing.
+
+18
+00:00:44,940 --> 00:00:49,200
+And then same for the electric problem as well, actually.
+
+19
+00:00:49,200 --> 00:00:52,260
+If you do have the current, like input current of 1 amp
+
+20
+00:00:52,260 --> 00:00:56,240
+and output current, but you don't give a reference point,
+
+21
+00:00:56,240 --> 00:00:58,000
+then you have the same situation.
+
+22
+00:00:58,000 --> 00:00:58,780
+So you do want to
+
+23
+00:00:58,780 --> 00:01:00,780
+have the constraint just one point.
+
+24
+00:01:00,780 --> 00:01:03,500
+So you can easily do so by right click and then add a
+
+25
+00:01:03,500 --> 00:01:06,540
+point condition and then add a ground somewhere in the system
+
+26
+00:01:06,540 --> 00:01:09,120
+or any kind of potential.
+
+27
+00:01:09,120 --> 00:01:11,920
+And sometimes you actually, for example, don't know what
+
+28
+00:01:11,920 --> 00:01:15,620
+is the reference point, but then you know kind of like a
+
+29
+00:01:15,620 --> 00:01:16,580
+floating potential.
+
+30
+00:01:16,580 --> 00:01:18,400
+So we do have other conditions.
+
+31
+00:01:18,400 --> 00:01:21,580
+I'm not too familiar with the ACDC part of it, but we do
+
+32
+00:01:21,580 --> 00:01:25,060
+have different terminal types, floating potential, and other
+
+33
+00:01:25,060 --> 00:01:26,600
+things you can use.
+
+34
+00:01:26,600 --> 00:01:27,980
+But you're very right.
+
+35
+00:01:27,980 --> 00:01:31,700
+So a lot of times in physical world, we think in the very
+
+36
+00:01:31,700 --> 00:01:33,120
+physics intuition kind of way.
+
+37
+00:01:33,120 --> 00:01:35,920
+But in the numerical world, then it's interpreted
+
+38
+00:01:35,920 --> 00:01:37,860
+differently, and you have to think from a mathematical
+
+39
+00:01:37,860 --> 00:01:40,920
+point of view and how the machine actually understands
+
+40
+00:01:40,920 --> 00:01:42,940
+those information.
+
+41
+00:01:42,940 --> 00:01:46,200
+Another important point, since you mentioned, is for
+
+42
+00:01:46,200 --> 00:01:49,780
+numerical solutions, so far can we trust the results?
+
+43
+00:01:49,780 --> 00:01:54,720
+Can we trust that 768, 568?
+
+44
+00:01:54,720 --> 00:01:55,660
+Maybe.
+
+45
+00:01:55,660 --> 00:01:56,860
+But I wouldn't trust it to the digits.
+
+46
+00:01:56,860 --> 00:01:57,860
+So I'm going to try to do that.
+
+47
+00:01:57,860 --> 00:02:01,860
+Because so far, we're using a relatively coarse mesh.
+
+48
+00:02:01,860 --> 00:02:04,580
+So in numerical studies, what you always want to do is you
+
+49
+00:02:04,580 --> 00:02:08,480
+can start with a coarse mesh so that you solve faster.
+
+50
+00:02:08,480 --> 00:02:12,020
+And then after you do that, refine the mesh a couple times,
+
+51
+00:02:12,020 --> 00:02:14,260
+actually, more than a couple times, and make sure that the
+
+52
+00:02:14,260 --> 00:02:16,840
+solution doesn't change according to the mesh density.
+
+53
+00:02:16,840 --> 00:02:18,760
+Then you know you actually eliminated the numerical
+
+54
+00:02:18,760 --> 00:02:20,940
+artifacts, and you're actually looking at a converged
+
+55
+00:02:20,940 --> 00:02:21,720
+solution.
+
+56
+00:02:21,720 --> 00:02:24,340
+Of course, the engineers have different tolerances of errors.
+
+57
+00:02:24,340 --> 00:02:27,840
+So you'll see the asymptotic limits as you refine the mesh.
+
+58
+00:02:27,860 --> 00:02:31,360
+And then you can determine, oh, just use less memory and be happy
+
+59
+00:02:31,360 --> 00:02:32,640
+with that 5% error.
+
+60
+00:02:32,640 --> 00:02:36,420
+So that is your call in terms of how fine, eventually, you want
+
+61
+00:02:36,420 --> 00:02:38,780
+to match the geometry.
+
+62
+00:02:38,780 --> 00:02:41,740
+There would be another approach, which is actually under the
+
+63
+00:02:41,740 --> 00:02:46,520
+solver setting, a more automatic way, which is to add adaptive
+
+64
+00:02:46,520 --> 00:02:47,780
+mesh refinement.
+
+65
+00:02:47,780 --> 00:02:50,900
+So basically, what it does is, depending on what error estimate
+
+66
+00:02:50,900 --> 00:02:53,840
+you gave, what tolerance you gave, it'll automatically insert
+
+67
+00:02:53,840 --> 00:02:55,860
+mesh points where necessary, say, where the gradient is high, where
+
+68
+00:02:55,860 --> 00:02:56,860
+the gradient is high.
+
+69
+00:02:56,860 --> 00:02:57,860
+You know, where the gradient is high.
+
+70
+00:02:57,860 --> 00:03:00,740
+So where you see a lot of things happening.
+
+71
+00:03:00,740 --> 00:03:03,440
+Then that is going to be more memory intensive.
+
+72
+00:03:03,440 --> 00:03:05,500
+But it's going to be more efficient in terms of
+
+73
+00:03:05,500 --> 00:03:06,920
+determining where to insert a mesh.
+
+74
+00:03:06,920 --> 00:03:09,800
+Because otherwise, you can do a local refinement in the manual
+
+75
+00:03:09,800 --> 00:03:12,440
+way, which will take you more time in terms of choosing which
+
+76
+00:03:12,440 --> 00:03:15,980
+region to refine and how fine to actually, how many
+
+77
+00:03:15,980 --> 00:03:17,240
+iterations to refine.
+
+78
+00:03:17,240 --> 00:03:20,000
+So yeah, something that comes in handy.
+
+79
+00:03:22,900 --> 00:03:24,860
+All right, so that's the second physics.
+
+80
+00:03:24,860 --> 00:03:27,480
+We'll go through the third physics really quick.
+
+81
+00:03:27,480 --> 00:03:32,220
+By, again, right click on component one, add physics.
+
+82
+00:03:32,220 --> 00:03:36,780
+And we are going to choose structural mechanics, solid
+
+83
+00:03:36,780 --> 00:03:39,880
+mechanics in phase, add it to the component.
+
+84
+00:03:39,880 --> 00:03:41,820
+So by now, you already know the drill, right?
+
+85
+00:03:41,820 --> 00:03:44,040
+You close the physics panel.
+
+86
+00:03:44,040 --> 00:03:45,300
+You have the solid mechanics here.
+
+87
+00:03:45,300 --> 00:03:47,880
+You have three default nodes, a default boundary condition.
+
+88
+00:03:47,880 --> 00:03:49,760
+Sorry, default boundary condition, free to move
+
+89
+00:03:49,760 --> 00:03:52,620
+everywhere, default governing equation of linear elastic
+
+90
+00:03:52,620 --> 00:03:53,140
+material.
+
+91
+00:03:53,140 --> 00:03:57,480
+If you want to change that, add non-linearity or pre-structural.
+
+92
+00:03:57,480 --> 00:04:00,080
+And if you want to change that, add non-linearity or pre-structural.
+
+93
+00:04:00,080 --> 00:04:03,060
+And you can also do it by using the thermal stress, or thermal
+
+94
+00:04:03,060 --> 00:04:03,480
+stress.
+
+95
+00:04:03,480 --> 00:04:05,620
+You do the right click on the material.
+
+96
+00:04:05,620 --> 00:04:09,380
+So in this case, we're going to just add a thermal expansion.
+
+97
+00:04:09,380 --> 00:04:12,120
+And say the temperature calculation for thermal
+
+98
+00:04:12,120 --> 00:04:14,560
+expansion comes from the heat transfer physics.
+
+99
+00:04:14,560 --> 00:04:16,340
+And then that's it.
+
+100
+00:04:16,340 --> 00:04:20,040
+So that's how we tied the second physics to the third one.
+
+101
+00:04:20,040 --> 00:04:23,700
+And then the free to deform everywhere, again, that's not
+
+102
+00:04:23,700 --> 00:04:24,800
+enough constraint.
+
+103
+00:04:24,800 --> 00:04:26,800
+Another example, actually, for constraint
+
+104
+00:04:26,800 --> 00:04:30,040
+is the number of degrees of freedom there are if it's a
+
+105
+00:04:30,040 --> 00:04:32,300
+rigid body.
+
+106
+00:04:32,300 --> 00:04:33,620
+More or less rigid.
+
+107
+00:04:33,620 --> 00:04:34,560
+Six, that's right.
+
+108
+00:04:34,560 --> 00:04:35,160
+Yeah.
+
+109
+00:04:35,160 --> 00:04:37,800
+So how do you have a unique solution?
+
+110
+00:04:37,800 --> 00:04:39,400
+You need six constraints.
+
+111
+00:04:39,400 --> 00:04:42,740
+So a typical way is people fix one point.
+
+112
+00:04:42,740 --> 00:04:45,240
+That eliminates three degrees of freedom.
+
+113
+00:04:45,240 --> 00:04:47,560
+Then the second point, you say you can only move in one
+
+114
+00:04:47,560 --> 00:04:50,100
+direction, so in case the structure actually expands.
+
+115
+00:04:50,100 --> 00:04:53,300
+But it will still stay on the same axis.
+
+116
+00:04:53,300 --> 00:04:54,800
+So that eliminates another two.
+
+117
+00:04:54,800 --> 00:04:56,800
+And then another rotational one.
+
+118
+00:04:56,800 --> 00:04:59,300
+And then the third point, you say you can only move in one
+
+119
+00:04:59,300 --> 00:04:59,800
+direction.
+
+120
+00:04:59,800 --> 00:05:01,800
+So that eliminates the six degrees of freedom.
+
+121
+00:05:01,800 --> 00:05:04,800
+So that's how you eliminate the six degrees of freedom.
+
+122
+00:05:04,800 --> 00:05:07,800
+Or if you know that the shape on one end doesn't change,
+
+123
+00:05:07,800 --> 00:05:11,800
+you can actually glue the entire surface to another surface,
+
+124
+00:05:11,800 --> 00:05:12,800
+say a fixed surface.
+
+125
+00:05:12,800 --> 00:05:15,800
+So that will, of course, be sufficient for eliminating
+
+126
+00:05:15,800 --> 00:05:18,800
+the uncertainty here.
+
+127
+00:05:18,800 --> 00:05:19,300
+All right.
+
+128
+00:05:19,300 --> 00:05:24,300
+So in this case, we're going to just use the fixed constraint
+
+129
+00:05:24,300 --> 00:05:25,180
+on the two feet.
+
+130
+00:05:25,180 --> 00:05:26,620
+Actually, I could use the drop-down feet.
+
+131
+00:05:26,620 --> 00:05:28,860
+If you want to show that you can just, say,
+
+132
+00:05:28,860 --> 00:05:30,440
+use a please plate in particular, and then
+
+133
+00:05:30,440 --> 00:05:32,320
+each point may have two points, actually.
+
+134
+00:05:32,320 --> 00:05:33,320
+We've just given you theHệ IQ.
+
+135
+00:05:33,320 --> 00:05:36,200
+And so that's that much of dürfen excited about the
+
+136
+00:05:36,200 --> 00:05:36,900
+question after all.
+
+137
+00:05:36,900 --> 00:05:37,560
+And we think it's prettyigned.
+
+138
+00:05:37,560 --> 00:05:40,060
+Obviously, it's very easy to read the question form
+
+139
+00:05:40,060 --> 00:05:40,440
+here.
+
+140
+00:05:40,440 --> 00:05:42,080
+And it's so simple.
+
+141
+00:05:42,080 --> 00:05:44,440
+Instead of learning it's usuallyators that these
+
+142
+00:05:44,440 --> 00:05:46,720
+ones are adding, that's what we're seeing here in the
+
+143
+00:05:46,720 --> 00:05:47,140
+uni.
+
+144
+00:05:47,140 --> 00:05:48,340
+So what I mean to say is thisíd be theしま
+
+145
+00:05:48,340 --> 00:05:49,860
+needs all three off airplanelett.
+
+146
+00:05:49,860 --> 00:05:51,220
+So that means we have two dimensions.
+
+147
+00:05:51,220 --> 00:05:52,600
+It includes x, y, z components and a
+
+148
+00:05:52,600 --> 00:05:54,560
+way to contaminate every plane in each photosensitive
+
+149
+00:05:54,560 --> 00:05:54,720
+inals.
+
+150
+00:05:54,720 --> 00:05:55,560
+So that's how you compute it on your own.
+
+151
+00:05:55,560 --> 00:05:55,620
+I think it's for doing.
+
+152
+00:05:55,620 --> 00:05:56,420
+Bye-bye.
+
+153
+00:05:56,420 --> 00:06:02,240
+Well, so far it's actually a two-way coupling between physics number one and two, but a
+
+154
+00:06:02,240 --> 00:06:04,600
+one-way coupling between physics two and three.
+
+155
+00:06:04,600 --> 00:06:08,960
+So what I could have done is in the study step, I can use step one to solve for physics
+
+156
+00:06:08,960 --> 00:06:13,120
+one and two, and then step two to solve for physics three, use the information from step
+
+157
+00:06:13,120 --> 00:06:14,120
+one.
+
+158
+00:06:14,120 --> 00:06:17,280
+But in this case, the memory requirement is very minimal.
+
+159
+00:06:17,280 --> 00:06:21,940
+So how am I going to do the visualization for the third physics?
+
+160
+00:06:21,940 --> 00:06:27,100
+I could right-click on the surface plot of the temperature, add a deformation plot, use
+
+161
+00:06:27,100 --> 00:06:29,880
+the deformation to show the XYZ component deformation.
+
+162
+00:06:29,880 --> 00:06:33,720
+So you see what's the straight line, the initial shape, and the shady part.
+
+163
+00:06:33,720 --> 00:06:37,180
+After deformation, it's actually exaggerated by 53 times.
+
+164
+00:06:37,180 --> 00:06:41,240
+I can change that to one.
+
+165
+00:06:41,240 --> 00:06:45,920
+So you have a very small gap between the initial shape and the after deformation shape.
+
+166
+00:06:45,920 --> 00:06:48,960
+Of course, you can exaggerate it.
+
+167
+00:06:48,960 --> 00:06:51,580
+Any questions for the third physics?
+
+168
+00:06:51,580 --> 00:06:51,920
+Adding the third physics?
+
+169
+00:06:51,940 --> 00:06:55,620
+So more stress and analyze the structural deformation?
+
+170
+00:06:55,620 --> 00:06:59,000
+One second.
+
+171
+00:06:59,000 --> 00:07:04,120
+So coming back to the slice.
+
+172
+00:07:04,120 --> 00:07:08,920
+So so far, I hope I showed you the workflow where to find the different buttons.
+
+173
+00:07:08,920 --> 00:07:14,140
+I mostly used the model builder because the ribbon was actually introduced later, so I'm
+
+174
+00:07:14,140 --> 00:07:16,700
+more used to the older version of it.
+
+175
+00:07:16,700 --> 00:07:21,580
+But hopefully so far I showed you how to solve a coupled phenomena, how to introduce the
+
+176
+00:07:21,580 --> 00:07:22,340
+coupling.
+
+177
+00:07:22,340 --> 00:07:26,800
+And by now you understand there's no limitation how many physics you can choose and what kind
+
+178
+00:07:26,800 --> 00:07:27,800
+of coupling you can implement.
+
+179
+00:07:27,800 --> 00:07:33,400
+Even for a single physics, it's a very useful or simple tool to have because you have the
+
+180
+00:07:33,400 --> 00:07:38,500
+same workflow for all the physics that you also show in the UFO score.
+
+181
+00:07:38,500 --> 00:07:42,340
+And then I mentioned that anywhere you can type in constants, you can type in all the
+
+182
+00:07:42,340 --> 00:07:46,080
+other different things, numbing expressions, function calls.
+
+183
+00:07:46,080 --> 00:07:47,080
+You can add user-defined equations.
+
+184
+00:07:47,080 --> 00:07:48,080
+I haven't showed that yet.
+
+185
+00:07:48,080 --> 00:07:49,080
+Oh, and parameterization.
+
+186
+00:07:49,080 --> 00:07:50,080
+I want to quickly show that.
+
+187
+00:07:50,080 --> 00:07:51,080
+It'll be in the next slide.
+
+188
+00:07:51,080 --> 00:07:51,580
+Okay.
+
+189
+00:07:51,580 --> 00:07:53,580
+It'll only take a minute or so.
+
+190
+00:07:53,580 --> 00:07:57,860
+So a lot of times people want to compare different designs.
+
+191
+00:07:57,860 --> 00:08:00,580
+Actually let me disable this multi-physics node.
+
+192
+00:08:00,580 --> 00:08:08,200
+It was introduced with the second set of equations I introduced.
+
+193
+00:08:08,200 --> 00:08:11,100
+So my expansion, I'll disable that as well.
+
+194
+00:08:11,100 --> 00:08:12,100
+Okay.
+
+195
+00:08:12,100 --> 00:08:16,380
+So this was the working version of my last computation, the model.
+
+196
+00:08:16,380 --> 00:08:21,080
+So what happens if I want to try a few different designs and see which one gives me the peak
+
+197
+00:08:21,080 --> 00:08:25,080
+temperature, the highest peak temperature on one of the shoulder points?
+
+198
+00:08:25,080 --> 00:08:31,080
+So what I'll do is in geometry, I want to use a parameter to control that distance,
+
+199
+00:08:31,080 --> 00:08:33,760
+extrusion distance, so the thickness of it.
+
+200
+00:08:33,760 --> 00:08:35,200
+So just call it thickness.
+
+201
+00:08:35,200 --> 00:08:39,720
+Of course it's going to turn red because it's not defined anywhere.
+
+202
+00:08:39,720 --> 00:08:42,580
+In global definitions, I can add parameter list.
+
+203
+00:08:42,580 --> 00:08:48,080
+And here I'll say thickness 0.2.
+
+204
+00:08:48,080 --> 00:08:50,080
+And then I can go to the study.
+
+205
+00:08:50,080 --> 00:08:51,080
+Okay.
+
+206
+00:08:51,080 --> 00:08:54,200
+So in the study node, add a parametric sweep.
+
+207
+00:08:54,200 --> 00:08:56,600
+So now here pops the entire list.
+
+208
+00:08:56,600 --> 00:08:58,420
+Right now I only have one parameter.
+
+209
+00:08:58,420 --> 00:09:03,720
+And I'll say instead of 0.2, run me three cases, 0.2, 0.3, and 0.4.
+
+210
+00:09:03,720 --> 00:09:10,200
+Or you can use the range button right here, typing the beginning and end, what's the step.
+
+211
+00:09:10,200 --> 00:09:13,640
+And now you've computed, it's essentially going to run the same problem three times
+
+212
+00:09:13,640 --> 00:09:15,140
+with a different geometry.
+
+213
+00:09:15,140 --> 00:09:20,080
+And every step is going to build a new geometry, build a new mesh, assemble a new system matrix,
+
+214
+00:09:20,080 --> 00:09:22,420
+and then give me a solution.
+
+215
+00:09:22,420 --> 00:09:26,700
+And it's going to put all the three solutions in one solution data set, as three separate
+
+216
+00:09:26,700 --> 00:09:27,700
+frames.
+
+217
+00:09:27,700 --> 00:09:31,600
+So if I want to run an animation that loops through that three frames, I could actually
+
+218
+00:09:31,600 --> 00:09:33,180
+do that.
+
+219
+00:09:33,180 --> 00:09:38,440
+Of course in time-dependent problems, you save the solution every certain seconds, and
+
+220
+00:09:38,440 --> 00:09:41,400
+then you can run the animation of that as well.
+
+221
+00:09:41,400 --> 00:09:42,580
+All right.
+
+222
+00:09:42,580 --> 00:09:44,320
+So now you've finished computing.
+
+223
+00:09:44,320 --> 00:09:47,200
+So now you see, for example, if I look at the temperature plot.
+
+224
+00:09:47,200 --> 00:09:48,200
+So you can see that the temperature plot is now running.
+
+225
+00:09:48,200 --> 00:09:49,200
+So now you can see that the temperature plot is running.
+
+226
+00:09:49,200 --> 00:09:50,080
+Okay.
+
+227
+00:09:50,080 --> 00:09:57,500
+So I could choose a different parameter and here the plot is going to update the visualization.
+
+228
+00:09:57,500 --> 00:10:01,220
+And I said I want to look at the temperature information at the shoulder point.
+
+229
+00:10:01,220 --> 00:10:04,640
+So let me first find out what's the coordinate of that shoulder point.
+
+230
+00:10:04,640 --> 00:10:07,540
+I'm going to add a measure under geometry.
+
+231
+00:10:07,540 --> 00:10:14,800
+I'm going to measure a point, 0.250.2.
+
+232
+00:10:14,800 --> 00:10:19,700
+And then what I'll do is in the solution data set, so the solution we have saved so far,
+
+233
+00:10:19,700 --> 00:10:29,820
+I'm going to right click, add a cut point 3D, type in 0.250.2, and choose that parametric
+
+234
+00:10:29,820 --> 00:10:30,820
+solution.
+
+235
+00:10:30,820 --> 00:10:35,580
+So I'm going to plot the information on that particular point.
+
+236
+00:10:35,580 --> 00:10:41,500
+I'll add a derived value of point evaluation, use this data set, evaluate the temperature
+
+237
+00:10:41,500 --> 00:10:44,300
+information.
+
+238
+00:10:44,300 --> 00:10:47,540
+So now it shows me what's the thickness and what's the temperature on that particular
+
+239
+00:10:47,540 --> 00:10:48,540
+point.
+
+240
+00:10:48,540 --> 00:10:49,540
+Okay.
+
+241
+00:10:49,540 --> 00:10:51,600
+So here I have a graph, shows me where the highest temperature is.
+
+242
+00:10:51,600 --> 00:10:54,060
+It shows up at the point four case.
+
+243
+00:10:54,060 --> 00:10:58,480
+Of course, it's only a small variance among the three cases.
+
+244
+00:10:58,480 --> 00:10:59,480
+So what should we do?
+
+245
+00:10:59,480 --> 00:11:02,220
+Run a batch refinement study, right?
+
+246
+00:11:02,220 --> 00:11:03,220
+Remember?
+
+247
+00:11:03,220 --> 00:11:07,920
+So after then you'll be confidently saying which one actually gives me the highest temperature
+
+248
+00:11:07,920 --> 00:11:08,140
+down.
+

@@ -1,0 +1,652 @@
+1
+00:00:00,000 --> 00:00:07,940
+One second. Yep, back to the presentation. So far we solved a very easy linear single physics problem.
+
+2
+00:00:08,440 --> 00:00:12,020
+So next thing we're going to introduce the second physics by right-clicking on component 1.
+
+3
+00:00:12,880 --> 00:00:17,840
+The entire thing is called a model, and if you save it, it's called a .mph, the multi-physics file.
+
+4
+00:00:18,460 --> 00:00:23,580
+Right now we have one component, but you could actually right-click on the root, add more components,
+
+5
+00:00:23,580 --> 00:00:28,260
+and the second component can be any dimension. It doesn't have to be the same as the first component.
+
+6
+00:00:28,260 --> 00:00:33,260
+The use of that, I can think of one, for example, if you have a laser heating problem.
+
+7
+00:00:33,260 --> 00:00:40,260
+You have a block of materials, a 3D coffee mug like this, and laser cutting it from the top cover,
+
+8
+00:00:40,260 --> 00:00:45,260
+and the laser penetrates a certain depth. So what I'm actually curious about laser heating is
+
+9
+00:00:45,260 --> 00:00:49,260
+how the heat distribution is going to be like through the depths in the 1D.
+
+10
+00:00:49,260 --> 00:00:56,260
+So I could solve that 1D heat, for example, a Gaussian curve or something, distribution across the z direction,
+
+11
+00:00:56,260 --> 00:00:58,260
+and then the 3D actual heat distribution.
+
+12
+00:00:58,260 --> 00:01:02,260
+So I could have actual heat conduction, convection, radiation in the 3D mug.
+
+13
+00:01:02,260 --> 00:01:09,260
+So that way I could have a 1D component coupled with a 3D component instead of solving everything in 3D.
+
+14
+00:01:09,260 --> 00:01:13,260
+All right, and then within each of the components, you could have any number of physics.
+
+15
+00:01:13,260 --> 00:01:16,260
+So, so far we have one. We could add a second one.
+
+16
+00:01:16,260 --> 00:01:21,260
+Sometimes you could grab a whole bunch of physics from the very first step when they interact with the model wizard.
+
+17
+00:01:21,260 --> 00:01:27,260
+I'm just showing how the workflow and I want you to understand each physics correctly before we move on to the next one.
+
+18
+00:01:27,260 --> 00:01:29,260
+So I'm doing it one by one.
+
+19
+00:01:29,260 --> 00:01:32,260
+So the second physics I'm going to choose is a heat transfer physics.
+
+20
+00:01:32,260 --> 00:01:36,260
+So it's on the heat transfer folder called heat transferring solid.
+
+21
+00:01:36,260 --> 00:01:40,260
+Again, I right click, add it to the component.
+
+22
+00:01:40,260 --> 00:01:44,260
+And then I could close the physics panel here.
+
+23
+00:01:44,260 --> 00:01:46,260
+So the second physics is added here.
+
+24
+00:01:46,260 --> 00:01:50,260
+As I mentioned, the sequence of physics doesn't matter, so you can actually drag them around.
+
+25
+00:01:50,260 --> 00:01:52,260
+You could pretty much drag everything around.
+
+26
+00:01:52,260 --> 00:01:56,260
+For example, the binary condition sequences, but you need to pay more attention to that one.
+
+27
+00:01:56,260 --> 00:01:59,260
+You know, make sure it's the correct settings.
+
+28
+00:01:59,260 --> 00:02:02,260
+So this is what I mentioned is the same workflow for any physics.
+
+29
+00:02:02,260 --> 00:02:05,260
+So you work with the actual currents. You know how it's like.
+
+30
+00:02:05,260 --> 00:02:07,260
+Now you look at heat transferring solids.
+
+31
+00:02:07,260 --> 00:02:12,260
+You have the same three D4 nodes, a domain condition, a boundary condition, and an initial value.
+
+32
+00:02:12,260 --> 00:02:18,260
+So the domain condition is the, you know, some conduction equation, the Poisson equation here.
+
+33
+00:02:18,260 --> 00:02:22,260
+And then a boundary condition D4 is thermal insulation everywhere.
+
+34
+00:02:22,260 --> 00:02:24,260
+So we know we're going to replace some of that.
+
+35
+00:02:24,260 --> 00:02:26,260
+So I'm going to right click on heat transfer.
+
+36
+00:02:26,260 --> 00:02:31,260
+When I case the heat transfer Ukrainies solid at first of all heat source, remember we have a heat source fromley
+
+37
+00:02:31,260 --> 00:02:32,260
+80.
+
+38
+00:02:32,260 --> 00:02:34,260
+Coming from air current and physics.
+
+39
+00:02:34,260 --> 00:02:39,260
+So I'm going to assign the volumetric heat source to the entire domain once everywhere in domain one.
+
+40
+00:02:39,260 --> 00:02:47,260
+Have this key source and what's the amount of the source you can either use to drop down comes to a smart enough to know DAD's you have.
+
+41
+00:02:47,260 --> 00:02:48,260
+Curve physics.
+
+42
+00:02:48,260 --> 00:02:49,260
+You have a heat transfer.
+
+43
+00:02:49,260 --> 00:02:51,260
+You probably want to do this.
+
+44
+00:02:51,260 --> 00:02:55,260
+The electromagnetic heating is a volumetric heat source, or you could type in the variable that you can look up.
+
+45
+00:02:55,260 --> 00:02:56,260
+OK.
+
+46
+00:02:56,260 --> 00:03:00,500
+either through, there's two ways of looking inside of
+
+47
+00:03:00,500 --> 00:03:04,500
+COMSOL variables, what are the internal variables that's being used. One is to
+
+48
+00:03:04,500 --> 00:03:08,580
+toggle on the equation view by clicking on the eye icon here. Then each of
+
+49
+00:03:08,580 --> 00:03:12,540
+the physics nodes you could actually expand. Then for example, if we
+
+50
+00:03:12,540 --> 00:03:16,360
+go back to electric currents, the current conservation here, all the internal
+
+51
+00:03:16,360 --> 00:03:20,280
+variables with descriptions are listed here. And I already know that it's
+
+52
+00:03:20,280 --> 00:03:24,460
+ec.qrh, that is the volumetric heat source
+
+53
+00:03:24,460 --> 00:03:28,460
+I want to type in. So I could type that here, ec.qrh.
+
+54
+00:03:28,460 --> 00:03:32,460
+So that will be
+
+55
+00:03:32,460 --> 00:03:36,460
+essentially the same. Or if I want a certain magnitude of that, I could write
+
+56
+00:03:36,460 --> 00:03:40,460
+the expression based on ec.qrh as well. So anything you want.
+
+57
+00:03:40,460 --> 00:03:44,460
+And what else I want to say. So the
+
+58
+00:03:44,460 --> 00:03:48,460
+variables can also be found through the post processing steps.
+
+59
+00:03:48,460 --> 00:03:52,460
+So for example, you could actually add a complete report, write a report
+
+60
+00:03:52,460 --> 00:03:54,460
+in the HTML format or a web format, and then you could actually
+
+61
+00:03:54,460 --> 00:03:58,460
+add a document format. You'll have all the information of the internal
+
+62
+00:03:58,460 --> 00:04:02,460
+equations from different physics and the expressions and the units
+
+63
+00:04:02,460 --> 00:04:06,460
+and everything. So that's another way of looking at those information.
+
+64
+00:04:06,460 --> 00:04:10,460
+Going back to the heat transfer physics, so
+
+65
+00:04:10,460 --> 00:04:14,460
+we define a heat source. The other things we want to do is change the
+
+66
+00:04:14,460 --> 00:04:18,460
+default boundary conditions. So I could right click, add a
+
+67
+00:04:18,460 --> 00:04:22,460
+heat flux condition. I'll grab all boundaries.
+
+68
+00:04:22,460 --> 00:04:26,460
+So the drop down has all boundaries. And say it's a convective heat flux
+
+69
+00:04:26,460 --> 00:04:30,460
+with a heat transfer coefficient of 5, the handbook value.
+
+70
+00:04:30,460 --> 00:04:34,460
+And the external temperature, just the room temperature, 20 degrees C.
+
+71
+00:04:34,460 --> 00:04:38,460
+And then I'm going to choose
+
+72
+00:04:38,460 --> 00:04:42,460
+a fixed temperature condition on surface number 1 and 10.
+
+73
+00:04:42,460 --> 00:04:46,460
+I'm going to make a selection out of these two, call them the feet.
+
+74
+00:04:46,460 --> 00:04:50,460
+So later on if I want to refer to both boundaries, I could just use the
+
+75
+00:04:50,460 --> 00:04:54,460
+drop down to choose feet instead of finding those boundaries again.
+
+76
+00:04:54,460 --> 00:04:58,460
+Sometimes we see customers, especially industrial level models with thousands of surfaces,
+
+77
+00:04:58,460 --> 00:05:02,460
+then it's almost necessary, very necessary to group the
+
+78
+00:05:02,460 --> 00:05:06,460
+surfaces and that'll help with the
+
+79
+00:05:06,460 --> 00:05:10,460
+workflow a lot. So the two is going to
+
+80
+00:05:10,460 --> 00:05:14,460
+glue to the heat sink, so it's going to be fixed at room temperature also.
+
+81
+00:05:14,460 --> 00:05:18,460
+And that fixed temperature condition will replace the heat flux condition here.
+
+82
+00:05:18,460 --> 00:05:20,460
+Another thing that we want to do is change the heat transfer coefficient.
+
+83
+00:05:20,460 --> 00:05:24,460
+Another way of coupling these two is through the multi-physics node.
+
+84
+00:05:24,460 --> 00:05:28,460
+So we have basically a central place to control those types of
+
+85
+00:05:28,460 --> 00:05:32,460
+coupling through the multi-physics node.
+
+86
+00:05:32,460 --> 00:05:36,460
+Depending on the two physics you have added so far, you could have
+
+87
+00:05:36,460 --> 00:05:40,460
+potentially electromagnetic heating, which is the dual heating. You could have
+
+88
+00:05:40,460 --> 00:05:44,460
+thermal electric effects, and you could have boundary
+
+89
+00:05:44,460 --> 00:05:48,460
+effects and also discharge heat source.
+
+90
+00:05:48,460 --> 00:05:50,460
+So some kind of a heat transfer coefficient.
+
+91
+00:05:50,460 --> 00:05:54,460
+And then you could add the plasma effect as well.
+
+92
+00:05:54,460 --> 00:05:58,460
+So the DC plasma.
+
+93
+00:05:58,460 --> 00:06:02,460
+So basically you can, instead of adding the heat flux under the physics node
+
+94
+00:06:02,460 --> 00:06:06,460
+of heat transfer, you could add that in the global sense here by just
+
+95
+00:06:06,460 --> 00:06:10,460
+adding the electromagnetics assigned to domain one. So those two would be essentially
+
+96
+00:06:10,460 --> 00:06:14,460
+equivalent. You could disable just one of them.
+
+97
+00:06:14,460 --> 00:06:18,460
+And yeah, the mesh should still be good. Now the stationary step will be solved
+
+98
+00:06:18,460 --> 00:06:22,460
+by adding the heat transfer coefficient.
+
+99
+00:06:22,460 --> 00:06:26,460
+So I'm going to right click on study, hit compute again.
+
+100
+00:06:26,460 --> 00:06:30,460
+So the progress actually shows you how many iterations and what's the
+
+101
+00:06:30,460 --> 00:06:34,460
+error estimate. And now it gives you the solution very quickly.
+
+102
+00:06:34,460 --> 00:06:38,460
+So I'm going to add a new plot group. You could change the previous
+
+103
+00:06:38,460 --> 00:06:42,460
+one as well. And I'm going to add a surface
+
+104
+00:06:42,460 --> 00:06:46,460
+plot of temperature, which is uppercase T.
+
+105
+00:06:46,460 --> 00:06:50,460
+And then you could also use the replace expression here.
+
+106
+00:06:50,460 --> 00:06:54,460
+A better color for thermal, I usually like the thermal light.
+
+107
+00:06:54,460 --> 00:06:58,460
+Oh, I choose the wireframe. Let me disable that.
+
+108
+00:06:58,460 --> 00:07:02,460
+So basically the coldest part is the feet.
+
+109
+00:07:02,460 --> 00:07:06,460
+And then the hottest spot is right here in the middle of the beam.
+
+110
+00:07:06,460 --> 00:07:10,460
+So that's it for the heat transfer physics. Any questions?
+
+111
+00:07:10,460 --> 00:07:14,460
+So we used some of the existing information from the
+
+112
+00:07:14,460 --> 00:07:18,460
+first physics for the second one. So far it's a one-way coupling between
+
+113
+00:07:18,460 --> 00:07:22,460
+those two physics. If you do want to introduce the reverse coupling,
+
+114
+00:07:22,460 --> 00:07:26,460
+let's do a little experiment here. The material properties,
+
+115
+00:07:26,460 --> 00:07:30,460
+as you see for titanium, is by default constant from that building
+
+116
+00:07:30,460 --> 00:07:34,460
+folder. So the actual conductivity, as we mentioned,
+
+117
+00:07:34,460 --> 00:07:38,460
+right now is a constant. If we make it a linear function
+
+118
+00:07:38,460 --> 00:07:42,460
+in temperature, 1 minus 0.001 times T,
+
+119
+00:07:42,460 --> 00:07:46,460
+and I'm going to use the square bracket just to neutralize
+
+120
+00:07:46,460 --> 00:07:50,460
+the units in the temperature so that everything in this later part of the equation
+
+121
+00:07:50,460 --> 00:07:54,460
+is a dimensionless number. So now basically I'm saying that
+
+122
+00:07:54,460 --> 00:07:58,460
+the electric conductivity decreases as temperature goes up. So what do you
+
+123
+00:07:58,460 --> 00:08:02,460
+think the maximum temperature would be? So right now we have
+
+124
+00:08:02,460 --> 00:08:06,460
+700 and around 80. Let me actually
+
+125
+00:08:06,460 --> 00:08:10,460
+add a maximum volume
+
+126
+00:08:10,460 --> 00:08:14,460
+of temperature so we know exactly what's the peak temperature here, which is
+
+127
+00:08:14,460 --> 00:08:18,460
+786.8. So after I change the electric conductivity,
+
+128
+00:08:18,460 --> 00:08:22,460
+I haven't computed it yet. So what's your guess? Who thinks the temperature
+
+129
+00:08:22,460 --> 00:08:26,460
+will go up? Who thinks the temperature
+
+130
+00:08:26,460 --> 00:08:30,460
+will go down? Okay, so the remaining people think the
+
+131
+00:08:30,460 --> 00:08:34,460
+temperature will remain unchanged. Let's test that.
+
+132
+00:08:40,460 --> 00:08:44,460
+Alright, so go back to that 3D plot. So now
+
+133
+00:08:44,460 --> 00:08:48,460
+the peak temperature is actually 568. It decreased by about 200k.
+
+134
+00:08:48,460 --> 00:08:52,460
+And why?
+
+135
+00:08:52,460 --> 00:08:56,460
+Remember in the heat transfer equation, which part now changed?
+
+136
+00:08:56,460 --> 00:09:00,460
+The heat source, right? The heat source is
+
+137
+00:09:00,460 --> 00:09:04,460
+EC dot QRH. Let's take a look at EC dot QRH.
+
+138
+00:09:04,460 --> 00:09:08,460
+Which is
+
+139
+00:09:08,460 --> 00:09:12,460
+right here. Basically it's EC dot
+
+140
+00:09:12,460 --> 00:09:16,460
+JX times EX plus the Y and Z components.
+
+141
+00:09:16,460 --> 00:09:20,460
+And if you look up the JX definition, it's sigma
+
+142
+00:09:20,460 --> 00:09:24,460
+times EX, right? So basically when the conductivity goes down,
+
+143
+00:09:24,460 --> 00:09:28,460
+the heat source goes down. The EC dot QRH is proportional to
+
+144
+00:09:28,460 --> 00:09:32,460
+the local conductivity times the field squares.
+
+145
+00:09:32,460 --> 00:09:36,460
+Of course the field doesn't change because we haven't changed the applied potential.
+
+146
+00:09:36,460 --> 00:09:40,460
+So the potential divided by distance doesn't change either. But the
+
+147
+00:09:40,460 --> 00:09:44,460
+conductivity goes down. So the whole source goes down and then the temperature goes down.
+
+148
+00:09:44,460 --> 00:09:48,460
+So this is actually, if you think a little bit about the physics, you could
+
+149
+00:09:48,460 --> 00:09:52,460
+with a little bit more time given, you can definitely arrive at the same conclusion
+
+150
+00:09:52,460 --> 00:09:56,460
+as the program gives you, which is a lower temperature. But what happens
+
+151
+00:09:56,460 --> 00:10:00,460
+if we change another thing? Say the thermal conductivity right here.
+
+152
+00:10:00,460 --> 00:10:04,460
+We can make it a physical expression. It's actually thermal conductivity
+
+153
+00:10:04,460 --> 00:10:08,460
+which goes as an exponential function in temperature.
+
+154
+00:10:08,460 --> 00:10:12,460
+Like EXP minus T divided by something. And then what's going to happen?
+
+155
+00:10:12,460 --> 00:10:16,460
+So the heat is going to dissipate slower and then it's going to accumulate a little bit
+
+156
+00:10:16,460 --> 00:10:20,460
+faster. And those, basically it'll be a computing mechanism
+
+157
+00:10:20,460 --> 00:10:24,460
+with the decreased conductivity. So we have more nonlinear
+
+158
+00:10:24,460 --> 00:10:28,460
+factors showing up in your model and they contribute to the model in different ways.
+
+159
+00:10:28,460 --> 00:10:32,460
+It's more difficult to predict what the actual results would be. So that's when the simulation
+
+160
+00:10:32,460 --> 00:10:34,460
+actually comes in handy to give you a version of the model.
+
+161
+00:10:34,460 --> 00:10:38,460
+So that's a very simple control experiment of what's going to happen.
+
+162
+00:10:38,460 --> 00:10:42,460
+Of course you have to make sure you are implementing the right thing and don't do typos.
+
+163
+00:10:42,460 --> 00:10:46,460
+So, yeah, that's for the heat transfer physics. Any questions?
+

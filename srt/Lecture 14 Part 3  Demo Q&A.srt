@@ -1,0 +1,308 @@
+1
+00:00:00,000 --> 00:00:07,000
+Any questions so far? Yes?
+
+2
+00:00:07,000 --> 00:00:13,000
+How does that function to the quadrature points ?
+
+3
+00:00:13,000 --> 00:00:20,000
+Because of that, and I know you said they're a little more sparse in the middle of the interval,
+
+4
+00:00:20,000 --> 00:00:25,000
+and they're tighter on the edges, but how does it decide that?
+
+5
+00:00:25,000 --> 00:00:34,000
+The algorithm for computing Gauss quadrature points has evolved for basically 100 years.
+
+6
+00:00:34,000 --> 00:00:44,000
+It was initially proposed by Gauss. At that time, there were no computers, and they had to calculate by hand what the Gauss quadrature points were.
+
+7
+00:00:44,000 --> 00:00:52,000
+But because Gauss quadrature points is already very useful with five points,
+
+8
+00:00:52,000 --> 00:00:55,000
+they actually spent a lot of time calculating the quadrature points.
+
+9
+00:00:55,000 --> 00:01:01,000
+So they were manipulating the Gauss quadrature points for up to, say, 10 points by hand.
+
+10
+00:01:01,000 --> 00:01:13,000
+Basically solving n plus 1, no, not n plus 1, solving these two n nonlinear equations to get these two n numbers.
+
+11
+00:01:13,000 --> 00:01:18,000
+So the two n numbers are the locations, n locations and n weights.
+
+12
+00:01:18,000 --> 00:01:25,000
+And the two n equations you have to solve are the fact that when you plug in any polynomial
+
+13
+00:01:25,000 --> 00:01:31,000
+of order 2n minus 1, which have 2n degrees of freedom, right?
+
+14
+00:01:31,000 --> 00:01:38,000
+So you have the constant term, you have first order term, up to 2n minus 1th order term in the polynomial.
+
+15
+00:01:38,000 --> 00:01:41,000
+So you have to solve two n equations, get two n unknowns.
+
+16
+00:01:41,000 --> 00:01:46,000
+And people did this by hand, like up to something like 10 points.
+
+17
+00:01:46,000 --> 00:01:52,000
+But after the computer was invented, there has been a series of advances in algorithms of how to compute them.
+
+18
+00:01:52,000 --> 00:01:55,000
+So it turns out there are much smarter ways.
+
+19
+00:01:55,000 --> 00:01:59,000
+Than just solving these two n equations.
+
+20
+00:01:59,000 --> 00:02:13,000
+And a lot of the nowadays, one of the quite very simple and pretty accurate algorithms is used what's called orthogonal polynomials.
+
+21
+00:02:13,000 --> 00:02:20,000
+So there are a set of orthogonal polynomials whose zero point.
+
+22
+00:02:20,000 --> 00:02:25,000
+So in this case, if you want to integrate a uniform function,
+
+23
+00:02:25,000 --> 00:02:30,000
+the polynomial corresponding to these axes are called the Legendre polynomials.
+
+24
+00:02:30,000 --> 00:02:35,000
+So Legendre polynomials is a set of orthogonal polynomials you can compute.
+
+25
+00:02:35,000 --> 00:02:42,000
+You can compute every polynomial from a linear combination of the previous two polynomials times a simple function,
+
+26
+00:02:42,000 --> 00:02:46,000
+like x squared and remember what.
+
+27
+00:02:46,000 --> 00:02:53,000
+So once you know the n and n minus 1th order polynomial, you can compute the n plus 1th order polynomial pretty fast.
+
+28
+00:02:53,000 --> 00:02:55,000
+And if you can have an algorithm to find the root of the polynomial,
+
+29
+00:02:55,000 --> 00:03:00,000
+these are exactly the Gauss quadrature points.
+
+30
+00:03:00,000 --> 00:03:05,000
+Now you have the roots of the polynomials, then getting the weights.
+
+31
+00:03:05,000 --> 00:03:09,000
+If you know the x, then getting the weights is simply solving a set of linear equations,
+
+32
+00:03:09,000 --> 00:03:12,000
+which turns out to be pretty easy.
+
+33
+00:03:12,000 --> 00:03:22,000
+But these are sufficient usually for the number of quadrature points we want to use in finding elements.
+
+34
+00:03:22,000 --> 00:03:24,000
+But people have invented the...
+
+35
+00:03:24,000 --> 00:03:28,000
+algorithms that can scale to a lot more points.
+
+36
+00:03:28,000 --> 00:03:35,000
+There are even people who invented algorithms that goes to like a million points in Gauss quadrature.
+
+37
+00:03:35,000 --> 00:03:38,000
+These are pretty...
+
+38
+00:03:38,000 --> 00:03:44,000
+It's pretty rare to see applications that needs a million points in Gauss quadrature,
+
+39
+00:03:44,000 --> 00:03:46,000
+but like you can do that.
+
+40
+00:03:46,000 --> 00:03:50,000
+All right. Any other questions? Yes?
+
+41
+00:03:50,000 --> 00:03:52,000
+Why don't we have to pre-calculate the Gauss quadrature?
+
+42
+00:03:52,000 --> 00:04:05,000
+Why don't we have to pre-calculate the Gaussian points and weights for each set of our element?
+
+43
+00:04:05,000 --> 00:04:09,000
+Right. That's a good point.
+
+44
+00:04:09,000 --> 00:04:14,000
+So in practice, you don't. You just need to shift them and scale them.
+
+45
+00:04:14,000 --> 00:04:18,000
+Okay. And that would be done in that for loop?
+
+46
+00:04:18,000 --> 00:04:20,000
+Yeah. What's done in the for loop?
+
+47
+00:04:20,000 --> 00:04:23,000
+So if we are recalculating these quadrature points,
+
+48
+00:04:23,000 --> 00:04:29,000
+but in practice, a lot more computationally efficient way is to shift them and scale them.
+
+49
+00:04:29,000 --> 00:04:34,000
+So for example, if I do...
+
+50
+00:04:34,000 --> 00:04:36,000
+For example, if I do that, right?
+
+51
+00:04:36,000 --> 00:04:40,000
+So I get a bunch of axes and weights.
+
+52
+00:04:40,000 --> 00:04:45,000
+And if I also do that, I also get a bunch of x and weights.
+
+53
+00:04:45,000 --> 00:04:47,000
+But they are exactly...
+
+54
+00:04:47,000 --> 00:04:49,000
+So first of all, the x is...
+
+55
+00:04:50,000 --> 00:04:52,000
+They are exactly linear to each other.
+
+56
+00:04:52,000 --> 00:04:58,000
+For example, if I can do a figure and I can plot xL and xR,
+
+57
+00:04:58,000 --> 00:05:00,000
+you can see they lie on a line.
+
+58
+00:05:00,000 --> 00:05:03,000
+So they lie on a perfect line.
+
+59
+00:05:03,000 --> 00:05:06,000
+They are just a shift and scale of each other.
+
+60
+00:05:06,000 --> 00:05:12,000
+Also, if you plot the weights,
+
+61
+00:05:12,000 --> 00:05:14,000
+they are also going to be...
+
+62
+00:05:14,000 --> 00:05:18,000
+They are also lying on a simple line.
+
+63
+00:05:18,000 --> 00:05:20,000
+The weights, they are...
+
+64
+00:05:20,000 --> 00:05:22,000
+Because the weights go up and down,
+
+65
+00:05:22,000 --> 00:05:26,000
+so the first weight is exactly the same as the last weight.
+
+66
+00:05:26,000 --> 00:05:29,000
+And the second weight is exactly the same as the second last weight.
+
+67
+00:05:29,000 --> 00:05:35,000
+So this is why there are only three points instead of five.
+
+68
+00:05:35,000 --> 00:05:42,000
+But the ratio between the weights is basically the ratio between the length of the intervals.
+
+69
+00:05:42,000 --> 00:05:43,000
+Right?
+
+70
+00:05:43,000 --> 00:05:45,000
+And the ratio between the axes
+
+71
+00:05:45,000 --> 00:05:48,000
+are also the ratio between the length of the intervals.
+
+72
+00:05:48,000 --> 00:05:53,000
+And the shift is basically where my left point is.
+
+73
+00:05:53,000 --> 00:05:56,000
+So yeah, you can just...
+
+74
+00:05:56,000 --> 00:05:59,000
+A simple way is just to calculate the Gauss quadrature points and weights
+
+75
+00:05:59,000 --> 00:06:02,000
+for a reference interval.
+
+76
+00:06:02,000 --> 00:06:05,000
+A lot of people choose 0 and 1 or minus 1 and 1.
+
+77
+00:06:05,000 --> 00:06:09,000
+And then shift and scale them for your arbitrary intervals.
+

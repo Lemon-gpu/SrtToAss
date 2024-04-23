@@ -1,0 +1,376 @@
+1
+00:00:00,000 --> 00:00:08,180
+I want to still make it more even more obvious that like do not use one of the
+
+2
+00:00:08,180 --> 00:00:14,880
+differential forms when you have shock waves okay so so we just compute the
+
+3
+00:00:14,880 --> 00:00:23,580
+speed of the shock wave to be essentially FL minus fu so this is FL is
+
+4
+00:00:23,580 --> 00:00:33,180
+f of ul fu is f of f if you are so this is ul minus you are right so so instead
+
+5
+00:00:33,180 --> 00:00:38,000
+of D F D U this is Delta F over Delta U
+
+6
+00:00:42,580 --> 00:00:48,480
+and so let's try it on the burgers equation we already know that on the
+
+7
+00:00:48,480 --> 00:00:51,340
+burgers equation
+
+8
+00:00:53,580 --> 00:00:59,500
+we have the speed of the shock wave being ul plus you are over 2 right so
+
+9
+00:00:59,500 --> 00:01:07,880
+that's what we derived but there is a contradiction here if we multiply both
+
+10
+00:01:07,880 --> 00:01:17,580
+sides of the equation by U and Monday and many manipulate using your calculus
+
+11
+00:01:17,580 --> 00:01:22,420
+skills we can get something pretty interesting
+
+12
+00:01:22,420 --> 00:01:23,320
+so let's try it again.
+
+13
+00:01:23,580 --> 00:01:31,740
+So first of all, the time derivative term, there is a classical trick that actually is
+
+14
+00:01:31,740 --> 00:01:36,400
+very useful in stability analysis, they call nonlinear stability analysis of differential
+
+15
+00:01:36,400 --> 00:01:44,960
+equations, that when you multiply u with du dt, it is actually equal to partial t of u
+
+16
+00:01:44,960 --> 00:01:50,200
+squared over 2.
+
+17
+00:01:50,200 --> 00:01:56,560
+So this is the same kind of chain rule we use to go back and forth between the differential,
+
+18
+00:01:56,560 --> 00:02:01,840
+between the primitive form and conservative form of the Berger's equation.
+
+19
+00:02:01,840 --> 00:02:11,040
+There is a similar trick you can use on the spatial derivative term.
+
+20
+00:02:11,040 --> 00:02:20,180
+u times du squared over dx squared is equal to something times du squared over dx squared.
+
+21
+00:02:20,180 --> 00:02:25,060
+du cubed over dx.
+
+22
+00:02:25,060 --> 00:02:28,040
+And that's something, let me derive it.
+
+23
+00:02:28,040 --> 00:02:46,220
+So du cubed dx is equal to the derivative of u times u squared over dx.
+
+24
+00:02:46,220 --> 00:02:47,500
+And now you expand it.
+
+25
+00:02:47,500 --> 00:02:48,520
+This is equal to u times dx.
+
+26
+00:02:48,520 --> 00:02:49,720
+And then you multiply that by the derivative of u times u squared over dx squared.
+
+27
+00:02:49,720 --> 00:02:49,820
+So you expand it.
+
+28
+00:02:49,820 --> 00:02:50,020
+You can do it once again.
+
+29
+00:02:50,020 --> 00:02:50,060
+And then we're going to do the same thing.
+
+30
+00:02:50,060 --> 00:02:50,160
+Now that we've done this exercise, we're going to do the same thing.
+
+31
+00:02:50,160 --> 00:03:06,800
+u squared dx plus u squared times du dx and the same thing can be represented as
+
+32
+00:03:06,800 --> 00:03:19,080
+derivative of u times u times u which can be represented as u squared times du
+
+33
+00:03:19,080 --> 00:03:29,960
+dx times 3 right so you can move one of the u out move the you can move this u
+
+34
+00:03:29,960 --> 00:03:35,620
+you can move this times this out of the differential and you can move this and
+
+35
+00:03:35,620 --> 00:03:37,980
+this out of the differential and you can move this and this out of the
+
+36
+00:03:37,980 --> 00:03:44,360
+differential so that that like works like that so so the same so the same
+
+37
+00:03:44,360 --> 00:03:48,880
+thing is equal to 3 times this or it is
+
+38
+00:03:48,880 --> 00:03:48,980
+again enseñ statistik Geschichte und volume um gesehen um so if you can see
+
+39
+00:03:48,980 --> 00:03:57,680
+equal to this plus this. Okay so let me let me do a derivation. So u squared
+
+40
+00:03:57,680 --> 00:04:03,480
+times partial u partial x is going to be equal to one third of partial u cubed
+
+41
+00:04:03,480 --> 00:04:09,920
+partial x. And now we substitute this into that we get partial u cubed
+
+42
+00:04:09,920 --> 00:04:15,920
+partial x is equal to u times partial u squared partial x plus one third of
+
+43
+00:04:15,920 --> 00:04:22,420
+partial u cubed partial x which means u times partial u squared partial x is
+
+44
+00:04:22,420 --> 00:04:34,580
+equal to two-third of partial u cubed partial x. So this is going to be two
+
+45
+00:04:34,580 --> 00:04:45,860
+third. So this is the whole derivation of this. Right okay so with
+
+46
+00:04:45,860 --> 00:04:45,900
+this we can do the derivation. So we can do the derivation of this. So we can do the derivation of this. Right okay so with
+
+47
+00:04:45,900 --> 00:04:53,300
+this two substituted into this equation what we have and of course we have over
+
+48
+00:04:53,300 --> 00:05:01,420
+two here so this is going to be a one-third if we divide by two here. So
+
+49
+00:05:01,420 --> 00:05:10,380
+this equation therefore becomes partial partial t of half u square plus partial
+
+50
+00:05:10,380 --> 00:05:15,840
+partial x of a third of u cubed equal to zero.
+
+51
+00:05:15,840 --> 00:05:19,400
+Right, so those two are one third of partial u squared partial x plus one and
+
+52
+00:05:19,400 --> 00:05:22,000
+that is u squared is equal to partial t over two. So we have to Pass more Kanad yes
+
+53
+00:05:22,000 --> 00:05:22,220
+but we have
+
+54
+00:05:22,220 --> 00:05:27,140
+so we have the S grilling out of the logic bag then the other side too this
+
+55
+00:05:27,140 --> 00:05:32,180
+is called parallel values and we given a slight one this S g going to be
+
+56
+00:05:32,180 --> 00:05:35,340
+partial t but yes also called partial t times partial t so the Brock equation
+
+57
+00:05:35,340 --> 00:05:40,720
+here in because there's a three times partial here so now we can see it and
+
+58
+00:05:40,720 --> 00:05:41,980
+that we decrease the mean by sin you oyster.
+
+59
+00:05:41,980 --> 00:05:43,620
+We actually want to be
+
+60
+00:05:43,620 --> 00:05:45,520
+You enidious know that bitch answer how to which far so understand when I'material
+
+61
+00:05:45,520 --> 00:05:49,580
+3 half power divided by 3.
+
+62
+00:05:50,420 --> 00:05:51,140
+Right?
+
+63
+00:05:55,500 --> 00:06:00,100
+So this is nothing but writing the same equation,
+
+64
+00:06:00,300 --> 00:06:03,080
+Berger's equation, into a different form
+
+65
+00:06:03,080 --> 00:06:08,200
+by doing a bunch of manipulations of the derivatives.
+
+66
+00:06:08,200 --> 00:06:16,280
+But with that alternative way of writing down the conservation law,
+
+67
+00:06:16,480 --> 00:06:18,260
+we have a different shock speed.
+
+68
+00:06:19,580 --> 00:06:27,140
+The shock speed in this case is going to be equal to delta FV over delta V.
+
+69
+00:06:27,940 --> 00:06:34,080
+So it's going to be equal to delta of this 2V,
+
+70
+00:06:35,260 --> 00:06:37,360
+3 over 2 over 3,
+
+71
+00:06:37,500 --> 00:06:38,180
+divided by 2V,
+
+72
+00:06:38,180 --> 00:06:39,520
+divided by delta V,
+
+73
+00:06:41,900 --> 00:06:48,260
+which is different from half of UL plus UR.
+
+74
+00:06:50,600 --> 00:06:57,540
+So these two only agree when UL and UR are infinitesimally close to each other,
+
+75
+00:06:57,620 --> 00:07:01,280
+and they don't agree over a finite range of UL and UR.
+
+76
+00:07:04,620 --> 00:07:07,980
+It's not obvious, but you can do the derivation and see that.
+
+77
+00:07:08,180 --> 00:07:11,780
+So what does that mean is,
+
+78
+00:07:13,940 --> 00:07:15,000
+what does that mean is,
+
+79
+00:07:16,060 --> 00:07:19,100
+all this derivation we did down here
+
+80
+00:07:19,100 --> 00:07:27,380
+only hold over an infinitesimal range UL and UR.
+
+81
+00:07:28,520 --> 00:07:32,700
+All the derivation we did only holds for the differential form of the equation.
+
+82
+00:07:32,700 --> 00:07:36,160
+It does not hold for the conservative form,
+
+83
+00:07:36,240 --> 00:07:37,680
+for the integral form of the equation.
+
+84
+00:07:38,180 --> 00:07:41,260
+So when you choose a discretization,
+
+85
+00:07:42,220 --> 00:07:45,120
+we can never base the discretization
+
+86
+00:07:45,120 --> 00:07:48,880
+on some differential manipulation.
+
+87
+00:07:49,160 --> 00:07:50,580
+For example, the Taylor series.
+
+88
+00:07:52,200 --> 00:07:52,840
+Right?
+
+89
+00:07:53,180 --> 00:07:57,680
+The Taylor series is a manipulation of the differential form of the equation.
+
+90
+00:07:58,220 --> 00:08:02,660
+And that is no longer a reliable way of
+
+91
+00:08:02,660 --> 00:08:06,280
+manipulating the differential equation into another form to solve it.
+
+92
+00:08:06,280 --> 00:08:06,320
+Right?
+
+93
+00:08:06,320 --> 00:08:10,160
+We should rely on something else.
+
+94
+00:08:13,240 --> 00:08:17,640
+And this lecture, I'm just going to show you what that something else is.
+

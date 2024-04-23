@@ -1,0 +1,940 @@
+1
+00:00:00,000 --> 00:00:07,200
+So another example let's give is Jacobi iteration in two dimensions.
+
+2
+00:00:07,200 --> 00:00:12,320
+So let's try a two-dimensional matrix and do another exercise to figure out
+
+3
+00:00:12,320 --> 00:00:18,240
+what the iteration would look like. So the two-dimensional Poisson's equation
+
+4
+00:00:18,240 --> 00:00:32,240
+would look like U plus U plus U plus U
+
+5
+00:00:32,240 --> 00:00:42,960
+plus U minus in this case we have 4 times U
+
+6
+00:00:42,960 --> 00:00:47,760
+because we have derivative in both i and j directions and the delta
+
+7
+00:00:47,760 --> 00:00:48,240
+squared.
+
+8
+00:00:48,240 --> 00:00:51,360
+So delta here, let's say, let's put delta x.
+
+9
+00:00:51,700 --> 00:00:55,720
+So the assumption here is delta x equal to delta y, right?
+
+10
+00:00:55,800 --> 00:00:57,540
+Otherwise, we have different coefficients.
+
+11
+00:00:58,920 --> 00:01:00,760
+This is equal to Fij.
+
+12
+00:01:04,420 --> 00:01:04,980
+Okay.
+
+13
+00:01:06,720 --> 00:01:12,320
+And here, can we identify what are the lower diagonal parts and what are the upper diagonal parts?
+
+14
+00:01:14,260 --> 00:01:17,600
+It depends on how I order the vector.
+
+15
+00:01:18,240 --> 00:01:18,560
+Right.
+
+16
+00:01:19,340 --> 00:01:26,980
+But in Jacobi iterations, it actually doesn't matter which part is lower diagonal, which part is upper diagonal.
+
+17
+00:01:27,660 --> 00:01:28,100
+Why?
+
+18
+00:01:28,100 --> 00:01:28,160
+Why?
+
+19
+00:01:30,460 --> 00:01:33,340
+Because they are all moved towards the right-hand side.
+
+20
+00:01:34,540 --> 00:01:36,640
+And only what is left on the left-hand side?
+
+21
+00:01:38,280 --> 00:01:39,580
+The diagonal part.
+
+22
+00:01:40,300 --> 00:01:40,520
+Right.
+
+23
+00:01:40,680 --> 00:01:42,920
+So let's just pick out the diagonal part.
+
+24
+00:01:44,040 --> 00:01:46,200
+This one is diagonal part.
+
+25
+00:01:46,560 --> 00:01:48,100
+And everything else goes towards...
+
+26
+00:01:48,240 --> 00:01:49,080
+Towards the right-hand side.
+
+27
+00:01:49,980 --> 00:01:55,100
+So what we have is Uij.
+
+28
+00:01:55,980 --> 00:02:02,960
+And let's also divide both sides by 4, like minus 4 over delta x.
+
+29
+00:02:03,280 --> 00:02:10,060
+This would be equal to minus delta x squared over 4 times Fij.
+
+30
+00:02:10,060 --> 00:02:18,060
+And then the rest is plus Ui plus 1j plus Ui minus 1j.
+
+31
+00:02:18,240 --> 00:02:21,340
+Uij plus 1j plus Uij minus 1.
+
+32
+00:02:22,140 --> 00:02:23,660
+Uij plus 1.
+
+33
+00:02:23,900 --> 00:02:25,740
+The whole thing divided by 4.
+
+34
+00:02:27,040 --> 00:02:27,320
+Right.
+
+35
+00:02:29,220 --> 00:02:32,340
+So now look at the similarity.
+
+36
+00:02:32,940 --> 00:02:35,820
+So previously we have this form and now we have this form.
+
+37
+00:02:36,220 --> 00:02:42,040
+It seems like my Uij for the next iteration, k plus 1,
+
+38
+00:02:44,940 --> 00:02:47,980
+is some contribution from the...
+
+39
+00:02:48,240 --> 00:02:52,840
+Right-hand side of the matrix plus some kind of average.
+
+40
+00:02:52,840 --> 00:02:53,340
+Right.
+
+41
+00:02:53,340 --> 00:02:57,140
+In previously just divided by 2, now divided by 4.
+
+42
+00:02:57,140 --> 00:03:00,940
+An average of the 4 nearby entries.
+
+43
+00:03:02,940 --> 00:03:08,240
+So this is, in some sense, characteristic of the Poisson's equation.
+
+44
+00:03:08,240 --> 00:03:11,940
+Because the Poisson's equation, you get a smooth solution.
+
+45
+00:03:11,940 --> 00:03:17,940
+The solution is a slight contribution from the...
+
+46
+00:03:17,940 --> 00:03:20,840
+Right-hand side, which is on the order of delta x squared,
+
+47
+00:03:20,840 --> 00:03:24,340
+plus an average of the nearby solutions.
+
+48
+00:03:24,340 --> 00:03:30,540
+This is what gives a smooth solution that has a curvature equal to what you want it to be.
+
+49
+00:03:30,540 --> 00:03:32,540
+Alright.
+
+50
+00:03:32,540 --> 00:03:42,540
+So going back to MATLAB and let's make it a little bit cleaner by giving a script.
+
+51
+00:03:42,540 --> 00:03:46,540
+jacobi Poisson.
+
+52
+00:03:47,940 --> 00:03:49,740
+2D.
+
+53
+00:03:49,740 --> 00:03:50,540
+Okay.
+
+54
+00:03:50,540 --> 00:03:54,540
+So to start, we are going to...
+
+55
+00:03:54,540 --> 00:04:01,240
+Actually, let's also use this opportunity to look at an interesting phenomenon,
+
+56
+00:04:01,240 --> 00:04:06,240
+like how the error reduces in Poisson's equation, in jacobi iteration.
+
+57
+00:04:06,240 --> 00:04:08,940
+So let's use a picture over here.
+
+58
+00:04:08,940 --> 00:04:13,540
+So the picture is a little bit of...
+
+59
+00:04:13,540 --> 00:04:15,540
+There is an interesting story about this.
+
+60
+00:04:15,540 --> 00:04:17,640
+If you look at this...
+
+61
+00:04:17,940 --> 00:04:23,940
+If I want to open it outside MATLAB...
+
+62
+00:04:23,940 --> 00:04:29,940
+So this is the picture we want to use as the solution to our Poisson's equation.
+
+63
+00:04:29,940 --> 00:04:33,940
+It's kind of a standard test case picture in image processing.
+
+64
+00:04:33,940 --> 00:04:36,940
+So let's just use this one.
+
+65
+00:04:36,940 --> 00:04:40,940
+So what we have is an error using your import.
+
+66
+00:04:40,940 --> 00:04:41,940
+No.
+
+67
+00:04:41,940 --> 00:04:45,940
+We want to do import wizard.
+
+68
+00:04:45,940 --> 00:04:46,940
+Ah...
+
+69
+00:04:47,940 --> 00:04:52,940
+This is 128 by 128.
+
+70
+00:04:52,940 --> 00:04:53,940
+Uint8.
+
+71
+00:04:53,940 --> 00:04:57,940
+So let's create variable matching preview.
+
+72
+00:04:57,940 --> 00:04:58,940
+Finish.
+
+73
+00:04:58,940 --> 00:05:01,940
+So we just loaded the matrix into memory.
+
+74
+00:05:01,940 --> 00:05:06,940
+The matrix is called the LNBW.
+
+75
+00:05:06,940 --> 00:05:08,940
+So let's say uexact.
+
+76
+00:05:08,940 --> 00:05:14,940
+We want to construct a Poisson's equation whose exact solution is what we just loaded.
+
+77
+00:05:14,940 --> 00:05:15,940
+So it's a matrix.
+
+78
+00:05:15,940 --> 00:05:21,940
+So it's a matrix 128 by 128 by 3.
+
+79
+00:05:21,940 --> 00:05:23,940
+But we don't want the color.
+
+80
+00:05:23,940 --> 00:05:25,940
+So we'll just take the first entry.
+
+81
+00:05:25,940 --> 00:05:26,940
+Okay.
+
+82
+00:05:26,940 --> 00:05:28,940
+So if I run it...
+
+83
+00:05:28,940 --> 00:05:30,940
+And let's...
+
+84
+00:05:30,940 --> 00:05:36,940
+I am sure it is visualizing uexact.
+
+85
+00:05:36,940 --> 00:05:42,940
+So that's our variable now.
+
+86
+00:05:42,940 --> 00:05:43,940
+Okay. So we are good.
+
+87
+00:05:43,940 --> 00:05:51,940
+So with that uexact, and let's assume a zero boundary condition, let's construct a right-hand side.
+
+88
+00:05:51,940 --> 00:05:54,940
+That is going to give us this solution.
+
+89
+00:05:54,940 --> 00:05:55,940
+Right?
+
+90
+00:05:55,940 --> 00:06:03,940
+This is a method of manufactured solution that is used also in PDs when you try to validate your solver, look for convergence.
+
+91
+00:06:03,940 --> 00:06:12,940
+So you manufacture a solution and construct the right-hand side so that the solution you have is the solution you expect to get.
+
+92
+00:06:12,940 --> 00:06:19,940
+So my b would be equal to zeros.
+
+93
+00:06:19,940 --> 00:06:22,940
+So the shape...
+
+94
+00:06:22,940 --> 00:06:24,940
+Well, I would just say 128.
+
+95
+00:06:24,940 --> 00:06:27,940
+That's something we know.
+
+96
+00:06:27,940 --> 00:06:29,940
+And okay.
+
+97
+00:06:29,940 --> 00:06:38,940
+So I think I also want to make uexact to be float of uexact.
+
+98
+00:06:38,940 --> 00:06:41,940
+Otherwise, my uexact is going to be integers.
+
+99
+00:06:41,940 --> 00:06:43,940
+So let's run this.
+
+100
+00:06:43,940 --> 00:06:47,940
+So my uexact...
+
+101
+00:06:47,940 --> 00:06:51,940
+Okay. I think I need to be doing double.
+
+102
+00:06:51,940 --> 00:06:53,940
+Okay. So now that works.
+
+103
+00:06:53,940 --> 00:06:58,940
+My uexact is going to be containing now...
+
+104
+00:06:58,940 --> 00:07:01,940
+They are still integers, but the type is now double.
+
+105
+00:07:01,940 --> 00:07:02,940
+Okay.
+
+106
+00:07:02,940 --> 00:07:04,940
+So my b is equal to that.
+
+107
+00:07:04,940 --> 00:07:10,940
+And let's put my delta x to be 1 over 128 plus 1.
+
+108
+00:07:10,940 --> 00:07:13,940
+So that will be my grid spacing.
+
+109
+00:07:13,940 --> 00:07:19,940
+So what I then have is my b...
+
+110
+00:07:19,940 --> 00:07:23,940
+Okay. For i goes 1 to 128.
+
+111
+00:07:23,940 --> 00:07:26,940
+For j goes 1 to 128.
+
+112
+00:07:26,940 --> 00:07:30,940
+My bij is going to be...
+
+113
+00:07:30,940 --> 00:07:32,940
+Okay. So let's here make a trick.
+
+114
+00:07:32,940 --> 00:07:36,940
+So let's here make a u expanded.
+
+115
+00:07:36,940 --> 00:07:39,940
+Also, which is a u including the boundaries.
+
+116
+00:07:39,940 --> 00:07:42,940
+It will be zeros, 1, 30.
+
+117
+00:07:42,940 --> 00:07:43,940
+So I'm adding...
+
+118
+00:07:43,940 --> 00:07:46,940
+I'm padding some zeros on all the boundaries.
+
+119
+00:07:46,940 --> 00:07:48,940
+So that makes my...
+
+120
+00:07:48,940 --> 00:07:52,940
+So that I avoid a bunch of if statements in computing b.
+
+121
+00:07:52,940 --> 00:07:58,940
+And u expanded would be 2 to n minus 1.
+
+122
+00:07:58,940 --> 00:08:02,940
+2 to n minus 1 would be assigned to uexact.
+
+123
+00:08:02,940 --> 00:08:03,940
+All right.
+
+124
+00:08:03,940 --> 00:08:08,940
+So that's a proper way of putting the boundary conditions.
+
+125
+00:08:08,940 --> 00:08:23,940
+So b of i, j would be equal to u expanded i, j plus 1.
+
+126
+00:08:23,940 --> 00:08:27,940
+So all the indices are going to be shifted by a little bit.
+
+127
+00:08:27,940 --> 00:08:28,940
+So okay.
+
+128
+00:08:28,940 --> 00:08:32,940
+So if we don't want to be shifted, we can make b equal to zeros, 1, 30.
+
+129
+00:08:32,940 --> 00:08:36,940
+And then our i is going to be going...
+
+130
+00:08:36,940 --> 00:08:37,940
+i and j are both...
+
+131
+00:08:37,940 --> 00:08:38,940
+Both are going to...
+
+132
+00:08:38,940 --> 00:08:40,940
+Going from 2 to 129.
+
+133
+00:08:40,940 --> 00:08:41,940
+Right.
+
+134
+00:08:41,940 --> 00:08:43,940
+So we are iterating over the interior grids.
+
+135
+00:08:43,940 --> 00:08:56,940
+So aij is going to be u expanded i plus 1, j plus dot, dot, dot.
+
+136
+00:08:56,940 --> 00:08:59,940
+u expanded i minus 1, j.
+
+137
+00:09:07,940 --> 00:09:16,940
+Expanded i and j plus 1.
+
+138
+00:09:16,940 --> 00:09:18,940
+Copy and paste.
+
+139
+00:09:18,940 --> 00:09:19,940
+j minus 1.
+
+140
+00:09:19,940 --> 00:09:27,940
+Lastly, we want to minus 4 times u of i, j.
+
+141
+00:09:27,940 --> 00:09:28,940
+i, j.
+
+142
+00:09:28,940 --> 00:09:35,940
+The whole thing should be divided by delta x squared.
+
+143
+00:09:35,940 --> 00:09:36,940
+Right.
+
+144
+00:09:36,940 --> 00:09:37,940
+Okay.
+
+145
+00:09:37,940 --> 00:09:46,940
+So that way we compute the b that is required to make u exact the solution.
+
+146
+00:09:46,940 --> 00:09:47,940
+Okay.
+
+147
+00:09:47,940 --> 00:09:49,940
+So now let's run it.
+
+148
+00:09:49,940 --> 00:09:52,940
+It does give us what we want.
+
+149
+00:09:52,940 --> 00:09:59,940
+So if i am show the b, that will be something we don't understand.
+
+150
+00:09:59,940 --> 00:10:04,940
+But it is the right-hand side that is supposed to give us the exact solution.
+
+151
+00:10:04,940 --> 00:10:05,940
+Okay.
+
+152
+00:10:05,940 --> 00:10:06,940
+So let's apply...
+
+153
+00:10:06,940 --> 00:10:09,940
+So now let's apply the Jacobi iteration method to solve for b.
+
+154
+00:10:09,940 --> 00:10:10,940
+Okay.
+
+155
+00:10:10,940 --> 00:10:15,940
+So initially let's make u that is equal to zeros, 130, 130.
+
+156
+00:10:15,940 --> 00:10:20,940
+So it's okay to include also the boundary conditions because we know it is what it is.
+
+157
+00:10:20,940 --> 00:10:24,940
+So let's start with the u that has the correct boundary condition.
+
+158
+00:10:24,940 --> 00:10:27,940
+So we have the u that is equal to 0.
+
+159
+00:10:27,940 --> 00:10:29,940
+And we have the u that is equal to 0.
+
+160
+00:10:29,940 --> 00:10:31,940
+So we have the u that is equal to 0.
+
+161
+00:10:31,940 --> 00:10:33,940
+And we have the u that is equal to 0.
+
+162
+00:10:33,940 --> 00:10:37,940
+And we have the u that has the correct boundary conditions.
+
+163
+00:10:37,940 --> 00:10:38,940
+Okay.
+
+164
+00:10:38,940 --> 00:10:42,940
+And for k, let's do...
+
+165
+00:10:42,940 --> 00:10:44,940
+Previously we had a thousand iterations.
+
+166
+00:10:44,940 --> 00:10:46,940
+So let's do a thousand iterations.
+
+167
+00:10:46,940 --> 00:10:47,940
+So a thousand iterations.
+
+168
+00:10:47,940 --> 00:10:50,940
+For each iteration, we are going to follow our formula.
+
+169
+00:10:50,940 --> 00:11:02,940
+So u of k plus 1 would be equal to minus delta x squared divided by 4 times my right-hand side,
+
+170
+00:11:02,940 --> 00:11:05,940
+which we called b instead of f.
+
+171
+00:11:05,940 --> 00:11:07,940
+Right?
+
+172
+00:11:07,940 --> 00:11:08,940
+Okay.
+
+173
+00:11:08,940 --> 00:11:21,940
+And then we are going to apply this, which we can copy what we had in this iteration, paste it.
+
+174
+00:11:21,940 --> 00:11:24,940
+We want to indent it correctly.
+
+175
+00:11:24,940 --> 00:11:31,940
+Then instead of this iteration, I'm going to say u k plus 1 ij is equal to...
+
+176
+00:11:31,940 --> 00:11:39,940
+is equal to itself plus...
+
+177
+00:11:39,940 --> 00:11:43,940
+this would be u...
+
+178
+00:11:43,940 --> 00:11:46,940
+this would be u...
+
+179
+00:11:46,940 --> 00:11:47,940
+this would be u...
+
+180
+00:11:47,940 --> 00:11:52,940
+this would be u...
+
+181
+00:11:52,940 --> 00:11:54,940
+divided by 4.
+
+182
+00:11:54,940 --> 00:11:57,940
+And I'll get rid of the expanded.
+
+183
+00:11:57,940 --> 00:11:59,940
+The solution u is also expanded.
+
+184
+00:11:59,940 --> 00:12:01,940
+But like we called it, the expanded solution.
+
+185
+00:12:01,940 --> 00:12:04,940
+So this is our previous iteration u.
+
+186
+00:12:04,940 --> 00:12:05,940
+Right?
+
+187
+00:12:05,940 --> 00:12:12,940
+So I think we are following the formula we had before.
+
+188
+00:12:12,940 --> 00:12:17,940
+Is it this, this, this, this?
+
+189
+00:12:17,940 --> 00:12:18,940
+Right?
+
+190
+00:12:18,940 --> 00:12:21,940
+I think we are correct.
+
+191
+00:12:21,940 --> 00:12:27,940
+So let's run this to see what we get.
+
+192
+00:12:27,940 --> 00:12:29,940
+We have...
+
+193
+00:12:29,940 --> 00:12:30,940
+Did we run this before?
+
+194
+00:12:30,940 --> 00:12:38,940
+So we get a u and u k plus 1.
+
+195
+00:12:38,940 --> 00:12:39,940
+Okay.
+
+196
+00:12:39,940 --> 00:12:42,940
+So we see it's an array of 130 by 130.
+
+197
+00:12:42,940 --> 00:12:46,940
+The boundaries are zeros.
+
+198
+00:12:46,940 --> 00:12:50,940
+Because we never changed them.
+
+199
+00:12:50,940 --> 00:12:53,940
+And the interior has a bunch of numbers.
+
+200
+00:12:53,940 --> 00:12:57,940
+So let's look at what u is.
+
+201
+00:13:00,940 --> 00:13:03,940
+Uh-oh.
+
+202
+00:13:03,940 --> 00:13:05,940
+So looks black.
+
+203
+00:13:05,940 --> 00:13:09,940
+So what does that mean?
+
+204
+00:13:09,940 --> 00:13:14,940
+Uh...
+
+205
+00:13:14,940 --> 00:13:24,940
+Get a bunch of 40.
+
+206
+00:13:24,940 --> 00:13:27,940
+So this doesn't seem right.
+
+207
+00:13:27,940 --> 00:13:28,940
+Okay.
+
+208
+00:13:28,940 --> 00:13:31,940
+So let's look at what we get wrong over here.
+
+209
+00:13:31,940 --> 00:13:35,940
+You get to assign u to be u k plus 1.
+
+210
+00:13:35,940 --> 00:13:36,940
+Oh, yes.
+
+211
+00:13:36,940 --> 00:13:40,940
+I forgot to assign u equal to u k plus 1.
+
+212
+00:13:40,940 --> 00:13:41,940
+Thanks.
+
+213
+00:13:41,940 --> 00:13:44,940
+So practically, we did a thousand.
+
+214
+00:13:44,940 --> 00:13:46,940
+But like we only did one iteration.
+
+215
+00:13:46,940 --> 00:13:50,940
+Because we never changed u to be the next iteration.
+
+216
+00:13:50,940 --> 00:13:54,940
+So let's first try it with 100 iterations to see what we get.
+
+217
+00:13:54,940 --> 00:13:55,940
+Okay.
+
+218
+00:13:55,940 --> 00:13:56,940
+So that's done.
+
+219
+00:13:56,940 --> 00:13:57,940
+Okay.
+
+220
+00:13:57,940 --> 00:14:01,940
+So we are looking at a continuous array of numbers.
+
+221
+00:14:01,940 --> 00:14:04,940
+That seems to be a lot better.
+
+222
+00:14:04,940 --> 00:14:07,940
+So I am sure of u.
+
+223
+00:14:07,940 --> 00:14:08,940
+Okay.
+
+224
+00:14:08,940 --> 00:14:11,940
+It does give us something that looks like the original picture.
+
+225
+00:14:11,940 --> 00:14:22,940
+But I think the coloring was wrong because these numbers are not properly scaled.
+
+226
+00:14:22,940 --> 00:14:25,940
+So I am sure it's very sensitive to the type of the numbers.
+
+227
+00:14:25,940 --> 00:14:26,940
+Okay.
+
+228
+00:14:26,940 --> 00:14:28,940
+So let's look at the type of the array.
+
+229
+00:14:28,940 --> 00:14:34,940
+So if the type is integers, it assumes I have 0 to 225.
+
+230
+00:14:34,940 --> 00:14:36,940
+So like the proper color.
+
+231
+00:14:36,940 --> 00:14:41,940
+If the array is floating points, I think I need to scale them to 0 to 1.
+
+232
+00:14:41,940 --> 00:14:47,940
+So what I should be doing is I am sure u divided by 255.
+
+233
+00:14:47,940 --> 00:14:49,940
+That should be the proper scaling.
+
+234
+00:14:49,940 --> 00:14:50,940
+Okay.
+
+235
+00:14:50,940 --> 00:14:55,940
+So now we are looking at something that resembles the original solution.
+

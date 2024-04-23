@@ -1,0 +1,488 @@
+1
+00:00:00,000 --> 00:00:07,320
+partial square u partial x is approximated by the finite difference
+
+2
+00:00:07,320 --> 00:00:16,280
+operator ui plus 1 plus ui minus 1 minus 2 ui divided by delta x square. And then
+
+3
+00:00:16,280 --> 00:00:23,080
+we worked out the truncation error and if you remember we wrote down ui plus 1
+
+4
+00:00:23,080 --> 00:00:31,360
+over delta x square ui minus 1 over delta x square and the minus 2 ui over
+
+5
+00:00:31,360 --> 00:00:40,780
+delta x square and minus partial square u partial x square. So this formula if I
+
+6
+00:00:40,780 --> 00:00:51,220
+put a plus over here is the error of that approximation. Right so this is
+
+7
+00:00:51,220 --> 00:00:53,040
+equal to tau
+
+8
+00:00:53,040 --> 00:01:01,140
+and how do we figure out how large or how small tau is? We did an expansion
+
+9
+00:01:01,140 --> 00:01:11,100
+over Taylor series. Right we expanded what is the term that contains ui. So for
+
+10
+00:01:11,100 --> 00:01:18,900
+example this is just ui this is also just a ui this is minus 2 ui over delta x
+
+11
+00:01:18,900 --> 00:01:23,000
+square this is 0 so that cancel out to be 0.
+
+12
+00:01:23,000 --> 00:01:23,020
+So this is minus 2 ui over delta x square this is 0 so that cancel out to be 0. So that cancel out to be 0.
+
+13
+00:01:23,020 --> 00:01:31,000
+We also have a ui prime part which is the first derivative and that turns out
+
+14
+00:01:31,000 --> 00:01:39,580
+to be that and this turns out to be minus that. There is no square because
+
+15
+00:01:39,580 --> 00:01:46,860
+one of the squares cancel out and 0 0 we get 0. And so we also use Taylor series
+
+16
+00:01:46,860 --> 00:01:52,980
+to expand this part this part this is also going to be 0 this is
+
+17
+00:01:52,980 --> 00:02:00,360
+going to be just itself and we also get 0 and this one we also get 0 and only
+
+18
+00:02:00,360 --> 00:02:06,300
+in the in this term we get something that is proportional to delta x to the
+
+19
+00:02:06,300 --> 00:02:14,880
+fourth. That means our approximation error I think sorry delta x to the fourth
+
+20
+00:02:14,880 --> 00:02:20,760
+also divided by delta x square which gets to delta x square right that means
+
+21
+00:02:20,760 --> 00:02:22,940
+our approximation error is equal to delta x squared. So this is our approximation error.
+
+22
+00:02:22,940 --> 00:02:32,320
+is we write it as big O times delta x to the fourth to the second sorry to the
+
+23
+00:02:32,320 --> 00:02:39,080
+second because the fourth cancels with the second. What this big O notation
+
+24
+00:02:39,080 --> 00:02:48,920
+means is that as delta x goes to 0 the rate of decay of this truncation error
+
+25
+00:02:48,920 --> 00:02:52,900
+is delta x squared.
+
+26
+00:02:52,900 --> 00:03:00,120
+Okay this means this is equal to a constant let me write down as c2 times x
+
+27
+00:03:00,120 --> 00:03:07,280
+squared plus maybe another constant times delta x cubed plus maybe another
+
+28
+00:03:07,280 --> 00:03:14,000
+constant times delta x fourth etc. But we don't really care that much about c3 c4
+
+29
+00:03:14,000 --> 00:03:21,300
+etc. because when delta x is small enough all of these we call high-order terms is
+
+30
+00:03:21,300 --> 00:03:22,800
+going to be negligible.
+
+31
+00:03:22,900 --> 00:03:31,400
+Compared to the delta x squared term right. So if you look at this truncation
+
+32
+00:03:31,400 --> 00:03:40,620
+error we'd like usually to plot it in a log-log plot. In this log-log plot the x
+
+33
+00:03:40,620 --> 00:03:49,160
+axis is our delta x. The y-axis let's say here we used to denote the truncation
+
+34
+00:03:49,160 --> 00:03:51,660
+error tau.
+
+35
+00:03:52,900 --> 00:04:02,140
+Okay and let's say our delta x is 1 over here is 0.1 over here is 0.01 over here
+
+36
+00:04:02,140 --> 00:04:12,040
+10 to the minus 4 over here actually 3 over here 10 to the minus 4 over here 10
+
+37
+00:04:12,040 --> 00:04:20,940
+to the minus 5 over here. If when delta x is equal to 1 the truncation error is
+
+38
+00:04:20,940 --> 00:04:21,940
+over here.
+
+39
+00:04:22,900 --> 00:04:30,580
+When delta x decreases to 0.1 maybe the truncation error is over here but at
+
+40
+00:04:30,580 --> 00:04:31,660
+some point
+
+41
+00:04:31,660 --> 00:04:35,580
+tau is going to decay when delta x is small enough.
+
+42
+00:04:35,580 --> 00:04:42,640
+Tau is going to decay like delta x squared. That rate of decay in a log-log
+
+43
+00:04:42,640 --> 00:04:43,480
+plot
+
+44
+00:04:43,480 --> 00:04:49,140
+what would it look like? What is going to be the slope? It's going to be 2. Yes
+
+45
+00:04:49,140 --> 00:04:52,900
+which means let's say if the decay the correct decay
+
+46
+00:04:52,900 --> 00:05:01,660
+rate starts from here then when delta x becomes 0.01 what is going to be the
+
+47
+00:05:01,660 --> 00:05:11,480
+error? What is going to be tau? So if you go over a factor of 10 over here you
+
+48
+00:05:11,480 --> 00:05:19,520
+should go over two factors of 10 in the y-axis right so you should get to here.
+
+49
+00:05:19,520 --> 00:05:22,540
+So your decay rate should be like that.
+
+50
+00:05:23,860 --> 00:05:31,580
+All right. So that is that is the correct line for tau
+
+51
+00:05:32,580 --> 00:05:38,000
+being Big-O delta x squared
+
+52
+00:05:39,380 --> 00:05:40,460
+Okay.
+
+53
+00:05:43,600 --> 00:05:48,220
+A similar analysis can be used to look at the solution error
+
+54
+00:05:51,220 --> 00:05:52,420
+and for example you are a project
+
+55
+00:05:52,420 --> 00:05:52,820
+you
+
+56
+00:05:52,820 --> 00:05:58,820
+compare a numerical solution with analytical solution. And the difference
+
+57
+00:05:58,820 --> 00:06:03,460
+the difference between analytical and numerical solution can also be
+
+58
+00:06:03,460 --> 00:06:09,200
+quantified in a similar way as you refine your grid. And if for example you
+
+59
+00:06:09,200 --> 00:06:18,000
+know your scheme its second order and your solution is second order, then as
+
+60
+00:06:18,000 --> 00:06:23,640
+you refine the grid, as you increase the n decrease the delta x, you should find
+
+61
+00:06:23,640 --> 00:06:30,240
+your solution error to decay in that rate. And if you are careful you should
+
+62
+00:06:30,240 --> 00:06:37,320
+actually plot it using MATLAB and see if the slope is actually 2. If your slope
+
+63
+00:06:37,320 --> 00:06:43,400
+is 1, that means you probably have a bug somewhere that makes your scheme not
+
+64
+00:06:43,400 --> 00:06:47,720
+really second order. It's going to be a first order scheme.
+
+65
+00:06:47,720 --> 00:06:47,920
+So that's the first order scheme.
+
+66
+00:06:48,000 --> 00:06:59,580
+Alright, for example, an example of a first order scheme can be seen as
+
+67
+00:06:59,580 --> 00:07:05,960
+discretizing the first order derivative. Let me say the most intuitive
+
+68
+00:07:05,960 --> 00:07:13,160
+way to discretize it is ui plus 1 minus ui divided by delta x. I mean one of the
+
+69
+00:07:13,160 --> 00:07:17,840
+intuitive way to discretize it. Now if you look at the
+
+70
+00:07:17,840 --> 00:07:17,960
+ability to discretize a derivative, the first order derivative is actually 1 for the derivative, so it's not 2 for the derivative. So if you look at the
+
+71
+00:07:17,960 --> 00:07:27,620
+approximation error, we have ui minus ui over delta x plus ui plus 1 over delta x,
+
+72
+00:07:27,620 --> 00:07:35,200
+and we subtract this numerical approximation from the analytical
+
+73
+00:07:35,200 --> 00:07:42,240
+derivative it tries to approximate. This is equal to tau. We do Taylor series and
+
+74
+00:07:42,240 --> 00:07:53,580
+this term is just itself. This term is ui over delta x, plus ui over times delta x
+
+75
+00:07:53,580 --> 00:08:00,180
+divided by delta x. So nothing. just a ui prime. Alright and we also have
+
+76
+00:08:00,180 --> 00:08:05,940
+a second order derivative. It is going to be half like 2 factorial which is 2
+
+77
+00:08:05,940 --> 00:08:11,760
+delta x times ui double prime. and plus
+
+78
+00:08:11,760 --> 00:08:12,180
+...
+
+79
+00:08:12,180 --> 00:08:12,220
+and we subtract all the Vid przygot Anyways, the nulls, theals and the putims, all are the same.
+
+80
+00:08:12,220 --> 00:08:19,500
+Delta x squared over 6, that's 3 factorial ui third derivative, etc.
+
+81
+00:08:20,060 --> 00:08:21,680
+And here is 0.
+
+82
+00:08:22,720 --> 00:08:25,760
+Any questions about the Taylor series of ui plus 1?
+
+83
+00:08:26,860 --> 00:08:32,960
+And I'm writing down very quickly, but once you start going into this class,
+
+84
+00:08:33,180 --> 00:08:36,840
+you should be able to do Taylor series analysis as quickly.
+
+85
+00:08:37,840 --> 00:08:42,160
+Once you exercise it, it becomes really natural.
+
+86
+00:08:43,220 --> 00:08:50,960
+This is 0, this is just a minus ui prime, so this is at xi, and 0, 0, etc.
+
+87
+00:08:51,440 --> 00:08:59,940
+So if you add them together, look at tau, the first term cancels, 0, as it should be.
+
+88
+00:09:00,600 --> 00:09:05,180
+The second term cancels, 0, as it should be.
+
+89
+00:09:06,200 --> 00:09:09,280
+The third term no longer cancels.
+
+90
+00:09:10,220 --> 00:09:12,180
+So that is going to be the leading term.
+
+91
+00:09:12,760 --> 00:09:14,760
+The leading term in the truncation error.
+
+92
+00:09:15,260 --> 00:09:21,260
+That is ui double prime times half of second derivative of u.
+
+93
+00:09:22,760 --> 00:09:27,760
+Alright, so in this case, my tau is all what?
+
+94
+00:09:30,760 --> 00:09:32,760
+Just delta x, no square.
+
+95
+00:09:33,760 --> 00:09:34,760
+Alright.
+
+96
+00:09:35,760 --> 00:09:41,760
+And if you look over here, if I have a truncation error that decays like delta x,
+
+97
+00:09:42,760 --> 00:09:43,760
+what should I have?
+
+98
+00:09:44,980 --> 00:09:50,220
+If I have truncation error decay like delta x, I should have a line that is of slope 1.
+
+99
+00:09:51,060 --> 00:09:55,980
+If it's here, then as you decrease by a factor of 10, you should become,
+
+100
+00:09:56,220 --> 00:09:58,220
+the tau should also decay by a factor of 10.
+
+101
+00:09:58,380 --> 00:10:02,380
+So you should get a line that is shallower than the red line.
+
+102
+00:10:04,600 --> 00:10:05,600
+Question?
+
+103
+00:10:05,720 --> 00:10:09,720
+If you approximated ddx,
+
+104
+00:10:10,060 --> 00:10:11,060
+you did a good job.
+
+105
+00:10:11,220 --> 00:10:12,220
+Yeah.
+
+106
+00:10:12,380 --> 00:10:16,380
+If you were estimating ui plus 1 minus ui minus 1 by 2 delta x,
+
+107
+00:10:16,880 --> 00:10:20,880
+wouldn't you get more cancellation if you decrease it out?
+
+108
+00:10:20,880 --> 00:10:21,880
+That's a good point.
+
+109
+00:10:22,220 --> 00:10:22,980
+Right.
+
+110
+00:10:22,980 --> 00:10:37,980
+So the question is, if I discretize this using, instead of ui plus 1 and ui,
+
+111
+00:10:38,220 --> 00:10:40,980
+if I approximate using ui plus 1,
+
+112
+00:10:40,980 --> 00:10:41,980
+if I approximate using ui plus 1 and ui,
+
+113
+00:10:41,980 --> 00:10:45,980
+then I divide by 2 delta x.
+
+114
+00:10:45,980 --> 00:10:51,980
+If you do the Taylor series again, it's a little bit more involved.
+
+115
+00:10:51,980 --> 00:10:56,980
+You're going to find I'm also going to cancel a u delta x term.
+
+116
+00:10:56,980 --> 00:11:02,980
+I'm going to get discretization error that is proportional to delta x squared.
+
+117
+00:11:02,980 --> 00:11:03,980
+You're right.
+
+118
+00:11:03,980 --> 00:11:06,980
+The exercise is left at home.
+
+119
+00:11:06,980 --> 00:11:07,980
+All right.
+
+120
+00:11:07,980 --> 00:11:10,980
+So, yeah.
+
+121
+00:11:10,980 --> 00:11:14,980
+If you want second order scheme in your project, for example,
+
+122
+00:11:14,980 --> 00:11:17,980
+this is probably what you should be using.
+

@@ -1,0 +1,660 @@
+1
+00:00:00,000 --> 00:00:05,380
+So last lecture we started the general formulation of finite volume schemes.
+
+2
+00:00:06,000 --> 00:00:11,880
+So we store the cell averages, ui is equal to 1 over delta x,
+
+3
+00:00:12,280 --> 00:00:20,320
+times the integral from xi minus half and xi plus half of u dx.
+
+4
+00:00:22,560 --> 00:00:28,680
+So remember, the first class cities in finite volume is now the cell averages
+
+5
+00:00:28,680 --> 00:00:30,000
+and the cells itself.
+
+6
+00:00:30,660 --> 00:00:33,800
+The grid points lies in between the cell averages.
+
+7
+00:00:34,500 --> 00:00:41,760
+So they are second class citizens and we use the i plus half, i minus half to denote them.
+
+8
+00:00:43,040 --> 00:00:46,780
+So this is our definition of ui bar.
+
+9
+00:00:46,780 --> 00:00:51,460
+And in the future, in finite volume, I will just use ui to denote them
+
+10
+00:00:51,460 --> 00:00:54,340
+because whenever I say ui, it's actually the cell average.
+
+11
+00:00:54,340 --> 00:01:01,560
+Okay, so the time derivative of a cell average,
+
+12
+00:01:01,920 --> 00:01:03,860
+so I will just say ui equal to this,
+
+13
+00:01:04,200 --> 00:01:14,480
+the time derivative of ui is going to be exactly 1 over delta x
+
+14
+00:01:14,480 --> 00:01:20,920
+times f of i minus half minus fi plus half.
+
+15
+00:01:21,260 --> 00:01:24,180
+This is exact. Again, this is exact.
+
+16
+00:01:24,340 --> 00:01:35,540
+This is exact if my f of i plus half is equal to f of u at xi plus half.
+
+17
+00:01:36,080 --> 00:01:38,000
+And so is xi minus half.
+
+18
+00:01:38,900 --> 00:01:44,800
+The reason finite volume is an approximation is not going to solve the equation exactly
+
+19
+00:01:44,800 --> 00:01:48,920
+is because we don't have the value of u at xi plus half.
+
+20
+00:01:49,160 --> 00:01:51,960
+We only have the cell averages.
+
+21
+00:01:53,420 --> 00:01:54,320
+So we need to...
+
+22
+00:01:54,320 --> 00:02:08,820
+We need to approximate f of i plus half from the cell averages.
+
+23
+00:02:12,980 --> 00:02:15,620
+Averages of u.
+
+24
+00:02:16,680 --> 00:02:21,840
+Okay, so in the last class, we did a central difference type of approximation,
+
+25
+00:02:21,840 --> 00:02:24,180
+not central difference, a central average.
+
+26
+00:02:24,320 --> 00:02:25,780
+Type of approximation.
+
+27
+00:02:26,560 --> 00:02:30,160
+We computed f on the cell average values
+
+28
+00:02:30,160 --> 00:02:34,620
+and we just averaged two neighboring cells to get the flux.
+
+29
+00:02:35,640 --> 00:02:41,040
+It turns out to be a working scheme before any discontinuity developed.
+
+30
+00:02:42,220 --> 00:02:42,340
+Right?
+
+31
+00:02:43,180 --> 00:02:47,460
+And after some discontinuity, after a shock wave is developed, what happened?
+
+32
+00:02:51,980 --> 00:02:53,540
+Oscillation starts to form.
+
+33
+00:02:54,140 --> 00:02:54,240
+Right?
+
+34
+00:02:54,320 --> 00:02:56,180
+The solution goes crazy.
+
+35
+00:02:56,700 --> 00:02:58,280
+And we didn't want that.
+
+36
+00:02:59,780 --> 00:03:06,240
+So today we are going to discuss a very crude way to fix that problem.
+
+37
+00:03:06,700 --> 00:03:08,660
+That's called an upwind scheme.
+
+38
+00:03:10,380 --> 00:03:12,560
+Okay, so the upwind scheme.
+
+39
+00:03:14,820 --> 00:03:18,660
+So it's a way to fix the oscillations.
+
+40
+00:03:18,660 --> 00:03:18,760
+Oscillations.
+
+41
+00:03:18,760 --> 00:03:27,160
+Around shocks.
+
+42
+00:03:29,640 --> 00:03:29,920
+Okay.
+
+43
+00:03:31,200 --> 00:03:37,760
+So the motivation of that is still looking at the X-T diagram.
+
+44
+00:03:38,700 --> 00:03:46,580
+The X-T diagram is a diagram when we saw on the screen that the characteristics were straight lines.
+
+45
+00:03:46,840 --> 00:03:47,500
+Remember that?
+
+46
+00:03:48,760 --> 00:03:52,680
+So we see straight lines being characteristics.
+
+47
+00:03:53,640 --> 00:03:54,200
+Right?
+
+48
+00:03:54,300 --> 00:03:56,440
+And straight lines being characteristics.
+
+49
+00:03:56,880 --> 00:04:01,860
+And in between these straight lines, when the straight lines meet, there is a shock wave.
+
+50
+00:04:02,620 --> 00:04:06,880
+And the shock wave is not necessarily going to be straight.
+
+51
+00:04:07,100 --> 00:04:08,080
+It can curve.
+
+52
+00:04:08,340 --> 00:04:08,460
+Right?
+
+53
+00:04:08,520 --> 00:04:11,440
+So this is what we see in the X-T diagram.
+
+54
+00:04:13,580 --> 00:04:18,660
+In the X-T diagram, and we know that the central difference has problems around the shock wave.
+
+55
+00:04:18,660 --> 00:04:18,720
+Right?
+
+56
+00:04:18,720 --> 00:04:18,740
+So we know that the central difference has problems around the shock wave.
+
+57
+00:04:18,920 --> 00:04:27,920
+So we look around the shock waves to see what is special on the X-T diagram around shock waves.
+
+58
+00:04:29,220 --> 00:04:39,380
+It turns out that what's special is that information in the conservation law only propagates in one direction.
+
+59
+00:04:41,040 --> 00:04:45,060
+It either propagates towards the left or propagates towards the right.
+
+60
+00:04:46,880 --> 00:04:48,580
+And around shock waves,
+
+61
+00:04:48,760 --> 00:04:54,700
+information may be propagating in different directions on different sides of the shock wave.
+
+62
+00:04:56,360 --> 00:05:03,180
+So the motivation it gives us is that when we compute the flux,
+
+63
+00:05:04,120 --> 00:05:07,860
+perhaps we shouldn't be averaging the value at both sides.
+
+64
+00:05:08,220 --> 00:05:14,920
+We should be emphasizing one side of the interface more than the other side.
+
+65
+00:05:14,920 --> 00:05:14,940
+Right?
+
+66
+00:05:16,280 --> 00:05:18,320
+And which side should we emphasize more?
+
+67
+00:05:18,420 --> 00:05:18,740
+Which side?
+
+68
+00:05:18,740 --> 00:05:22,020
+Which side should we use more information from?
+
+69
+00:05:24,280 --> 00:05:28,180
+When we are computing f of i plus half,
+
+70
+00:05:29,280 --> 00:05:38,500
+let's say instead of taking the straight average between f of ui and f of ui plus 1,
+
+71
+00:05:38,820 --> 00:05:42,020
+let's say if we want to weigh them, one heavier than the other,
+
+72
+00:05:42,380 --> 00:05:44,640
+which one should we weigh more?
+
+73
+00:05:46,640 --> 00:05:47,320
+Yes?
+
+74
+00:05:47,320 --> 00:05:47,400
+Yes?
+
+75
+00:05:48,740 --> 00:05:52,780
+Whichever side the wave is coming from.
+
+76
+00:05:53,200 --> 00:05:53,500
+Right?
+
+77
+00:05:54,280 --> 00:05:57,120
+I want to weigh whichever side is coming from more.
+
+78
+00:05:57,120 --> 00:06:06,120
+So an extreme of that is I want to say it is either equal to f ui or f ui plus 1,
+
+79
+00:06:06,320 --> 00:06:10,800
+depending on the local speed of characteristics.
+
+80
+00:06:13,600 --> 00:06:13,760
+Right?
+
+81
+00:06:14,180 --> 00:06:18,100
+So, for example, and we know in a discontinuity,
+
+82
+00:06:18,740 --> 00:06:27,680
+let's move it to here, f ui or f ui plus 1.
+
+83
+00:06:28,680 --> 00:06:34,240
+The two cases are, we know that if we have a true discontinuity,
+
+84
+00:06:35,100 --> 00:06:39,400
+then a shock wave would be forming and moving towards a certain direction.
+
+85
+00:06:39,400 --> 00:06:48,200
+And the speed of the shock wave is going to be f of ui minus f of ui plus 1 divided by f ui.
+
+86
+00:06:48,200 --> 00:06:49,200
+So, if we have a true discontinuity,
+
+87
+00:06:49,200 --> 00:06:51,200
+then we can say that f of ui minus f ui plus 1 divided by ui minus ui plus 1.
+
+88
+00:06:51,200 --> 00:06:59,200
+If this one is less than 0, the wave would be moving towards the left,
+
+89
+00:06:59,200 --> 00:07:03,060
+in which case we want to use the right.
+
+90
+00:07:03,060 --> 00:07:06,860
+So, if it is greater than 0, the wave is moving towards the right,
+
+91
+00:07:06,860 --> 00:07:09,500
+and we want to use ui instead of ui plus 1.
+
+92
+00:07:10,020 --> 00:07:10,280
+Right?
+
+93
+00:07:10,980 --> 00:07:15,880
+And when it is less than 0, we want to use ui plus 1 rather than ui.
+
+94
+00:07:15,980 --> 00:07:16,200
+Yes?
+
+95
+00:07:16,200 --> 00:07:17,520
+I didn't hear a pal.
+
+96
+00:07:18,200 --> 00:07:24,700
+This is by considering there is a discontinuity at x i plus half.
+
+97
+00:07:25,040 --> 00:07:25,280
+Yes.
+
+98
+00:07:26,180 --> 00:07:28,040
+And in finite volume approximation,
+
+99
+00:07:28,520 --> 00:07:36,820
+this way of thinking is to approximate the solution as a piecewise constant function.
+
+100
+00:07:37,540 --> 00:07:37,660
+Right?
+
+101
+00:07:37,720 --> 00:07:41,360
+This is as if I'm saying, I only have the cell averages.
+
+102
+00:07:42,180 --> 00:07:45,200
+How do I reconstruct the solution from the cell averages?
+
+103
+00:07:45,700 --> 00:07:48,200
+This is a very crude way of performing.
+
+104
+00:07:48,200 --> 00:07:53,600
+That reconstruction is to say, on every cell, the solution is just a uniform constant.
+
+105
+00:07:54,600 --> 00:08:02,060
+Then, a small chocolate is going to be, I mean, a big chocolate is going to be formed at every interface.
+
+106
+00:08:03,200 --> 00:08:06,880
+And this is how I'm computing the speed of that shockwave.
+
+107
+00:08:07,640 --> 00:08:07,800
+Right?
+
+108
+00:08:09,420 --> 00:08:10,060
+Okay.
+
+109
+00:08:10,600 --> 00:08:17,200
+So, let's implement that scheme to see if that gets rid of our problem.
+
+110
+00:08:18,200 --> 00:08:20,200
+Okay.
+
+111
+00:08:20,200 --> 00:08:26,840
+And in this case, before we implement that scheme, let's actually simplify this notation a little bit.
+
+112
+00:08:26,900 --> 00:08:35,660
+Because if we evaluate this formula, delta f by delta u in brute force, we actually have a problem.
+
+113
+00:08:36,820 --> 00:08:41,660
+Because ui can be almost exactly equal to ui plus 1 in some cases.
+
+114
+00:08:42,200 --> 00:08:44,940
+And we would be getting something divided by 0.
+
+115
+00:08:45,100 --> 00:08:46,880
+I mean, we would get 0 divided by 0.
+
+116
+00:08:46,880 --> 00:08:48,180
+Because f of ui is 0.
+
+117
+00:08:48,200 --> 00:08:50,380
+It's going to be equal to f of ui plus 1.
+
+118
+00:08:50,500 --> 00:08:52,180
+So, 0 divided by 0.
+
+119
+00:08:52,280 --> 00:08:54,560
+A computer would get, like, not a number.
+
+120
+00:08:55,620 --> 00:08:57,960
+And we'll be screwed after a while.
+
+121
+00:08:57,960 --> 00:09:06,420
+So, we want some way to evaluate this ratio without having to encounter a NAND problem.
+
+122
+00:09:07,480 --> 00:09:07,700
+Okay.
+
+123
+00:09:08,080 --> 00:09:10,220
+So, for example, Berger's equation.
+
+124
+00:09:13,200 --> 00:09:17,500
+A simple way to get rid of that is by plugging the formula for f.
+
+125
+00:09:18,200 --> 00:09:21,600
+Into that equation.
+
+126
+00:09:21,600 --> 00:09:37,780
+So, we are going to get f of ui minus f of ui plus 1 divided by ui minus ui plus 1 would be just equal to half of ui plus ui plus 1.
+
+127
+00:09:37,920 --> 00:09:38,100
+Right?
+
+128
+00:09:38,200 --> 00:09:40,680
+By plugging the half of u square formula.
+
+129
+00:09:40,680 --> 00:09:43,740
+All right.
+
+130
+00:09:44,500 --> 00:09:47,980
+So, the upwind.
+
+131
+00:09:48,200 --> 00:09:48,760
+Scheme.
+
+132
+00:09:49,340 --> 00:09:50,180
+In finite volume.
+
+133
+00:09:51,600 --> 00:09:52,780
+Is determining.
+
+134
+00:09:53,200 --> 00:09:58,980
+Is looking at the average value of the solution on both sides of the interface.
+
+135
+00:09:58,980 --> 00:10:06,080
+And choosing the side to bias according to the average solution in Berger's equation.
+
+136
+00:10:06,780 --> 00:10:08,980
+So, let's go to MATLAB.
+
+137
+00:10:10,460 --> 00:10:16,680
+And write a new function called ddt upwind.
+
+138
+00:10:18,200 --> 00:10:21,480
+And let's do that with a t and u.
+
+139
+00:10:22,160 --> 00:10:23,360
+And ddt.
+
+140
+00:10:26,100 --> 00:10:31,800
+So, still the first thing to compute is the f bar.
+
+141
+00:10:32,080 --> 00:10:37,320
+So, the cell averaged flux is equal to u squared divided by 2.
+
+142
+00:10:38,180 --> 00:10:39,880
+So, that's still the same.
+
+143
+00:10:40,680 --> 00:10:40,960
+All right.
+
+144
+00:10:41,840 --> 00:10:47,820
+And so, speed of the characteristics or speed of the shockwave.
+
+145
+00:10:47,820 --> 00:10:48,180
+Let's say.
+
+146
+00:10:48,180 --> 00:10:57,740
+Ss is equal to u of 2 to n plus u of 1 to n minus 1 divided by 2.
+
+147
+00:10:58,140 --> 00:10:58,400
+Right.
+
+148
+00:10:58,480 --> 00:11:04,860
+So, that's what is going to be deciding if we are going to use upwind or downwind.
+
+149
+00:11:06,600 --> 00:11:07,160
+Yes?
+
+150
+00:11:07,800 --> 00:11:13,940
+So, in this case, because f is u squared over 2, we were able to conveniently get rid of the differences.
+
+151
+00:11:14,420 --> 00:11:14,720
+Yes.
+
+152
+00:11:14,920 --> 00:11:18,160
+But there are cases where that's not going to be.
+
+153
+00:11:18,180 --> 00:11:18,440
+Okay.
+
+154
+00:11:18,820 --> 00:11:19,300
+Okay.
+
+155
+00:11:19,420 --> 00:11:25,860
+So, you are concerned when you don't have an analytical formula you can use in general.
+
+156
+00:11:26,140 --> 00:11:34,740
+So, if you don't have an analytical formula to use in general, you have to separate the case where ui is almost equal to ui plus 1.
+
+157
+00:11:35,220 --> 00:11:39,640
+In that case, if ui is almost equal to ui plus 1, what is this?
+
+158
+00:11:39,760 --> 00:11:40,880
+What is the ratio?
+
+159
+00:11:41,280 --> 00:11:42,440
+Delta f over delta u.
+
+160
+00:11:44,580 --> 00:11:46,740
+The derivative of f to u.
+
+161
+00:11:46,740 --> 00:11:47,180
+Right.
+
+162
+00:11:47,340 --> 00:11:48,140
+So, generally.
+
+163
+00:11:48,440 --> 00:11:50,480
+You have like an epsilon criterion.
+
+164
+00:11:50,680 --> 00:11:58,000
+If the difference between ui and ui plus 1 is less than like 10 to the minus 6 or something, you use the derivative formula.
+
+165
+00:11:58,240 --> 00:12:01,140
+If it's larger than that, you use the delta formula.
+

@@ -1,0 +1,184 @@
+1
+00:00:00,000 --> 00:00:08,000
+of non-trivial boundary conditions. Alright, so let's go back to our simpler case of
+
+2
+00:00:08,000 --> 00:00:25,520
+f equal to 1. So let's do this, which makes our right-hand side equal to 1. And let's use a
+
+3
+00:00:25,520 --> 00:00:36,080
+boundary condition that is x. So the solution u on the left-hand side, let's say, is equal to 1.
+
+4
+00:00:37,360 --> 00:00:47,440
+So what does that make a difference? So now if we have a solution u also equal to,
+
+5
+00:00:49,280 --> 00:00:55,360
+that is non-zero at the first grid point, what we have is we also have a u0 which is
+
+6
+00:00:55,520 --> 00:01:02,480
+non times phi0 of x. Let's say phi0 is the half-hat function that is equal to 1 at the left
+
+7
+00:01:02,480 --> 00:01:08,000
+boundary and equal to 0 at all the interior grid points. So what happens is that
+
+8
+00:01:12,400 --> 00:01:18,080
+because the test function, because the phij's, the v's are still going to be zero at the boundaries,
+
+9
+00:01:18,080 --> 00:01:24,160
+so the integration by parts still come out to be the same with no boundary terms. But
+
+10
+00:01:24,160 --> 00:01:32,240
+in addition, there is going to be a term that is minus integration of a and b,
+
+11
+00:01:32,240 --> 00:01:44,560
+which is very similar to this term but with a known u0 times partial phi0, partial x,
+
+12
+00:01:44,560 --> 00:01:53,040
+times partial phi1, not partial phi1, partial phij, partial x. And this is going to combine with
+
+13
+00:01:54,160 --> 00:02:01,920
+the right-hand side into the bj. And last lecture we analyzed this term and say this term is only
+
+14
+00:02:01,920 --> 00:02:12,400
+non-zero for j equal to what? This is non-zero only for j equal to 1 because phi0 is only non-zero
+
+15
+00:02:12,400 --> 00:02:19,440
+in one of the intervals. Okay, so let's, and the value of this is the same as one of the terms in
+
+16
+00:02:20,080 --> 00:02:22,800
+aij, right? So,
+
+17
+00:02:24,160 --> 00:02:33,360
+so what we need to change is simply b1 is equal to b1 minus, well, this term itself is negative
+
+18
+00:02:33,360 --> 00:02:42,000
+because d phi0 dx is negative, d phi, j dx is going to be positive where j is equal to 1, so it's
+
+19
+00:02:42,000 --> 00:02:50,560
+a downward slope plus a upward slope. So minus and minus cancels, we get an addition here, so it's
+
+20
+00:02:50,560 --> 00:02:53,120
+going to be plus,
+
+21
+00:02:54,160 --> 00:03:04,080
+1 over x2 minus x1, right? So this is the additional term we have in the right-hand side
+
+22
+00:03:04,080 --> 00:03:12,640
+due to the boundary condition. So now we have, the a is not changed, so we have u is equal to a back
+
+23
+00:03:12,640 --> 00:03:21,440
+slash b, all right? And now let's plot the solution, close all, plot.
+
+24
+00:03:24,160 --> 00:03:26,560
+So let's plot the solution, close all, plot.
+
+25
+00:03:26,560 --> 00:03:37,200
+Our plot x, instead of 0u1 we have 1u0. Instead of 0u0 we have 1u0 because the left side is 1 now,
+
+26
+00:03:37,760 --> 00:03:43,520
+right? So let's plot this. This is our solution, still on a very irregular grid.
+
+27
+00:03:45,920 --> 00:03:52,560
+And let's see how good the solution is. The analytical form of the function is like this. So,
+
+28
+00:03:52,560 --> 00:03:54,080
+so by setting a left-hand side, we can plot the solution. So, so by setting a left-hand side,
+
+29
+00:03:54,080 --> 00:04:12,080
+one dash connect under all nodes is 1. By putting one dash with a math
+
+30
+00:04:14,800 --> 00:04:17,760
+feature between left and, and I put v1 in between the two dash,
+
+31
+00:04:18,720 --> 00:04:21,360
+and v1 can be equivalently legal by the sequence of the transform, the substitution.
+
+32
+00:04:21,360 --> 00:04:22,200
+What we get then is the semisués. Right? One dash and half 게 the sum.
+
+33
+00:04:22,200 --> 00:04:23,420
+All right? And now what we have is our solution, plus, and that's what we've been doing all very wrong to bring up here.
+
+34
+00:04:23,420 --> 00:04:23,540
+So at that point we can just tease this line for the time being. And this is what we're uh important everything lists for,
+
+35
+00:04:23,540 --> 00:04:23,680
+basically this is a base function, one, and one, and then we have a divisor of 2 nuclear Department, we have a B�� situational.
+
+36
+00:04:23,680 --> 00:04:28,360
+so it doesn't affect the second order derivative so we still satisfy the same
+
+37
+00:04:28,360 --> 00:04:33,680
+equation but with a non-trivial boundary condition and if you combine them of
+
+38
+00:04:33,680 --> 00:04:46,360
+course you get a 1 minus x times 1 plus half of x so my u-fine is equal to now
+
+39
+00:04:46,360 --> 00:04:58,980
+1 plus half of x-fine times this and let's hold on plot x-fine and u-fine
+
+40
+00:04:58,980 --> 00:05:04,120
+see the the blue line right now is the analytical solution and the black line
+
+41
+00:05:04,120 --> 00:05:11,080
+is the numerical solution again we match pretty well all right so so we covered
+
+42
+00:05:11,080 --> 00:05:15,880
+how to solve the Poisson's equation using finite element both with
+
+43
+00:05:15,880 --> 00:05:16,320
+a
+
+44
+00:05:16,320 --> 00:05:16,340
+solution and a solution. So now let's see how to solve the Poisson's equation using finite element both with a
+
+45
+00:05:16,340 --> 00:05:21,060
+constant right-hand side and with the non-trivial function as right-hand side
+
+46
+00:05:21,060 --> 00:05:25,160
+and also with non-zero boundary conditions
+

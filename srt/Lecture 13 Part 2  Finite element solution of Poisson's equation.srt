@@ -1,0 +1,676 @@
+1
+00:00:00,000 --> 00:00:04,280
+The example I'm going to give is the one-dimensional Poisson's equation.
+
+2
+00:00:05,280 --> 00:00:15,360
+The Poisson's equation is the second-order derivative of u plus a known function f is equal to 0.
+
+3
+00:00:16,620 --> 00:00:24,640
+And let me solve this within the spatial domain of 0 and 1 with the simplest type of boundary conditions.
+
+4
+00:00:24,640 --> 00:00:32,120
+In this case, we no longer know what the solution u is.
+
+5
+00:00:32,300 --> 00:00:36,400
+We only know that the solution u satisfies a certain differential equation.
+
+6
+00:00:37,280 --> 00:00:42,140
+So how do we use the same procedure we discussed before to solve this equation?
+
+7
+00:00:47,440 --> 00:00:51,900
+It turns out there are two ways to look at this.
+
+8
+00:00:52,700 --> 00:00:53,900
+The first way.
+
+9
+00:00:54,640 --> 00:01:01,860
+Is to try to integrate this equation with a function.
+
+10
+00:01:03,500 --> 00:01:05,540
+Right, so approach one.
+
+11
+00:01:10,540 --> 00:01:12,540
+So let...
+
+12
+00:01:15,300 --> 00:01:23,540
+So I'm going to let a function g also...
+
+13
+00:01:24,380 --> 00:01:24,540
+To...
+
+14
+00:01:24,640 --> 00:01:26,140
+To be 0 and 1.
+
+15
+00:01:26,840 --> 00:01:27,920
+To be...
+
+16
+00:01:27,920 --> 00:01:29,620
+Let's say to be smooth.
+
+17
+00:01:31,340 --> 00:01:31,860
+Okay.
+
+18
+00:01:32,420 --> 00:01:38,700
+And what I'm going to do is that because this equation is equal to 0 within the whole domain.
+
+19
+00:01:39,520 --> 00:01:46,620
+I can integrate g of x times the residual of the differential equation.
+
+20
+00:01:46,700 --> 00:01:48,420
+Which has to be equal to 0 everywhere.
+
+21
+00:01:48,420 --> 00:01:52,340
+So this should be equal to 0 within the whole domain.
+
+22
+00:01:52,900 --> 00:01:54,420
+And because this function is...
+
+23
+00:01:54,640 --> 00:01:56,940
+Is equal to 0 within the whole domain of .
+
+24
+00:01:56,940 --> 00:02:02,340
+The integration of this function over space should be equal to 0.
+
+25
+00:02:02,340 --> 00:02:05,140
+For any smooth function g.
+
+26
+00:02:05,140 --> 00:02:07,140
+Right.
+
+27
+00:02:07,140 --> 00:02:11,640
+So basically what I'm going to do is this has to be true for any g.
+
+28
+00:02:14,640 --> 00:02:15,140
+Right.
+
+29
+00:02:17,440 --> 00:02:17,940
+Okay.
+
+30
+00:02:17,940 --> 00:02:23,840
+Now what I'm going to do is I'm going to restrict f and g.
+
+31
+00:02:23,840 --> 00:02:24,340
+Within the space.
+
+32
+00:02:24,340 --> 00:02:25,840
+Within the same linear space.
+
+33
+00:02:27,540 --> 00:02:29,340
+So I'm going to restrict.
+
+34
+00:02:32,040 --> 00:02:38,540
+f is going to be forced to be a linear combination of a certain basis functions.
+
+35
+00:02:38,540 --> 00:02:39,740
+Phi of x.
+
+36
+00:02:40,740 --> 00:02:42,240
+And g of x.
+
+37
+00:02:42,740 --> 00:02:46,140
+I'm going to force it to be the actual basis functions.
+
+38
+00:02:46,140 --> 00:02:47,740
+J goes from 1 to n.
+
+39
+00:02:48,640 --> 00:02:54,140
+The reason I can force g to be any of the basis functions is because if this equality is true.
+
+40
+00:02:54,140 --> 00:02:56,640
+For any of the phi j's.
+
+41
+00:02:57,940 --> 00:03:02,440
+Then it has to be also true for any linear combination of the phi j's.
+
+42
+00:03:02,440 --> 00:03:06,840
+Which covers an entire n dimensional linear space.
+
+43
+00:03:08,940 --> 00:03:09,340
+Right.
+
+44
+00:03:10,540 --> 00:03:10,940
+Okay.
+
+45
+00:03:11,240 --> 00:03:13,340
+So if I perform that restriction.
+
+46
+00:03:13,740 --> 00:03:17,940
+What I'm going to derive out of the equality is.
+
+47
+00:03:18,940 --> 00:03:21,740
+I replace g with phi j.
+
+48
+00:03:24,140 --> 00:03:24,640
+Okay.
+
+49
+00:03:26,340 --> 00:03:27,340
+I'm going to.
+
+50
+00:03:30,840 --> 00:03:32,840
+I'm also going to replace.
+
+51
+00:03:33,640 --> 00:03:34,140
+Oh.
+
+52
+00:03:34,740 --> 00:03:35,340
+I'm sorry.
+
+53
+00:03:35,540 --> 00:03:36,540
+I messed up.
+
+54
+00:03:36,540 --> 00:03:38,040
+I shouldn't be replacing f.
+
+55
+00:03:38,040 --> 00:03:38,740
+I should be.
+
+56
+00:03:39,040 --> 00:03:39,540
+I should.
+
+57
+00:03:39,540 --> 00:03:40,940
+I shouldn't be restricting f.
+
+58
+00:03:40,940 --> 00:03:43,440
+I should be restricting the solution u.
+
+59
+00:03:43,640 --> 00:03:46,940
+Previously we restricted f because we wanted to approximate f.
+
+60
+00:03:47,240 --> 00:03:49,440
+In this case we wanted to approximate u.
+
+61
+00:03:49,440 --> 00:03:52,240
+So we want to represent the solution u.
+
+62
+00:03:52,540 --> 00:03:53,840
+As a linear combination of.
+
+63
+00:03:53,840 --> 00:03:55,340
+Of these basis functions.
+
+64
+00:03:55,340 --> 00:03:57,840
+So we represent u as this linear combination.
+
+65
+00:03:58,240 --> 00:04:01,640
+So here the u i's are not functions of space.
+
+66
+00:04:01,840 --> 00:04:04,440
+And phi i's are functions of space.
+
+67
+00:04:04,940 --> 00:04:08,140
+So we integrate u i.
+
+68
+00:04:08,540 --> 00:04:12,140
+And the second order derivative is going to be applied.
+
+69
+00:04:13,840 --> 00:04:16,040
+To the basis functions.
+
+70
+00:04:20,440 --> 00:04:21,040
+All right.
+
+71
+00:04:23,840 --> 00:04:24,340
+So.
+
+72
+00:04:24,340 --> 00:04:30,840
+Again we are going to pull these summations.
+
+73
+00:04:30,840 --> 00:04:32,840
+Out of the integral.
+
+74
+00:04:32,840 --> 00:04:35,840
+What we get is summation of i goes from 1 to n.
+
+75
+00:04:35,840 --> 00:04:36,840
+u i.
+
+76
+00:04:36,840 --> 00:04:39,840
+Times the integration of 0 to 1.
+
+77
+00:04:39,840 --> 00:04:41,840
+Phi j of x.
+
+78
+00:04:41,840 --> 00:04:44,840
+Times the second order derivative of.
+
+79
+00:04:44,840 --> 00:04:46,840
+Phi i.
+
+80
+00:04:46,840 --> 00:04:47,840
+D x.
+
+81
+00:04:47,840 --> 00:04:48,840
+This is the first order.
+
+82
+00:04:48,840 --> 00:04:49,840
+So we have.
+
+83
+00:04:49,840 --> 00:04:51,840
+The second order derivative of.
+
+84
+00:04:51,840 --> 00:04:52,840
+Phi i.
+
+85
+00:04:52,840 --> 00:04:53,840
+D x.
+
+86
+00:04:53,840 --> 00:04:54,840
+This is the first term.
+
+87
+00:04:54,840 --> 00:04:55,840
+And the second term is.
+
+88
+00:04:55,840 --> 00:04:56,840
+Is phi j.
+
+89
+00:04:56,840 --> 00:04:57,840
+Times f.
+
+90
+00:04:57,840 --> 00:04:58,840
+So.
+
+91
+00:04:58,840 --> 00:04:59,840
+Plus.
+
+92
+00:04:59,840 --> 00:05:00,840
+Phi j.
+
+93
+00:05:00,840 --> 00:05:01,840
+Times f.
+
+94
+00:05:01,840 --> 00:05:02,840
+D x.
+
+95
+00:05:02,840 --> 00:05:07,840
+Has to be equal to 0.
+
+96
+00:05:07,840 --> 00:05:09,840
+Right.
+
+97
+00:05:09,840 --> 00:05:10,840
+The difference between.
+
+98
+00:05:10,840 --> 00:05:11,840
+This equation.
+
+99
+00:05:11,840 --> 00:05:13,840
+And the equation we derived last time.
+
+100
+00:05:13,840 --> 00:05:14,840
+Was that.
+
+101
+00:05:14,840 --> 00:05:15,840
+The phi i.
+
+102
+00:05:15,840 --> 00:05:16,840
+Is.
+
+103
+00:05:16,840 --> 00:05:20,840
+Has been taken a second order derivative.
+
+104
+00:05:20,840 --> 00:05:21,840
+Well.
+
+105
+00:05:21,840 --> 00:05:22,840
+Last Wednesday.
+
+106
+00:05:22,840 --> 00:05:23,840
+We.
+
+107
+00:05:23,840 --> 00:05:25,840
+When we tried to approximate.
+
+108
+00:05:25,840 --> 00:05:26,840
+Just a function f.
+
+109
+00:05:26,840 --> 00:05:27,840
+Basically.
+
+110
+00:05:27,840 --> 00:05:28,840
+Instead of solving.
+
+111
+00:05:28,840 --> 00:05:30,840
+A second order derivative of.
+
+112
+00:05:30,840 --> 00:05:31,840
+Phi u.
+
+113
+00:05:31,840 --> 00:05:32,840
+Plus f equal to 0.
+
+114
+00:05:32,840 --> 00:05:34,840
+We were basically solving.
+
+115
+00:05:34,840 --> 00:05:36,840
+Minus u plus f equal to 0.
+
+116
+00:05:36,840 --> 00:05:37,840
+Right.
+
+117
+00:05:37,840 --> 00:05:38,840
+We are trying to approximate.
+
+118
+00:05:38,840 --> 00:05:39,840
+F with.
+
+119
+00:05:39,840 --> 00:05:40,840
+A function.
+
+120
+00:05:40,840 --> 00:05:41,840
+So.
+
+121
+00:05:41,840 --> 00:05:42,840
+In this case.
+
+122
+00:05:42,840 --> 00:05:43,840
+We.
+
+123
+00:05:43,840 --> 00:05:44,840
+We simply.
+
+124
+00:05:44,840 --> 00:05:45,840
+Replace.
+
+125
+00:05:45,840 --> 00:05:46,840
+The.
+
+126
+00:05:46,840 --> 00:05:47,840
+Phi i here.
+
+127
+00:05:47,840 --> 00:05:50,840
+By the second order derivative of phi i.
+
+128
+00:05:50,840 --> 00:05:51,840
+So.
+
+129
+00:05:51,840 --> 00:05:52,840
+The following is the same.
+
+130
+00:05:52,840 --> 00:05:53,840
+This.
+
+131
+00:05:53,840 --> 00:05:54,840
+And this.
+
+132
+00:05:54,840 --> 00:05:55,840
+Is.
+
+133
+00:05:55,840 --> 00:05:56,840
+Represented.
+
+134
+00:05:56,840 --> 00:05:57,840
+As.
+
+135
+00:05:57,840 --> 00:05:58,840
+A matrix.
+
+136
+00:05:58,840 --> 00:05:59,840
+And a vector.
+
+137
+00:05:59,840 --> 00:06:00,840
+Respectively.
+
+138
+00:06:00,840 --> 00:06:01,840
+So.
+
+139
+00:06:01,840 --> 00:06:02,840
+If I define.
+
+140
+00:06:02,840 --> 00:06:03,840
+A i j.
+
+141
+00:06:03,840 --> 00:06:04,840
+To be equal to.
+
+142
+00:06:04,840 --> 00:06:05,840
+Integration.
+
+143
+00:06:05,840 --> 00:06:06,840
+Of.
+
+144
+00:06:06,840 --> 00:06:07,840
+Phi j.
+
+145
+00:06:07,840 --> 00:06:08,840
+Times the second order derivative of i.
+
+146
+00:06:08,840 --> 00:06:09,840
+I am going to.
+
+147
+00:06:09,840 --> 00:06:10,840
+Say.
+
+148
+00:06:10,840 --> 00:06:11,840
+B j.
+
+149
+00:06:11,840 --> 00:06:12,840
+Is.
+
+150
+00:06:12,840 --> 00:06:13,840
+Equal to.
+
+151
+00:06:13,840 --> 00:06:14,840
+The integration.
+
+152
+00:06:14,840 --> 00:06:15,840
+Of.
+
+153
+00:06:15,840 --> 00:06:16,840
+Phi j.
+
+154
+00:06:16,840 --> 00:06:17,840
+Times f.
+
+155
+00:06:17,840 --> 00:06:18,840
+Then.
+
+156
+00:06:18,840 --> 00:06:19,840
+This equation.
+
+157
+00:06:19,840 --> 00:06:20,840
+Is.
+
+158
+00:06:20,840 --> 00:06:21,840
+A matrix.
+
+159
+00:06:21,840 --> 00:06:22,840
+Equation.
+
+160
+00:06:22,840 --> 00:06:23,840
+A u.
+
+161
+00:06:23,840 --> 00:06:24,840
+Plus.
+
+162
+00:06:24,840 --> 00:06:25,840
+B.
+
+163
+00:06:25,840 --> 00:06:26,840
+Equal to.
+
+164
+00:06:26,840 --> 00:06:27,840
+Zero.
+
+165
+00:06:27,840 --> 00:06:28,840
+Right.
+
+166
+00:06:28,840 --> 00:06:29,840
+And that is something.
+
+167
+00:06:29,840 --> 00:06:30,840
+I know.
+
+168
+00:06:30,840 --> 00:06:31,840
+How to.
+
+169
+00:06:31,840 --> 00:06:32,840
+Solve.
+

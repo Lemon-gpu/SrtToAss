@@ -1,0 +1,400 @@
+1
+00:00:00,000 --> 00:00:03,840
+So once we have these weak forms, we can
+
+2
+00:00:03,840 --> 00:00:08,700
+discretize our domain and restrict the
+
+3
+00:00:08,700 --> 00:00:11,680
+H1 space into a finite dimensional space,
+
+4
+00:00:11,680 --> 00:00:16,020
+a subset of all possible H1 functions.
+
+5
+00:00:16,020 --> 00:00:23,280
+So here let's go to MATLAB and click my window.
+
+6
+00:00:23,280 --> 00:00:29,700
+So let's generate a mesh. So I'm going to
+
+7
+00:00:29,700 --> 00:00:34,320
+launch PDToolbox. So what I can draw is
+
+8
+00:00:34,320 --> 00:00:40,800
+an arbitrary polygon, I guess. You can
+
+9
+00:00:40,800 --> 00:00:42,460
+make any shape you want.
+
+10
+00:00:42,460 --> 00:00:46,920
+Okay, so I have a domain like that. I can
+
+11
+00:00:46,920 --> 00:00:52,680
+mesh it. So I get a mesh and I can, in the
+
+12
+00:00:52,680 --> 00:00:56,700
+mesh menu, I can export the mesh into the
+
+13
+00:00:56,700 --> 00:00:58,860
+MATLAB workspace.
+
+14
+00:00:58,860 --> 00:00:59,360
+Okay.
+
+15
+00:00:59,360 --> 00:00:59,660
+So I'm going to export this mesh into the MATLAB workspace.
+
+16
+00:00:59,660 --> 00:00:59,680
+So I'm going to export this mesh into the MATLAB workspace.
+
+17
+00:00:59,680 --> 00:01:05,400
+So what I get is three variables, E, P, and T.
+
+18
+00:01:05,400 --> 00:01:09,860
+P is a two-dimensional, it just contains
+
+19
+00:01:09,860 --> 00:01:12,800
+the X as the first row and Y as the
+
+20
+00:01:12,800 --> 00:01:17,780
+second row. And T contains, the first
+
+21
+00:01:17,780 --> 00:01:20,740
+three rows of T contains the indices in
+
+22
+00:01:20,740 --> 00:01:24,300
+P of the three vertices of each triangle
+
+23
+00:01:24,300 --> 00:01:28,500
+element. The final row is the index of
+
+24
+00:01:28,500 --> 00:01:29,640
+the domain, so you can make a
+
+25
+00:01:29,640 --> 00:01:31,280
+multiple domains. In this case I only
+
+26
+00:01:31,280 --> 00:01:33,460
+have one domain, so it's all of them are
+
+27
+00:01:33,460 --> 00:01:37,900
+one. E is pretty complex, but we won't use
+
+28
+00:01:37,900 --> 00:01:41,140
+this at all. So we are going to
+
+29
+00:01:41,140 --> 00:01:44,560
+only use the first two rows of E. So E is
+
+30
+00:01:44,560 --> 00:01:47,820
+not all the edges, it contains only the
+
+31
+00:01:47,820 --> 00:01:51,820
+outside boundary edges. Okay. So we are
+
+32
+00:01:51,820 --> 00:01:53,840
+going to only use E to identify which
+
+33
+00:01:53,840 --> 00:01:58,060
+points lie on the boundary. Okay, so
+
+34
+00:01:58,060 --> 00:01:59,300
+for example, let's look at the boundary edges.
+
+35
+00:01:59,300 --> 00:02:04,040
+Let's figure this out for now. So I at
+
+36
+00:02:04,040 --> 00:02:06,760
+the boundary is simply equal to the
+
+37
+00:02:06,760 --> 00:02:13,040
+unique points in the first row of E and
+
+38
+00:02:13,040 --> 00:02:18,060
+the second row of E. So these are IB,
+
+39
+00:02:18,060 --> 00:02:21,800
+it turns out there are 70 points,
+
+40
+00:02:21,800 --> 00:02:26,180
+there are exactly 70 points on the
+
+41
+00:02:26,180 --> 00:02:28,940
+boundary, which makes sense. There are 70 points.
+
+42
+00:02:29,300 --> 00:02:32,660
+So if you look at the dimension of E,
+
+43
+00:02:32,660 --> 00:02:36,740
+there are 70 edges. So because it's
+
+44
+00:02:36,740 --> 00:02:38,460
+two dimensional domain, the number of edges
+
+45
+00:02:38,460 --> 00:02:40,060
+on the boundary is the same as the
+
+46
+00:02:40,060 --> 00:02:42,400
+number of points on the boundary. Alright.
+
+47
+00:02:42,400 --> 00:02:48,060
+So what's next? Let's visualize the mesh.
+
+48
+00:02:48,060 --> 00:02:51,500
+So MATLAB there is a tryMesh function
+
+49
+00:02:51,500 --> 00:02:55,280
+and the first argument of tryMesh should
+
+50
+00:02:55,280 --> 00:02:57,380
+be the triangles, which I can take the
+
+51
+00:02:57,380 --> 00:02:59,240
+first three
+
+52
+00:02:59,300 --> 00:03:02,660
+rows of T. And MATLAB actually needs
+
+53
+00:03:02,660 --> 00:03:05,240
+is, sorry, it needs is transpose. So it needs a
+
+54
+00:03:05,240 --> 00:03:11,300
+n by 3 matrix as the triangles and
+
+55
+00:03:11,300 --> 00:03:13,060
+the three are just the indices of the
+
+56
+00:03:13,060 --> 00:03:19,400
+points. And the x dimension of P is P1
+
+57
+00:03:19,400 --> 00:03:25,820
+and the y dimension is P2. So that gives me
+
+58
+00:03:25,820 --> 00:03:27,800
+da da da da.
+
+59
+00:03:27,800 --> 00:03:28,520
+I think I have it.
+
+60
+00:03:29,300 --> 00:03:31,520
+I have an actual parenthesis. So that
+
+61
+00:03:31,520 --> 00:03:38,660
+gives me a mesh. Close. Right. So that's
+
+62
+00:03:38,660 --> 00:03:41,040
+that's a visualization of the mesh we
+
+63
+00:03:41,040 --> 00:03:45,560
+just made. Right. So when we are talking
+
+64
+00:03:45,560 --> 00:03:48,560
+about finding element, we're going to be
+
+65
+00:03:48,560 --> 00:03:52,180
+defining in this lecture a piecewise
+
+66
+00:03:52,180 --> 00:03:56,480
+linear function that is piecewise linear
+
+67
+00:03:56,480 --> 00:03:58,340
+in each of these small triangles.
+
+68
+00:03:59,300 --> 00:04:02,180
+And to, also we are going to enforce
+
+69
+00:04:02,180 --> 00:04:07,580
+these functions to be continuous. So can
+
+70
+00:04:07,580 --> 00:04:09,740
+you visualize what a piecewise linear
+
+71
+00:04:09,740 --> 00:04:12,220
+and continuous function should look like
+
+72
+00:04:12,220 --> 00:04:16,960
+in such a domain? A linear function on
+
+73
+00:04:16,960 --> 00:04:22,460
+the triangle is just a flat but slanted
+
+74
+00:04:22,460 --> 00:04:25,560
+function. If you think of the value of
+
+75
+00:04:25,560 --> 00:04:27,620
+the function in the other space. Let's,
+
+76
+00:04:27,620 --> 00:04:28,520
+for example, let's map out and say we are going
+
+77
+00:04:28,520 --> 00:04:38,240
+let's make one. So let's say u is going to be zeros, the number of points is 406,
+
+78
+00:04:38,240 --> 00:04:55,560
+and let's make a random u to be 1. Okay, I'm just making a function that is equal to 0 on all grid
+
+79
+00:04:55,560 --> 00:04:59,400
+points except for one grid points. And let's visualize what this function looks like.
+
+80
+00:04:59,980 --> 00:05:04,440
+I'm going to try mesh the function, but with another variable u here.
+
+81
+00:05:06,900 --> 00:05:14,620
+This is how the function looks like. It's a function that is piecewise linear because,
+
+82
+00:05:14,740 --> 00:05:19,960
+I mean, because it's on every, on all the flat surfaces, it's piecewise linear for sure because
+
+83
+00:05:19,960 --> 00:05:25,180
+it's zero. And on this, on the size of these particular points,
+
+84
+00:05:25,560 --> 00:05:33,700
+they are also piecewise linear, right? Because each element is a triangle, and if you define
+
+85
+00:05:33,700 --> 00:05:38,200
+the three values at the three vertices, you get a linear function, you get a unique linear function.
+
+86
+00:05:39,680 --> 00:05:42,600
+So this is one of the basis functions.
+
+87
+00:05:44,760 --> 00:05:50,220
+And I think you can also do a choice serve that may make it a little bit more clear,
+
+88
+00:05:50,220 --> 00:05:52,840
+right? So that gives you,
+
+89
+00:05:52,840 --> 00:05:54,900
+that gives you,
+
+90
+00:05:54,900 --> 00:05:55,540
+that gives you,
+
+91
+00:05:55,540 --> 00:05:57,240
+that gives you a continuous surface.
+
+92
+00:05:57,240 --> 00:05:58,040
+I should have, oh,
+
+93
+00:06:01,360 --> 00:06:03,100
+let me, let me do that again.
+
+94
+00:06:07,380 --> 00:06:09,460
+That's rotate, yeah, rotate 3D.
+
+95
+00:06:09,880 --> 00:06:16,840
+So, so you can see it's, it's going to be a function that is continuous everywhere and piecewise linear.
+
+96
+00:06:17,380 --> 00:06:17,880
+Okay.
+
+97
+00:06:18,600 --> 00:06:24,600
+And we can do this for as many times as there are interior grid points.
+
+98
+00:06:25,540 --> 00:06:28,840
+Right? Because if I have the boundary values to be zero,
+
+99
+00:06:28,840 --> 00:06:32,980
+I don't need the boundary grid points to contribute to the basis functions.
+
+100
+00:06:32,980 --> 00:06:35,060
+They are all zero.
+

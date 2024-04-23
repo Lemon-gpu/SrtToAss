@@ -1,0 +1,6856 @@
+1
+00:00:00,000 --> 00:00:00,900
+We're trying to decide.
+
+2
+00:00:01,600 --> 00:00:03,780
+We have a couple of integral equation problems,
+
+3
+00:00:03,940 --> 00:00:07,740
+short ones that we're going to talk about in evening settings,
+
+4
+00:00:07,880 --> 00:00:08,840
+which we'll do next week.
+
+5
+00:00:09,580 --> 00:00:12,060
+And then there's also, I guess, some discussion
+
+6
+00:00:12,060 --> 00:00:13,040
+about the final project.
+
+7
+00:00:13,280 --> 00:00:15,600
+I don't know if you all have opinions about this.
+
+8
+00:00:15,780 --> 00:00:18,260
+You should express them to Professor Lang.
+
+9
+00:00:19,280 --> 00:00:20,880
+We will take them under advisement.
+
+10
+00:00:21,880 --> 00:00:22,840
+But we'll try to.
+
+11
+00:00:22,960 --> 00:00:25,080
+I work very mindful of not packing a lot of work
+
+12
+00:00:25,080 --> 00:00:26,060
+in the last week of classes.
+
+13
+00:00:26,060 --> 00:00:31,840
+So for today, I'm going to talk about quadrature
+
+14
+00:00:31,840 --> 00:00:37,240
+and the video from yesterday's Monday's lecture.
+
+15
+00:00:37,640 --> 00:00:38,640
+It's getting there.
+
+16
+00:00:38,880 --> 00:00:41,460
+I have to compress it, I guess, before I can post it.
+
+17
+00:00:42,080 --> 00:00:44,500
+But it should be up by tomorrow.
+
+18
+00:00:44,640 --> 00:00:47,120
+I just have a little video for this one, too.
+
+19
+00:00:47,540 --> 00:00:48,880
+The camera is running at the moment.
+
+20
+00:00:50,360 --> 00:00:52,540
+I haven't officially asked for any of you
+
+21
+00:00:52,540 --> 00:00:53,860
+for signed disclosures.
+
+22
+00:00:53,860 --> 00:00:55,600
+I don't think anybody showed up.
+
+23
+00:00:55,600 --> 00:00:56,040
+Do you show up?
+
+24
+00:00:56,060 --> 00:00:56,580
+I don't think anybody showed up on the video.
+
+25
+00:00:56,760 --> 00:00:59,360
+Your voice might play on the video.
+
+26
+00:01:00,120 --> 00:01:01,520
+If you have objections to this,
+
+27
+00:01:01,800 --> 00:01:05,520
+certainly feel free to mention them to me
+
+28
+00:01:05,520 --> 00:01:07,120
+and we'll figure out something.
+
+29
+00:01:09,020 --> 00:01:12,220
+Okay, so we're going to talk about numerical quadrature.
+
+30
+00:01:12,960 --> 00:01:15,360
+And many of you may have seen Gauss.
+
+31
+00:01:15,420 --> 00:01:16,960
+How many of you have used Gauss quadrature?
+
+32
+00:01:17,800 --> 00:01:19,800
+How many of you have seen an analysis
+
+33
+00:01:19,800 --> 00:01:22,080
+of how the formulas are derived?
+
+34
+00:01:23,840 --> 00:01:24,620
+A couple.
+
+35
+00:01:24,620 --> 00:01:25,620
+Okay, so for those of you...
+
+36
+00:01:26,060 --> 00:01:27,760
+For those of you who have seen this before,
+
+37
+00:01:27,760 --> 00:01:28,760
+this won't be new.
+
+38
+00:01:28,760 --> 00:01:30,760
+And for those who haven't seen it before,
+
+39
+00:01:30,760 --> 00:01:31,760
+I guess it won't be,
+
+40
+00:01:31,760 --> 00:01:34,760
+which is not exactly a very informative statement,
+
+41
+00:01:34,760 --> 00:01:35,760
+but there it is.
+
+42
+00:01:35,760 --> 00:01:36,760
+So we're going to...
+
+43
+00:01:36,760 --> 00:01:38,760
+I'm going to go through a little bit of it.
+
+44
+00:01:38,760 --> 00:01:40,760
+And the reason we're going to talk about quadrature
+
+45
+00:01:40,760 --> 00:01:42,760
+and the ways in which you derive quadrature formulas
+
+46
+00:01:42,760 --> 00:01:44,760
+is it will really lead into the next lecture,
+
+47
+00:01:44,760 --> 00:01:46,760
+which is how you take these ideas from quadrature,
+
+48
+00:01:46,760 --> 00:01:48,760
+which you may or may not have seen before,
+
+49
+00:01:48,760 --> 00:01:50,760
+and how you can use them to develop
+
+50
+00:01:50,760 --> 00:01:51,760
+the next lecture.
+
+51
+00:01:51,760 --> 00:01:53,760
+So I'm going to go through a little bit of it.
+
+52
+00:01:53,760 --> 00:01:54,760
+And I'm going to talk about the idea of quadrature,
+
+53
+00:01:54,760 --> 00:01:55,760
+which you may or may not have seen before.
+
+54
+00:01:55,760 --> 00:01:57,760
+So you can use them to actually come up with methods
+
+55
+00:01:57,760 --> 00:01:59,760
+for solving integral equations.
+
+56
+00:01:59,760 --> 00:02:02,760
+And give you a method that's really extraordinarily effective
+
+57
+00:02:02,760 --> 00:02:04,760
+in two space dimensions.
+
+58
+00:02:04,760 --> 00:02:06,760
+And doesn't necessarily generalize that easily
+
+59
+00:02:06,760 --> 00:02:08,760
+to three dimensions,
+
+60
+00:02:08,760 --> 00:02:11,760
+although there have been some recent improvements in that.
+
+61
+00:02:11,760 --> 00:02:14,760
+So part of the reason we're talking about quadrature
+
+62
+00:02:14,760 --> 00:02:17,760
+is to fill in some background in case you're missing it,
+
+63
+00:02:17,760 --> 00:02:21,760
+but partly because it's going to lead us right into
+
+64
+00:02:21,760 --> 00:02:23,760
+a very effective way,
+
+65
+00:02:23,760 --> 00:02:25,760
+one of the most effective ways of solving it,
+
+66
+00:02:25,760 --> 00:02:27,760
+is to use the idea of integral equations
+
+67
+00:02:27,760 --> 00:02:29,760
+in two space dimensions.
+
+68
+00:02:29,760 --> 00:02:31,760
+All right, so what do we mean by quadrature?
+
+69
+00:02:31,760 --> 00:02:34,760
+And that is we're going to approximate an integral
+
+70
+00:02:34,760 --> 00:02:37,760
+by, which is of course just the area under a curve,
+
+71
+00:02:37,760 --> 00:02:40,760
+and we want to do it with some formula.
+
+72
+00:02:40,760 --> 00:02:44,760
+That is we're going to use values of a function and weights.
+
+73
+00:02:44,760 --> 00:02:46,760
+So if you're doing an integral from zero to one,
+
+74
+00:02:46,760 --> 00:02:48,760
+which we'll probably do,
+
+75
+00:02:48,760 --> 00:02:50,760
+we don't have the integral in that because
+
+76
+00:02:50,760 --> 00:02:53,760
+I'm just going to integrate this out to the x,
+
+77
+00:02:53,760 --> 00:02:55,760
+and I'm trying to get the area under the curve.
+
+78
+00:02:55,760 --> 00:02:57,760
+I'm doing one.
+
+79
+00:02:57,760 --> 00:03:04,760
+And I'm going to approximate it with this box card
+
+80
+00:03:04,760 --> 00:03:10,760
+of height f and I'm evaluating it at x.
+
+81
+00:03:10,760 --> 00:03:14,760
+So that's not a very difficult quadrature scheme.
+
+82
+00:03:14,760 --> 00:03:21,760
+It's an approximation,
+
+83
+00:03:21,760 --> 00:03:23,760
+and we can come up with better approximations,
+
+84
+00:03:23,760 --> 00:03:25,760
+and the obvious one is, well,
+
+85
+00:03:25,760 --> 00:03:28,760
+if it doesn't work to approximate your function
+
+86
+00:03:28,760 --> 00:03:31,760
+with one box card, maybe two will,
+
+87
+00:03:31,760 --> 00:03:33,760
+box cards would be better.
+
+88
+00:03:33,760 --> 00:03:37,760
+So I'm sure all of you have learned this in calculus
+
+89
+00:03:37,760 --> 00:03:42,760
+that it would be better to use more box cards
+
+90
+00:03:42,760 --> 00:03:44,760
+when you do the Rubin sum.
+
+91
+00:03:44,760 --> 00:03:46,760
+But before we do that, let's talk a little bit about
+
+92
+00:03:46,760 --> 00:03:49,760
+just this box card and what it's accurate for.
+
+93
+00:03:49,760 --> 00:03:54,760
+So the extraordinary thing about that one box card
+
+94
+00:03:54,760 --> 00:03:58,760
+is of course it's exact for a function that's a constant
+
+95
+00:03:58,760 --> 00:04:01,760
+on the integral 0 to 1.
+
+96
+00:04:01,760 --> 00:04:07,760
+It's also exact for anything that's a constant or a linear.
+
+97
+00:04:07,760 --> 00:04:11,760
+So it's actually a single point quadrature scheme.
+
+98
+00:04:11,760 --> 00:04:14,760
+It's a lot more powerful than you think it is,
+
+99
+00:04:14,760 --> 00:04:20,760
+and in fact it's more powerful than if I use one point on the x.
+
+100
+00:04:20,760 --> 00:04:23,760
+So suppose I look at these functions that are linear,
+
+101
+00:04:23,760 --> 00:04:25,760
+and I want to get the area of the curve,
+
+102
+00:04:25,760 --> 00:04:32,760
+and I have three choices about how to approximate it.
+
+103
+00:04:32,760 --> 00:04:44,760
+I could use a point at the beginning of the integral,
+
+104
+00:04:44,760 --> 00:04:47,760
+so I could use f of 0,
+
+105
+00:04:47,760 --> 00:04:52,760
+or I could use, for that same linear function,
+
+106
+00:04:52,760 --> 00:05:03,760
+f of 1.
+
+107
+00:05:03,760 --> 00:05:09,760
+And what can I say immediately about both these methods?
+
+108
+00:05:09,760 --> 00:05:15,760
+Do they work if the function is constant?
+
+109
+00:05:15,760 --> 00:05:19,760
+If f of x equals a constant,
+
+110
+00:05:19,760 --> 00:05:22,760
+are these formulas exact?
+
+111
+00:05:22,760 --> 00:05:23,760
+All three.
+
+112
+00:05:23,760 --> 00:05:28,760
+So we can sometimes call this one the midpoint,
+
+113
+00:05:28,760 --> 00:05:33,760
+and both of these are called endpoint methods.
+
+114
+00:05:35,760 --> 00:05:39,760
+The endpoint methods are exact.
+
+115
+00:05:43,760 --> 00:05:50,760
+If it's constant, what if f of x is equal to a x plus a p?
+
+116
+00:05:52,760 --> 00:05:58,760
+Which of these formulas are exact?
+
+117
+00:05:58,760 --> 00:06:00,760
+The midpoint and the endpoint?
+
+118
+00:06:00,760 --> 00:06:02,760
+Midpoint only.
+
+119
+00:06:09,760 --> 00:06:12,760
+So we could sometimes, if we want to be formal about it,
+
+120
+00:06:12,760 --> 00:06:17,760
+we could say the endpoint methods are good for polynomials of order 0,
+
+121
+00:06:17,760 --> 00:06:21,760
+and the midpoint methods are good for polynomials of order 0 and order 1.
+
+122
+00:06:22,760 --> 00:06:26,760
+That, in fact, that idea, the simple idea,
+
+123
+00:06:26,760 --> 00:06:29,760
+thinking about what kind of polynomials, functions,
+
+124
+00:06:29,760 --> 00:06:32,760
+you could exactly integrate the error out of the curve of,
+
+125
+00:06:32,760 --> 00:06:35,760
+is the heart of everything you're going to learn about quadrature.
+
+126
+00:06:35,760 --> 00:06:41,760
+So everything else I'm going to tell you is an extension of that idea.
+
+127
+00:06:41,760 --> 00:06:43,760
+We look at quadrature formulas,
+
+128
+00:06:43,760 --> 00:06:46,760
+and we're going to ask questions about how high an order of polynomial
+
+129
+00:06:46,760 --> 00:06:48,760
+we can exactly integrate.
+
+130
+00:06:48,760 --> 00:06:51,760
+And that's going to tell us some way of comparing these methods.
+
+131
+00:06:51,760 --> 00:06:54,760
+So in this very simple setting,
+
+132
+00:06:54,760 --> 00:06:58,760
+we're going to start talking about a lot of things about these polynomials.
+
+133
+00:06:58,760 --> 00:07:01,760
+But just keep in mind that simple idea.
+
+134
+00:07:01,760 --> 00:07:04,760
+We're going to try to come up with methods
+
+135
+00:07:04,760 --> 00:07:08,760
+that can accurately integrate higher and higher order polynomials,
+
+136
+00:07:08,760 --> 00:07:12,760
+and that's how we're going to assess which method is better and which method is worse.
+
+137
+00:07:12,760 --> 00:07:20,760
+So, if we want a method that's more accurate than the midpoint method,
+
+138
+00:07:20,760 --> 00:07:26,760
+if our function is not a constant or a linear function,
+
+139
+00:07:26,760 --> 00:07:29,760
+it's not a zero-th or first-order polynomial,
+
+140
+00:07:29,760 --> 00:07:33,760
+then we could break it up into two box cards.
+
+141
+00:07:33,760 --> 00:07:37,760
+Does that accurately integrate a higher-order polynomial?
+
+142
+00:07:37,760 --> 00:07:41,760
+That is, if I use two box cards in the midpoint method,
+
+143
+00:07:41,760 --> 00:07:44,760
+can I exactly integrate any quadratic?
+
+144
+00:07:50,760 --> 00:07:55,760
+What about if I use, instead of the midpoints for these two box cards,
+
+145
+00:07:55,760 --> 00:07:57,760
+what if I used endpoints?
+
+146
+00:07:57,760 --> 00:08:01,760
+Would that exactly integrate any quadratic?
+
+147
+00:08:01,760 --> 00:08:04,760
+So, what about a linear function?
+
+148
+00:08:04,760 --> 00:08:08,760
+If I use two box cards, will the midpoint method exactly integrate
+
+149
+00:08:08,760 --> 00:08:11,760
+a zero-th or first-order polynomial?
+
+150
+00:08:11,760 --> 00:08:15,760
+If it's a straight line and I write this up into two box cards,
+
+151
+00:08:15,760 --> 00:08:19,760
+will the midpoint method still integrate the linear case?
+
+152
+00:08:19,760 --> 00:08:20,760
+Exactly.
+
+153
+00:08:20,760 --> 00:08:22,760
+What about if I use the endpoint method?
+
+154
+00:08:22,760 --> 00:08:25,760
+Will it integrate a linear one exactly?
+
+155
+00:08:25,760 --> 00:08:26,760
+No.
+
+156
+00:08:26,760 --> 00:08:31,760
+So, breaking up into more box cards, more sections,
+
+157
+00:08:31,760 --> 00:08:34,760
+doesn't necessarily get you a higher-order polynomial
+
+158
+00:08:34,760 --> 00:08:37,760
+unless you try to arrange for it.
+
+159
+00:08:37,760 --> 00:08:39,760
+So, that's another thing you're going to worry about,
+
+160
+00:08:39,760 --> 00:08:42,760
+which is, what should we do if we use lots of points?
+
+161
+00:08:42,760 --> 00:08:47,760
+And just using equal weights on the two points may not be the best thing to do,
+
+162
+00:08:47,760 --> 00:08:49,760
+although, surprisingly,
+
+163
+00:08:49,760 --> 00:08:52,760
+in important cases, it is, in fact, the best thing to do.
+
+164
+00:08:52,760 --> 00:08:53,760
+All right.
+
+165
+00:08:53,760 --> 00:08:56,760
+So, but this is going to be our general problem.
+
+166
+00:08:56,760 --> 00:08:59,760
+We're going to imagine, well, we can evaluate the function.
+
+167
+00:08:59,760 --> 00:09:01,760
+Presumably, you can evaluate the function.
+
+168
+00:09:01,760 --> 00:09:03,760
+You don't want to evaluate the function too much
+
+169
+00:09:03,760 --> 00:09:06,760
+because the function may be expensive to evaluate.
+
+170
+00:09:06,760 --> 00:09:10,760
+It might be the result of some complicated calculation you're doing.
+
+171
+00:09:10,760 --> 00:09:15,760
+It may be something as simple as evaluating 1 over r, 1 over distance.
+
+172
+00:09:15,760 --> 00:09:19,760
+But usually, you want to minimize the number of evaluations you have to do.
+
+173
+00:09:19,760 --> 00:09:21,760
+And get the best answer you can get.
+
+174
+00:09:21,760 --> 00:09:23,760
+And you have two degrees of freedom.
+
+175
+00:09:23,760 --> 00:09:27,760
+And I want to keep in mind these two degrees of freedom.
+
+176
+00:09:27,760 --> 00:09:37,760
+So, we have, well, I should say, two types of degrees of freedom.
+
+177
+00:09:46,760 --> 00:09:48,760
+The first type is
+
+178
+00:09:48,760 --> 00:09:51,760
+the weights for each point.
+
+179
+00:09:54,760 --> 00:09:57,760
+For each of the box charts, how much do you weight that point?
+
+180
+00:09:57,760 --> 00:10:00,760
+And the second type is where to put the points.
+
+181
+00:10:07,760 --> 00:10:11,760
+And in looking at the midpoints of these two endpoint methods,
+
+182
+00:10:11,760 --> 00:10:12,760
+we pick the weight of 1.
+
+183
+00:10:12,760 --> 00:10:14,760
+We only have one point.
+
+184
+00:10:14,760 --> 00:10:17,760
+So, weights, the freedom to pick weights doesn't really come into it.
+
+185
+00:10:18,760 --> 00:10:21,760
+But we can see already, even in a one point quadrature scheme,
+
+186
+00:10:21,760 --> 00:10:24,760
+that degree of freedom of where to put the weights,
+
+187
+00:10:24,760 --> 00:10:27,760
+where to put them, that's an important degree of freedom.
+
+188
+00:10:27,760 --> 00:10:30,760
+And if we use something like a midpoint rule
+
+189
+00:10:30,760 --> 00:10:33,760
+for each one of a set, a collection of n boxes,
+
+190
+00:10:33,760 --> 00:10:37,760
+we would put 1 over n as the weights, all weights being the same.
+
+191
+00:10:37,760 --> 00:10:41,760
+And each of the test points would be in the center of each of those box charts.
+
+192
+00:10:41,760 --> 00:10:45,760
+So, that's a general midpoint formula.
+
+193
+00:10:45,760 --> 00:10:47,760
+And you might ask the question, is that the best thing to do?
+
+194
+00:10:47,760 --> 00:10:50,760
+Could you put the points in different locations?
+
+195
+00:10:50,760 --> 00:10:53,760
+Could you use different weights?
+
+196
+00:10:53,760 --> 00:10:59,760
+So, if I have an endpoint scheme, how many degrees of freedom do I have?
+
+197
+00:11:03,760 --> 00:11:06,760
+So, I've got n box charts.
+
+198
+00:11:06,760 --> 00:11:10,760
+I can pick n points to, n places to put the,
+
+199
+00:11:10,760 --> 00:11:14,760
+I can make the box charts thicker, thinner, so I can put the points anywhere.
+
+200
+00:11:14,760 --> 00:11:16,760
+I've got n points to place.
+
+201
+00:11:16,760 --> 00:11:18,760
+What about the weights?
+
+202
+00:11:18,760 --> 00:11:20,760
+Do I have n degrees of freedom in the weights?
+
+203
+00:11:22,760 --> 00:11:24,760
+How many degrees of freedom do I have?
+
+204
+00:11:24,760 --> 00:11:26,760
+What do I know about the weights?
+
+205
+00:11:26,760 --> 00:11:28,760
+They all have to sum to 1.
+
+206
+00:11:28,760 --> 00:11:30,760
+Why do they have to sum to 1?
+
+207
+00:11:32,760 --> 00:11:35,760
+Suppose f of x were a constant of 1.
+
+208
+00:11:36,760 --> 00:11:40,760
+Then that formula should produce exactly the right integral,
+
+209
+00:11:40,760 --> 00:11:42,760
+which would be 1.
+
+210
+00:11:42,760 --> 00:11:44,760
+So, that's why the weights have to sum to 1.
+
+211
+00:11:44,760 --> 00:11:46,760
+But that idea doesn't exist.
+
+212
+00:11:46,760 --> 00:11:48,760
+The idea that the weights have to sum to 1,
+
+213
+00:11:48,760 --> 00:11:52,760
+when you think about that, yeah, of course,
+
+214
+00:11:52,760 --> 00:11:55,760
+because it's got to integrate the constant function exactly,
+
+215
+00:11:55,760 --> 00:12:01,760
+but that's like saying the weights have to be such that the 0th order polynomial gets integrated exactly.
+
+216
+00:12:03,760 --> 00:12:05,760
+We get another condition on the weights,
+
+217
+00:12:05,760 --> 00:12:10,760
+so that we exactly integrate a constant and a first order polynomial.
+
+218
+00:12:10,760 --> 00:12:16,760
+So, we're going to think a little bit about that.
+
+219
+00:12:16,760 --> 00:12:24,760
+So, there are three different methods we could look at.
+
+220
+00:12:24,760 --> 00:12:28,760
+We could use one method, which is an endpoint method.
+
+221
+00:12:28,760 --> 00:12:31,760
+We use the beginning of each of these box bars.
+
+222
+00:12:31,760 --> 00:12:33,760
+A second method, the one we've been looking at mostly,
+
+223
+00:12:33,760 --> 00:12:34,760
+is a midpoint method.
+
+224
+00:12:34,760 --> 00:12:36,760
+We pick up points in the middle.
+
+225
+00:12:36,760 --> 00:12:39,760
+And the third one is sometimes referred to as the trapezoidal rule.
+
+226
+00:12:39,760 --> 00:12:42,760
+And why is it called the trapezoidal rule?
+
+227
+00:12:42,760 --> 00:12:51,760
+Because you can't see it here, because it's not clear enough in the picture.
+
+228
+00:12:51,760 --> 00:12:54,760
+But each of these things are trapezoids.
+
+229
+00:12:54,760 --> 00:12:58,760
+They're straight line approximations for whatever that function is.
+
+230
+00:12:58,760 --> 00:13:01,760
+Which is the best one to use?
+
+231
+00:13:01,760 --> 00:13:08,760
+Is the trapezoidal one better, or the midpoint one?
+
+232
+00:13:08,760 --> 00:13:10,760
+Midpoint.
+
+233
+00:13:10,760 --> 00:13:11,760
+Say again?
+
+234
+00:13:11,760 --> 00:13:12,760
+Midpoint.
+
+235
+00:13:12,760 --> 00:13:15,760
+So, it turns out the midpoint one is better.
+
+236
+00:13:15,760 --> 00:13:20,760
+The trapezoidal rule is, it's putting a straight line between points.
+
+237
+00:13:20,760 --> 00:13:23,760
+So, I'm going to draw a picture of that so you can see why.
+
+238
+00:13:25,760 --> 00:13:27,760
+So, imagine I have a curve like this,
+
+239
+00:13:27,760 --> 00:13:29,760
+and I deal with the trapezoidal rule,
+
+240
+00:13:29,760 --> 00:13:31,760
+and I just exaggerate it.
+
+241
+00:13:31,760 --> 00:13:33,760
+So, these are going to be my trapezoids.
+
+242
+00:13:38,760 --> 00:13:53,760
+So, I've got two trapezoids.
+
+243
+00:13:53,760 --> 00:13:56,760
+And I have an error.
+
+244
+00:14:01,760 --> 00:14:04,760
+For that same curve, what would the midpoint rule do?
+
+245
+00:14:08,760 --> 00:14:10,760
+I have my two box cards.
+
+246
+00:14:10,760 --> 00:14:12,760
+What does the midpoint rule do?
+
+247
+00:14:15,760 --> 00:14:17,760
+It's going to use the point square.
+
+248
+00:14:26,760 --> 00:14:29,760
+If I use the midpoint rule, what value am I going to use?
+
+249
+00:14:29,760 --> 00:14:30,760
+A middle.
+
+250
+00:14:30,760 --> 00:14:32,760
+And I'm going to pick a middle point.
+
+251
+00:14:35,760 --> 00:14:36,760
+And that means,
+
+252
+00:14:36,760 --> 00:14:38,760
+my midpoint rule looks like this.
+
+253
+00:14:43,760 --> 00:14:44,760
+So, by looking at these two pictures,
+
+254
+00:14:44,760 --> 00:14:47,760
+it should be obvious to you that the midpoint rule is going to be better.
+
+255
+00:14:47,760 --> 00:14:48,760
+Right?
+
+256
+00:14:48,760 --> 00:14:50,760
+Is that obvious?
+
+257
+00:14:51,760 --> 00:14:53,760
+Is the terror smaller?
+
+258
+00:14:57,760 --> 00:14:59,760
+If I drew a slightly different curve,
+
+259
+00:14:59,760 --> 00:15:01,760
+could I get a different answer to this question?
+
+260
+00:15:04,760 --> 00:15:05,760
+Maybe.
+
+261
+00:15:06,760 --> 00:15:09,760
+If I happen to pick a piecewise constant curve,
+
+262
+00:15:09,760 --> 00:15:11,760
+my curve is this, the rooftop,
+
+263
+00:15:11,760 --> 00:15:16,760
+then trapezoidal and midpoint will both get exactly the right answer.
+
+264
+00:15:17,760 --> 00:15:18,760
+After that?
+
+265
+00:15:19,760 --> 00:15:20,760
+Alright, so,
+
+266
+00:15:21,760 --> 00:15:24,760
+it can be a little difficult to decide some of these questions,
+
+267
+00:15:24,760 --> 00:15:27,760
+even in this simple setting, about error.
+
+268
+00:15:27,760 --> 00:15:30,760
+And so, we need some more formal methods to think about it.
+
+269
+00:15:30,760 --> 00:15:33,760
+And it also turns out we need some tricks.
+
+270
+00:15:33,760 --> 00:15:35,760
+Well, numerical insights.
+
+271
+00:15:36,760 --> 00:15:40,760
+It will help us actually come up with ideas about where to put points
+
+272
+00:15:40,760 --> 00:15:42,760
+and how to set weights.
+
+273
+00:15:42,760 --> 00:15:43,760
+Alright, so,
+
+274
+00:15:43,760 --> 00:15:46,760
+for the moment, we're going to worry about
+
+275
+00:15:46,760 --> 00:15:48,760
+a general, positive formula,
+
+276
+00:15:48,760 --> 00:15:52,760
+where we think of picking the weights
+
+277
+00:15:52,760 --> 00:15:54,760
+and picking the evaluation points,
+
+278
+00:15:54,760 --> 00:15:57,760
+and that will give us 2n degrees of freedom.
+
+279
+00:15:57,760 --> 00:15:59,760
+Where the way you normally think of the weights,
+
+280
+00:15:59,760 --> 00:16:01,760
+I can double the weights up to sum to 1,
+
+281
+00:16:01,760 --> 00:16:03,760
+that's a constraint.
+
+282
+00:16:03,760 --> 00:16:05,760
+And we're going to see if we want,
+
+283
+00:16:05,760 --> 00:16:09,760
+that's a constraint to make sure that we get the exact answer for a constant.
+
+284
+00:16:09,760 --> 00:16:12,760
+But it's one of a whole family of constraints.
+
+285
+00:16:12,760 --> 00:16:15,760
+So, we're going to think about having these 2n degrees of freedom,
+
+286
+00:16:15,760 --> 00:16:19,760
+but we're going to very quickly see that we're going to need to put some constraints on it
+
+287
+00:16:19,760 --> 00:16:21,760
+to try to get good accuracy.
+
+288
+00:16:21,760 --> 00:16:23,760
+So, we're going to pick the evaluation points,
+
+289
+00:16:23,760 --> 00:16:25,760
+and we're going to pick the weights.
+
+290
+00:16:25,760 --> 00:16:27,760
+So, how should we do that?
+
+291
+00:16:28,760 --> 00:16:31,760
+So, we already started talking about the key idea.
+
+292
+00:16:31,760 --> 00:16:33,760
+What I said was the key idea.
+
+293
+00:16:33,760 --> 00:16:34,760
+The polynomial.
+
+294
+00:16:35,760 --> 00:16:37,760
+We are going to say I have this function,
+
+295
+00:16:37,760 --> 00:16:43,760
+and I'm going to say I can approximate it well with a polynomial up to Lth order.
+
+296
+00:16:43,760 --> 00:16:47,760
+And what we're going to try to do is to pick the points and the weights,
+
+297
+00:16:47,760 --> 00:16:52,760
+so that it accurately integrates any polynomial up to as high an order as possible.
+
+298
+00:16:55,760 --> 00:17:02,760
+So, we can, by picking the points and the weights,
+
+299
+00:17:02,760 --> 00:17:04,760
+because we have 2n degrees of freedom,
+
+300
+00:17:05,760 --> 00:17:08,760
+we can actually come up with points and weights
+
+301
+00:17:08,760 --> 00:17:14,760
+that will exactly integrate any polynomial up to the Lth order,
+
+302
+00:17:14,760 --> 00:17:17,760
+where the Lth order is 2n minus 1.
+
+303
+00:17:18,760 --> 00:17:20,760
+Why 2n minus 1?
+
+304
+00:17:20,760 --> 00:17:22,760
+What does the minus 1 tell you?
+
+305
+00:17:24,760 --> 00:17:29,760
+So, how many coefficients does an Lth order polynomial have if I write it this way?
+
+306
+00:17:32,760 --> 00:17:34,760
+Well, because I wrote it from a0 and a1,
+
+307
+00:17:35,760 --> 00:17:37,760
+all the way to aL.
+
+308
+00:17:37,760 --> 00:17:40,760
+If you're a programmer and you write software a lot,
+
+309
+00:17:40,760 --> 00:17:45,760
+you count from 0, then of course you know that's L plus 1 coefficients.
+
+310
+00:17:45,760 --> 00:17:47,760
+That's where the 1 is coming from.
+
+311
+00:17:47,760 --> 00:17:51,760
+The Lth is the order, but the number of degrees of freedom is L plus 1.
+
+312
+00:17:51,760 --> 00:17:57,760
+So, we can get to an Lth order polynomial means we have L plus 1 coefficients
+
+313
+00:17:57,760 --> 00:18:02,760
+of that polynomial, and that we're going to match to the degrees of freedom
+
+314
+00:18:02,760 --> 00:18:06,760
+in our quadrature scheme.
+
+315
+00:18:06,760 --> 00:18:09,760
+So, we have 2n coefficients we have to find,
+
+316
+00:18:09,760 --> 00:18:13,760
+and that means we can match 2n coefficients of a polynomial,
+
+317
+00:18:13,760 --> 00:18:18,760
+and that means L plus 1 is equal to 2n, or L equals 2n minus 1.
+
+318
+00:18:18,760 --> 00:18:22,760
+So, that should be easy.
+
+319
+00:18:22,760 --> 00:18:25,760
+So, how are we going to do that?
+
+320
+00:18:25,760 --> 00:18:28,760
+I've got points and weights,
+
+321
+00:18:28,760 --> 00:18:31,760
+and I want to make sure that we pick the points and the weights,
+
+322
+00:18:31,760 --> 00:18:37,760
+so we exactly integrate any polynomial of order up to L.
+
+323
+00:18:37,760 --> 00:18:44,760
+How do I figure out where those points and weights are?
+
+324
+00:18:44,760 --> 00:18:48,760
+Can I write down a system of equations and solve it?
+
+325
+00:18:48,760 --> 00:18:51,760
+Can I just go ahead and do that?
+
+326
+00:18:51,760 --> 00:18:54,760
+We're going to talk about that in a little bit.
+
+327
+00:18:54,760 --> 00:18:57,760
+But I wanted to say something about the error estimates,
+
+328
+00:18:57,760 --> 00:19:00,760
+because these methods, when you do this,
+
+329
+00:19:00,760 --> 00:19:05,760
+doing the midpoint rule with boxcars,
+
+330
+00:19:05,760 --> 00:19:08,760
+or doing something like this, where you pick the points and weights
+
+331
+00:19:08,760 --> 00:19:12,760
+to exactly integrate as high an order polynomial as possible,
+
+332
+00:19:12,760 --> 00:19:15,760
+they have very different convergence properties.
+
+333
+00:19:15,760 --> 00:19:18,760
+The Gaussian quadrature, or any quadrature scheme,
+
+334
+00:19:18,760 --> 00:19:21,760
+based on trying to match as high an order polynomial as possible,
+
+335
+00:19:21,760 --> 00:19:26,760
+has what we call spectral convergence.
+
+336
+00:19:26,760 --> 00:19:29,760
+So, normally, when you refine a discretization,
+
+337
+00:19:29,760 --> 00:19:35,760
+you figure, alright, if it's in a cubic order method,
+
+338
+00:19:35,760 --> 00:19:40,760
+you might expect that if I half the number of the step size in my discretization,
+
+339
+00:19:40,760 --> 00:19:43,760
+then maybe the error goes down by a factor of 8.
+
+340
+00:19:43,760 --> 00:19:46,760
+Or maybe I have a second order method,
+
+341
+00:19:46,760 --> 00:19:48,760
+and in this case the error goes down by a factor of 4.
+
+342
+00:19:48,760 --> 00:19:51,760
+Or a first order method goes down by a factor of 2.
+
+343
+00:19:51,760 --> 00:19:54,760
+You have this idea that it is the refinement.
+
+344
+00:19:54,760 --> 00:19:58,760
+I take the discretization, I use twice as many points,
+
+345
+00:19:58,760 --> 00:20:01,760
+I get twice as much accuracy,
+
+346
+00:20:01,760 --> 00:20:05,760
+if it's first order, 4 times as much accuracy if it's second order,
+
+347
+00:20:05,760 --> 00:20:08,760
+8 times as much accuracy if it's third order.
+
+348
+00:20:08,760 --> 00:20:12,760
+What do you think you get with Gaussian quadrature?
+
+349
+00:20:12,760 --> 00:20:16,760
+So, what that formula means, although it's a little hard to tease out from the factorial way,
+
+350
+00:20:16,760 --> 00:20:19,760
+it's usually, it's formally presented.
+
+351
+00:20:19,760 --> 00:20:23,760
+It says that for every point I add,
+
+352
+00:20:23,760 --> 00:20:26,760
+the accuracy increases by a factor of 2.
+
+353
+00:20:26,760 --> 00:20:33,760
+So, it's not going down like 1 over,
+
+354
+00:20:33,760 --> 00:20:39,760
+it's not going down linearly or quadratically or cubically with the number of points,
+
+355
+00:20:39,760 --> 00:20:44,760
+it's going down exponentially fast with the number of points.
+
+356
+00:20:44,760 --> 00:20:48,760
+So imagine how many, if you want to get 16 digits of accuracy,
+
+357
+00:20:48,760 --> 00:20:51,760
+2 points gets you 1 digit,
+
+358
+00:20:51,760 --> 00:20:55,760
+then 3 points gets you 4 digits.
+
+359
+00:20:55,760 --> 00:20:58,760
+4 points gets you 8 digits.
+
+360
+00:20:58,760 --> 00:21:01,760
+5 points gets you 16 digits.
+
+361
+00:21:01,760 --> 00:21:03,760
+When we're talking about these methods,
+
+362
+00:21:03,760 --> 00:21:08,760
+we're talking about methods that have extraordinary rapid convergence
+
+363
+00:21:08,760 --> 00:21:11,760
+when they count on certain properties.
+
+364
+00:21:11,760 --> 00:21:14,760
+And we're going to come back and talk a little bit about what those properties are,
+
+365
+00:21:14,760 --> 00:21:17,760
+but unfortunately for the integrals,
+
+366
+00:21:17,760 --> 00:21:20,760
+in this class, they violate the properties for which that's true
+
+367
+00:21:20,760 --> 00:21:23,760
+in many of the cases, but not all of them.
+
+368
+00:21:23,760 --> 00:21:25,760
+And we'll look at some important ones that show up in 2D.
+
+369
+00:21:25,760 --> 00:21:28,760
+Alright, so, let's look at an example.
+
+370
+00:21:28,760 --> 00:21:30,760
+So, it's, you know, I'm going to take,
+
+371
+00:21:30,760 --> 00:21:32,760
+alright, what does spectral accuracy mean,
+
+372
+00:21:32,760 --> 00:21:34,760
+what does it really look like when we're talking about this?
+
+373
+00:21:34,760 --> 00:21:36,760
+So, I'm taking the sine function,
+
+374
+00:21:36,760 --> 00:21:41,760
+I'm going to do the sine function and integrate it with a quadrature scheme
+
+375
+00:21:41,760 --> 00:21:44,760
+because we can exactly integrate the sine function with it all.
+
+376
+00:21:44,760 --> 00:21:46,760
+I'm going to try to do that in calculus.
+
+377
+00:21:46,760 --> 00:21:47,760
+And what's true about the sine function?
+
+378
+00:21:47,760 --> 00:21:51,760
+Why do you think I picked that function?
+
+379
+00:21:51,760 --> 00:21:53,760
+So, do any of its derivatives go to 0?
+
+380
+00:21:53,760 --> 00:21:55,760
+Is there any polynomial that,
+
+381
+00:21:55,760 --> 00:21:58,760
+that exactly describes the sine function?
+
+382
+00:21:58,760 --> 00:22:02,760
+Now, if it did, then I could differentiate the sine function
+
+383
+00:22:02,760 --> 00:22:03,760
+a certain number of times,
+
+384
+00:22:03,760 --> 00:22:06,760
+and at some point the derivatives would go to 0.
+
+385
+00:22:06,760 --> 00:22:07,760
+But that never happens, right?
+
+386
+00:22:07,760 --> 00:22:09,760
+If I differentiate the sine function,
+
+387
+00:22:09,760 --> 00:22:13,760
+and differentiate, I get sine, cosine, sine, cosine, sine, cosine, sine, cosine,
+
+388
+00:22:13,760 --> 00:22:15,760
+derivative never goes to 0.
+
+389
+00:22:15,760 --> 00:22:19,760
+So, it's not described exactly by a finite number of polynomials.
+
+390
+00:22:19,760 --> 00:22:22,760
+And it gives us a chance to look at the convergence properties
+
+391
+00:22:22,760 --> 00:22:25,760
+of a method for which we actually know the exact number.
+
+392
+00:22:25,760 --> 00:22:27,760
+So, let's look at the answer.
+
+393
+00:22:27,760 --> 00:22:30,760
+So, this is the error analysis,
+
+394
+00:22:30,760 --> 00:22:32,760
+and this is looking at the point,
+
+395
+00:22:32,760 --> 00:22:36,760
+the log-log plot of error versus number of points.
+
+396
+00:22:36,760 --> 00:22:40,760
+And if you look at this scheme and say,
+
+397
+00:22:40,760 --> 00:22:42,760
+well, what happens when I increase the number of points
+
+398
+00:22:42,760 --> 00:22:44,760
+by an order of magnitude?
+
+399
+00:22:44,760 --> 00:22:47,760
+What happens to the error in this plot?
+
+400
+00:22:47,760 --> 00:22:51,760
+So, an order of magnitude increases the number of quadrature points,
+
+401
+00:22:51,760 --> 00:22:54,760
+meaning I break it up into an order of magnitude and one section,
+
+402
+00:22:54,760 --> 00:22:57,760
+and an order of magnitude, more evaluations.
+
+403
+00:22:57,760 --> 00:23:03,760
+How much does the error go down?
+
+404
+00:23:03,760 --> 00:23:04,760
+Well, you look at it,
+
+405
+00:23:04,760 --> 00:23:07,760
+an order of magnitude on the bottom curve looks roughly like,
+
+406
+00:23:07,760 --> 00:23:10,760
+how many orders of magnitude on the side?
+
+407
+00:23:10,760 --> 00:23:13,760
+So, we're looking at a plot of error versus number of points.
+
+408
+00:23:13,760 --> 00:23:14,760
+Two looks sort of like,
+
+409
+00:23:14,760 --> 00:23:16,760
+and that would be a second-order method.
+
+410
+00:23:16,760 --> 00:23:19,760
+You increase the number of points by a factor of 10,
+
+411
+00:23:19,760 --> 00:23:22,760
+and the error goes down by a factor of 100.
+
+412
+00:23:22,760 --> 00:23:24,760
+That seems pretty good.
+
+413
+00:23:24,760 --> 00:23:27,760
+It means that, you know, with 1,000 points,
+
+414
+00:23:27,760 --> 00:23:31,760
+10,000 points, we can almost get machine precision.
+
+415
+00:23:31,760 --> 00:23:35,760
+So, that's not a quadrature scheme.
+
+416
+00:23:35,760 --> 00:23:39,760
+That was, which of these three methods do you think was the midpoint rule
+
+417
+00:23:39,760 --> 00:23:41,760
+or the endpoint rule?
+
+418
+00:23:41,760 --> 00:23:43,760
+Yeah, it turned out it was the midpoint,
+
+419
+00:23:43,760 --> 00:23:47,760
+because the endpoint rule doesn't have such rapid convergence.
+
+420
+00:23:47,760 --> 00:23:49,760
+Now, I'll come back if there's time
+
+421
+00:23:49,760 --> 00:23:51,760
+and talk a little bit about the Taylor series of values,
+
+422
+00:23:51,760 --> 00:23:53,760
+but I just wanted to make a point about it,
+
+423
+00:23:53,760 --> 00:23:57,760
+because it's the heart of why the methods that we're using work.
+
+424
+00:23:57,760 --> 00:24:00,760
+If I do a Taylor series expansion of a function,
+
+425
+00:24:00,760 --> 00:24:04,760
+as long as it has, it's infinitely continuously differentiable.
+
+426
+00:24:04,760 --> 00:24:08,760
+So, sine functions are infinitely continuously differentiable.
+
+427
+00:24:08,760 --> 00:24:10,760
+Then I can write down the Taylor series expansion
+
+428
+00:24:10,760 --> 00:24:13,760
+for f of x at every point x.
+
+429
+00:24:13,760 --> 00:24:17,760
+And that means up to a Taylor series residual,
+
+430
+00:24:17,760 --> 00:24:21,760
+I can write down a polynomial representation of f of x.
+
+431
+00:24:21,760 --> 00:24:23,760
+And when I do a,
+
+432
+00:24:23,760 --> 00:24:26,760
+a quadrature scheme that's exact for that polynomial,
+
+433
+00:24:26,760 --> 00:24:29,760
+it means we'll pick up that order for Taylor series,
+
+434
+00:24:29,760 --> 00:24:32,760
+but we'll miss out on the remainder term.
+
+435
+00:24:32,760 --> 00:24:35,760
+And the remainder term for the Taylor series expansion
+
+436
+00:24:35,760 --> 00:24:37,760
+is this thing that has a coefficient in front of it
+
+437
+00:24:37,760 --> 00:24:39,760
+that goes like the factorial,
+
+438
+00:24:39,760 --> 00:24:41,760
+and also is the derivative.
+
+439
+00:24:41,760 --> 00:24:44,760
+So, looking at this Taylor series expansion, it says,
+
+440
+00:24:44,760 --> 00:24:48,760
+if we're going to do something that's exact for polynomials,
+
+441
+00:24:48,760 --> 00:24:50,760
+for progressively higher-order polynomials,
+
+442
+00:24:50,760 --> 00:24:52,760
+we want something towards the Taylor series
+
+443
+00:24:52,760 --> 00:24:54,760
+remainder theorem works.
+
+444
+00:24:54,760 --> 00:24:58,760
+It means we want something that's infinitely differentiable,
+
+445
+00:24:58,760 --> 00:25:01,760
+and one has to be true about the derivatives.
+
+446
+00:25:01,760 --> 00:25:03,760
+These derivatives are going off to infinity
+
+447
+00:25:03,760 --> 00:25:06,760
+as you differentiate more and more and more.
+
+448
+00:25:06,760 --> 00:25:08,760
+That's not so good.
+
+449
+00:25:08,760 --> 00:25:10,760
+If they go up, if the derivatives go up faster
+
+450
+00:25:10,760 --> 00:25:12,760
+than the factorial goes down,
+
+451
+00:25:12,760 --> 00:25:14,760
+then these methods aren't going to be very good.
+
+452
+00:25:14,760 --> 00:25:16,760
+So, we want things that are smooth
+
+453
+00:25:16,760 --> 00:25:18,760
+and for which the derivatives don't go up.
+
+454
+00:25:18,760 --> 00:25:21,760
+And if we do that, then we get this incredibly rapid convergence,
+
+455
+00:25:21,760 --> 00:25:23,760
+and then it's worth looking at.
+
+456
+00:25:23,760 --> 00:25:26,760
+Well, I still need to do this.
+
+457
+00:25:26,760 --> 00:25:30,760
+I'm going to skip ahead and show you the plot,
+
+458
+00:25:30,760 --> 00:25:33,760
+and then we'll come back and look at the...
+
+459
+00:25:33,760 --> 00:25:36,760
+Ah, here.
+
+460
+00:25:36,760 --> 00:25:39,760
+Alright, so what I showed you in the first plot
+
+461
+00:25:39,760 --> 00:25:42,760
+was the simple quadrature scheme, the midpoint rule.
+
+462
+00:25:42,760 --> 00:25:44,760
+I'll come back and do all the slides in a bit,
+
+463
+00:25:44,760 --> 00:25:47,760
+and I just wanted to show you the result at the end.
+
+464
+00:25:47,760 --> 00:25:49,760
+Simple quad.
+
+465
+00:25:49,760 --> 00:25:51,760
+To get to machine precision,
+
+466
+00:25:51,760 --> 00:25:54,760
+that midpoint rule would take 10,000 points.
+
+467
+00:25:54,760 --> 00:25:56,760
+For Gaussian quadrature,
+
+468
+00:25:56,760 --> 00:25:58,760
+in about 11 points,
+
+469
+00:25:58,760 --> 00:26:00,760
+you can get to machine precision.
+
+470
+00:26:00,760 --> 00:26:03,760
+So, we're not talking about,
+
+471
+00:26:03,760 --> 00:26:06,760
+oh, it's two times faster, or it's four times faster.
+
+472
+00:26:06,760 --> 00:26:08,760
+If you're looking for accuracy close to machine precision,
+
+473
+00:26:08,760 --> 00:26:10,760
+that is high-accuracy calculations,
+
+474
+00:26:10,760 --> 00:26:12,760
+you're talking about, instead of having to do
+
+475
+00:26:12,760 --> 00:26:15,760
+10,000 points with a midpoint rule,
+
+476
+00:26:15,760 --> 00:26:18,760
+you're talking about doing 11 or 12.
+
+477
+00:26:18,760 --> 00:26:20,760
+And all you have to do is to figure out
+
+478
+00:26:20,760 --> 00:26:23,760
+what the good weights and evaluation points are.
+
+479
+00:26:23,760 --> 00:26:25,760
+And we'll look at those in a little bit,
+
+480
+00:26:25,760 --> 00:26:28,760
+but I want to go back and talk about how we get there.
+
+481
+00:26:30,760 --> 00:26:35,760
+So, we have this idea that any smooth function,
+
+482
+00:26:35,760 --> 00:26:37,760
+infinitely differentiable function,
+
+483
+00:26:37,760 --> 00:26:39,760
+can be described by a polynomial.
+
+484
+00:26:39,760 --> 00:26:41,760
+And if we can pick up that polynomial,
+
+485
+00:26:41,760 --> 00:26:44,760
+then the remainder term is very small,
+
+486
+00:26:44,760 --> 00:26:46,760
+and the higher the order of the polynomial,
+
+487
+00:26:46,760 --> 00:26:48,760
+the smaller this remainder term is,
+
+488
+00:26:48,760 --> 00:26:50,760
+and it goes down really, really fast.
+
+489
+00:26:50,760 --> 00:26:56,760
+So, how do we do that?
+
+490
+00:26:56,760 --> 00:26:59,760
+So, we're going to produce this exactness condition,
+
+491
+00:26:59,760 --> 00:27:01,760
+and we're going to do it on this unit-integral-integral,
+
+492
+00:27:01,760 --> 00:27:03,760
+just so we have an example here.
+
+493
+00:27:05,760 --> 00:27:10,760
+We're going to try to exactly integrate a polynomial,
+
+494
+00:27:10,760 --> 00:27:12,760
+an L-thorough polynomial,
+
+495
+00:27:12,760 --> 00:27:15,760
+and we're going to try to pick the points and weights
+
+496
+00:27:15,760 --> 00:27:18,760
+so we exactly integrate that L-thorough polynomial.
+
+497
+00:27:18,760 --> 00:27:22,760
+And we can use a lot of properties in this integration.
+
+498
+00:27:22,760 --> 00:27:25,760
+So, let's have a look at this.
+
+499
+00:27:25,760 --> 00:27:27,760
+I take an L-thorough polynomial,
+
+500
+00:27:27,760 --> 00:27:29,760
+I write out what that L-thorough polynomial is,
+
+501
+00:27:29,760 --> 00:27:33,760
+it's this integral from 0 to 1 of a0 plus a1x plus a2x squared, etc.
+
+502
+00:27:33,760 --> 00:27:40,760
+And I can write it down as this sum of quadrature weights and points.
+
+503
+00:27:40,760 --> 00:27:44,760
+Remember, we're talking about taking this L-thorough polynomial,
+
+504
+00:27:44,760 --> 00:27:46,760
+so we have this thing,
+
+505
+00:27:46,760 --> 00:27:49,760
+PL of x,
+
+506
+00:27:49,760 --> 00:27:52,760
+on this integral from 0 to 1,
+
+507
+00:27:52,760 --> 00:27:55,760
+and we're trying to figure out where to put points.
+
+508
+00:27:58,760 --> 00:28:03,760
+I've got x1 through x sub n.
+
+509
+00:28:06,760 --> 00:28:08,760
+These are our points.
+
+510
+00:28:10,760 --> 00:28:14,760
+And then we've also got, for a point xi,
+
+511
+00:28:14,760 --> 00:28:16,760
+a weight i that we're going to multiply by,
+
+512
+00:28:16,760 --> 00:28:18,760
+PL of x on it.
+
+513
+00:28:18,760 --> 00:28:21,760
+And we want to pick out these points and weights.
+
+514
+00:28:21,760 --> 00:28:24,760
+So when we're looking at the integral from 0 to 1
+
+515
+00:28:24,760 --> 00:28:26,760
+of PL of x,
+
+516
+00:28:26,760 --> 00:28:28,760
+dx,
+
+517
+00:28:28,760 --> 00:28:32,760
+that's exactly equal to this sum from i equals 1 to n
+
+518
+00:28:32,760 --> 00:28:36,760
+of wi PL of xi.
+
+519
+00:28:38,760 --> 00:28:42,760
+So we want this to be exact for all polys
+
+520
+00:28:42,760 --> 00:28:44,760
+up to,
+
+521
+00:28:44,760 --> 00:28:46,760
+up to,
+
+522
+00:28:46,760 --> 00:28:49,760
+L equals 2n minus 1.
+
+523
+00:28:51,760 --> 00:28:53,760
+So,
+
+524
+00:28:53,760 --> 00:28:56,760
+we now need a strategy for figuring out what those are,
+
+525
+00:28:56,760 --> 00:29:00,760
+and we can start to make headway with that strategy
+
+526
+00:29:00,760 --> 00:29:02,760
+by just writing down
+
+527
+00:29:02,760 --> 00:29:06,760
+the polynomial pulled apart into its different, what are called monomens.
+
+528
+00:29:06,760 --> 00:29:08,760
+So we have the constant monomial,
+
+529
+00:29:08,760 --> 00:29:11,760
+the first-order monomial, the second-order monomial,
+
+530
+00:29:11,760 --> 00:29:12,760
+and then all the way to the L-thorough monomial.
+
+531
+00:29:12,760 --> 00:29:14,760
+And monomial, the mon of n, is the constant.
+
+532
+00:29:14,760 --> 00:29:16,760
+So the constant there just means there's only one,
+
+533
+00:29:16,760 --> 00:29:18,760
+you know, if we're talking about the,
+
+534
+00:29:18,760 --> 00:29:20,760
+an L-thorough monomial,
+
+535
+00:29:20,760 --> 00:29:22,760
+we're just talking about x to the L.
+
+536
+00:29:22,760 --> 00:29:24,760
+There's no x to the L minus 1,
+
+537
+00:29:24,760 --> 00:29:25,760
+x to the L minus 2.
+
+538
+00:29:25,760 --> 00:29:27,760
+And why should we do that?
+
+539
+00:29:29,760 --> 00:29:33,760
+Does that help us generate a system of equations for
+
+540
+00:29:34,760 --> 00:29:36,760
+these points and weights?
+
+541
+00:29:39,760 --> 00:29:43,760
+Suppose a1 through al were equal to 0.
+
+542
+00:29:44,760 --> 00:29:47,760
+Does this formula have to work for that polynomial?
+
+543
+00:29:47,760 --> 00:29:52,760
+It's now a0 times x to the 0th power of 1.
+
+544
+00:29:52,760 --> 00:29:54,760
+Does this polynomial have to be exact for that?
+
+545
+00:29:54,760 --> 00:29:57,760
+Yeah, alright. One condition.
+
+546
+00:29:57,760 --> 00:30:00,760
+I throw away that term, and I throw away all the ones
+
+547
+00:30:00,760 --> 00:30:05,760
+a2 through a, and a0, and I'm just left with a1x dx.
+
+548
+00:30:05,760 --> 00:30:07,760
+So that's my polynomial.
+
+549
+00:30:07,760 --> 00:30:11,760
+I set a0 to 0, and a2 through al to 0.
+
+550
+00:30:11,760 --> 00:30:13,760
+Does this formula have to be exact for that one?
+
+551
+00:30:14,760 --> 00:30:15,760
+Yeah, sure.
+
+552
+00:30:15,760 --> 00:30:17,760
+Because it has to be, this formula has to be exact
+
+553
+00:30:17,760 --> 00:30:19,760
+for any L-thorough polynomial.
+
+554
+00:30:19,760 --> 00:30:24,760
+So each of those terms gives us one constraint.
+
+555
+00:30:24,760 --> 00:30:28,760
+a0, the 0th-order polynomial, the 1st-order polynomial,
+
+556
+00:30:28,760 --> 00:30:30,760
+the 2nd-order polynomial.
+
+557
+00:30:30,760 --> 00:30:32,760
+Each of those gives us a constraint
+
+558
+00:30:32,760 --> 00:30:35,760
+that we can use to figure out the points and weights.
+
+559
+00:30:35,760 --> 00:30:39,760
+In fact, it gives us exactly the number of constraints we need.
+
+560
+00:30:39,760 --> 00:30:42,760
+Because we're going to set L equal to 2n minus 1.
+
+561
+00:30:42,760 --> 00:30:43,760
+So that's a1.
+
+562
+00:30:43,760 --> 00:30:49,760
+So that means we have 2n minus 1 degrees of freedom.
+
+563
+00:30:49,760 --> 00:30:53,760
+Or 2n, excuse me, 2n constraints for 2n degrees of freedom.
+
+564
+00:30:53,760 --> 00:31:00,760
+And then, what we want to be true is that
+
+565
+00:31:00,760 --> 00:31:03,760
+given this exactness constraint,
+
+566
+00:31:03,760 --> 00:31:06,760
+we can say then, if we take the monominal,
+
+567
+00:31:06,760 --> 00:31:08,760
+the x to the L plus 1 monominal,
+
+568
+00:31:08,760 --> 00:31:10,760
+and take the difference between that,
+
+569
+00:31:10,760 --> 00:31:11,760
+and integrating the,
+
+570
+00:31:11,760 --> 00:31:16,760
+with this weights and points,
+
+571
+00:31:16,760 --> 00:31:20,760
+that that error is going to be something like
+
+572
+00:31:20,760 --> 00:31:24,760
+the remainder term in the Taylor series expansion.
+
+573
+00:31:24,760 --> 00:31:26,760
+And so I'm not going to do that too formally here.
+
+574
+00:31:26,760 --> 00:31:29,760
+It's easy to find in basic textbooks.
+
+575
+00:31:29,760 --> 00:31:31,760
+But that's the intuition to have in mind.
+
+576
+00:31:31,760 --> 00:31:36,760
+When we do this, if we match for all the way up to L-thorough polynomials,
+
+577
+00:31:36,760 --> 00:31:40,760
+what's left over, that remainder term has to be really small.
+
+578
+00:31:41,760 --> 00:31:47,760
+Right, so, can we do this?
+
+579
+00:31:47,760 --> 00:31:51,760
+We have 2n degrees of freedom.
+
+580
+00:31:51,760 --> 00:31:53,760
+We have 2n constraints.
+
+581
+00:31:53,760 --> 00:31:56,760
+We could just set up the nonlinear system.
+
+582
+00:31:56,760 --> 00:31:58,760
+Right there it is.
+
+583
+00:31:58,760 --> 00:32:01,760
+So there's our set of constraints.
+
+584
+00:32:01,760 --> 00:32:05,760
+And we just have to make sure that the integral of the constant,
+
+585
+00:32:05,760 --> 00:32:07,760
+the linear term, all the monomials,
+
+586
+00:32:07,760 --> 00:32:10,760
+that that sum formula works for every single one of those cases.
+
+587
+00:32:11,760 --> 00:32:19,760
+We have 2n equations in 2n degrees of freedom.
+
+588
+00:32:19,760 --> 00:32:21,760
+Is that a linear system of equations?
+
+589
+00:32:21,760 --> 00:32:26,760
+Can we solve that?
+
+590
+00:32:26,760 --> 00:32:27,760
+What do you think?
+
+591
+00:32:27,760 --> 00:32:33,760
+I mean, what are our unknowns here?
+
+592
+00:32:33,760 --> 00:32:35,760
+The ui and x?
+
+593
+00:32:35,760 --> 00:32:37,760
+Yeah, you've got the points.
+
+594
+00:32:37,760 --> 00:32:39,760
+What point, where are the points?
+
+595
+00:32:39,760 --> 00:32:41,760
+And what are the weights?
+
+596
+00:32:41,760 --> 00:32:44,760
+So it's not a linear system of equations,
+
+597
+00:32:44,760 --> 00:32:48,760
+because the terms and the equations are products of your unknowns.
+
+598
+00:32:48,760 --> 00:32:50,760
+This is the nonlinear system of equations.
+
+599
+00:32:50,760 --> 00:32:55,760
+So what method do you use to solve a nonlinear system of equations?
+
+600
+00:32:55,760 --> 00:32:58,760
+Fmincon.
+
+601
+00:32:58,760 --> 00:33:00,760
+Sorry, for those of you who use Math Lab.
+
+602
+00:33:00,760 --> 00:33:02,760
+I don't know what it is in Mathematica.
+
+603
+00:33:02,760 --> 00:33:04,760
+It's a Fmincon. You could try it.
+
+604
+00:33:04,760 --> 00:33:06,760
+You could just stick these equations in there.
+
+605
+00:33:06,760 --> 00:33:09,760
+All you have to do is evaluate those integrals
+
+606
+00:33:09,760 --> 00:33:13,760
+and use them and send it in Fmincon.
+
+607
+00:33:13,760 --> 00:33:17,760
+See if you can come up with points and weights for it.
+
+608
+00:33:17,760 --> 00:33:21,760
+This is going to have trouble.
+
+609
+00:33:21,760 --> 00:33:25,760
+To do it this way, to set up the nonlinear system of equations,
+
+610
+00:33:25,760 --> 00:33:30,760
+so we can write this nonlinear system in a kind of geometric way
+
+611
+00:33:30,760 --> 00:33:32,760
+that helps us understand what's going on.
+
+612
+00:33:32,760 --> 00:33:37,760
+We can write it as a matrix of whose columns are these evaluation points
+
+613
+00:33:37,760 --> 00:33:41,760
+for all the different points.
+
+614
+00:33:41,760 --> 00:33:47,760
+We can write down the quantities we would get for each of the points,
+
+615
+00:33:47,760 --> 00:33:49,760
+the x to the l.
+
+616
+00:33:49,760 --> 00:33:54,760
+So this last row corresponds to dealing with the x to the l polynomial,
+
+617
+00:33:54,760 --> 00:33:57,760
+and the first row is the constant polynomial.
+
+618
+00:33:57,760 --> 00:34:00,760
+And if you look at that system of equations,
+
+619
+00:34:00,760 --> 00:34:03,760
+you should be able to see something almost immediately.
+
+620
+00:34:03,760 --> 00:34:06,760
+What's true about those rows?
+
+621
+00:34:06,760 --> 00:34:07,760
+Right?
+
+622
+00:34:07,760 --> 00:34:09,760
+One of those rows is looking at a polynomial.
+
+623
+00:34:09,760 --> 00:34:11,760
+So this is x1 through xn.
+
+624
+00:34:11,760 --> 00:34:14,760
+These are points between the integrals 0 to 1.
+
+625
+00:34:14,760 --> 00:34:18,760
+And the last row is taking each of those points to the lth power.
+
+626
+00:34:18,760 --> 00:34:22,760
+The first row is taking each of those points to the 0th power.
+
+627
+00:34:22,760 --> 00:34:28,760
+Are those rows very different from each other?
+
+628
+00:34:28,760 --> 00:34:31,760
+So we can solve this system of equations.
+
+629
+00:34:31,760 --> 00:34:33,760
+We could use Newton's method.
+
+630
+00:34:33,760 --> 00:34:36,760
+If you've taken 6, 3, 3, 6,
+
+631
+00:34:36,760 --> 00:34:38,760
+and you've done some with Newton's method,
+
+632
+00:34:38,760 --> 00:34:39,760
+you can write this down.
+
+633
+00:34:39,760 --> 00:34:42,760
+But we're going to try to develop some intuition about what's going on
+
+634
+00:34:42,760 --> 00:34:47,760
+just by thinking about that matrix that involves the x's.
+
+635
+00:34:47,760 --> 00:34:50,760
+Anybody know what that matrix is called?
+
+636
+00:34:50,760 --> 00:34:52,760
+You ever seen this one before?
+
+637
+00:34:52,760 --> 00:34:55,760
+Yeah, this is what's called the Vandermonde matrix.
+
+638
+00:34:55,760 --> 00:34:57,760
+So since you knew what Vandermonde was,
+
+639
+00:34:57,760 --> 00:35:00,760
+what can you tell me about Vandermonde matrices?
+
+640
+00:35:00,760 --> 00:35:03,760
+It's not singular, like the x-thigh of the x.
+
+641
+00:35:03,760 --> 00:35:04,760
+Say again?
+
+642
+00:35:04,760 --> 00:35:05,760
+Like the matrix.
+
+643
+00:35:05,760 --> 00:35:10,760
+So it's not singular, the Vandermonde matrix.
+
+644
+00:35:10,760 --> 00:35:15,760
+But it gets progressively less well conditioned as l goes up in order.
+
+645
+00:35:15,760 --> 00:35:20,760
+And a quick way to see that is to think there's the constant polynomial,
+
+646
+00:35:20,760 --> 00:35:24,760
+the linear polynomial, all the way up to the higher order polynomials.
+
+647
+00:35:24,760 --> 00:35:27,760
+This is when we get to the Jacobian and Newton's method,
+
+648
+00:35:27,760 --> 00:35:30,760
+but that's less important than thinking about what those rows look like.
+
+649
+00:35:30,760 --> 00:35:33,760
+So, if you're going to write a linear polynomial,
+
+650
+00:35:33,760 --> 00:35:34,760
+you're going to have to think about the x-thigh of the x.
+
+651
+00:35:34,760 --> 00:35:37,760
+So this is a picture of a plot of the rows.
+
+652
+00:35:37,760 --> 00:35:41,760
+Just take each row and plot its points from zero.
+
+653
+00:35:41,760 --> 00:35:49,760
+So this is the x1 through xa along the x axis,
+
+654
+00:35:49,760 --> 00:35:53,760
+and then the value of the monomial for each of these points.
+
+655
+00:35:53,760 --> 00:35:55,760
+And let's look at what happens.
+
+656
+00:35:55,760 --> 00:35:57,760
+The one that's all 1, that's the constant term.
+
+657
+00:35:57,760 --> 00:35:59,760
+That was the first row.
+
+658
+00:35:59,760 --> 00:36:01,760
+The second row is the x.
+
+659
+00:36:01,760 --> 00:36:03,760
+The second row is x1, x2.
+
+660
+00:36:04,760 --> 00:36:11,760
+The third row is the quadratic.
+
+661
+00:36:11,760 --> 00:36:14,760
+The fourth row is the cubic.
+
+662
+00:36:14,760 --> 00:36:18,760
+The fifth row is the quartet.
+
+663
+00:36:18,760 --> 00:36:21,760
+The sixth row is the quintet.
+
+664
+00:36:21,760 --> 00:36:25,760
+What's true about those functions?
+
+665
+00:36:25,760 --> 00:36:30,760
+Do they look like they're looking more and more like each other,
+
+666
+00:36:30,760 --> 00:36:32,760
+the higher order up in order?
+
+667
+00:36:32,760 --> 00:36:34,760
+So, in the limit,
+
+668
+00:36:34,760 --> 00:36:36,760
+as L goes to infinity,
+
+669
+00:36:36,760 --> 00:36:38,760
+what are these functions going to look like?
+
+670
+00:36:38,760 --> 00:36:42,760
+We've got the constant, we've got the linear,
+
+671
+00:36:42,760 --> 00:36:45,760
+we've got the quadratic, we've got the cubic.
+
+672
+00:36:45,760 --> 00:36:55,760
+What's the linear?
+
+673
+00:36:55,760 --> 00:36:59,760
+What's the limit as the power goes to infinity?
+
+674
+00:36:59,760 --> 00:37:01,760
+What will this function look like?
+
+675
+00:37:04,760 --> 00:37:08,760
+Do you want to know what it will look like, Tim?
+
+676
+00:37:08,760 --> 00:37:16,760
+Yeah, after a while, they're all going to look like this.
+
+677
+00:37:16,760 --> 00:37:19,760
+Because all the points that are less than 1,
+
+678
+00:37:19,760 --> 00:37:21,760
+you take them to a high enough power,
+
+679
+00:37:21,760 --> 00:37:24,760
+any number that is magnitude less than 1,
+
+680
+00:37:24,760 --> 00:37:27,760
+you take it to a very high power, it becomes?
+
+681
+00:37:27,760 --> 00:37:31,760
+It's 0.99, and I take it to the millionth power, it's?
+
+682
+00:37:31,760 --> 00:37:32,760
+0.
+
+683
+00:37:32,760 --> 00:37:34,760
+0.
+
+684
+00:37:34,760 --> 00:37:36,760
+0.
+
+685
+00:37:36,760 --> 00:37:37,760
+0.
+
+686
+00:37:37,760 --> 00:37:38,760
+0.
+
+687
+00:37:38,760 --> 00:37:39,760
+0.
+
+688
+00:37:39,760 --> 00:37:40,760
+0.
+
+689
+00:37:40,760 --> 00:37:41,760
+0.
+
+690
+00:37:41,760 --> 00:37:42,760
+0.
+
+691
+00:37:42,760 --> 00:37:43,760
+0.
+
+692
+00:37:43,760 --> 00:37:44,760
+0.
+
+693
+00:37:44,760 --> 00:37:45,760
+0.
+
+694
+00:37:45,760 --> 00:37:46,760
+0.
+
+695
+00:37:46,760 --> 00:37:47,760
+0.
+
+696
+00:37:47,760 --> 00:37:48,760
+0.
+
+697
+00:37:48,760 --> 00:37:49,760
+0.
+
+698
+00:37:49,760 --> 00:37:50,760
+0.
+
+699
+00:37:50,760 --> 00:37:51,760
+0.
+
+700
+00:37:51,760 --> 00:37:52,760
+0.
+
+701
+00:37:52,760 --> 00:37:53,760
+0.
+
+702
+00:37:53,760 --> 00:37:54,760
+0.
+
+703
+00:37:54,760 --> 00:37:55,760
+0.
+
+704
+00:37:55,760 --> 00:37:56,760
+0.
+
+705
+00:37:56,760 --> 00:37:57,760
+0.
+
+706
+00:37:57,760 --> 00:37:58,760
+0.
+
+707
+00:37:58,760 --> 00:37:59,760
+0.
+
+708
+00:37:59,760 --> 00:38:00,760
+Now, what about this?
+
+709
+00:38:00,760 --> 00:38:01,760
+These are not all going the same.
+
+710
+00:38:01,760 --> 00:38:02,760
+This is the first.
+
+711
+00:38:02,760 --> 00:38:03,760
+This is the last.
+
+712
+00:38:03,760 --> 00:38:08,520
+about 13 or 14 rows, you run out of numerical precision in
+
+713
+00:38:08,520 --> 00:38:12,200
+MATLAB. So you can do these things in double precision to
+
+714
+00:38:12,200 --> 00:38:19,520
+about 10. And then the MATLAB has problems. So I told you
+
+715
+00:38:19,520 --> 00:38:24,640
+this is great method for getting machine precision accuracy, only
+
+716
+00:38:24,640 --> 00:38:27,700
+to figure out what the points and weights are, you need to be
+
+717
+00:38:27,700 --> 00:38:30,080
+able to do calculations that much higher than machine
+
+718
+00:38:30,080 --> 00:38:33,280
+precision because of the van der Waals. So you know, it was
+
+719
+00:38:33,280 --> 00:38:35,720
+fun. And I know it's a nice theoretical thing. And it's not
+
+720
+00:38:35,720 --> 00:38:42,320
+very practical. And, you know, they wouldn't stop early. But
+
+721
+00:38:42,320 --> 00:38:55,480
+now we can fix this. Why did I use the monomials? Why did I
+
+722
+00:38:55,480 --> 00:39:00,580
+choose to use my test polynomials? One x, x squared, x
+
+723
+00:39:00,580 --> 00:39:03,160
+cubed, x to the fourth.
+
+724
+00:39:03,280 --> 00:39:08,800
+Is that a good set of polynomials here? They're monomials.
+
+725
+00:39:08,800 --> 00:39:12,640
+It's nice. They're monomial. They look simple. They only have one
+
+726
+00:39:12,640 --> 00:39:16,480
+term. They're easy to construct. They have a lot of appealing
+
+727
+00:39:16,480 --> 00:39:18,700
+features. It makes very easy to generate these matrices, for
+
+728
+00:39:18,700 --> 00:39:22,880
+example. But what property don't they have? Well, they start to
+
+729
+00:39:22,880 --> 00:39:27,440
+look a lot like each other as you go to higher order. So if I
+
+730
+00:39:27,440 --> 00:39:31,420
+told you about I have this set of vectors, and they're starting
+
+731
+00:39:31,420 --> 00:39:32,920
+to look more and more like each other.
+
+732
+00:39:33,280 --> 00:39:36,280
+And as I get more and more of these vectors, I kind of want to
+
+733
+00:39:36,280 --> 00:39:38,960
+come up with some way of figuring out how much of each of these
+
+734
+00:39:38,960 --> 00:39:42,580
+vectors to use. What scheme would you do to try to make to be able
+
+735
+00:39:42,580 --> 00:39:47,980
+to tease those different pieces apart? So I have a set of vectors
+
+736
+00:39:47,980 --> 00:39:50,200
+and they're almost linearly dependent. And I want to turn
+
+737
+00:39:50,200 --> 00:39:54,520
+them into something that is as close to orthogonal as possible.
+
+738
+00:39:55,220 --> 00:40:02,120
+What scheme would I use? So I have a set of columns of a
+
+739
+00:40:02,120 --> 00:40:02,860
+matrix, and I want to make a column of a matrix. And I want to
+
+740
+00:40:02,860 --> 00:40:03,200
+make a column of a matrix. And I want to make a column of a matrix.
+
+741
+00:40:03,280 --> 00:40:03,640
+So I'm going to call the vector in this case. And when I call the
+
+742
+00:40:03,640 --> 00:40:03,920
+vector of a matrix, I'm going to call it a set of columns orthogonal
+
+743
+00:40:03,920 --> 00:40:07,940
+to each other. What do I do? Same person invented this algorithm
+
+744
+00:40:07,940 --> 00:40:17,300
+invented some kind of cracker, Graham Schmidt. Remember Graham
+
+745
+00:40:17,300 --> 00:40:24,840
+Schmidt orthogonalization? No. All right, so then we're not going
+
+746
+00:40:24,840 --> 00:40:27,580
+to worry about when we calculate these polynomials, but let's,
+
+747
+00:40:27,580 --> 00:40:31,380
+for a moment, assume that we could come up with orthogonal
+
+748
+00:40:31,380 --> 00:40:32,220
+polynomials.
+
+749
+00:40:33,280 --> 00:40:35,220
+We're going to pick some other set of polynomials.
+
+750
+00:40:35,340 --> 00:40:36,920
+We don't like the monomials.
+
+751
+00:40:37,340 --> 00:40:39,840
+We're instead, because the monomials start to look like each other,
+
+752
+00:40:40,240 --> 00:40:41,800
+and we're going to decide that instead,
+
+753
+00:40:42,160 --> 00:40:44,440
+we're going to come up with polynomials that have a certain property.
+
+754
+00:40:46,580 --> 00:40:47,360
+So instead,
+
+755
+00:40:48,140 --> 00:40:53,240
+we're going to try to come up with polynomials
+
+756
+00:40:53,240 --> 00:40:56,040
+that are very different from each other.
+
+757
+00:40:56,520 --> 00:40:59,860
+And we're going to define very different as something like this.
+
+758
+00:40:59,860 --> 00:41:04,000
+We have a c i of x, a c j of x,
+
+759
+00:41:04,360 --> 00:41:06,760
+integrated over the central point from 0 to 1,
+
+760
+00:41:07,680 --> 00:41:10,240
+and we want it to be equal to x,
+
+761
+00:41:10,320 --> 00:41:11,980
+and we want that to be equal to 0
+
+762
+00:41:11,980 --> 00:41:15,320
+if i is not equal to j.
+
+763
+00:41:17,060 --> 00:41:18,840
+This is orthogonality.
+
+764
+00:41:25,080 --> 00:41:28,580
+So you've seen how little in trying to construct basic functions of the orthogonal
+
+765
+00:41:28,580 --> 00:41:29,840
+can give you better conditions.
+
+766
+00:41:29,860 --> 00:41:31,860
+You can't do the same thing with condition systems
+
+767
+00:41:31,860 --> 00:41:34,860
+when you do a basis function based discretization of PDEs.
+
+768
+00:41:34,860 --> 00:41:40,860
+But you also have it in a very much simpler setting.
+
+769
+00:41:40,860 --> 00:41:42,860
+We're doing the same thing,
+
+770
+00:41:42,860 --> 00:41:45,860
+if I took these polynomials and sampled them,
+
+771
+00:41:45,860 --> 00:41:47,860
+I would get a vector,
+
+772
+00:41:47,860 --> 00:41:50,860
+and then we're still talking about trying to make these two vectors orthogonal to each other.
+
+773
+00:41:50,860 --> 00:41:54,860
+So it doesn't matter whether you think of this as a polynomial,
+
+774
+00:41:54,860 --> 00:41:57,860
+two polynomials who want to make orthogonal to each other,
+
+775
+00:41:57,860 --> 00:41:59,860
+or you think of representing them as a vector,
+
+776
+00:41:59,860 --> 00:42:01,860
+but you're actually going to be using a function with points,
+
+777
+00:42:01,860 --> 00:42:03,860
+and we're trying to say the two vectors,
+
+778
+00:42:03,860 --> 00:42:06,860
+like the picture we drew here.
+
+779
+00:42:06,860 --> 00:42:08,860
+If we think of these as vectors,
+
+780
+00:42:08,860 --> 00:42:12,860
+we're now going to end up with vectors whose inner product is going to be 0.
+
+781
+00:42:13,860 --> 00:42:16,860
+And now how are we going to construct those polynomials?
+
+782
+00:42:16,860 --> 00:42:19,860
+Well, I'll come back.
+
+783
+00:42:20,860 --> 00:42:22,860
+Let's pretend we have them first.
+
+784
+00:42:22,860 --> 00:42:24,860
+Suppose we could construct polynomials.
+
+785
+00:42:24,860 --> 00:42:26,860
+So here's one, right?
+
+786
+00:42:26,860 --> 00:42:28,860
+So it's the polynomial 1, all 1s,
+
+787
+00:42:28,860 --> 00:42:30,860
+and the polynomial x.
+
+788
+00:42:30,860 --> 00:42:33,860
+Are they orthogonal to each other?
+
+789
+00:42:33,860 --> 00:42:37,860
+If I take the inner product of 1 and x and integrate it from 0 to 1,
+
+790
+00:42:37,860 --> 00:42:39,860
+are those two orthogonal to each other?
+
+791
+00:42:39,860 --> 00:42:41,860
+Not at all.
+
+792
+00:42:41,860 --> 00:42:45,860
+Can you give me a polynomial that has a first order and a zeroth order term
+
+793
+00:42:45,860 --> 00:42:48,860
+that is orthogonal to 1?
+
+794
+00:42:52,860 --> 00:42:55,860
+So I have 1,
+
+795
+00:42:55,860 --> 00:42:57,860
+and...
+
+796
+00:42:58,860 --> 00:43:08,860
+So give me a polynomial that involves x,
+
+797
+00:43:08,860 --> 00:43:10,860
+but is orthogonal to 1.
+
+798
+00:43:10,860 --> 00:43:13,860
+1 minus 2x.
+
+799
+00:43:13,860 --> 00:43:15,860
+1 minus 2x.
+
+800
+00:43:15,860 --> 00:43:18,860
+So I've got to put a sign in the x.
+
+801
+00:43:18,860 --> 00:43:20,860
+So suppose I wrote down,
+
+802
+00:43:20,860 --> 00:43:23,860
+if I have x and I'm going from 0 to 1,
+
+803
+00:43:23,860 --> 00:43:26,860
+and I want its inner product to be 0 with 1,
+
+804
+00:43:26,860 --> 00:43:28,860
+what am I going to subtract off?
+
+805
+00:43:28,860 --> 00:43:33,860
+So what you said is exactly right.
+
+806
+00:43:33,860 --> 00:43:35,860
+You said it.
+
+807
+00:43:35,860 --> 00:43:37,860
+But I'm going to scale it slightly differently.
+
+808
+00:43:37,860 --> 00:43:40,860
+I have x. It goes from 0 to 1.
+
+809
+00:43:40,860 --> 00:43:42,860
+And I now want it to be orthogonal to 1.
+
+810
+00:43:42,860 --> 00:43:47,860
+And I take the inner product of the constant
+
+811
+00:43:47,860 --> 00:43:49,860
+with something that's linear.
+
+812
+00:43:49,860 --> 00:43:52,860
+What do I want to make this linear function do
+
+813
+00:43:52,860 --> 00:43:56,860
+so that the inner product of these two is a constant?
+
+814
+00:43:56,860 --> 00:43:58,860
+Excuse me, 0.
+
+815
+00:44:04,860 --> 00:44:06,860
+What should this function be?
+
+816
+00:44:06,860 --> 00:44:07,860
+It's got to have the x in it,
+
+817
+00:44:07,860 --> 00:44:09,860
+because it's got to be in my mind.
+
+818
+00:44:09,860 --> 00:44:10,860
+What should I do with it?
+
+819
+00:44:10,860 --> 00:44:12,860
+All I've got to do is shift it somewhere.
+
+820
+00:44:12,860 --> 00:44:14,860
+Where?
+
+821
+00:44:14,860 --> 00:44:17,860
+If I take this point at a half,
+
+822
+00:44:17,860 --> 00:44:20,860
+and make sure it goes through the half,
+
+823
+00:44:20,860 --> 00:44:23,860
+are these two orthogonal to each other?
+
+824
+00:44:23,860 --> 00:44:25,860
+So I got this one.
+
+825
+00:44:26,860 --> 00:44:31,860
+The second one, by taking the 0th order polynomial
+
+826
+00:44:31,860 --> 00:44:36,860
+and subtracting some fraction of it off the first order polynomial.
+
+827
+00:44:36,860 --> 00:44:38,860
+So now you can do that scheme.
+
+828
+00:44:38,860 --> 00:44:40,860
+You can do a second order polynomial
+
+829
+00:44:40,860 --> 00:44:42,860
+by starting with x squared
+
+830
+00:44:42,860 --> 00:44:44,860
+and then subtracting whatever it takes
+
+831
+00:44:44,860 --> 00:44:47,860
+to make the x squared orthogonal to the first order polynomial
+
+832
+00:44:47,860 --> 00:44:51,860
+and subtracting off whatever makes it x squared orthogonal to the constant polynomial.
+
+833
+00:44:51,860 --> 00:44:53,860
+So we can construct polynomials this way.
+
+834
+00:44:53,860 --> 00:44:55,860
+But I'm not going to worry so much about that at the moment.
+
+835
+00:44:56,860 --> 00:45:03,860
+Let's presume that we can figure out how to do that.
+
+836
+00:45:03,860 --> 00:45:08,860
+So suppose we recast our exact instance constraint
+
+837
+00:45:08,860 --> 00:45:10,860
+with these orthogonal polynomials.
+
+838
+00:45:10,860 --> 00:45:12,860
+Well, we have, we can't just pick any polynomials.
+
+839
+00:45:12,860 --> 00:45:15,860
+They have to have, the 0th order polynomial has to have
+
+840
+00:45:15,860 --> 00:45:18,860
+the monomials, the x to the 0 monomials.
+
+841
+00:45:18,860 --> 00:45:21,860
+The first order one has to have the x1 monomials.
+
+842
+00:45:21,860 --> 00:45:24,860
+The second order one has to have the x squared monomials.
+
+843
+00:45:24,860 --> 00:45:26,860
+But other than that, they can have whatever way
+
+844
+00:45:26,860 --> 00:45:28,860
+to do the combination of lower order polynomials,
+
+845
+00:45:28,860 --> 00:45:30,860
+lower order monomials,
+
+846
+00:45:30,860 --> 00:45:32,860
+to make them orthogonal to each other.
+
+847
+00:45:32,860 --> 00:45:34,860
+So we imagine then saying,
+
+848
+00:45:34,860 --> 00:45:38,860
+alright, we started out with n monomials.
+
+849
+00:45:38,860 --> 00:45:42,860
+Or, excuse me, 2n monomials.
+
+850
+00:45:42,860 --> 00:45:50,860
+Or the 0th order 1 plus all the way to order 2n minus 1 in monomials.
+
+851
+00:45:50,860 --> 00:45:53,860
+So we have our 2n constraints starting from the complex term
+
+852
+00:45:53,860 --> 00:45:55,860
+all the way to the 0th order polynomial.
+
+853
+00:45:55,860 --> 00:45:59,860
+And we're going to replace those monomial constraints
+
+854
+00:45:59,860 --> 00:46:04,860
+with constraints using these orthogonal polynomials.
+
+855
+00:46:04,860 --> 00:46:09,860
+It should be, because it should be good enough.
+
+856
+00:46:09,860 --> 00:46:13,860
+I mean, any set of polynomials, as long as we can guarantee
+
+857
+00:46:13,860 --> 00:46:15,860
+that we can write down any polynomials
+
+858
+00:46:15,860 --> 00:46:17,860
+away the combination of this orthogonal set,
+
+859
+00:46:17,860 --> 00:46:21,860
+which you can, you can certainly, each of these is involving monomials.
+
+860
+00:46:21,860 --> 00:46:24,860
+And we can put them together in ways to make the,
+
+861
+00:46:24,860 --> 00:46:27,860
+you know, whatever polynomial we want.
+
+862
+00:46:27,860 --> 00:46:30,860
+So we have certainly covered our constraints.
+
+863
+00:46:30,860 --> 00:46:34,860
+But now we're putting it in terms of these orthogonal polynomials.
+
+864
+00:46:34,860 --> 00:46:39,860
+So, an 0th order polynomial still has to have x to the lth power.
+
+865
+00:46:39,860 --> 00:46:41,860
+But it could have any of the lower order terms.
+
+866
+00:46:41,860 --> 00:46:44,860
+And because of that, we can represent any polynomial
+
+867
+00:46:44,860 --> 00:46:47,860
+with a weighted combination of these orthogonal polynomials.
+
+868
+00:46:47,860 --> 00:46:50,860
+And we can rewrite our constraints.
+
+869
+00:46:50,860 --> 00:46:53,860
+Is this going to make our problem any easier?
+
+870
+00:46:53,860 --> 00:46:57,860
+We still have two n constraints.
+
+871
+00:46:57,860 --> 00:47:03,860
+Are these now constraints, are they now linear?
+
+872
+00:47:03,860 --> 00:47:06,860
+Well, you know, because I've got,
+
+873
+00:47:06,860 --> 00:47:10,860
+I put the x's inside the c functions.
+
+874
+00:47:10,860 --> 00:47:12,860
+So doesn't that make the problem linear?
+
+875
+00:47:12,860 --> 00:47:15,860
+No, of course not.
+
+876
+00:47:15,860 --> 00:47:17,860
+It may be a little more hidden,
+
+877
+00:47:17,860 --> 00:47:20,860
+but they still have the products of weights times polynomials.
+
+878
+00:47:20,860 --> 00:47:22,860
+They're just more complicated polynomials.
+
+879
+00:47:22,860 --> 00:47:25,860
+If anything, it seems like it makes it harder.
+
+880
+00:47:25,860 --> 00:47:27,860
+Because the original ones might have the,
+
+881
+00:47:27,860 --> 00:47:33,860
+the Lth constraint had one weight times only a coefficient times x to the l.
+
+882
+00:47:33,860 --> 00:47:35,860
+And now it's got all these other terms,
+
+883
+00:47:35,860 --> 00:47:37,860
+the x to the l minus 1, the l minus 2.
+
+884
+00:47:37,860 --> 00:47:39,860
+It seems like we're making it worse.
+
+885
+00:47:39,860 --> 00:47:42,860
+All right, so,
+
+886
+00:47:42,860 --> 00:47:46,860
+if we have these orthogonal polynomials,
+
+887
+00:47:46,860 --> 00:47:50,860
+and this notion of orthogonal for polynomials is,
+
+888
+00:47:50,860 --> 00:47:52,860
+we say, that inner product of,
+
+889
+00:47:52,860 --> 00:47:54,860
+of two polynomials is equal to zero,
+
+890
+00:47:54,860 --> 00:47:56,860
+if they're of different order.
+
+891
+00:47:56,860 --> 00:48:00,860
+And we sometimes use this inner product notation,
+
+892
+00:48:00,860 --> 00:48:04,860
+or we use rectangular brackets, or,
+
+893
+00:48:04,860 --> 00:48:06,860
+but it's the same idea as taking two vectors
+
+894
+00:48:06,860 --> 00:48:08,860
+and looking at their inner product.
+
+895
+00:48:08,860 --> 00:48:11,860
+And if we sampled the polynomials and constructed the vectors that way,
+
+896
+00:48:11,860 --> 00:48:14,860
+it would turn out to be identically the same thing.
+
+897
+00:48:14,860 --> 00:48:17,860
+Or, you know, if we did this by quadrature,
+
+898
+00:48:17,860 --> 00:48:19,860
+well, we'll get to that.
+
+899
+00:48:19,860 --> 00:48:21,860
+So,
+
+900
+00:48:21,860 --> 00:48:25,860
+imagine now we do the following.
+
+901
+00:48:25,860 --> 00:48:28,860
+We rewrite the exactness constraints,
+
+902
+00:48:28,860 --> 00:48:30,860
+and we do it for the first half of the terms,
+
+903
+00:48:30,860 --> 00:48:32,860
+what we'll call the lower terms,
+
+904
+00:48:32,860 --> 00:48:34,860
+from zero to n minus 1.
+
+905
+00:48:34,860 --> 00:48:38,860
+We'll write those in terms of these n minus 1 orthogonal polynomials.
+
+906
+00:48:38,860 --> 00:48:40,860
+And then for the higher terms,
+
+907
+00:48:40,860 --> 00:48:43,860
+we're going to write them a little bit differently.
+
+908
+00:48:43,860 --> 00:48:49,860
+These are the terms that have to do with cn through c to the 2n minus 1 polynomial.
+
+909
+00:48:49,860 --> 00:48:50,860
+So we've got the lower terms,
+
+910
+00:48:50,860 --> 00:48:52,860
+from zero to n minus 1,
+
+911
+00:48:52,860 --> 00:48:53,860
+the higher terms,
+
+912
+00:48:53,860 --> 00:48:55,860
+from n to 2n minus 1.
+
+913
+00:48:55,860 --> 00:48:59,860
+And we're just breaking them in half.
+
+914
+00:48:59,860 --> 00:49:01,860
+Now these higher order terms,
+
+915
+00:49:01,860 --> 00:49:05,860
+we don't have to generate these additional polynomials,
+
+916
+00:49:05,860 --> 00:49:08,860
+the nth order and the 2n minus 1 order polynomial.
+
+917
+00:49:08,860 --> 00:49:10,860
+We could do something different.
+
+918
+00:49:10,860 --> 00:49:12,860
+We could instead say,
+
+919
+00:49:12,860 --> 00:49:15,860
+well, if I want an nth order polynomial,
+
+920
+00:49:15,860 --> 00:49:17,860
+an n plus 1 order polynomial,
+
+921
+00:49:17,860 --> 00:49:18,860
+or an nth order polynomial,
+
+922
+00:49:18,860 --> 00:49:20,860
+I could take c to the n,
+
+923
+00:49:20,860 --> 00:49:24,860
+and I could just multiply by c of 0.
+
+924
+00:49:24,860 --> 00:49:27,860
+That's still c of 0 as a 0th order polynomial.
+
+925
+00:49:27,860 --> 00:49:28,860
+If I multiply it by an nth order polynomial,
+
+926
+00:49:28,860 --> 00:49:30,860
+it's still nth order.
+
+927
+00:49:30,860 --> 00:49:33,860
+But when I get all the way up to a 2n minus 1 polynomial,
+
+928
+00:49:33,860 --> 00:49:36,860
+I could have written it down as the product of the nth order polynomial
+
+929
+00:49:36,860 --> 00:49:40,860
+times the n minus 1 order polynomial.
+
+930
+00:49:40,860 --> 00:49:46,860
+Will this product still have a term that's x to the 2n minus 1?
+
+931
+00:49:46,860 --> 00:49:50,860
+The highest order term in the cn polynomial will be x to the n.
+
+932
+00:49:50,860 --> 00:49:54,860
+The product of the 2 will be x to the 2n minus 1.
+
+933
+00:49:54,860 --> 00:49:58,860
+That's all we're using.
+
+934
+00:49:58,860 --> 00:50:03,860
+And we also know that the products are independent of each other.
+
+935
+00:50:03,860 --> 00:50:06,860
+Because we know that when we do,
+
+936
+00:50:06,860 --> 00:50:09,860
+because we know something about cn times c of 0.
+
+937
+00:50:09,860 --> 00:50:13,860
+So these are different from the lower order polynomials.
+
+938
+00:50:13,860 --> 00:50:17,860
+So now we're going to look at the product of the nth order polynomial.
+
+939
+00:50:17,860 --> 00:50:19,860
+And we're going to look at the product of the nth order polynomial.
+
+940
+00:50:19,860 --> 00:50:23,860
+So now we have yet another way of writing our exactness constraints.
+
+941
+00:50:23,860 --> 00:50:26,860
+And this is the really amazing thing.
+
+942
+00:50:26,860 --> 00:50:33,860
+If we write our exactness constraints to the high order polynomials,
+
+943
+00:50:33,860 --> 00:50:37,860
+and we're using orthogonal polynomials,
+
+944
+00:50:37,860 --> 00:50:41,860
+then these and their products really should all be 0.
+
+945
+00:50:41,860 --> 00:50:45,860
+Because if we integrate, these terms are all 0.
+
+946
+00:50:45,860 --> 00:50:48,860
+Because they're orthogonal polynomials.
+
+947
+00:50:48,860 --> 00:50:49,860
+I'm using products.
+
+948
+00:50:49,860 --> 00:50:51,860
+So the actual integral we're trying to match.
+
+949
+00:50:51,860 --> 00:50:55,860
+But that doesn't mean our quadrature scheme produces 0.
+
+950
+00:50:55,860 --> 00:50:58,860
+But it gives us a very simple thing to evaluate.
+
+951
+00:50:58,860 --> 00:51:05,860
+Now the question is, how do we make sure that our quadrature scheme produces 0s?
+
+952
+00:51:05,860 --> 00:51:10,860
+So we know for the high order terms, the integrals we're using to test all have the integral 0.
+
+953
+00:51:10,860 --> 00:51:14,860
+Because they're integrals of the products of orthogonal polynomials.
+
+954
+00:51:14,860 --> 00:51:17,860
+cn times c0, cn times c1, cn times c2.
+
+955
+00:51:17,860 --> 00:51:21,860
+All the way to cn times cn minus 1.
+
+956
+00:51:21,860 --> 00:51:27,860
+But we don't know if the quadrature formulas give us 0.
+
+957
+00:51:27,860 --> 00:51:31,860
+Is there a way we could ensure that those could be 0?
+
+958
+00:51:31,860 --> 00:51:34,860
+I mean, we've got this 0 there.
+
+959
+00:51:34,860 --> 00:51:41,860
+Take the points to be the roots of the nth order polynomial.
+
+960
+00:51:41,860 --> 00:51:43,860
+That is, I have cn.
+
+961
+00:51:43,860 --> 00:51:45,860
+It's an nth order polynomial.
+
+962
+00:51:45,860 --> 00:51:47,860
+It has terms from a0 to a0.
+
+963
+00:51:47,860 --> 00:51:51,860
+a1 plus a1x plus a2x squared, et cetera.
+
+964
+00:51:51,860 --> 00:51:53,860
+That's what we're going to have to do.
+
+965
+00:52:01,860 --> 00:52:05,860
+So we want cn of xi to be equal to 0.
+
+966
+00:52:05,860 --> 00:52:15,860
+Or if you write down what cn is, cn of x is equal to a0 plus a1x plus a2x squared.
+
+967
+00:52:15,860 --> 00:52:23,860
+All the way to a to the n, x to the n.
+
+968
+00:52:23,860 --> 00:52:33,860
+And we're going to take this polynomial and we're going to find its n roots.
+
+969
+00:52:33,860 --> 00:52:43,860
+Or its n xi's.
+
+970
+00:52:43,860 --> 00:52:45,860
+That's what we're going to do.
+
+971
+00:52:45,860 --> 00:52:55,860
+If we do that, it means we've satisfied the higher order terms immediately.
+
+972
+00:52:55,860 --> 00:52:57,860
+We don't have to do anything.
+
+973
+00:52:57,860 --> 00:52:59,860
+It says, here's our quadrature scheme.
+
+974
+00:52:59,860 --> 00:53:01,860
+We've got n weights.
+
+975
+00:53:01,860 --> 00:53:03,860
+It doesn't matter what the weights are.
+
+976
+00:53:03,860 --> 00:53:09,860
+As long as we use these n points, these roots of the nth order orthogonal polynomial,
+
+977
+00:53:09,860 --> 00:53:11,860
+as our evaluation points,
+
+978
+00:53:11,860 --> 00:53:13,860
+then I don't care what the weights are.
+
+979
+00:53:13,860 --> 00:53:19,860
+I'll always satisfy the higher order and exactness constraints.
+
+980
+00:53:19,860 --> 00:53:21,860
+For free.
+
+981
+00:53:21,860 --> 00:53:23,860
+Amazing.
+
+982
+00:53:23,860 --> 00:53:25,860
+Well, I thought it was amazing.
+
+983
+00:53:25,860 --> 00:53:29,860
+Remember, learning this from the first time I was a staff member.
+
+984
+00:53:29,860 --> 00:53:31,860
+Who thought of this?
+
+985
+00:53:31,860 --> 00:53:33,860
+Gauss.
+
+986
+00:53:33,860 --> 00:53:35,860
+Who thought of almost everything.
+
+987
+00:53:35,860 --> 00:53:37,860
+So,
+
+988
+00:53:37,860 --> 00:53:41,860
+how do we figure out what the weights are?
+
+989
+00:53:41,860 --> 00:53:43,860
+What's the weight of the sum?
+
+990
+00:53:43,860 --> 00:53:45,860
+Does it matter what the weights are?
+
+991
+00:53:45,860 --> 00:53:47,860
+Can we use any weights?
+
+992
+00:53:47,860 --> 00:53:51,860
+It doesn't matter what we pick for the weights.
+
+993
+00:53:51,860 --> 00:53:53,860
+We're always satisfying the higher order constraints.
+
+994
+00:53:53,860 --> 00:53:57,860
+We still have those pesky lower order constraints, though.
+
+995
+00:53:57,860 --> 00:53:59,860
+The ones having to do with c0 through cn.
+
+996
+00:53:59,860 --> 00:54:01,860
+We still have those.
+
+997
+00:54:01,860 --> 00:54:05,860
+But those,
+
+998
+00:54:05,860 --> 00:54:07,860
+because now we know where the evaluation points are,
+
+999
+00:54:07,860 --> 00:54:09,860
+we have
+
+1000
+00:54:09,860 --> 00:54:11,860
+we have
+
+1001
+00:54:11,860 --> 00:54:13,860
+evaluation points
+
+1002
+00:54:13,860 --> 00:54:15,860
+because we know we got them from the roots of this polynomial.
+
+1003
+00:54:17,860 --> 00:54:19,860
+And then once we know those evaluation points,
+
+1004
+00:54:19,860 --> 00:54:21,860
+we can set up the linear system
+
+1005
+00:54:21,860 --> 00:54:23,860
+and solve for the weights.
+
+1006
+00:54:25,860 --> 00:54:27,860
+And with these weights,
+
+1007
+00:54:27,860 --> 00:54:31,860
+we'll exactly satisfy the lower order constraints.
+
+1008
+00:54:31,860 --> 00:54:33,860
+So what do we do?
+
+1009
+00:54:33,860 --> 00:54:35,860
+We find
+
+1010
+00:54:35,860 --> 00:54:39,860
+n orthogonal polypolis
+
+1011
+00:54:39,860 --> 00:54:41,860
+and
+
+1012
+00:54:41,860 --> 00:54:43,860
+we
+
+1013
+00:54:43,860 --> 00:54:45,860
+we
+
+1014
+00:54:45,860 --> 00:54:47,860
+the x i's
+
+1015
+00:54:47,860 --> 00:54:49,860
+equal the roots
+
+1016
+00:54:55,860 --> 00:54:57,860
+the roots of c and of x
+
+1017
+00:54:59,860 --> 00:55:01,860
+and then the weights
+
+1018
+00:55:07,860 --> 00:55:09,860
+are picked at
+
+1019
+00:55:09,860 --> 00:55:11,860
+switch right
+
+1020
+00:55:11,860 --> 00:55:13,860
+weights from
+
+1021
+00:55:13,860 --> 00:55:15,860
+linear solve.
+
+1022
+00:55:21,860 --> 00:55:23,860
+That's it.
+
+1023
+00:55:23,860 --> 00:55:25,860
+That's all we have to do.
+
+1024
+00:55:25,860 --> 00:55:27,860
+Now the question is,
+
+1025
+00:55:27,860 --> 00:55:29,860
+okay, so how do we get these orthogonal polynomials?
+
+1026
+00:55:29,860 --> 00:55:31,860
+And what about this linear system?
+
+1027
+00:55:31,860 --> 00:55:33,860
+Is this linear system well behaved?
+
+1028
+00:55:35,860 --> 00:55:37,860
+What are the rows of this linear system?
+
+1029
+00:55:37,860 --> 00:55:39,860
+What are the rows of this linear system?
+
+1030
+00:55:41,860 --> 00:55:43,860
+The first row is the zeroth order polynomial.
+
+1031
+00:55:43,860 --> 00:55:45,860
+The second row is this
+
+1032
+00:55:45,860 --> 00:55:47,860
+zeroth order polynomial
+
+1033
+00:55:47,860 --> 00:55:49,860
+that formally the polynomial is orthogonal
+
+1034
+00:55:49,860 --> 00:55:51,860
+to the zeroth order polynomial.
+
+1035
+00:55:51,860 --> 00:55:53,860
+So that row is like a
+
+1036
+00:55:53,860 --> 00:55:55,860
+picture of the polynomial.
+
+1037
+00:55:55,860 --> 00:55:57,860
+So the second row
+
+1038
+00:55:57,860 --> 00:55:59,860
+is almost orthogonal to the first.
+
+1039
+00:55:59,860 --> 00:56:01,860
+And you use that to be precisely orthogonal
+
+1040
+00:56:01,860 --> 00:56:03,860
+with these points
+
+1041
+00:56:03,860 --> 00:56:05,860
+but that's more so because
+
+1042
+00:56:05,860 --> 00:56:07,860
+each of these rows now
+
+1043
+00:56:07,860 --> 00:56:09,860
+corresponds to
+
+1044
+00:56:09,860 --> 00:56:11,860
+sampling of an orthogonal polynomial.
+
+1045
+00:56:11,860 --> 00:56:13,860
+of a polynomial that's orthogonal
+
+1046
+00:56:13,860 --> 00:56:15,860
+to the one in the row above it.
+
+1047
+00:56:15,860 --> 00:56:17,860
+So this linear system is likely to be well conditioned.
+
+1048
+00:56:17,860 --> 00:56:19,860
+Sorry, did you have a question?
+
+1049
+00:56:23,860 --> 00:56:25,860
+So, that's it.
+
+1050
+00:56:25,860 --> 00:56:27,860
+Right?
+
+1051
+00:56:27,860 --> 00:56:29,860
+Did we make the problem linear?
+
+1052
+00:56:29,860 --> 00:56:31,860
+I mean, when I started writing down the beginning
+
+1053
+00:56:31,860 --> 00:56:33,860
+I said, well we could set up this non-linear system of equations
+
+1054
+00:56:33,860 --> 00:56:35,860
+and we could use Newton's method to solve it
+
+1055
+00:56:35,860 --> 00:56:37,860
+and come up with the points
+
+1056
+00:56:37,860 --> 00:56:39,860
+and the weights. And I said that was going to be
+
+1057
+00:56:39,860 --> 00:56:41,860
+helpful to get this ill-conditioned matrix.
+
+1058
+00:56:41,860 --> 00:56:43,860
+So where did that non-linear thing go?
+
+1059
+00:56:45,860 --> 00:56:47,860
+Is it still here? Is the problem still non-linear?
+
+1060
+00:56:49,860 --> 00:56:51,860
+Yeah?
+
+1061
+00:56:51,860 --> 00:56:53,860
+I believe that it's off of the roots.
+
+1062
+00:56:53,860 --> 00:56:55,860
+Yeah, it's here.
+
+1063
+00:56:55,860 --> 00:56:57,860
+Alright, finding the root finding
+
+1064
+00:57:01,860 --> 00:57:03,860
+is non-linear.
+
+1065
+00:57:03,860 --> 00:57:05,860
+But what properties
+
+1066
+00:57:05,860 --> 00:57:07,860
+does it have that makes it very appealing
+
+1067
+00:57:07,860 --> 00:57:09,860
+for us to use for
+
+1068
+00:57:09,860 --> 00:57:11,860
+our answer schemes?
+
+1069
+00:57:11,860 --> 00:57:13,860
+Why is this, why is
+
+1070
+00:57:13,860 --> 00:57:15,860
+training in that big non-linear
+
+1071
+00:57:15,860 --> 00:57:17,860
+system to solve for just finding the roots
+
+1072
+00:57:17,860 --> 00:57:19,860
+of a higher order polynomial
+
+1073
+00:57:19,860 --> 00:57:21,860
+a really good idea?
+
+1074
+00:57:21,860 --> 00:57:23,860
+Because this is
+
+1075
+00:57:23,860 --> 00:57:25,860
+someone else's problem.
+
+1076
+00:57:29,860 --> 00:57:31,860
+Right, there's a
+
+1077
+00:57:31,860 --> 00:57:33,860
+you know in MATLAB they have something
+
+1078
+00:57:33,860 --> 00:57:35,860
+that counts roots of polynomials
+
+1079
+00:57:35,860 --> 00:57:37,860
+and we'll find all of them for you.
+
+1080
+00:57:37,860 --> 00:57:39,860
+Yeah, there are all these, that's a little
+
+1081
+00:57:39,860 --> 00:57:41,860
+glib. It's the, what we've
+
+1082
+00:57:41,860 --> 00:57:43,860
+done is to turn our problem of calculating
+
+1083
+00:57:43,860 --> 00:57:45,860
+quadric points in weight into
+
+1084
+00:57:45,860 --> 00:57:47,860
+one for which they know how to numerically
+
+1085
+00:57:47,860 --> 00:57:49,860
+compute solutions. Roots of
+
+1086
+00:57:49,860 --> 00:57:51,860
+polynomials, and we're using that
+
+1087
+00:57:51,860 --> 00:57:53,860
+to solve for our points in weight.
+
+1088
+00:57:53,860 --> 00:57:55,860
+But the non-linear problem hasn't gone away.
+
+1089
+00:57:55,860 --> 00:57:57,860
+It just means
+
+1090
+00:57:57,860 --> 00:57:59,860
+that we have turned it into one
+
+1091
+00:57:59,860 --> 00:58:01,860
+for which there is already a lot of work
+
+1092
+00:58:01,860 --> 00:58:03,860
+on making good procedures.
+
+1093
+00:58:03,860 --> 00:58:05,860
+We're really counting on the fact that somebody else has already
+
+1094
+00:58:05,860 --> 00:58:07,860
+solved that problem. And we just
+
+1095
+00:58:07,860 --> 00:58:09,860
+used it in this case.
+
+1096
+00:58:09,860 --> 00:58:11,860
+So we haven't taken the non-linear
+
+1097
+00:58:11,860 --> 00:58:13,860
+problem out.
+
+1098
+00:58:13,860 --> 00:58:15,860
+We have just decomposed them.
+
+1099
+00:58:15,860 --> 00:58:17,860
+So we have this non-linear part of the problem
+
+1100
+00:58:17,860 --> 00:58:19,860
+is encapsulated with polynomial roots
+
+1101
+00:58:19,860 --> 00:58:21,860
+and then we have a linear solve.
+
+1102
+00:58:21,860 --> 00:58:23,860
+Is it possible that that has complex
+
+1103
+00:58:23,860 --> 00:58:25,860
+roots or would you instruct
+
+1104
+00:58:25,860 --> 00:58:27,860
+polynomials about it?
+
+1105
+00:58:27,860 --> 00:58:29,860
+So the orthogonal polynomials,
+
+1106
+00:58:29,860 --> 00:58:31,860
+you have to have ones for which the roots
+
+1107
+00:58:31,860 --> 00:58:33,860
+are going to be real.
+
+1108
+00:58:33,860 --> 00:58:35,860
+That is an issue.
+
+1109
+00:58:35,860 --> 00:58:37,860
+And if you use polynomials that are orthogonal
+
+1110
+00:58:37,860 --> 00:58:39,860
+over say
+
+1111
+00:58:39,860 --> 00:58:41,860
+an integral from minus one to one,
+
+1112
+00:58:41,860 --> 00:58:43,860
+like the Chebyshev polynomials, those roots are always real.
+
+1113
+00:58:43,860 --> 00:58:45,860
+But yeah,
+
+1114
+00:58:45,860 --> 00:58:47,860
+the orthogonal polynomial.
+
+1115
+00:58:47,860 --> 00:58:49,860
+There are some ways in which when you
+
+1116
+00:58:49,860 --> 00:58:51,860
+set up orthogonal polynomials
+
+1117
+00:58:51,860 --> 00:58:53,860
+you can guarantee that they're real roots.
+
+1118
+00:58:53,860 --> 00:58:55,860
+But that's the idea.
+
+1119
+00:58:55,860 --> 00:58:57,860
+We're going to construct these n plus one orthogonal polynomials.
+
+1120
+00:58:57,860 --> 00:58:59,860
+We're going to compute the roots of the nth
+
+1121
+00:58:59,860 --> 00:59:01,860
+of a polynomial so that
+
+1122
+00:59:01,860 --> 00:59:03,860
+c of n of x i is equal to zero.
+
+1123
+00:59:03,860 --> 00:59:05,860
+We'll solve the linear system for the weights
+
+1124
+00:59:05,860 --> 00:59:07,860
+and then we'll approximate the integral as the sum.
+
+1125
+00:59:07,860 --> 00:59:09,860
+So
+
+1126
+00:59:09,860 --> 00:59:11,860
+it's a great method
+
+1127
+00:59:11,860 --> 00:59:13,860
+and you have a lot of degrees of freedom
+
+1128
+00:59:13,860 --> 00:59:15,860
+about how you do the orthogonal polynomials
+
+1129
+00:59:15,860 --> 00:59:17,860
+because we use just one definition of orthogonality.
+
+1130
+00:59:17,860 --> 00:59:19,860
+But you can come up with all sorts of different schemes
+
+1131
+00:59:19,860 --> 00:59:21,860
+by changing what we mean by an orthogonal polynomial.
+
+1132
+00:59:21,860 --> 00:59:23,860
+So that says the inner product of two polynomials
+
+1133
+00:59:23,860 --> 00:59:25,860
+integrated over the integral is zero.
+
+1134
+00:59:25,860 --> 00:59:27,860
+We could pick different intervals.
+
+1135
+00:59:27,860 --> 00:59:29,860
+We could pick a weighting function
+
+1136
+00:59:29,860 --> 00:59:31,860
+that sits in the middle of it.
+
+1137
+00:59:31,860 --> 00:59:33,860
+And then we can say
+
+1138
+00:59:33,860 --> 00:59:35,860
+that the integral is zero.
+
+1139
+00:59:35,860 --> 00:59:37,860
+So that's the idea.
+
+1140
+00:59:37,860 --> 00:59:39,860
+So that's the idea.
+
+1141
+00:59:39,860 --> 00:59:41,860
+And you get things like Gauss-Lobato,
+
+1142
+00:59:41,860 --> 00:59:43,860
+Gauss-Chebyshev,
+
+1143
+00:59:43,860 --> 00:59:45,860
+Gauss-Legendre, all these different ones
+
+1144
+00:59:45,860 --> 00:59:47,860
+that have to do with different intervals
+
+1145
+00:59:47,860 --> 00:59:49,860
+and different representations
+
+1146
+00:59:49,860 --> 00:59:51,860
+of the inner product.
+
+1147
+00:59:51,860 --> 00:59:53,860
+But they all come down to the same thing.
+
+1148
+00:59:53,860 --> 00:59:55,860
+You have to find the roots of the orthogonal polynomials
+
+1149
+00:59:55,860 --> 00:59:57,860
+but you get to play with what orthogonality is.
+
+1150
+00:59:57,860 --> 00:59:59,860
+Or to come up with a weighted orthogonality.
+
+1151
+00:59:59,860 --> 01:00:01,860
+Or to come up with a weighted orthogonality.
+
+1152
+01:00:01,860 --> 01:00:03,860
+Or to come up with a weighted orthogonality.
+
+1153
+01:00:03,860 --> 01:00:05,860
+So an endpoint
+
+1154
+01:00:05,860 --> 01:00:07,860
+Gauss-Wagner method
+
+1155
+01:00:07,860 --> 01:00:09,860
+is exact for polynomials up to order two n.
+
+1156
+01:00:09,860 --> 01:00:11,860
+is exact for orthogonality up to order two n.
+
+1157
+01:00:11,860 --> 01:00:13,860
+And that means the thing goes
+
+1158
+01:00:13,860 --> 01:00:15,860
+what we refer to as spectrally accurate.
+
+1159
+01:00:15,860 --> 01:00:17,860
+And that's how you get the meaning
+
+1160
+01:00:17,860 --> 01:00:19,860
+that is you add more points.
+
+1161
+01:00:19,860 --> 01:00:21,860
+If we're looking at something like
+
+1162
+01:00:21,860 --> 01:00:23,860
+the simple
+
+1163
+01:00:23,860 --> 01:00:25,860
+Poitier scheme of using the midpoint rule
+
+1164
+01:00:25,860 --> 01:00:27,860
+this one has an error
+
+1165
+01:00:27,860 --> 01:00:29,860
+that's proportional to one over n squared.
+
+1166
+01:00:29,860 --> 01:00:31,860
+If I double the number of points
+
+1167
+01:00:31,860 --> 01:00:33,860
+I'll get something like four times
+
+1168
+01:00:33,860 --> 01:00:35,860
+as much accuracy.
+
+1169
+01:00:35,860 --> 01:00:37,860
+Or four times the reduction of the error.
+
+1170
+01:00:37,860 --> 01:00:39,860
+But these methods are
+
+1171
+01:00:39,860 --> 01:00:41,860
+more accurate.
+
+1172
+01:00:41,860 --> 01:00:43,860
+Now we come back to the point I put up
+
+1173
+01:00:43,860 --> 01:00:45,860
+at the beginning, at the earlier,
+
+1174
+01:00:45,860 --> 01:00:47,860
+which is this is doing the cosine.
+
+1175
+01:00:47,860 --> 01:00:49,860
+This is the Gauss-Chebyshev
+
+1176
+01:00:49,860 --> 01:00:51,860
+This is the Gauss-Chebyshev
+
+1177
+01:00:51,860 --> 01:00:53,860
+is the one I used for here.
+
+1178
+01:00:53,860 --> 01:00:55,860
+Even though Gauss-Wagner
+
+1179
+01:00:55,860 --> 01:00:57,860
+is using Chebyshev polynomials
+
+1180
+01:00:57,860 --> 01:00:59,860
+is using Chebyshev polynomials
+
+1181
+01:00:59,860 --> 01:01:01,860
+which look a little like sines and cosines.
+
+1182
+01:01:01,860 --> 01:01:03,860
+And I just remind you
+
+1183
+01:01:03,860 --> 01:01:05,860
+that with 11 points
+
+1184
+01:01:05,860 --> 01:01:07,860
+you can get machine precision out of these methods.
+
+1185
+01:01:07,860 --> 01:01:09,860
+And you can almost see that each time
+
+1186
+01:01:09,860 --> 01:01:11,860
+you add one more point
+
+1187
+01:01:11,860 --> 01:01:13,860
+you get errors that
+
+1188
+01:01:13,860 --> 01:01:15,860
+double on each additional point.
+
+1189
+01:01:15,860 --> 01:01:17,860
+So that's the characteristic
+
+1190
+01:01:17,860 --> 01:01:19,860
+of spectral accuracy.
+
+1191
+01:01:19,860 --> 01:01:21,860
+So any linear accuracy will give you
+
+1192
+01:01:21,860 --> 01:01:23,860
+a straight line on the Y-Law curve
+
+1193
+01:01:23,860 --> 01:01:25,860
+and spectral accuracy means it's going down.
+
+1194
+01:01:25,860 --> 01:01:27,860
+So it's going even faster than a straight line.
+
+1195
+01:01:27,860 --> 01:01:29,860
+There's no straight line with any slope
+
+1196
+01:01:29,860 --> 01:01:31,860
+that will fit.
+
+1197
+01:01:31,860 --> 01:01:33,860
+Then another thing to look at is
+
+1198
+01:01:33,860 --> 01:01:35,860
+well suppose we took this interval
+
+1199
+01:01:35,860 --> 01:01:37,860
+from minus one to one
+
+1200
+01:01:37,860 --> 01:01:39,860
+and looked to see where the simple Poitier points are
+
+1201
+01:01:39,860 --> 01:01:41,860
+which are these intervals
+
+1202
+01:01:41,860 --> 01:01:43,860
+versus the Gauss-Claude points.
+
+1203
+01:01:43,860 --> 01:01:45,860
+You can look at it and say
+
+1204
+01:01:45,860 --> 01:01:47,860
+well, they're not that different.
+
+1205
+01:01:47,860 --> 01:01:49,860
+But they are.
+
+1206
+01:01:49,860 --> 01:01:51,860
+You can see, and this is what's characteristic
+
+1207
+01:01:51,860 --> 01:01:53,860
+of many of these quadrature schemes
+
+1208
+01:01:53,860 --> 01:01:55,860
+notice they're squeezed together at the ends
+
+1209
+01:01:55,860 --> 01:01:57,860
+and spread out in the middle.
+
+1210
+01:01:59,860 --> 01:02:01,860
+So
+
+1211
+01:02:01,860 --> 01:02:03,860
+it's a small, it looks like a small thing
+
+1212
+01:02:03,860 --> 01:02:05,860
+I mean you're moving them around
+
+1213
+01:02:05,860 --> 01:02:07,860
+and the weights are
+
+1214
+01:02:07,860 --> 01:02:09,860
+not that non-uniform either.
+
+1215
+01:02:09,860 --> 01:02:11,860
+But they don't change that much.
+
+1216
+01:02:11,860 --> 01:02:13,860
+When we're talking about these high accuracy calculations
+
+1217
+01:02:13,860 --> 01:02:15,860
+these kinds of small differences
+
+1218
+01:02:15,860 --> 01:02:17,860
+make an enormous difference.
+
+1219
+01:02:17,860 --> 01:02:19,860
+And we're not looking to get one percent accuracy
+
+1220
+01:02:19,860 --> 01:02:21,860
+or point one percent accuracy.
+
+1221
+01:02:21,860 --> 01:02:23,860
+If you are then midpoint rule is fine.
+
+1222
+01:02:23,860 --> 01:02:25,860
+If you're looking for much higher accuracy
+
+1223
+01:02:25,860 --> 01:02:27,860
+close to machine precision
+
+1224
+01:02:27,860 --> 01:02:29,860
+then these things make an enormous amount of difference
+
+1225
+01:02:29,860 --> 01:02:31,860
+and even small changes
+
+1226
+01:02:31,860 --> 01:02:33,860
+like this point placement
+
+1227
+01:02:33,860 --> 01:02:35,860
+and the changes in the weights can make an enormous difference.
+
+1228
+01:02:35,860 --> 01:02:37,860
+Alright, so
+
+1229
+01:02:37,860 --> 01:02:39,860
+I'm going to
+
+1230
+01:02:39,860 --> 01:02:41,860
+So we talked about this Gauss quadrature scheme
+
+1231
+01:02:41,860 --> 01:02:43,860
+and these are great methods
+
+1232
+01:02:43,860 --> 01:02:45,860
+and we're going to see next time
+
+1233
+01:02:45,860 --> 01:02:47,860
+the reason we're looking at them
+
+1234
+01:02:47,860 --> 01:02:49,860
+is because we can actually turn them into a method
+
+1235
+01:02:49,860 --> 01:02:51,860
+for solving integral equations
+
+1236
+01:02:51,860 --> 01:02:53,860
+in some settings.
+
+1237
+01:02:53,860 --> 01:02:55,860
+But not all of them
+
+1238
+01:02:55,860 --> 01:02:57,860
+and not the most common one in 3D
+
+1239
+01:02:57,860 --> 01:02:59,860
+which are these panel methods I talked about in the first lecture.
+
+1240
+01:02:59,860 --> 01:03:01,860
+So remember what our problem was
+
+1241
+01:03:01,860 --> 01:03:03,860
+for a panel method.
+
+1242
+01:03:03,860 --> 01:03:05,860
+We're calculating these panels
+
+1243
+01:03:05,860 --> 01:03:07,860
+under which we're going to assume a constant density
+
+1244
+01:03:07,860 --> 01:03:09,860
+and if we're doing a collocation method
+
+1245
+01:03:09,860 --> 01:03:11,860
+or a Lurkin method
+
+1246
+01:03:11,860 --> 01:03:13,860
+we have to calculate these integrals
+
+1247
+01:03:13,860 --> 01:03:15,860
+of one over distance over this panel
+
+1248
+01:03:15,860 --> 01:03:17,860
+for a point on the panel
+
+1249
+01:03:17,860 --> 01:03:19,860
+which means somewhere in that panel
+
+1250
+01:03:19,860 --> 01:03:21,860
+the integrand goes to infinity.
+
+1251
+01:03:21,860 --> 01:03:23,860
+This is what's called a singular integral.
+
+1252
+01:03:23,860 --> 01:03:25,860
+And we knew from last time
+
+1253
+01:03:25,860 --> 01:03:27,860
+we knew it was an integral singularity
+
+1254
+01:03:27,860 --> 01:03:29,860
+and we did that by carving out a disc out of it
+
+1255
+01:03:29,860 --> 01:03:31,860
+to prove it.
+
+1256
+01:03:31,860 --> 01:03:33,860
+But for this problem
+
+1257
+01:03:33,860 --> 01:03:35,860
+those quadrature schemes aren't going to happen.
+
+1258
+01:03:35,860 --> 01:03:37,860
+So
+
+1259
+01:03:37,860 --> 01:03:39,860
+and I want to
+
+1260
+01:03:39,860 --> 01:03:41,860
+show you what happens here.
+
+1261
+01:03:41,860 --> 01:03:43,860
+So if we do something like one over the
+
+1262
+01:03:43,860 --> 01:03:45,860
+square root of the absolute value of x
+
+1263
+01:03:45,860 --> 01:03:47,860
+and try to do a quadrature scheme
+
+1264
+01:03:47,860 --> 01:03:49,860
+as long as we keep away from the
+
+1265
+01:03:49,860 --> 01:03:51,860
+quadrature points
+
+1266
+01:03:51,860 --> 01:03:53,860
+at exactly x equals 0
+
+1267
+01:03:53,860 --> 01:03:55,860
+we can still formally do the quadrature
+
+1268
+01:03:55,860 --> 01:03:57,860
+no points at x equals 0
+
+1269
+01:03:57,860 --> 01:03:59,860
+so we have to pick up a polynomial
+
+1270
+01:03:59,860 --> 01:04:01,860
+that gives us for whom the root is not 0.
+
+1271
+01:04:03,860 --> 01:04:05,860
+But we don't get very good convergence
+
+1272
+01:04:05,860 --> 01:04:07,860
+that is
+
+1273
+01:04:07,860 --> 01:04:09,860
+and the reason we don't is this thing goes off
+
+1274
+01:04:09,860 --> 01:04:11,860
+and we don't get infinity.
+
+1275
+01:04:11,860 --> 01:04:13,860
+But I want to make a point about the difference
+
+1276
+01:04:13,860 --> 01:04:15,860
+between two types of infinity.
+
+1277
+01:04:15,860 --> 01:04:17,860
+So there's one over the square root of the absolute value of x
+
+1278
+01:04:17,860 --> 01:04:19,860
+versus one over x.
+
+1279
+01:04:19,860 --> 01:04:21,860
+So the one over the square root
+
+1280
+01:04:21,860 --> 01:04:23,860
+of the absolute value of x
+
+1281
+01:04:23,860 --> 01:04:25,860
+that is an integrable singularity.
+
+1282
+01:04:25,860 --> 01:04:27,860
+The area under the curve is finite
+
+1283
+01:04:27,860 --> 01:04:29,860
+even though the integrand goes to infinity.
+
+1284
+01:04:29,860 --> 01:04:31,860
+And the one over x case
+
+1285
+01:04:31,860 --> 01:04:33,860
+in one dimension
+
+1286
+01:04:33,860 --> 01:04:35,860
+that goes to infinity.
+
+1287
+01:04:35,860 --> 01:04:37,860
+Now it doesn't go to infinity in two dimensions
+
+1288
+01:04:37,860 --> 01:04:39,860
+but it does in one dimension.
+
+1289
+01:04:39,860 --> 01:04:43,860
+There's no quadrature scheme
+
+1290
+01:04:43,860 --> 01:04:45,860
+that can give you
+
+1291
+01:04:45,860 --> 01:04:47,860
+that can solve this problem.
+
+1292
+01:04:47,860 --> 01:04:49,860
+If your integral is infinity
+
+1293
+01:04:49,860 --> 01:04:51,860
+here's your integral.
+
+1294
+01:04:51,860 --> 01:04:53,860
+Infinity.
+
+1295
+01:04:53,860 --> 01:04:55,860
+That's it.
+
+1296
+01:04:55,860 --> 01:04:57,860
+If it has an integrable singularity
+
+1297
+01:04:57,860 --> 01:04:59,860
+then
+
+1298
+01:04:59,860 --> 01:05:01,860
+maybe a quadrature scheme would help you
+
+1299
+01:05:01,860 --> 01:05:03,860
+except what's true about that problem?
+
+1300
+01:05:05,860 --> 01:05:07,860
+When we started doing these quadrature error estimates
+
+1301
+01:05:07,860 --> 01:05:09,860
+what thing did we count on?
+
+1302
+01:05:09,860 --> 01:05:11,860
+In order to say something about the error.
+
+1303
+01:05:11,860 --> 01:05:13,860
+We used the
+
+1304
+01:05:13,860 --> 01:05:15,860
+remainder theorem for the Taylor series
+
+1305
+01:05:15,860 --> 01:05:17,860
+which counted on what about the derivatives?
+
+1306
+01:05:19,860 --> 01:05:21,860
+Was the Taylor series expansion derivatives?
+
+1307
+01:05:21,860 --> 01:05:23,860
+Yeah.
+
+1308
+01:05:23,860 --> 01:05:25,860
+Yeah but these
+
+1309
+01:05:25,860 --> 01:05:27,860
+the derivatives of the integrand
+
+1310
+01:05:27,860 --> 01:05:29,860
+are going to infinity.
+
+1311
+01:05:29,860 --> 01:05:31,860
+All those quadrature estimates of the error
+
+1312
+01:05:31,860 --> 01:05:33,860
+they're pretty much worthless here.
+
+1313
+01:05:33,860 --> 01:05:35,860
+So
+
+1314
+01:05:35,860 --> 01:05:37,860
+you might think well okay
+
+1315
+01:05:37,860 --> 01:05:39,860
+we spent a class on these quadrature schemes
+
+1316
+01:05:39,860 --> 01:05:41,860
+and then at the end of the class I tell you
+
+1317
+01:05:41,860 --> 01:05:43,860
+for the integrals you most likely see
+
+1318
+01:05:43,860 --> 01:05:45,860
+when you're doing these integral equation methods
+
+1319
+01:05:45,860 --> 01:05:47,860
+you can't use these schemes.
+
+1320
+01:05:47,860 --> 01:05:49,860
+Well that's not entirely true
+
+1321
+01:05:49,860 --> 01:05:51,860
+because there's only one panel
+
+1322
+01:05:51,860 --> 01:05:53,860
+you have to worry about.
+
+1323
+01:05:53,860 --> 01:05:55,860
+The panel with the test point on the panel.
+
+1324
+01:05:55,860 --> 01:05:57,860
+All the other panels that interact with this panel
+
+1325
+01:05:57,860 --> 01:05:59,860
+you can do those with quadrature
+
+1326
+01:05:59,860 --> 01:06:01,860
+and it works great there.
+
+1327
+01:06:01,860 --> 01:06:03,860
+So if I have a discretization with n panels
+
+1328
+01:06:03,860 --> 01:06:05,860
+then I've got to do n squared interactions
+
+1329
+01:06:05,860 --> 01:06:07,860
+and only order n of them
+
+1330
+01:06:07,860 --> 01:06:09,860
+is problematic.
+
+1331
+01:06:09,860 --> 01:06:11,860
+So you can do Gauss quadrature
+
+1332
+01:06:11,860 --> 01:06:13,860
+and do a great job of n squared minus n
+
+1333
+01:06:13,860 --> 01:06:15,860
+of the panels and the n panels that you can't do that with
+
+1334
+01:06:15,860 --> 01:06:17,860
+you have to do something else.
+
+1335
+01:06:17,860 --> 01:06:19,860
+So
+
+1336
+01:06:19,860 --> 01:06:21,860
+I told you something. So if n is very large
+
+1337
+01:06:21,860 --> 01:06:23,860
+like a thousand
+
+1338
+01:06:23,860 --> 01:06:25,860
+then n squared is a million
+
+1339
+01:06:25,860 --> 01:06:27,860
+and n squared minus n is almost a million.
+
+1340
+01:06:27,860 --> 01:06:29,860
+I'm telling you something that works better than
+
+1341
+01:06:29,860 --> 01:06:31,860
+99% of the time
+
+1342
+01:06:31,860 --> 01:06:33,860
+and that should be good enough.
+
+1343
+01:06:33,860 --> 01:06:35,860
+But of course if you have to solve these problems
+
+1344
+01:06:35,860 --> 01:06:37,860
+they're still stuck with what to do for the self-charge.
+
+1345
+01:06:37,860 --> 01:06:39,860
+So
+
+1346
+01:06:39,860 --> 01:06:41,860
+the problem is that
+
+1347
+01:06:41,860 --> 01:06:43,860
+simple quadrature done on these
+
+1348
+01:06:43,860 --> 01:06:45,860
+problems that have singular
+
+1349
+01:06:45,860 --> 01:06:47,860
+integrands are usually better than
+
+1350
+01:06:47,860 --> 01:06:49,860
+Gauss quadrature.
+
+1351
+01:06:49,860 --> 01:06:51,860
+Doing the special placement of points and weights
+
+1352
+01:06:51,860 --> 01:06:53,860
+doesn't help you at all in setting.
+
+1353
+01:06:53,860 --> 01:06:55,860
+You need to do something else.
+
+1354
+01:06:55,860 --> 01:06:57,860
+So I'm going to take a little time
+
+1355
+01:06:57,860 --> 01:06:59,860
+at the end and I'm going to talk a little bit about what people do
+
+1356
+01:06:59,860 --> 01:07:01,860
+now.
+
+1357
+01:07:01,860 --> 01:07:03,860
+I want to show you some of the
+
+1358
+01:07:03,860 --> 01:07:05,860
+standard things people try.
+
+1359
+01:07:05,860 --> 01:07:07,860
+So here's one way of dealing with the problem.
+
+1360
+01:07:07,860 --> 01:07:09,860
+You say, okay, well, look, I can do Gauss quadrature
+
+1361
+01:07:09,860 --> 01:07:11,860
+so if I imagine I have a panel
+
+1362
+01:07:11,860 --> 01:07:13,860
+and I want to
+
+1363
+01:07:13,860 --> 01:07:15,860
+so
+
+1364
+01:07:15,860 --> 01:07:17,860
+so imagine
+
+1365
+01:07:17,860 --> 01:07:19,860
+this is my panel and I want to integrate
+
+1366
+01:07:19,860 --> 01:07:21,860
+1 over r and the problem is that
+
+1367
+01:07:21,860 --> 01:07:23,860
+the 1 over r, the 1 over distance on the panel
+
+1368
+01:07:23,860 --> 01:07:25,860
+it goes to infinity at the center.
+
+1369
+01:07:25,860 --> 01:07:27,860
+So I'm going to do my
+
+1370
+01:07:27,860 --> 01:07:29,860
+Gauss quadrature scheme
+
+1371
+01:07:31,860 --> 01:07:33,860
+on this region
+
+1372
+01:07:33,860 --> 01:07:35,860
+and then
+
+1373
+01:07:35,860 --> 01:07:37,860
+I'll do something else in the interior.
+
+1374
+01:07:37,860 --> 01:07:39,860
+And I might, you know, because it's hard
+
+1375
+01:07:39,860 --> 01:07:41,860
+to do this region, I could
+
+1376
+01:07:41,860 --> 01:07:43,860
+tear out a square out of it
+
+1377
+01:07:43,860 --> 01:07:45,860
+so it has, you know,
+
+1378
+01:07:45,860 --> 01:07:47,860
+the geometry is nice and I can do
+
+1379
+01:07:47,860 --> 01:07:49,860
+Gauss quadrature on these nice square integrals
+
+1380
+01:07:49,860 --> 01:07:51,860
+where it's
+
+1381
+01:07:51,860 --> 01:07:53,860
+easy to do so.
+
+1382
+01:07:53,860 --> 01:07:55,860
+So, alright, that's
+
+1383
+01:07:55,860 --> 01:07:57,860
+better. I just have to pull out
+
+1384
+01:07:57,860 --> 01:07:59,860
+I just have to figure out what to do with this little square in the center
+
+1385
+01:07:59,860 --> 01:08:01,860
+and I say, well,
+
+1386
+01:08:01,860 --> 01:08:03,860
+okay, but I haven't removed the problem.
+
+1387
+01:08:03,860 --> 01:08:05,860
+I just figured, well, look,
+
+1388
+01:08:05,860 --> 01:08:07,860
+it's a much smaller contribution to the integral
+
+1389
+01:08:07,860 --> 01:08:09,860
+so if I screw it up, it won't have as bad
+
+1390
+01:08:09,860 --> 01:08:11,860
+an impact. You say, well, okay,
+
+1391
+01:08:11,860 --> 01:08:13,860
+but you're still screwing it up.
+
+1392
+01:08:13,860 --> 01:08:15,860
+So you take this one
+
+1393
+01:08:15,860 --> 01:08:17,860
+and you say, alright, well, I blow
+
+1394
+01:08:17,860 --> 01:08:19,860
+this square up into another square and I take
+
+1395
+01:08:19,860 --> 01:08:21,860
+out a little piece. So I start by
+
+1396
+01:08:21,860 --> 01:08:23,860
+taking out one piece and then I
+
+1397
+01:08:23,860 --> 01:08:25,860
+go inside and take out another piece
+
+1398
+01:08:25,860 --> 01:08:27,860
+and another piece. You do that
+
+1399
+01:08:27,860 --> 01:08:29,860
+a few times. These are sometimes
+
+1400
+01:08:29,860 --> 01:08:31,860
+called refinement strategies.
+
+1401
+01:08:31,860 --> 01:08:33,860
+So people do this kind of thing where they
+
+1402
+01:08:33,860 --> 01:08:35,860
+try to deal with the singularity by
+
+1403
+01:08:35,860 --> 01:08:37,860
+taking out smaller
+
+1404
+01:08:37,860 --> 01:08:39,860
+and smaller regions of the domain you're trying to integrate
+
+1405
+01:08:39,860 --> 01:08:41,860
+and do the rest of it with the
+
+1406
+01:08:41,860 --> 01:08:43,860
+regular quadrature scheme and
+
+1407
+01:08:43,860 --> 01:08:45,860
+really just the region right around the
+
+1408
+01:08:45,860 --> 01:08:47,860
+singularity with something else or with
+
+1409
+01:08:47,860 --> 01:08:49,860
+a lower scheme.
+
+1410
+01:08:49,860 --> 01:08:51,860
+So those work alright. They're not great and
+
+1411
+01:08:51,860 --> 01:08:53,860
+often pretty expensive.
+
+1412
+01:08:53,860 --> 01:08:55,860
+The other one that's very
+
+1413
+01:08:55,860 --> 01:08:57,860
+popular is find the change
+
+1414
+01:08:57,860 --> 01:08:59,860
+of variables. So
+
+1415
+01:08:59,860 --> 01:09:01,860
+sometimes if you know what the function is,
+
+1416
+01:09:01,860 --> 01:09:03,860
+maybe the change of variables,
+
+1417
+01:09:03,860 --> 01:09:05,860
+if you put the integral in front of the change of variables,
+
+1418
+01:09:05,860 --> 01:09:07,860
+then you get rid of the singularity.
+
+1419
+01:09:07,860 --> 01:09:09,860
+So that's really popular
+
+1420
+01:09:09,860 --> 01:09:11,860
+too.
+
+1421
+01:09:11,860 --> 01:09:13,860
+Though if you're
+
+1422
+01:09:13,860 --> 01:09:15,860
+functioning and trying to integrate,
+
+1423
+01:09:15,860 --> 01:09:17,860
+if you can come up with that change of variables,
+
+1424
+01:09:17,860 --> 01:09:19,860
+then great.
+
+1425
+01:09:19,860 --> 01:09:21,860
+One over r, one over distance?
+
+1426
+01:09:21,860 --> 01:09:23,860
+No. There's no nice
+
+1427
+01:09:23,860 --> 01:09:25,860
+change of variables that will do that.
+
+1428
+01:09:25,860 --> 01:09:27,860
+But there are some things you can do.
+
+1429
+01:09:27,860 --> 01:09:29,860
+So you
+
+1430
+01:09:29,860 --> 01:09:31,860
+have all these kinds of schemes
+
+1431
+01:09:31,860 --> 01:09:33,860
+and if you go
+
+1432
+01:09:33,860 --> 01:09:35,860
+through the literature you can find
+
+1433
+01:09:35,860 --> 01:09:37,860
+literally thousands of papers
+
+1434
+01:09:37,860 --> 01:09:39,860
+where they say, okay,
+
+1435
+01:09:39,860 --> 01:09:41,860
+we're going to do a quadrature scheme
+
+1436
+01:09:41,860 --> 01:09:43,860
+where we're going to use polynomials with
+
+1437
+01:09:43,860 --> 01:09:45,860
+an inner product where the singularity
+
+1438
+01:09:45,860 --> 01:09:47,860
+is in the inner product definition
+
+1439
+01:09:47,860 --> 01:09:49,860
+and that's going to work for this kind of singularity
+
+1440
+01:09:49,860 --> 01:09:51,860
+and there's some papers that can deal with
+
+1441
+01:09:51,860 --> 01:09:53,860
+singularities that correspond to a point
+
+1442
+01:09:53,860 --> 01:09:55,860
+in the center and one at a point in the
+
+1443
+01:09:55,860 --> 01:09:57,860
+corner and one at a point along the edge.
+
+1444
+01:09:57,860 --> 01:09:59,860
+You have all these different things that you can do.
+
+1445
+01:10:01,860 --> 01:10:03,860
+And it's figured out
+
+1446
+01:10:07,860 --> 01:10:09,860
+that there's something else you can do
+
+1447
+01:10:09,860 --> 01:10:11,860
+in that case.
+
+1448
+01:10:11,860 --> 01:10:13,860
+So I'm going to show you a picture
+
+1449
+01:10:13,860 --> 01:10:15,860
+of what you do.
+
+1450
+01:10:15,860 --> 01:10:17,860
+So let's imagine that we're doing
+
+1451
+01:10:17,860 --> 01:10:19,860
+this integral from zero to one
+
+1452
+01:10:19,860 --> 01:10:21,860
+of one over the square root of
+
+1453
+01:10:21,860 --> 01:10:23,860
+the absolute value of x.
+
+1454
+01:10:23,860 --> 01:10:25,860
+And we know if we plot
+
+1455
+01:10:25,860 --> 01:10:27,860
+that one over the square root
+
+1456
+01:10:27,860 --> 01:10:29,860
+of the absolute value of x
+
+1457
+01:10:29,860 --> 01:10:31,860
+as a function of x,
+
+1458
+01:10:31,860 --> 01:10:33,860
+you know, when x is large
+
+1459
+01:10:33,860 --> 01:10:35,860
+it's fine, you know,
+
+1460
+01:10:35,860 --> 01:10:37,860
+because x gets bigger,
+
+1461
+01:10:37,860 --> 01:10:39,860
+it goes down slowly,
+
+1462
+01:10:39,860 --> 01:10:41,860
+and it blows up near the origin.
+
+1463
+01:10:41,860 --> 01:10:43,860
+So this is our problem.
+
+1464
+01:10:43,860 --> 01:10:45,860
+Right?
+
+1465
+01:10:47,860 --> 01:10:49,860
+So we don't care about the rest of this integral,
+
+1466
+01:10:49,860 --> 01:10:51,860
+we want to do something about this.
+
+1467
+01:10:51,860 --> 01:10:53,860
+So,
+
+1468
+01:10:53,860 --> 01:10:55,860
+the idea is to come up with
+
+1469
+01:10:55,860 --> 01:10:57,860
+so we'll call this f.
+
+1470
+01:10:57,860 --> 01:10:59,860
+And we're going to come up with
+
+1471
+01:10:59,860 --> 01:11:01,860
+a new integral
+
+1472
+01:11:01,860 --> 01:11:03,860
+which is going to be integrated from
+
+1473
+01:11:03,860 --> 01:11:05,860
+instead of from zero to one,
+
+1474
+01:11:05,860 --> 01:11:07,860
+it's going to go from
+
+1475
+01:11:07,860 --> 01:11:09,860
+minus infinity
+
+1476
+01:11:09,860 --> 01:11:11,860
+to one.
+
+1477
+01:11:11,860 --> 01:11:13,860
+Well, actually they usually do ones that go
+
+1478
+01:11:13,860 --> 01:11:15,860
+from minus infinity to plus infinity.
+
+1479
+01:11:15,860 --> 01:11:17,860
+Where you're going to come up with
+
+1480
+01:11:17,860 --> 01:11:19,860
+some function g of t
+
+1481
+01:11:21,860 --> 01:11:23,860
+and we'll use the change of variables one to one
+
+1482
+01:11:23,860 --> 01:11:25,860
+where g of t
+
+1483
+01:11:27,860 --> 01:11:29,860
+is going to be
+
+1484
+01:11:29,860 --> 01:11:31,860
+when t is equal to
+
+1485
+01:11:31,860 --> 01:11:33,860
+infinity
+
+1486
+01:11:33,860 --> 01:11:35,860
+g of t equals one
+
+1487
+01:11:37,860 --> 01:11:39,860
+and when t is equal to minus infinity
+
+1488
+01:11:39,860 --> 01:11:41,860
+g of t is equal to minus one.
+
+1489
+01:11:41,860 --> 01:11:43,860
+So we're going to take this function
+
+1490
+01:11:43,860 --> 01:11:45,860
+and we're going to try to
+
+1491
+01:11:45,860 --> 01:11:47,860
+expand it out
+
+1492
+01:11:47,860 --> 01:11:49,860
+over this infinite domain.
+
+1493
+01:11:49,860 --> 01:11:51,860
+We're now going to have it go from
+
+1494
+01:11:51,860 --> 01:11:53,860
+minus infinity to infinity.
+
+1495
+01:11:53,860 --> 01:11:55,860
+So that we put this thing
+
+1496
+01:11:55,860 --> 01:11:57,860
+that's going off to infinity
+
+1497
+01:11:57,860 --> 01:11:59,860
+out at the infinite interval
+
+1498
+01:11:59,860 --> 01:12:01,860
+and you might think,
+
+1499
+01:12:01,860 --> 01:12:03,860
+well, what the heck
+
+1500
+01:12:03,860 --> 01:12:05,860
+is this going to do?
+
+1501
+01:12:05,860 --> 01:12:07,860
+Well, it's going to go from
+
+1502
+01:12:07,860 --> 01:12:09,860
+minus infinity to infinity.
+
+1503
+01:12:09,860 --> 01:12:11,860
+What the heck is this going to do?
+
+1504
+01:12:11,860 --> 01:12:13,860
+So we now have this problem
+
+1505
+01:12:13,860 --> 01:12:15,860
+we've replaced
+
+1506
+01:12:15,860 --> 01:12:17,860
+this integral from zero to one
+
+1507
+01:12:17,860 --> 01:12:19,860
+with an integral from
+
+1508
+01:12:19,860 --> 01:12:21,860
+minus infinity to infinity.
+
+1509
+01:12:21,860 --> 01:12:23,860
+So you look at that
+
+1510
+01:12:23,860 --> 01:12:25,860
+and you think, well, that can't possibly
+
+1511
+01:12:25,860 --> 01:12:27,860
+be a good idea.
+
+1512
+01:12:27,860 --> 01:12:29,860
+Well, it turns out
+
+1513
+01:12:35,860 --> 01:12:37,860
+and I'll put a reference on it
+
+1514
+01:12:37,860 --> 01:12:39,860
+because these have become
+
+1515
+01:12:39,860 --> 01:12:41,860
+very common now.
+
+1516
+01:12:45,860 --> 01:12:47,860
+If you have a function that looks like that
+
+1517
+01:12:47,860 --> 01:12:49,860
+as long as
+
+1518
+01:12:49,860 --> 01:12:51,860
+this function g prime of t
+
+1519
+01:12:51,860 --> 01:12:53,860
+goes to zero
+
+1520
+01:12:53,860 --> 01:12:55,860
+faster than
+
+1521
+01:12:55,860 --> 01:12:57,860
+your original function goes to infinity
+
+1522
+01:12:57,860 --> 01:12:59,860
+then the product
+
+1523
+01:12:59,860 --> 01:13:01,860
+of f of g of t
+
+1524
+01:13:01,860 --> 01:13:03,860
+times
+
+1525
+01:13:03,860 --> 01:13:05,860
+g prime of t
+
+1526
+01:13:05,860 --> 01:13:07,860
+you can arrange for it to look like this
+
+1527
+01:13:07,860 --> 01:13:09,860
+as we go from minus infinity to infinity.
+
+1528
+01:13:09,860 --> 01:13:11,860
+So if we look at this function
+
+1529
+01:13:11,860 --> 01:13:13,860
+as a function of t
+
+1530
+01:13:13,860 --> 01:13:15,860
+if you can arrange it
+
+1531
+01:13:15,860 --> 01:13:17,860
+so that this thing goes to zero
+
+1532
+01:13:17,860 --> 01:13:19,860
+smoothly
+
+1533
+01:13:19,860 --> 01:13:21,860
+it has to go to zero
+
+1534
+01:13:21,860 --> 01:13:23,860
+fast.
+
+1535
+01:13:23,860 --> 01:13:25,860
+So if you look at this
+
+1536
+01:13:25,860 --> 01:13:27,860
+function
+
+1537
+01:13:27,860 --> 01:13:29,860
+as a function of t
+
+1538
+01:13:29,860 --> 01:13:31,860
+it has to go to zero
+
+1539
+01:13:31,860 --> 01:13:33,860
+fast.
+
+1540
+01:13:33,860 --> 01:13:35,860
+So if you look at this
+
+1541
+01:13:35,860 --> 01:13:37,860
+function
+
+1542
+01:13:37,860 --> 01:13:39,860
+as a function of t
+
+1543
+01:13:39,860 --> 01:13:41,860
+it has to go to zero
+
+1544
+01:13:41,860 --> 01:13:43,860
+and infinitely differentiable.
+
+1545
+01:13:47,860 --> 01:13:49,860
+So you know what these functions look like?
+
+1546
+01:13:49,860 --> 01:13:51,860
+They're hyperbolic sines and cosines
+
+1547
+01:13:51,860 --> 01:13:53,860
+and tangents.
+
+1548
+01:13:53,860 --> 01:13:55,860
+One of those things you learned in high school geometry
+
+1549
+01:13:55,860 --> 01:13:57,860
+and you thought, well, I'm never going to use those again.
+
+1550
+01:13:57,860 --> 01:13:59,860
+They're back.
+
+1551
+01:14:01,860 --> 01:14:03,860
+So you can come up with functions
+
+1552
+01:14:03,860 --> 01:14:05,860
+that will do this
+
+1553
+01:14:05,860 --> 01:14:07,860
+for any singularity you come up with.
+
+1554
+01:14:07,860 --> 01:14:09,860
+So if you look at this function
+
+1555
+01:14:09,860 --> 01:14:11,860
+as a function of t
+
+1556
+01:14:11,860 --> 01:14:13,860
+it has to go to zero
+
+1557
+01:14:13,860 --> 01:14:15,860
+smoothly
+
+1558
+01:14:15,860 --> 01:14:17,860
+and fast enough
+
+1559
+01:14:17,860 --> 01:14:19,860
+so that it will go to zero
+
+1560
+01:14:19,860 --> 01:14:21,860
+faster than f is going to infinity.
+
+1561
+01:14:21,860 --> 01:14:23,860
+You might say, well, wait a second.
+
+1562
+01:14:23,860 --> 01:14:25,860
+Now I have to integrate
+
+1563
+01:14:25,860 --> 01:14:27,860
+from minus infinity to infinity.
+
+1564
+01:14:27,860 --> 01:14:29,860
+So how do I do equally spaced points
+
+1565
+01:14:29,860 --> 01:14:31,860
+from minus infinity to infinity?
+
+1566
+01:14:31,860 --> 01:14:33,860
+Well, I can do midpoint rule.
+
+1567
+01:14:33,860 --> 01:14:35,860
+I can put one at zero.
+
+1568
+01:14:35,860 --> 01:14:37,860
+That's one point.
+
+1569
+01:14:37,860 --> 01:14:39,860
+And then I can dissect the next interval.
+
+1570
+01:14:39,860 --> 01:14:41,860
+So what you do is
+
+1571
+01:14:41,860 --> 01:14:43,860
+you look and say, well,
+
+1572
+01:14:43,860 --> 01:14:45,860
+I don't care about the tails anymore.
+
+1573
+01:14:53,860 --> 01:14:55,860
+And then you just
+
+1574
+01:14:55,860 --> 01:14:57,860
+put points in.
+
+1575
+01:14:57,860 --> 01:14:59,860
+And it turns out you can actually use equally spaced methods
+
+1576
+01:14:59,860 --> 01:15:01,860
+for reasons I'm not going to go into.
+
+1577
+01:15:01,860 --> 01:15:03,860
+When you just put points down
+
+1578
+01:15:03,860 --> 01:15:05,860
+you figure out how much
+
+1579
+01:15:05,860 --> 01:15:07,860
+of the tail you're willing to ignore
+
+1580
+01:15:07,860 --> 01:15:09,860
+and what kind of procedure you need.
+
+1581
+01:15:09,860 --> 01:15:11,860
+And then you spread equally spaced points
+
+1582
+01:15:11,860 --> 01:15:13,860
+over the rest of the interval
+
+1583
+01:15:13,860 --> 01:15:15,860
+or you do your Gauss-Cogitore points
+
+1584
+01:15:15,860 --> 01:15:17,860
+and do whatever you want in that interval
+
+1585
+01:15:17,860 --> 01:15:19,860
+because in this interval
+
+1586
+01:15:19,860 --> 01:15:21,860
+everything's smooth.
+
+1587
+01:15:21,860 --> 01:15:23,860
+Nothing goes to infinity.
+
+1588
+01:15:23,860 --> 01:15:25,860
+And you might think, how could that possibly
+
+1589
+01:15:25,860 --> 01:15:27,860
+be the best way of doing it?
+
+1590
+01:15:27,860 --> 01:15:29,860
+And it turns out
+
+1591
+01:15:29,860 --> 01:15:31,860
+when you try all these schemes
+
+1592
+01:15:31,860 --> 01:15:33,860
+for putting down points and weights
+
+1593
+01:15:33,860 --> 01:15:35,860
+the best thing to do is to come up with
+
+1594
+01:15:35,860 --> 01:15:37,860
+things that are infinitely differentiable.
+
+1595
+01:15:37,860 --> 01:15:39,860
+Things like e to the minus t squared
+
+1596
+01:15:39,860 --> 01:15:41,860
+the error function
+
+1597
+01:15:41,860 --> 01:15:43,860
+or that's the derivative of the error function
+
+1598
+01:15:43,860 --> 01:15:45,860
+or hyperbolic sines, cosines, and tangents
+
+1599
+01:15:45,860 --> 01:15:47,860
+you can use to construct these things.
+
+1600
+01:15:47,860 --> 01:15:49,860
+And that's what most of the good quadruped schemes
+
+1601
+01:15:49,860 --> 01:15:51,860
+to deal with the singularity are.
+
+1602
+01:15:51,860 --> 01:15:53,860
+It seems very counterintuitive at the beginning
+
+1603
+01:15:53,860 --> 01:15:55,860
+which is why only recently
+
+1604
+01:15:55,860 --> 01:15:57,860
+it has become popular
+
+1605
+01:15:57,860 --> 01:15:59,860
+because you think, how could that be the right way to do it?
+
+1606
+01:15:59,860 --> 01:16:01,860
+But when you're done you end up with
+
+1607
+01:16:01,860 --> 01:16:03,860
+methods that use a few dozen points
+
+1608
+01:16:03,860 --> 01:16:05,860
+and you do these singular integrals
+
+1609
+01:16:05,860 --> 01:16:07,860
+and you can do it very visually.
+
+1610
+01:16:07,860 --> 01:16:09,860
+Yeah, my sorry, it looked like you had a question.
+
+1611
+01:16:09,860 --> 01:16:11,860
+No, no, no, I'll correct you.
+
+1612
+01:16:11,860 --> 01:16:13,860
+So, I'm going to stop there.
+
+1613
+01:16:13,860 --> 01:16:15,860
+I wanted to sort of throw this in at the end
+
+1614
+01:16:15,860 --> 01:16:17,860
+because it's only in the last few years
+
+1615
+01:16:17,860 --> 01:16:19,860
+that these methods have started to become popular
+
+1616
+01:16:19,860 --> 01:16:21,860
+and I'm afraid, you know, I fell into that same category
+
+1617
+01:16:21,860 --> 01:16:23,860
+of people who said, no, come on
+
+1618
+01:16:23,860 --> 01:16:25,860
+we're not really going to take an integral from 0 to 1
+
+1619
+01:16:25,860 --> 01:16:27,860
+and turn it into 1 from minus infinity to infinity
+
+1620
+01:16:27,860 --> 01:16:29,860
+that can't be a good idea
+
+1621
+01:16:29,860 --> 01:16:31,860
+but as people have gone through
+
+1622
+01:16:31,860 --> 01:16:33,860
+and made practical implementations of these methods
+
+1623
+01:16:33,860 --> 01:16:35,860
+and you look at the number of points in which
+
+1624
+01:16:35,860 --> 01:16:37,860
+they have to use and how generally they can be developed
+
+1625
+01:16:37,860 --> 01:16:39,860
+you find that they're
+
+1626
+01:16:39,860 --> 01:16:41,860
+quite effective methods
+
+1627
+01:16:41,860 --> 01:16:43,860
+and they're now good pieces of software
+
+1628
+01:16:43,860 --> 01:16:45,860
+that can do these kinds of transformations
+
+1629
+01:16:45,860 --> 01:16:47,860
+and let you do singular integrals
+
+1630
+01:16:47,860 --> 01:16:49,860
+though you do have to arrange
+
+1631
+01:16:49,860 --> 01:16:51,860
+to put the point where the singularity is
+
+1632
+01:16:51,860 --> 01:16:53,860
+at the end of your integral
+
+1633
+01:16:53,860 --> 01:16:55,860
+so if we have a panel
+
+1634
+01:16:55,860 --> 01:16:57,860
+and we have a singularity in the center
+
+1635
+01:16:57,860 --> 01:16:59,860
+we've got to break it up into four panels
+
+1636
+01:16:59,860 --> 01:17:01,860
+so that the singularity can be at the corner
+
+1637
+01:17:01,860 --> 01:17:03,860
+so there's some issues
+
+1638
+01:17:03,860 --> 01:17:05,860
+I wanted to at least show you this
+
+1639
+01:17:05,860 --> 01:17:07,860
+in one of the papers that gives a good survey
+
+1640
+01:17:07,860 --> 01:17:09,860
+of these kinds of methods and pointers to software
+
+1641
+01:17:09,860 --> 01:17:11,860
+so you can see
+
+1642
+01:17:11,860 --> 01:17:13,860
+but I wanted to show you at least at the end of this
+
+1643
+01:17:13,860 --> 01:17:15,860
+that there are ways of dealing with singular integrals
+
+1644
+01:17:15,860 --> 01:17:17,860
+but what we're going to do next time
+
+1645
+01:17:17,860 --> 01:17:19,860
+is look at problems to which we don't get singular integrals
+
+1646
+01:17:19,860 --> 01:17:21,860
+and we'll do that next time
+
+1647
+01:17:21,860 --> 01:17:23,860
+but for this I just wanted to show you
+
+1648
+01:17:23,860 --> 01:17:25,860
+what's the most modern thing
+
+1649
+01:17:25,860 --> 01:17:27,860
+even if we did it vaguely at the end
+
+1650
+01:17:27,860 --> 01:17:29,860
+the big thing to remember about orthogonal polynomials
+
+1651
+01:17:29,860 --> 01:17:31,860
+and this idea of points and weights
+
+1652
+01:17:31,860 --> 01:17:33,860
+where the points are coming from a polynomial
+
+1653
+01:17:33,860 --> 01:17:35,860
+the zeros of a polynomial
+
+1654
+01:17:35,860 --> 01:17:37,860
+and the weights are coming from solving a linear system
+
+1655
+01:17:37,860 --> 01:17:39,860
+these are very powerful techniques
+
+1656
+01:17:39,860 --> 01:17:41,860
+you can often construct very effective
+
+1657
+01:17:41,860 --> 01:17:43,860
+quadrature schemes for yourself
+
+1658
+01:17:43,860 --> 01:17:45,860
+by determining what's a good set of polynomials
+
+1659
+01:17:45,860 --> 01:17:47,860
+to use for your own problem
+
+1660
+01:17:47,860 --> 01:17:49,860
+and as we'll see next time
+
+1661
+01:17:49,860 --> 01:17:51,860
+it also helps you design very good methods
+
+1662
+01:17:51,860 --> 01:17:53,860
+for solving integral equations in 2D
+
+1663
+01:17:53,860 --> 01:17:55,860
+on closed-circuit boundaries
+
+1664
+01:17:55,860 --> 01:17:57,860
+alright
+
+1665
+01:17:57,860 --> 01:17:59,860
+what I didn't talk about is multiple dimensions
+
+1666
+01:17:59,860 --> 01:18:01,860
+and I wasn't going to say too much about that
+
+1667
+01:18:01,860 --> 01:18:03,860
+because we won't be talking about that
+
+1668
+01:18:03,860 --> 01:18:05,860
+but I wanted to show you a few things
+
+1669
+01:18:05,860 --> 01:18:07,860
+I'm not doing much with that next time
+
+1670
+01:18:07,860 --> 01:18:09,860
+but if you ask I'll talk about it a little bit
+
+1671
+01:18:09,860 --> 01:18:13,860
+maybe towards the end of this last week of the term
+
+1672
+01:18:13,860 --> 01:18:15,860
+so let me stop there
+
+1673
+01:18:15,860 --> 01:18:17,860
+the video I know I'm late on
+
+1674
+01:18:17,860 --> 01:18:19,860
+should be up by tomorrow I think
+
+1675
+01:18:19,860 --> 01:18:21,860
+for the class class
+
+1676
+01:18:21,860 --> 01:18:23,860
+and will be up for this class hopefully
+
+1677
+01:18:23,860 --> 01:18:25,860
+the day after that
+
+1678
+01:18:25,860 --> 01:18:27,860
+and there will be a problem set that will be posted
+
+1679
+01:18:27,860 --> 01:18:29,860
+and we're negotiating about what times
+
+1680
+01:18:29,860 --> 01:18:31,860
+to do these evening problem set sessions
+
+1681
+01:18:31,860 --> 01:18:33,860
+but you should come to one or the other of them
+
+1682
+01:18:33,860 --> 01:18:35,860
+and plan on starting
+
+1683
+01:18:35,860 --> 01:18:37,860
+and finishing the problem set
+
+1684
+01:18:37,860 --> 01:18:39,860
+in that session
+
+1685
+01:18:39,860 --> 01:18:41,860
+this is not supposed to be
+
+1686
+01:18:41,860 --> 01:18:43,860
+it's supposed to be a chance for you to try working on a problem
+
+1687
+01:18:43,860 --> 01:18:45,860
+that gives you an idea of how to use these methods
+
+1688
+01:18:45,860 --> 01:18:47,860
+not to
+
+1689
+01:18:47,860 --> 01:18:49,860
+then make sure that you sort of have a sense
+
+1690
+01:18:49,860 --> 01:18:51,860
+of where the material is
+
+1691
+01:18:51,860 --> 01:18:53,860
+we just didn't have enough time in this last part of the course
+
+1692
+01:18:53,860 --> 01:18:55,860
+to give you the opportunity
+
+1693
+01:18:55,860 --> 01:18:57,860
+to sort of let it sink in
+
+1694
+01:18:57,860 --> 01:18:59,860
+so we can do something
+
+1695
+01:18:59,860 --> 01:19:01,860
+we want you to see actual practical calculations
+
+1696
+01:19:01,860 --> 01:19:03,860
+but we don't have enough time
+
+1697
+01:19:03,860 --> 01:19:05,860
+we can't give you enough time to actually think this through
+
+1698
+01:19:05,860 --> 01:19:07,860
+and we're just going to be
+
+1699
+01:19:07,860 --> 01:19:09,860
+thinking about the problem set when it comes out
+
+1700
+01:19:09,860 --> 01:19:11,860
+think about coming to one of these sessions
+
+1701
+01:19:11,860 --> 01:19:13,860
+I think you'll find it's a good experience
+
+1702
+01:19:13,860 --> 01:19:15,860
+and if you try to do it on your own
+
+1703
+01:19:15,860 --> 01:19:17,860
+there are probably things that you needed to know
+
+1704
+01:19:17,860 --> 01:19:19,860
+that we haven't told you
+
+1705
+01:19:19,860 --> 01:19:21,860
+or we assumed you knew
+
+1706
+01:19:21,860 --> 01:19:23,860
+that having come to the evening lecture
+
+1707
+01:19:23,860 --> 01:19:25,860
+would have saved you from frustration
+
+1708
+01:19:25,860 --> 01:19:27,860
+so please as you're thinking about that
+
+1709
+01:19:27,860 --> 01:19:29,860
+and then I think we're going to use the last couple of minutes
+
+1710
+01:19:29,860 --> 01:19:31,860
+I think Professor Wang will talk a little bit about the
+
+1711
+01:19:31,860 --> 01:19:33,860
+the project
+
+1712
+01:19:33,860 --> 01:19:35,860
+so I'm going to hand it over to you
+
+1713
+01:19:35,860 --> 01:19:37,860
+and then we'll get to the video in a little bit
+
+1714
+01:19:37,860 --> 01:19:42,340
+yeah so I think this is the one content we have
+

@@ -1,0 +1,700 @@
+1
+00:00:00,000 --> 00:00:12,260
+So the reason we are defining the sub-left space is because it's the kind of sub-left space that we can define the weak form of the differential equations.
+
+2
+00:00:12,260 --> 00:00:27,120
+So for example, in our previous Poisson's equation, we derived the equivalent form of the Poisson's equation,
+
+3
+00:00:27,120 --> 00:00:35,360
+that is, integration of the product between the derivative of a test function and a solution,
+
+4
+00:00:36,460 --> 00:00:42,100
+plus the integration of the test function times the right-hand side, is equal to zero.
+
+5
+00:00:42,260 --> 00:00:43,880
+So that was an example.
+
+6
+00:00:45,320 --> 00:00:50,220
+And in order to say this is equivalent to the differential equation in some sense,
+
+7
+00:00:50,600 --> 00:00:55,760
+we need to restrict both u and v into a space.
+
+8
+00:00:56,920 --> 00:01:01,820
+And in our previous example, we directly went to a finite dimensional space.
+
+9
+00:01:02,900 --> 00:01:06,620
+But of course, going to a finite dimensional space makes an approximation.
+
+10
+00:01:07,260 --> 00:01:10,120
+It makes an approximation to the differential equation,
+
+11
+00:01:10,120 --> 00:01:12,120
+and through this...
+
+12
+00:01:12,260 --> 00:01:13,260
+this weak form.
+
+13
+00:01:13,260 --> 00:01:17,260
+But if we don't restrict the u and v to a finite dimensional space,
+
+14
+00:01:17,260 --> 00:01:22,260
+but restrict it to a sub-left space, which is infinite dimensional,
+
+15
+00:01:23,260 --> 00:01:27,260
+we can say that the solution recovers the solution of the differential equation exactly.
+
+16
+00:01:29,260 --> 00:01:30,260
+Okay.
+
+17
+00:01:31,260 --> 00:01:32,260
+So...
+
+18
+00:01:35,260 --> 00:01:39,260
+So the weak form of the equation is to...
+
+19
+00:01:42,260 --> 00:01:52,260
+the weak form of the Poisson's equation is the following.
+
+20
+00:01:53,260 --> 00:02:01,260
+So find a solution u in H1 of A and B.
+
+21
+00:02:01,260 --> 00:02:04,260
+H1 is the sub-left space we defined earlier.
+
+22
+00:02:05,260 --> 00:02:06,260
+Such that...
+
+23
+00:02:07,260 --> 00:02:10,260
+for all v,
+
+24
+00:02:10,260 --> 00:02:11,260
+we call it test function,
+
+25
+00:02:11,260 --> 00:02:14,260
+we call it test function within the same space.
+
+26
+00:02:16,260 --> 00:02:17,260
+Okay.
+
+27
+00:02:21,260 --> 00:02:24,260
+This box is true.
+
+28
+00:02:27,260 --> 00:02:28,260
+Right?
+
+29
+00:02:28,260 --> 00:02:32,260
+Which is like the integral plus the integral equal to zero.
+
+30
+00:02:32,260 --> 00:02:34,260
+So this box is the same as this box.
+
+31
+00:02:34,260 --> 00:02:38,260
+So this is the weak form of the Poisson's equation.
+
+32
+00:02:39,260 --> 00:02:40,260
+And it's a weak form because...
+
+33
+00:02:40,260 --> 00:02:42,260
+if...
+
+34
+00:02:42,260 --> 00:02:47,260
+if f is regular enough,
+
+35
+00:02:47,260 --> 00:02:51,260
+so if f is a smooth function, let's say, or continuous function,
+
+36
+00:02:53,260 --> 00:02:56,260
+then we have a twice-differentiable u, right?
+
+37
+00:02:56,260 --> 00:03:00,260
+Because if f is a function,
+
+38
+00:03:00,260 --> 00:03:02,260
+actually any function,
+
+39
+00:03:02,260 --> 00:03:06,260
+then the second-order derivative of u has to be equal to that function,
+
+40
+00:03:06,260 --> 00:03:09,260
+which means, of course, that u is twice-differentiable.
+
+41
+00:03:10,260 --> 00:03:12,260
+If that is the case,
+
+42
+00:03:12,260 --> 00:03:14,260
+then the solution of the weak form
+
+43
+00:03:14,260 --> 00:03:19,260
+is equivalent to the solution of the strong form of the differential equation.
+
+44
+00:03:20,260 --> 00:03:23,260
+But it is weaker in the sense that...
+
+45
+00:03:24,260 --> 00:03:27,260
+if f is not a function,
+
+46
+00:03:28,260 --> 00:03:30,260
+so it holds,
+
+47
+00:03:30,260 --> 00:03:33,260
+even if f is not a function,
+
+48
+00:03:36,260 --> 00:03:39,260
+even if f is a distribution,
+
+49
+00:03:40,260 --> 00:03:42,260
+it is a function instead of a function.
+
+50
+00:03:42,260 --> 00:03:44,260
+And...
+
+51
+00:03:44,260 --> 00:03:48,260
+for example, what is an example of a distribution that is not a function?
+
+52
+00:03:48,260 --> 00:03:50,260
+Hm?
+
+53
+00:03:50,260 --> 00:03:51,260
+Sorry?
+
+54
+00:03:51,260 --> 00:03:55,260
+A Dirac, right, or a delta function, a Dirac delta function.
+
+55
+00:03:55,260 --> 00:03:57,260
+So for example,
+
+56
+00:03:57,260 --> 00:04:03,260
+let's say f of x is equal to a Dirac delta function x minus 0.5,
+
+57
+00:04:03,260 --> 00:04:07,260
+and our domain is in 0 and 1.
+
+58
+00:04:07,260 --> 00:04:08,260
+Okay?
+
+59
+00:04:08,260 --> 00:04:11,260
+We can see that it doesn't make sense to say
+
+60
+00:04:11,260 --> 00:04:15,260
+the second-order derivative of u plus a delta function is equal to 0,
+
+61
+00:04:15,260 --> 00:04:18,260
+but it does make a lot of sense to say
+
+62
+00:04:18,260 --> 00:04:21,260
+this integral is always equal to 0.
+
+63
+00:04:21,260 --> 00:04:25,260
+Because if f is a Dirac function,
+
+64
+00:04:25,260 --> 00:04:29,260
+then what is the integral of f times v?
+
+65
+00:04:31,260 --> 00:04:34,260
+It's just the value of v, right?
+
+66
+00:04:34,260 --> 00:04:37,260
+It's just the value of v at 0.5.
+
+67
+00:04:38,260 --> 00:04:43,260
+It's perfectly well-defined, right?
+
+68
+00:04:43,260 --> 00:04:45,260
+Okay, so in this case,
+
+69
+00:04:45,260 --> 00:04:47,260
+what we are going to get,
+
+70
+00:04:47,260 --> 00:04:50,260
+so let's figure out what we are going to get here.
+
+71
+00:04:50,260 --> 00:04:52,260
+So what we get is that
+
+72
+00:04:52,260 --> 00:04:56,260
+the integration of a and b of any v times,
+
+73
+00:04:56,260 --> 00:04:58,260
+not any v, partial v partial x,
+
+74
+00:04:58,260 --> 00:05:01,260
+partial u partial x dx,
+
+75
+00:05:01,260 --> 00:05:04,260
+has to be equal to v at 0.5.
+
+76
+00:05:08,260 --> 00:05:12,260
+Okay, so what does this tell us?
+
+77
+00:05:14,260 --> 00:05:17,260
+It tells us that the u,
+
+78
+00:05:19,260 --> 00:05:23,260
+so it tells us that u is not twice differentiable.
+
+79
+00:05:23,260 --> 00:05:25,260
+We are going to solve it later.
+
+80
+00:05:25,260 --> 00:05:27,260
+We haven't defined the boundary conditions yet.
+
+81
+00:05:27,260 --> 00:05:31,260
+But it tells me that u has to be a piecewise linear function
+
+82
+00:05:31,260 --> 00:05:37,260
+and this derivative has to be discontinuous at 0.5.
+
+83
+00:05:38,260 --> 00:05:40,260
+To see this,
+
+84
+00:05:40,260 --> 00:05:46,260
+let's define a boundary condition for this equation.
+
+85
+00:05:46,260 --> 00:05:48,260
+For example, let's define
+
+86
+00:05:48,260 --> 00:05:54,260
+with u equal to u equal to 0.
+
+87
+00:05:54,260 --> 00:05:58,260
+So let's define a most trivial boundary condition.
+
+88
+00:05:58,260 --> 00:06:00,260
+And what we need to do is,
+
+89
+00:06:00,260 --> 00:06:02,260
+this boundary condition is,
+
+90
+00:06:02,260 --> 00:06:03,260
+we are going to talk about later,
+
+91
+00:06:03,260 --> 00:06:06,260
+is an essential boundary condition that restricts
+
+92
+00:06:06,260 --> 00:06:07,260
+this,
+
+93
+00:06:08,260 --> 00:06:11,260
+that shrinks the space.
+
+94
+00:06:11,260 --> 00:06:14,260
+So we call it h1 0
+
+95
+00:06:14,260 --> 00:06:20,260
+because this is equal to all the f within h1,
+
+96
+00:06:20,260 --> 00:06:22,260
+a and b,
+
+97
+00:06:22,260 --> 00:06:27,260
+such that f0 is equal to f1 is equal to 0.
+
+98
+00:06:27,260 --> 00:06:31,260
+So all the functions that satisfy a certain boundary condition.
+
+99
+00:06:31,260 --> 00:06:34,260
+Right, so it's even a smaller space.
+
+100
+00:06:34,260 --> 00:06:37,260
+So then for all the v in the same space,
+
+101
+00:06:37,260 --> 00:06:41,260
+which is also have to be satisfying the boundary condition,
+
+102
+00:06:41,260 --> 00:06:43,260
+we have the,
+
+103
+00:06:43,260 --> 00:06:48,260
+we have the weak form to be true.
+
+104
+00:06:48,260 --> 00:06:59,260
+Okay, so now if we know both u and v satisfy the boundary condition.
+
+105
+00:06:59,260 --> 00:07:05,260
+Okay, and so here what we can see is that
+
+106
+00:07:05,260 --> 00:07:11,260
+one way for this to be always true is for u to be a linear function
+
+107
+00:07:11,260 --> 00:07:13,260
+in both.
+
+108
+00:07:13,260 --> 00:07:16,260
+So, so for this to be true,
+
+109
+00:07:16,260 --> 00:07:27,260
+u has to be linear in 0 and 0.5 and 0.5 and 1.
+
+110
+00:07:27,260 --> 00:07:32,260
+Because a linear function means the derivative is going to be a constant.
+
+111
+00:07:32,260 --> 00:07:33,260
+Right.
+
+112
+00:07:33,260 --> 00:07:39,260
+A constant times the derivative of v integrated between 0 and 0.5
+
+113
+00:07:39,260 --> 00:07:43,260
+is going to give me the value of v at 0.5.
+
+114
+00:07:43,260 --> 00:07:51,260
+And so let's do this.
+
+115
+00:07:51,260 --> 00:07:59,260
+So the integral of a and b of these is going to be equal to,
+
+116
+00:07:59,260 --> 00:08:01,260
+so let's say a is equal to 0, b is equal to 1.
+
+117
+00:08:01,260 --> 00:08:02,260
+Okay.
+
+118
+00:08:02,260 --> 00:08:07,260
+So b is equal to 1 is going to be equal to from 0 to 0.5
+
+119
+00:08:07,260 --> 00:08:22,260
+of du dx left times dv dx times dx plus du dx right.
+
+120
+00:08:22,260 --> 00:08:26,260
+So, so u is going to be split into two halves.
+
+121
+00:08:26,260 --> 00:08:31,260
+So u is going to be like that.
+
+122
+00:08:31,260 --> 00:08:32,260
+Okay.
+
+123
+00:08:32,260 --> 00:08:36,260
+And it has to satisfy the boundary conditions.
+
+124
+00:08:36,260 --> 00:08:46,260
+And you get partial v partial x dx 0.5 to 1.
+
+125
+00:08:46,260 --> 00:08:49,260
+So what we ended up getting is that,
+
+126
+00:08:49,260 --> 00:08:57,260
+so du dx,
+
+127
+00:08:57,260 --> 00:09:01,260
+so du dx at the left is basically 2.5.
+
+128
+00:09:01,260 --> 00:09:07,260
+So basically 2 times u, u at 0.5, right?
+
+129
+00:09:07,260 --> 00:09:14,260
+Because this is 0.5, this is 1, and this is u at 0.5.
+
+130
+00:09:14,260 --> 00:09:21,260
+If you divide by 0.5, you get the slope at the left times v at 0.5.
+
+131
+00:09:21,260 --> 00:09:26,260
+And the other quantity is the slope of u is negative.
+
+132
+00:09:26,260 --> 00:09:29,260
+So minus u times 0.5.
+
+133
+00:09:31,260 --> 00:09:38,260
+And the integral of v dv dx over the second half of the domain,
+
+134
+00:09:38,260 --> 00:09:41,260
+because v is also satisfied the boundary condition 0.
+
+135
+00:09:41,260 --> 00:09:45,260
+So it's going to be minus v at 0.5.
+
+136
+00:09:45,260 --> 00:09:59,260
+And with that summed together, we have 4 times u at 0.5 times v at 0.5.
+
+137
+00:09:59,260 --> 00:10:00,260
+Right?
+
+138
+00:10:00,260 --> 00:10:07,260
+So what we are doing is that we have constructed a u that is in H1.
+
+139
+00:10:07,260 --> 00:10:08,260
+Right?
+
+140
+00:10:08,260 --> 00:10:13,260
+u is in H1 because u is a hat function.
+
+141
+00:10:13,260 --> 00:10:15,260
+It's continuous.
+
+142
+00:10:15,260 --> 00:10:17,260
+The square is integrable.
+
+143
+00:10:17,260 --> 00:10:19,260
+The derivative of u is also integrable.
+
+144
+00:10:19,260 --> 00:10:21,260
+It's no longer continuous at 0.5.
+
+145
+00:10:21,260 --> 00:10:23,260
+It's piecewise constant.
+
+146
+00:10:23,260 --> 00:10:26,260
+But the square of that is still integrable.
+
+147
+00:10:26,260 --> 00:10:29,260
+So we constructed a u that is not twice differentiable,
+
+148
+00:10:29,260 --> 00:10:32,260
+but in H1.
+
+149
+00:10:32,260 --> 00:10:39,260
+That satisfies the weak form for a right-hand side being a delta function.
+
+150
+00:10:39,260 --> 00:10:40,260
+Right?
+
+151
+00:10:40,260 --> 00:10:45,260
+So to get the u, this is equal to v at 0.5.
+
+152
+00:10:45,260 --> 00:10:52,260
+That basically means u at 0.5, this has to be 1 fourth.
+
+153
+00:10:52,260 --> 00:10:54,260
+Right?
+
+154
+00:10:54,260 --> 00:10:57,260
+So with u equal to 1 fourth,
+
+155
+00:10:57,260 --> 00:10:59,260
+this is going to be equal to v at 0.5,
+
+156
+00:10:59,260 --> 00:11:01,260
+which is the right-hand side we want.
+
+157
+00:11:01,260 --> 00:11:05,260
+So we constructed a v that goes from 0 to 1 fourth
+
+158
+00:11:05,260 --> 00:11:08,260
+when x goes from 0 to 0.5 and then goes down to 0.
+
+159
+00:11:08,260 --> 00:11:11,260
+That satisfies the boundary condition.
+
+160
+00:11:11,260 --> 00:11:17,260
+It satisfies the weak form for f.
+
+161
+00:11:17,260 --> 00:11:20,260
+That is a distribution.
+
+162
+00:11:20,260 --> 00:11:22,260
+That is not a function.
+
+163
+00:11:22,260 --> 00:11:25,260
+So the weak form is weaker in that sense.
+
+164
+00:11:25,260 --> 00:11:28,260
+It's somewhat...
+
+165
+00:11:28,260 --> 00:11:33,260
+The sense of that is similar to how we change the strong form,
+
+166
+00:11:33,260 --> 00:11:37,260
+the differential form, to the integral form in finite volume.
+
+167
+00:11:37,260 --> 00:11:38,260
+Right?
+
+168
+00:11:38,260 --> 00:11:39,260
+In finite difference...
+
+169
+00:11:39,260 --> 00:11:43,260
+In finite element, we also transform the equation to a weak form
+
+170
+00:11:43,260 --> 00:11:45,260
+using integration by parts like that.
+
+171
+00:11:45,260 --> 00:11:48,260
+And the weak form is weaker in the sense that
+
+172
+00:11:48,260 --> 00:11:52,260
+the exact equation, differential form,
+
+173
+00:11:52,260 --> 00:11:54,260
+does not have to make any sense.
+
+174
+00:11:54,260 --> 00:11:56,260
+Make any sense, even.
+
+175
+00:11:56,260 --> 00:11:59,260
+For right-hand sides that are not even a function.
+

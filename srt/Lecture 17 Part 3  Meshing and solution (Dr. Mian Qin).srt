@@ -1,0 +1,812 @@
+1
+00:00:00,000 --> 00:00:05,500
+So now we finished defining physics number one, I can move on to the mesh node.
+
+2
+00:00:05,500 --> 00:00:10,300
+There is always going to be a default mesh. If I click on build all, it will build me a mesh.
+
+3
+00:00:10,300 --> 00:00:15,500
+And I could actually look at the details by right-click and edit physics-induced sequence.
+
+4
+00:00:15,500 --> 00:00:23,000
+So in this case, this particular free tetrahedral mesh was generated with the sequence with some predefined level of normal.
+
+5
+00:00:23,000 --> 00:00:27,000
+You could, you know, further refine it or make it coarser.
+
+6
+00:00:27,000 --> 00:00:35,000
+You could also more accurately control it via the custom option and define what's the maximum, minimum mesh size,
+
+7
+00:00:35,000 --> 00:00:38,000
+and also what is the growth rate and curvature.
+
+8
+00:00:38,000 --> 00:00:44,000
+If there's narrow region, how many layers on average you want to have in terms of mesh in that narrow region.
+
+9
+00:00:44,000 --> 00:00:48,000
+So in this case, it's a uniform size everywhere in the entire domain.
+
+10
+00:00:48,000 --> 00:00:54,000
+But of course, we know that's not always the most effective way or efficient way of meshing.
+
+11
+00:00:54,000 --> 00:00:57,000
+For example, if you do have a high gradient close to a certain,
+
+12
+00:00:57,000 --> 00:01:04,000
+surface, we know that there is a lot of say like electric double layer in that region and the concentration gradient is really high.
+
+13
+00:01:04,000 --> 00:01:10,000
+Then what happens is you do want to further refine the mesh close to that particular surface.
+
+14
+00:01:10,000 --> 00:01:18,000
+So in that case, I could add a size node under the free tetrahedral and choose the size node to control on the boundary level.
+
+15
+00:01:18,000 --> 00:01:25,000
+So the levels here are domain 3D boundary, in this case is 2D and 1D and 0D for the adjunct point.
+
+16
+00:01:25,000 --> 00:01:27,000
+Of course, you have a different definition.
+
+17
+00:01:27,000 --> 00:01:29,000
+So you can have a different definition of domain where you have a 2D geometry.
+
+18
+00:01:29,000 --> 00:01:32,000
+Then the boundary is actually an edge.
+
+19
+00:01:32,000 --> 00:01:37,000
+So in this case, we're going to say I want to refine the mesh close to this boundary number 1.
+
+20
+00:01:37,000 --> 00:01:40,000
+I want to use the extra fine mesh here.
+
+21
+00:01:40,000 --> 00:01:45,000
+So you see that the mesh around the surface is actually refined.
+
+22
+00:01:45,000 --> 00:01:48,000
+Of course, you can see even better with the further refine.
+
+23
+00:01:48,000 --> 00:01:52,000
+And then you can change that to mesh size node as well.
+
+24
+00:01:52,000 --> 00:01:54,000
+And this is the mesh number 1.
+
+25
+00:01:54,000 --> 00:01:55,000
+If you do say,
+
+26
+00:01:55,000 --> 00:01:57,000
+I know this geometry is actually,
+
+27
+00:01:57,000 --> 00:01:58,000
+extrusion geometry,
+
+28
+00:01:58,000 --> 00:02:00,000
+so it has the same thickness everywhere.
+
+29
+00:02:00,000 --> 00:02:02,000
+What if I want to use a different mesh type?
+
+30
+00:02:02,000 --> 00:02:04,000
+So you can right click on a component 1,
+
+31
+00:02:04,000 --> 00:02:05,000
+add a different mesh.
+
+32
+00:02:05,000 --> 00:02:07,000
+So now you have mesh number 2.
+
+33
+00:02:07,000 --> 00:02:10,000
+Say I actually want to use a free,
+
+34
+00:02:10,000 --> 00:02:15,000
+let's do a free triangular mesh on the side surface.
+
+35
+00:02:15,000 --> 00:02:21,000
+And then I could add a swept mesh for the domain.
+
+36
+00:02:21,000 --> 00:02:22,000
+And for the sweeping,
+
+37
+00:02:22,000 --> 00:02:25,000
+I want a distribution of 10 layers.
+
+38
+00:02:25,000 --> 00:02:27,000
+So why is this useful?
+
+39
+00:02:27,000 --> 00:02:30,000
+So if you do have a high gradient in the y direction,
+
+40
+00:02:30,000 --> 00:02:32,000
+and less gradient in the x and z direction,
+
+41
+00:02:32,000 --> 00:02:34,000
+so this way it allows the mesh to be,
+
+42
+00:02:34,000 --> 00:02:36,000
+element to be still very reasonable,
+
+43
+00:02:36,000 --> 00:02:38,000
+only, you know, 480 domain elements.
+
+44
+00:02:38,000 --> 00:02:41,000
+But meanwhile, you have much better resolution in the y direction.
+
+45
+00:02:41,000 --> 00:02:43,000
+So if there is a high gradient,
+
+46
+00:02:43,000 --> 00:02:44,000
+you can resolve it.
+
+47
+00:02:44,000 --> 00:02:46,000
+And also, when you have a very thin structure,
+
+48
+00:02:46,000 --> 00:02:49,000
+then you do not want to use too fine a mesh that's combined,
+
+49
+00:02:49,000 --> 00:02:50,000
+confined by the,
+
+50
+00:02:50,000 --> 00:02:51,000
+the,
+
+51
+00:02:51,000 --> 00:02:52,000
+the,
+
+52
+00:02:52,000 --> 00:02:53,000
+the,
+
+53
+00:02:53,000 --> 00:02:54,000
+the,
+
+54
+00:02:54,000 --> 00:02:56,000
+confined by the smallest dimension you have.
+
+55
+00:02:56,000 --> 00:02:57,000
+In this way,
+
+56
+00:02:57,000 --> 00:03:00,000
+you can actually match the thin structure fairly well.
+
+57
+00:03:00,000 --> 00:03:03,000
+And meanwhile, keep the mesh element size
+
+58
+00:03:03,000 --> 00:03:06,000
+on the other dimensions reasonable.
+
+59
+00:03:06,000 --> 00:03:07,000
+All right.
+
+60
+00:03:07,000 --> 00:03:08,000
+So just the,
+
+61
+00:03:08,000 --> 00:03:10,000
+the other mesh options,
+
+62
+00:03:10,000 --> 00:03:13,000
+of course, are available through the right click of the mesh as well.
+
+63
+00:03:13,000 --> 00:03:15,000
+So you see, for fluid flow,
+
+64
+00:03:15,000 --> 00:03:18,000
+one of the very useful features is a boundary layer mesh.
+
+65
+00:03:18,000 --> 00:03:20,000
+So especially when turbulence happens,
+
+66
+00:03:20,000 --> 00:03:21,000
+you do want to resolve the wall regions,
+
+67
+00:03:21,000 --> 00:03:23,000
+the close to the wall,
+
+68
+00:03:23,000 --> 00:03:24,000
+you know,
+
+69
+00:03:24,000 --> 00:03:25,000
+the boundary layer mesh.
+
+70
+00:03:25,000 --> 00:03:27,000
+And you can also use the boundary layer mesh to
+
+71
+00:03:27,000 --> 00:03:28,000
+find the boundary layer mesh.
+
+72
+00:03:28,000 --> 00:03:31,000
+So that's where you can define the boundary layer mesh and specify how many layers you want,
+
+73
+00:03:31,000 --> 00:03:33,000
+how much do they stretch per layer,
+
+74
+00:03:33,000 --> 00:03:34,000
+adjacent layer,
+
+75
+00:03:34,000 --> 00:03:37,000
+and then what is the initial layer thickness.
+
+76
+00:03:37,000 --> 00:03:39,000
+So it is actually a default option.
+
+77
+00:03:39,000 --> 00:03:45,000
+We have a fluid flow physics and the default mesh controlled physics would have the boundary layer added already.
+
+78
+00:03:45,000 --> 00:03:46,000
+All right.
+
+79
+00:03:46,000 --> 00:03:47,000
+So that's about the mesh.
+
+80
+00:03:47,000 --> 00:03:49,000
+Then we can look at a study.
+
+81
+00:03:49,000 --> 00:03:51,000
+So right now there is a study,
+
+82
+00:03:51,000 --> 00:03:52,000
+step one,
+
+83
+00:03:52,000 --> 00:03:53,000
+stationary,
+
+84
+00:03:53,000 --> 00:03:54,000
+and stationary solver.
+
+85
+00:03:54,000 --> 00:03:56,000
+If you do want to look at a solver settings,
+
+86
+00:03:56,000 --> 00:03:58,000
+you can show default solver.
+
+87
+00:03:58,000 --> 00:04:01,000
+We can expand it and see that's the dependent variable we're solving for.
+
+88
+00:04:01,000 --> 00:04:04,000
+We know that in the model wizard,
+
+89
+00:04:04,000 --> 00:04:06,000
+the component one dot V,
+
+90
+00:04:06,000 --> 00:04:07,000
+uppercase V,
+
+91
+00:04:07,000 --> 00:04:09,000
+we're just directly uppercase V.
+
+92
+00:04:09,000 --> 00:04:10,000
+That's the actual potential.
+
+93
+00:04:10,000 --> 00:04:12,000
+It's a stationary solver we're using.
+
+94
+00:04:12,000 --> 00:04:16,000
+There is a relative tolerance that's been specified here.
+
+95
+00:04:16,000 --> 00:04:18,000
+There is,
+
+96
+00:04:18,000 --> 00:04:19,000
+you can,
+
+97
+00:04:19,000 --> 00:04:21,000
+whether to show the results while the solver is moving.
+
+98
+00:04:21,000 --> 00:04:22,000
+So that's actually useful
+
+99
+00:04:22,000 --> 00:04:25,000
+when you have a longer computational time
+
+100
+00:04:25,000 --> 00:04:27,000
+and you can see what's the current solution
+
+101
+00:04:27,000 --> 00:04:30,000
+without waiting until the end.
+
+102
+00:04:30,000 --> 00:04:32,000
+There is a,
+
+103
+00:04:32,000 --> 00:04:34,000
+let's see what other things you need to know.
+
+104
+00:04:34,000 --> 00:04:38,000
+The fully coupled solver is the one that's being used right now.
+
+105
+00:04:38,000 --> 00:04:42,000
+It's using a linear solver of iterative solver
+
+106
+00:04:42,000 --> 00:04:44,000
+and more iterative solver details right here.
+
+107
+00:04:44,000 --> 00:04:47,000
+It's a multigrid solver with some pre-smoother,
+
+108
+00:04:47,000 --> 00:04:48,000
+post-smoother,
+
+109
+00:04:48,000 --> 00:04:49,000
+and core-smoother.
+
+110
+00:04:49,000 --> 00:04:52,000
+So most of the time you don't have to change the default solver.
+
+111
+00:04:52,000 --> 00:04:53,000
+Especially so far as you know,
+
+112
+00:04:53,000 --> 00:04:54,000
+this is a linear problem.
+
+113
+00:04:54,000 --> 00:04:57,000
+So we know already that it's going to solve in one iteration.
+
+114
+00:04:57,000 --> 00:04:59,000
+All linear problems solving in one iteration
+
+115
+00:04:59,000 --> 00:05:00,000
+because you go down a tangent
+
+116
+00:05:00,000 --> 00:05:02,000
+and you go through the straight line
+
+117
+00:05:02,000 --> 00:05:04,000
+and you find that solution
+
+118
+00:05:04,000 --> 00:05:07,000
+or error estimates to the minimum
+
+119
+00:05:07,000 --> 00:05:09,000
+directly through that one iteration.
+
+120
+00:05:09,000 --> 00:05:11,000
+So it's a mump solver that's being used now.
+
+121
+00:05:11,000 --> 00:05:13,000
+The other direct solver includes the
+
+122
+00:05:13,000 --> 00:05:16,000
+Parisol, Spools, and Dense Matrix solvers.
+
+123
+00:05:16,000 --> 00:05:18,000
+And let's see what else.
+
+124
+00:05:18,000 --> 00:05:21,000
+So basically a lot of times you do want to,
+
+125
+00:05:21,000 --> 00:05:25,000
+and the nonlinear method is a Newton-Raphson iteration.
+
+126
+00:05:25,000 --> 00:05:27,000
+So you already know that.
+
+127
+00:05:27,000 --> 00:05:29,000
+Let's see.
+
+128
+00:05:29,000 --> 00:05:31,000
+So I would say the tolerance,
+
+129
+00:05:31,000 --> 00:05:34,000
+the termination technique right now is by default
+
+130
+00:05:34,000 --> 00:05:35,000
+is set to be tolerance.
+
+131
+00:05:35,000 --> 00:05:39,000
+So basically you can choose between tolerance or iterations.
+
+132
+00:05:39,000 --> 00:05:43,000
+So either, for example, terminates after 25 iterations
+
+133
+00:05:43,000 --> 00:05:47,000
+or when the tolerance criteria is met.
+
+134
+00:05:47,000 --> 00:05:50,000
+So the two concepts here is the relative tolerance
+
+135
+00:05:50,000 --> 00:05:51,000
+and the nonlinear.
+
+136
+00:05:51,000 --> 00:05:52,000
+And then the absolute tolerance.
+
+137
+00:05:52,000 --> 00:05:54,000
+So the loser of the two is going to be in effect.
+
+138
+00:05:54,000 --> 00:05:57,000
+And then when you do want to refine the solution,
+
+139
+00:05:57,000 --> 00:05:59,000
+you do want to refine, for example,
+
+140
+00:05:59,000 --> 00:06:01,000
+type of extra zero here,
+
+141
+00:06:01,000 --> 00:06:04,000
+you know, to tighten the tolerances.
+
+142
+00:06:04,000 --> 00:06:07,000
+But of course that comes at a cost of
+
+143
+00:06:07,000 --> 00:06:10,000
+more computational cost.
+
+144
+00:06:10,000 --> 00:06:13,000
+So it's always a balance between the two.
+
+145
+00:06:13,000 --> 00:06:15,000
+So in this case we all know it's going to solve.
+
+146
+00:06:15,000 --> 00:06:19,000
+So we're going to right click on study one and hit compute.
+
+147
+00:06:19,000 --> 00:06:21,000
+So here it shows the program.
+
+148
+00:06:21,000 --> 00:06:24,000
+And here it shows how much physical memory
+
+149
+00:06:24,000 --> 00:06:26,000
+and the virtual memory that's in use.
+
+150
+00:06:26,000 --> 00:06:29,000
+And now we solve for the potential, how it disputes.
+
+151
+00:06:29,000 --> 00:06:32,000
+By default comes already generated a plot group for me.
+
+152
+00:06:32,000 --> 00:06:34,000
+Just to show you how this works,
+
+153
+00:06:34,000 --> 00:06:36,000
+you can always right click on results,
+
+154
+00:06:36,000 --> 00:06:38,000
+add a 3D plot group.
+
+155
+00:06:38,000 --> 00:06:40,000
+And in the 3D plot group,
+
+156
+00:06:40,000 --> 00:06:42,000
+you can add any type of a plot
+
+157
+00:06:42,000 --> 00:06:45,000
+that you think would be able to nicely visualize this.
+
+158
+00:06:45,000 --> 00:06:47,000
+For example, instead of the slice plots,
+
+159
+00:06:47,000 --> 00:06:49,000
+the multi-slice plot,
+
+160
+00:06:49,000 --> 00:06:50,000
+I could do a single slice.
+
+161
+00:06:50,000 --> 00:06:55,000
+In the, let's do a xy plane.
+
+162
+00:06:55,000 --> 00:06:57,000
+Actually a yz plane.
+
+163
+00:06:57,000 --> 00:06:59,000
+And just one slice.
+
+164
+00:06:59,000 --> 00:07:01,000
+So this is how the potential looks like
+
+165
+00:07:01,000 --> 00:07:03,000
+in the cross-section.
+
+166
+00:07:03,000 --> 00:07:05,000
+I could make the slice interactive
+
+167
+00:07:05,000 --> 00:07:07,000
+and basically just scan through the geometry
+
+168
+00:07:07,000 --> 00:07:10,000
+to see what is the local potential distribution.
+
+169
+00:07:10,000 --> 00:07:13,000
+You could also do like a,
+
+170
+00:07:13,000 --> 00:07:16,000
+just a cross-section xz plane
+
+171
+00:07:16,000 --> 00:07:18,000
+of one slice.
+
+172
+00:07:18,000 --> 00:07:19,000
+So that shows the total.
+
+173
+00:07:19,000 --> 00:07:22,000
+So that shows you where the potential goes from 0
+
+174
+00:07:22,000 --> 00:07:23,000
+to the other end,
+
+175
+00:07:23,000 --> 00:07:25,000
+the higher end, 0.2 volts.
+
+176
+00:07:25,000 --> 00:07:26,000
+On top of the slice plot,
+
+177
+00:07:26,000 --> 00:07:29,000
+you could also add, for example, an arrow volume.
+
+178
+00:07:29,000 --> 00:07:32,000
+So I'm going to use the arrows to show how the current flows.
+
+179
+00:07:32,000 --> 00:07:37,000
+So I'm going to use maybe 20 points in the x direction,
+
+180
+00:07:37,000 --> 00:07:40,000
+just one point in the y direction,
+
+181
+00:07:40,000 --> 00:07:42,000
+and 10 points in the z direction.
+
+182
+00:07:42,000 --> 00:07:45,000
+So now I have the arrows flowing from the high potential end
+
+183
+00:07:45,000 --> 00:07:47,000
+to the low potential end.
+
+184
+00:07:47,000 --> 00:07:49,000
+The direction of the arrow, of course,
+
+185
+00:07:49,000 --> 00:07:52,000
+is where the density goes, the current flows.
+
+186
+00:07:52,000 --> 00:07:54,000
+And then the length of the arrow
+
+187
+00:07:54,000 --> 00:07:57,000
+is actually proportional to what is the local density.
+
+188
+00:07:57,000 --> 00:07:59,000
+There is some singularity around the shoulders
+
+189
+00:07:59,000 --> 00:08:01,000
+because of the sharp transition.
+
+190
+00:08:01,000 --> 00:08:04,000
+The electric currents cannot make a perfect sharp turn
+
+191
+00:08:04,000 --> 00:08:07,000
+because the divergence has to equal to 0.
+
+192
+00:08:07,000 --> 00:08:10,000
+So you can also, for example,
+
+193
+00:08:10,000 --> 00:08:13,000
+add on top of the arrow volume a color expression.
+
+194
+00:08:13,000 --> 00:08:17,000
+Say use the color to represent what's the current density.
+
+195
+00:08:17,000 --> 00:08:20,000
+So you can type in a replace expression
+
+196
+00:08:20,000 --> 00:08:23,000
+and find the current density norm.
+
+197
+00:08:23,000 --> 00:08:27,000
+So now the color actually shows what's the magnitude.
+
+198
+00:08:27,000 --> 00:08:29,000
+You can change the color table
+
+199
+00:08:29,000 --> 00:08:32,000
+so that it doesn't mix with the other one.
+
+200
+00:08:32,000 --> 00:08:35,000
+So different visualizations you can do.
+
+201
+00:08:35,000 --> 00:08:38,000
+Any questions?
+
+202
+00:08:38,000 --> 00:08:41,000
+What we have done so far with the single physics problem?
+
+203
+00:08:41,000 --> 00:08:45,000
+All right.
+

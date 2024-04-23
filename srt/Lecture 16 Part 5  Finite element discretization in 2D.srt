@@ -1,0 +1,512 @@
+1
+00:00:00,000 --> 00:00:14,240
+Okay, so now I defined my basis functions that way. Let's start to derive the linear form.
+
+2
+00:00:14,240 --> 00:00:29,260
+So I'm going to represent my solution u h being a linear combination of i goes from 1 to n, n being the number of interior grid points of u i times phi i.
+
+3
+00:00:30,000 --> 00:00:36,480
+Okay, phi i are the piecewise linear and continuous functions I was just visualizing.
+
+4
+00:00:38,320 --> 00:00:44,460
+So what we need is the bilinear form on a h and v.
+
+5
+00:00:45,360 --> 00:00:53,660
+And here I can substitute v by any of these basis functions v j has to be equal to l of v j.
+
+6
+00:00:54,340 --> 00:00:58,380
+If I have this satisfied, then I can make any linear combination.
+
+7
+00:00:58,380 --> 00:00:58,840
+Let's say.
+
+8
+00:00:58,840 --> 00:01:06,120
+Of these equalities and get the same equality for any v in the same linear space.
+
+9
+00:01:07,480 --> 00:01:11,320
+Okay, so for j goes from 1 to n.
+
+10
+00:01:13,140 --> 00:01:25,100
+So the left-hand side, I can use the bilinearity of u and expand this by pulling the summation and all the coefficients out.
+
+11
+00:01:26,860 --> 00:01:28,200
+So it's going to be a summation.
+
+12
+00:01:28,840 --> 00:01:38,400
+Over i u i times a of phi i and phi j is equal to l of phi j.
+
+13
+00:01:39,720 --> 00:01:40,040
+Right.
+
+14
+00:01:41,460 --> 00:01:51,140
+So then our tasks, our task is to evaluate this and call this a i j and evaluate this and call this b j.
+
+15
+00:01:51,800 --> 00:01:58,040
+Then what I get is the matrix a times my solution u u 1.
+
+16
+00:01:58,040 --> 00:01:58,820
+And then what I get is the matrix a times my solution u u 1.
+
+17
+00:01:58,840 --> 00:01:59,640
+And then what I get is the matrix a times my solution u u n.
+
+18
+00:01:59,640 --> 00:02:00,280
+And then what I get is the matrix a times my solution u u n.
+
+19
+00:02:00,280 --> 00:02:02,520
+Is going to be equal to the vector b.
+
+20
+00:02:03,880 --> 00:02:09,920
+That allows me to solve for the linear combination coefficients u i.
+
+21
+00:02:10,680 --> 00:02:15,040
+Which turns out to be the height of these basis functions.
+
+22
+00:02:16,960 --> 00:02:17,460
+Right.
+
+23
+00:02:18,620 --> 00:02:19,520
+Questions so far?
+
+24
+00:02:22,000 --> 00:02:22,500
+Okay.
+
+25
+00:02:22,840 --> 00:02:27,500
+Now let's figure out how to evaluate these a i j's.
+
+26
+00:02:28,340 --> 00:02:28,840
+So.
+
+27
+00:02:28,840 --> 00:02:29,600
+Phi.
+
+28
+00:02:30,120 --> 00:02:35,200
+So a i j is equal to a of phi i phi j.
+
+29
+00:02:35,860 --> 00:02:36,200
+Right.
+
+30
+00:02:36,880 --> 00:02:44,740
+Which is equal to the integral of the domain of the gradient of phi i dot product with the gradient of phi j.
+
+31
+00:02:49,180 --> 00:02:52,500
+Again, this is going to be a very sparse matrix.
+
+32
+00:02:53,400 --> 00:02:56,560
+Because let's just go back into MATLAB.
+
+33
+00:02:57,300 --> 00:02:57,680
+And.
+
+34
+00:02:57,680 --> 00:02:57,760
+And.
+
+35
+00:02:58,840 --> 00:03:00,280
+Visualize this one.
+
+36
+00:03:00,660 --> 00:03:02,180
+And let's hold on.
+
+37
+00:03:03,120 --> 00:03:06,260
+Let's make a v also equal to the zeros.
+
+38
+00:03:06,780 --> 00:03:09,780
+Let's make a v into an arbitrary other.
+
+39
+00:03:10,600 --> 00:03:12,540
+Let's say a hundred is equal to one.
+
+40
+00:03:13,620 --> 00:03:16,140
+Let's do another choice of.
+
+41
+00:03:16,780 --> 00:03:18,600
+Of this with v.
+
+42
+00:03:21,260 --> 00:03:21,860
+Okay.
+
+43
+00:03:24,480 --> 00:03:25,060
+Right.
+
+44
+00:03:25,180 --> 00:03:26,780
+So I get two basis functions.
+
+45
+00:03:26,780 --> 00:03:28,500
+One is the blue one.
+
+46
+00:03:28,500 --> 00:03:29,580
+One is the yellow one.
+
+47
+00:03:31,580 --> 00:03:34,640
+So if i and j are equal to one hundred and two hundred.
+
+48
+00:03:34,640 --> 00:03:36,960
+What is a i j in that case?
+
+49
+00:03:37,740 --> 00:03:40,920
+It's going to be zero because if we look at the formula for a i j.
+
+50
+00:03:41,300 --> 00:03:46,740
+It is the integral integral of the entire domain of the gradient of phi i times the gradient of phi j.
+
+51
+00:03:47,320 --> 00:03:52,780
+And the gradient of phi i and phi j has no overlap in the areas where they are non-zero.
+
+52
+00:03:53,880 --> 00:03:54,380
+Okay.
+
+53
+00:03:54,460 --> 00:03:57,880
+So for example the yellow one is only non-zero in.
+
+54
+00:03:57,880 --> 00:03:59,880
+One two three four five elements.
+
+55
+00:03:59,880 --> 00:04:01,880
+Five of these triangles.
+
+56
+00:04:01,880 --> 00:04:03,880
+The blue one is less clear.
+
+57
+00:04:03,880 --> 00:04:05,880
+Maybe six.
+
+58
+00:04:05,880 --> 00:04:07,880
+Yeah.
+
+59
+00:04:07,880 --> 00:04:09,880
+Blue one I think is six.
+
+60
+00:04:09,880 --> 00:04:11,880
+But like they are.
+
+61
+00:04:11,880 --> 00:04:17,880
+Each one is only going to be non-zero in the triangles that shares that particular point.
+
+62
+00:04:17,880 --> 00:04:19,880
+Okay.
+
+63
+00:04:19,880 --> 00:04:21,880
+So now it's a little bit more complex than the one dimensional case.
+
+64
+00:04:21,880 --> 00:04:23,880
+In one dimensional case.
+
+65
+00:04:23,880 --> 00:04:25,880
+And a basic function is only non-zero in two areas.
+
+66
+00:04:25,880 --> 00:04:26,380
+Okay.
+
+67
+00:04:26,380 --> 00:04:26,880
+So.
+
+68
+00:04:26,880 --> 00:04:28,880
+It's going to be non-zero in two elements.
+
+69
+00:04:28,880 --> 00:04:29,380
+Right.
+
+70
+00:04:29,380 --> 00:04:30,380
+Left and right.
+
+71
+00:04:30,380 --> 00:04:36,380
+In this case each basis function is going to be non-zero in a small number of elements.
+
+72
+00:04:36,380 --> 00:04:38,880
+But that small number is no longer going to be a constant.
+
+73
+00:04:38,880 --> 00:04:40,880
+It depends on.
+
+74
+00:04:40,880 --> 00:04:42,880
+The yellow one has five.
+
+75
+00:04:42,880 --> 00:04:44,880
+The blue one has six.
+
+76
+00:04:44,880 --> 00:04:46,880
+Okay.
+
+77
+00:04:46,880 --> 00:04:48,880
+So but anyway.
+
+78
+00:04:48,880 --> 00:04:52,880
+These are going to be equal to.
+
+79
+00:04:52,880 --> 00:04:54,880
+Integration.
+
+80
+00:04:54,880 --> 00:04:56,880
+It's going to be.
+
+81
+00:04:56,880 --> 00:05:00,880
+Split that up into summation of elements.
+
+82
+00:05:00,880 --> 00:05:02,880
+So elements.
+
+83
+00:05:02,880 --> 00:05:04,880
+So.
+
+84
+00:05:04,880 --> 00:05:06,880
+Let's say k.
+
+85
+00:05:06,880 --> 00:05:08,880
+In the elements.
+
+86
+00:05:08,880 --> 00:05:10,880
+Integration over omega k.
+
+87
+00:05:10,880 --> 00:05:12,880
+So omega k is the kth triangle.
+
+88
+00:05:12,880 --> 00:05:14,880
+Gradient phi i.
+
+89
+00:05:14,880 --> 00:05:16,880
+Gradient phi j dx.
+
+90
+00:05:16,880 --> 00:05:18,880
+This is good because.
+
+91
+00:05:18,880 --> 00:05:20,880
+Over each element.
+
+92
+00:05:20,880 --> 00:05:22,880
+Both.
+
+93
+00:05:22,880 --> 00:05:24,880
+Phi i and phi j are linear.
+
+94
+00:05:24,880 --> 00:05:25,380
+So.
+
+95
+00:05:25,380 --> 00:05:25,880
+The.
+
+96
+00:05:25,880 --> 00:05:27,880
+Gradient phi i and the gradient phi j.
+
+97
+00:05:27,880 --> 00:05:28,380
+They are.
+
+98
+00:05:28,380 --> 00:05:28,880
+What.
+
+99
+00:05:28,880 --> 00:05:29,880
+Constant.
+
+100
+00:05:29,880 --> 00:05:30,380
+Right.
+
+101
+00:05:30,380 --> 00:05:30,880
+So.
+
+102
+00:05:30,880 --> 00:05:31,880
+Then I can write this as.
+
+103
+00:05:31,880 --> 00:05:33,880
+Summation of k in the elements.
+
+104
+00:05:33,880 --> 00:05:35,880
+Gradient of phi i.
+
+105
+00:05:35,880 --> 00:05:37,880
+In that element.
+
+106
+00:05:37,880 --> 00:05:39,880
+With gradient of phi j.
+
+107
+00:05:39,880 --> 00:05:41,880
+In that element.
+
+108
+00:05:41,880 --> 00:05:43,880
+Times the area.
+
+109
+00:05:43,880 --> 00:05:45,880
+Of that element k.
+
+110
+00:05:45,880 --> 00:05:47,880
+Okay.
+
+111
+00:05:47,880 --> 00:05:48,880
+So.
+
+112
+00:05:48,880 --> 00:05:49,880
+So.
+
+113
+00:05:49,880 --> 00:05:50,880
+So.
+
+114
+00:05:50,880 --> 00:05:51,880
+So.
+
+115
+00:05:51,880 --> 00:05:52,880
+So.
+
+116
+00:05:52,880 --> 00:05:53,880
+So.
+
+117
+00:05:53,880 --> 00:05:54,880
+So.
+
+118
+00:05:54,880 --> 00:05:55,880
+So.
+
+119
+00:05:55,880 --> 00:05:57,880
+So.
+
+120
+00:05:57,880 --> 00:05:58,880
+But.
+
+121
+00:05:58,880 --> 00:05:59,740
+Up to now.
+
+122
+00:05:59,740 --> 00:06:00,120
+All calculus.
+
+123
+00:06:00,120 --> 00:06:00,520
+Is.
+
+124
+00:06:00,520 --> 00:06:00,880
+Gone.
+
+125
+00:06:00,880 --> 00:06:02,880
+Only thing left is.
+
+126
+00:06:02,880 --> 00:06:03,420
+Geometry.
+
+127
+00:06:03,420 --> 00:06:04,540
+And algebra.
+
+128
+00:06:04,540 --> 00:06:05,640
+Alright.
+

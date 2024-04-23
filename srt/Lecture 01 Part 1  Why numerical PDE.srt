@@ -1,0 +1,388 @@
+1
+00:00:00,000 --> 00:00:06,300
+This is a very recent example from last year. How many of you have heard about
+
+2
+00:00:06,300 --> 00:00:13,760
+the news that human beings have for the first time detected gravitational waves?
+
+3
+00:00:13,760 --> 00:00:20,820
+So most of you have. And how many of you knows that numerical solution of partial
+
+4
+00:00:20,820 --> 00:00:28,520
+differential equations has contributed greatly to the discovery? Only a few
+
+5
+00:00:28,520 --> 00:00:34,760
+people. Let me tell you how this become the case. So if you look at the left-hand
+
+6
+00:00:34,760 --> 00:00:41,480
+side of this slide, you're gonna see the kind of signal detected on the two
+
+7
+00:00:41,480 --> 00:00:48,520
+observatories across the country. And the puzzle is of course how did the
+
+8
+00:00:48,520 --> 00:00:54,740
+physicists know that these kind of signals corresponds to the merger of two
+
+9
+00:00:54,740 --> 00:00:58,500
+black holes? Einstein has done a lot of research on this. He has done a lot of research on the
+
+10
+00:00:58,500 --> 00:01:05,580
+nonlinear equations. He has derived the equations almost a century ago. And it
+
+11
+00:01:05,580 --> 00:01:11,580
+turns out these equations are remarkably difficult to solve analytically, except
+
+12
+00:01:11,580 --> 00:01:17,880
+for very restricted, very simplified cases. And it turns out the merger of two
+
+13
+00:01:17,880 --> 00:01:26,520
+black holes has to be solved using numerical techniques. So people have to
+
+14
+00:01:26,520 --> 00:01:28,500
+put Einstein's field equation, which is a partial differential equation, a nonlinear
+
+15
+00:01:28,500 --> 00:01:33,880
+equation, and a partial differential equation. Discretize it using numerical methods, put
+
+16
+00:01:33,880 --> 00:01:40,280
+it on the supercomputer, and crank it for days or weeks to get the kind of signal
+
+17
+00:01:40,280 --> 00:01:46,780
+that could be emitted by the merger of two black holes. This is amazing to me
+
+18
+00:01:46,780 --> 00:01:53,460
+because when people are simulating this, they didn't even know this actually
+
+19
+00:01:53,460 --> 00:01:58,500
+existed. That was before the observation. That's
+
+20
+00:01:58,500 --> 00:02:07,740
+just in some cases, in some sense, a prediction by purely physical and mathematical and numerical
+
+21
+00:02:07,740 --> 00:02:18,520
+deduction. And then last year, people actually detected a wave that corresponds exactly
+
+22
+00:02:18,520 --> 00:02:22,580
+to the kind of signal that was predicted by the numerical solution of partial differential
+
+23
+00:02:22,580 --> 00:02:28,500
+equations. So this is, to me, is a very motivational example in science.
+
+24
+00:02:28,500 --> 00:02:38,760
+And I just want you to know it's really very useful, mainly for real life science.
+
+25
+00:02:38,760 --> 00:02:42,480
+Especially, for the kind of work that we can do today.
+
+26
+00:02:42,480 --> 00:02:46,940
+It's a pretty sophisticated machine, but not always.
+
+27
+00:02:46,940 --> 00:02:52,880
+So we'll come back to the actual problem of waterahlen technology, in the following
+
+28
+00:02:52,880 --> 00:02:53,880
+minutes.
+
+29
+00:02:53,880 --> 00:02:54,960
+And the end result is significant.
+
+30
+00:02:54,960 --> 00:02:57,680
+The contrast between these sufferings in an earthquake and an spaceship.
+
+31
+00:02:57,680 --> 00:02:58,420
+Is
+
+32
+00:02:58,420 --> 00:03:05,960
+It's also a brand new engine. If you zoom into the engine, the engine itself is a very complex machinery.
+
+33
+00:03:06,800 --> 00:03:07,900
+And
+
+34
+00:03:07,900 --> 00:03:12,000
+if you even zoom into the first stage of
+
+35
+00:03:12,820 --> 00:03:14,820
+the turbine, which is
+
+36
+00:03:16,000 --> 00:03:22,320
+directly after the combustion chamber that burns the fuel at very high temperatures, the turbine itself,
+
+37
+00:03:22,960 --> 00:03:27,440
+if you look at just the components by itself, it's a very complex machinery by itself.
+
+38
+00:03:28,420 --> 00:03:34,140
+And the question is how do engineers actually design this type of machineries,
+
+39
+00:03:34,780 --> 00:03:42,300
+given that they can't really see how it operates because it's inside the turbine, the temperature is so high that
+
+40
+00:03:43,240 --> 00:03:48,680
+the flow can basically melt any metal you can conceive of putting into there.
+
+41
+00:03:49,160 --> 00:03:54,140
+So it's very difficult to measure anything inside there. Of course, you can't see anything inside there.
+
+42
+00:03:55,180 --> 00:03:57,740
+How do people design these kind of things?
+
+43
+00:03:58,420 --> 00:04:04,700
+People design these kind of machineries by numerically solving partial differential equations.
+
+44
+00:04:05,800 --> 00:04:10,580
+For example, if you just zoom into the trailing edge of the turbine blade,
+
+45
+00:04:10,900 --> 00:04:14,720
+which is a small part of the whole engine, which is a small part of the whole airplane,
+
+46
+00:04:15,520 --> 00:04:17,940
+the simulation looks like that.
+
+47
+00:04:19,240 --> 00:04:21,360
+So this is a solution of
+
+48
+00:04:22,440 --> 00:04:28,400
+partial differential equation that governs the fluid flow of the hot gas going through the trailing edge of the turbine.
+
+49
+00:04:28,740 --> 00:04:30,740
+And the solution is to measure the temperature of the turbine.
+
+50
+00:04:30,740 --> 00:04:37,900
+And through that, people can predict how much heat is going into the turbine from the blade.
+
+51
+00:04:38,280 --> 00:04:41,940
+And people can predict what is the maximum temperature on the blade,
+
+52
+00:04:42,480 --> 00:04:50,020
+and whether the blade can sustain that kind of temperature under the given stress, which is also simulated numerically.
+
+53
+00:04:50,400 --> 00:04:54,800
+And they can predict, is this design good enough?
+
+54
+00:04:54,800 --> 00:04:58,160
+Is this design going to have a sufficiently long life?
+
+55
+00:04:58,420 --> 00:05:00,420
+That you can put it in the blade?
+
+56
+00:05:00,420 --> 00:05:06,240
+Or is the local temperature too high so that I have to redesign the blade
+
+57
+00:05:07,280 --> 00:05:14,480
+so that the temperature can be lower and can sustain this type of stress and heat for longer time?
+
+58
+00:05:15,540 --> 00:05:19,420
+And this kind of situation also happens a lot, I'm sure, in nuclear engineering.
+
+59
+00:05:21,720 --> 00:05:27,240
+Because the amount of power you can generate in nuclear reactor is really
+
+60
+00:05:28,420 --> 00:05:34,060
+determined by how much heat you can carry from the nuclear reaction
+
+61
+00:05:34,580 --> 00:05:38,240
+to the outside and do some mechanical work.
+
+62
+00:05:39,240 --> 00:05:40,600
+And
+
+63
+00:05:40,600 --> 00:05:45,660
+in the engineering field, this is news also from about a year ago.
+
+64
+00:05:46,660 --> 00:05:54,660
+President Obama issued the executive order establishing the so-called National Strategic Computing Initiative
+
+65
+00:05:55,900 --> 00:05:58,400
+to ensure that the U.S. continues leading
+
+66
+00:05:58,420 --> 00:06:00,420
+in the field over the coming decades.
+
+67
+00:06:02,240 --> 00:06:11,640
+And the executive order basically mandates that the U.S. is going to develop larger computers,
+
+68
+00:06:11,640 --> 00:06:13,640
+better computing technologies.
+
+69
+00:06:14,320 --> 00:06:21,560
+And the motivation for that is the kind of computational fluid dynamics simulations.
+
+70
+00:06:22,420 --> 00:06:27,540
+And they know it has been an important tool in aircraft design since the 1980s.
+
+71
+00:06:28,420 --> 00:06:34,420
+But it's also limited by the amount of computing power we have.
+
+72
+00:06:36,420 --> 00:06:43,220
+And in order to be able to design better engineering products, we need bigger computers,
+
+73
+00:06:43,660 --> 00:06:48,180
+better numerical methods for solving these kind of partial differential equations.
+
+74
+00:06:50,100 --> 00:06:58,280
+So numerically solving partial differential equations has been a huge thing in engineering and is going to be continued to be a huge thing and
+
+75
+00:06:58,420 --> 00:07:00,420
+even bigger in engineering in the future.
+
+76
+00:07:02,660 --> 00:07:11,460
+So these two motivations in science and engineering, they are very advanced things.
+
+77
+00:07:12,440 --> 00:07:18,420
+But numerical solution of partial differential equations has also been in our daily life
+
+78
+00:07:19,540 --> 00:07:21,780
+for probably as long as we can remember.
+
+79
+00:07:22,820 --> 00:07:25,660
+An example is weather forecast.
+
+80
+00:07:26,260 --> 00:07:28,260
+So that's weather forecast of
+
+81
+00:07:28,420 --> 00:07:30,420
+here in the next few days.
+
+82
+00:07:32,420 --> 00:07:43,420
+And many of us didn't really think about it, but the forecast is achieved through numerically solving a set of partial differential equations
+
+83
+00:07:43,420 --> 00:07:47,420
+that governs the evolution of the atmosphere.
+
+84
+00:07:49,420 --> 00:07:57,420
+And in that numerical solution, the differential equation doesn't know anything about, for example, hurricanes.
+
+85
+00:07:57,420 --> 00:07:58,420
+It only knows about the weather.
+
+86
+00:07:58,420 --> 00:08:06,420
+It only knows how does the velocity and pressure and humidity change corresponding to the environment around them.
+
+87
+00:08:07,420 --> 00:08:18,420
+But once you put these equations into the computer, you will see all kinds of phenomenons like hurricanes and polar vortices and things like that.
+
+88
+00:08:19,420 --> 00:08:22,420
+And this is pretty amazing to me.
+
+89
+00:08:22,420 --> 00:08:26,420
+The accuracy of numerical simulations has gone up
+
+90
+00:08:26,420 --> 00:08:27,420
+over the years.
+
+91
+00:08:28,420 --> 00:08:32,420
+And so does the accuracy of weather forecast.
+
+92
+00:08:36,420 --> 00:08:45,420
+And by the way, weather forecast is an extremely difficult thing to do, especially well into the future because of something called chaos.
+
+93
+00:08:46,420 --> 00:08:47,420
+And
+
+94
+00:08:48,420 --> 00:08:53,420
+exponential increase in the accuracy of numerical simulations is going to get you only
+
+95
+00:08:54,420 --> 00:08:56,420
+linear increase or incremental increase in how many days.
+
+96
+00:08:57,420 --> 00:08:59,420
+You can forecast in the future.
+
+97
+00:09:00,420 --> 00:09:10,420
+So the difference between being able to forecast three days and five days is really all those of magnitude larger computing power you can put into solving these equations.
+

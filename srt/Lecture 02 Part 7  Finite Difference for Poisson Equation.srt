@@ -1,0 +1,536 @@
+1
+00:00:00,000 --> 00:00:12,500
+Remember elliptic equations is almost like a special case for the heat equation, x squared,
+
+2
+00:00:12,500 --> 00:00:22,000
+except for two differences.
+
+3
+00:00:22,000 --> 00:00:31,000
+One difference is that I'm going to add f of x onto the right hand side.
+
+4
+00:00:31,000 --> 00:00:36,080
+The other difference is I'm going to make this term equal to zero, which makes it equilibrium.
+
+5
+00:00:36,080 --> 00:00:40,880
+So I'm going to make it equal to zero.
+
+6
+00:00:40,880 --> 00:00:49,200
+We already discussed how to discretize this term, and do we know how do we add a function
+
+7
+00:00:49,200 --> 00:00:51,760
+of x onto the discretization?
+
+8
+00:00:51,760 --> 00:00:51,880
+Okay.
+
+9
+00:00:51,880 --> 00:00:51,960
+Okay.
+
+10
+00:00:51,960 --> 00:00:51,980
+Okay.
+
+11
+00:00:52,000 --> 00:00:52,100
+Okay.
+
+12
+00:00:52,100 --> 00:00:52,160
+Okay.
+
+13
+00:00:52,160 --> 00:00:52,220
+Okay.
+
+14
+00:00:52,220 --> 00:00:52,240
+Okay.
+
+15
+00:00:52,240 --> 00:00:52,300
+Okay.
+
+16
+00:00:52,300 --> 00:00:52,340
+Okay.
+
+17
+00:00:52,340 --> 00:00:52,420
+Okay.
+
+18
+00:00:52,420 --> 00:00:52,440
+Okay.
+
+19
+00:00:52,440 --> 00:00:52,460
+Okay.
+
+20
+00:00:52,460 --> 00:00:52,580
+Okay.
+
+21
+00:00:52,580 --> 00:00:52,640
+Okay.
+
+22
+00:00:52,640 --> 00:00:52,960
+Okay.
+
+23
+00:00:52,960 --> 00:00:52,980
+Okay.
+
+24
+00:00:52,980 --> 00:00:53,040
+Okay.
+
+25
+00:00:53,040 --> 00:00:53,080
+Okay.
+
+26
+00:00:53,080 --> 00:00:53,500
+Okay.
+
+27
+00:00:53,500 --> 00:00:53,880
+Okay.
+
+28
+00:00:53,880 --> 00:00:54,020
+Okay.
+
+29
+00:00:54,020 --> 00:00:54,140
+Okay.
+
+30
+00:00:54,140 --> 00:00:54,200
+Okay.
+
+31
+00:00:54,200 --> 00:00:54,340
+Okay.
+
+32
+00:00:54,340 --> 00:00:55,960
+So we already discussed this term.
+
+33
+00:00:56,040 --> 00:01:04,780
+If the left hand side is equal to zero, we get a vector of zeros, which replaces d u d t,
+
+34
+00:01:04,960 --> 00:01:15,280
+d vector u d t, equal to a matrix, let me just call it a, times the same vector u.
+
+35
+00:01:15,540 --> 00:01:18,340
+So u1, et cetera, to u n minus one.
+
+36
+00:01:18,340 --> 00:01:21,880
+And if we have boundary conditions, we're going to say that we're going to have a vector
+
+37
+00:01:21,880 --> 00:01:21,980
+u 1, et cetera, to u n minus one.
+
+38
+00:01:21,980 --> 00:01:32,680
+going to be adding, we are going to be adding let's say a b1 0 and b n minus 1.
+
+39
+00:01:32,680 --> 00:01:42,680
+Right? So how do we add this f of x onto this equation? Yeah?
+
+40
+00:01:42,680 --> 00:01:47,680
+It's just a vector with the sampling point of f.
+
+41
+00:01:47,680 --> 00:01:56,680
+Exactly. It's just a vector of the samples of f at delta x, 2 delta x, 3 delta x, etc.
+
+42
+00:01:56,680 --> 00:02:01,680
+So we are going to be discretizing f using the same way.
+
+43
+00:02:01,680 --> 00:02:07,680
+f is defined as f at i delta x.
+
+44
+00:02:07,680 --> 00:02:16,680
+So now this, instead of an ODE, what we get?
+
+45
+00:02:16,680 --> 00:02:17,680
+We get a linear equation.
+
+46
+00:02:17,680 --> 00:02:19,680
+Right?
+
+47
+00:02:19,680 --> 00:02:25,680
+Ax plus, if you call this just a vector c,
+
+48
+00:02:25,680 --> 00:02:29,680
+ax plus au plus c equal to 0.
+
+49
+00:02:29,680 --> 00:02:32,680
+In MATLAB, how do you solve it?
+
+50
+00:02:32,680 --> 00:02:34,680
+Backslash.
+
+51
+00:02:34,680 --> 00:02:36,680
+Backslash, right.
+
+52
+00:02:36,680 --> 00:02:42,680
+So for example, in MATLAB, before I used a lot of, I used ODE45,
+
+53
+00:02:42,680 --> 00:02:46,680
+it went through thousands of time steps to solve this equation.
+
+54
+00:02:46,680 --> 00:02:47,680
+Right?
+
+55
+00:02:47,680 --> 00:02:54,680
+But instead, I can just solve the same equation using what?
+
+56
+00:02:54,680 --> 00:03:00,680
+u equal to a backslash b, actually minus b.
+
+57
+00:03:00,680 --> 00:03:02,680
+Right?
+
+58
+00:03:02,680 --> 00:03:06,680
+Because I want to solve au plus b equal to 0.
+
+59
+00:03:06,680 --> 00:03:09,680
+Here I don't have any right hand side.
+
+60
+00:03:09,680 --> 00:03:11,680
+Okay?
+
+61
+00:03:11,680 --> 00:03:14,680
+If I close all.
+
+62
+00:03:14,680 --> 00:03:16,680
+If I plot u, I get the same thing.
+
+63
+00:03:16,680 --> 00:03:18,680
+I get the same thing.
+
+64
+00:03:18,680 --> 00:03:19,680
+All right?
+
+65
+00:03:19,680 --> 00:03:23,680
+So that's how we solve elliptic equations.
+
+66
+00:03:23,680 --> 00:03:24,680
+Question?
+
+67
+00:03:24,680 --> 00:03:28,680
+Yeah, but only in the case that you're interested in the final steady state.
+
+68
+00:03:28,680 --> 00:03:30,680
+Only when I'm interested in the final steady state.
+
+69
+00:03:30,680 --> 00:03:31,680
+Exactly.
+
+70
+00:03:31,680 --> 00:03:32,680
+Exactly.
+
+71
+00:03:32,680 --> 00:03:35,680
+So that's what characterizes elliptic equations.
+
+72
+00:03:35,680 --> 00:03:39,680
+I'll tell you a little bit, like, what's the difference between hyperbolic and elliptic,
+
+73
+00:03:39,680 --> 00:03:42,680
+sorry, parabolic and elliptic equations.
+
+74
+00:03:42,680 --> 00:03:45,680
+So, so when you don't have any time derivative,
+
+75
+00:03:45,680 --> 00:03:48,680
+you can solve the equation by backslash.
+
+76
+00:03:48,680 --> 00:03:54,680
+And if I define some right hand side, let's say I have an f that is equal to 1,
+
+77
+00:03:54,680 --> 00:03:56,680
+n minus 1, 1.
+
+78
+00:03:56,680 --> 00:04:00,680
+So I have a right hand side f is equal to constant 1.
+
+79
+00:04:00,680 --> 00:04:07,680
+What I'm going to be solving is au plus b plus f equal to 0,
+
+80
+00:04:07,680 --> 00:04:10,680
+which makes minus b minus f,
+
+81
+00:04:10,680 --> 00:04:12,680
+which is the same as the time derivative.
+
+82
+00:04:12,680 --> 00:04:14,680
+So I can solve the equation.
+
+83
+00:04:14,680 --> 00:04:19,680
+I get plus b minus f to be the appropriate right hand side.
+
+84
+00:04:19,680 --> 00:04:21,680
+If I plot you again,
+
+85
+00:04:21,680 --> 00:04:23,680
+here's what I get.
+
+86
+00:04:23,680 --> 00:04:27,680
+We get a slight curvature.
+
+87
+00:04:29,680 --> 00:04:30,680
+Get a slight curvature.
+
+88
+00:04:30,680 --> 00:04:39,680
+Is that what we should have?
+
+89
+00:04:39,680 --> 00:04:41,680
+I think...
+
+90
+00:04:41,680 --> 00:04:44,680
+Sor the second derivative plus one
+
+91
+00:04:44,680 --> 00:04:49,540
+equal to zero which makes the second order derivative to be negative right
+
+92
+00:04:49,540 --> 00:04:56,400
+which makes the line go that way all right so that's what we should get and
+
+93
+00:04:56,400 --> 00:05:06,480
+if you increase F by a hundred you get something a lot more curvy so that's
+
+94
+00:05:06,480 --> 00:05:13,560
+that's solving elliptic equations and the difference between elliptic
+
+95
+00:05:13,560 --> 00:05:23,940
+equations and parabolic equations so remember what we had is the domain of
+
+96
+00:05:23,940 --> 00:05:29,340
+dependence so I'm not going to be talking about the meaning of elliptic
+
+97
+00:05:29,340 --> 00:05:36,900
+and parabolic because it relates to some analytical partial differential equation
+
+98
+00:05:36,900 --> 00:05:42,800
+theory but I'm just going to tell you in terms of behavior how do they behave
+
+99
+00:05:42,800 --> 00:05:43,320
+differently
+
+100
+00:05:43,560 --> 00:05:51,360
+so elliptic equation works in space and time that's the physical interpretation
+
+101
+00:05:51,360 --> 00:05:56,800
+of it in mathematics mathematicians may not care about the difference between
+
+102
+00:05:56,800 --> 00:06:01,500
+space and time right because for them they are basically independent variables
+
+103
+00:06:01,500 --> 00:06:06,960
+of a function but when we talk about difference in different types of
+
+104
+00:06:06,960 --> 00:06:13,480
+equations we can think of for parabolic equations there is one special coordinate
+
+105
+00:06:13,560 --> 00:06:18,760
+we can just call it time and that special coordinate has such a feature
+
+106
+00:06:18,760 --> 00:06:23,380
+that if you introduced a perturbation to the differential equation to the
+
+107
+00:06:23,380 --> 00:06:29,600
+solution either to the solution or to the differential equation itself at a
+
+108
+00:06:29,600 --> 00:06:35,880
+particular space in time that perturbation is going to change the
+
+109
+00:06:35,880 --> 00:06:43,560
+solution not before that particular time but after that particular time right and
+
+110
+00:06:43,560 --> 00:06:48,720
+Basically that makes sense if you solve the heat equation for example. If you add
+
+111
+00:06:48,720 --> 00:06:54,360
+heat at a particular point in space at a particular point in time, the solution,
+
+112
+00:06:54,360 --> 00:06:58,560
+the temperature field is going to be changed not before you add that heat but
+
+113
+00:06:58,560 --> 00:07:04,620
+after you add that heat. And because heat, according to heat equation, it diffuses
+
+114
+00:07:04,620 --> 00:07:11,640
+instantaneously. There is no speed of diffusion for heat. The solution is going
+
+115
+00:07:11,640 --> 00:07:18,000
+to be changed immediately after the time you add the heat. The change is
+
+116
+00:07:18,000 --> 00:07:25,840
+going to be very very small, far away from the heat source, very recent after
+
+117
+00:07:25,840 --> 00:07:31,360
+the addition, but it'll be different. So parabolic equation means that there
+
+118
+00:07:31,360 --> 00:07:36,520
+exists such a special coordinate, a special independent variable for which
+
+119
+00:07:36,520 --> 00:07:41,620
+that it behaves like time. If you put up the equation at a particular point in
+
+120
+00:07:41,620 --> 00:07:48,240
+time, the solution later is going to be different. Elliptic equation does not
+
+121
+00:07:48,240 --> 00:07:55,180
+have that special coordinate, so that's why we usually call it x. Instead of t we
+
+122
+00:07:55,180 --> 00:08:02,800
+call it y, think of just that two spatial dimensions. And, for example, the more
+
+123
+00:08:02,800 --> 00:08:08,740
+general case of this is, we also have two spatial dimensions, facelift atizza
+
+124
+00:08:08,740 --> 00:08:11,580
+arson. The second load derivative in X and second
+
+125
+00:08:11,580 --> 00:08:11,620
+low- issue in two over R. and n один dados. And now it's two morequin dive in f.
+
+126
+00:08:11,620 --> 00:08:17,920
+the derivative in y. That equation does not have neither x nor y is a special
+
+127
+00:08:17,920 --> 00:08:25,060
+coordinate. If you change, if you put a change in the in the equation, let's say
+
+128
+00:08:25,060 --> 00:08:31,960
+plus, if you change the f at a particular x and y, the solution is not only going
+
+129
+00:08:31,960 --> 00:08:35,880
+to be different after a particular y, but it's going to be different everywhere.
+
+130
+00:08:35,880 --> 00:08:42,120
+It's going to change globally. So elliptic equations are the ones without that
+
+131
+00:08:42,120 --> 00:09:03,400
+special time-like coordinate. Yeah, this is parabolic, this is elliptic. All right.
+
+132
+00:09:03,400 --> 00:09:05,860
+So if you think physically, it's
+
+133
+00:09:05,880 --> 00:09:10,440
+pretty easy to distinguish an elliptic equation. It's one basically without time,
+
+134
+00:09:10,440 --> 00:09:14,500
+a steady-state type of solution.
+

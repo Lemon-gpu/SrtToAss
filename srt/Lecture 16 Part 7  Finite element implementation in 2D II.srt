@@ -1,0 +1,640 @@
+1
+00:00:00,000 --> 00:00:16,200
+Another thing is if you sum up A over one of the dimensions, it should be zero everywhere.
+
+2
+00:00:16,200 --> 00:00:25,860
+And that's just because if you look at the formula, if you sum up over all the i's,
+
+3
+00:00:25,860 --> 00:00:45,660
+if you sum up over all the i's, over each element, a, k, the sum of the three gradients should be what?
+
+4
+00:00:47,660 --> 00:00:53,240
+So if we have three basis functions that lie on a triangle,
+
+5
+00:00:53,580 --> 00:00:55,840
+every basis function is one at one of the vertices.
+
+6
+00:00:55,860 --> 00:00:57,940
+And zero at the other two vertices.
+
+7
+00:00:58,360 --> 00:01:01,300
+If you sum up these three basis functions, what do you get?
+
+8
+00:01:03,000 --> 00:01:08,220
+The sum of the three basis functions should be equal to what at every vertex?
+
+9
+00:01:09,060 --> 00:01:10,280
+Should be one, right?
+
+10
+00:01:10,620 --> 00:01:12,120
+So the whole basis function should be one.
+
+11
+00:01:12,300 --> 00:01:16,000
+The whole summation should be one across the whole element.
+
+12
+00:01:17,080 --> 00:01:21,460
+Therefore, the gradient, the summation of the three gradients should be what?
+
+13
+00:01:23,980 --> 00:01:24,740
+Zero, right?
+
+14
+00:01:24,820 --> 00:01:25,840
+Because the summation of the gradients should be one.
+
+15
+00:01:25,860 --> 00:01:28,920
+The gradients is equal to the gradient of the summation, which is a constant.
+
+16
+00:01:29,520 --> 00:01:32,720
+So if you sum over the gradients, it should be one.
+
+17
+00:01:32,880 --> 00:01:38,700
+So therefore, when you sum over each row, you should get exactly zero for the matrix A.
+
+18
+00:01:39,680 --> 00:01:42,880
+And that also, of course, means the matrix is singular.
+
+19
+00:01:44,380 --> 00:01:46,380
+We haven't defined boundary conditions yet.
+
+20
+00:01:46,640 --> 00:01:49,440
+The matrix without the boundary condition is going to be singular.
+
+21
+00:01:49,440 --> 00:01:51,060
+All right.
+
+22
+00:01:51,400 --> 00:01:54,640
+So now let's figure out how do we set the boundary condition.
+
+23
+00:01:55,860 --> 00:02:01,800
+So now we have here, remember we figured out all the boundary indices, IB.
+
+24
+00:02:02,920 --> 00:02:14,520
+So let's define a logical array that is true for all the interior points and false for all the boundary points.
+
+25
+00:02:15,520 --> 00:02:23,300
+So let's say, okay, interior is equal to one's number of points, one.
+
+26
+00:02:24,020 --> 00:02:24,620
+Okay.
+
+27
+00:02:25,860 --> 00:02:33,020
+Interior is equal to, okay, so let's say we already have IB, right, being the boundary points.
+
+28
+00:02:33,600 --> 00:02:35,300
+IB, is it IB here?
+
+29
+00:02:36,180 --> 00:02:38,800
+IB, yes, is equal to zero.
+
+30
+00:02:39,160 --> 00:02:43,300
+So interior is going to be one in the interior and zero on the boundary.
+
+31
+00:02:44,000 --> 00:02:47,120
+And let's convert it into a logical array.
+
+32
+00:02:48,120 --> 00:02:50,980
+So that instead of one and zero, it will be true and false.
+
+33
+00:02:50,980 --> 00:02:55,240
+That will allow us to index the matrix with that logical array.
+
+34
+00:02:55,860 --> 00:03:00,000
+So my A is going to be A interior, interior.
+
+35
+00:03:00,000 --> 00:03:00,180
+Interior.
+
+36
+00:03:01,920 --> 00:03:02,600
+Interior.
+
+37
+00:03:08,760 --> 00:03:09,440
+Okay.
+
+38
+00:03:10,440 --> 00:03:20,620
+So that will reduce the dimension of the matrix, get rid of the boundary dimension, the boundary grid points that I don't need in the matrix.
+
+39
+00:03:21,360 --> 00:03:22,800
+So if I run that.
+
+40
+00:03:22,800 --> 00:03:25,740
+Uh-oh.
+
+41
+00:03:25,860 --> 00:03:26,960
+IP.
+
+42
+00:03:27,520 --> 00:03:27,840
+Okay.
+
+43
+00:03:29,100 --> 00:03:30,080
+MP here.
+
+44
+00:03:30,240 --> 00:03:30,540
+Thanks.
+
+45
+00:03:32,460 --> 00:03:33,100
+Okay.
+
+46
+00:03:33,340 --> 00:03:33,840
+It ran.
+
+47
+00:03:34,880 --> 00:03:39,940
+And so my A, I think, is going to be, yeah, its dimension is reduced.
+
+48
+00:03:40,160 --> 00:03:47,060
+It's no longer 406.
+
+49
+00:03:47,420 --> 00:03:52,080
+It's reduced by 70, which is exactly the number of boundary grid points.
+
+50
+00:03:53,640 --> 00:03:55,840
+And now if you plot the side.
+
+51
+00:03:55,860 --> 00:03:59,100
+So if you plot the side, you get the sum of A.
+
+52
+00:03:59,100 --> 00:04:00,620
+It won't be zero anymore.
+
+53
+00:04:00,620 --> 00:04:04,360
+It will be occasionally non-zero for.
+
+54
+00:04:04,360 --> 00:04:19,880
+So if you have any basis function that neighbors a boundary grid point, the summation won't be zero anymore.
+
+55
+00:04:19,880 --> 00:04:22,480
+Okay.
+
+56
+00:04:22,480 --> 00:04:25,660
+So let's also.
+
+57
+00:04:25,660 --> 00:04:29,660
+So plot the eigenvalues of A just to make sure we get.
+
+58
+00:04:30,280 --> 00:04:30,600
+Yeah.
+
+59
+00:04:30,740 --> 00:04:33,820
+So the eigenvalues of A, they are positive.
+
+60
+00:04:34,820 --> 00:04:37,540
+So you shouldn't get anything that is zero.
+
+61
+00:04:37,640 --> 00:04:37,800
+Okay.
+
+62
+00:04:37,880 --> 00:04:38,280
+That's good.
+
+63
+00:04:38,540 --> 00:04:40,860
+So we get a positive definite matrix.
+
+64
+00:04:41,940 --> 00:04:42,920
+Question so far?
+
+65
+00:04:44,680 --> 00:04:46,960
+Seems like it's working so far.
+
+66
+00:04:48,020 --> 00:04:49,840
+Now we have the matrix A.
+
+67
+00:04:49,840 --> 00:04:54,340
+The next step is to figure out the right-hand side.
+
+68
+00:04:55,280 --> 00:04:55,640
+So B.
+
+69
+00:04:55,660 --> 00:04:59,260
+So this is going to be the integral of the whole domain of phi.
+
+70
+00:04:59,260 --> 00:05:06,020
+So we have the integration of phiJ is equal to integral over the whole domain of phiJ times F.
+
+71
+00:05:06,020 --> 00:05:08,520
+And we set our F is equal to 1 in this case.
+
+72
+00:05:08,520 --> 00:05:18,560
+So it becomes the integral of phiJ dx.
+
+73
+00:05:18,560 --> 00:05:24,280
+Again, we split that up into into the elements.
+
+74
+00:05:24,280 --> 00:05:25,280
+It's going to be integration of phiJ at the element k dx.
+
+75
+00:05:25,280 --> 00:05:33,620
+integral is only non-zero in a small number of elements, right, 5 or 6. And on
+
+76
+00:05:33,620 --> 00:05:40,760
+each element, phi j is a piecewise linear function. So on each element, let's say
+
+77
+00:05:40,760 --> 00:05:45,500
+each element is, we have the triangle, the function is like that. So this is
+
+78
+00:05:45,500 --> 00:05:54,240
+phi j, and we have x and y. So phi j is gonna be a linear function. If I draw
+
+79
+00:05:54,240 --> 00:06:00,480
+the contours, it'll be like that. The integral of phi j over this triangle
+
+80
+00:06:00,480 --> 00:06:08,240
+here is gonna be the volume of this tetrahedral, right. The height of this
+
+81
+00:06:08,240 --> 00:06:13,800
+tetrahedral is equal to 1, the base is calculated as the area of the triangle.
+
+82
+00:06:13,800 --> 00:06:21,120
+So this is equal to what? The integral, which is the volume of the tetrahedral,
+
+83
+00:06:21,120 --> 00:06:24,240
+is equal to what?
+
+84
+00:06:24,240 --> 00:06:35,040
+Yes. Yes, 1 third times the base, which is a k times the height, which is 1. Right, so
+
+85
+00:06:35,040 --> 00:06:42,700
+it's a k over 3. Let's code it up here, a k over 3. The right-hand side is gonna be
+
+86
+00:06:42,700 --> 00:06:53,840
+also 0 of m p 1, right, and after I compute the matrix, I compute the right-hand side.
+
+87
+00:06:54,240 --> 00:07:01,940
+So the first is equal to a n divided by 3, with the configuration ofchts to be
+
+88
+00:07:01,940 --> 00:07:09,180
+equal to m r logging over m-1 and the function that an & brings us to .
+
+89
+00:07:09,180 --> 00:07:17,220
+For the value in the batch, we're gonna to meet the length of the bin a-1 and
+
+90
+00:07:17,220 --> 00:07:21,020
+we want to avoid this. So the norm of the gradient space outside is about 1,b-1,
+
+91
+00:07:21,020 --> 00:07:24,120
+and theối of the potatoes tells us how much it is, so each of them are equal to 1.
+
+92
+00:07:24,120 --> 00:07:31,060
+the three basis functions on that triangle is going to be the same.
+
+93
+00:07:31,060 --> 00:07:34,560
+So now we have a B, but the dimension of B is still too large.
+
+94
+00:07:34,560 --> 00:07:39,400
+We need to remove also all the boundary points.
+
+95
+00:07:39,400 --> 00:07:42,680
+So B is going to be B interior.
+
+96
+00:07:42,680 --> 00:07:43,680
+Right?
+
+97
+00:07:43,680 --> 00:07:48,220
+Let's run this.
+
+98
+00:07:48,220 --> 00:07:51,120
+Okay, so that seems to work.
+
+99
+00:07:51,120 --> 00:07:54,740
+We get an A 336 by 336.
+
+100
+00:07:54,740 --> 00:07:57,600
+We get a B 336 by 1.
+
+101
+00:07:57,600 --> 00:08:04,620
+So let's also define a U. U would have to be covering...in order to visualize U, U has
+
+102
+00:08:04,620 --> 00:08:07,140
+to be 0, MP, and 1.
+
+103
+00:08:07,140 --> 00:08:11,620
+But then we're going to set U of interior to be the solution.
+
+104
+00:08:11,620 --> 00:08:16,420
+It's going to be A backslash B. All right?
+
+105
+00:08:16,420 --> 00:08:20,880
+So that gives me the solution, the height of the interior basis functions.
+
+106
+00:08:20,880 --> 00:08:21,000
+Okay.
+
+107
+00:08:21,120 --> 00:08:26,580
+So the boundaries are going to be left to be 0.
+
+108
+00:08:26,580 --> 00:08:31,740
+So after this, let's run to see if that works.
+
+109
+00:08:31,740 --> 00:08:32,740
+Oops.
+
+110
+00:08:32,740 --> 00:08:33,740
+Zeros.
+
+111
+00:08:33,740 --> 00:08:36,520
+Okay, that worked.
+
+112
+00:08:36,520 --> 00:08:46,360
+We get a U. We get a U that is a bunch of zeros.
+
+113
+00:08:46,360 --> 00:08:47,360
+That's probably boundary.
+
+114
+00:08:47,360 --> 00:08:49,080
+Yeah, we get a bunch of non-zeros.
+
+115
+00:08:49,080 --> 00:08:50,880
+So let's visualize that.
+
+116
+00:08:51,120 --> 00:08:55,940
+Let's use the twice serve again.
+
+117
+00:08:55,940 --> 00:09:02,740
+We use the...T should be the same, this should be the same, and we just use U, right?
+
+118
+00:09:02,740 --> 00:09:07,600
+Okay, that's our solution.
+
+119
+00:09:07,600 --> 00:09:16,500
+So this is our boundary, and we are just solving the Poisson's equation with the constant right-hand
+
+120
+00:09:16,500 --> 00:09:17,600
+side.
+
+121
+00:09:17,600 --> 00:09:18,660
+Which means the curvature...or the Laplace...
+
+122
+00:09:18,660 --> 00:09:19,660
+Right.
+
+123
+00:09:19,660 --> 00:09:20,660
+Right.
+
+124
+00:09:20,660 --> 00:09:24,220
+So the Laplace-ing of the solution should be negative 1.
+
+125
+00:09:24,220 --> 00:09:25,220
+Right?
+
+126
+00:09:25,220 --> 00:09:30,200
+So it bumps up the curvature in the x-direction plus the curvature in the y-direction should
+
+127
+00:09:30,200 --> 00:09:32,840
+be equal to minus 1.
+
+128
+00:09:32,840 --> 00:09:38,060
+And that's the solution we get for the two-dimensional Poisson's equation.
+
+129
+00:09:38,060 --> 00:09:40,280
+And the boundaries are 0.
+
+130
+00:09:40,280 --> 00:09:41,280
+Okay.
+
+131
+00:09:41,280 --> 00:09:49,480
+So that completes our demo of what...how do we solve the...how do we use finite elements
+
+132
+00:09:49,480 --> 00:09:50,480
+for...
+
+133
+00:09:50,480 --> 00:09:54,400
+A two-dimensional problem.
+
+134
+00:09:54,400 --> 00:09:56,240
+Any questions about the procedure?
+
+135
+00:09:56,240 --> 00:09:57,240
+Yes?
+
+136
+00:09:57,240 --> 00:10:03,240
+I thought you showed that shape like that's...
+
+137
+00:10:03,240 --> 00:10:07,240
+Something like 5 or 6 inches.
+
+138
+00:10:07,240 --> 00:10:08,240
+Mm-hmm.
+
+139
+00:10:08,240 --> 00:10:11,040
+Why was it not a triangle?
+
+140
+00:10:11,040 --> 00:10:12,200
+Oh, yeah.
+
+141
+00:10:12,200 --> 00:10:16,660
+So each triangle is shared by three basis functions.
+
+142
+00:10:16,660 --> 00:10:19,040
+But each basis function doesn't neighbor only three triangles.
+
+143
+00:10:19,040 --> 00:10:20,040
+Okay.
+
+144
+00:10:20,040 --> 00:10:29,520
+So let me try to draw it.
+
+145
+00:10:29,520 --> 00:10:31,700
+So we have a triangle here.
+
+146
+00:10:31,700 --> 00:10:33,240
+We have a triangle here.
+
+147
+00:10:33,240 --> 00:10:34,580
+And we have a triangle here.
+
+148
+00:10:34,580 --> 00:10:37,980
+For example, we have a triangle here.
+
+149
+00:10:37,980 --> 00:10:43,140
+This basis function, if I draw the contours of that basis function, the basis function
+
+150
+00:10:43,140 --> 00:10:47,340
+looks like that.
+
+151
+00:10:47,340 --> 00:10:48,960
+The value of the basis function is 1 over here.
+
+152
+00:10:48,960 --> 00:10:49,960
+It's 0.
+
+153
+00:10:49,960 --> 00:10:50,960
+So the contours look like that.
+
+154
+00:10:50,960 --> 00:10:51,960
+So the contours look like that.
+
+155
+00:10:51,960 --> 00:11:03,380
+I said it's 5 or 6 because the basis function is non-zero in this case in five elements,
+
+156
+00:11:03,380 --> 00:11:05,600
+five triangles.
+
+157
+00:11:05,600 --> 00:11:07,600
+Is that the question you were asking?
+
+158
+00:11:07,600 --> 00:11:08,900
+Okay.
+
+159
+00:11:08,900 --> 00:11:14,580
+And you can imagine I can easily have another basis that is non-zero in six elements.
+
+160
+00:11:14,580 --> 00:11:15,580
+Right?
+

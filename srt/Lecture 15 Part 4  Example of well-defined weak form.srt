@@ -1,0 +1,648 @@
+1
+00:00:00,000 --> 00:00:07,840
+An example of a coercive bilinear form and a non-coercive bilinear form can be looked at,
+
+2
+00:00:08,660 --> 00:00:13,900
+can be given by just using the Poisson's equation for different boundary conditions.
+
+3
+00:00:15,040 --> 00:00:22,720
+So case one, the Poisson's equation, a of u, u, this is scary.
+
+4
+00:00:22,720 --> 00:00:33,600
+Okay, so a of u, u for Poisson's equation is going to be equal to integration from,
+
+5
+00:00:34,140 --> 00:00:41,180
+let's look at the domain from 0 to 1, du, dx, sorry, a of u and v, right?
+
+6
+00:00:44,300 --> 00:00:48,560
+Right, so coercivity, we only need to look at a of u and u, du, dx, dx.
+
+7
+00:00:48,560 --> 00:00:52,000
+So this is for Poisson's equation with,
+
+8
+00:00:52,720 --> 00:00:59,860
+with u0 equal to u1 equal to 0, right?
+
+9
+00:00:59,960 --> 00:01:07,020
+So this is, we have this boundary condition because when we integrate by parts,
+
+10
+00:01:07,980 --> 00:01:14,580
+we have removed the boundary terms, right?
+
+11
+00:01:14,580 --> 00:01:22,580
+Okay, so let's look at the, let's look at a of u and u,
+
+12
+00:01:22,720 --> 00:01:31,840
+compared to the norm of u squared in H1 norm.
+
+13
+00:01:32,220 --> 00:01:37,420
+So the norm of u squared in H1 norm is of course equal to integration of u squared
+
+14
+00:01:37,420 --> 00:01:41,260
+plus the derivative of u squared dx.
+
+15
+00:01:41,260 --> 00:01:49,040
+Okay, and so let's see.
+
+16
+00:01:52,720 --> 00:01:59,960
+So we can obviously see the continuity of this because the continuity can be analyzed
+
+17
+00:01:59,960 --> 00:02:00,960
+using Cauchy-Schwarz.
+
+18
+00:02:00,960 --> 00:02:05,560
+So if you have u and v, you have, so you can make the inequality here.
+
+19
+00:02:05,560 --> 00:02:08,220
+But the coercivity is the other way.
+
+20
+00:02:08,220 --> 00:02:15,060
+We can't, we can, we can already see that a of u and u is less or equal to the norm of u squared.
+
+21
+00:02:15,060 --> 00:02:17,720
+But coercivity needs the other way, right?
+
+22
+00:02:17,720 --> 00:02:22,560
+We need our a of u and u to be greater or equal to a constant times the norm.
+
+23
+00:02:22,720 --> 00:02:26,720
+So here we need to use the Poincare's inequality.
+
+24
+00:02:26,720 --> 00:02:38,720
+Poincare's inequality basically says that this term is less than a constant times this term.
+
+25
+00:02:38,720 --> 00:02:48,720
+So, so integration u's, well the Poincare's inequality really says the integration of u minus the u bar
+
+26
+00:02:48,720 --> 00:02:51,720
+squared dx is less than a constant.
+
+27
+00:02:51,720 --> 00:02:52,720
+Okay?
+
+28
+00:02:52,720 --> 00:02:55,720
+So we can say that the Poincare's inequality is less than a constant, called the Poincare's
+
+29
+00:02:55,720 --> 00:02:56,720
+constant.
+
+30
+00:02:56,720 --> 00:03:06,720
+Let me just say as, let me just say is p, it's the Poincare's constant, du dx squared
+
+31
+00:03:06,720 --> 00:03:08,220
+dx.
+
+32
+00:03:08,220 --> 00:03:09,320
+Okay.
+
+33
+00:03:09,320 --> 00:03:17,720
+And the saving grace here is that we can replace, so here u bar is equal to the average of u
+
+34
+00:03:17,720 --> 00:03:21,720
+in the space, in the space.
+
+35
+00:03:21,720 --> 00:03:30,960
+So we can say that we can basically replace this u bar with zero here because u satisfies
+
+36
+00:03:30,960 --> 00:03:33,220
+two zero boundary conditions.
+
+37
+00:03:33,220 --> 00:03:34,220
+Right?
+
+38
+00:03:34,220 --> 00:03:45,720
+So we can, we can say that u bar can be replaced by, let's see, u bar is equal to, let's see,
+
+39
+00:03:45,720 --> 00:03:50,720
+u bar is equal to, let's see, u bar is equal to, let's see, u bar is equal to, let's see,
+
+40
+00:03:50,720 --> 00:03:51,720
+2, 0.
+
+41
+00:03:51,720 --> 00:03:52,720
+This part of the expression is present in the list of these terms that we have learned
+
+42
+00:03:52,720 --> 00:03:54,720
+for the Poincare's inequality.
+
+43
+00:03:54,720 --> 00:03:55,720
+And actually this is something that I'm record of sometimes, because I've been using a alphabetic
+
+44
+00:03:55,720 --> 00:03:56,720
+table, this loop Puerto Iglesias, all of the dy multiplication that we have done,
+
+45
+00:03:56,720 --> 00:03:57,720
+procedure.
+
+46
+00:03:57,720 --> 00:03:58,720
+So what does Trainer a, weaken a removed from the judging order here and October
+
+47
+00:03:58,720 --> 00:04:10,720
+15th we found that since I think that this two extra words per typist is
+
+48
+00:04:10,720 --> 00:04:11,720
+note already.
+
+49
+00:04:11,720 --> 00:04:12,720
+Further.
+
+50
+00:04:12,720 --> 00:04:13,720
+It's more, interesting.
+
+51
+00:04:13,720 --> 00:04:14,720
+After question number two, I think that penalty number, we implicitly afraid of
+
+52
+00:04:14,720 --> 00:04:15,720
+solution of these whose � sebel volte prime be ever given.
+
+53
+00:04:15,720 --> 00:04:16,720
+Okay?
+
+54
+00:04:16,720 --> 00:04:17,720
+So, 밑ıl the equütas coupling, we can sum these this, this up.
+
+55
+00:04:17,720 --> 00:04:18,720
+And if we get this inverse, we help this.
+
+56
+00:04:18,720 --> 00:04:19,720
+Now what do we get?
+
+57
+00:04:19,720 --> 00:04:21,480
+The x goes from 0 to 1.
+
+58
+00:04:22,240 --> 00:04:27,500
+And for any x, the integral of x prime goes from 0 to x.
+
+59
+00:04:27,720 --> 00:04:33,100
+So we are integrating the derivative in such a triangular shape.
+
+60
+00:04:33,100 --> 00:04:35,020
+So we can rewrite.
+
+61
+00:04:35,240 --> 00:04:46,780
+We can pull the integration of x prime out and have the du dx and times this x prime times dx.
+
+62
+00:04:46,780 --> 00:04:49,140
+So we are replacing the integral.
+
+63
+00:04:49,320 --> 00:04:50,600
+We're integrating over this first.
+
+64
+00:04:51,480 --> 00:05:01,320
+And the integration over this part is actually integration of this times 1 minus x.
+
+65
+00:05:01,320 --> 00:05:08,680
+Because the length of the integration domain is 1 minus x.
+
+66
+00:05:09,620 --> 00:05:12,660
+So this is just a trick of when you have double integral.
+
+67
+00:05:14,700 --> 00:05:16,760
+You can exchange this to integral.
+
+68
+00:05:16,780 --> 00:05:21,920
+And because this is a function of delta x prime.
+
+69
+00:05:22,780 --> 00:05:27,060
+So you exchange the integrals and you get a lot simpler formula.
+
+70
+00:05:29,220 --> 00:05:39,520
+And this allows us to replace this u bar squared with the norm of the derivatives.
+
+71
+00:05:39,520 --> 00:05:46,740
+But through this, we can get the coercivity coefficient being a function of the Poincare constant.
+
+72
+00:05:46,780 --> 00:05:55,520
+So this allows us to bond the integration of u square with the integration of the derivative squared.
+
+73
+00:05:56,680 --> 00:06:00,260
+So this term can be pulled out as a function of du dx.
+
+74
+00:06:01,100 --> 00:06:04,140
+And that moves to the right-hand side.
+
+75
+00:06:04,540 --> 00:06:15,780
+So basically, we have integration of u square being less or equal to a certain constant times the integration of a certain constant.
+
+76
+00:06:15,780 --> 00:06:16,720
+Let's say p prime.
+
+77
+00:06:16,780 --> 00:06:21,880
+So we have integration of u square times the integration of du dx square.
+
+78
+00:06:22,420 --> 00:06:24,040
+And this is this term.
+
+79
+00:06:24,220 --> 00:06:29,780
+And then I still copy the same second order term, second term.
+
+80
+00:06:30,020 --> 00:06:31,080
+So that comes here.
+
+81
+00:06:31,220 --> 00:06:42,060
+So that gives us that the square of the h1 norm of u is less or equal to p prime plus 1 times the bilinear form.
+
+82
+00:06:43,660 --> 00:06:44,260
+Alright.
+
+83
+00:06:45,080 --> 00:06:46,760
+So that's a sketch of the proof.
+
+84
+00:06:46,960 --> 00:06:48,160
+We didn't go all the way through.
+
+85
+00:06:53,220 --> 00:07:04,600
+So a counter example of coercivity is when instead of having derisional boundary conditions, we have Newman boundary conditions.
+
+86
+00:07:06,260 --> 00:07:12,900
+So if we have Newman boundary conditions on both sides,
+
+87
+00:07:12,900 --> 00:07:14,300
+so du dx,
+
+88
+00:07:14,720 --> 00:07:16,760
+equal to 0 at,
+
+89
+00:07:16,960 --> 00:07:18,860
+x equal to 0 at 1,
+
+90
+00:07:20,300 --> 00:07:22,460
+we're going to see we don't have coercivity.
+
+91
+00:07:23,220 --> 00:07:29,140
+Because a of u and u is going to be equal to 0, 1, du dx,
+
+92
+00:07:29,460 --> 00:07:31,580
+square dx.
+
+93
+00:07:32,100 --> 00:07:38,480
+And the norm of u square is equal to u square plus du dx,
+
+94
+00:07:38,720 --> 00:07:40,100
+square dx.
+
+95
+00:07:41,100 --> 00:07:46,580
+It turns out we can have constant functions that are constant between 0 and 1.
+
+96
+00:07:46,780 --> 00:07:47,280
+Right.
+
+97
+00:07:47,280 --> 00:07:49,340
+They satisfy the boundary condition.
+
+98
+00:07:49,340 --> 00:07:56,220
+But their bilinear form can be arbitrarily small, actually can be 0.
+
+99
+00:07:56,220 --> 00:08:01,100
+While the h1 norm of u is going to be not 0.
+
+100
+00:08:01,100 --> 00:08:06,580
+So this is an example that we don't have coercivity.
+
+101
+00:08:06,580 --> 00:08:10,020
+And the weak form is not well defined.
+
+102
+00:08:10,020 --> 00:08:13,140
+It's not well posed.
+
+103
+00:08:13,140 --> 00:08:20,140
+So a of u, v equal to l of v not well posed.
+
+104
+00:08:20,140 --> 00:08:29,140
+And this is because if you have 0 Newman boundary conditions at both ends,
+
+105
+00:08:29,140 --> 00:08:34,140
+for Poisson's equation, if you put a forcing into the,
+
+106
+00:08:34,140 --> 00:08:39,140
+if you put a right hand side whose integral is not equal to 0,
+
+107
+00:08:39,140 --> 00:08:41,140
+then there is no solution.
+
+108
+00:08:41,140 --> 00:08:42,140
+Right.
+
+109
+00:08:42,140 --> 00:08:49,140
+Well, there is no solution because,
+
+110
+00:08:49,140 --> 00:08:57,140
+because you can, you can integrate the second order derivative of u over dx.
+
+111
+00:08:57,140 --> 00:09:02,140
+This is just the first order derivative of u at 0 and 1.
+
+112
+00:09:02,140 --> 00:09:07,140
+It has to be 0 if we have Newman, Newman boundary condition at both ends.
+
+113
+00:09:07,140 --> 00:09:09,140
+And because of the Poisson's equation,
+
+114
+00:09:09,140 --> 00:09:11,140
+this also has to equal to minus,
+
+115
+00:09:11,140 --> 00:09:14,140
+integration of the right hand side dx.
+
+116
+00:09:14,140 --> 00:09:22,140
+So of course, this can be a contradiction because f can be an arbitrary function whose integral doesn't have to be 0.
+
+117
+00:09:22,140 --> 00:09:23,140
+Right.
+
+118
+00:09:23,140 --> 00:09:26,140
+So you have a lot of cases where you don't have a solution.
+
+119
+00:09:26,140 --> 00:09:31,140
+And this can, this is reflected in the fact that the bilinear form is not coercive.
+
+120
+00:09:31,140 --> 00:09:33,140
+Yes.
+
+121
+00:09:33,140 --> 00:09:36,140
+The derivation is the same.
+
+122
+00:09:36,140 --> 00:09:38,140
+I mean, the whole thing is still unretaining.
+
+123
+00:09:38,140 --> 00:09:40,140
+What coercivity is there?
+
+124
+00:09:40,140 --> 00:09:46,140
+What coercivity actually represents the .
+
+125
+00:09:46,140 --> 00:09:52,140
+It means the, so, okay.
+
+126
+00:09:52,140 --> 00:10:03,140
+It means that it's a sufficient condition to guarantee that a is not singular in some sense.
+
+127
+00:10:03,140 --> 00:10:09,140
+So, so let me give an example of a bilinear form in a finite dimensional.
+
+128
+00:10:09,140 --> 00:10:11,140
+case.
+
+129
+00:10:11,140 --> 00:10:17,140
+So if u is in x is in Rn and v is in Rn.
+
+130
+00:10:17,140 --> 00:10:23,140
+So, so this, these are also perfectly reasonable spaces, right?
+
+131
+00:10:23,140 --> 00:10:25,140
+These are linear spaces.
+
+132
+00:10:25,140 --> 00:10:31,140
+And in this case, this a can be represented as a matrix.
+
+133
+00:10:35,140 --> 00:10:36,140
+Okay.
+
+134
+00:10:36,140 --> 00:10:38,140
+So a is a n by n.
+
+135
+00:10:39,140 --> 00:10:43,140
+So a is a n by n matrix.
+
+136
+00:10:43,140 --> 00:11:02,140
+Coercivity, coercivity means that a u transpose, u transpose a v has to be greater or equal to a constant times the norm of u times the norm of v.
+
+137
+00:11:02,140 --> 00:11:05,140
+Right.
+
+138
+00:11:05,140 --> 00:11:27,140
+So if you, if you know the singular value decomposition of a matrix, this basically says that if I can represent the matrix as a singular value decomposition, this is going to be.
+
+139
+00:11:27,140 --> 00:11:29,140
+So, okay.
+
+140
+00:11:29,140 --> 00:11:31,140
+So.
+
+141
+00:11:31,140 --> 00:11:33,140
+So this is a.
+
+142
+00:11:33,140 --> 00:11:41,140
+So both big U and big V, they are.
+
+143
+00:11:41,140 --> 00:11:44,140
+Both big U and big V.
+
+144
+00:11:44,140 --> 00:11:45,140
+Well, sorry.
+
+145
+00:11:45,140 --> 00:11:49,140
+So coercivity means like this has to be the same for the same U, right?
+
+146
+00:11:49,140 --> 00:11:51,140
+Sorry.
+
+147
+00:11:51,140 --> 00:11:54,140
+Both big U and big V, they are also normal matrices.
+
+148
+00:11:54,140 --> 00:11:58,140
+So, so U times U and V times V, they are going to be the same.
+
+149
+00:11:58,140 --> 00:12:01,140
+They are going to preserve the L2 norm.
+
+150
+00:12:01,140 --> 00:12:08,140
+So, so it basically says that the singular values cannot be zero.
+
+151
+00:12:08,140 --> 00:12:10,140
+The singular values cannot be zero.
+
+152
+00:12:10,140 --> 00:12:19,140
+And wait, actually, that's, that's not exactly, that's not exactly the case.
+
+153
+00:12:19,140 --> 00:12:20,140
+So, okay.
+
+154
+00:12:20,140 --> 00:12:29,140
+So, so it's only, only if a is a symmetric matrix, we can do this because the singular value decomposition is the same as eigenvalue decompositions.
+
+155
+00:12:29,140 --> 00:12:30,140
+So what we have is U transpose.
+
+156
+00:12:30,140 --> 00:12:32,140
+So what we have is U transpose.
+
+157
+00:12:32,140 --> 00:12:34,140
+For only for symmetric matrices.
+
+158
+00:12:34,140 --> 00:12:44,140
+And what this says is for symmetric matrices, the coercivity means the eigenvalues has to be all positive.
+
+159
+00:12:44,140 --> 00:12:45,140
+Right.
+
+160
+00:12:45,140 --> 00:12:55,140
+So, so for non-symmetric matrix matrices, positive definities of the matrix, I think it's hard to connect with the singular values.
+
+161
+00:12:55,140 --> 00:12:59,140
+So this is a one way for, at least for me to understand.
+
+162
+00:12:59,140 --> 00:13:07,140
+What coercivity means in a, basically by thinking in the finite dimensional case, it's just a matrix.
+

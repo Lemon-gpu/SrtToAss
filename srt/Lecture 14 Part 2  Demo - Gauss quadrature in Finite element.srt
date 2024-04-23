@@ -1,0 +1,860 @@
+1
+00:00:00,000 --> 00:00:08,240
+okay now our next demo is what if we have a function f that is not linear
+
+2
+00:00:08,240 --> 00:00:15,660
+okay remember if we have a function f that is not not a constant what we have
+
+3
+00:00:15,660 --> 00:00:24,900
+to do is to integrate this function within every interval right so so let's
+
+4
+00:00:24,900 --> 00:00:38,280
+give an example of if f is equal to let's say sine of pi x so sine of pi x
+
+5
+00:00:38,280 --> 00:00:42,300
+within 0 and 1 is going to be a sinusoidal function that goes up and
+
+6
+00:00:42,300 --> 00:00:49,020
+down and I constructed this such that we also are going to have an analytical
+
+7
+00:00:49,020 --> 00:00:54,780
+solution right we also going to have an analytical solution that is actually
+
+8
+00:00:54,780 --> 00:00:54,880
+unique to the problem so we're going to have an analytical solution that is actually
+
+9
+00:00:54,880 --> 00:01:00,280
+equal to sine of x times a coefficient because the second order derivative of
+
+10
+00:01:00,280 --> 00:01:07,300
+sine is actually minus pi square of sine right so we also have an analytical
+
+11
+00:01:07,300 --> 00:01:14,380
+solution and the BJ in this case is going to be split into two parts X X J
+
+12
+00:01:14,380 --> 00:01:24,520
+minus 1 so this is J to X J of a solution that goes from 0 to 1 which
+
+13
+00:01:24,520 --> 00:01:24,760
+means that we have a solution that is going to be a sinusoidal function that is
+
+14
+00:01:24,760 --> 00:01:25,180
+going to be a sinusoidal function that is going to be a sinusoidal function that is
+
+15
+00:01:25,180 --> 00:01:32,080
+out my X is going to be X minus X J minus 1 over X J minus X J minus 1 so
+
+16
+00:01:32,080 --> 00:01:46,540
+that's the form of the V J times sine of pi X DX plus X J to X J plus 1 and the
+
+17
+00:01:46,540 --> 00:01:54,640
+form of the function is going to be X minus X J over X J plus 1 minus X J on
+
+18
+00:01:54,640 --> 00:02:01,840
+also times sine of pi X DX so let's see how do we construct this function yes
+
+19
+00:02:06,520 --> 00:02:16,780
+5J oh yeah 5J is this hat functions right these are Phi 1 Phi 2 so each function is one over here
+
+20
+00:02:16,780 --> 00:02:22,120
+uh it is one at a particular grid point and zero at all other grid points it's piecewise constant
+
+21
+00:02:22,900 --> 00:02:24,520
+all right so this is
+
+22
+00:02:24,640 --> 00:02:29,560
+so this is our general equation of فn into f of jed and v .
+
+23
+00:02:32,080 --> 00:02:43,680
+In this particular equation we can even disease a sign coming out of a
+
+24
+00:02:43,680 --> 00:02:47,640
+illion point gV J into G and let's assume this is
+
+25
+00:02:47,640 --> 00:02:54,420
+the sign we set the function as a z wheels so we can use this for adding onion dice here
+
+26
+00:02:54,420 --> 00:03:06,680
+So for example, on the first interval, we can compute we have x1, which is 0, and x2.
+
+27
+00:03:06,680 --> 00:03:09,780
+So let's use these two grid points.
+
+28
+00:03:10,480 --> 00:03:14,360
+So let's compute the Gauss quadrature points and weights within that interval.
+
+29
+00:03:15,080 --> 00:03:17,440
+The way to use this is x and w.
+
+30
+00:03:17,740 --> 00:03:21,800
+These are x is the location of the Gauss quadrature points, and w are the weights.
+
+31
+00:03:21,800 --> 00:03:29,980
+And first of all, we give an n, which is the number of quadrature points.
+
+32
+00:03:30,460 --> 00:03:34,220
+In this case, let's try a quadrature points of 5 points.
+
+33
+00:03:34,500 --> 00:03:38,460
+And a and b are the intervals, which we give it x1 and x2.
+
+34
+00:03:39,740 --> 00:03:42,940
+So it gives me the x and the weights.
+
+35
+00:03:43,500 --> 00:03:51,120
+So x, as you notice, are a set of numbers that lies within x1 and x2.
+
+36
+00:03:51,120 --> 00:04:03,820
+So the maximum is 0.093, which is close to the right-hand side of the interval, but not quite.
+
+37
+00:04:04,080 --> 00:04:08,140
+The minimum is 0.046, which is close to 0, but not quite.
+
+38
+00:04:09,200 --> 00:04:14,160
+And the weights are a little bit larger in the middle than at the two ends.
+
+39
+00:04:15,460 --> 00:04:20,820
+So it's the spacing. The spacing is more sparse in the middle and more tight at the ends.
+
+40
+00:04:21,120 --> 00:04:22,120
+Alright.
+
+41
+00:04:22,580 --> 00:04:33,160
+So this can be used to compute the integral over the first interval.
+
+42
+00:04:34,500 --> 00:04:40,500
+So let's do this. Let's do x left, w left.
+
+43
+00:04:40,820 --> 00:04:46,380
+We are going to have a right pretty soon, because in order to compute the first entry of b,
+
+44
+00:04:46,480 --> 00:04:48,580
+we need to integrate over two intervals.
+
+45
+00:04:49,140 --> 00:04:50,900
+So we have the left.
+
+46
+00:04:51,120 --> 00:04:55,660
+So we have the left of both entries, and how do we approximate the integral?
+
+47
+00:04:55,960 --> 00:05:02,900
+Is the function we need to integrate this particular function at the grid points
+
+48
+00:05:04,860 --> 00:05:12,120
+times the weight corresponding to the grid point, and just sum over these five points.
+
+49
+00:05:13,440 --> 00:05:18,080
+So let's compute the number. Let's call it b of left.
+
+50
+00:05:18,200 --> 00:05:18,700
+Okay.
+
+51
+00:05:19,120 --> 00:05:21,100
+It's equal to
+
+52
+00:05:21,120 --> 00:05:24,420
+the grid point x left minus x of 1
+
+53
+00:05:24,420 --> 00:05:31,620
+divided by x i plus 1,
+
+54
+00:05:32,780 --> 00:05:35,680
+so in this case x2 minus x1.
+
+55
+00:05:36,340 --> 00:05:39,920
+This is the form of the basis function.
+
+56
+00:05:40,480 --> 00:05:44,980
+And times sine of pi times xl.
+
+57
+00:05:45,260 --> 00:05:47,440
+xl are the Gauss quadrature grid points.
+
+58
+00:05:47,440 --> 00:05:54,020
+And I multiply this value with the Gauss quadrature weights.
+
+59
+00:05:55,560 --> 00:06:02,080
+So these are going to give me five numbers.
+
+60
+00:06:03,280 --> 00:06:06,620
+If I sum over the five numbers,
+
+61
+00:06:06,620 --> 00:06:12,600
+this is going to give me the value of the function.
+
+62
+00:06:17,440 --> 00:06:19,700
+But the weights shouldn't be negative,
+
+63
+00:06:19,960 --> 00:06:21,400
+so I must give it...
+
+64
+00:06:21,400 --> 00:06:22,500
+Okay, so let me see.
+
+65
+00:06:29,280 --> 00:06:34,040
+So f of x is defined in a and b.
+
+66
+00:06:35,500 --> 00:06:37,840
+I simply evaluate it.
+
+67
+00:06:38,740 --> 00:06:40,140
+So what did I do?
+
+68
+00:06:40,280 --> 00:06:45,120
+I give it xa is x1 and b is x2.
+
+69
+00:06:46,320 --> 00:06:47,400
+So I must have...
+
+70
+00:06:47,440 --> 00:06:56,320
+I see.
+
+71
+00:06:56,460 --> 00:06:56,940
+Good point.
+
+72
+00:06:57,420 --> 00:07:01,400
+Okay, so I should have x equal to...
+
+73
+00:07:01,400 --> 00:07:03,600
+Okay, let's do this again.
+
+74
+00:07:06,060 --> 00:07:07,240
+Right, okay.
+
+75
+00:07:07,480 --> 00:07:09,640
+Now I have the original x.
+
+76
+00:07:10,180 --> 00:07:11,500
+I can do this.
+
+77
+00:07:11,860 --> 00:07:13,500
+So my weights are now positive.
+
+78
+00:07:15,000 --> 00:07:17,400
+And my xl is what I...
+
+79
+00:07:17,440 --> 00:07:18,260
+expect.
+
+80
+00:07:18,680 --> 00:07:22,280
+So now let's compute b left is equal to the same number.
+
+81
+00:07:22,500 --> 00:07:26,960
+This is the integral of the function I wanted to integrate in the first interval.
+
+82
+00:07:28,380 --> 00:07:30,440
+Okay, so I can also have...
+
+83
+00:07:31,560 --> 00:07:37,440
+my x right and w right being...
+
+84
+00:07:38,620 --> 00:07:43,320
+the Gauss quadrature points and weights in the second interval.
+
+85
+00:07:43,320 --> 00:07:46,840
+Okay, so this is my second interval.
+
+86
+00:07:47,440 --> 00:07:52,280
+And then I can also compute the right side of the quadrature.
+
+87
+00:07:52,280 --> 00:07:56,440
+Being summation of x right minus x2.
+
+88
+00:07:56,440 --> 00:07:59,440
+This is actually...
+
+89
+00:07:59,440 --> 00:08:00,440
+Wait.
+
+90
+00:08:00,440 --> 00:08:02,440
+It's xr.
+
+91
+00:08:02,440 --> 00:08:06,440
+I think I made a mistake in here.
+
+92
+00:08:06,440 --> 00:08:11,440
+What I needed actually is xi minus xi plus 1.
+
+93
+00:08:11,440 --> 00:08:16,320
+Because this basis function has to be zero at xi plus 1.
+
+94
+00:08:16,320 --> 00:08:16,880
+Right?
+
+95
+00:08:16,880 --> 00:08:17,000
+Okay.
+
+96
+00:08:17,000 --> 00:08:17,320
+Okay.
+
+97
+00:08:17,320 --> 00:08:19,320
+And there should be...
+
+98
+00:08:19,320 --> 00:08:21,320
+There also should be...
+
+99
+00:08:21,320 --> 00:08:23,320
+Should there be a minus sign?
+
+100
+00:08:23,320 --> 00:08:25,320
+Yeah, there should be a minus sign here.
+
+101
+00:08:25,320 --> 00:08:29,320
+So it's actually xi plus 1 minus x.
+
+102
+00:08:29,320 --> 00:08:36,320
+So this is going to give me a 1 at xj and give me a 0 at xj plus 1.
+
+103
+00:08:36,320 --> 00:08:37,320
+Right?
+
+104
+00:08:37,320 --> 00:08:39,320
+So it's a function that goes downwards.
+
+105
+00:08:39,320 --> 00:08:41,320
+Okay.
+
+106
+00:08:41,320 --> 00:08:43,320
+So now let's compute this function.
+
+107
+00:08:43,320 --> 00:08:45,320
+xr should be...
+
+108
+00:08:45,320 --> 00:08:47,320
+It should have x3 minus x1.
+
+109
+00:08:47,320 --> 00:09:01,320
+So it's going to be x3 minus xr divided by x3 minus x2 times sine of pi times xr times the wr.
+
+110
+00:09:01,320 --> 00:09:02,320
+Okay.
+
+111
+00:09:02,320 --> 00:09:10,320
+So this is going to give me the right side of this b1.
+
+112
+00:09:10,320 --> 00:09:11,320
+Right?
+
+113
+00:09:11,320 --> 00:09:15,320
+So I can have a b1.
+
+114
+00:09:15,320 --> 00:09:17,320
+It's going to be equal to b left plus 1.
+
+115
+00:09:17,320 --> 00:09:19,320
+So this must be right.
+
+116
+00:09:19,320 --> 00:09:21,320
+Of course this only computes one entry.
+
+117
+00:09:21,320 --> 00:09:24,320
+So let's do a loop of computing all these entries.
+
+118
+00:09:24,320 --> 00:09:29,320
+So let's go for i goes from 1 to n minus 1.
+
+119
+00:09:29,320 --> 00:09:31,320
+Okay.
+
+120
+00:09:31,320 --> 00:09:37,320
+And so what I'm going to compute is b left.
+
+121
+00:09:37,320 --> 00:09:43,320
+b left is going to be...
+
+122
+00:09:43,320 --> 00:09:44,320
+Oh, sorry.
+
+123
+00:09:44,320 --> 00:09:46,320
+I need to first compute the question.
+
+124
+00:09:46,320 --> 00:09:48,320
+So I'm going to compute the quadrature weights.
+
+125
+00:09:48,320 --> 00:09:55,320
+The quadrature weights on the left is going to be in between i and i plus 1.
+
+126
+00:09:55,320 --> 00:09:56,320
+Right?
+
+127
+00:09:56,320 --> 00:10:05,320
+And my x right and w right should be the quadrature points between i plus 1 and i plus 2.
+
+128
+00:10:05,320 --> 00:10:06,320
+Right?
+
+129
+00:10:06,320 --> 00:10:08,320
+So this gives me the quadrature weights.
+
+130
+00:10:08,320 --> 00:10:12,320
+And my...
+
+131
+00:10:12,320 --> 00:10:14,320
+My integral on the left side of the...
+
+132
+00:10:14,320 --> 00:10:19,320
+The integral on the right side of the grid point should be...
+
+133
+00:10:19,320 --> 00:10:28,320
+The value of the basis function should be xl minus xi divided by xi plus 1 minus xi.
+
+134
+00:10:28,320 --> 00:10:36,320
+So this is the linear function that goes from 0 to 1 when x goes from xi to xi plus 1.
+
+135
+00:10:36,320 --> 00:10:40,320
+Times sine of pi times xl times wl.
+
+136
+00:10:40,320 --> 00:10:43,320
+So this is correct, I think.
+
+137
+00:10:44,320 --> 00:10:45,320
+Okay.
+
+138
+00:10:45,320 --> 00:10:54,320
+And br is going to be equal to the summation of x now i plus 2.
+
+139
+00:10:54,320 --> 00:10:55,320
+Right?
+
+140
+00:10:55,320 --> 00:11:01,320
+Because I'm looking at the interval on the right side of this grid point.
+
+141
+00:11:01,320 --> 00:11:07,320
+And I have xi plus 2 minus xi plus 1.
+
+142
+00:11:07,320 --> 00:11:10,320
+This is right.
+
+143
+00:11:10,320 --> 00:11:13,320
+And my bi would be equal to bl plus br.
+
+144
+00:11:14,320 --> 00:11:17,320
+All right.
+
+145
+00:11:17,320 --> 00:11:18,320
+Okay.
+
+146
+00:11:18,320 --> 00:11:23,320
+So now I have the complete b field.
+
+147
+00:11:23,320 --> 00:11:24,320
+Let's do it again.
+
+148
+00:11:24,320 --> 00:11:29,320
+u is equal to a inverse times b.
+
+149
+00:11:29,320 --> 00:11:31,320
+So now I get my u again.
+
+150
+00:11:31,320 --> 00:11:33,320
+Let's close my previous plot.
+
+151
+00:11:33,320 --> 00:11:37,320
+And plot this u again.
+
+152
+00:11:37,320 --> 00:11:40,320
+Hmm.
+
+153
+00:11:40,320 --> 00:11:42,320
+This time I got something wrong.
+
+154
+00:11:42,320 --> 00:11:43,320
+Okay.
+
+155
+00:11:43,320 --> 00:11:46,320
+Got something that is not as good.
+
+156
+00:11:46,320 --> 00:11:50,320
+So let's plot my analytical solution again.
+
+157
+00:11:50,320 --> 00:11:56,320
+My u, phi, instead of equal to the quadratic.
+
+158
+00:11:56,320 --> 00:12:07,320
+We have sine of x, phi times pi divided by pi squared.
+
+159
+00:12:07,320 --> 00:12:08,320
+Okay.
+
+160
+00:12:08,320 --> 00:12:10,320
+And let's hold on.
+
+161
+00:12:10,320 --> 00:12:11,320
+And plot my analytical solution.
+
+162
+00:12:11,320 --> 00:12:13,320
+Let's see how they match.
+
+163
+00:12:13,320 --> 00:12:14,320
+Okay.
+
+164
+00:12:14,320 --> 00:12:16,320
+So I don't really get what I expected.
+
+165
+00:12:16,320 --> 00:12:23,320
+Can we find a bug in the code I have in the for loop?
+
+166
+00:12:23,320 --> 00:12:24,320
+Oh, yes.
+
+167
+00:12:24,320 --> 00:12:25,320
+I changed my x vector.
+
+168
+00:12:25,320 --> 00:12:26,320
+I need to redo the a matrix.
+
+169
+00:12:26,320 --> 00:12:27,320
+Yeah.
+
+170
+00:12:27,320 --> 00:12:28,320
+Thank you.
+
+171
+00:12:28,320 --> 00:12:29,320
+So let's do this.
+
+172
+00:12:29,320 --> 00:12:30,320
+My diagonal term is equal to the integral of x.
+
+173
+00:12:30,320 --> 00:12:31,320
+So I can do this.
+
+174
+00:12:31,320 --> 00:12:32,320
+So I can do this.
+
+175
+00:12:32,320 --> 00:12:33,320
+So I can do this.
+
+176
+00:12:33,320 --> 00:12:34,320
+So I can do this.
+
+177
+00:12:34,320 --> 00:12:35,320
+So I can do this.
+
+178
+00:12:35,320 --> 00:12:36,320
+So I can do this.
+
+179
+00:12:36,320 --> 00:12:37,320
+So I can do this.
+
+180
+00:12:37,320 --> 00:12:38,320
+So I can do this.
+
+181
+00:12:38,320 --> 00:12:39,320
+So I can do this.
+
+182
+00:12:39,320 --> 00:12:40,320
+So I can do this.
+
+183
+00:12:40,320 --> 00:12:41,320
+So I can do this.
+
+184
+00:12:41,320 --> 00:12:42,320
+So I can do this.
+
+185
+00:12:42,320 --> 00:12:43,320
+So I can do this.
+
+186
+00:12:43,320 --> 00:12:44,320
+So I can do this.
+
+187
+00:12:44,320 --> 00:12:45,320
+So I can do this.
+
+188
+00:12:45,320 --> 00:12:46,320
+So I can do this.
+
+189
+00:12:46,320 --> 00:12:47,320
+Okay, together.
+
+190
+00:12:47,320 --> 00:12:48,320
+So we have x equals i, plus my diagonal terms and a equals a.
+
+191
+00:12:48,320 --> 00:12:49,560
+So let's, let's this first, a is equal to a, plus my diagonal terms and a is equal to
+
+192
+00:12:49,560 --> 00:12:57,440
+a minus, no, I don't have these two times.
+
+193
+00:12:57,440 --> 00:12:58,440
+Ok.
+
+194
+00:12:58,440 --> 00:13:01,440
+So that's my new a matrix.
+
+195
+00:13:01,440 --> 00:13:03,500
+Yeah.
+
+196
+00:13:03,500 --> 00:13:04,820
+Ok.
+
+197
+00:13:04,820 --> 00:13:05,760
+Thanks.
+
+198
+00:13:05,760 --> 00:13:08,760
+So, let's do this again.
+
+199
+00:13:08,760 --> 00:13:09,760
+And ...
+
+200
+00:13:09,760 --> 00:13:10,260
+Um.
+
+201
+00:13:10,320 --> 00:13:26,160
+these and these are still correct this is the correct main diagonal right so we
+
+202
+00:13:26,160 --> 00:13:31,940
+get a matrix that yeah looks looks like half the properties we expect all right
+
+203
+00:13:31,940 --> 00:13:40,700
+so u is equal to a backslash B and let's try to plot this time solution
+
+204
+00:13:40,700 --> 00:13:48,680
+let's plot it as what color let's plot it as a black okay so now the black line
+
+205
+00:13:48,680 --> 00:13:53,180
+matches the analytical solution a lot better right so let's let's close this
+
+206
+00:13:53,180 --> 00:14:01,620
+again and so this is numerical solution this is
+
+207
+00:14:01,620 --> 00:14:01,680
+you
+
+208
+00:14:01,940 --> 00:14:08,780
+analytical solution sorry let me hold on and plot the numerical solution again so
+
+209
+00:14:08,780 --> 00:14:15,560
+now my numerical solution matches the analytical solution a lot better so we
+
+210
+00:14:15,560 --> 00:14:20,100
+have demonstrated how to use finite element to solve the Poisson's equation
+
+211
+00:14:20,100 --> 00:14:25,180
+with zero boundary conditions both for trivial right-hand side and for a
+
+212
+00:14:25,180 --> 00:14:29,540
+non-trivial right-hand side all right and Gauss quadrature with five points
+
+213
+00:14:29,540 --> 00:14:31,580
+seems to be very good already
+
+214
+00:14:31,940 --> 00:14:50,360
+finally these are the bombs ok here you add any
+
+215
+00:14:50,640 --> 00:15:01,660
+aggravating
+

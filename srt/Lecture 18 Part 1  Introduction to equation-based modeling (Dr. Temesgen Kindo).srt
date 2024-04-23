@@ -1,0 +1,528 @@
+1
+00:00:00,000 --> 00:00:06,320
+So today we will be talking about equation based modeling using console physics.
+
+2
+00:00:06,320 --> 00:00:13,200
+On Monday what you will see was a general introduction and using the built-in
+
+3
+00:00:13,200 --> 00:00:17,880
+physics based interfaces to solve different physical problems but
+
+4
+00:00:17,880 --> 00:00:23,400
+sometimes the models you want to solve might not be already built in into the
+
+5
+00:00:23,400 --> 00:00:27,900
+software but you might have your ordinary differential equation or partial
+
+6
+00:00:27,900 --> 00:00:32,940
+differential equation that models that process and so what we're talking about
+
+7
+00:00:32,940 --> 00:00:40,320
+today is how to enter those equations and how to pick the appropriate
+
+8
+00:00:40,320 --> 00:00:47,640
+interface and how to couple different PDs together if you have a couple of PDs
+
+9
+00:00:47,640 --> 00:00:55,320
+system. My name is Tamis Sagan, you can call me Tami. I work in the console as an
+
+10
+00:00:55,320 --> 00:00:57,000
+application engineer.
+
+11
+00:00:57,000 --> 00:00:57,880
+Primarily I work for Microsoft and I work for Microsoft and Microsoft is a
+
+12
+00:00:57,900 --> 00:01:01,040
+traditional software development company that is primarily focused on
+
+13
+00:01:01,040 --> 00:01:05,660
+structural mechanics and equation based modeling. So today we will be mostly
+
+14
+00:01:05,660 --> 00:01:14,440
+talking about equation based model. Now, console under the hood is really a
+
+15
+00:01:14,440 --> 00:01:21,440
+system for solving partial differential equations numerically. This can be linear
+
+16
+00:01:21,440 --> 00:01:27,000
+equations, nonlinear equations, scatters, systems but the idea is if we build the
+
+17
+00:01:27,000 --> 00:01:35,720
+if we build the infrastructure to solve an arbitrary system of PDEs or ODEs and algebraic
+
+18
+00:01:35,720 --> 00:01:42,840
+equations then we would be able to handle a lot of problems that are encountered in science and
+
+19
+00:01:42,840 --> 00:01:50,360
+engineering. Some other software sometimes start with solving a certain area saying okay we want
+
+20
+00:01:50,360 --> 00:01:55,800
+to solve a heat transfer problem or we want to make a fluid flow or we want to make structural
+
+21
+00:01:55,800 --> 00:02:02,680
+mechanics simulation package and the way we went about it is we want to make a PDE solver
+
+22
+00:02:02,680 --> 00:02:09,240
+and an ODE solver and anything most problems coming down form anyway then you can handle
+
+23
+00:02:09,240 --> 00:02:16,840
+them. So some of the more popular partial equations here the Maxwell equations at the bottom Navier-Stokes
+
+24
+00:02:16,840 --> 00:02:23,800
+equation at the top heat transfer, chemical interaction engineering, acoustic, Schrodinger's equation, the
+
+25
+00:02:23,800 --> 00:02:25,240
+elasticity equation.
+
+26
+00:02:25,240 --> 00:02:25,740
+So
+
+27
+00:02:25,800 --> 00:02:36,680
+the way this works then is under I mean on top of these PDEs we build physics based interfaces
+
+28
+00:02:37,320 --> 00:02:44,840
+for structural mechanics or electrical chemical thermal fluid and whenever you are designing any
+
+29
+00:02:44,840 --> 00:02:50,920
+device or analyzing most realistic problems there is going to be more than one of this
+
+30
+00:02:50,920 --> 00:02:53,960
+involved. If you are doing fluid structure interaction
+
+31
+00:02:53,960 --> 00:03:01,240
+you would need to couple structural mechanics with fluid flow. This happens often for example
+
+32
+00:03:01,240 --> 00:03:08,040
+if you are doing biomechanics and you want to analyze flow in blood vessels and then also
+
+33
+00:03:08,040 --> 00:03:13,480
+analyze stress in the arteries and couple that then you would need to do fluid structure
+
+34
+00:03:13,480 --> 00:03:19,960
+interaction. Or if you have doing a chemical reaction problems where the reaction generates or
+
+35
+00:03:21,640 --> 00:03:22,600
+consumes heat,
+
+36
+00:03:23,960 --> 00:03:31,320
+and also where reaction kinetics is temperature dependent you want to couple equations for chemical
+
+37
+00:03:31,320 --> 00:03:39,800
+and reaction with thermal equations. So there can be more than one of this that are combined and a lot
+
+38
+00:03:39,800 --> 00:03:47,960
+of this commonly understood multiphysics couplings are already built in into a console and a lot of the
+
+39
+00:03:47,960 --> 00:03:49,880
+problems that you might be interested in solving are already built in. I hope much of this will be
+
+40
+00:03:49,880 --> 00:03:50,920
+understood by the next lecture. Thank you.
+
+41
+00:03:53,960 --> 00:03:59,160
+One day you did the micro-remister beam example. This is what me and did.
+
+42
+00:04:00,840 --> 00:04:06,520
+It transfer electrical and I think structural mechanics and the couplings you needed there
+
+43
+00:04:06,520 --> 00:04:11,640
+were already built in so you just needed to click and add them and console would add the
+
+44
+00:04:11,640 --> 00:04:16,200
+necessary equation. But when you are doing research, when you are doing development,
+
+45
+00:04:16,200 --> 00:04:23,080
+often the equations you are interested in solving may not be part of what is built in
+
+46
+00:04:23,080 --> 00:04:23,640
+or maybe part of the solution. So I think that's a good question.
+
+47
+00:04:23,640 --> 00:04:28,760
+Maybe part of it is built in but there is a missing part. Maybe you are doing a structural
+
+48
+00:04:28,760 --> 00:04:35,240
+mechanics problem where the material behavior has a certain evolution law and that material
+
+49
+00:04:35,240 --> 00:04:40,280
+evolution law is not built in but structural mechanics in general is built in. So then what
+
+50
+00:04:40,280 --> 00:04:47,480
+you can do is just add your evolution equation as a PDE and couple it with the existing physics-based
+
+51
+00:04:47,480 --> 00:04:52,840
+interface. That is how most of our users do work when they
+
+52
+00:04:54,120 --> 00:04:58,920
+use equation-based modeling. It's rare that people will do everything from scratch using
+
+53
+00:04:58,920 --> 00:05:04,360
+equation-based modeling but obviously you don't want to reinvent the wheel. Part of it is already
+
+54
+00:05:04,360 --> 00:05:10,440
+there and the part that's missing you can add using user-defined equations. So
+
+55
+00:05:11,080 --> 00:05:17,880
+user-defined equations you use them when what you're interested in solving is not
+
+56
+00:05:18,440 --> 00:05:22,680
+in there or sometimes you're actually just curious to work directly with the equations.
+
+57
+00:05:23,640 --> 00:05:29,880
+Other times maybe you are a professor and if you are a grad student then just give it to them and
+
+58
+00:05:29,880 --> 00:05:37,560
+they should make it for you. But in any case we'll be talking about how then to implement your own
+
+59
+00:05:37,560 --> 00:05:49,560
+equations in Comsol. So the way it works is there are multiple templates for entering the equations
+
+60
+00:05:50,280 --> 00:05:53,160
+for ODEs, for PDEs and there are more than one ways.
+
+61
+00:05:53,640 --> 00:05:58,120
+So the first way is to use the equation-based model. So you can use the equation-based model
+
+62
+00:05:58,120 --> 00:06:04,520
+to enter PDEs. We'll talk about them. But the biggest thing is that you don't need to write
+
+63
+00:06:04,520 --> 00:06:12,600
+subroutines or anything like that. You just write your PDEs directly and that makes it faster for
+
+64
+00:06:12,600 --> 00:06:18,600
+you to try out different ideas when you're going well maybe the equation behaves this way. Maybe
+
+65
+00:06:18,600 --> 00:06:21,640
+there is this term I want to keep or maybe there's this other term I don't want to give.
+
+66
+00:06:21,640 --> 00:06:28,600
+So whenever you do that if you can directly prescribe your equations it makes it easy.
+
+67
+00:06:28,600 --> 00:06:34,840
+And these equations can be nonlinear, linear, transient or stationary. You don't have to
+
+68
+00:06:36,040 --> 00:06:42,280
+worry about that. Of course since you are taking a take a numerical analysis class you won't worry
+
+69
+00:06:42,280 --> 00:06:49,880
+about that. But in a more when you're using software to solve physical problems to solve to
+
+70
+00:06:49,880 --> 00:06:50,760
+develop a device.
+
+71
+00:06:51,640 --> 00:06:58,280
+So the first thing that you want to do is quickly test your ideas. And then of course later on you
+
+72
+00:06:58,280 --> 00:07:06,120
+can tweak once you have made the major decisions about your physics. So the way we will go about it
+
+73
+00:07:06,120 --> 00:07:13,080
+today is we'll talk about the mathematics interface first. Then I will focus on partial differential
+
+74
+00:07:13,080 --> 00:07:17,480
+equations, how to prescribe partial differential equations and boundary conditions when you are
+
+75
+00:07:17,480 --> 00:07:19,480
+using equation-based modeling.
+
+76
+00:07:19,480 --> 00:07:24,920
+So this is a very simple process. We will start with the first one. So we will start with the
+
+77
+00:07:24,920 --> 00:07:33,080
+differential and algebraic equations. Then we will do a demonstration of a thermal curing problem.
+
+78
+00:07:33,080 --> 00:07:39,800
+This is a heat transfer problem with a slightly non-standard material evolution law. So the way we
+
+79
+00:07:39,800 --> 00:07:46,200
+would normally solve this console is use the built-in equation the built-in heat transfer
+
+80
+00:07:46,200 --> 00:07:47,880
+interface for the heat transfer part.
+
+81
+00:07:47,880 --> 00:07:58,920
+So we will start with the thermal curing and couple them. But today for the for medical reasons what we will do is we'll do all of it using equation-based modeling.
+
+82
+00:08:02,520 --> 00:08:09,720
+We'll talk a little bit about what happens when you're working with axisymmetric components.
+
+83
+00:08:11,240 --> 00:08:17,800
+We'll talk a little bit about integral equations. We'll talk about verification.
+
+84
+00:08:17,880 --> 00:08:26,760
+And validation when you are using any of the built-in physics-based interfaces such as heat transfer
+
+85
+00:08:26,760 --> 00:08:35,640
+or structural mechanics or microfluidics or pipe flow in console. And this is true about other
+
+86
+00:08:36,280 --> 00:08:44,520
+packages as well. They would have done a verification of the fact that they have implemented
+
+87
+00:08:44,520 --> 00:08:47,160
+the right equation and whether it fits.
+
+88
+00:08:47,880 --> 00:08:54,760
+If weather works correctly by comparing it with either analytical solutions or experimental data.
+
+89
+00:08:54,760 --> 00:09:00,760
+Now you are putting your own equations and you don't have anything like that to rely on the
+
+90
+00:09:00,760 --> 00:09:07,640
+veracity of your equations. So we want to talk about how is it that then you can test
+
+91
+00:09:08,440 --> 00:09:14,920
+you are doing the right thing. You are solving the equation correctly.
+
+92
+00:09:16,040 --> 00:09:17,640
+And finally we'll go to the next slide.
+
+93
+00:09:17,880 --> 00:09:23,320
+So I will give you homework. Your professor wanted us to give you homework so we'll do that.
+
+94
+00:09:26,200 --> 00:09:32,360
+I will be asking you questions along the way and feel free to ask me any questions.
+
+95
+00:09:33,560 --> 00:09:39,000
+Don't wait until the end if anything in this whole conversation just stopped me and asked.
+
+96
+00:09:39,960 --> 00:09:46,040
+I have a couple of hats that I will give away either for good answers or really good questions.
+
+97
+00:09:46,760 --> 00:09:47,800
+And I'll let you decide.
+
+98
+00:09:47,880 --> 00:09:53,960
+Any questions so far?
+
+99
+00:09:54,920 --> 00:09:57,000
+Asking if you can get the hats isn't a good question.
+
+100
+00:09:58,360 --> 00:09:59,720
+Any other questions is legit.
+
+101
+00:10:01,160 --> 00:10:01,660
+Okay.
+
+102
+00:10:03,160 --> 00:10:07,400
+So let's start with how console deals with this.
+
+103
+00:10:08,280 --> 00:10:12,360
+When you, you have seen this Monday when you start a new problem.
+
+104
+00:10:13,560 --> 00:10:17,800
+You have to select the physics after you have specified your special dimension with everything.
+
+105
+00:10:17,880 --> 00:10:21,400
+3D, 2D, 1D, or 2D over 1D axis and metric.
+
+106
+00:10:22,200 --> 00:10:23,960
+You select the physics.
+
+107
+00:10:23,960 --> 00:10:32,040
+And here you see the ACDC, which are different interfaces for electrical and magnetics,
+
+108
+00:10:32,040 --> 00:10:37,080
+electromagnetic in general, or the fluid flow, heat transfer, semiconductor structural mechanics.
+
+109
+00:10:37,640 --> 00:10:41,240
+And at the end there is this node mathematics.
+
+110
+00:10:41,240 --> 00:10:47,320
+And that is where you go when you want to add your own equations rather than using the built-in
+
+111
+00:10:47,880 --> 00:10:48,680
+interfaces.
+
+112
+00:10:48,680 --> 00:10:57,160
+Now when you go to the mathematics interface, then there are choices within it.
+
+113
+00:10:57,160 --> 00:11:05,000
+So you could be specifying PDs, you could be specifying ODEs, you could be doing optimization
+
+114
+00:11:05,000 --> 00:11:06,760
+and sensitivity analysis.
+
+115
+00:11:06,760 --> 00:11:11,160
+We have this classical PDs branch.
+
+116
+00:11:11,160 --> 00:11:15,800
+That is really a replica of the PD interfaces.
+
+117
+00:11:15,800 --> 00:11:16,760
+But things like this.
+
+118
+00:11:16,760 --> 00:11:17,800
+And then you have the other interfaces.
+
+119
+00:11:17,800 --> 00:11:22,040
+Things like Laplace equation, Poisson equation, Helmholtz equation.
+
+120
+00:11:22,040 --> 00:11:23,560
+People often use them.
+
+121
+00:11:23,560 --> 00:11:28,680
+So we want sort of a prepackaged option for those.
+
+122
+00:11:28,680 --> 00:11:31,240
+So that's what you get under classical PDs.
+
+123
+00:11:31,240 --> 00:11:38,520
+If you are solving a problem with a moving domain or with a moving interface, we have
+
+124
+00:11:38,520 --> 00:11:44,200
+a mathematical level set and phase field interfaces that you can use.
+
+125
+00:11:44,200 --> 00:11:47,720
+So for example, if you're having a heat transfer problem with space change.
+
+126
+00:11:47,800 --> 00:11:52,040
+We already have a heat transfer with space change interface built in.
+
+127
+00:11:52,040 --> 00:11:57,960
+But this is when you are adding your own phase field or level set type mathematics.
+
+128
+00:11:57,960 --> 00:12:06,760
+Then the form branch for solving problems on moving domains and other interfaces.
+
+129
+00:12:06,760 --> 00:12:12,760
+So what we will be talking about today is what we get in the PD interfaces and in the
+
+130
+00:12:12,760 --> 00:12:14,520
+OE and DA interfaces.
+
+131
+00:12:14,520 --> 00:12:17,160
+And as you see there in the PD interfaces.
+
+132
+00:12:17,160 --> 00:12:23,320
+You have a couple of different options to specify your PDs.
+

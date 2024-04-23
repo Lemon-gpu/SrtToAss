@@ -1,0 +1,456 @@
+1
+00:00:00,000 --> 00:00:10,440
+So today is lecture 2 and before we begin let me tell you something a little
+
+2
+00:00:10,440 --> 00:00:20,400
+bit more logistics. First of all let's open the Stellar website. So this is the
+
+3
+00:00:20,400 --> 00:00:25,200
+website I'll be posting all the materials and you're gonna see project
+
+4
+00:00:25,200 --> 00:00:31,680
+one is already posted and you should start working on it. I'll go over project
+
+5
+00:00:31,680 --> 00:00:37,680
+one pretty soon. There is also collaboration policy, general information
+
+6
+00:00:37,680 --> 00:00:44,160
+about the class and a tentative schedule right now posted on Stellar and you can
+
+7
+00:00:44,160 --> 00:00:51,720
+look at the schedule and plan ahead a little bit. Lecture one the MATLAB code
+
+8
+00:00:51,720 --> 00:00:55,080
+is posted as a zip file. The video recording is a link to
+
+9
+00:00:55,080 --> 00:00:55,180
+YouTube.
+
+10
+00:00:55,200 --> 00:01:02,000
+And there are two old slides I'm reading. So that's the old slides before I
+
+11
+00:01:02,000 --> 00:01:06,860
+changed the lecture style from basically given presentation on
+
+12
+00:01:06,860 --> 00:01:13,640
+the screen to actually writing down formulas on my tablet. The reason I
+
+13
+00:01:13,640 --> 00:01:20,080
+switched was because it is a lot easier to follow when I write
+
+14
+00:01:20,080 --> 00:01:25,080
+things down slowly on the screen. It's just like writing down on
+
+15
+00:01:25,080 --> 00:01:30,680
+the blackboard. Well if I just present you the formulas pre-written it's a lot
+
+16
+00:01:30,680 --> 00:01:36,480
+easier for me to go too fast. So that's why I switched to handwriting. But of
+
+17
+00:01:36,480 --> 00:01:43,400
+course my handwriting is far worse than the typed down latex. So that's why I
+
+18
+00:01:43,400 --> 00:01:50,700
+also posted the old slides for you to look at and study by yourself. And also
+
+19
+00:01:50,700 --> 00:01:54,880
+the reading is the same thing. It's basically the same as the old
+
+20
+00:01:54,880 --> 00:02:02,140
+slides but formatted differently, more like a PDF document. And also this, the
+
+21
+00:02:02,140 --> 00:02:07,780
+last PDF slide is actually my worst handwriting lecture notes that I
+
+22
+00:02:07,780 --> 00:02:12,580
+actually recorded during the lecture. So these are the stuff I will be posting
+
+23
+00:02:12,580 --> 00:02:18,840
+every lecture. And today the only thing different is I also posted a project
+
+24
+00:02:18,840 --> 00:02:23,500
+which let me open this up.
+
+25
+00:02:23,500 --> 00:02:24,860
+So the project is called the
+
+26
+00:02:24,860 --> 00:02:24,880
+Project of the Year. And it's a project that I'm going to be doing for the rest of my life. So the project is called the
+
+27
+00:02:24,880 --> 00:02:28,020
+Project of the Year. And it's a project that I'm going to be doing for the rest of my life. So the project is handed out today and it is due
+
+28
+00:02:28,020 --> 00:02:34,380
+September 26th. So it's exactly two weeks from now. So you get two weeks to
+
+29
+00:02:34,380 --> 00:02:40,380
+work on this project. As I said the project is very different from a typical
+
+30
+00:02:40,380 --> 00:02:47,280
+undergraduate assignment. In that like maybe the first question you see like a
+
+31
+00:02:47,280 --> 00:02:54,860
+series of questions. Like one, two, three and two bonus questions. So only the first one has
+
+32
+00:02:54,860 --> 00:03:00,580
+a right answer. Only the first question is going to have a right answer. So the
+
+33
+00:03:00,580 --> 00:03:08,680
+this is basically modeling a bathtub with hot water in it. And the question is
+
+34
+00:03:08,680 --> 00:03:13,400
+how should the person be controlling the temperature in the bathtub while wasting
+
+35
+00:03:13,400 --> 00:03:20,180
+as little water as possible. And you'll be you'll be writing a code for solving
+
+36
+00:03:20,180 --> 00:03:24,840
+the PDE which is given here. It's a little bit more than
+
+37
+00:03:24,840 --> 00:03:30,520
+standard advection diffusion equation with the with the right hand side that
+
+38
+00:03:30,520 --> 00:03:38,560
+is H over D times T times Tc. And with also pretty standard boundary
+
+39
+00:03:38,560 --> 00:03:43,320
+conditions. We'll talk about boundary conditions later. So this one is a Robin
+
+40
+00:03:43,320 --> 00:03:48,900
+boundary condition and this the other end is a Newman boundary condition. So the
+
+41
+00:03:48,900 --> 00:03:54,780
+questions involves having you derive analytical solution to the PDE.
+
+42
+00:03:54,780 --> 00:04:01,500
+Under special conditions. And the analytical solution is going to be used
+
+43
+00:04:01,500 --> 00:04:08,940
+when you write a code for solving the PDE numerically. Which is going to be
+
+44
+00:04:08,940 --> 00:04:13,440
+working not only for the special case of u equal to constant but for general
+
+45
+00:04:13,440 --> 00:04:19,920
+cases. That's the advantage of numerical method is it works for cases where
+
+46
+00:04:19,920 --> 00:04:24,100
+analytical solution doesn't exist or maybe it's too difficult.
+
+47
+00:04:24,780 --> 00:04:30,780
+But the reason we still want analytical solution is that we can compare our
+
+48
+00:04:30,780 --> 00:04:36,560
+numerical solution to the analytical solution for two reasons. One is to make
+
+49
+00:04:36,560 --> 00:04:41,420
+sure the code we write is actually working correctly. It's not giving
+
+50
+00:04:41,420 --> 00:04:49,580
+completely wrong answers. Two is it allows us to assess the accuracy of our solution.
+
+51
+00:04:49,580 --> 00:04:54,620
+So today we are actually going to be talking about how accurate our solution
+
+52
+00:04:54,620 --> 00:04:54,740
+is.
+
+53
+00:04:54,780 --> 00:04:59,880
+When we are using finite difference, finite volume, finite element. We are not
+
+54
+00:04:59,880 --> 00:05:05,700
+solving the equation exactly. We are approximating the equation. How much
+
+55
+00:05:05,700 --> 00:05:14,520
+approximation error is made? Is it case by case? The answer depends case by
+
+56
+00:05:14,520 --> 00:05:18,420
+case. So here you're going to use analytical solution to figure out how
+
+57
+00:05:18,420 --> 00:05:22,680
+accurate your solution is. And particularly you need to decide by
+
+58
+00:05:22,680 --> 00:05:24,620
+yourself. There is no right answer.
+
+59
+00:05:24,620 --> 00:05:31,760
+How fine your grid has to be in order to make the decisions you have to make in
+
+60
+00:05:31,760 --> 00:05:38,720
+question three. Which is extend your solver to general case and use your
+
+61
+00:05:38,720 --> 00:05:44,440
+solver to figure out a strategy. Also there is no right strategy but you
+
+62
+00:05:44,440 --> 00:05:49,860
+figure out a strategy that like you can make it as good as possible to have the
+
+63
+00:05:49,860 --> 00:05:54,460
+temperature as constant as possible while wasting as much energy. So you can
+
+64
+00:05:54,460 --> 00:05:57,300
+do as little water as possible.
+
+65
+00:05:57,300 --> 00:06:03,320
+Okay so these three questions if you do all these three perfectly you get full score but
+
+66
+00:06:03,320 --> 00:06:07,880
+I have two bonus questions. You can get more than full score so that like at the end of
+
+67
+00:06:07,880 --> 00:06:18,160
+the class if you happen to not get full score on some other projects these may be able to
+
+68
+00:06:18,160 --> 00:06:24,300
+make up a little bit. So the bonus questions are two parameters in the PDE is on
+
+69
+00:06:24,300 --> 00:06:30,920
+certain. How can you design an experiment to figure out what these
+
+70
+00:06:30,920 --> 00:06:40,920
+parameters really are and also quantify how your best strategy depends on various
+
+71
+00:06:40,920 --> 00:06:47,640
+parameters in the PDE. Alright you can see all these are very open-ended
+
+72
+00:06:47,640 --> 00:06:52,480
+questions. There is no single right answer. It's almost asking you to write a paper.
+
+73
+00:06:52,480 --> 00:06:52,980
+Right.
+
+74
+00:06:54,300 --> 00:06:59,640
+So this is the type of projects we are going to be doing throughout the
+
+75
+00:06:59,640 --> 00:07:03,540
+semester and any questions about this particular one?
+
+76
+00:07:03,540 --> 00:07:08,680
+Yes?
+
+77
+00:07:08,680 --> 00:07:18,680
+How should we provide the answer? Can we provide the answer if we have to do calculations in handwriting or if everything has to be done on the computer?
+
+78
+00:07:18,680 --> 00:07:23,540
+That's a good question. So the question is are you supposed to
+
+79
+00:07:23,540 --> 00:07:24,040
+write a paper?
+
+80
+00:07:24,040 --> 00:07:24,540
+Yes.
+
+81
+00:07:24,540 --> 00:07:29,540
+Can you write down your solution in handwriting or it has to be typed on the computer?
+
+82
+00:07:29,540 --> 00:07:36,540
+So the answer to the question is either way is fine. But the submission is going to be in electronic form.
+
+83
+00:07:36,540 --> 00:07:44,540
+Which means if you choose to handwrite your solution you need to find a scanner and scan them and upload your PDF file.
+
+84
+00:07:44,540 --> 00:07:50,540
+Or you can just use your cell phone. There are pretty good apps to use a cell phone for scanners.
+
+85
+00:07:50,540 --> 00:07:53,040
+Alright so the end of the session.
+
+86
+00:07:53,040 --> 00:07:53,540
+Thank you.
+
+87
+00:07:54,040 --> 00:07:58,540
+At the end of this project you'll be submitting two things.
+
+88
+00:07:58,540 --> 00:08:09,040
+One is a PDF file that contains basically the entire report and don't include any of your, don't include like your code in the PDF file.
+
+89
+00:08:09,040 --> 00:08:10,540
+We won't be looking at them.
+
+90
+00:08:10,540 --> 00:08:17,040
+The PDF file is intended to serve pretty much like an academic paper.
+
+91
+00:08:17,040 --> 00:08:20,540
+And the other is a zip file containing all your code.
+
+92
+00:08:20,540 --> 00:08:22,540
+And make sure it has all the files that like if somebody wants to use it.
+
+93
+00:08:22,540 --> 00:08:23,040
+Okay.
+
+94
+00:08:23,040 --> 00:08:31,540
+So that like if somebody, if our TA looks at your report and see something.
+
+95
+00:08:31,540 --> 00:08:33,540
+We won't be running everybody's code.
+
+96
+00:08:33,540 --> 00:08:38,040
+But if we see your report and something makes us want to run your code.
+
+97
+00:08:38,040 --> 00:08:41,540
+Make sure we can run your code.
+
+98
+00:08:41,540 --> 00:08:44,040
+Alright.
+
+99
+00:08:44,040 --> 00:08:45,540
+Any other questions?
+
+100
+00:08:45,540 --> 00:08:46,040
+Yes?
+
+101
+00:08:46,040 --> 00:08:49,040
+Does Python code have to do with?
+
+102
+00:08:49,040 --> 00:08:51,040
+That's a very good question.
+
+103
+00:08:51,040 --> 00:08:52,040
+I'll answer this question.
+
+104
+00:08:52,040 --> 00:08:57,040
+Right after I finish discussing this particular project.
+
+105
+00:08:57,040 --> 00:08:59,040
+Which language we should use.
+
+106
+00:08:59,040 --> 00:09:04,040
+Any other questions about this particular project?
+
+107
+00:09:04,040 --> 00:09:05,040
+Yes?
+
+108
+00:09:05,040 --> 00:09:10,040
+Do we need to upload a separate code for each question or just one?
+
+109
+00:09:10,040 --> 00:09:12,040
+Or a big file?
+
+110
+00:09:12,040 --> 00:09:15,040
+You need to, that's a very good question.
+
+111
+00:09:15,040 --> 00:09:19,040
+So we ask you to upload a single zip file.
+
+112
+00:09:19,040 --> 00:09:21,040
+So they should contain all the code.
+
+113
+00:09:21,040 --> 00:09:28,040
+And I would suggest making a separate directory for each individual question.
+
+114
+00:09:28,040 --> 00:09:33,040
+That will make it a lot easier for us to look at your code.
+

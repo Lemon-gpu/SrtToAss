@@ -1,0 +1,572 @@
+1
+00:00:00,000 --> 00:00:02,240
+Let's look at the Burgess equation for example.
+
+2
+00:00:06,160 --> 00:00:10,960
+Burgess. My speed of the shock would be equal to
+
+3
+00:00:10,960 --> 00:00:24,660
+ul squared over 2 minus ur squared over 2 ul minus ur.
+
+4
+00:00:24,660 --> 00:00:34,340
+And this only works for the Burgess equation, but if you express the difference in squares
+
+5
+00:00:34,340 --> 00:00:40,560
+in terms of the summation times the difference, right?
+
+6
+00:00:40,960 --> 00:00:48,240
+So, we are going to get a half of ul plus ur, ul minus ur.
+
+7
+00:00:48,240 --> 00:00:56,820
+And ul minus ur, that cancels out. That gives me ul plus ur over 2.
+
+8
+00:00:58,780 --> 00:01:03,100
+So, again, it only works for Burgess equation. Don't generalize this.
+
+9
+00:01:03,940 --> 00:01:09,840
+It's that the speed of the discontinuity is equal to the average between the speed
+
+10
+00:01:09,840 --> 00:01:10,940
+of the shock and the speed of the shock.
+
+11
+00:01:10,940 --> 00:01:14,440
+So, again, if you look at the characteristics on the left and the speed of the characteristics
+
+12
+00:01:14,440 --> 00:01:17,640
+on the right, okay?
+
+13
+00:01:18,060 --> 00:01:28,060
+So, for example, again, if you look at here, the merge of the two shocks, you basically
+
+14
+00:01:28,060 --> 00:01:35,220
+get the speed of the shock equal to the average between the characteristics to the left and
+
+15
+00:01:35,220 --> 00:01:37,120
+the characteristics to the right.
+
+16
+00:01:37,460 --> 00:01:40,680
+So, the characteristics to the left has a positive.
+
+17
+00:01:40,940 --> 00:01:42,720
+The speed goes to the right.
+
+18
+00:01:43,380 --> 00:01:47,800
+The one at the right has a negative speed almost of the same magnitude.
+
+19
+00:01:47,800 --> 00:01:49,580
+The result?
+
+20
+00:01:50,840 --> 00:01:54,120
+The discontinuity moving at zero speed, going vertical.
+
+21
+00:01:56,160 --> 00:01:56,540
+All right.
+
+22
+00:02:02,960 --> 00:02:04,560
+So, why is it curved?
+
+23
+00:02:04,720 --> 00:02:06,980
+Why does it change slope?
+
+24
+00:02:09,020 --> 00:02:09,740
+Yes?
+
+25
+00:02:09,740 --> 00:02:09,820
+Yes?
+
+26
+00:02:10,940 --> 00:02:12,600
+Yes.
+
+27
+00:02:12,720 --> 00:02:13,880
+U and UR can change.
+
+28
+00:02:13,960 --> 00:02:23,540
+For example, when you are at this segment, okay, UL is the same as over here, but UR
+
+29
+00:02:23,540 --> 00:02:24,260
+has changed.
+
+30
+00:02:24,960 --> 00:02:31,660
+In the lower part of this shock, UR is this value almost equal to zero.
+
+31
+00:02:32,920 --> 00:02:37,580
+But once you go up to here, UR has changed to this very negative region.
+
+32
+00:02:38,380 --> 00:02:40,580
+That is why the shock...
+
+33
+00:02:40,940 --> 00:02:41,940
+Suddenly turned.
+
+34
+00:02:41,940 --> 00:02:49,080
+Over here, the slope of the speed of the shock is equal to the average between the speed
+
+35
+00:02:49,080 --> 00:02:52,800
+on the left and a zero speed.
+
+36
+00:02:52,800 --> 00:02:57,180
+While here, it is the average between a positive one and a negative one.
+
+37
+00:02:57,180 --> 00:02:59,180
+That's how it changes speed.
+
+38
+00:02:59,180 --> 00:03:01,880
+All right.
+
+39
+00:03:01,880 --> 00:03:06,320
+I can also manufacture cases that is...
+
+40
+00:03:06,320 --> 00:03:09,520
+That have the shock turn continuously.
+
+41
+00:03:09,520 --> 00:03:10,520
+Okay.
+
+42
+00:03:10,940 --> 00:03:13,840
+So, how do I do that?
+
+43
+00:03:13,840 --> 00:03:18,260
+How should I manufacture a case where the shock is going to turn continuously?
+
+44
+00:03:18,260 --> 00:03:20,800
+Let me do that.
+
+45
+00:03:20,800 --> 00:03:24,340
+Let me manufacture a shock that...
+
+46
+00:03:24,340 --> 00:03:25,760
+I get a shock.
+
+47
+00:03:25,760 --> 00:03:26,760
+Okay.
+
+48
+00:03:26,760 --> 00:03:35,300
+So, this shock should move towards the right because both left and right has positive values.
+
+49
+00:03:35,300 --> 00:03:39,640
+But let me do something like this.
+
+50
+00:03:39,640 --> 00:03:40,640
+Okay.
+
+51
+00:03:40,940 --> 00:03:43,840
+So, I can see the shock is going to turn.
+
+52
+00:03:43,840 --> 00:03:44,840
+Okay.
+
+53
+00:03:44,840 --> 00:03:47,840
+And see how the shock is going to turn.
+
+54
+00:03:47,840 --> 00:03:52,840
+Initially, I'm sure it is going to move towards the right because if you look at the solution
+
+55
+00:03:52,840 --> 00:03:59,840
+on both on the left and right of the shock wave, it is positive, right?
+
+56
+00:03:59,840 --> 00:04:05,840
+But you can see also these characteristics.
+
+57
+00:04:05,840 --> 00:04:08,840
+They are less than the positive.
+
+58
+00:04:08,840 --> 00:04:09,840
+Okay.
+
+59
+00:04:09,840 --> 00:04:16,380
+They are less deep and they are going to run into the shock wave in no time.
+
+60
+00:04:16,380 --> 00:04:21,980
+And as they run into the shock wave, the value immediately at the right of the shock
+
+61
+00:04:21,980 --> 00:04:25,080
+wave is going to change.
+
+62
+00:04:25,080 --> 00:04:27,740
+It is going to become higher or lower.
+
+63
+00:04:27,740 --> 00:04:28,740
+Okay.
+
+64
+00:04:28,740 --> 00:04:33,740
+Can you say it again?
+
+65
+00:04:33,740 --> 00:04:37,740
+The top part is moving right.
+
+66
+00:04:37,740 --> 00:04:38,740
+Okay.
+
+67
+00:04:38,740 --> 00:04:42,680
+The bottom part is moving towards the left.
+
+68
+00:04:42,680 --> 00:04:43,680
+Yeah.
+
+69
+00:04:43,680 --> 00:04:46,680
+I'm just focusing on the discontinuity here.
+
+70
+00:04:46,680 --> 00:04:50,680
+So, initially, I have this discontinuity that moves towards the right.
+
+71
+00:04:50,680 --> 00:04:57,680
+But as these continuous characteristics run into the shock, the value immediately on the
+
+72
+00:04:57,680 --> 00:05:00,680
+right of the curve is going to change almost continuously.
+
+73
+00:05:00,680 --> 00:05:04,680
+I mean, to the right of the shock is going to change almost continuously.
+
+74
+00:05:04,680 --> 00:05:05,680
+Right.
+
+75
+00:05:05,680 --> 00:05:06,680
+So, if you zoom in into here.
+
+76
+00:05:06,680 --> 00:05:07,680
+Okay.
+
+77
+00:05:07,680 --> 00:05:12,620
+So, you see this one runs into the shock.
+
+78
+00:05:12,620 --> 00:05:14,620
+Another one runs into the shock.
+
+79
+00:05:14,620 --> 00:05:18,620
+I mean, these characteristics go into the shock everywhere.
+
+80
+00:05:18,620 --> 00:05:23,620
+As things run into the shock, the value at the right side of the shock changes.
+
+81
+00:05:23,620 --> 00:05:25,620
+It decreases, right?
+
+82
+00:05:25,620 --> 00:05:28,620
+Originally, this is almost yellow.
+
+83
+00:05:28,620 --> 00:05:30,620
+Now, it's almost blue.
+
+84
+00:05:30,620 --> 00:05:35,620
+And as the value on the right of the shock changes, the value on the left side of the
+
+85
+00:05:35,620 --> 00:05:36,620
+shock decreases.
+
+86
+00:05:36,620 --> 00:05:38,560
+The speed of the shock should decrease.
+
+87
+00:05:38,560 --> 00:05:43,560
+So, that's why you see this obvious curvature towards the left.
+
+88
+00:05:43,560 --> 00:05:45,560
+Does it make sense?
+
+89
+00:05:45,560 --> 00:05:51,560
+And now, I don't know what's going to happen because the left side is also starting to
+
+90
+00:05:51,560 --> 00:05:52,560
+decrease.
+
+91
+00:05:52,560 --> 00:05:57,560
+So, I think both sides, so both value at the left and value at the right is decreasing.
+
+92
+00:05:57,560 --> 00:06:01,560
+That makes the whole curve a little bit more difficult.
+
+93
+00:06:01,560 --> 00:06:05,560
+So, I think both sides, so both value at the left and value at the right is decreasing.
+
+94
+00:06:05,560 --> 00:06:12,500
+That makes the whole shock should curve towards the left pretty fast.
+
+95
+00:06:12,500 --> 00:06:18,500
+I think pretty soon, so right now, the positive side is still a little bit higher than the
+
+96
+00:06:18,500 --> 00:06:19,500
+negative side.
+
+97
+00:06:19,500 --> 00:06:24,500
+It has a larger magnitude as the negative side, but pretty soon, we'll have a zero speed.
+
+98
+00:06:24,500 --> 00:06:26,500
+Right now, it's probably have a zero speed now.
+
+99
+00:06:26,500 --> 00:06:28,500
+It's almost vertical.
+
+100
+00:06:28,500 --> 00:06:33,500
+And the shock is going to turn towards the left as the negative side wins over the positive
+
+101
+00:06:33,500 --> 00:06:34,500
+side.
+
+102
+00:06:35,560 --> 00:06:37,560
+All right.
+
+103
+00:06:37,560 --> 00:06:39,560
+Any questions?
+
+104
+00:06:39,560 --> 00:06:45,560
+So, when we first derive the speed of the shock, how do we know there will be a shock
+
+105
+00:06:45,560 --> 00:06:48,560
+when the UL and UR doesn't change?
+
+106
+00:06:48,560 --> 00:06:54,560
+I think we assume they don't change value and then calculate the speed of the shock.
+
+107
+00:06:54,560 --> 00:06:55,560
+Yes.
+
+108
+00:06:55,560 --> 00:07:02,560
+We assumed the left and right doesn't change value over infinitesimal time step.
+
+109
+00:07:02,560 --> 00:07:03,560
+Right?
+
+110
+00:07:03,560 --> 00:07:04,560
+Yeah.
+
+111
+00:07:04,560 --> 00:07:05,560
+And...
+
+112
+00:07:05,560 --> 00:07:08,560
+So, the question is a very good question is what is...
+
+113
+00:07:08,560 --> 00:07:09,560
+Why is it appropriate to do that?
+
+114
+00:07:09,560 --> 00:07:18,560
+So, let me stop the MATLAB and going to do some more analysis.
+
+115
+00:07:18,560 --> 00:07:23,560
+All right.
+
+116
+00:07:23,560 --> 00:07:24,560
+Right.
+
+117
+00:07:24,560 --> 00:07:27,560
+So, let's go back to our original derivation.
+
+118
+00:07:27,560 --> 00:07:29,560
+So, the question is a really good one.
+
+119
+00:07:29,560 --> 00:07:34,560
+So, why is it appropriate to assume UL and UR doesn't change much over the...
+
+120
+00:07:34,560 --> 00:07:35,560
+The delta T?
+
+121
+00:07:35,560 --> 00:07:44,560
+The answer is it does change, but the magnitude of influence of that change to what I'm deriving
+
+122
+00:07:44,560 --> 00:07:52,560
+here is at a higher order in terms of DT than what I've written down here.
+
+123
+00:07:52,560 --> 00:07:59,560
+So, imagine UR and UL are also changing in a continuous fashion.
+
+124
+00:07:59,560 --> 00:08:03,560
+So, UR instead of at this value, it changes.
+
+125
+00:08:03,560 --> 00:08:08,560
+At this value, it increases to over here.
+
+126
+00:08:08,560 --> 00:08:13,560
+UL instead of this value, it has maybe decreased to over here.
+
+127
+00:08:13,560 --> 00:08:22,560
+So, the question is what is the contribution to the change of the integral from this part
+
+128
+00:08:22,560 --> 00:08:28,560
+and this part compared to this original box I was drawing here?
+
+129
+00:08:28,560 --> 00:08:31,560
+Okay.
+
+130
+00:08:31,560 --> 00:08:39,560
+So, the contribution of this part and this part is on the order of DT times epsilon,
+
+131
+00:08:39,560 --> 00:08:40,560
+where DT...
+
+132
+00:08:40,560 --> 00:08:46,560
+The reason I said DT is the magnitude of this change is on the order of DT.
+
+133
+00:08:46,560 --> 00:08:50,560
+And so, the vertical side of this box is on the order of DT.
+
+134
+00:08:50,560 --> 00:08:55,560
+The horizontal side of the box is on the order of epsilon.
+
+135
+00:08:55,560 --> 00:08:59,560
+The contribution to this is going to be epsilon times UL.
+
+136
+00:08:59,560 --> 00:09:00,560
+Okay.
+
+137
+00:09:00,560 --> 00:09:05,560
+So, this is going to be epsilon times DT over DT, which is epsilon.
+
+138
+00:09:05,560 --> 00:09:15,560
+This is why I chose this interval, A and B, to be a very small interval around the shock.
+
+139
+00:09:15,560 --> 00:09:26,560
+Particularly how small I can choose it is determined by the fact that the shock cannot move outside of the interval.
+
+140
+00:09:26,560 --> 00:09:30,560
+So, the size of epsilon should also be proportional to DT.
+
+141
+00:09:30,560 --> 00:09:41,560
+That is why the contribution of this changing UL and UR to the difference is on the order of DT squared.
+
+142
+00:09:41,560 --> 00:09:46,560
+And here, to the derivative is on the order of DT.
+
+143
+00:09:46,560 --> 00:09:50,560
+So, when you choose DT to be small enough, this contribution can be safely ignored.
+

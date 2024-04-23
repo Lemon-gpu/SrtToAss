@@ -1,0 +1,764 @@
+1
+00:00:00,000 --> 00:00:05,760
+Alright, last lecture we discussed how to estimate the error in finite element solutions.
+
+2
+00:00:06,440 --> 00:00:14,000
+How much error it was caused by limiting the space of solution from the infinite dimensional space
+
+3
+00:00:14,000 --> 00:00:17,880
+in the weak form of the differential equation to a finite dimensional space,
+
+4
+00:00:18,380 --> 00:00:22,920
+which we can represent as a linear combination of a few basis functions
+
+5
+00:00:22,920 --> 00:00:28,300
+and derive a set of algebraic equations for the linear combination coefficients.
+
+6
+00:00:28,300 --> 00:00:34,580
+So the error estimate we have looked at are mostly a priori error estimates
+
+7
+00:00:34,580 --> 00:00:43,620
+because the precise form of the error is going to depend on the particular solution,
+
+8
+00:00:43,920 --> 00:00:45,960
+not the approximate solution.
+
+9
+00:00:47,260 --> 00:00:51,460
+So finally, in the last lecture, we derived several facts.
+
+10
+00:00:51,460 --> 00:00:56,660
+One is that in the energy norm, the finite element solution was the optimal
+
+11
+00:00:56,660 --> 00:00:59,240
+in how much error it has.
+
+12
+00:01:00,100 --> 00:01:08,760
+And in both H1 and L2 norm, the finite element solution is optimal up to a certain factor,
+
+13
+00:01:09,220 --> 00:01:12,880
+up to a certain finite factor that doesn't depend on the grid size.
+
+14
+00:01:13,360 --> 00:01:18,800
+That enables us to bound the finite element solution error
+
+15
+00:01:18,800 --> 00:01:24,840
+by one particular type of approximation, which is piecewise linear interpolant.
+
+16
+00:01:26,660 --> 00:01:34,720
+And the precise error of the piecewise linear interpolant actually then depends on the curvature,
+
+17
+00:01:35,220 --> 00:01:40,900
+which is the second order derivative of the actual solution, not the finite element solution.
+
+18
+00:01:41,560 --> 00:01:45,340
+Therefore, that is a priori error estimate.
+
+19
+00:01:47,040 --> 00:01:50,420
+The form of the error depends on the actual solution.
+
+20
+00:01:50,920 --> 00:01:55,540
+And this lecture, we will talk about a posteriori error estimate,
+
+21
+00:01:55,540 --> 00:01:59,800
+which we are going to derive a form of an error estimate
+
+22
+00:01:59,800 --> 00:02:05,940
+that actually depends on not the real continuous solution, but the discrete solution.
+
+23
+00:02:06,500 --> 00:02:09,000
+That is some error estimate we can actually compute.
+
+24
+00:02:10,300 --> 00:02:10,400
+Right?
+
+25
+00:02:11,560 --> 00:02:16,740
+So in order to introduce that kind of a posteriori error estimate,
+
+26
+00:02:17,480 --> 00:02:22,500
+the posteriori estimate cannot be actually applied to the entire solution.
+
+27
+00:02:23,140 --> 00:02:24,820
+It can only be applied to the entire solution.
+
+28
+00:02:24,820 --> 00:02:24,840
+Right?
+
+29
+00:02:24,840 --> 00:02:24,900
+Right?
+
+30
+00:02:24,900 --> 00:02:24,920
+Right?
+
+31
+00:02:24,920 --> 00:02:24,980
+Right?
+
+32
+00:02:24,980 --> 00:02:25,000
+Right?
+
+33
+00:02:25,000 --> 00:02:25,020
+Right?
+
+34
+00:02:25,020 --> 00:02:25,040
+Right?
+
+35
+00:02:25,040 --> 00:02:25,300
+Right?
+
+36
+00:02:25,300 --> 00:02:25,340
+Right?
+
+37
+00:02:25,540 --> 00:02:25,900
+Right?
+
+38
+00:02:25,900 --> 00:02:27,320
+By instance, we first need a form of a posteriori error.
+
+39
+00:02:27,320 --> 00:02:27,400
+Right?
+
+40
+00:02:27,400 --> 00:02:30,040
+By instance, we first need a form of an error estimate.
+
+41
+00:02:30,040 --> 00:02:30,320
+Right?
+
+42
+00:02:30,320 --> 00:02:30,440
+Right?
+
+43
+00:02:30,440 --> 00:02:30,460
+Right?
+
+44
+00:02:30,460 --> 00:02:31,120
+So, for instance, we used this producer.
+
+45
+00:02:31,120 --> 00:02:31,600
+Right?
+
+46
+00:02:31,600 --> 00:02:31,660
+Right?
+
+47
+00:02:31,660 --> 00:02:31,960
+Right.
+
+48
+00:02:31,960 --> 00:02:32,000
+Right?
+
+49
+00:02:32,000 --> 00:02:32,060
+Right.
+
+50
+00:02:32,060 --> 00:02:46,740
+There is a
+
+51
+00:02:47,300 --> 00:02:47,340
+right?
+
+52
+00:02:51,500 --> 00:02:55,000
+Right?
+
+53
+00:02:55,000 --> 00:02:57,240
+where we get our final admin solution.
+
+54
+00:02:58,680 --> 00:03:03,420
+What we're interested in is not usually the entire solution.
+
+55
+00:03:04,720 --> 00:03:10,120
+We are interested in a particular final number of quantities
+
+56
+00:03:10,120 --> 00:03:13,080
+computed from the solution.
+
+57
+00:03:14,380 --> 00:03:18,620
+And here I'm going to write this as L0 of U.
+
+58
+00:03:20,800 --> 00:03:23,260
+What are some examples of this L of U?
+
+59
+00:03:23,260 --> 00:03:29,360
+In aerodynamics problems, this may be the lift or drag of an airplane.
+
+60
+00:03:30,520 --> 00:03:35,860
+In heat transfer problems, if I'm interested in solving for a temperature field
+
+61
+00:03:35,860 --> 00:03:40,640
+that concerns the damage due to heat to some material,
+
+62
+00:03:40,800 --> 00:03:46,380
+I may be interested in the maximum temperature in a certain material.
+
+63
+00:03:48,220 --> 00:03:51,200
+So these are quantities I'm interested in.
+
+64
+00:03:51,200 --> 00:03:53,200
+This is the quantities that...
+
+65
+00:03:53,260 --> 00:03:55,820
+tells me why am I solving this PDE.
+
+66
+00:03:56,620 --> 00:04:01,060
+Okay, so that is L0 of U that, let's say, for example,
+
+67
+00:04:01,060 --> 00:04:03,380
+give me just one single number.
+
+68
+00:04:04,160 --> 00:04:06,160
+L0 itself is a linear function.
+
+69
+00:04:07,720 --> 00:04:09,720
+So it is a linear...
+
+70
+00:04:11,180 --> 00:04:13,180
+functional...
+
+71
+00:04:14,780 --> 00:04:16,780
+of the solution.
+
+72
+00:04:19,780 --> 00:04:20,780
+Alright.
+
+73
+00:04:21,160 --> 00:04:23,160
+So the error estimate...
+
+74
+00:04:23,260 --> 00:04:35,260
+should approximate the difference between L0 operated on the finite element solution
+
+75
+00:04:35,260 --> 00:04:40,100
+minus the same functional operated on the real solution.
+
+76
+00:04:41,200 --> 00:04:43,420
+So here I'm trying to estimate
+
+77
+00:04:43,420 --> 00:04:47,940
+if I spent a million times more computation effort
+
+78
+00:04:47,940 --> 00:04:49,780
+getting a much better approximation,
+
+79
+00:04:50,480 --> 00:04:53,240
+how much difference does that make to my...
+
+80
+00:04:53,260 --> 00:04:55,260
+quantity of interest?
+
+81
+00:04:55,260 --> 00:05:03,680
+If the difference is minor, is more compared to, let's say, other uncertainties from the setup of the problem,
+
+82
+00:05:03,680 --> 00:05:05,680
+let's say the material properties, etc.,
+
+83
+00:05:05,680 --> 00:05:11,200
+then I shouldn't spend this additional effort solving the PDE to much more accuracy.
+
+84
+00:05:11,200 --> 00:05:14,200
+But if the error turns out to be large,
+
+85
+00:05:14,200 --> 00:05:19,200
+and it's large compared to other sources of uncertainty,
+
+86
+00:05:19,200 --> 00:05:22,840
+and I have the computational resources, then I should spend...
+
+87
+00:05:23,260 --> 00:05:28,260
+the computational time refining the grid and getting a more accurate solution.
+
+88
+00:05:28,260 --> 00:05:29,260
+Right.
+
+89
+00:05:29,260 --> 00:05:33,260
+So this is what we are trying to approximate.
+
+90
+00:05:33,260 --> 00:05:38,260
+And the linearity of the output functional allows me to...
+
+91
+00:05:38,260 --> 00:05:42,260
+say this is actually equal to L0 operated on...
+
+92
+00:05:42,260 --> 00:05:44,260
+U-H minus U.
+
+93
+00:05:44,260 --> 00:05:45,260
+Right.
+
+94
+00:05:45,260 --> 00:05:47,260
+So that's simply linearity.
+
+95
+00:05:49,260 --> 00:05:51,260
+So how do I estimate that quantity?
+
+96
+00:05:51,260 --> 00:05:53,260
+To estimate...
+
+97
+00:05:53,260 --> 00:05:58,260
+that quantity, I'm going to introduce another equation.
+
+98
+00:05:58,260 --> 00:06:01,260
+I'm going to introduce what's called the adjoint equation.
+
+99
+00:06:08,260 --> 00:06:10,260
+Remember, what are the place...
+
+100
+00:06:10,260 --> 00:06:14,260
+what is the place that a linear functional appeared before?
+
+101
+00:06:14,260 --> 00:06:17,260
+It's the right-hand side of a weak form.
+
+102
+00:06:17,260 --> 00:06:19,260
+Right.
+
+103
+00:06:19,260 --> 00:06:23,260
+So the trick in this a posteriori area estimate...
+
+104
+00:06:23,260 --> 00:06:28,260
+is to introduce or invent another weak form...
+
+105
+00:06:28,260 --> 00:06:33,260
+that uses this L0, which is a different linear functional...
+
+106
+00:06:33,260 --> 00:06:35,260
+from the L in the differential equation.
+
+107
+00:06:35,260 --> 00:06:40,260
+So I'm going to introduce another equation that uses this L0...
+
+108
+00:06:40,260 --> 00:06:42,260
+as the right-hand side of the weak form.
+
+109
+00:06:42,260 --> 00:06:46,260
+Particularly, I'm going to introduce an adjoint equation that is A star,
+
+110
+00:06:46,260 --> 00:06:48,260
+which is different from this A also.
+
+111
+00:06:48,260 --> 00:06:51,260
+I'm going to tell you what A star has to be a little bit later.
+
+112
+00:06:51,260 --> 00:06:56,260
+So let me call this U hat being the solution of this different differential equation.
+
+113
+00:06:56,260 --> 00:07:01,260
+And V has to equal to L0 of V.
+
+114
+00:07:01,260 --> 00:07:11,260
+For all possible Vs, remember this L0 has to be operated on the difference between UH and U.
+
+115
+00:07:11,260 --> 00:07:17,260
+So this V in this differential equation should belong to the space of XU.
+
+116
+00:07:17,260 --> 00:07:18,260
+Right.
+
+117
+00:07:18,260 --> 00:07:20,260
+That's the space where U has to belong to.
+
+118
+00:07:21,260 --> 00:07:28,260
+So the test space of this adjoint equation is the primal space,
+
+119
+00:07:28,260 --> 00:07:30,260
+is the space of, is the solution space,
+
+120
+00:07:30,260 --> 00:07:37,260
+the also called trial space of the original differential equation.
+
+121
+00:07:37,260 --> 00:07:39,260
+Okay.
+
+122
+00:07:39,260 --> 00:07:48,260
+And it turns out that my U hat, the solution...
+
+123
+00:07:48,260 --> 00:07:50,260
+whose solution U hat should be in...
+
+124
+00:07:51,260 --> 00:08:00,260
+the XV should be in the space of the test functions in the original differential equation.
+
+125
+00:08:00,260 --> 00:08:02,260
+Okay.
+
+126
+00:08:02,260 --> 00:08:04,260
+So how is this going to be helpful?
+
+127
+00:08:04,260 --> 00:08:12,260
+Let's try to use the manually constructed differential equation
+
+128
+00:08:12,260 --> 00:08:15,260
+to figure out how do I further derive this.
+
+129
+00:08:15,260 --> 00:08:18,260
+So if I have this, then my...
+
+130
+00:08:18,260 --> 00:08:24,260
+I know that for all V in this XU, this weak form is equal.
+
+131
+00:08:24,260 --> 00:08:31,260
+So that allows me to substitute this particular UH minus U into V.
+
+132
+00:08:31,260 --> 00:08:38,260
+This is going to give me A star of U hat and UH minus U.
+
+133
+00:08:38,260 --> 00:08:39,260
+Right.
+
+134
+00:08:39,260 --> 00:08:42,260
+Okay.
+
+135
+00:08:42,260 --> 00:08:46,260
+Now here comes to what this A star has to be.
+
+136
+00:08:46,260 --> 00:08:52,260
+So the reason it's called the adjoint equation is that A star and the A in the original equation,
+
+137
+00:08:52,260 --> 00:08:55,260
+they are adjoint operators.
+
+138
+00:08:55,260 --> 00:09:03,260
+So A star and A are so-called adjoint.
+
+139
+00:09:03,260 --> 00:09:14,260
+In that the definition of adjoint is that A of U, V is exactly equal to A star of V and U.
+
+140
+00:09:14,260 --> 00:09:15,260
+For...
+
+141
+00:09:16,260 --> 00:09:21,260
+All pairs of U and V.
+
+142
+00:09:21,260 --> 00:09:24,260
+So this is U, this is V.
+
+143
+00:09:24,260 --> 00:09:29,260
+If these As are matrices, what does adjoint mean?
+
+144
+00:09:29,260 --> 00:09:31,260
+They're just transpose.
+
+145
+00:09:31,260 --> 00:09:32,260
+Exactly.
+
+146
+00:09:32,260 --> 00:09:33,260
+Exactly.
+
+147
+00:09:33,260 --> 00:09:38,260
+So A star in finite dimensional sense would be just transpose of A.
+
+148
+00:09:38,260 --> 00:09:39,260
+Okay.
+
+149
+00:09:39,260 --> 00:09:44,260
+So now we know that A star of U hat and UH minus U
+
+150
+00:09:44,260 --> 00:09:45,260
+is equal to...
+
+151
+00:09:46,260 --> 00:09:56,260
+A of UH minus U and U hat.
+
+152
+00:09:56,260 --> 00:09:59,260
+Right.
+
+153
+00:09:59,260 --> 00:10:04,260
+So here we use the original differential equation.
+
+154
+00:10:04,260 --> 00:10:14,260
+Before that we are going to expand it using the bilinearity of A.
+
+155
+00:10:14,260 --> 00:10:22,260
+So first of all, U hat is a member of XV.
+
+156
+00:10:22,260 --> 00:10:29,260
+So by the original differential equation, by this original differential equation, if V...
+
+157
+00:10:29,260 --> 00:10:39,260
+If I substitute V by U hat, what I get is this is equal to L of what?
+
+158
+00:10:39,260 --> 00:10:40,260
+U hat.
+
+159
+00:10:40,260 --> 00:10:42,260
+Right?
+
+160
+00:10:42,260 --> 00:10:43,260
+Okay.
+
+161
+00:10:43,260 --> 00:10:55,260
+So therefore, this whole thing is equal to A of UH, U hat minus L of U hat.
+
+162
+00:10:55,260 --> 00:11:01,260
+Or, so let's look at what is the consequence of this equality we derived.
+
+163
+00:11:01,260 --> 00:11:10,260
+The error in the output linear functional, okay, is equal to the left-hand side minus
+
+164
+00:11:10,260 --> 00:11:11,260
+right-hand side.
+
+165
+00:11:11,260 --> 00:11:15,260
+If you look at the original equation, okay, this is the original equation.
+
+166
+00:11:15,260 --> 00:11:19,260
+Left-hand side is A of UV, right-hand side is L of V.
+
+167
+00:11:19,260 --> 00:11:24,260
+Here, this is A of UH and U hat.
+
+168
+00:11:24,260 --> 00:11:26,260
+This is the right-hand side L of U hat.
+
+169
+00:11:26,260 --> 00:11:34,260
+So this is the residual of the original differential equation.
+
+170
+00:11:34,260 --> 00:11:40,260
+When I substitute the solution U by the finite dimension or finite elements,
+
+171
+00:11:40,260 --> 00:11:50,260
+solution UH, and I substitute the V, the test function, by this solution of the adjoint
+
+172
+00:11:50,260 --> 00:11:53,260
+equation, U hat.
+
+173
+00:11:53,260 --> 00:12:03,260
+So, remember, this is just the A of UV minus L of V.
+
+174
+00:12:03,260 --> 00:12:05,260
+So this is A of UH of this.
+
+175
+00:12:05,260 --> 00:12:09,260
+For V is particularly equal to L of V.
+
+176
+00:12:09,260 --> 00:12:17,260
+And this is particularly equal to U hat.
+
+177
+00:12:17,260 --> 00:12:20,260
+So why is this a posteriori error estimate?
+
+178
+00:12:20,260 --> 00:12:24,260
+Because this formula involves UH, not U.
+
+179
+00:12:24,260 --> 00:12:25,260
+Right?
+
+180
+00:12:25,260 --> 00:12:28,260
+And this formula is up to now exact.
+
+181
+00:12:28,260 --> 00:12:31,260
+We make no approximation whatsoever.
+
+182
+00:12:31,260 --> 00:12:37,260
+The only approximation we are going to make is to V, because here, V is still the exact
+
+183
+00:12:37,260 --> 00:12:38,260
+solution.
+
+184
+00:12:38,260 --> 00:12:42,260
+The exact solution of the adjoint equation.
+
+185
+00:12:42,260 --> 00:12:43,260
+Right?
+
+186
+00:12:43,260 --> 00:12:51,260
+So, we are going to solve V using numerical method and substitute that V into this error
+
+187
+00:12:51,260 --> 00:12:52,260
+formula.
+
+188
+00:12:52,260 --> 00:12:53,260
+And we get an error estimate.
+
+189
+00:12:53,260 --> 00:12:58,260
+I mean, it's an estimate because I'm solving a numerical approximation for V, not the exact
+
+190
+00:12:58,260 --> 00:12:59,260
+V.
+
+191
+00:12:59,260 --> 00:13:04,720
+If I have the exact V in some way, then I have an exact formula for the error.
+

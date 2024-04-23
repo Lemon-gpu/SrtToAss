@@ -1,0 +1,700 @@
+1
+00:00:00,000 --> 00:00:08,000
+Now we have the discrete Fourier series. How do we apply von Neumann stability analysis?
+
+2
+00:00:08,000 --> 00:00:19,000
+Let's plug this series into the differential equation and see what happens.
+
+3
+00:00:19,000 --> 00:00:25,000
+So again, the exponential term has nothing to do with time derivative.
+
+4
+00:00:25,000 --> 00:00:34,000
+The only term that has to do with time derivative is the u hat k term.
+
+5
+00:00:34,000 --> 00:00:41,000
+So we have a d u hat k dt times e to the jk i delta x.
+
+6
+00:00:41,000 --> 00:00:50,000
+So that's the left-hand side. And the right-hand side is different from the continuous case.
+
+7
+00:00:50,000 --> 00:00:54,000
+What's amazing, at least to me, is that
+
+8
+00:00:54,000 --> 00:00:55,000
+when we plug this in,
+
+9
+00:00:55,000 --> 00:00:58,000
+we plug the Fourier series into the continuous derivative,
+
+10
+00:00:58,000 --> 00:01:02,000
+we get rid of the coupling between different exponentials.
+
+11
+00:01:02,000 --> 00:01:09,000
+That actually also happens for discrete differential operators on a uniform grid.
+
+12
+00:01:09,000 --> 00:01:17,000
+So we look at the right-hand side. We have a kappa of something long divided by delta x squared.
+
+13
+00:01:17,000 --> 00:01:21,000
+And let's take a look at what this something long is.
+
+14
+00:01:21,000 --> 00:01:24,000
+So first of all, all the terms u of i plus 1,
+
+15
+00:01:24,000 --> 00:01:25,000
+u of i plus 1,
+
+16
+00:01:25,000 --> 00:01:26,000
+u of i minus 1,
+
+17
+00:01:26,000 --> 00:01:27,000
+and u of i,
+
+18
+00:01:27,000 --> 00:01:35,000
+they are summation of k over the same space.
+
+19
+00:01:35,000 --> 00:01:42,000
+And all of them are u hat of k.
+
+20
+00:01:42,000 --> 00:01:45,000
+That we don't have anything to do.
+
+21
+00:01:45,000 --> 00:01:47,000
+I mean, they are different only with i.
+
+22
+00:01:47,000 --> 00:01:49,000
+So the parenthesis is the following.
+
+23
+00:01:49,000 --> 00:01:54,000
+e to the jk i plus 1 delta x, right?
+
+24
+00:01:54,000 --> 00:01:57,000
+So that's the u i plus 1 term.
+
+25
+00:01:57,000 --> 00:02:01,000
+Plus e to the jk of i minus 1 delta x.
+
+26
+00:02:01,000 --> 00:02:03,000
+That's the u i minus 1 term.
+
+27
+00:02:03,000 --> 00:02:11,000
+Minus e to the jk i delta x.
+
+28
+00:02:11,000 --> 00:02:15,000
+So that's the effect of plugging in the discrete Fourier series
+
+29
+00:02:15,000 --> 00:02:20,000
+into the discretized differential equation. Yeah?
+
+30
+00:02:20,000 --> 00:02:23,000
+Ah, we need the two. Thank you.
+
+31
+00:02:23,000 --> 00:02:26,000
+So we have the discrete operator.
+
+32
+00:02:26,000 --> 00:02:28,000
+And now the key question is,
+
+33
+00:02:28,000 --> 00:02:31,000
+what is this thing in the parenthesis?
+
+34
+00:02:31,000 --> 00:02:33,000
+Right?
+
+35
+00:02:33,000 --> 00:02:34,000
+So let's, on the next page,
+
+36
+00:02:34,000 --> 00:02:37,000
+figure out what is this thing on the parenthesis.
+
+37
+00:02:37,000 --> 00:02:38,000
+Can I just...
+
+38
+00:02:38,000 --> 00:02:41,000
+I can still write here, but, uh, anyway.
+
+39
+00:02:44,000 --> 00:02:48,000
+So the parenthesis is j to the j plus...
+
+40
+00:02:48,000 --> 00:02:50,000
+Not j plus 1.
+
+41
+00:02:50,000 --> 00:02:51,000
+Ah...
+
+42
+00:02:51,000 --> 00:02:52,000
+jk i plus 1.
+
+43
+00:02:52,000 --> 00:02:55,000
+jk i plus 1 delta x.
+
+44
+00:02:55,000 --> 00:02:59,000
+Plus e to the jk i minus 1 delta x.
+
+45
+00:02:59,000 --> 00:03:03,000
+Minus 2 e jk i delta x.
+
+46
+00:03:05,000 --> 00:03:09,000
+So, the first thing to do is to expand this
+
+47
+00:03:09,000 --> 00:03:12,000
+as e to the jk i delta x
+
+48
+00:03:12,000 --> 00:03:15,000
+plus jk delta x.
+
+49
+00:03:15,000 --> 00:03:18,000
+And this to e to the jk i delta x
+
+50
+00:03:18,000 --> 00:03:21,000
+minus jk delta x.
+
+51
+00:03:21,000 --> 00:03:22,000
+Right?
+
+52
+00:03:22,000 --> 00:03:24,000
+And then, the summation...
+
+53
+00:03:24,000 --> 00:03:26,000
+the exponential of summations
+
+54
+00:03:26,000 --> 00:03:29,000
+is equal to the product of exponentials.
+
+55
+00:03:29,000 --> 00:03:31,000
+And same thing as here,
+
+56
+00:03:31,000 --> 00:03:33,000
+except for there is a minus sign.
+
+57
+00:03:34,000 --> 00:03:36,000
+And now we can collect the terms.
+
+58
+00:03:36,000 --> 00:03:39,000
+We all have this term, this term, and this term.
+
+59
+00:03:39,000 --> 00:03:42,000
+It becomes e to the jk i delta x
+
+60
+00:03:42,000 --> 00:03:45,000
+times e to the jk delta x
+
+61
+00:03:45,000 --> 00:03:48,000
+plus e to the minus jk delta x
+
+62
+00:03:48,000 --> 00:03:50,000
+minus 2.
+
+63
+00:03:51,000 --> 00:03:53,000
+All right?
+
+64
+00:03:53,000 --> 00:03:58,000
+So now, this is something that does not depend on i.
+
+65
+00:03:58,000 --> 00:04:04,000
+It only depends on k.
+
+66
+00:04:04,000 --> 00:04:08,000
+So now we plug this back into the equation we started.
+
+67
+00:04:08,000 --> 00:04:13,000
+We have summation of k.
+
+68
+00:04:13,000 --> 00:04:15,000
+Ah...
+
+69
+00:04:15,000 --> 00:04:20,000
+du hat k.
+
+70
+00:04:20,000 --> 00:04:25,000
+Ah...
+
+71
+00:04:25,000 --> 00:04:32,000
+dt e to the jk i delta x
+
+72
+00:04:32,000 --> 00:04:36,000
+is going to be equal to the same summation
+
+73
+00:04:36,000 --> 00:04:39,000
+u hat of k.
+
+74
+00:04:39,000 --> 00:04:40,000
+Ah...
+
+75
+00:04:40,000 --> 00:04:42,000
+Okay, I missed a kappa here.
+
+76
+00:04:42,000 --> 00:04:44,000
+There is a kappa here.
+
+77
+00:04:44,000 --> 00:04:46,000
+Ah... u hat of k.
+
+78
+00:04:46,000 --> 00:04:49,000
+This thing divided by delta x squared.
+
+79
+00:04:49,000 --> 00:04:54,000
+So we have e to the jk i delta x.
+
+80
+00:04:54,000 --> 00:04:57,000
+Okay, so let me first write...
+
+81
+00:04:57,000 --> 00:05:05,000
+So what we are going to be doing is plug what we derived earlier into the equation.
+
+82
+00:05:05,000 --> 00:05:15,000
+All right, so this is...
+
+83
+00:05:15,000 --> 00:05:18,000
+This is the equation we finally got.
+
+84
+00:05:19,000 --> 00:05:24,000
+After manipulating the discrete Fourier series.
+
+85
+00:05:24,000 --> 00:05:28,000
+Again, we can match terms.
+
+86
+00:05:28,000 --> 00:05:32,000
+On the left-hand side, we have this.
+
+87
+00:05:32,000 --> 00:05:36,000
+On the right-hand side, we have kappa times u hat of k
+
+88
+00:05:36,000 --> 00:05:39,000
+times this thing we just derived.
+
+89
+00:05:39,000 --> 00:05:41,000
+All right?
+
+90
+00:05:41,000 --> 00:05:45,000
+What is left is basically summation of the same co...
+
+91
+00:05:45,000 --> 00:05:48,000
+the coefficient times e to the jk i delta x.
+
+92
+00:05:48,000 --> 00:05:52,000
+It's the same here. It's the same here.
+
+93
+00:05:52,000 --> 00:05:54,000
+So that means
+
+94
+00:05:54,000 --> 00:05:57,000
+du hat of k dt
+
+95
+00:05:57,000 --> 00:06:00,000
+would be equal to kappa times u hat of k
+
+96
+00:06:00,000 --> 00:06:02,000
+times...
+
+97
+00:06:02,000 --> 00:06:05,000
+Let me just write u hat of k later.
+
+98
+00:06:05,000 --> 00:06:13,000
+Times this weird long thing we just derived.
+
+99
+00:06:13,000 --> 00:06:16,000
+Times u hat of k.
+
+100
+00:06:16,000 --> 00:06:17,000
+But no matter how weird this thing is,
+
+101
+00:06:17,000 --> 00:06:22,000
+it is the time derivative of u hat of k
+
+102
+00:06:22,000 --> 00:06:29,000
+equal to something times u hat of k.
+
+103
+00:06:29,000 --> 00:06:36,000
+That's a differential equation we know the analytical solution of.
+
+104
+00:06:36,000 --> 00:06:37,000
+Right?
+
+105
+00:06:37,000 --> 00:06:45,000
+So it's just u hat of k equal to exponential of this whole thing times t.
+
+106
+00:06:45,000 --> 00:06:51,000
+And what determines the stability of this equation?
+
+107
+00:06:51,000 --> 00:06:57,000
+Yes, the real part of this whole thing has to be negative.
+
+108
+00:06:57,000 --> 00:07:01,000
+This number, it can be a complex number.
+
+109
+00:07:01,000 --> 00:07:03,000
+In this case, it happens to be a real number.
+
+110
+00:07:03,000 --> 00:07:05,000
+But if it's a complex number,
+
+111
+00:07:05,000 --> 00:07:08,000
+we only need to make sure the real part of this
+
+112
+00:07:08,000 --> 00:07:13,000
+or the number is on the left-hand side of the complex plane.
+
+113
+00:07:13,000 --> 00:07:17,000
+Compare this to the analytical.
+
+114
+00:07:17,000 --> 00:07:21,000
+So this is the discrete.
+
+115
+00:07:21,000 --> 00:07:23,000
+And compare to the analytical case.
+
+116
+00:07:23,000 --> 00:07:30,000
+Let's use blue.
+
+117
+00:07:30,000 --> 00:07:34,000
+We have du hat of k dt equal to,
+
+118
+00:07:34,000 --> 00:07:36,000
+in this case, analytically,
+
+119
+00:07:36,000 --> 00:07:39,000
+we had kappa minus k squared.
+
+120
+00:07:39,000 --> 00:07:40,000
+Right?
+
+121
+00:07:40,000 --> 00:07:43,000
+Kappa minus k squared.
+
+122
+00:07:43,000 --> 00:07:45,000
+u hat of k.
+
+123
+00:07:45,000 --> 00:07:47,000
+The continuous and discrete case,
+
+124
+00:07:47,000 --> 00:07:50,000
+they look slightly different.
+
+125
+00:07:50,000 --> 00:07:54,000
+And this is the effect of discretization.
+
+126
+00:07:54,000 --> 00:07:57,000
+All right.
+
+127
+00:07:57,000 --> 00:07:59,000
+And let's figure out what this is.
+
+128
+00:07:59,000 --> 00:08:02,000
+So,
+
+129
+00:08:02,000 --> 00:08:05,000
+so e to the jk delta x
+
+130
+00:08:05,000 --> 00:08:08,000
+is equal to cosine of j,
+
+131
+00:08:08,000 --> 00:08:10,000
+no j,
+
+132
+00:08:10,000 --> 00:08:13,000
+cosine of k delta x
+
+133
+00:08:13,000 --> 00:08:19,000
+plus i sine of k delta x.
+
+134
+00:08:19,000 --> 00:08:21,000
+e to the minus jk delta x
+
+135
+00:08:21,000 --> 00:08:24,000
+is equal to the same cosine,
+
+136
+00:08:24,000 --> 00:08:28,000
+but minus i times sine of k delta x.
+
+137
+00:08:28,000 --> 00:08:33,000
+And therefore, the summation of them
+
+138
+00:08:33,000 --> 00:08:35,000
+turns out to be positive.
+
+139
+00:08:35,000 --> 00:08:38,000
+And if I minus another 2,
+
+140
+00:08:38,000 --> 00:08:40,000
+this 3, which is here,
+
+141
+00:08:40,000 --> 00:08:42,000
+would be equal to
+
+142
+00:08:42,000 --> 00:08:47,000
+2 times cosine k delta x
+
+143
+00:08:47,000 --> 00:08:49,000
+minus 2.
+
+144
+00:08:49,000 --> 00:08:50,000
+Right?
+
+145
+00:08:50,000 --> 00:08:53,000
+So that's what we get.
+
+146
+00:08:53,000 --> 00:08:54,000
+Okay.
+
+147
+00:08:54,000 --> 00:08:57,000
+And if you look at the cosine function,
+
+148
+00:08:57,000 --> 00:09:00,000
+and remember, we're also dividing this by delta x squared.
+
+149
+00:09:00,000 --> 00:09:03,000
+And if you look at the cosine function,
+
+150
+00:09:03,000 --> 00:09:07,000
+and if you remember the Taylor series expansion
+
+151
+00:09:07,000 --> 00:09:10,000
+of this cosine function at 0,
+
+152
+00:09:10,000 --> 00:09:12,000
+the first derivative is 0.
+
+153
+00:09:12,000 --> 00:09:15,000
+The second derivative is minus half.
+
+154
+00:09:15,000 --> 00:09:18,000
+So, when k times delta x is small,
+
+155
+00:09:18,000 --> 00:09:21,000
+when delta x is small enough compared to k,
+
+156
+00:09:21,000 --> 00:09:23,000
+what you get is,
+
+157
+00:09:23,000 --> 00:09:28,000
+this is actually a good approximation of minus k squared.
+
+158
+00:09:28,000 --> 00:09:31,000
+So,
+
+159
+00:09:31,000 --> 00:09:34,000
+so 2 times cosine k delta x
+
+160
+00:09:34,000 --> 00:09:36,000
+minus 2 over delta x squared
+
+161
+00:09:36,000 --> 00:09:40,000
+approximates minus k,
+
+162
+00:09:40,000 --> 00:09:41,000
+right,
+
+163
+00:09:41,000 --> 00:09:43,000
+minus k squared,
+
+164
+00:09:43,000 --> 00:09:49,000
+when delta x times k is small.
+
+165
+00:09:53,000 --> 00:09:55,000
+Alright.
+
+166
+00:09:55,000 --> 00:09:57,000
+And also, another good thing is that,
+
+167
+00:09:57,000 --> 00:10:01,000
+what is the sign of this number?
+
+168
+00:10:01,000 --> 00:10:03,000
+Positive or negative?
+
+169
+00:10:05,000 --> 00:10:08,000
+It's always negative, right?
+
+170
+00:10:08,000 --> 00:10:10,000
+That's another good thing.
+
+171
+00:10:11,000 --> 00:10:13,000
+That means this differential equation,
+
+172
+00:10:13,000 --> 00:10:18,000
+if the time derivative is solved exactly,
+
+173
+00:10:18,000 --> 00:10:22,000
+it is going to be always stable.
+
+174
+00:10:22,000 --> 00:10:25,000
+That's a hallmark of a good discretization,
+
+175
+00:10:25,000 --> 00:10:28,000
+is something always stable is great.
+

@@ -1,0 +1,524 @@
+1
+00:00:00,000 --> 00:00:03,880
+So first of all, we need to define the so-called Sobolev space.
+
+2
+00:00:04,820 --> 00:00:09,120
+So the Sobolev space is an extension of the L2 space.
+
+3
+00:00:09,820 --> 00:00:19,040
+And if you did functional analysis, you know like L2 space is all functions whose square is integrable.
+
+4
+00:00:19,660 --> 00:00:24,000
+So it's all the functions where the integration between...
+
+5
+00:00:24,000 --> 00:00:27,880
+So usually you define an interval, right, in between A and B.
+
+6
+00:00:27,880 --> 00:00:32,440
+So let's say actually omega because this actually extends to multiple dimensions.
+
+7
+00:00:33,140 --> 00:00:40,760
+So integration over omega of f squared dx is bounded, so less than infinity.
+
+8
+00:00:41,400 --> 00:00:47,380
+So this is a class of functions that defines a space because...
+
+9
+00:00:47,380 --> 00:00:51,880
+defines a linear space because if f and g...
+
+10
+00:00:52,080 --> 00:00:57,560
+So first of all, if f is in L2 space, if you scale it by a finite number,
+
+11
+00:00:57,880 --> 00:01:01,480
+the scaled function is also going to be in the same space
+
+12
+00:01:01,480 --> 00:01:05,960
+because the integral of a square is just going to be also scaled by a constant.
+
+13
+00:01:06,920 --> 00:01:11,440
+Also, if you have f and g within both within L2,
+
+14
+00:01:11,440 --> 00:01:16,000
+then integration of f plus g squared dx,
+
+15
+00:01:16,980 --> 00:01:24,660
+we have f squared plus 2fg plus g squared dx.
+
+16
+00:01:26,060 --> 00:01:26,120
+Okay.
+
+17
+00:01:26,400 --> 00:01:27,440
+And using...
+
+18
+00:01:27,880 --> 00:01:30,800
+Using Cauchy-Schwarz inequality,
+
+19
+00:01:31,340 --> 00:01:35,880
+the integration of fg dx is less or equal to...
+
+20
+00:01:37,640 --> 00:01:44,040
+Well, half of integration of f squared plus g squared, right, dx.
+
+21
+00:01:45,180 --> 00:01:46,820
+And therefore, this...
+
+22
+00:01:46,820 --> 00:01:49,740
+If the integration of f squared is finite,
+
+23
+00:01:50,100 --> 00:01:51,560
+integration of g squared is finite,
+
+24
+00:01:51,860 --> 00:01:55,640
+then the integration of this and this and this are all finite.
+
+25
+00:01:55,860 --> 00:01:57,640
+Therefore, this is going to be...
+
+26
+00:01:57,880 --> 00:01:59,600
+Less than...
+
+27
+00:01:59,600 --> 00:02:06,260
+This is going to be less than infinity if f and g both are square integrable.
+
+28
+00:02:07,000 --> 00:02:14,760
+So this is basically a proof that shows that the L2 space is a linear space.
+
+29
+00:02:16,100 --> 00:02:17,440
+Satisfying the criterion.
+
+30
+00:02:19,160 --> 00:02:23,660
+So if f is in...
+
+31
+00:02:23,660 --> 00:02:27,420
+So let's say if f and g both in L2 space,
+
+32
+00:02:27,880 --> 00:02:34,160
+then af plus bg is also in the same space.
+
+33
+00:02:35,040 --> 00:02:39,600
+Because scaling doesn't change...
+
+34
+00:02:39,600 --> 00:02:44,640
+I mean, scaling a member in the space cannot go out of the...
+
+35
+00:02:44,640 --> 00:02:47,140
+Cannot cause the member to go out of the space.
+
+36
+00:02:47,460 --> 00:02:49,160
+And also linear combination cannot...
+
+37
+00:02:49,680 --> 00:02:52,900
+Summation cannot force the member to go out of the space.
+
+38
+00:02:53,800 --> 00:02:53,960
+Right?
+
+39
+00:02:54,760 --> 00:02:57,860
+So the Sobolev space is an extension of this.
+
+40
+00:02:58,380 --> 00:03:02,840
+So the Sobolev space, we're only going to be talking about h1 here.
+
+41
+00:03:03,380 --> 00:03:10,940
+And the extension to h2, etc., we can see later,
+
+42
+00:03:11,060 --> 00:03:15,280
+is that all the functions f, such that the integral...
+
+43
+00:03:15,280 --> 00:03:16,840
+I'm also going to define omega here.
+
+44
+00:03:16,840 --> 00:03:22,760
+The integral of not only f, but also the derivative of f.
+
+45
+00:03:23,160 --> 00:03:26,060
+So let me just call it gradient of f.
+
+46
+00:03:27,300 --> 00:03:27,840
+It's fine.
+
+47
+00:03:27,860 --> 00:03:28,000
+It's finite.
+
+48
+00:03:29,120 --> 00:03:31,860
+In one dimension, this gradient is just the df dx.
+
+49
+00:03:32,840 --> 00:03:36,780
+So this is basically because both f squared and the gradient f squared,
+
+50
+00:03:36,880 --> 00:03:37,400
+they are positive.
+
+51
+00:03:37,980 --> 00:03:39,720
+The sum of these is less than infinity,
+
+52
+00:03:39,940 --> 00:03:43,880
+which basically means that the f is square integrable,
+
+53
+00:03:44,060 --> 00:03:46,840
+and the derivative of f is also square integrable.
+
+54
+00:03:48,000 --> 00:03:48,180
+Right?
+
+55
+00:03:49,400 --> 00:03:54,860
+So this is the equivalent to f...
+
+56
+00:03:55,380 --> 00:03:56,860
+Well, f integrable is...
+
+57
+00:03:57,860 --> 00:04:02,380
+It's the same as saying f is in L2.
+
+58
+00:04:03,840 --> 00:04:09,300
+And the gradient of f is also in L2.
+
+59
+00:04:12,300 --> 00:04:16,520
+So is it a bigger space than L2 or a smaller space than L2?
+
+60
+00:04:19,680 --> 00:04:26,100
+It's smaller because some functions in h1 doesn't belong to L2.
+
+61
+00:04:26,100 --> 00:04:26,620
+Right?
+
+62
+00:04:27,860 --> 00:04:29,340
+All functions in L2...
+
+63
+00:04:29,340 --> 00:04:31,620
+Sorry, the opposite.
+
+64
+00:04:31,980 --> 00:04:34,180
+All functions in h1 belongs to L2,
+
+65
+00:04:34,280 --> 00:04:36,780
+and some functions in L2 doesn't belong to h1.
+
+66
+00:04:37,320 --> 00:04:41,920
+Somebody think of an example of a function in L2 doesn't belong to h1?
+
+67
+00:04:48,720 --> 00:04:52,460
+A function that is in L2, but the gradient is not in L2.
+
+68
+00:04:53,660 --> 00:04:55,240
+Something on the vertical line?
+
+69
+00:04:55,540 --> 00:04:57,340
+Something on the vertical line?
+
+70
+00:04:57,340 --> 00:04:57,400
+Something on the vertical line?
+
+71
+00:04:57,400 --> 00:04:59,100
+Like, so you have a...
+
+72
+00:04:59,100 --> 00:05:01,240
+Okay.
+
+73
+00:05:01,900 --> 00:05:04,180
+Something that has a vertical line.
+
+74
+00:05:05,000 --> 00:05:06,540
+Something that has a vertical line.
+
+75
+00:05:06,580 --> 00:05:06,760
+Okay.
+
+76
+00:05:07,140 --> 00:05:08,520
+So a function like that.
+
+77
+00:05:08,680 --> 00:05:09,040
+Right?
+
+78
+00:05:09,260 --> 00:05:10,960
+So that's a very good example.
+
+79
+00:05:11,300 --> 00:05:12,700
+So it's a...
+
+80
+00:05:12,700 --> 00:05:15,220
+We have a function that is discontinuous.
+
+81
+00:05:15,380 --> 00:05:15,560
+Right?
+
+82
+00:05:15,660 --> 00:05:18,700
+So a function that is discontinuous belongs to L2,
+
+83
+00:05:18,780 --> 00:05:21,080
+but doesn't belong to h1.
+
+84
+00:05:21,500 --> 00:05:21,980
+Right?
+
+85
+00:05:22,360 --> 00:05:23,860
+That's a good point.
+
+86
+00:05:23,860 --> 00:05:25,860
+So discontinuous...
+
+87
+00:05:27,400 --> 00:05:29,400
+function...
+
+88
+00:05:29,400 --> 00:05:33,480
+can belong to L2, but not h1.
+
+89
+00:05:33,800 --> 00:05:36,880
+Another example is f equal to square root of x
+
+90
+00:05:36,880 --> 00:05:40,320
+for x in 0 and 1.
+
+91
+00:05:41,460 --> 00:05:43,720
+Of course, the function is square integrable.
+
+92
+00:05:43,900 --> 00:05:44,860
+Square is just x.
+
+93
+00:05:45,120 --> 00:05:45,300
+Right?
+
+94
+00:05:45,700 --> 00:05:49,000
+But the derivative is 1 over square root of x.
+
+95
+00:05:49,680 --> 00:05:51,840
+I mean, half of 1 over square root of x.
+
+96
+00:05:52,620 --> 00:05:54,400
+Square root, you get 1 over x,
+
+97
+00:05:54,520 --> 00:05:56,760
+and it's not integrable within 0 and 1.
+
+98
+00:05:57,400 --> 00:06:00,360
+I mean, the derivative is infinite at 0.
+
+99
+00:06:01,640 --> 00:06:02,320
+All right.
+
+100
+00:06:03,820 --> 00:06:04,340
+Okay.
+
+101
+00:06:04,340 --> 00:06:12,580
+So both of these are in L2, but not h1.
+
+102
+00:06:13,720 --> 00:06:16,440
+And we can define all other h's,
+
+103
+00:06:16,520 --> 00:06:20,340
+like h2 is f's,
+
+104
+00:06:21,100 --> 00:06:25,660
+whose square, the function itself,
+
+105
+00:06:26,960 --> 00:06:27,340
+and...
+
+106
+00:06:27,400 --> 00:06:30,300
+and also, like, the squares...
+
+107
+00:06:30,300 --> 00:06:37,560
+the second order derivative also has to be finite.
+
+108
+00:06:38,320 --> 00:06:40,640
+So now it's an even smaller space.
+
+109
+00:06:41,200 --> 00:06:41,320
+Right?
+
+110
+00:06:41,400 --> 00:06:43,520
+So as you increase this index,
+
+111
+00:06:44,060 --> 00:06:46,760
+more and more derivatives are required to be
+
+112
+00:06:46,760 --> 00:06:49,120
+not only exist, but also square integrable.
+
+113
+00:06:49,120 --> 00:06:50,340
+So you get more...
+
+114
+00:06:50,340 --> 00:06:51,960
+smaller and smaller space.
+
+115
+00:06:55,160 --> 00:06:56,440
+And this is...
+
+116
+00:06:56,440 --> 00:06:57,120
+the...
+
+117
+00:06:57,400 --> 00:06:58,520
+and also it's...
+
+118
+00:06:58,520 --> 00:07:02,260
+it's more than just differentiable, right?
+
+119
+00:07:02,260 --> 00:07:04,400
+Because square root of x, for example,
+
+120
+00:07:04,500 --> 00:07:05,720
+it's actually c infinity.
+
+121
+00:07:05,980 --> 00:07:06,260
+It's...
+
+122
+00:07:06,260 --> 00:07:06,640
+it's...
+
+123
+00:07:06,640 --> 00:07:10,240
+it's going to be differentiable always.
+
+124
+00:07:10,600 --> 00:07:11,580
+But, like, it's...
+
+125
+00:07:11,580 --> 00:07:13,020
+it doesn't even belong to h1.
+
+126
+00:07:14,120 --> 00:07:14,520
+So...
+
+127
+00:07:14,520 --> 00:07:15,020
+so...
+
+128
+00:07:15,020 --> 00:07:17,220
+so functions that are not just differentiable,
+
+129
+00:07:17,220 --> 00:07:19,220
+but its derivative are...
+
+130
+00:07:20,260 --> 00:07:23,960
+cannot go to infinity too fast at the boundaries.
+
+131
+00:07:25,120 --> 00:07:25,220
+Okay.
+

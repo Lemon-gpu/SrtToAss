@@ -1,0 +1,356 @@
+1
+00:00:00,000 --> 00:00:04,740
+In the last lecture, we have a known function f of x that is known.
+
+2
+00:00:06,080 --> 00:00:12,360
+And we are just trying to construct the best possible approximation of f
+
+3
+00:00:12,360 --> 00:00:16,900
+within a finite dimensional space.
+
+4
+00:00:17,840 --> 00:00:23,320
+So we first define a finite dimensional space.
+
+5
+00:00:30,000 --> 00:00:35,500
+A finite dimensional space means a space of functions, a linear space of functions.
+
+6
+00:00:35,500 --> 00:00:42,840
+And linear space means any linear combination of two functions in the space is still in the same space.
+
+7
+00:00:43,500 --> 00:00:56,580
+So a finite dimensional space means any function g that can be represented as a linear combination.
+
+8
+00:00:56,800 --> 00:00:58,280
+i goes from 1 to n.
+
+9
+00:00:58,780 --> 00:00:59,680
+I call it gi.
+
+10
+00:01:00,000 --> 00:01:01,580
+Of vi of x.
+
+11
+00:01:03,640 --> 00:01:11,100
+And so that is for any g1, etc. to gn.
+
+12
+00:01:11,580 --> 00:01:21,640
+So this is a space that is equivalent in some sense to the n-dimensional space of real numbers.
+
+13
+00:01:22,280 --> 00:01:26,040
+So for any combination of n real numbers,
+
+14
+00:01:26,640 --> 00:01:29,080
+you can construct a unique element.
+
+15
+00:01:29,080 --> 00:01:30,380
+In the space.
+
+16
+00:01:31,520 --> 00:01:38,660
+By using these real numbers as linear combination coefficients on a particular set of bases.
+
+17
+00:01:40,000 --> 00:01:40,680
+So here,
+
+18
+00:01:42,920 --> 00:01:46,080
+phi i, i goes from 1 to n,
+
+19
+00:01:47,260 --> 00:01:48,620
+is a basis.
+
+20
+00:01:50,680 --> 00:01:50,980
+Right?
+
+21
+00:01:51,340 --> 00:01:53,320
+So once we have that basis,
+
+22
+00:01:54,140 --> 00:01:57,940
+we can construct the best approximation of f.
+
+23
+00:01:59,080 --> 00:02:00,080
+So,
+
+24
+00:02:00,080 --> 00:02:06,080
+we can use the best approximation of f in x.
+
+25
+00:02:06,080 --> 00:02:07,080
+So,
+
+26
+00:02:07,080 --> 00:02:08,080
+we can use the best approximation of f in x.
+
+27
+00:02:08,080 --> 00:02:14,080
+The best approximation of f in x can be obtained by minimizing the distance f minus g,
+
+28
+00:02:14,080 --> 00:02:19,080
+such that g is in that space.
+
+29
+00:02:19,080 --> 00:02:24,080
+So the distance in this case is the L2 distance,
+
+30
+00:02:24,080 --> 00:02:27,080
+where the distance, the square of the distance, is defined as the integration function of the n-dimensional space.
+
+31
+00:02:27,080 --> 00:02:27,840
+So, we can use the best approximation of f in x,
+
+32
+00:02:27,840 --> 00:02:31,840
+which is defined as the integration from this domain.
+
+33
+00:02:31,840 --> 00:02:36,840
+So, we need to specify that f is in a particular domain.
+
+34
+00:02:36,840 --> 00:02:40,840
+So, and the L2 norm of the difference between two functions,
+
+35
+00:02:40,840 --> 00:02:46,840
+is the integral of the square of the function.
+
+36
+00:02:46,840 --> 00:02:48,840
+And then take a square root.
+
+37
+00:02:48,840 --> 00:02:51,840
+Now because of we are having a square here,
+
+38
+00:02:51,840 --> 00:02:52,840
+the square root cancels,
+
+39
+00:02:52,840 --> 00:02:56,840
+and the square of the L2 norm is simply the integral of the square root.
+
+40
+00:02:56,840 --> 00:03:00,840
+of the function.
+
+41
+00:03:00,840 --> 00:03:01,840
+Okay,
+
+42
+00:03:01,840 --> 00:03:02,840
+and now,
+
+43
+00:03:02,840 --> 00:03:08,840
+we can further expand it to integration f minus integration of g .
+
+44
+00:03:08,840 --> 00:03:10,840
+So, we are minimizing,
+
+45
+00:03:10,840 --> 00:03:12,840
+now instead of g in x,
+
+46
+00:03:12,840 --> 00:03:14,840
+we are minimizing g .
+
+47
+00:03:14,840 --> 00:03:16,840
+i goes from 1 to n.
+
+48
+00:03:16,840 --> 00:03:20,840
+We are minimizing over these coefficients,
+
+49
+00:03:20,840 --> 00:03:24,840
+because we can represent g using linear combination of the basis.
+
+50
+00:03:24,840 --> 00:03:25,840
+So, g .
+
+51
+00:03:25,840 --> 00:03:26,840
+i,
+
+52
+00:03:26,840 --> 00:03:27,840
+phi,
+
+53
+00:03:27,840 --> 00:03:28,840
+i,
+
+54
+00:03:28,840 --> 00:03:29,840
+square,
+
+55
+00:03:29,840 --> 00:03:30,840
+dx.
+
+56
+00:03:30,840 --> 00:03:37,840
+And we turn that optimization problem into a set of linear equations.
+
+57
+00:03:37,840 --> 00:03:44,840
+How do we turn that into a linear equations?
+
+58
+00:03:44,840 --> 00:03:47,840
+We use perturbation analysis.
+
+59
+00:03:47,840 --> 00:03:48,840
+Last lecture,
+
+60
+00:03:48,840 --> 00:03:53,840
+we perturbed this function g a little bit.
+
+61
+00:03:53,840 --> 00:03:54,840
+Right?
+
+62
+00:03:54,840 --> 00:03:58,840
+And we derived the condition that the minimizer has to ensure that
+
+63
+00:03:58,840 --> 00:04:02,840
+the distance between f and g is going to be orthogonal
+
+64
+00:04:02,840 --> 00:04:06,840
+to any function
+
+65
+00:04:06,840 --> 00:04:09,840
+in the same linear space.
+
+66
+00:04:09,840 --> 00:04:10,840
+Right?
+
+67
+00:04:10,840 --> 00:04:11,840
+So,
+
+68
+00:04:11,840 --> 00:04:20,840
+through a perturbation or variational analysis,
+
+69
+00:04:20,840 --> 00:04:21,840
+we found that
+
+70
+00:04:21,840 --> 00:04:24,840
+in order to have this minimized,
+
+71
+00:04:24,840 --> 00:04:27,840
+we must ensure that f minus g,
+
+72
+00:04:27,840 --> 00:04:30,840
+which is the linear summation,
+
+73
+00:04:30,840 --> 00:04:34,840
+has to be orthogonal to any function in the same space,
+
+74
+00:04:34,840 --> 00:04:37,840
+which any function, of course, includes the basis.
+
+75
+00:04:37,840 --> 00:04:43,840
+So, this times any of the phi j's has to be equal to 0.
+
+76
+00:04:43,840 --> 00:04:51,840
+And this turns into a linear equation a times g equal to b.
+
+77
+00:04:51,840 --> 00:04:53,840
+Okay, so this is the procedure we used last lecture.
+
+78
+00:04:54,840 --> 00:04:59,840
+To construct the best approximation of a known function.
+
+79
+00:04:59,840 --> 00:05:00,840
+Of course,
+
+80
+00:05:00,840 --> 00:05:02,840
+if we know what the function is,
+
+81
+00:05:02,840 --> 00:05:06,840
+we can basically use the analytical form
+
+82
+00:05:06,840 --> 00:05:09,840
+without having to construct an approximation.
+
+83
+00:05:09,840 --> 00:05:12,840
+So, the real utility of this procedure,
+
+84
+00:05:12,840 --> 00:05:13,840
+exactly the same procedure,
+
+85
+00:05:13,840 --> 00:05:15,840
+is in solving differential equations,
+
+86
+00:05:15,840 --> 00:05:20,840
+where we actually don't know the solution a priori.
+
+87
+00:05:20,840 --> 00:05:23,840
+We only know the solution satisfies a certain differential equation.
+
+88
+00:05:23,840 --> 00:05:26,840
+It turns out we can use the same procedure
+
+89
+00:05:26,840 --> 00:05:29,840
+to solve differential equations.
+

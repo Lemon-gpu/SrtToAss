@@ -1,0 +1,388 @@
+1
+00:00:00,000 --> 00:00:06,260
+Today we are going to be starting to talk about finite difference in 1D.
+
+2
+00:00:06,260 --> 00:00:11,400
+The three main questions we want to answer in this class is how to approximate a
+
+3
+00:00:11,400 --> 00:00:17,520
+partial differential equation in a form that a computer can implement and solve.
+
+4
+00:00:17,520 --> 00:00:27,040
+And this is an approximation, it's not an exact solution. So how accurate or how
+
+5
+00:00:27,040 --> 00:00:32,280
+inaccurate, which is the same question, is our approximation? Well how do we find
+
+6
+00:00:32,280 --> 00:00:40,000
+out? And a part of this question is how do we construct approximations that are
+
+7
+00:00:40,000 --> 00:00:49,220
+as accurate as possible in some sense while as easy to implement and easy for
+
+8
+00:00:49,220 --> 00:00:53,880
+the computer to solve as possible. And the third question is how does the
+
+9
+00:00:53,880 --> 00:00:56,540
+approximation affect our solution?
+
+10
+00:00:56,540 --> 00:00:57,040
+So this looks like a very simple problem.
+
+11
+00:00:57,040 --> 00:01:05,480
+It looks like a weird question, but it is not. There is a difference between how
+
+12
+00:01:05,480 --> 00:01:13,540
+much error is it in the approximation of the PDE and when you solve it how much
+
+13
+00:01:13,540 --> 00:01:18,000
+error is in the solution. So these are two different things. We're going to look
+
+14
+00:01:18,000 --> 00:01:23,280
+at why they are two different things and how one, the approximation error, affects
+
+15
+00:01:23,280 --> 00:01:26,540
+the solution error. What's the link between them?
+
+16
+00:01:26,540 --> 00:01:33,860
+So first of all let's discuss, find a difference for the heat equation. The heat
+
+17
+00:01:33,860 --> 00:01:40,600
+equation is again partial u, partial t equal to a kappa times partial square u
+
+18
+00:01:40,600 --> 00:01:48,500
+partial x square. And this equation is both of the terms appears in the project
+
+19
+00:01:48,500 --> 00:01:52,540
+you have to do. So the behavior of this equation is going to be reflected in your numerical system.
+
+20
+00:01:52,540 --> 00:01:54,540
+So the behavior of this equation is going to be reflected in your numerical system.
+
+21
+00:01:56,540 --> 00:01:58,540
+So the behavior of this equation is going to be reflected in your numerical system.
+
+22
+00:01:58,540 --> 00:02:00,540
+So the behavior of this equation is going to be reflected in your numerical system.
+
+23
+00:02:00,540 --> 00:02:06,540
+And for the heat equation, the main thing we want to approximate is the spatial derivative
+
+24
+00:02:06,540 --> 00:02:14,540
+term. Because if we can discretize the spatial derivative term and remove the spatial derivative,
+
+25
+00:02:14,540 --> 00:02:18,540
+partial x, from the equation, what do we get?
+
+26
+00:02:18,540 --> 00:02:26,040
+We get an OD because we only have one derivative, we only have time derivative.
+
+27
+00:02:26,040 --> 00:02:36,040
+And for that OD, if we are given an initial condition, we can put it in any OD solver and solve it.
+
+28
+00:02:36,040 --> 00:02:44,040
+So for most of you who prefers MATLAB, you probably know OD45.
+
+29
+00:02:44,040 --> 00:02:54,040
+So for those of you who prefers Python, if you import scipy, there is scipy.integrate, and it has pretty good OD integrators.
+
+30
+00:02:54,040 --> 00:02:55,040
+So for those of you who prefers Python, if you import scipy, there is scipy.integrate, and it has pretty good OD integrators.
+
+31
+00:02:56,040 --> 00:02:58,040
+So for those of you who prefers Python, if you import scipy, there is scipy.integrate, and it has pretty good OD integrators.
+
+32
+00:02:58,040 --> 00:03:06,040
+Alright, if you don't know that, you should reconsider your option of choosing Python.
+
+33
+00:03:06,040 --> 00:03:08,040
+Alright, if you don't know that, you should reconsider your option of choosing Python.
+
+34
+00:03:08,040 --> 00:03:16,040
+But the main goal is to get rid of the spatial derivative.
+
+35
+00:03:16,040 --> 00:03:20,040
+Okay, so how do we get rid of the spatial derivative?
+
+36
+00:03:20,040 --> 00:03:24,040
+We first need to approximate the solution, u as a function of x and t.
+
+37
+00:03:24,040 --> 00:03:26,040
+We first need to approximate the solution, u as a function of x and t.
+
+38
+00:03:26,040 --> 00:03:33,040
+We want to approximate it as something of just a function of t.
+
+39
+00:03:33,040 --> 00:03:38,040
+And let's look at what are the options of doing that.
+
+40
+00:03:38,040 --> 00:03:41,040
+Going to MATLAB.
+
+41
+00:03:41,040 --> 00:03:46,040
+So I'm going to run two demos.
+
+42
+00:03:46,040 --> 00:03:54,040
+And the two demos is going to illustrate two different options of approximating a function of x
+
+43
+00:03:54,040 --> 00:03:57,040
+and t.
+
+44
+00:03:57,040 --> 00:04:01,040
+And the two demos is going to illustrate two different options of approximating a function of x and t.
+
+45
+00:04:01,040 --> 00:04:06,040
+So first of all, I'm going to tell you how a finite difference approximates a function.
+
+46
+00:04:06,040 --> 00:04:15,040
+And then I'm going to tell you how a finite volume, which is the second method of discretization, is going to approximate a function.
+
+47
+00:04:15,040 --> 00:04:17,040
+So here we go.
+
+48
+00:04:17,040 --> 00:04:20,040
+And again, I will ask somebody to draw a function.
+
+49
+00:04:20,040 --> 00:04:23,040
+And we'll see how on this 11-grid graph, we can get the final result.
+
+50
+00:04:23,040 --> 00:04:30,040
+So if you have 11 grid points, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 grid points and 10 intervals,
+
+51
+00:04:30,040 --> 00:04:36,040
+how a finite difference is going to approximate your function?
+
+52
+00:04:36,040 --> 00:04:37,040
+All right.
+
+53
+00:04:37,040 --> 00:04:49,040
+Please.
+
+54
+00:04:49,040 --> 00:04:52,040
+By the way, I have uploaded my script for letting you draw a function.
+
+55
+00:04:52,040 --> 00:04:54,040
+So if you have any questions, please feel free to ask me.
+
+56
+00:04:54,040 --> 00:04:56,040
+And I will also be happy to answer any questions you may have.
+
+57
+00:04:56,040 --> 00:04:58,040
+Thank you.
+
+58
+00:04:58,040 --> 00:04:59,040
+What's your name?
+
+59
+00:04:59,040 --> 00:05:00,040
+Zach.
+
+60
+00:05:00,040 --> 00:05:01,040
+Zach.
+
+61
+00:05:01,040 --> 00:05:02,040
+OK.
+
+62
+00:05:02,040 --> 00:05:04,040
+Zach's function is nice and smooth.
+
+63
+00:05:04,040 --> 00:05:05,040
+All right.
+
+64
+00:05:05,040 --> 00:05:06,040
+So that's good.
+
+65
+00:05:06,040 --> 00:05:13,040
+And his function is still shown in the thin red line on screen.
+
+66
+00:05:13,040 --> 00:05:15,040
+But the computer is going to find a difference.
+
+67
+00:05:15,040 --> 00:05:19,040
+It's going to forget about the whole function Zach has drawn.
+
+68
+00:05:19,040 --> 00:05:21,040
+And the computer only remembers the same thing.
+
+69
+00:05:21,040 --> 00:05:25,040
+It remembers the circles.
+
+70
+00:05:25,040 --> 00:05:29,040
+What are the circles?
+
+71
+00:05:29,040 --> 00:05:38,040
+They are just the values of the function at these grid points at the set of spatial locations.
+
+72
+00:05:38,040 --> 00:05:41,040
+That's how finite difference approximates a function.
+
+73
+00:05:41,040 --> 00:05:46,040
+It's basically the most straightforward way of approximating a continuous function.
+
+74
+00:05:46,040 --> 00:05:48,040
+Right?
+
+75
+00:05:48,040 --> 00:05:50,040
+And we are going to see a little bit later on
+
+76
+00:05:50,040 --> 00:05:54,040
+that finite volume is going to do things differently.
+
+77
+00:05:54,040 --> 00:05:55,040
+OK.
+
+78
+00:05:55,040 --> 00:05:58,040
+So let's actually run the demo here.
+
+79
+00:05:58,040 --> 00:06:02,040
+And I'm trying to reproduce the function Zach has drawn.
+
+80
+00:06:02,040 --> 00:06:07,040
+Maybe I'm doing that not so good.
+
+81
+00:06:07,040 --> 00:06:13,040
+This is actually how finite volume approximates roughly the same function.
+
+82
+00:06:13,040 --> 00:06:16,040
+Instead of circles, we get lines.
+
+83
+00:06:16,040 --> 00:06:19,040
+And what are these lines?
+
+84
+00:06:19,040 --> 00:06:21,040
+Anybody take a guess?
+
+85
+00:06:21,040 --> 00:06:22,040
+Yes?
+
+86
+00:06:22,040 --> 00:06:28,040
+Average value of the function in the intervals.
+
+87
+00:06:28,040 --> 00:06:32,040
+So finite volume has nothing to do with the grid points.
+
+88
+00:06:32,040 --> 00:06:34,040
+It looks at intervals.
+
+89
+00:06:34,040 --> 00:06:37,040
+It decomposes the domain into small intervals
+
+90
+00:06:37,040 --> 00:06:42,040
+and approximates the function using the average values inside these intervals.
+
+91
+00:06:42,040 --> 00:06:46,040
+That's how finite volume discretizes function.
+
+92
+00:06:46,040 --> 00:06:49,040
+But this class, we are going to discuss finite difference.
+
+93
+00:06:49,040 --> 00:06:54,040
+Which is approximating a function using the values at the grid points.
+
+94
+00:06:54,040 --> 00:06:56,040
+OK.
+
+95
+00:06:56,040 --> 00:06:59,040
+So we'll see advantages and disadvantages.
+
+96
+00:06:59,040 --> 00:07:01,040
+The advantage, of course, is simplicity.
+
+97
+00:07:01,040 --> 00:07:06,040
+It's a lot simpler to just think of the function value at individual grid points.
+

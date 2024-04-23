@@ -1,0 +1,508 @@
+1
+00:00:00,000 --> 00:00:09,680
+So let's start with a simple example of what we analyzed before. So partial u
+
+2
+00:00:09,680 --> 00:00:16,600
+partial t equal to partial v partial x and partial v partial t is equal to
+
+3
+00:00:16,600 --> 00:00:21,360
+partial u partial x. So that is the equation derived out of the wave
+
+4
+00:00:21,360 --> 00:00:31,560
+equation. We analyzed I think two lectures before. So once you have such
+
+5
+00:00:31,560 --> 00:00:37,500
+equation and you want to discretize it in a finite domain, what is proper
+
+6
+00:00:37,500 --> 00:00:45,020
+boundary condition to set? Can we use a similar characteristic analysis on that?
+
+7
+00:00:45,020 --> 00:00:50,600
+Yes? No? Does this equation have a single
+
+8
+00:00:50,600 --> 00:00:51,340
+character?
+
+9
+00:00:51,340 --> 00:00:58,220
+Does it have characteristic speed? Does it have characteristic speed? Well let's take a look.
+
+10
+00:00:58,220 --> 00:01:05,320
+One thing we can do is we can write this as partial partial t of u and v
+
+11
+00:01:05,320 --> 00:01:16,860
+equal to a matrix times partial partial x of u and v. Right? The matrix is just
+
+12
+00:01:16,860 --> 00:01:20,580
+one one zero zero.
+
+13
+00:01:20,580 --> 00:01:27,340
+A way to analyze the characteristic speed of this equation is by performing
+
+14
+00:01:27,340 --> 00:01:28,840
+an eigenvalue analysis...
+
+15
+00:01:28,840 --> 00:01:41,580
+...to find out the eigenvalues and eigenvectors of this matrix. And what are
+
+16
+00:01:41,580 --> 00:01:46,860
+the eigenvalues and eigenvectors of this matrix?
+
+17
+00:01:46,860 --> 00:01:47,840
+One.
+
+18
+00:01:47,840 --> 00:01:48,440
+Royках?
+
+19
+00:01:48,440 --> 00:01:48,660
+One.
+
+20
+00:01:48,660 --> 00:01:49,360
+Stein?
+
+21
+00:01:49,360 --> 00:01:49,660
+coordiner?
+
+22
+00:01:49,660 --> 00:01:49,960
+해� ancestral?
+
+23
+00:01:49,960 --> 00:01:50,420
+k leishman causing? Is there someone who knows this?
+
+24
+00:01:50,420 --> 00:01:50,460
+pych?
+
+25
+00:01:50,460 --> 00:02:04,540
+eigenvectors. So eigenvectors is basically lambda times the same vector equal to
+
+26
+00:02:04,540 --> 00:02:12,000
+this times the same vector, right? So for example, if I plug in 1 and 1, what do I
+
+27
+00:02:12,000 --> 00:02:22,740
+get? I get, I mean matrix vector multiplication, I get 1 and 1, right? Okay,
+
+28
+00:02:22,740 --> 00:02:29,580
+so lambda is equal to 1 in that case. What if I multiply the same thing using
+
+29
+00:02:29,580 --> 00:02:40,440
+1 and minus 1? Alright, matrix vector multiplication 1 times 0, 1 times minus 1,
+
+30
+00:02:40,440 --> 00:02:41,600
+I get minus 1 here.
+
+31
+00:02:41,600 --> 00:02:49,520
+1 times 1 minus 1 times 0, I get 1 here. Which is, if I pull the minus sign out of
+
+32
+00:02:49,520 --> 00:02:56,420
+here, it's equal to minus 1 times the same vector, right? So I get two eigenvalues,
+
+33
+00:02:56,420 --> 00:03:02,300
+1 and minus 1. The corresponding eigenvectors are 1, 1 and 1 minus 1. In
+
+34
+00:03:02,300 --> 00:03:06,480
+general, it's not obvious, as obvious as this, you need to follow up MATLAB and
+
+35
+00:03:06,480 --> 00:03:11,120
+put the matrix into this and call eig to figure out what are the eigenvalues I
+
+36
+00:03:11,120 --> 00:03:11,540
+I
+
+37
+00:03:11,540 --> 00:03:11,580
+I
+
+38
+00:03:11,580 --> 00:03:18,080
+have to find the eigenvectors. But in this case, it's just a 1 minus 1, and we can use
+
+39
+00:03:18,080 --> 00:03:22,800
+these eigenvectors, use the eigenvectors to recombine this equation to perform linear
+
+40
+00:03:22,800 --> 00:03:29,420
+combinations of u and v to decouple them, make them scalar equations. Why do we need
+
+41
+00:03:29,420 --> 00:03:38,720
+to do that? We are doing that, we decouple these equations so that we know which linear
+
+42
+00:03:38,720 --> 00:03:41,520
+combination of the,
+
+43
+00:03:41,520 --> 00:03:49,360
+variables should I set on the boundary? Which other linear combination should I
+
+44
+00:03:49,360 --> 00:03:59,480
+leave it alone? Okay? Because, for example, on the left boundary, on the left
+
+45
+00:03:59,480 --> 00:04:06,280
+boundary, the characteristics corresponding to 1, 1, which is, let me do the analysis
+
+46
+00:04:06,280 --> 00:04:11,460
+here. So this is equal to that, and so the eigenvalues, which are the eigenvalues, are
+
+47
+00:04:11,460 --> 00:04:16,120
+the eigenvectors. So the eigenvalue eigenvector analysis makes it possible for me to express
+
+48
+00:04:16,120 --> 00:04:28,780
+this matrix as a, as a 1 minus 1. So, so, so let me, I don't have enough space to write
+
+49
+00:04:28,780 --> 00:04:41,400
+it down here. So this analysis tells me that if I multiply the same matrix 0, 1, 1, 0, times,
+
+50
+00:04:41,400 --> 00:04:47,660
+not only this 1, 1 vector but also this 1 minus 1 vector. So these two columns are basically
+
+51
+00:04:47,660 --> 00:05:01,080
+these two eigenvectors. This would give me, this would give me 1 and 1 on the first column
+
+52
+00:05:01,080 --> 00:05:10,740
+and minus 1, 1 on the second column. But if I still write it as, if I still write it as
+
+53
+00:05:10,740 --> 00:05:11,240
+this, I need to write it as 1 minus 1. So I just need to write it as 1 minus 1. And,
+
+54
+00:05:11,240 --> 00:05:18,000
+I need to multiply this column by minus 1, which can be done by, which can be done by
+
+55
+00:05:18,000 --> 00:05:25,820
+1, 1, 1 minus 1. If I want to multiply the first column by 1, I want to put a 1 here.
+
+56
+00:05:25,820 --> 00:05:30,740
+If I want to multiply the second column by minus 1, I put a minus 1 here. Right? So this
+
+57
+00:05:30,740 --> 00:05:37,320
+is the proper representation of these, these eigenvalue eigenvectors in matrix. So we want
+
+58
+00:05:37,320 --> 00:05:40,580
+to insert this matrix.
+
+59
+00:05:40,580 --> 00:05:50,600
+Onto here. So what we want to do is we want to multiply this by 1, 1, 1 minus 1 times
+
+60
+00:05:50,600 --> 00:06:02,840
+1, 1, 1 minus 1 inverse. Right? Partial, partial t of u, v is equal to the, the matrix
+
+61
+00:06:02,840 --> 00:06:09,320
+times the first matrix is exactly the right hand side of this eigenvalue eigenvector relation.
+
+62
+00:06:09,320 --> 00:06:09,920
+So it is going to be equal to the first matrix.
+
+63
+00:06:09,920 --> 00:06:18,960
+And it is going to be equal to the, to this 1, 1, 1 minus 1 times 1 minus 1. So this is
+
+64
+00:06:18,960 --> 00:06:24,300
+equal to the left hand side. And I still have an inverse over here. So I still have a 1,
+
+65
+00:06:24,300 --> 00:06:38,040
+1, 1 minus 1 inverse times partial, partial x of u and v. So there is an inverse here.
+
+66
+00:06:38,040 --> 00:06:39,660
+So if I move.
+
+67
+00:06:39,920 --> 00:06:42,360
+This matrix two to the left hand
+
+68
+00:06:42,360 --> 00:06:48,800
+side. What I get is a partial partial tee
+
+69
+00:06:48,800 --> 00:06:54,620
+off. Let me see if I can compute the.
+
+70
+00:06:54,620 --> 00:06:58,900
+Inverse, a, easily, so the inverse this matrix is.
+
+71
+00:06:58,900 --> 00:07:02,160
+The, the determinant is 1 minus 1,
+
+72
+00:07:02,160 --> 00:07:04,100
+which is minus minus one séins 1,
+
+73
+00:07:04,100 --> 00:07:08,240
+so determinant it's minus two inverse of this matrix.
+
+74
+00:07:08,240 --> 00:07:09,120
+I should-.,
+
+75
+00:07:09,120 --> 00:07:16,120
+should be the 1 over determinant times...
+
+76
+00:07:16,120 --> 00:07:20,120
+So I want to switch these.
+
+77
+00:07:20,120 --> 00:07:26,120
+So I still have 1, I still have 1, minus 1 and 1 here. Is that right?
+
+78
+00:07:29,120 --> 00:07:35,120
+No, that's not right. I think I still have 1 here, minus 1 here.
+
+79
+00:07:35,120 --> 00:07:41,120
+If I take the inverse of the matrix, multiply it on the left-hand side and right-hand side of both equations,
+
+80
+00:07:41,120 --> 00:07:49,120
+I get d dt of half of...
+
+81
+00:07:49,120 --> 00:07:52,120
+So this multiplied by this u and v...
+
+82
+00:07:52,120 --> 00:07:58,120
+Half of u plus v, and the column is...
+
+83
+00:07:58,120 --> 00:08:04,120
+Half of u minus v would be equal to 1 minus 1
+
+84
+00:08:04,120 --> 00:08:05,120
+times...
+
+85
+00:08:05,120 --> 00:08:10,120
+Partial x. I also multiply the inverse inside this.
+
+86
+00:08:10,120 --> 00:08:14,120
+Half of u plus v, half of u minus v.
+
+87
+00:08:14,120 --> 00:08:15,120
+Right?
+
+88
+00:08:15,120 --> 00:08:22,120
+So this is how we can use the eigenvectors to decouple this equation.
+
+89
+00:08:23,120 --> 00:08:27,120
+So u plus v over 2 is...
+
+90
+00:08:27,120 --> 00:08:32,120
+The time derivative is only a function of u plus v over 2.
+
+91
+00:08:32,120 --> 00:08:34,120
+The time derivative of u minus v over 2 is...
+
+92
+00:08:34,120 --> 00:08:42,120
+Only a function of the same function, u minus v over 2.
+
+93
+00:08:42,120 --> 00:08:49,120
+And the first component, u plus v over 2, propagates at a characteristic speed of plus 1.
+
+94
+00:08:49,120 --> 00:08:54,120
+The other component, u minus v over 2, propagates at a characteristic speed of minus 1.
+
+95
+00:08:54,120 --> 00:08:58,120
+So one goes towards the right, one goes towards the left.
+
+96
+00:08:58,120 --> 00:09:03,120
+So let me impose the boundary condition at x equal to 0.
+
+97
+00:09:04,120 --> 00:09:13,120
+On the left side of the domain, which combination of variables should I specify the boundary condition for?
+
+98
+00:09:13,120 --> 00:09:18,120
+And which combination of variables should I not enforce any boundary condition?
+
+99
+00:09:18,120 --> 00:09:19,120
+Yes?
+
+100
+00:09:19,120 --> 00:09:21,120
+Specify for u plus v.
+
+101
+00:09:21,120 --> 00:09:25,120
+Specify for u plus v, which propagates towards the right.
+
+102
+00:09:25,120 --> 00:09:26,120
+Alright.
+
+103
+00:09:26,120 --> 00:09:29,120
+And u minus v should be left alone.
+
+104
+00:09:29,120 --> 00:09:30,120
+Can u though?
+
+105
+00:09:30,120 --> 00:09:33,120
+Suppose I only have information about the function u.
+
+106
+00:09:33,120 --> 00:09:37,120
+What should I do?
+
+107
+00:09:37,120 --> 00:09:41,120
+I know u minus v should be left alone, right?
+
+108
+00:09:41,120 --> 00:09:47,120
+So I can compute what is locally u minus v.
+
+109
+00:09:47,120 --> 00:09:53,120
+And now if I have the function u, if I have information about function u,
+
+110
+00:09:53,120 --> 00:09:59,120
+and I have the value of u minus v over 2, which comes from inside the domain,
+
+111
+00:09:59,120 --> 00:10:03,120
+then I know what to set about u plus v.
+
+112
+00:10:03,120 --> 00:10:04,120
+Right?
+
+113
+00:10:04,120 --> 00:10:13,120
+So the value u minus v, I should grab the information from inside the domain.
+
+114
+00:10:13,120 --> 00:10:19,120
+I have value of u, which I know what it is.
+
+115
+00:10:19,120 --> 00:10:24,120
+That allows me to set what is u plus v.
+
+116
+00:10:24,120 --> 00:10:29,120
+And again on the right, I have information, let's say again I have information of u,
+
+117
+00:10:29,120 --> 00:10:31,120
+and I know what is the value of u plus v from inside the domain.
+
+118
+00:10:31,120 --> 00:10:32,120
+Right?
+
+119
+00:10:32,120 --> 00:10:37,120
+That allows me to set u minus v over 2.
+
+120
+00:10:37,120 --> 00:10:38,120
+Good question.
+
+121
+00:10:38,120 --> 00:10:41,120
+So if you have, if you are doing finite difference scheme,
+
+122
+00:10:41,120 --> 00:10:46,120
+you know what is the value on the first grid point inside the domain.
+
+123
+00:10:46,120 --> 00:10:47,120
+Right?
+
+124
+00:10:47,120 --> 00:10:51,120
+So depending on how many order of, what is the order of accuracy you want to achieve,
+
+125
+00:10:51,120 --> 00:10:57,120
+you can either just take the value of one, like one grid point inside the domain,
+
+126
+00:10:57,120 --> 00:11:01,120
+or you can take several values and interpolate or extrapolate.
+
+127
+00:11:01,120 --> 00:11:02,420
+Right?
+

@@ -1,0 +1,720 @@
+1
+00:00:00,000 --> 00:00:08,880
+So remember in scalar conservation laws we have characteristics. In smooth
+
+2
+00:00:08,880 --> 00:00:14,640
+region of the solution we have characteristics and the characteristics
+
+3
+00:00:14,640 --> 00:00:21,960
+determine along which direction if you move in space-time along the
+
+4
+00:00:21,960 --> 00:00:29,160
+characteristics the solution stays the same. In this case we also have
+
+5
+00:00:29,160 --> 00:00:33,600
+characteristics. So remember in the scalar conservation laws the
+
+6
+00:00:33,600 --> 00:00:53,880
+characteristics characteristics is df du. Now we have a system of conservation
+
+7
+00:00:53,880 --> 00:00:59,140
+laws. F if you remember becomes the
+
+8
+00:00:59,140 --> 00:01:01,360
+frequency and
+
+9
+00:01:01,360 --> 00:01:06,000
+r is a number. So please use our freezing
+
+10
+00:01:10,480 --> 00:01:14,860
+relations for Ready-setting of both equations.
+
+11
+00:01:22,740 --> 00:01:27,040
+Now let's look at some more small integers.
+
+12
+00:01:27,040 --> 00:01:28,580
+For many of you characters we have two f's, the f of one and the f of two.
+
+13
+00:01:28,580 --> 00:01:29,060
+F northeast plus Beast z Office and F west or Texas states difference between these files.
+
+14
+00:01:29,060 --> 00:01:29,120
+So if this is an expression for the square when the line is been divided in parallel,
+
+15
+00:01:29,140 --> 00:01:38,380
+We can take derivative of df, dh, dfh, dh, right?
+
+16
+00:01:39,140 --> 00:01:42,900
+We can also take derivative of fm to h.
+
+17
+00:01:43,420 --> 00:01:51,260
+We can also take derivative of fh to m, and we can also take derivative of fm to m.
+
+18
+00:01:52,600 --> 00:01:58,460
+So we no longer get a characteristic speed as a number.
+
+19
+00:01:59,140 --> 00:02:01,980
+The characteristic becomes a matrix.
+
+20
+00:02:05,360 --> 00:02:12,280
+When we differentiate the flux with respect to the conserved variables, we get a 2x2 matrix.
+
+21
+00:02:14,340 --> 00:02:20,660
+And if we have gas dynamic equations, which are conservation law with more than two variables,
+
+22
+00:02:20,800 --> 00:02:22,280
+we get an even bigger matrix.
+
+23
+00:02:22,980 --> 00:02:28,920
+So how do we analyze the behavior of smooth solutions of system of conservation laws?
+
+24
+00:02:29,140 --> 00:02:33,180
+Any suggestions?
+
+25
+00:02:38,720 --> 00:02:41,260
+Remember, what does the matrix do for you?
+
+26
+00:02:41,260 --> 00:02:46,260
+If you write the primitive form of the equation,
+
+27
+00:02:47,760 --> 00:02:57,680
+we get partial h, partial t, plus the divergence, sorry,
+
+28
+00:02:57,680 --> 00:02:58,980
+the d.
+
+29
+00:02:59,140 --> 00:03:09,620
+The df, h, dx can be written as df, h, dh times partial h, partial x,
+
+30
+00:03:09,920 --> 00:03:19,080
+plus df, h, dm times partial m, partial x, equal to zero, right?
+
+31
+00:03:19,180 --> 00:03:25,560
+So this is just the expansion of partial f, h, partial x using chain rule.
+
+32
+00:03:26,180 --> 00:03:28,300
+And partial m, partial t,
+
+33
+00:03:29,140 --> 00:03:42,960
+plus df, m, dh times partial h, partial x, plus df, m, dm times partial m, partial x, equal to zero.
+
+34
+00:03:44,420 --> 00:03:49,380
+Does this form remind you of anything we studied in finite difference?
+
+35
+00:03:51,160 --> 00:03:57,180
+Remember, this is analyzing regions of smooth solutions where finite difference actually works.
+
+36
+00:03:59,140 --> 00:04:01,420
+If you leave the situation of both n itself and n is also square,
+
+37
+00:04:01,420 --> 00:04:03,400
+you can write the equation in a simple way to put it--" optionalsa n t str.
+
+38
+00:04:05,460 --> 00:04:06,600
+You can form a rquimi �.
+
+39
+00:04:07,140 --> 00:04:09,460
+But tesla equations require some rule,
+
+40
+00:04:09,460 --> 00:04:11,020
+so we have to always do that.
+
+41
+00:04:11,020 --> 00:04:12,200
+For example, if f is safe,
+
+42
+00:04:12,200 --> 00:04:14,400
+then we can have a parjla equation
+
+43
+00:04:16,520 --> 00:04:17,620
+in this case if z is safe,
+
+44
+00:04:17,620 --> 00:04:19,900
+it means that zена equals 1,
+
+45
+00:04:22,280 --> 00:04:24,380
+since there's those situation,
+
+46
+00:04:24,380 --> 00:04:26,420
+it means that if you put a ע in this equation,
+
+47
+00:04:26,420 --> 00:04:27,820
+those equations and theseе are safe,
+
+48
+00:04:27,820 --> 00:04:28,420
+there exist to any obse.
+
+49
+00:04:28,420 --> 00:04:37,180
+fH and fM are linear functions of H and M, what is this
+
+50
+00:04:37,180 --> 00:04:51,400
+equation going to look like? Linear advection would be a scalar
+
+51
+00:04:51,400 --> 00:04:57,820
+equation, right? So we have a system of equations. Did we look at system of
+
+52
+00:04:57,820 --> 00:05:05,680
+equations and find a difference? Right? Did your project work on system of
+
+53
+00:05:05,680 --> 00:05:16,240
+equations? Yes, right? And how did you analyze the behavior of system of
+
+54
+00:05:16,240 --> 00:05:24,580
+equations that are written in that form? Try to decouple them, right? And how do you
+
+55
+00:05:24,580 --> 00:05:27,160
+decouple them?
+
+56
+00:05:27,160 --> 00:05:27,660
+By...
+
+57
+00:05:27,660 --> 00:05:27,760
+By...
+
+58
+00:05:27,760 --> 00:05:27,780
+By...
+
+59
+00:05:27,780 --> 00:05:27,800
+By...
+
+60
+00:05:27,800 --> 00:05:28,300
+By...
+
+61
+00:05:28,300 --> 00:05:28,800
+By...
+
+62
+00:05:28,800 --> 00:05:29,300
+By...
+
+63
+00:05:29,300 --> 00:05:35,120
+By diagonalizing this matrix, right? So remember we have these four numbers that
+
+64
+00:05:35,120 --> 00:05:44,920
+forms a matrix. If we can perform eigenvalue analysis to this matrix, the
+
+65
+00:05:44,920 --> 00:05:51,980
+eigenvalues are going to be the characteristic speeds, right? In the
+
+66
+00:05:51,980 --> 00:05:56,580
+project, we had two eigenvalues, one going backward, one going forward, right?
+
+67
+00:05:56,580 --> 00:05:57,740
+Going two different directions.
+
+68
+00:05:57,740 --> 00:06:14,240
+Of exactly the opposite sign, but the same magnitude. In this case, we can also analyze the eigenvalues of this matrix and get the characteristics speeds.
+
+69
+00:06:14,240 --> 00:06:23,740
+So, for example, in our...
+
+70
+00:06:23,740 --> 00:06:24,740
+In our...
+
+71
+00:06:24,740 --> 00:06:25,740
+In our...
+
+72
+00:06:25,740 --> 00:06:26,740
+In our...
+
+73
+00:06:26,740 --> 00:06:27,700
+In our...
+
+74
+00:06:27,700 --> 00:06:28,200
+In our...
+
+75
+00:06:28,200 --> 00:06:28,700
+In our...
+
+76
+00:06:28,700 --> 00:06:29,260
+This matrix is, in our...
+
+77
+00:06:29,260 --> 00:06:34,740
+This matrix is, essentially, equal to b squared by...
+
+78
+00:06:34,740 --> 00:06:37,500
+B squared plus b squared.
+
+79
+00:06:37,500 --> 00:06:44,740
+This is also difference, because b squared becomes this one, and trouve between the ones
+
+80
+00:06:44,740 --> 00:06:47,700
+from nesse Angie to firmore n.
+
+81
+00:06:47,700 --> 00:06:49,220
+And the Southern
+
+82
+00:06:49,220 --> 00:06:50,500
+and Southern
+
+83
+00:06:50,500 --> 00:06:51,120
+can be한다
+
+84
+00:06:51,120 --> 00:06:52,160
+a
+
+85
+00:06:52,160 --> 00:06:52,240
+1
+
+86
+00:06:52,240 --> 00:06:52,640
+2
+
+87
+00:06:52,640 --> 00:06:52,860
+3
+
+88
+00:06:52,860 --> 00:06:54,160
+2
+
+89
+00:06:54,160 --> 00:06:55,100
+11
+
+90
+00:06:55,100 --> 00:06:55,660
+11
+
+91
+00:06:55,660 --> 00:06:56,440
+hint
+
+92
+00:06:56,440 --> 00:06:57,320
+So, who else is going to plot?
+
+93
+00:06:57,320 --> 00:06:57,460
+1
+
+94
+00:06:57,460 --> 00:06:57,640
+2
+
+95
+00:06:57,640 --> 00:06:58,800
+Right?
+
+96
+00:07:00,440 --> 00:07:03,500
+So we can obtain our matrix.
+
+97
+00:07:06,640 --> 00:07:13,800
+dFH, dH is equal to what?
+
+98
+00:07:16,680 --> 00:07:18,440
+Zero, exactly.
+
+99
+00:07:19,660 --> 00:07:23,280
+Well, I should actually here write partial derivative here
+
+100
+00:07:23,280 --> 00:07:30,560
+because now every F is a bivariate function,
+
+101
+00:07:30,700 --> 00:07:32,380
+not just a univariate function.
+
+102
+00:07:32,520 --> 00:07:34,280
+So I should write partial derivative here.
+
+103
+00:07:34,800 --> 00:07:37,160
+So the partial derivative is zero in this case.
+
+104
+00:07:38,160 --> 00:07:45,980
+And partial FM, partial H,
+
+105
+00:07:47,980 --> 00:07:51,360
+is going to be what?
+
+106
+00:07:51,860 --> 00:07:52,980
+It's going to be...
+
+107
+00:07:53,800 --> 00:07:58,320
+minus M squared over rho H squared.
+
+108
+00:07:58,960 --> 00:07:59,260
+Right?
+
+109
+00:07:59,260 --> 00:07:59,320
+Right?
+
+110
+00:08:00,780 --> 00:08:05,280
+And here is plus rho GH.
+
+111
+00:08:06,900 --> 00:08:09,740
+So this is the derivative of FM to H.
+
+112
+00:08:10,480 --> 00:08:14,600
+Now the derivative of FH to M,
+
+113
+00:08:15,300 --> 00:08:16,500
+that's easy, right?
+
+114
+00:08:18,140 --> 00:08:19,120
+It's one over rho.
+
+115
+00:08:20,500 --> 00:08:23,160
+And derivative of FM,
+
+116
+00:08:23,280 --> 00:08:26,300
+to M,
+
+117
+00:08:27,080 --> 00:08:29,780
+is going to be also easy,
+
+118
+00:08:30,000 --> 00:08:32,520
+two times M divided by rho H.
+
+119
+00:08:35,700 --> 00:08:36,380
+Okay.
+
+120
+00:08:36,960 --> 00:08:39,260
+So, for example, let's figure out
+
+121
+00:08:39,260 --> 00:08:44,900
+what are the eigenvalues of this matrix.
+
+122
+00:08:45,740 --> 00:08:47,640
+And I'll show you how to do that.
+
+123
+00:08:47,640 --> 00:08:53,020
+So let's use the symbolic toolbox in MATLAB.
+
+124
+00:08:53,280 --> 00:08:56,280
+So we are going to define
+
+125
+00:08:56,280 --> 00:08:58,980
+symbolic variables,
+
+126
+00:08:59,640 --> 00:09:02,600
+rho, G, H, U.
+
+127
+00:09:05,000 --> 00:09:09,420
+So I'm going to define rho and U and G and H
+
+128
+00:09:09,420 --> 00:09:10,940
+as symbolic variables.
+
+129
+00:09:15,780 --> 00:09:18,340
+So first thing is to compute the momentum.
+
+130
+00:09:18,340 --> 00:09:22,340
+My M is going to be equal to rho times...
+
+131
+00:09:23,280 --> 00:09:26,280
+U times H.
+
+132
+00:09:26,280 --> 00:09:27,280
+Right?
+
+133
+00:09:27,280 --> 00:09:31,280
+So that's my definition of momentum.
+
+134
+00:09:31,280 --> 00:09:36,280
+And my matrix A is going to be...
+
+135
+00:09:36,280 --> 00:09:40,280
+It's zero.
+
+136
+00:09:40,280 --> 00:09:48,280
+It's minus M squared divided by rho times H squared.
+
+137
+00:09:48,280 --> 00:09:52,280
+And one over rho.
+
+138
+00:09:52,280 --> 00:09:52,880
+Right?
+
+139
+00:09:52,880 --> 00:09:57,880
+So I'm going to write rho and the two times M
+
+140
+00:09:57,880 --> 00:10:00,880
+divided by rho times H.
+
+141
+00:10:00,880 --> 00:10:01,880
+So that's...
+
+142
+00:10:01,880 --> 00:10:03,880
+What's the term?
+
+143
+00:10:03,880 --> 00:10:05,880
+Plus rho G H?
+
+144
+00:10:07,880 --> 00:10:11,880
+So I'm differentiating this to M,
+
+145
+00:10:11,880 --> 00:10:14,880
+which I don't think has this, right?
+
+146
+00:10:14,880 --> 00:10:16,880
+No, the first rho.
+
+147
+00:10:16,880 --> 00:10:17,880
+The first rho.
+
+148
+00:10:17,880 --> 00:10:18,880
+Oh, plus rho G H.
+
+149
+00:10:18,880 --> 00:10:19,880
+Yeah, thank you.
+
+150
+00:10:19,880 --> 00:10:21,880
+Plus rho times G times H.
+
+151
+00:10:21,880 --> 00:10:22,880
+Okay.
+
+152
+00:10:22,880 --> 00:10:25,880
+So let's do eigenvalue of A.
+
+153
+00:10:25,880 --> 00:10:27,880
+Here's what we get.
+
+154
+00:10:27,880 --> 00:10:31,880
+The two eigenvalues are U times square root of G H
+
+155
+00:10:31,880 --> 00:10:34,880
+and U minus square root of G H.
+
+156
+00:10:39,880 --> 00:10:44,880
+U plus minus square root of G H.
+
+157
+00:10:44,880 --> 00:10:45,880
+Okay.
+
+158
+00:10:45,880 --> 00:10:47,880
+So that tells us something interesting.
+
+159
+00:10:47,880 --> 00:10:50,880
+So the waves in this shallow world equation,
+
+160
+00:10:50,880 --> 00:10:52,880
+they...
+
+161
+00:10:52,880 --> 00:10:56,880
+Of course, it changes as the local velocity changes.
+
+162
+00:10:56,880 --> 00:11:00,880
+So if U is positive, both waves tends to go towards the right.
+
+163
+00:11:00,880 --> 00:11:03,880
+If U is negative, both waves tends to go towards the left.
+
+164
+00:11:03,880 --> 00:11:06,880
+But then, there are two waves.
+
+165
+00:11:06,880 --> 00:11:11,880
+So this is U and this is rho plus G H
+
+166
+00:11:11,880 --> 00:11:16,880
+and this is U minus G H.
+
+167
+00:11:16,880 --> 00:11:18,880
+And depending on the rho, the rho is equal to...
+
+168
+00:11:18,880 --> 00:11:23,880
+And depending on the ratio of U to square root of G H,
+
+169
+00:11:23,880 --> 00:11:28,880
+the flow can be either subsonic or supersonic.
+
+170
+00:11:28,880 --> 00:11:32,880
+In the sense that if U is greater than square root of G H,
+
+171
+00:11:32,880 --> 00:11:35,880
+if the magnitude of U is greater than square root of G H,
+
+172
+00:11:35,880 --> 00:11:39,880
+then both characteristics propagate towards the same direction.
+
+173
+00:11:39,880 --> 00:11:41,880
+If you put a perturbation somewhere,
+
+174
+00:11:41,880 --> 00:11:42,880
+the flow wouldn't...
+
+175
+00:11:42,880 --> 00:11:45,880
+The perturbation would only propagate in one direction
+
+176
+00:11:45,880 --> 00:11:47,880
+without going towards the other direction.
+
+177
+00:11:47,880 --> 00:11:50,880
+If U has a magnitude smaller than square root of G H,
+
+178
+00:11:50,880 --> 00:11:54,880
+then information actually goes towards both directions.
+
+179
+00:11:54,880 --> 00:11:57,880
+And in nonlinear conservation laws,
+
+180
+00:11:57,880 --> 00:12:00,880
+we are going to see situations like that all the time.
+

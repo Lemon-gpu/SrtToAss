@@ -1,0 +1,320 @@
+1
+00:00:00,000 --> 00:00:07,440
+if you do Fourier series analysis to a fourth order derivative right you are
+
+2
+00:00:07,440 --> 00:00:14,520
+taking ik to the fourth power what is that like
+
+3
+00:00:14,520 --> 00:00:33,900
+so the first order derivative to Fourier series analysis you get a purely imaginary eigenvalue
+
+4
+00:00:33,900 --> 00:00:41,760
+that that means oscillations preserving the magnitude right second order derivative you
+
+5
+00:00:41,760 --> 00:00:44,100
+get minus k square that means decay
+
+6
+00:00:44,520 --> 00:00:52,380
+third order derivative you get still purely imaginary but you have k cubed so it advects
+
+7
+00:00:52,380 --> 00:00:59,160
+it different frequencies oscillates more differently and in in terms of advection that means different
+
+8
+00:00:59,160 --> 00:01:03,200
+frequencies are advected at different speeds
+
+9
+00:01:03,200 --> 00:01:10,680
+fourth order derivative you get k to the fourth and usually the sign unless you have an unstable
+
+10
+00:01:10,680 --> 00:01:13,900
+scheme the sign over that k to the fourth
+
+11
+00:01:13,900 --> 00:01:14,500
+the
+
+12
+00:01:14,500 --> 00:01:18,640
+the error term should have a negative sign otherwise you should have you're going to
+
+13
+00:01:18,640 --> 00:01:21,380
+get unstable scheme alright if you have a stable
+
+14
+00:01:21,380 --> 00:01:28,160
+scheme you should have minus k to the fourth as you eigenvalue
+
+15
+00:01:28,160 --> 00:01:37,200
+what is that what does that dissipation that's right and it dissipates your higher
+
+16
+00:01:37,200 --> 00:01:44,500
+frequency even faster than than k square okay but the good thing is that term is you should
+
+17
+00:01:44,500 --> 00:01:52,660
+scales with Delta X cubed. So with enough grid you only see the effect of that
+
+18
+00:01:52,660 --> 00:02:00,220
+dissipation on very high weight numbers. That's why it's more accurate.
+
+19
+00:02:00,220 --> 00:02:01,220
+Yes?
+
+20
+00:02:01,220 --> 00:02:16,360
+If we try upwinding on this unit instead of trying it on the bump, would we have dissipation
+
+21
+00:02:16,360 --> 00:02:20,540
+for higher terms which are at the corners of that shape?
+
+22
+00:02:20,540 --> 00:02:28,220
+Are you asking if I use the first order upwinding on this one, what do I get? Let's try it.
+
+23
+00:02:28,220 --> 00:02:29,220
+Okay.
+
+24
+00:02:29,220 --> 00:02:30,220
+Okay.
+
+25
+00:02:30,220 --> 00:02:47,720
+Let's do K because it looks more obvious. That. So the height, yeah, basically dissipates
+
+26
+00:02:47,720 --> 00:02:52,720
+things away. All right. Yes?
+
+27
+00:02:52,720 --> 00:02:58,220
+But all those terms, they're still going to be the third order and also in this
+
+28
+00:02:58,220 --> 00:02:59,220
+scheme as well.
+
+29
+00:02:59,220 --> 00:03:00,220
+It's just far less pronounced.
+
+30
+00:03:00,220 --> 00:03:01,220
+Yeah.
+
+31
+00:03:01,220 --> 00:03:02,820
+The middle one is againол
+
+32
+00:03:02,820 --> 00:03:03,720
+Yeah.
+
+33
+00:03:03,720 --> 00:03:18,540
+I'm going to measure something else, and then
+
+34
+00:03:18,540 --> 00:03:23,220
+you can hedge in some ways depending on you're...
+
+35
+00:03:23,220 --> 00:03:24,220
+Okay.
+
+36
+00:03:24,220 --> 00:03:25,300
+So let's...
+
+37
+00:03:25,300 --> 00:03:27,220
+Yeah, see what I'm trying to do here, which is the fifth-placeかった-type fraternal
+
+38
+00:03:27,220 --> 00:03:28,220
+Disseduction.
+
+39
+00:03:28,220 --> 00:03:29,220
+It's fine, affecting the rest of the paid.
+
+40
+00:03:29,220 --> 00:03:31,220
+when you have higher wave numbers.
+
+41
+00:03:31,220 --> 00:03:36,220
+So you almost don't see that in the black solution.
+
+42
+00:03:36,220 --> 00:03:38,220
+So if you really, really zoom in,
+
+43
+00:03:38,220 --> 00:03:41,220
+the black solution is not going to be symmetric.
+
+44
+00:03:41,220 --> 00:03:43,220
+All right, it has slight asymmetry,
+
+45
+00:03:43,220 --> 00:03:47,220
+but it's very hard to spot.
+
+46
+00:03:47,220 --> 00:03:49,220
+If you have an analytical solution
+
+47
+00:03:49,220 --> 00:03:52,220
+of a black-trim dissipation equation,
+
+48
+00:03:52,220 --> 00:03:57,220
+the black wave should be completely symmetric.
+
+49
+00:03:57,220 --> 00:04:01,220
+All right, any other questions?
+
+50
+00:04:11,220 --> 00:04:15,220
+Are there formulations that avoid all of these errors?
+
+51
+00:04:24,220 --> 00:04:27,220
+It'll be ideal if you can find the scheme
+
+52
+00:04:27,220 --> 00:04:31,220
+that avoids any kind of errors.
+
+53
+00:04:31,220 --> 00:04:37,220
+But like, unless for very simple equations,
+
+54
+00:04:37,220 --> 00:04:39,220
+there is going to be numerical errors.
+
+55
+00:04:39,220 --> 00:04:41,220
+And the dissipation and dispersion error
+
+56
+00:04:41,220 --> 00:04:45,220
+is just a way we classify different types of errors.
+
+57
+00:04:45,220 --> 00:04:47,220
+So dissipation error,
+
+58
+00:04:47,220 --> 00:04:53,220
+both acts a lot stronger on higher wave numbers.
+
+59
+00:04:53,220 --> 00:04:56,220
+It's just dissipation error,
+
+60
+00:04:56,220 --> 00:04:59,220
+but the error artificially damps down,
+
+61
+00:04:59,220 --> 00:05:02,220
+removes these higher wave number components.
+
+62
+00:05:02,220 --> 00:05:04,220
+And dispersion error,
+
+63
+00:05:04,220 --> 00:05:06,220
+it doesn't remove them,
+
+64
+00:05:06,220 --> 00:05:09,220
+but put them in the wrong place.
+
+65
+00:05:09,220 --> 00:05:11,220
+So that's kind of, in general,
+
+66
+00:05:11,220 --> 00:05:17,220
+how we classify the effect of these numerical errors.
+
+67
+00:05:17,220 --> 00:05:18,220
+Yes?
+
+68
+00:05:18,220 --> 00:05:21,220
+If you switch back to the analytic derivation,
+
+69
+00:05:21,220 --> 00:05:23,220
+I had a question about what happened
+
+70
+00:05:23,220 --> 00:05:24,220
+to one of the terms.
+
+71
+00:05:24,220 --> 00:05:25,220
+Yes?
+
+72
+00:05:26,220 --> 00:05:29,220
+Can you scroll up slightly,
+
+73
+00:05:29,220 --> 00:05:31,220
+going from...
+
+74
+00:05:34,220 --> 00:05:35,220
+Oh, okay.
+
+75
+00:05:35,220 --> 00:05:37,220
+Sorry, I misread the notes.
+
+76
+00:05:39,220 --> 00:05:40,220
+Thank you.
+
+77
+00:05:40,220 --> 00:05:41,220
+Okay.
+
+78
+00:05:42,220 --> 00:05:44,220
+Any other questions?
+
+79
+00:05:44,220 --> 00:05:45,220
+No?
+
+80
+00:05:45,220 --> 00:05:46,220
+All right.
+

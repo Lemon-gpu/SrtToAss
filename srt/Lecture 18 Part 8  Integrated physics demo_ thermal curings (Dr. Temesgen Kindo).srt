@@ -1,0 +1,216 @@
+1
+00:00:00,000 --> 00:00:05,880
+Yeah, right? You will basically get something like a singularity, right?
+
+2
+00:00:05,880 --> 00:00:15,760
+All right, is it clear so far? So these are the kind of things you will be thinking when you are
+
+3
+00:00:15,760 --> 00:00:24,000
+adding this. So the final item example I want to talk here is, it's in the blog so you can read
+
+4
+00:00:24,000 --> 00:00:31,200
+that for more details I'll show you, but thermal curing. So in thermal curing what you have is
+
+5
+00:00:31,200 --> 00:00:37,080
+these two equations. Now the first one is a heat transfer equation where you have a source term
+
+6
+00:00:37,080 --> 00:00:47,220
+coming from the curing process if alpha is the curing rate. So then in the second one you have
+
+7
+00:00:47,220 --> 00:00:53,940
+just an equation for the curing rate. So this is a heat transfer equation, and I'll give you a
+
+8
+00:00:53,940 --> 00:00:53,980
+little bit of a summary of this. So this is a heat transfer equation. So this is a heat transfer
+
+9
+00:00:53,980 --> 00:01:00,280
+equation. This is the Arrhenius equation. A lot of chemical kinetics kind of problems take that
+
+10
+00:01:00,280 --> 00:01:08,880
+form. Now the first question is what interfaces are we going to use to solve this? Normally you
+
+11
+00:01:08,880 --> 00:01:12,880
+would use the heat transfer interface for the first equation since we have already implemented
+
+12
+00:01:12,880 --> 00:01:19,160
+that. But assume you are going to use equation-based modeling entirely. What would you use
+
+13
+00:01:19,160 --> 00:01:22,740
+for the first one? What interface would you use?
+
+14
+00:01:22,740 --> 00:01:31,440
+Any of the PDE interfaces would work, right? Let's say coefficient-borne PDE. How about the second equation?
+
+15
+00:01:31,440 --> 00:01:42,240
+The ODE interface, right? Because there is no special derivative there. So if you don't have special
+
+16
+00:01:42,240 --> 00:01:48,900
+derivatives you have to use the ODE interfaces. But we have two ODE interfaces. Domain ODE and Global ODE.
+
+17
+00:01:48,900 --> 00:01:50,060
+Which one should you use?
+
+18
+00:01:50,060 --> 00:01:50,700
+The domain ODE.
+
+19
+00:01:50,700 --> 00:01:51,200
+The domain ODE.
+
+20
+00:01:51,200 --> 00:01:51,700
+The domain ODE.
+
+21
+00:01:51,700 --> 00:01:52,100
+The domain ODE.
+
+22
+00:01:52,100 --> 00:01:52,600
+The domain ODE.
+
+23
+00:01:52,600 --> 00:01:52,680
+The domain ODE.
+
+24
+00:01:52,680 --> 00:01:52,720
+The domain ODE.
+
+25
+00:01:52,740 --> 00:01:53,680
+The domain ODE.
+
+26
+00:01:53,680 --> 00:01:53,960
+The domain ODE.
+
+27
+00:01:53,960 --> 00:01:56,000
+Domain? Global? Which one?
+
+28
+00:01:56,000 --> 00:02:00,880
+.
+
+29
+00:02:00,880 --> 00:02:02,840
+Why would you say domain ODE?
+
+30
+00:02:02,840 --> 00:02:05,920
+Because alpha can be a functional spatial.
+
+31
+00:02:05,920 --> 00:02:12,480
+Why can alpha be a function of space? In that equation, in the second equation, is there anything that
+
+32
+00:02:12,480 --> 00:02:14,480
+would make alpha a function of space?
+
+33
+00:02:14,480 --> 00:02:15,720
+Initial value.
+
+34
+00:02:15,720 --> 00:02:22,680
+Let's say, okay, let's say, that's a good way. Let's say initial values are fixed. Let's say that value A is
+
+35
+00:02:22,680 --> 00:02:31,440
+fixed, EA is fixed, all parameters in that equation are fixed. Is it still a domain
+
+36
+00:02:31,440 --> 00:02:41,740
+or a global ODE? Are you sure? T is a function, it's coupled right? So on its own yes it
+
+37
+00:02:41,740 --> 00:02:46,740
+would it was almost a global ODE, a domain ODE if everything was constant
+
+38
+00:02:46,740 --> 00:02:51,620
+but we are coupling this to temperature and the temperature is a PDE which can
+
+39
+00:02:51,620 --> 00:02:55,700
+have different solutions so the fact that the temperature is affecting the
+
+40
+00:02:55,700 --> 00:03:03,800
+curing rate would necessarily we use the domain ODE feature. Is it clear? So if we
+
+41
+00:03:03,800 --> 00:03:12,180
+are doing that here you can add this will also revisit the coupling. How do
+
+42
+00:03:12,180 --> 00:03:15,660
+you now couple because there is a coupling term right? Here in the
+
+43
+00:03:15,660 --> 00:03:21,300
+coefficient form we just specify in this equation EA these are the diffusion
+
+44
+00:03:21,300 --> 00:03:21,500
+coefficients.
+
+45
+00:03:21,620 --> 00:03:27,940
+from the first equation, no source terms originally or we can write the source
+
+46
+00:03:27,940 --> 00:03:34,500
+term here. There is a source term right that there is this term but the way to
+
+47
+00:03:34,500 --> 00:03:39,920
+add that then is to your coefficient form or EA you can add a
+
+48
+00:03:39,920 --> 00:03:44,780
+source term if you right click this and say source and that source term you see
+
+49
+00:03:44,780 --> 00:03:49,280
+this declaration d alpha t make it a function of the other variable now you
+
+50
+00:03:49,280 --> 00:03:51,500
+have coupled it and then in the second domain ODE, you can add this to the coefficient form.
+
+51
+00:03:51,620 --> 00:03:54,620
+So if you have coupled this to the coefficient form and then in the third
+
+52
+00:03:54,620 --> 00:03:58,460
+domain ODE then this source term that you have to type make it a function of
+
+53
+00:03:58,460 --> 00:04:09,860
+temperature. So now you have coupled both. Is it clear? Questions? So then I
+
+54
+00:04:09,860 --> 00:04:15,780
+will skip through this verification and validation and give you the homework.
+

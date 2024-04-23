@@ -1,0 +1,800 @@
+1
+00:00:00,000 --> 00:00:08,160
+Let's now start talking about what if I'm not happy with just the energy norm?
+
+2
+00:00:08,160 --> 00:00:12,040
+What if I want a more general norm?
+
+3
+00:00:12,260 --> 00:00:19,260
+How can I say that the finite element solution, how good is the finite element solution in some other norm?
+
+4
+00:00:20,420 --> 00:00:28,700
+It turns out in some other norm I can no longer say that, so for example, if I look at the H1 norm, so u minus uh.
+
+5
+00:00:30,000 --> 00:00:34,040
+I can no longer say that this is optimal.
+
+6
+00:00:34,540 --> 00:00:47,040
+In fact, this is not going to be optimal in all possible finite dimensional, in all possible members of the finite dimensional space.
+
+7
+00:00:47,700 --> 00:00:49,520
+But I can bound this.
+
+8
+00:00:49,520 --> 00:00:59,840
+I can bound this to be some number times u minus wh.
+
+9
+00:01:00,000 --> 00:01:09,280
+For all possible wh's in this finite dimensional space.
+
+10
+00:01:11,360 --> 00:01:14,060
+So I can do that by the following.
+
+11
+00:01:15,060 --> 00:01:20,440
+So first of all, let's define what is u minus uh in the H1 norm.
+
+12
+00:01:21,320 --> 00:01:28,640
+So u minus uh in the H1 norm is the summation of two parts.
+
+13
+00:01:29,280 --> 00:01:29,640
+Right?
+
+14
+00:01:30,000 --> 00:01:45,060
+One is the integration of u minus uh squared plus the derivative of u minus uh squared dx.
+
+15
+00:01:47,920 --> 00:01:52,000
+No, no, I actually don't need that because I can just start.
+
+16
+00:01:52,760 --> 00:01:54,860
+I don't need to use the Poincare inequality again.
+
+17
+00:01:54,860 --> 00:01:59,860
+I can just start by saying that.
+
+18
+00:02:00,000 --> 00:02:02,780
+The energy norm is coercive.
+
+19
+00:02:02,960 --> 00:02:04,680
+The bilinear form is coercive.
+
+20
+00:02:05,300 --> 00:02:16,940
+So what I can say is that u minus uh in the H1 norm squared is less or equal to 1 over b times the energy norm.
+
+21
+00:02:18,680 --> 00:02:27,160
+And we know that the energy norm is the energy norm is the minimizer.
+
+22
+00:02:27,160 --> 00:02:29,980
+So this is less or equal to 1 over b of u.
+
+23
+00:02:30,000 --> 00:02:31,520
+So we can just write u minus wh.
+
+24
+00:02:32,040 --> 00:02:33,360
+u minus wh.
+
+25
+00:02:34,580 --> 00:02:38,940
+For all the possible wh's in xh.
+
+26
+00:02:41,500 --> 00:02:47,360
+And also, let's use the continuity of this bilinear form here.
+
+27
+00:02:48,140 --> 00:02:59,980
+So by continuity, this is less than c times the norm of u minus uh squared.
+
+28
+00:03:00,000 --> 00:03:01,680
+And also, this is less than c times the norm of u minus wh.
+
+29
+00:03:01,680 --> 00:03:10,560
+So the error in H1 norm is not exactly minimized.
+
+30
+00:03:10,560 --> 00:03:14,380
+But it is close to minimum in a certain sense.
+
+31
+00:03:14,380 --> 00:03:28,700
+It is close to minimum in that the error is not going to be greater than a certain finite constant times the minimum error you can achieve.
+
+32
+00:03:28,700 --> 00:03:29,480
+So the error in H1 norm is not going to be greater than a certain finite constant times the minimum error you can achieve.
+
+33
+00:03:29,480 --> 00:03:29,980
+So the error in H2 norm is not going to be greater than a certain finite constant times the minimum error you can achieve.
+
+34
+00:03:29,980 --> 00:03:30,480
+So the error in H2 norm is not going to be greater than a certain finite constant times the minimum error you can achieve.
+
+35
+00:03:30,480 --> 00:03:30,980
+Right?
+
+36
+00:03:30,980 --> 00:03:45,980
+So because this can be for any wh, the same inequality also is true for the wh that minimizes the norm.
+
+37
+00:03:45,980 --> 00:03:53,580
+So it is less than this times the infinimum or the minimum of wh in xh.
+
+38
+00:03:54,540 --> 00:03:56,460
+u minus wh.
+
+39
+00:03:59,480 --> 00:04:08,240
+Okay, now with that, we can start looking at what rate of convergence do we have.
+
+40
+00:04:08,240 --> 00:04:17,240
+So infinite difference, we can analyze the order of accuracy of the differential operator.
+
+41
+00:04:17,240 --> 00:04:17,740
+Right?
+
+42
+00:04:17,740 --> 00:04:24,540
+So if we use a central difference to approximate a first order derivative, we know the error goes down like delta x squared.
+
+43
+00:04:24,540 --> 00:04:27,980
+So if we use a central difference to approximate a first order derivative, we know the error goes down like delta x squared.
+
+44
+00:04:27,980 --> 00:04:28,540
+If you use a forward difference, you can see that the error goes down like delta x squared.
+
+45
+00:04:28,540 --> 00:04:33,540
+If you use a forward difference or backward difference, we know the error goes down only with delta x.
+
+46
+00:04:33,540 --> 00:04:40,540
+So here we can do the same analysis here, infinite element, once we have that inequality.
+
+47
+00:04:40,540 --> 00:04:44,540
+Because this inequality holds for any wh.
+
+48
+00:04:44,540 --> 00:04:51,540
+So we can easily construct a delta h, construct a wh for which we know the order of accuracy.
+
+49
+00:04:51,540 --> 00:04:57,540
+And we know that the same order of accuracy is going to apply for the same order of accuracy.
+
+50
+00:04:57,540 --> 00:04:58,540
+And we know that the same order of accuracy is going to apply for the same order of accuracy.
+
+51
+00:04:58,540 --> 00:05:01,520
+And we do that even if you are only sure that the
+
+52
+00:05:01,520 --> 00:05:12,520
+And this is because if you look at the c and b here, the c and b here are the properties of this a, of this bilinear form, right?
+
+53
+00:05:12,520 --> 00:05:20,520
+It has nothing to do with h, it has nothing to do with what kind of approximation we are making.
+
+54
+00:05:20,520 --> 00:05:25,520
+It has nothing to do with the specific x-h, right?
+
+55
+00:05:25,520 --> 00:05:28,520
+So, if we can construct a w, which is anyway a deeper string, minus a one culture, which is anyway a developer code,
+
+56
+00:05:28,540 --> 00:05:39,680
+So that also means as we refine the mesh, as we refine the mesh, which also makes the XH to be richer and richer,
+
+57
+00:05:39,880 --> 00:05:45,360
+has more and more approximation power, the C over B is not going to change.
+
+58
+00:05:46,920 --> 00:05:52,100
+Okay, that allows us to build specific WHs.
+
+59
+00:05:52,100 --> 00:05:57,620
+For example, what the WHs we are using here is an interpolant.
+
+60
+00:05:58,540 --> 00:06:02,260
+So let's say we have a U, so that is the green one is U.
+
+61
+00:06:03,700 --> 00:06:12,500
+And we have a finite element mesh over here that restricts our approximation UH to be piecewise linear functions.
+
+62
+00:06:13,020 --> 00:06:19,040
+So why don't we construct WHs that actually goes through these grid points.
+
+63
+00:06:20,620 --> 00:06:25,260
+So this is going to be our WH.
+
+64
+00:06:27,300 --> 00:06:28,380
+So WH.
+
+65
+00:06:28,540 --> 00:06:33,420
+Is just connecting the dots on the function.
+
+66
+00:06:34,820 --> 00:06:38,380
+Of course, the WH is in the space, right?
+
+67
+00:06:38,460 --> 00:06:40,580
+We are trying to approximate.
+
+68
+00:06:42,940 --> 00:06:49,540
+And so let's start to analyze what is the, what is this approximation error in H1?
+
+69
+00:06:50,620 --> 00:06:52,600
+So the approximation error in H1.
+
+70
+00:06:53,900 --> 00:06:55,920
+So let's, let's call this WH.
+
+71
+00:06:56,020 --> 00:06:57,620
+Uh, this is particular.
+
+72
+00:06:58,540 --> 00:07:02,340
+Let's call the interpolant of U.
+
+73
+00:07:03,140 --> 00:07:04,980
+So I begot interpolant.
+
+74
+00:07:04,980 --> 00:07:08,260
+It's with the H because it's on the particular mesh.
+
+75
+00:07:08,940 --> 00:07:13,140
+So let's figure out what is this U minus interpolant?
+
+76
+00:07:15,140 --> 00:07:17,420
+What is this approximation error?
+
+77
+00:07:18,660 --> 00:07:20,060
+Of course, it has two terms.
+
+78
+00:07:20,820 --> 00:07:28,420
+It has one term that is the L2 error of the interpolant.
+
+79
+00:07:28,540 --> 00:07:39,220
+And also another term that is the L2 error of the derivative of the interpolant.
+
+80
+00:07:39,220 --> 00:07:43,220
+So let's figure out these two terms one by one.
+
+81
+00:07:43,220 --> 00:07:50,340
+And the point here is to see how does this error decrease as my refine my mesh.
+
+82
+00:07:50,340 --> 00:07:57,820
+If I know, for example, the error decreases like delta X square as a refined mesh.
+
+83
+00:07:57,820 --> 00:08:06,580
+Then I know that the U minus UH is also going to decrease like delta X square as a refined mesh.
+
+84
+00:08:07,580 --> 00:08:14,500
+Because this, this C over B doesn't change as I refine the mesh.
+
+85
+00:08:14,820 --> 00:08:15,140
+Right.
+
+86
+00:08:16,020 --> 00:08:16,340
+Okay.
+
+87
+00:08:17,860 --> 00:08:22,420
+So, so, so here we go back to Taylor series analysis.
+
+88
+00:08:23,740 --> 00:08:26,420
+So we look at first, we need to analyze how big.
+
+89
+00:08:26,420 --> 00:08:35,340
+Is this approximately how, what is the maximum difference between the red line and the green line?
+
+90
+00:08:36,340 --> 00:08:41,020
+So let's first look at the maximum difference between the derivatives.
+
+91
+00:08:43,340 --> 00:08:46,340
+And in order to do that, I need to use.
+
+92
+00:08:46,340 --> 00:08:55,460
+So, so first of all, the derivative of the interpolant over a interval is going to be constant, right?
+
+93
+00:08:55,460 --> 00:08:56,380
+It's going to be.
+
+94
+00:08:56,380 --> 00:09:00,100
+You add grid point.
+
+95
+00:09:00,100 --> 00:09:02,300
+I plus one minus you.
+
+96
+00:09:02,300 --> 00:09:06,300
+I divided by X I plus one minus X I.
+
+97
+00:09:06,300 --> 00:09:13,300
+So that's the slope of these curve over that interval over the element.
+
+98
+00:09:13,300 --> 00:09:24,300
+Now what we need to do is we need to use what's called the mean value theorem.
+
+99
+00:09:24,300 --> 00:09:24,580
+Okay.
+
+100
+00:09:24,580 --> 00:09:24,700
+So.
+
+101
+00:09:24,700 --> 00:09:24,860
+So.
+
+102
+00:09:24,860 --> 00:09:24,900
+So.
+
+103
+00:09:24,900 --> 00:09:24,980
+So.
+
+104
+00:09:24,980 --> 00:09:25,100
+So.
+
+105
+00:09:25,100 --> 00:09:25,140
+So.
+
+106
+00:09:25,140 --> 00:09:25,180
+So.
+
+107
+00:09:25,180 --> 00:09:25,220
+So.
+
+108
+00:09:25,220 --> 00:09:25,340
+So.
+
+109
+00:09:25,340 --> 00:09:25,380
+So.
+
+110
+00:09:25,380 --> 00:09:25,420
+So.
+
+111
+00:09:25,420 --> 00:09:25,500
+So.
+
+112
+00:09:25,500 --> 00:09:25,540
+So.
+
+113
+00:09:25,540 --> 00:09:25,580
+So.
+
+114
+00:09:25,580 --> 00:09:25,620
+So.
+
+115
+00:09:25,620 --> 00:09:25,740
+So.
+
+116
+00:09:25,740 --> 00:09:25,780
+So.
+
+117
+00:09:25,780 --> 00:09:25,820
+So.
+
+118
+00:09:25,820 --> 00:09:25,860
+So.
+
+119
+00:09:25,860 --> 00:09:25,900
+So.
+
+120
+00:09:25,900 --> 00:09:25,980
+So.
+
+121
+00:09:26,380 --> 00:09:26,980
+So.
+
+122
+00:09:26,980 --> 00:09:27,300
+So.
+
+123
+00:09:27,300 --> 00:09:27,380
+So.
+
+124
+00:09:27,380 --> 00:09:27,700
+So.
+
+125
+00:09:27,700 --> 00:09:27,740
+So.
+
+126
+00:09:27,740 --> 00:09:28,180
+So.
+
+127
+00:09:28,180 --> 00:09:28,220
+So.
+
+128
+00:09:28,220 --> 00:09:28,260
+So.
+
+129
+00:09:28,260 --> 00:09:28,340
+So.
+
+130
+00:09:28,460 --> 00:09:28,580
+So.
+
+131
+00:09:28,580 --> 00:09:28,620
+So.
+
+132
+00:09:28,620 --> 00:09:32,580
+is how the mark equals a point.
+
+133
+00:09:32,580 --> 00:09:36,660
+Of course, if you have.
+
+134
+00:09:36,660 --> 00:09:41,900
+If you have some slight depression.
+
+135
+00:09:41,900 --> 00:09:51,260
+Then I think we can let Dimidex out and find the maximum on thecity level here.
+
+136
+00:09:51,260 --> 00:09:52,220
+Dad with no problem.
+
+137
+00:09:52,220 --> 00:09:55,100
+Thank you guys.
+
+138
+00:09:55,100 --> 00:09:55,400
+Yeah.
+
+139
+00:09:55,400 --> 00:09:55,820
+Thank you.
+
+140
+00:09:55,820 --> 00:10:04,620
+here. The proof is pretty simple. So if all the du, dx's are above that value, then you cannot
+
+141
+00:10:04,620 --> 00:10:10,240
+average to this value. If all the du, dx's below that value, you cannot also average to that value,
+
+142
+00:10:10,340 --> 00:10:18,220
+right? So that means you have to have a certain point du, dx's greater or equal, another point
+
+143
+00:10:18,220 --> 00:10:23,980
+du, dx's less or equal. And because du, dx's a continuous function, so you have to have some
+
+144
+00:10:23,980 --> 00:10:33,700
+point where du, dx's is exactly equal to this value, where xi is somewhere between xi and xi plus 1.
+
+145
+00:10:35,500 --> 00:10:46,900
+All right. So now we have this. Then du, dx's at any point in eta, that is within the space,
+
+146
+00:10:47,900 --> 00:10:52,580
+now has to equal to du, dx's at xi
+
+147
+00:10:52,580 --> 00:10:53,900
+plus xi.
+
+148
+00:10:53,980 --> 00:11:04,600
+So last Taylor series analysis again is going to be the second order derivative of u to x
+
+149
+00:11:04,600 --> 00:11:15,080
+times eta minus xi. Well, this is at xi plus o eta minus xi squared.
+
+150
+00:11:17,860 --> 00:11:20,820
+And this whole term I claim is order
+
+151
+00:11:20,820 --> 00:11:23,960
+delta x or order x.
+
+152
+00:11:23,980 --> 00:11:33,900
+So let's say h is the maximum where h is the maximum of xi plus 1 minus xi.
+
+153
+00:11:35,100 --> 00:11:42,880
+All right. So this is order h because eta and xi are both in the interval xi and xi plus 1.
+
+154
+00:11:43,440 --> 00:11:46,880
+So the difference between eta and xi has to be o h.
+
+155
+00:11:48,500 --> 00:11:51,320
+All right. Any questions so far?
+
+156
+00:11:51,940 --> 00:11:52,340
+All right.
+
+157
+00:11:52,940 --> 00:11:53,960
+So we are done with this.
+
+158
+00:11:53,960 --> 00:12:06,960
+We already know that the derivative term in the Sobolev norm has to be order h.
+
+159
+00:12:08,760 --> 00:12:13,100
+And it turns out the same thing happens for the value.
+
+160
+00:12:13,240 --> 00:12:15,920
+The value is actually a lot easier.
+
+161
+00:12:15,920 --> 00:12:20,920
+So u minus...
+
+162
+00:12:20,920 --> 00:12:21,420
+u minus...
+
+163
+00:12:21,420 --> 00:12:21,920
+u minus...
+
+164
+00:12:21,920 --> 00:12:22,920
+u minus...
+
+165
+00:12:22,920 --> 00:12:23,460
+u minus...
+
+166
+00:12:23,460 --> 00:12:23,760
+u minus...
+
+167
+00:12:23,760 --> 00:12:23,800
+u minus...
+
+168
+00:12:23,800 --> 00:12:23,880
+u minus...
+
+169
+00:12:23,880 --> 00:12:23,940
+u minus...
+
+170
+00:12:23,960 --> 00:12:24,020
+u minus...
+
+171
+00:12:24,020 --> 00:12:24,120
+u minus...
+
+172
+00:12:24,120 --> 00:12:24,220
+u minus...
+
+173
+00:12:24,220 --> 00:12:24,300
+u minus...
+
+174
+00:12:24,300 --> 00:12:24,320
+u minus...
+
+175
+00:12:24,320 --> 00:12:24,420
+u minus...
+
+176
+00:12:24,420 --> 00:12:24,520
+u minus...
+
+177
+00:12:24,520 --> 00:12:24,540
+u minus...
+
+178
+00:12:24,540 --> 00:12:48,440
+the interpolant of u at a particular xi is going to be the integral of the difference from xi to xi of du dx minus dih u dx dx.
+
+179
+00:12:48,440 --> 00:12:50,500
+Right.
+
+180
+00:12:51,340 --> 00:12:53,760
+We already know this term is o h.
+
+181
+00:12:53,760 --> 00:12:55,220
+We already know this term is o h.
+
+182
+00:12:55,220 --> 00:13:01,800
+So this whole thing because xi minus xi is also o h.
+
+183
+00:13:01,940 --> 00:13:04,400
+So this guy is o h squared.
+
+184
+00:13:05,120 --> 00:13:11,480
+So the Sobolev norm of u minus interpolant of u.
+
+185
+00:13:14,680 --> 00:13:15,400
+Square.
+
+186
+00:13:15,400 --> 00:13:15,800
+Well.
+
+187
+00:13:21,500 --> 00:13:23,220
+It's going to be equal to...
+
+188
+00:13:23,760 --> 00:13:32,520
+integration of u minus ih of u squared and this term before square is oh h
+
+189
+00:13:32,520 --> 00:13:43,080
+square plus d dx of u minus interpolant of u squared and this thing before I
+
+190
+00:13:43,080 --> 00:13:50,440
+square is oh so this is whole thing should be oh so after I square this is
+
+191
+00:13:50,440 --> 00:13:59,500
+all h square this is all h force so this is oh h squared and what I know is that
+
+192
+00:13:59,500 --> 00:14:07,680
+you minus my finite element solution is less or equal to C over B times u minus
+
+193
+00:14:07,680 --> 00:14:14,200
+any wh and in this case I just substitute the wh with this
+
+194
+00:14:14,200 --> 00:14:20,200
+interpolant and so it is going to be less or equal
+
+195
+00:14:20,200 --> 00:14:20,400
+to
+
+196
+00:14:20,440 --> 00:14:30,820
+oh h square so that gives us a bond on this Sobolev norm and of course the
+
+197
+00:14:30,820 --> 00:14:37,380
+bond on L2 norm is even is once we have the Sobolev norm the bonding L2 norm is
+
+198
+00:14:37,380 --> 00:14:48,400
+pretty easy so the L2 norm is basically the L2 norm is one component of this H1
+
+199
+00:14:48,400 --> 00:14:50,200
+norm right so it is
+
+200
+00:14:50,200 --> 00:14:57,960
+also so if I square it is also oh squared and
+

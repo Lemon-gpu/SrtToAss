@@ -1,0 +1,240 @@
+1
+00:00:00,000 --> 00:00:08,340
+So the same person, Godunov, who has proposed the way to reconstruct the flux at interfaces,
+
+2
+00:00:09,320 --> 00:00:11,680
+proved an impossibility theorem.
+
+3
+00:00:12,960 --> 00:00:21,360
+He proved that it is impossible to construct a scheme that is monotonic.
+
+4
+00:00:21,360 --> 00:00:30,360
+So monotonicity means the total variation is less or equal to zero,
+
+5
+00:00:30,640 --> 00:00:35,020
+which means the monotonicity of total variation over time.
+
+6
+00:00:36,020 --> 00:00:41,620
+So the total variation has to be monotonically non-increasing over time.
+
+7
+00:00:42,060 --> 00:00:43,200
+So that's what it means.
+
+8
+00:00:44,700 --> 00:00:49,720
+And his theorem works for even the simplest conservation laws,
+
+9
+00:00:49,720 --> 00:00:50,720
+that is, the linear.
+
+10
+00:00:51,360 --> 00:00:54,160
+Linear advection equations.
+
+11
+00:00:55,020 --> 00:00:59,900
+And he said a linear one-step second-order accurate numerical scheme,
+
+12
+00:01:00,660 --> 00:01:03,220
+even for a linear equation, cannot be monotonic,
+
+13
+00:01:03,780 --> 00:01:06,560
+cannot decrease total variation,
+
+14
+00:01:07,520 --> 00:01:11,440
+unless the CFL number is integers,
+
+15
+00:01:12,540 --> 00:01:16,180
+which can only be achieved everywhere
+
+16
+00:01:18,020 --> 00:01:21,080
+if the C is a constant everywhere.
+
+17
+00:01:21,360 --> 00:01:34,360
+So this condition is only feasible for constant C,
+
+18
+00:01:34,360 --> 00:01:37,360
+which is linear equations.
+
+19
+00:01:41,360 --> 00:01:47,360
+So an example for this is if this is exactly equal to one,
+
+20
+00:01:47,360 --> 00:01:49,360
+so if sigma is equal to one,
+
+21
+00:01:49,360 --> 00:01:50,360
+which means we are discriminating against the C,
+
+22
+00:01:51,360 --> 00:01:53,060
+and there's a constant C.
+
+23
+00:01:53,060 --> 00:01:58,080
+Well, from the
+
+24
+00:01:58,080 --> 00:01:58,840
+region,
+
+25
+00:01:58,840 --> 00:02:01,860
+and here we are,
+
+26
+00:02:01,860 --> 00:02:07,820
+we're perceiving x in ay cross x in divided by t,
+
+27
+00:02:08,600 --> 00:02:13,200
+and we're嚕meo2 ay cross c is minus x.
+
+28
+00:02:13,200 --> 00:02:15,700
+Here's a couple of case studies,
+
+29
+00:02:15,700 --> 00:02:17,940
+to be Noah's example.
+
+30
+00:02:17,940 --> 00:02:19,320
+Wheep we're vezes x,
+
+31
+00:02:19,320 --> 00:02:19,740
+next.
+
+32
+00:02:19,740 --> 00:02:20,140
+Deputy.
+
+33
+00:02:20,140 --> 00:02:20,440
+Cream.
+
+34
+00:02:20,440 --> 00:02:20,760
+Gis.
+
+35
+00:02:20,760 --> 00:02:21,220
+The distance.
+
+36
+00:02:21,220 --> 00:02:37,500
+So if sigma is equal to 1, that means my delta t times c is exactly equal to delta x, which means this term is going to cancel with this term.
+
+37
+00:02:37,760 --> 00:02:50,240
+What I get is phi of n plus 1i is exactly equal to, and this is exactly equal to phi of n at i minus 1.
+
+38
+00:02:51,220 --> 00:03:07,100
+So in a space-time solution, so if this is t, this is x, I'm saying the grid points at the next time step is equal to the grid points here.
+
+39
+00:03:07,760 --> 00:03:13,880
+Which is completely reasonable because the characteristics are exactly aligned with the grid points.
+
+40
+00:03:14,880 --> 00:03:19,540
+So the solution here is exactly equal to the solution here, and I get exact solution.
+
+41
+00:03:21,220 --> 00:03:27,580
+But this is artificial because this scheme would only work for linear vector equations.
+
+42
+00:03:29,580 --> 00:03:37,540
+This is, I can only set my delta t and delta x to be at a constant ratio.
+
+43
+00:03:37,780 --> 00:03:44,380
+Set my CFL number to be a constant integer only when c is a constant, right?
+
+44
+00:03:44,920 --> 00:03:51,200
+So this is, these are special cases that I can get second-order accurate numeric.
+
+45
+00:03:51,560 --> 00:03:59,300
+So I can only get the same number of numerical schemes that wouldn't work for nonlinear conservation laws.
+
+46
+00:03:59,920 --> 00:04:03,920
+Right, does that make sense?
+
+47
+00:04:04,660 --> 00:04:18,720
+So, Goodanoff's order barrier theorem says that if you rely on the linear scheme for solving linear equations,
+
+48
+00:04:18,920 --> 00:04:20,920
+Then you cannot get more than x.
+
+49
+00:04:21,220 --> 00:04:23,220
+So you have to define first-order accuracy.
+
+50
+00:04:23,220 --> 00:04:31,220
+If you also want to preserve the monotonicity of total variation.
+
+51
+00:04:31,220 --> 00:04:37,220
+So it tells us that we must go to a nonlinear scheme.
+
+52
+00:04:37,220 --> 00:04:43,220
+Okay, we must go to a nonlinear scheme even for solving linear equations.
+
+53
+00:04:43,220 --> 00:04:49,220
+And a nonlinear scheme means if you add two solutions,
+
+54
+00:04:49,220 --> 00:04:51,220
+You get a solution.
+
+55
+00:04:51,220 --> 00:04:59,220
+You get a flux that is not equal to the summation of the flux getting from these two individual solutions.
+
+56
+00:04:59,220 --> 00:05:05,220
+In a finite volume, that's what it means by a nonlinear scheme.
+
+57
+00:05:05,220 --> 00:05:10,220
+So the Goodanoff's theorem says that if you want second-order accuracy,
+
+58
+00:05:10,220 --> 00:05:16,220
+You can either sacrifice monotonicity, which creates Gibbs phenomenon,
+
+59
+00:05:16,220 --> 00:05:19,220
+Or you have to go to a nonlinear scheme.
+
+60
+00:05:21,220 --> 00:05:31,220
+Only first-order schemes can have both monotonicity and linearity.
+

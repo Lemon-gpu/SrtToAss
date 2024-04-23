@@ -1,0 +1,1144 @@
+1
+00:00:00,000 --> 00:00:10,260
+So construction of A, so let's say n is equal to, let's do, for example, n is equal to 100.
+
+2
+00:00:12,260 --> 00:00:17,640
+And we are going to be, A is going to be equal to zeros of n.
+
+3
+00:00:17,940 --> 00:00:21,600
+So A is initialized as all zeros.
+
+4
+00:00:21,600 --> 00:00:24,520
+So if you look at A, A is 100 by 100 double.
+
+5
+00:00:25,360 --> 00:00:25,660
+All right.
+
+6
+00:00:25,660 --> 00:00:30,880
+So we are going to loop over I and set the diagonals.
+
+7
+00:00:31,660 --> 00:00:38,860
+So A of I, I is going to be equal to, I forget to set the coefficients.
+
+8
+00:00:39,380 --> 00:00:43,100
+So A has to be 2 kappa over delta x squared times 2.
+
+9
+00:00:43,400 --> 00:00:43,540
+Right.
+
+10
+00:00:43,620 --> 00:00:45,280
+So let's break for now.
+
+11
+00:00:45,440 --> 00:00:46,260
+We didn't do anything.
+
+12
+00:00:46,580 --> 00:00:47,960
+I pressed control C.
+
+13
+00:00:49,120 --> 00:00:49,480
+Okay.
+
+14
+00:00:49,480 --> 00:00:52,240
+We need to set kappa, for example, equal to 1.
+
+15
+00:00:53,420 --> 00:00:55,480
+And we set dx is equal to.
+
+16
+00:00:55,660 --> 00:00:57,660
+Okay.
+
+17
+00:00:59,880 --> 00:01:04,380
+When n is equal to 100, it should be 1 over n.
+
+18
+00:01:05,380 --> 00:01:05,680
+Right.
+
+19
+00:01:07,860 --> 00:01:11,000
+Do you see that clearly or should I make the font a little bit larger?
+
+20
+00:01:11,840 --> 00:01:13,300
+Anybody wants to make the font larger?
+
+21
+00:01:14,040 --> 00:01:14,260
+Okay.
+
+22
+00:01:14,260 --> 00:01:14,340
+Okay.
+
+23
+00:01:16,660 --> 00:01:21,180
+I think it's in preference.
+
+24
+00:01:25,660 --> 00:01:26,660
+Editor.
+
+25
+00:01:28,580 --> 00:01:29,220
+No.
+
+26
+00:01:29,460 --> 00:01:30,100
+Fonts.
+
+27
+00:01:32,260 --> 00:01:32,900
+14.
+
+28
+00:01:33,220 --> 00:01:33,840
+Big enough.
+
+29
+00:01:36,500 --> 00:01:37,440
+Good enough.
+
+30
+00:01:38,040 --> 00:01:38,620
+All right.
+
+31
+00:01:38,680 --> 00:01:38,880
+Okay.
+
+32
+00:01:39,600 --> 00:01:42,620
+So I think I made a bug when I'm initializing A.
+
+33
+00:01:44,020 --> 00:01:45,040
+What's the bug?
+
+34
+00:01:45,040 --> 00:01:45,120
+Okay.
+
+35
+00:01:47,420 --> 00:01:49,640
+Should A be an n by n matrix?
+
+36
+00:01:51,960 --> 00:01:52,560
+No.
+
+37
+00:01:52,680 --> 00:01:55,640
+Because U goes from 1.
+
+38
+00:01:55,640 --> 00:01:57,640
+So it's 1 to n minus 1.
+
+39
+00:01:57,640 --> 00:01:58,140
+Right.
+
+40
+00:01:58,140 --> 00:02:02,640
+So when I have n intervals, I only have n minus 1 unknowns.
+
+41
+00:02:02,640 --> 00:02:06,640
+So A is 0 to n minus 1.
+
+42
+00:02:06,640 --> 00:02:09,640
+So it's a 99 by 99 matrix.
+
+43
+00:02:09,640 --> 00:02:15,640
+So let's go through the loop again.
+
+44
+00:02:15,640 --> 00:02:18,640
+A of i and i is equal to what?
+
+45
+00:02:18,640 --> 00:02:24,640
+Minus 2 kappa divided by delta x squared.
+
+46
+00:02:24,640 --> 00:02:25,640
+Okay.
+
+47
+00:02:25,700 --> 00:02:28,080
+So it's a nineteen exponential prime, a negative third.
+
+48
+00:02:28,080 --> 00:02:28,640
+So my�를 proof right then.
+
+49
+00:02:28,640 --> 00:02:34,240
+A of ietas is equal to 10 plus 6.
+
+50
+00:02:34,240 --> 00:02:34,580
+Okay.
+
+51
+00:02:34,580 --> 00:02:39,140
+So that's a seven each NOT this time.
+
+52
+00:02:39,140 --> 00:02:46,040
+So my
+
+53
+00:02:46,040 --> 00:02:49,000
+My compare we have one slash k due to that index.
+
+54
+00:02:49,000 --> 00:02:51,360
+That's a negative n minus one right now.
+
+55
+00:02:51,600 --> 00:02:51,800
+Okay.
+
+56
+00:02:51,800 --> 00:02:52,000
+Oh.
+
+57
+00:02:52,000 --> 00:02:52,400
+Your way.
+
+58
+00:02:52,400 --> 00:02:52,600
+Yeah.
+
+59
+00:02:52,600 --> 00:02:53,060
+You just.
+
+60
+00:02:53,060 --> 00:02:53,840
+You could return and convert to minus 15.
+
+61
+00:02:53,840 --> 00:02:54,540
+Of A it gives you bunch things to make it.
+
+62
+00:02:54,540 --> 00:02:54,940
+I mean what?
+
+63
+00:02:54,940 --> 00:02:55,080
+I mean, right?
+
+64
+00:02:55,080 --> 00:02:55,240
+Yeah.
+
+65
+00:02:55,240 --> 00:03:00,240
+So, we have n diagonals.
+
+66
+00:03:00,240 --> 00:03:02,520
+By the way, I think I made a mistake again.
+
+67
+00:03:02,520 --> 00:03:06,880
+I looped all the way to n, which makes the matrix 100 by 100 again.
+
+68
+00:03:06,880 --> 00:03:12,400
+So a fix for that is a is equal to 1 to 99, 1 to 99.
+
+69
+00:03:12,400 --> 00:03:16,620
+That will make it back to 99 by 99 again.
+
+70
+00:03:16,620 --> 00:03:23,920
+So this kind of indexing is what MATLAB does to index a range of i's.
+
+71
+00:03:23,920 --> 00:03:29,360
+Okay, so let's loop over the upper and lower diagonals.
+
+72
+00:03:29,360 --> 00:03:33,840
+Let's remember there is only n minus 2 upper and lower diagonals.
+
+73
+00:03:33,840 --> 00:03:36,300
+There is n minus 1 diagonals.
+
+74
+00:03:36,300 --> 00:03:43,200
+So a of i and i plus 1 should be... there is no minus 2, so just a k divided by delta
+
+75
+00:03:43,200 --> 00:03:44,900
+x square.
+
+76
+00:03:44,900 --> 00:03:51,100
+So is the lower diagonal.
+
+77
+00:03:51,100 --> 00:03:53,500
+Okay.
+
+78
+00:03:53,500 --> 00:03:56,780
+Now if you look at a, it's still a 99 by 99 double.
+
+79
+00:03:56,780 --> 00:03:57,780
+It's good.
+
+80
+00:03:57,780 --> 00:04:02,400
+And the upper and lower diagonals are something positive.
+
+81
+00:04:02,400 --> 00:04:03,620
+All right.
+
+82
+00:04:03,620 --> 00:04:05,620
+That's good.
+
+83
+00:04:05,620 --> 00:04:08,740
+So let's also construct b.
+
+84
+00:04:08,740 --> 00:04:17,740
+b is a zeros n minus 1 by 1 matrix, which is a column vector.
+
+85
+00:04:17,740 --> 00:04:23,020
+If I just do zeros n minus 1, it will make me a n minus 1 by n minus 1 matrix.
+
+86
+00:04:23,020 --> 00:04:23,220
+Okay.
+
+87
+00:04:23,500 --> 00:04:29,780
+Which is not going to crash my computer in this case.
+
+88
+00:04:29,780 --> 00:04:36,660
+But in other cases, I think I was teaching a method that uses Monte Carlo method.
+
+89
+00:04:36,660 --> 00:04:41,920
+And somebody is supposed to make a random number array of something like many millions
+
+90
+00:04:41,920 --> 00:04:44,080
+of numbers.
+
+91
+00:04:44,080 --> 00:04:50,140
+So there are students who just typed a random n where n is many millions.
+
+92
+00:04:50,140 --> 00:04:51,780
+So it tries to make a random matrix of several million by several millions.
+
+93
+00:04:51,780 --> 00:04:52,780
+So it's going to make a random matrix of several million by several millions.
+
+94
+00:04:52,780 --> 00:04:57,600
+And the computer hangs there.
+
+95
+00:04:57,600 --> 00:05:01,080
+So MATLAB is kind of evil in that sense.
+
+96
+00:05:01,080 --> 00:05:02,380
+Be very careful.
+
+97
+00:05:02,380 --> 00:05:05,020
+So b is going to be a vector.
+
+98
+00:05:05,020 --> 00:05:08,000
+And b1 is going to be set to be something special.
+
+99
+00:05:08,000 --> 00:05:09,000
+Okay.
+
+100
+00:05:09,000 --> 00:05:12,460
+So let's set u0 is equal to, let's say, 1.
+
+101
+00:05:12,460 --> 00:05:14,260
+u1 is equal to minus 1.
+
+102
+00:05:14,260 --> 00:05:17,160
+So that's the boundary conditions.
+
+103
+00:05:17,160 --> 00:05:20,740
+b1 is then going to be, is equal to kappa divided by dx squared.
+
+104
+00:05:20,740 --> 00:05:21,740
+Okay.
+
+105
+00:05:21,740 --> 00:05:22,740
+Okay.
+
+106
+00:05:22,740 --> 00:05:22,780
+Okay.
+
+107
+00:05:22,780 --> 00:05:26,820
+times u0.
+
+108
+00:05:26,820 --> 00:05:34,720
+And b at the very last, which in MATLAB, you can do bn is equal to the same thing times
+
+109
+00:05:34,720 --> 00:05:35,720
+u1.
+
+110
+00:05:35,720 --> 00:05:44,960
+Now, if you look at b, b is the, is a vector of something, all zeros, and something else.
+
+111
+00:05:44,960 --> 00:05:46,860
+??
+
+112
+00:05:46,860 --> 00:05:47,640
+Yes.
+
+113
+00:05:47,640 --> 00:05:50,600
+I use the, you want to denote the
+
+114
+00:05:50,600 --> 00:05:51,600
+??
+
+115
+00:05:51,600 --> 00:05:52,600
+I know, yeah.
+
+116
+00:05:52,600 --> 00:05:55,160
+x equal to 1, not r equal to 1.
+
+117
+00:05:55,240 --> 00:05:56,120
+Yeah, I understand that.
+
+118
+00:05:56,240 --> 00:05:59,080
+But if you're sort of, I mean, it's not wrong right now,
+
+119
+00:05:59,120 --> 00:06:01,360
+but if you're going to refer to the next,
+
+120
+00:06:02,320 --> 00:06:07,860
+if you're going to look at the other u's that are in the matrix,
+
+121
+00:06:07,860 --> 00:06:11,860
+then is there a possible conclusion with the wrong figure later?
+
+122
+00:06:13,000 --> 00:06:15,660
+Okay, so are you arguing about the naming of the variable?
+
+123
+00:06:15,920 --> 00:06:16,080
+Yeah.
+
+124
+00:06:16,340 --> 00:06:17,560
+Okay, that's fine.
+
+125
+00:06:18,440 --> 00:06:18,980
+Yeah, that's fine.
+
+126
+00:06:18,980 --> 00:06:24,500
+So let's do un is equal to u1, and how do you delete a variable?
+
+127
+00:06:24,700 --> 00:06:24,980
+Delete.
+
+128
+00:06:26,160 --> 00:06:26,720
+Clear.
+
+129
+00:06:28,700 --> 00:06:30,860
+Clear u1.
+
+130
+00:06:31,160 --> 00:06:31,620
+Is that right?
+
+131
+00:06:32,140 --> 00:06:32,440
+Okay.
+
+132
+00:06:32,960 --> 00:06:33,520
+Good.
+
+133
+00:06:33,520 --> 00:06:33,580
+Good.
+
+134
+00:06:34,400 --> 00:06:45,900
+So let's use our favorite ODE solver here, new file function dudt.
+
+135
+00:06:46,240 --> 00:06:48,260
+Okay, so let's say dudt.
+
+136
+00:06:48,980 --> 00:06:58,360
+So ax plus b is equal to dudt of, I need to put t and u.
+
+137
+00:06:58,360 --> 00:07:06,840
+So usually an ODE solver expects the solution to be a function of t and u.
+
+138
+00:07:07,760 --> 00:07:14,260
+So ax plus b is equal to a times u, well, it's au plus b.
+
+139
+00:07:17,900 --> 00:07:18,800
+Plus b.
+
+140
+00:07:18,980 --> 00:07:19,360
+Plus b.
+
+141
+00:07:19,360 --> 00:07:19,420
+Plus b.
+
+142
+00:07:19,420 --> 00:07:19,440
+Plus b.
+
+143
+00:07:19,440 --> 00:07:19,480
+Plus b.
+
+144
+00:07:19,480 --> 00:07:19,540
+Plus b.
+
+145
+00:07:19,540 --> 00:07:19,600
+Plus b.
+
+146
+00:07:19,600 --> 00:07:19,620
+Plus b.
+
+147
+00:07:19,620 --> 00:07:19,640
+Plus b.
+
+148
+00:07:19,640 --> 00:07:19,660
+Plus b.
+
+149
+00:07:19,660 --> 00:07:19,680
+Plus b.
+
+150
+00:07:19,680 --> 00:07:21,040
+All right, that's it.
+
+151
+00:07:23,140 --> 00:07:27,780
+So that's as simple as what the ODE solver is going to be.
+
+152
+00:07:28,320 --> 00:07:35,960
+So what I will be doing is I'm going to set u0 into zeros of n minus 1.
+
+153
+00:07:36,960 --> 00:07:39,520
+Oh, n1, right, so that's my initial condition.
+
+154
+00:07:40,200 --> 00:07:46,940
+I'm going to say tu is going to be ODE 45.
+
+155
+00:07:46,940 --> 00:07:48,940
+I first.
+
+156
+00:07:48,980 --> 00:07:50,980
+I need the function dudt.
+
+157
+00:07:50,980 --> 00:07:56,440
+T span, let's make it, let's solve it for one time units.
+
+158
+00:07:56,440 --> 00:07:58,880
+And my initial solution is u0.
+
+159
+00:07:58,880 --> 00:08:01,480
+And I don't want any options.
+
+160
+00:08:01,480 --> 00:08:04,580
+I want to find the function.
+
+161
+00:08:04,580 --> 00:08:13,140
+Okay, so I have defined a, but do I need to have a global a, b?
+
+162
+00:08:13,140 --> 00:08:14,920
+Okay.
+
+163
+00:08:14,920 --> 00:08:18,180
+Let's do that again.
+
+164
+00:08:18,980 --> 00:08:21,980
+In a matrix dimension must agree.
+
+165
+00:08:21,980 --> 00:08:29,980
+I think you need to work global in the, in the command function.
+
+166
+00:08:29,980 --> 00:08:30,980
+Like this?
+
+167
+00:08:30,980 --> 00:08:31,980
+Yeah.
+
+168
+00:08:31,980 --> 00:08:32,980
+Okay.
+
+169
+00:08:32,980 --> 00:08:33,980
+Guarantee that.
+
+170
+00:08:33,980 --> 00:08:34,980
+That's the first thing.
+
+171
+00:08:34,980 --> 00:08:35,980
+You have to have the, you have to have the.
+
+172
+00:08:35,980 --> 00:08:36,980
+Yeah, I think we got it.
+
+173
+00:08:36,980 --> 00:08:37,980
+In the command function, the third file.
+
+174
+00:08:37,980 --> 00:08:38,980
+Ah, I see.
+
+175
+00:08:38,980 --> 00:08:39,980
+Okay.
+
+176
+00:08:39,980 --> 00:08:40,980
+So a, let me see.
+
+177
+00:08:40,980 --> 00:08:41,980
+Let me see.
+
+178
+00:08:41,980 --> 00:08:42,980
+Let me see.
+
+179
+00:08:42,980 --> 00:08:43,980
+Let me see.
+
+180
+00:08:43,980 --> 00:08:44,980
+Let me see.
+
+181
+00:08:44,980 --> 00:08:45,980
+Let me see.
+
+182
+00:08:45,980 --> 00:08:46,980
+Let me see.
+
+183
+00:08:46,980 --> 00:08:47,980
+Let me see.
+
+184
+00:08:47,980 --> 00:08:48,980
+Let me see.
+
+185
+00:08:48,980 --> 00:08:49,980
+Let me see.
+
+186
+00:08:49,980 --> 00:08:50,980
+Let me see.
+
+187
+00:08:50,980 --> 00:08:51,980
+Let me see.
+
+188
+00:08:51,980 --> 00:08:52,980
+Let me see.
+
+189
+00:08:52,980 --> 00:08:53,980
+Let me see.
+
+190
+00:08:53,980 --> 00:08:54,980
+Let me see.
+
+191
+00:08:54,980 --> 00:08:55,980
+Let me see.
+
+192
+00:08:55,980 --> 00:08:56,980
+Let me see.
+
+193
+00:08:56,980 --> 00:08:57,980
+Let me see.
+
+194
+00:08:57,980 --> 00:08:58,980
+Let me see.
+
+195
+00:08:58,980 --> 00:08:59,980
+Let me see.
+
+196
+00:08:59,980 --> 00:09:00,980
+Okay.
+
+197
+00:09:00,980 --> 00:09:01,980
+So I can look at my history again, I guess.
+
+198
+00:09:01,980 --> 00:09:04,980
+So for r is equal to one to m minus one.
+
+199
+00:09:04,980 --> 00:09:08,980
+I'm going to do that.
+
+200
+00:09:08,980 --> 00:09:13,980
+And I'm going to set my up and lower.
+
+201
+00:09:13,980 --> 00:09:14,980
+Also u.
+
+202
+00:09:14,980 --> 00:09:15,980
+All right.
+
+203
+00:09:15,980 --> 00:09:16,980
+Okay.
+
+204
+00:09:16,980 --> 00:09:17,980
+Okay.
+
+205
+00:09:17,980 --> 00:09:24,980
+And I'm going to do od silver again.
+
+206
+00:09:24,980 --> 00:09:31,980
+Matrix dimension must agree.
+
+207
+00:09:31,980 --> 00:09:40,980
+So if I remember correctly, I think od 45 expects a u to be a row vector.
+
+208
+00:09:40,980 --> 00:09:45,980
+And I'm also supposed to return a row vector.
+
+209
+00:09:45,980 --> 00:09:49,980
+So I would just do transpose on u, and also the result.
+
+210
+00:09:49,980 --> 00:09:50,980
+All right.
+
+211
+00:09:50,980 --> 00:09:56,980
+So when I'm doing this, I'm also going to transpose my initial condition.
+
+212
+00:09:56,980 --> 00:09:57,980
+Yeah.
+
+213
+00:09:57,980 --> 00:09:58,980
+My initial condition.
+
+214
+00:09:58,980 --> 00:09:59,980
+Thanks.
+
+215
+00:09:59,980 --> 00:10:00,980
+You have u0 as an initial and a boundary.
+
+216
+00:10:00,980 --> 00:10:01,980
+Right.
+
+217
+00:10:01,980 --> 00:10:02,980
+So I have to do a little bit more.
+
+218
+00:10:02,980 --> 00:10:03,980
+Okay.
+
+219
+00:10:03,980 --> 00:10:04,980
+Okay.
+
+220
+00:10:04,980 --> 00:10:05,980
+So I'm going to do a little bit more.
+
+221
+00:10:05,980 --> 00:10:06,980
+I'm going to do a little bit more.
+
+222
+00:10:06,980 --> 00:10:07,980
+Okay.
+
+223
+00:10:07,980 --> 00:10:08,980
+Okay.
+
+224
+00:10:08,980 --> 00:10:09,980
+Okay.
+
+225
+00:10:09,980 --> 00:10:10,980
+All right.
+
+226
+00:10:10,980 --> 00:10:11,980
+Okay.
+
+227
+00:10:11,980 --> 00:10:12,980
+All right.
+
+228
+00:10:12,980 --> 00:10:13,980
+All right.
+
+229
+00:10:13,980 --> 00:10:14,980
+All right.
+
+230
+00:10:14,980 --> 00:10:15,980
+Okay.
+
+231
+00:10:15,980 --> 00:10:16,980
+All right.
+
+232
+00:10:16,980 --> 00:10:17,980
+Okay.
+
+233
+00:10:17,980 --> 00:10:18,980
+All right.
+
+234
+00:10:18,980 --> 00:10:19,980
+Okay.
+
+235
+00:10:19,980 --> 00:10:20,980
+Okay.
+
+236
+00:10:20,980 --> 00:10:35,980
+My u0 is fine, and my u is...
+
+237
+00:10:35,980 --> 00:10:38,980
+So let's try to figure that out.
+
+238
+00:10:38,980 --> 00:10:43,980
+So I'm going to display the size of u to see...
+
+239
+00:10:43,980 --> 00:10:49,620
+To see what this gives me.
+
+240
+00:10:49,620 --> 00:10:58,160
+So the size of u is going to be 99 by 1.
+
+241
+00:10:58,160 --> 00:11:02,120
+So my u0 is 99 by 1.
+
+242
+00:11:02,120 --> 00:11:06,000
+So I should not transpose that.
+
+243
+00:11:06,000 --> 00:11:07,720
+I should not have transposed that.
+
+244
+00:11:07,720 --> 00:11:10,840
+Maybe I shouldn't have transposed that either.
+
+245
+00:11:10,840 --> 00:11:12,140
+So let's solve this again.
+
+246
+00:11:12,140 --> 00:11:13,140
+Okay.
+
+247
+00:11:13,140 --> 00:11:17,580
+So let's see how that works.
+
+248
+00:11:17,580 --> 00:11:21,240
+Let me get rid of the display to make things go faster.
+
+249
+00:11:21,240 --> 00:11:22,940
+Okay.
+
+250
+00:11:22,940 --> 00:11:32,040
+So now I have a solution u, size of u, which is going to be this much by 99.
+
+251
+00:11:32,040 --> 00:11:35,640
+So this is all the time steps OD45 took.
+
+252
+00:11:35,640 --> 00:11:39,900
+And let's just visualize the last time step.
+
+253
+00:11:39,900 --> 00:11:41,780
+So u of end column.
+
+254
+00:11:41,780 --> 00:11:42,780
+Okay.
+
+255
+00:11:42,780 --> 00:11:45,780
+So u of end column is going to be this much by 99.
+
+256
+00:11:45,780 --> 00:11:48,780
+So I'm going to get rid of this by 99.
+
+257
+00:11:48,780 --> 00:11:52,780
+So I'm going to get rid of this by 99.
+
+258
+00:11:52,780 --> 00:11:58,220
+So this is the solution I get after t equal to 1.
+
+259
+00:11:58,220 --> 00:12:00,200
+My initial solution is all 0s.
+
+260
+00:12:00,200 --> 00:12:07,080
+After 1, I get almost a straight line running from 1 to minus 1.
+
+261
+00:12:07,080 --> 00:12:12,340
+So the heat equation stretches, smoothies out the solution, and make it like that.
+
+262
+00:12:12,340 --> 00:12:17,340
+And if you plot the whole history, I don't know if you can do that like this.
+
+263
+00:12:17,340 --> 00:12:26,540
+Oh, I should plot the transpose.
+
+264
+00:12:26,540 --> 00:12:29,340
+Too many lines to plot.
+
+265
+00:12:29,340 --> 00:12:32,340
+Okay.
+
+266
+00:12:32,340 --> 00:12:37,460
+Let me kill this.
+
+267
+00:12:37,460 --> 00:12:42,340
+So let me just plot several solutions.
+
+268
+00:12:42,340 --> 00:12:49,340
+Still trying to pop up.
+
+269
+00:12:49,340 --> 00:12:52,340
+Okay.
+
+270
+00:12:52,340 --> 00:12:58,560
+So let me plot the 10th time step, for example.
+
+271
+00:12:58,560 --> 00:13:05,060
+The 10th time step, you can see almost a constant line equal to 0.
+
+272
+00:13:05,060 --> 00:13:10,340
+So the boundary starts to go towards the boundary conditions.
+
+273
+00:13:10,340 --> 00:13:11,340
+So this is the first grid point.
+
+274
+00:13:11,340 --> 00:13:13,340
+X equal to delta x.
+
+275
+00:13:13,340 --> 00:13:15,340
+This is the last grid point.
+
+276
+00:13:15,340 --> 00:13:17,340
+X equal to 1 minus delta x.
+
+277
+00:13:17,340 --> 00:13:21,340
+This starts to go towards 1 and minus 1.
+
+278
+00:13:21,340 --> 00:13:28,340
+If you plot the hundredth, we can see that the solution becomes smoother.
+
+279
+00:13:28,340 --> 00:13:29,340
+Right?
+
+280
+00:13:29,340 --> 00:13:31,340
+So that's the behavior of the heat equation.
+
+281
+00:13:31,340 --> 00:13:37,340
+If you plot the thousandth solution, it's being stretched out.
+
+282
+00:13:37,340 --> 00:13:39,340
+And ultimately, the solution becomes a straight line.
+
+283
+00:13:39,340 --> 00:13:40,340
+So that's the behavior of the heat equation.
+
+284
+00:13:40,340 --> 00:13:44,340
+So that's when the solution becomes steady state.
+
+285
+00:13:44,340 --> 00:13:50,340
+When the time derivative becomes 0, which means the solution doesn't change anymore,
+
+286
+00:13:50,340 --> 00:14:00,340
+what we get is 0 equal to the second derivative of u.
+

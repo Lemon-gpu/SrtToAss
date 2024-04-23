@@ -1,0 +1,456 @@
+1
+00:00:00,000 --> 00:00:02,000
+Find a volume on non-uniform grid.
+
+2
+00:00:03,220 --> 00:00:11,120
+Still we have a single spatial dimension, but the space is now divided by a non-uniform set of grid points.
+
+3
+00:00:12,460 --> 00:00:24,360
+So we have x0, we have xn, and we have x1, x2, and the spacing between the axes are no longer going to be uniform.
+
+4
+00:00:24,360 --> 00:00:36,080
+If you think of the way we formulated finite volume, there is practically no difference between how we are discretizing a uniform grid and a non-uniform grid.
+
+5
+00:00:36,540 --> 00:00:42,380
+We are still going to define a u1 here.
+
+6
+00:00:42,700 --> 00:00:52,100
+So let me rename the grid points to be x of half, x of 1 and half, x and 2 and half, 3 and half, etc.
+
+7
+00:00:52,360 --> 00:00:54,340
+And this is going to be n and half.
+
+8
+00:00:54,900 --> 00:00:58,580
+So we still have our volumes being named integers.
+
+9
+00:01:01,520 --> 00:01:05,940
+Particularly, we define ui as the cell average.
+
+10
+00:01:06,420 --> 00:01:12,460
+Now the cell size is x of i plus half minus x of i minus half.
+
+11
+00:01:12,960 --> 00:01:15,020
+We no longer have a uniform delta i.
+
+12
+00:01:15,020 --> 00:01:23,880
+So let's call this delta x of i, the size of the ith cell.
+
+13
+00:01:24,360 --> 00:01:32,740
+So we have integration over x i minus half to x i plus half of u times dx.
+
+14
+00:01:33,440 --> 00:01:36,040
+We have a volume average like that.
+
+15
+00:01:37,020 --> 00:01:41,220
+Remember, the integral form of the equation applies to any interval.
+
+16
+00:01:41,220 --> 00:01:52,000
+So if we apply the integral form of the equation, we get dui dt would be equal to 1 over delta xi.
+
+17
+00:01:52,900 --> 00:01:54,220
+The derivative of...
+
+18
+00:01:54,360 --> 00:01:59,200
+the total amount of quantity inside that volume.
+
+19
+00:01:59,860 --> 00:02:07,160
+The derivative of that is the flux at i minus half minus the flux at i plus half.
+
+20
+00:02:08,560 --> 00:02:09,080
+Right?
+
+21
+00:02:11,220 --> 00:02:18,120
+Now, we still are going to use finite volume approximation to approximate these fluxes.
+
+22
+00:02:19,540 --> 00:02:23,460
+And the approximation would work in very similar ways.
+
+23
+00:02:24,360 --> 00:02:25,860
+Okay?
+
+24
+00:02:25,860 --> 00:02:32,500
+And that is going to give us the same kind of finite volume solution as we had before.
+
+25
+00:02:34,400 --> 00:02:40,420
+So, for example, let's work it out for a very simple scheme.
+
+26
+00:02:40,420 --> 00:02:50,660
+So let's copy the same DTT burgers we worked on in the last lecture to the DTT of a non-uniform grid.
+
+27
+00:02:50,660 --> 00:02:51,760
+Okay.
+
+28
+00:02:51,760 --> 00:02:52,520
+Let's try it out.
+
+29
+00:02:52,520 --> 00:02:53,560
+So we need to get this very simple.
+
+30
+00:02:53,560 --> 00:02:54,060
+Okay.
+
+31
+00:02:54,060 --> 00:03:01,000
+We're gonna name it now uniform.
+
+32
+00:03:01,000 --> 00:03:05,220
+So the input of that we need to make a grid.
+
+33
+00:03:05,220 --> 00:03:10,720
+So let's make a worst possible grid for ourselves.
+
+34
+00:03:10,720 --> 00:03:19,780
+Let's make n equal to let's say 100 and let's just make x to be a random.
+
+35
+00:03:19,780 --> 00:03:24,140
+Is it rand or random?
+
+36
+00:03:24,140 --> 00:03:25,600
+Rand maybe?
+
+37
+00:03:25,600 --> 00:03:34,420
+Okay so x is basically a random set of points within 0 and 1.
+
+38
+00:03:34,420 --> 00:03:41,120
+Actually I want to make it n-1 because that's the interior points and I want to append 0
+
+39
+00:03:41,120 --> 00:03:42,940
+and 1 in the beginning.
+
+40
+00:03:42,940 --> 00:03:45,440
+So x I would make 0 in the beginning.
+
+41
+00:03:45,440 --> 00:03:49,760
+I want to sort x in the middle and I put 1 there.
+
+42
+00:03:49,760 --> 00:03:59,080
+So if I plot x it's basically a pretty non-ideal set of points.
+
+43
+00:03:59,080 --> 00:04:05,420
+So let me plot x and 0s 101.
+
+44
+00:04:05,420 --> 00:04:06,800
+Plot it like that.
+
+45
+00:04:06,800 --> 00:04:09,120
+So this is gonna be our grid points.
+
+46
+00:04:09,120 --> 00:04:13,320
+In some places it's terrible, some places it's white.
+
+47
+00:04:13,320 --> 00:04:18,080
+Okay so let's try it with that.
+
+48
+00:04:18,080 --> 00:04:19,760
+Let's make x to be globals.
+
+49
+00:04:19,760 --> 00:04:26,980
+So that I can use this in the function.
+
+50
+00:04:26,980 --> 00:04:32,940
+So let me make global x.
+
+51
+00:04:32,940 --> 00:04:36,580
+n is still gonna be a length of u, that's right.
+
+52
+00:04:36,580 --> 00:04:45,040
+And dx is now x of 2 to n minus x 1 to n minus 1.
+
+53
+00:04:45,040 --> 00:04:48,480
+So this is my dx which is no longer a constant.
+
+54
+00:04:48,480 --> 00:04:49,160
+But a length of 1.
+
+55
+00:04:49,160 --> 00:04:49,660
+Okay.
+
+56
+00:04:49,760 --> 00:04:54,020
+So I'm gonna make this a length n array.
+
+57
+00:04:54,020 --> 00:04:59,220
+So we are gonna be performing the reconstruction.
+
+58
+00:04:59,220 --> 00:05:08,460
+So for simplicity let's make our reconstruction to be, let's make our limiter to be 0 for
+
+59
+00:05:08,460 --> 00:05:09,460
+now.
+
+60
+00:05:09,460 --> 00:05:10,800
+Okay.
+
+61
+00:05:10,800 --> 00:05:16,640
+Because when we have a non-uniform grid we need to also adapt our limiter with the different
+
+62
+00:05:16,640 --> 00:05:17,640
+x, i's.
+
+63
+00:05:17,640 --> 00:05:18,820
+For example when we compute our slope.
+
+64
+00:05:18,820 --> 00:05:19,060
+So we have a non-uniform grid.
+
+65
+00:05:19,060 --> 00:05:19,160
+Okay.
+
+66
+00:05:19,160 --> 00:05:19,460
+So we have a non-uniform grid.
+
+67
+00:05:19,460 --> 00:05:19,560
+Okay.
+
+68
+00:05:19,560 --> 00:05:19,660
+So we have a non-uniform grid.
+
+69
+00:05:19,660 --> 00:05:19,720
+Okay.
+
+70
+00:05:19,720 --> 00:05:19,740
+Okay.
+
+71
+00:05:19,760 --> 00:05:23,080
+So that means we need to also adapt our complete grid, so we have 2 large and common
+
+72
+00:05:23,080 --> 00:05:23,520
+and single units.
+
+73
+00:05:23,520 --> 00:05:23,640
+Okay.
+
+74
+00:05:23,640 --> 00:05:24,020
+So we need to also adapt our complete grid.
+
+75
+00:05:24,020 --> 00:05:24,220
+Okay.
+
+76
+00:05:24,220 --> 00:05:24,500
+So we need to also adapt our complete grid.
+
+77
+00:05:24,500 --> 00:05:27,580
+And also the slope needs to be, the slope needs to be considering half of the delta
+
+78
+00:05:27,580 --> 00:05:32,800
+x in 1 cell plus the half of another delta x in another cell, right.
+
+79
+00:05:32,800 --> 00:05:39,540
+So because if we have a non-uniform grid, the slope from here to here needs to be taking
+
+80
+00:05:39,540 --> 00:05:44,800
+half of the slope, half of the grid size, into adjacent cells.
+
+81
+00:05:44,800 --> 00:05:49,460
+But let's avoid that complexity for now.
+
+82
+00:05:49,460 --> 00:06:06,840
+So, if we avoid that complexity, we are going to reconstruct basically our U plus half left
+
+83
+00:06:06,840 --> 00:06:12,400
+is going to be the solution, the cell average on the left of the interface.
+
+84
+00:06:12,400 --> 00:06:17,340
+U plus half right is going to be the solution cell average at the right of the interface.
+
+85
+00:06:17,340 --> 00:06:23,720
+We are still going to apply good enough scheme and this is going to be dot divide.
+
+86
+00:06:23,720 --> 00:06:30,780
+So everything else is going to be pretty much the same.
+
+87
+00:06:30,780 --> 00:06:44,580
+So in MATLAB, let's compute x center to be x1 to n minus 1 plus x2 to n divided by 2.
+
+88
+00:06:44,580 --> 00:06:47,320
+And let's say our U0 is sine of x1.
+
+89
+00:06:47,320 --> 00:06:52,320
+So we have 2pi times x center.
+
+90
+00:06:52,320 --> 00:07:01,260
+If we plot x center, U0, this is still our initial solution, the same as what we had
+
+91
+00:07:01,260 --> 00:07:03,320
+last time.
+
+92
+00:07:03,320 --> 00:07:16,640
+So now let's solve it using ODE45, DDT non-uniform, 0 to let's say 0.5, using U0 as initial condition.
+
+93
+00:07:17,320 --> 00:07:19,080
+We have a solution.
+
+94
+00:07:19,080 --> 00:07:33,320
+So let's plot x center and U to see what the solution looks like.
+
+95
+00:07:33,320 --> 00:07:36,320
+Right.
+
+96
+00:07:36,320 --> 00:07:37,320
+Okay.
+
+97
+00:07:37,320 --> 00:07:39,320
+So that's what the solution looks like.
+
+98
+00:07:39,320 --> 00:07:43,320
+It's still a first order accurate scheme.
+
+99
+00:07:43,320 --> 00:07:45,320
+And because we have a non-uniform grid.
+
+100
+00:07:45,320 --> 00:07:46,320
+We have a non-uniform grid.
+
+101
+00:07:46,320 --> 00:07:47,320
+We have a non-uniform grid.
+
+102
+00:07:47,320 --> 00:07:54,880
+So the amount of dissipation we are experiencing depends on where the sharp feature of the
+
+103
+00:07:54,880 --> 00:07:56,080
+solution lies.
+
+104
+00:07:56,080 --> 00:08:01,880
+If the sharp feature of the solution travels through a bigger cell, we experience more
+
+105
+00:08:01,880 --> 00:08:03,320
+dissipation error.
+
+106
+00:08:03,320 --> 00:08:07,600
+If it travels through a smaller cell, we experience less dissipation error.
+
+107
+00:08:07,600 --> 00:08:16,080
+So the solution goes not...so the dissipation no longer acts as if it's a constant amount
+
+108
+00:08:16,080 --> 00:08:17,080
+of dissipation.
+
+109
+00:08:17,080 --> 00:08:23,640
+It's a little bit weakly, but like we still get a solution that looks pretty good.
+
+110
+00:08:23,640 --> 00:08:24,640
+All right.
+
+111
+00:08:24,640 --> 00:08:31,780
+So this is how we can apply finite volume schemes in the non-uniform grid.
+
+112
+00:08:31,780 --> 00:08:37,680
+Really minimum change to what we have to do on uniform grid.
+
+113
+00:08:37,680 --> 00:08:42,240
+The limiter would require you to do a little bit more work adjusting the different grid
+
+114
+00:08:42,240 --> 00:08:45,200
+sizes, but still minor change.
+

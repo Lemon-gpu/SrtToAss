@@ -1,0 +1,464 @@
+1
+00:00:00,000 --> 00:00:03,120
+f has a negative slope.
+
+2
+00:00:03,160 --> 00:00:04,340
+Oh, yeah, it's a minimum.
+
+3
+00:00:04,540 --> 00:00:04,760
+Sorry.
+
+4
+00:00:05,500 --> 00:00:06,140
+It's a minimum.
+
+5
+00:00:09,180 --> 00:00:12,380
+Right, so because df du is negative,
+
+6
+00:00:12,380 --> 00:00:17,320
+so it has a negative slope at the left
+
+7
+00:00:17,320 --> 00:00:19,560
+and a positive slope on the right.
+
+8
+00:00:19,840 --> 00:00:25,120
+So these are corresponding to u u f.
+
+9
+00:00:26,920 --> 00:00:27,280
+Right.
+
+10
+00:00:28,440 --> 00:00:29,960
+Any questions about this?
+
+11
+00:00:30,540 --> 00:00:35,780
+So if the characteristic of u changes sign,
+
+12
+00:00:37,780 --> 00:00:39,900
+which means, in this case,
+
+13
+00:00:39,900 --> 00:00:44,720
+f has a local minimum in the range of ul and ur,
+
+14
+00:00:45,540 --> 00:00:48,500
+then I need to choose that minimum as my flux.
+
+15
+00:00:49,540 --> 00:00:52,580
+Neither f of left nor f of right.
+
+16
+00:00:53,340 --> 00:00:58,240
+Well, if f is monotonically increasing or decreasing,
+
+17
+00:00:58,520 --> 00:00:59,980
+then, yeah, that would never happen.
+
+18
+00:01:00,540 --> 00:01:05,060
+Right, so for example, for linear action equation
+
+19
+00:01:05,060 --> 00:01:09,880
+where f is just proportional to u,
+
+20
+00:01:10,720 --> 00:01:12,140
+you don't need to use this.
+
+21
+00:01:12,240 --> 00:01:14,220
+You can just do upwinding or, yeah.
+
+22
+00:01:15,740 --> 00:01:23,860
+So, OK, so let's say this formula is also
+
+23
+00:01:23,860 --> 00:01:27,280
+applicable to all the cases where u r
+
+24
+00:01:27,280 --> 00:01:27,560
+is just a linear action equation.
+
+25
+00:01:27,580 --> 00:01:27,780
+Right.
+
+26
+00:01:27,780 --> 00:01:28,980
+So, OK, so let's say this formula is also applicable to all the cases where u r is,
+
+27
+00:01:28,980 --> 00:01:29,020
+is, is, is, is non-negotiable.
+
+28
+00:01:29,020 --> 00:01:29,540
+Right.
+
+29
+00:01:29,540 --> 00:01:32,740
+is greater than ul.
+
+30
+00:01:32,740 --> 00:01:36,520
+So for example, in this case, the entire short wave
+
+31
+00:01:36,520 --> 00:01:57,680
+propagates towards the left, which means f of ur
+
+32
+00:01:57,680 --> 00:02:03,920
+minus f of ul divided by bur minus ul is less than 0.
+
+33
+00:02:11,560 --> 00:02:21,280
+So this means f has a negative slope in this range.
+
+34
+00:02:21,280 --> 00:02:27,300
+And taking c.
+
+35
+00:02:27,300 --> 00:02:27,680
+It's c.
+
+36
+00:02:27,680 --> 00:02:32,260
+And the ur minus ul is.
+
+37
+00:02:34,260 --> 00:02:37,640
+So taking the minimum would be taking.
+
+38
+00:02:39,920 --> 00:02:44,300
+So the denominator is greater than 0,
+
+39
+00:02:44,460 --> 00:02:47,040
+which means the numerator is less than 0.
+
+40
+00:02:47,520 --> 00:02:53,220
+And that means ul is greater than ur, right?
+
+41
+00:02:54,860 --> 00:02:56,440
+Ul is greater than ur.
+
+42
+00:02:56,440 --> 00:02:56,920
+So.
+
+43
+00:02:57,680 --> 00:03:00,680
+Taking the minimum over that range, what would I get?
+
+44
+00:03:02,680 --> 00:03:04,860
+I would get ur, right?
+
+45
+00:03:05,800 --> 00:03:09,840
+So whenever ur is greater than ul,
+
+46
+00:03:09,840 --> 00:03:14,560
+I want to take the minimum of the flux over this range.
+
+47
+00:03:16,440 --> 00:03:20,420
+And the other case is also is the opposite.
+
+48
+00:03:20,860 --> 00:03:26,460
+So when ur is less than ul, I should be taking the maximum over this range.
+
+49
+00:03:27,680 --> 00:03:32,440
+So for example, that would never happen in.
+
+50
+00:03:32,680 --> 00:03:36,520
+So this kind of reverse scenario would never happen in Berger's equation.
+
+51
+00:03:36,660 --> 00:03:39,980
+But you can think of if the flux is minus of u squared over 2
+
+52
+00:03:39,980 --> 00:03:44,760
+instead of positive u squared over 2, then the scenario would happen.
+
+53
+00:03:46,920 --> 00:03:52,500
+So the kind of shock wave would diffuse into expansion
+
+54
+00:03:52,500 --> 00:03:56,420
+after infinitesimal amount of time.
+
+55
+00:03:56,420 --> 00:03:57,560
+So the solution would be.
+
+56
+00:03:57,560 --> 00:03:59,600
+The solution would go towards the left on the left side.
+
+57
+00:03:59,600 --> 00:04:02,240
+The solution would go towards the right on the right side.
+
+58
+00:04:02,900 --> 00:04:03,400
+Then.
+
+59
+00:04:04,160 --> 00:04:08,320
+So this is the case where ur is less than ul.
+
+60
+00:04:09,680 --> 00:04:17,420
+And in this case, the derivative of f to u at ur,
+
+61
+00:04:17,660 --> 00:04:22,340
+which is higher, is positive.
+
+62
+00:04:24,360 --> 00:04:25,320
+So at u.
+
+63
+00:04:25,680 --> 00:04:26,680
+So at ul.
+
+64
+00:04:26,680 --> 00:04:26,920
+At u.
+
+65
+00:04:26,920 --> 00:04:27,160
+At u.
+
+66
+00:04:27,160 --> 00:04:27,460
+At u.
+
+67
+00:04:27,460 --> 00:04:27,520
+At u.
+
+68
+00:04:27,560 --> 00:04:29,460
+At ur is positive, sorry.
+
+69
+00:04:29,660 --> 00:04:31,140
+So let me draw.
+
+70
+00:04:31,460 --> 00:04:32,260
+Let me draw.
+
+71
+00:04:32,820 --> 00:04:36,900
+Let me actually draw this case in the next page.
+
+72
+00:04:38,140 --> 00:04:42,920
+So we have a discontinuity that evolves into an expansion.
+
+73
+00:04:43,280 --> 00:04:46,360
+We have ul greater than ur.
+
+74
+00:04:47,000 --> 00:04:49,140
+And ur is over here.
+
+75
+00:04:53,700 --> 00:04:56,760
+So my df.
+
+76
+00:04:56,760 --> 00:04:57,400
+Now,
+
+77
+00:04:57,400 --> 00:04:57,440
+dt.
+
+78
+00:04:57,440 --> 00:04:57,480
+dt.
+
+79
+00:04:57,480 --> 00:04:57,540
+dt.
+
+80
+00:04:57,560 --> 00:05:08,120
+u over the range of u r which is less than u l is going to be like that so u r is positive
+
+81
+00:05:09,960 --> 00:05:16,120
+the the uh the solution u r goes towards the right which means the characteristics is positive over
+
+82
+00:05:16,120 --> 00:05:21,080
+here and this negative over here so the characteristics is going to going to cross
+
+83
+00:05:21,080 --> 00:05:29,880
+zero over here which means on the function value of f we have a positive slope
+
+84
+00:05:29,880 --> 00:05:34,780
+and then the negative slope and this point
+
+85
+00:05:34,780 --> 00:05:42,600
+is the local arg max of f
+
+86
+00:05:44,680 --> 00:05:50,760
+and at that point the characteristics has zero speed which exactly corresponds
+
+87
+00:05:51,080 --> 00:05:57,720
+to the value where you should be evaluating the flux after infinitesimal amount of time
+
+88
+00:05:58,920 --> 00:06:12,600
+so this case arg max of f u is greater than u r greater than less than u l is what should be
+
+89
+00:06:12,600 --> 00:06:19,880
+choosing here so in in summary the flux at i plus half
+
+90
+00:06:21,080 --> 00:06:31,080
+let's just say godunov scheme is equal to two cases one is equal to the maximum
+
+91
+00:06:33,480 --> 00:06:36,280
+of f over
+
+92
+00:06:38,840 --> 00:06:39,800
+over a region
+
+93
+00:06:42,280 --> 00:06:49,080
+u r less than u less than u l if
+
+94
+00:06:51,080 --> 00:06:53,800
+u l is greater than u r
+
+95
+00:06:57,880 --> 00:07:04,040
+so left in this case is i r in this case is i plus one i should say that
+
+96
+00:07:05,880 --> 00:07:10,200
+left is i right is i plus one
+
+97
+00:07:12,440 --> 00:07:20,360
+and other case is the minimum of f over u i less than u less than u i plus one
+
+98
+00:07:21,320 --> 00:07:30,680
+if u r is less than u r plus 1 and of course if u r is equal to us plus 1 F is just f of that u
+
+99
+00:07:32,520 --> 00:07:39,800
+so this method is looking at a discontinuous solution at the interface evolve that solution
+
+100
+00:07:39,800 --> 00:07:46,760
+analytically for absolute amount of time and look at what is the flux i should be using after that
+
+101
+00:07:46,760 --> 00:07:47,740
+absolute amount of time all right this was all theFT regularly assume you're interested in my famous
+
+102
+00:07:47,740 --> 00:07:59,920
+Alright, and there is an analytical formula for that flux over here.
+
+103
+00:07:59,920 --> 00:08:09,360
+So this is a very elegant result, and unfortunately this only works for a scalar conservation
+
+104
+00:08:09,360 --> 00:08:10,680
+law.
+
+105
+00:08:10,680 --> 00:08:16,720
+So for a system of conservation laws, the same argument actually applies.
+
+106
+00:08:16,720 --> 00:08:23,920
+So you can look at this continuous interface, solve that equation for epsilon amount of
+
+107
+00:08:23,920 --> 00:08:27,580
+time and look at what flux you should be using there.
+
+108
+00:08:27,580 --> 00:08:33,660
+But then we no longer have this very elegant formula.
+
+109
+00:08:33,660 --> 00:08:36,520
+It becomes an equation-dependent problem.
+
+110
+00:08:36,520 --> 00:08:42,440
+And there were entire PhDs that worked out for a particular system of equations what
+
+111
+00:08:42,440 --> 00:08:45,600
+is the correct flux to use over here.
+
+112
+00:08:45,600 --> 00:08:46,600
+Well,
+
+113
+00:08:46,600 --> 00:08:51,900
+there is also different ways to approximate, not exactly solve this problem of evolving
+
+114
+00:08:51,900 --> 00:08:54,600
+for epsilon amount of time and computing the flux.
+
+115
+00:08:54,600 --> 00:08:58,900
+There are also many methods developed to approximate that.
+
+116
+00:08:58,900 --> 00:09:04,480
+But for scalar conservation laws, this is a very nice formula we can use.
+

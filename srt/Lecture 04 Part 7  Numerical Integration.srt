@@ -1,0 +1,264 @@
+1
+00:00:00,000 --> 00:00:06,480
+And one of the things I asked you to do which actually has nothing to do with numerical PDE's per se
+
+2
+00:00:06,480 --> 00:00:11,580
+but like is used a lot in numerical methods is I was asking you to
+
+3
+00:00:12,720 --> 00:00:14,720
+look at how uniform
+
+4
+00:00:15,920 --> 00:00:21,200
+the temperature is and I want to also minimize how much water you are using
+
+5
+00:00:22,020 --> 00:00:24,960
+So the amount of water you're using is a integration
+
+6
+00:00:24,960 --> 00:00:33,140
+from let's say 0 to T and by the way if you want to compute the average amount of water per unit time you would be
+
+7
+00:00:33,940 --> 00:00:38,420
+dividing that by 1 over T times U of T dt
+
+8
+00:00:39,920 --> 00:00:43,460
+So if you have a function either analytical or numerical
+
+9
+00:00:44,780 --> 00:00:48,640
+You can you should also be computing the integral
+
+10
+00:00:48,800 --> 00:00:53,040
+So I want to I want to get a sense of how many people already know how to integrate
+
+11
+00:00:53,380 --> 00:00:54,680
+numerically functions
+
+12
+00:00:54,680 --> 00:00:54,940
+up
+
+13
+00:00:54,940 --> 00:00:56,940
+, so I want to get a sense of how many people already know how to integrate numerically functions
+
+14
+00:00:56,940 --> 00:00:58,940
+like that
+
+15
+00:01:00,760 --> 00:01:05,600
+It's like half of the class so I'll say a little bit on that
+
+16
+00:01:07,560 --> 00:01:09,560
+The I
+
+17
+00:01:09,640 --> 00:01:14,940
+would only teach one way of doing numerical integration for now that is a
+
+18
+00:01:16,180 --> 00:01:22,360
+trapezoidal rule so if this is UT and this is T equal to 0 this is T equal to big T
+
+19
+00:01:23,360 --> 00:01:24,920
+if you use a
+
+20
+00:01:24,920 --> 00:01:29,980
+Something like finite difference you have you did you can discretize the function at
+
+21
+00:01:31,160 --> 00:01:32,820
+grid points
+
+22
+00:01:32,820 --> 00:01:34,820
+so 2 Delta T
+
+23
+00:01:34,820 --> 00:01:38,140
+etc up to T is equal to n times Delta T and
+
+24
+00:01:39,360 --> 00:01:45,880
+You have a function like this and the value of the function is known at these grid points
+
+25
+00:01:47,800 --> 00:01:54,480
+The trapezoidal rule is very simple it is approximating the integral of the function
+
+26
+00:01:54,920 --> 00:01:57,220
+which is the area under this curve
+
+27
+00:01:58,340 --> 00:02:01,300
+by many small trapezoids
+
+28
+00:02:02,260 --> 00:02:08,220
+So basically that means linking the every pair of grid points using a straight line
+
+29
+00:02:09,600 --> 00:02:16,480
+Okay, and count how much area is beneath this straight line and this straight line
+
+30
+00:02:18,240 --> 00:02:22,620
+So for example if you have u0 and u1 and u2 here
+
+31
+00:02:24,920 --> 00:02:26,920
+What is the area?
+
+32
+00:02:27,200 --> 00:02:28,480
+behind
+
+33
+00:02:28,480 --> 00:02:33,180
+This trapezoid where this is 0 Delta T. This is u0 u1
+
+34
+00:02:36,380 --> 00:02:38,380
+Yes
+
+35
+00:02:45,100 --> 00:02:52,100
+Exactly so that's how much area is under this curve, so how much area is under the summation of all these
+
+36
+00:02:53,160 --> 00:02:54,860
+all these uh all these uh all these uh
+
+37
+00:02:54,860 --> 00:02:58,480
+Linear lines, what is the summation of all the areas?
+
+38
+00:02:59,480 --> 00:03:03,540
+It's basically a summation over you can pull Delta T out
+
+39
+00:03:04,280 --> 00:03:09,540
+it's going to be a summation of I goes from 1 to n of
+
+40
+00:03:10,240 --> 00:03:17,020
+Ui minus 1 plus ui so that's a very good approximation of this integral
+
+41
+00:03:20,120 --> 00:03:24,180
+And if you want you can go back and do Taylor series analysis and convince yourself
+
+42
+00:03:24,860 --> 00:03:26,860
+This is actually
+
+43
+00:03:27,640 --> 00:03:29,640
+second-order approximation
+
+44
+00:03:31,380 --> 00:03:33,380
+Yeah
+
+45
+00:03:33,480 --> 00:03:39,120
+At least the second-order approximation depends on how smooth the function is right so so this is a
+
+46
+00:03:40,260 --> 00:03:43,320
+This is what you can use to do the projects. I
+
+47
+00:03:44,480 --> 00:03:51,040
+Don't think today. I have time to go to intuitive methods so the rest of 10 minutes. I will see if
+
+48
+00:03:51,900 --> 00:03:54,520
+Anybody wants to ask additional questions on the project?
+
+49
+00:03:54,860 --> 00:04:01,860
+I want to say about this one. Yeah, we just focus on continuous functions. So no impulse functions are like periodic ones.
+
+50
+00:04:01,860 --> 00:04:05,860
+Like as they turn the water on, then it turns off, then it turns back on.
+
+51
+00:04:05,860 --> 00:04:07,860
+Like you do not have like that at all.
+
+52
+00:04:07,860 --> 00:04:13,500
+It's up to you. It's up to you. So even if you do piecewise continuous functions
+
+53
+00:04:13,500 --> 00:04:19,840
+It's also pretty easy to use this to integrate if you let's say turn this off at this point and turn it on again
+
+54
+00:04:20,680 --> 00:04:24,640
+You can just focus on integrating this part of the solution.
+
+55
+00:04:24,640 --> 00:04:26,640
+Right?
+
+56
+00:04:27,260 --> 00:04:31,740
+So there is there is nothing that prevents you to do piecewise continuous functions
+
+57
+00:04:31,740 --> 00:04:35,540
+And also it also allows you to do non-uniform
+
+58
+00:04:36,420 --> 00:04:41,940
+spacing in time so for example if you use ODE45 to integrate your ODE
+
+59
+00:04:43,040 --> 00:04:48,440
+ODE45 is going to return you an array of time steps or time points, right?
+
+60
+00:04:48,440 --> 00:04:52,680
+And there is no guarantee it will return you a uniform array of time points
+
+61
+00:04:53,080 --> 00:04:54,600
+so instead of having
+
+62
+00:04:54,600 --> 00:04:57,800
+a constant delta t the modification would be
+
+63
+00:04:58,780 --> 00:05:00,780
+non constant
+
+64
+00:05:00,820 --> 00:05:06,260
+Delta t would be summation of i goes from 1 to n of delta t i
+
+65
+00:05:08,720 --> 00:05:14,300
+ui plus 1 or ui minus 1 plus ui over 2 so this would be a
+
+66
+00:05:15,900 --> 00:05:20,320
+same integral with non-uniform time steps
+

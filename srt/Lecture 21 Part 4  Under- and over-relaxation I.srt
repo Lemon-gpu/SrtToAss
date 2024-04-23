@@ -1,0 +1,692 @@
+1
+00:00:00,000 --> 00:00:13,840
+okay so fortunately there is a almost a hack or modification to the Jacobi
+
+2
+00:00:13,840 --> 00:00:18,000
+iteration and iterations like Jacobi iteration we can do to make it a good
+
+3
+00:00:18,000 --> 00:00:28,800
+smoother this is called under relaxation what does it do so under relaxation is
+
+4
+00:00:28,800 --> 00:00:36,720
+the following so we have performed remember we have said okay so u1 u of k
+
+5
+00:00:37,440 --> 00:00:48,000
+is equal to u of k plus 1 is equal to Jacobi which is minus d inverse l plus u times
+
+6
+00:00:54,560 --> 00:00:58,560
+so d inverse not this this is the
+
+7
+00:00:58,800 --> 00:01:02,960
+solution error so minus d inverse times
+
+8
+00:01:07,440 --> 00:01:21,520
+minus b plus l plus u times u of k right so that's the Jacobi iteration for for a u equal to b
+
+9
+00:01:27,520 --> 00:01:28,720
+if we modify the
+
+10
+00:01:28,800 --> 00:01:38,800
+iteration such that my u k plus 1 is not exactly equal to this but it is equal
+
+11
+00:01:41,280 --> 00:01:47,520
+to an average between what i would get in a Jacobi iteration and the previous iteration
+
+12
+00:01:48,720 --> 00:01:56,560
+so what i'm doing is i'm introducing a lambda here i call the relaxation factor
+
+13
+00:01:58,160 --> 00:01:58,720
+i would be
+
+14
+00:01:58,800 --> 00:02:06,800
+averaging using this relaxation factor 1 minus lambda times u k so that's the weight on the
+
+15
+00:02:06,800 --> 00:02:18,640
+previous solution plus a lambda times what i would get if i'm applying the original Jacobi iteration
+
+16
+00:02:19,920 --> 00:02:24,960
+times minus b plus l plus u times u k
+
+17
+00:02:28,800 --> 00:02:34,720
+so what i have in the bracket is exactly what i would get if i apply the Jacobi iteration
+
+18
+00:02:35,520 --> 00:02:43,120
+but i'm weighting that by lambda which if i use under relaxation lambda would be less than 1.
+
+19
+00:02:43,120 --> 00:02:48,960
+so lambda less than 1 under relaxation
+
+20
+00:02:51,760 --> 00:02:57,920
+there are other cases where you want lambda to be greater than 1. this is over
+
+21
+00:02:57,920 --> 00:03:06,000
+over relaxation we are going to see later on applying over relaxation on Jacobi is a very bad
+
+22
+00:03:06,000 --> 00:03:12,720
+idea but applying over relaxation on some other methods like Gauss-Seidel may be a good idea
+
+23
+00:03:13,840 --> 00:03:15,440
+let's look at why that is the case
+
+24
+00:03:18,480 --> 00:03:26,720
+okay so first of all we need to analyze in order for us to study the convergence how fast
+
+25
+00:03:26,720 --> 00:03:32,960
+does the under relaxation or over relaxation converge for different frequency contents
+
+26
+00:03:33,680 --> 00:03:40,560
+what should we do first how do we start analyzing convergence we need to derive
+
+27
+00:03:41,360 --> 00:03:48,880
+a iteration for what quantity the error right we need to derive the error equation
+
+28
+00:03:49,760 --> 00:03:55,680
+and what is the way to derive the error equation we subtract the iteration
+
+29
+00:03:56,720 --> 00:04:06,000
+from a similar equation satisfied by the exact solution right in this case we know that the
+
+30
+00:04:06,000 --> 00:04:12,080
+original iteration is satisfied by the exact solution and so is the original iteration
+
+31
+00:04:12,080 --> 00:04:21,360
+multiplied by lambda so lambda u would be also equal to lambda times minus d inverse minus b
+
+32
+00:04:21,840 --> 00:04:26,320
+plus l plus u times u right
+
+33
+00:04:27,040 --> 00:04:32,880
+just multiplying the same equation that is the split of this split of this is d
+
+34
+00:04:33,680 --> 00:04:43,600
+uh u plus l plus u times u is equal to b so if you move this to the right hand side and
+
+35
+00:04:46,800 --> 00:04:53,920
+if you move this to the right hand side and multiply both sides by the inverse you're going
+
+36
+00:04:53,920 --> 00:04:58,900
+going to get the the equation that is satisfied by u so this is multiplying
+
+37
+00:04:58,900 --> 00:05:13,100
+lambda on both sides and then split this into two terms u plus u minus 1 minus
+
+38
+00:05:13,100 --> 00:05:18,880
+lambda times u and then move this to the right hand side what we are going to get
+
+39
+00:05:18,880 --> 00:05:26,220
+is u would be equal to 1 minus lambda times u plus lambda times the inverse
+
+40
+00:05:26,220 --> 00:05:37,140
+minus B plus L plus u times u so the original the exact solution u
+
+41
+00:05:37,140 --> 00:05:43,680
+satisfies a very similar equation to the iteration except for replacing all the
+
+42
+00:05:43,680 --> 00:05:47,880
+K and K plus ones by the exact solution
+
+43
+00:05:47,880 --> 00:05:48,820
+now
+
+44
+00:05:48,820 --> 00:05:58,060
+subtract right so if we define UK to be UK minus you subtracting these equations
+
+45
+00:05:58,060 --> 00:06:07,420
+would get me ek plus one is going to be equal to 1 minus lambda times ek plus
+
+46
+00:06:07,420 --> 00:06:13,940
+lambda times the B term because they are the same in both is going to be canceled
+
+47
+00:06:13,940 --> 00:06:14,620
+out
+
+48
+00:06:14,620 --> 00:06:18,800
+I'm only left with minus the inverse times L plus
+
+49
+00:06:18,800 --> 00:06:31,040
+you times you are times sorry you is going to be replaced by UK let's combine
+
+50
+00:06:31,040 --> 00:06:40,560
+these two terms I would get one minus lambda times identity minus lambda times
+
+51
+00:06:40,560 --> 00:06:43,560
+the inverse L plus you
+
+52
+00:06:45,360 --> 00:06:47,920
+times ek
+
+53
+00:06:47,920 --> 00:06:57,160
+therefore the under relaxation or over relaxation the effect of the relaxation
+
+54
+00:06:57,160 --> 00:07:07,100
+to the error equation is to modifying this original iteration matrix by a
+
+55
+00:07:07,100 --> 00:07:15,680
+constant multiplier lambda and then add that with a 1 minus lambda times identity
+
+56
+00:07:15,680 --> 00:07:16,680
+identity
+
+57
+00:07:18,800 --> 00:07:23,560
+Now think of what are these two things due to the eigenvalue of the matrix
+
+58
+00:07:24,500 --> 00:07:27,140
+first of all what is a multiplication by lambda do
+
+59
+00:07:27,140 --> 00:07:30,600
+what are the multiplication by lambda due to the eigenvalues of a matrix
+
+60
+00:07:30,600 --> 00:07:33,760
+200
+
+61
+00:07:33,760 --> 00:07:35,640
+hh
+
+62
+00:07:35,640 --> 00:07:42,220
+multiplying by lambda right so a scaled version of the matrix has a scaled
+
+63
+00:07:42,220 --> 00:07:43,960
+version of the eigenvalues
+
+64
+00:07:43,960 --> 00:07:44,820
+1000
+
+65
+00:07:44,820 --> 00:07:46,560
+Why Pat высокih chóney
+
+66
+00:07:46,560 --> 00:07:47,760
+What is the different ?
+
+67
+00:07:47,760 --> 00:07:53,340
+of adding an identity to the eigenvalue of the matrix.
+
+68
+00:07:58,780 --> 00:08:00,240
+Make it more SPD.
+
+69
+00:08:00,520 --> 00:08:03,660
+It's a constant shift to the eigenvalues, right?
+
+70
+00:08:03,660 --> 00:08:08,720
+So let me call this iteration matrix by J, right?
+
+71
+00:08:08,800 --> 00:08:10,740
+So let's call this J.
+
+72
+00:08:10,920 --> 00:08:14,340
+I'm going to define this J by the original iteration matrix,
+
+73
+00:08:14,440 --> 00:08:15,660
+which we know the eigenvalues.
+
+74
+00:08:15,660 --> 00:08:27,200
+They are, so the eigenvalues of J is cosine of J pi over N.
+
+75
+00:08:27,600 --> 00:08:30,600
+J goes from 1 to N minus 1, right?
+
+76
+00:08:31,040 --> 00:08:31,340
+Okay.
+
+77
+00:08:32,000 --> 00:08:37,880
+Now, the eigenvalue of the J lambda, I call it,
+
+78
+00:08:37,880 --> 00:08:43,480
+the Jacobi iteration with under or over relaxation.
+
+79
+00:08:45,240 --> 00:08:45,640
+Okay.
+
+80
+00:08:45,660 --> 00:08:55,660
+So the eigenvalue of J is equal to 1 minus lambda I plus lambda times J, right?
+
+81
+00:08:55,740 --> 00:09:00,840
+So we know, we basically, we have J multiplied by lambda and shifted by identity.
+
+82
+00:09:01,320 --> 00:09:10,920
+So if I have J times eigenvector is equal to, I use the lambda here,
+
+83
+00:09:11,080 --> 00:09:14,240
+so forgive me for using alpha as an eigenvalue.
+
+84
+00:09:14,240 --> 00:09:14,360
+Okay.
+
+85
+00:09:14,360 --> 00:09:15,000
+So if J is equal to 1 minus lambda I plus lambda times J,
+
+86
+00:09:15,000 --> 00:09:21,440
+if Jv is equal to alpha v, then J lambda times v would be equal to,
+
+87
+00:09:22,060 --> 00:09:29,980
+let's do the math, 1 minus lambda times identity times v plus this lambda times J times v.
+
+88
+00:09:30,740 --> 00:09:34,160
+And this, because identity times v is just a v,
+
+89
+00:09:34,300 --> 00:09:39,940
+I get 1 minus lambda times v plus lambda times alpha times v.
+
+90
+00:09:40,400 --> 00:09:42,880
+So what I get is these are all constants.
+
+91
+00:09:42,880 --> 00:09:44,620
+I get 1 minus lambda.
+
+92
+00:09:45,000 --> 00:09:48,720
+So I get 1 minus lambda times v plus alpha lambda v.
+
+93
+00:09:49,440 --> 00:09:55,000
+Therefore, v is still an eigenvector of the same, of J lambda,
+
+94
+00:09:55,280 --> 00:09:57,640
+the under-relaxed iteration matrix.
+
+95
+00:09:58,180 --> 00:10:01,520
+And the eigenvalues, originally being alpha,
+
+96
+00:10:01,680 --> 00:10:03,820
+they are modified by multiplying with,
+
+97
+00:10:04,360 --> 00:10:09,940
+multiplying with the under-relaxation factor and adding by 1 minus lambda.
+
+98
+00:10:12,280 --> 00:10:14,540
+So these are the alphas we get.
+
+99
+00:10:15,000 --> 00:10:30,400
+That means the eigenvalues of J lambda is going to be 1 minus lambda plus lambda times cosine J pi over n.
+
+100
+00:10:31,780 --> 00:10:32,360
+Right?
+
+101
+00:10:32,360 --> 00:10:32,440
+Right?
+
+102
+00:10:38,120 --> 00:10:44,240
+So think of what this lambda does to these eigenvalues.
+
+103
+00:10:45,000 --> 00:10:52,960
+First, let's imagine we have a previous eigenvalue that is very close to minus 1.
+
+104
+00:10:52,960 --> 00:10:54,760
+That was our problem, right?
+
+105
+00:10:54,760 --> 00:10:59,480
+That was our problem of why the J copy iteration is not suitable for multigrid.
+
+106
+00:11:01,480 --> 00:11:08,400
+If this is very close to minus 1 and we apply a lambda that is close to 0.5.
+
+107
+00:11:09,160 --> 00:11:14,640
+So let's imagine this is approximately minus 1 and this is approximately 0.5.
+
+108
+00:11:15,000 --> 00:11:15,680
+What does this do?
+
+109
+00:11:16,800 --> 00:11:22,000
+We have 1 minus 0.5, which is 0.5, plus 0.5 times minus 1.
+
+110
+00:11:22,000 --> 00:11:22,720
+We get what?
+
+111
+00:11:24,820 --> 00:11:34,500
+Or we are averaging something that is close to 0.1 with something that is 1, right?
+
+112
+00:11:36,240 --> 00:11:37,640
+So this is a weighted average.
+
+113
+00:11:37,640 --> 00:11:43,000
+You think of 1 minus lambda times 1 plus lambda times the original eigenvalue.
+
+114
+00:11:44,200 --> 00:11:44,980
+This is a weighted average.
+
+115
+00:11:45,000 --> 00:11:48,400
+This is an average between 1 and the original eigenvalues.
+
+116
+00:11:49,440 --> 00:11:52,360
+What does it do to the negative eigenvalues?
+
+117
+00:11:53,780 --> 00:12:00,040
+What does a lambda that is between 0 and 1 do to the eigenvalues?
+
+118
+00:12:01,600 --> 00:12:04,860
+Yeah, it makes it, it pulls it towards 1.
+
+119
+00:12:06,240 --> 00:12:06,560
+Right?
+
+120
+00:12:08,820 --> 00:12:10,900
+Let me show the effect here.
+
+121
+00:12:10,900 --> 00:12:11,860
+So lambda.
+
+122
+00:12:13,200 --> 00:12:14,320
+Let's make.
+
+123
+00:12:15,000 --> 00:12:16,000
+Okay, n.
+
+124
+00:12:16,000 --> 00:12:17,000
+n equal to 16.
+
+125
+00:12:17,000 --> 00:12:22,240
+Let's say we are going to see the same effect pretty soon.
+
+126
+00:12:22,240 --> 00:12:33,200
+So let's say the eigenvalues are a, they are cosine of 1 to 15 times pi divided by n.
+
+127
+00:12:33,200 --> 00:12:34,200
+Right?
+
+128
+00:12:34,200 --> 00:12:36,940
+So these are my a's.
+
+129
+00:12:36,940 --> 00:12:42,120
+And my lambda, so let's say is link space between 0 and 1.
+
+130
+00:12:42,120 --> 00:12:44,200
+Actually, let's make it some over relaxation.
+
+131
+00:12:44,200 --> 00:12:45,200
+0 to 2.
+
+132
+00:12:45,200 --> 00:12:46,200
+Let's make it 100.
+
+133
+00:12:46,200 --> 00:12:53,200
+Okay, so what I'm going to do is a, is going to show, I'm trying to plot lambda in the
+
+134
+00:12:53,200 --> 00:13:00,200
+x-axis and the relaxed eigenvalues on the y-axis.
+
+135
+00:13:00,200 --> 00:13:01,200
+Let me see.
+
+136
+00:13:01,200 --> 00:13:04,200
+a is this, lambda is this.
+
+137
+00:13:04,200 --> 00:13:13,200
+So what I want to do is my a lambda is going to be 1 minus lambda.
+
+138
+00:13:13,200 --> 00:13:14,200
+Okay.
+
+139
+00:13:14,200 --> 00:13:22,200
+So I'm going to plot lambda plus lambda times a, which I want to make it a transpose.
+
+140
+00:13:22,200 --> 00:13:23,200
+Does this work?
+
+141
+00:13:23,200 --> 00:13:27,200
+Lambda is going to be 1 by 100.
+
+142
+00:13:27,200 --> 00:13:28,200
+So it's going to be this.
+
+143
+00:13:28,200 --> 00:13:30,200
+a is going to be like that.
+
+144
+00:13:30,200 --> 00:13:31,200
+No, this doesn't work.
+
+145
+00:13:31,200 --> 00:13:32,200
+Okay.
+
+146
+00:13:32,200 --> 00:13:36,200
+So I need to be lambda transpose times a.
+
+147
+00:13:36,200 --> 00:13:38,200
+And this will be transpose.
+
+148
+00:13:38,200 --> 00:13:40,200
+So let's see if that works.
+
+149
+00:13:40,200 --> 00:13:41,200
+Okay.
+
+150
+00:13:41,200 --> 00:13:42,200
+So a lambda is 100 by 15.
+
+151
+00:13:42,200 --> 00:13:43,200
+So let's plot.
+
+152
+00:13:43,200 --> 00:13:47,200
+Lambda a lambda.
+
+153
+00:13:47,200 --> 00:13:49,200
+Yeah.
+
+154
+00:13:49,200 --> 00:13:50,200
+Okay.
+
+155
+00:13:50,200 --> 00:13:51,200
+Okay.
+
+156
+00:13:51,200 --> 00:13:52,200
+So let's grade it.
+
+157
+00:13:52,200 --> 00:13:53,200
+So here's what we get.
+
+158
+00:13:53,200 --> 00:14:08,200
+When lambda is equal to 1, when lambda is equal to 1, that means that lambda is equal
+
+159
+00:14:08,200 --> 00:14:09,200
+to 1.
+
+160
+00:14:09,200 --> 00:14:10,200
+Okay.
+
+161
+00:14:10,200 --> 00:14:12,200
+So that's what we get.
+
+162
+00:14:12,200 --> 00:14:18,200
+That is the exact original Jacobi iteration, right?
+
+163
+00:14:18,200 --> 00:14:19,200
+Lambda is equal to 1.
+
+164
+00:14:19,200 --> 00:14:20,200
+This term is 0.
+
+165
+00:14:20,200 --> 00:14:21,200
+Lambda is 1.
+
+166
+00:14:21,200 --> 00:14:24,200
+So I get exactly the same Jacobi iteration.
+
+167
+00:14:24,200 --> 00:14:31,200
+The eigenvalues goes from something very close to minus 1 to something very close to 1.
+
+168
+00:14:31,200 --> 00:14:35,200
+This is responsible for the very slow convergence we observed.
+
+169
+00:14:35,200 --> 00:14:40,200
+And this is responsible for very slow convergence of something that is difficult to observe
+
+170
+00:14:40,200 --> 00:14:41,200
+generally.
+
+171
+00:14:41,200 --> 00:14:48,200
+But like in multigrid, it's responsible for the slow convergence of multigrid.
+
+172
+00:14:48,200 --> 00:14:53,200
+If we use a lambda that is greater than 1, what's going to happen?
+
+173
+00:14:53,200 --> 00:14:55,200
+What do you think is going to happen to the iteration?
+

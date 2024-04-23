@@ -1,0 +1,1124 @@
+1
+00:00:00,000 --> 00:00:05,520
+So I'm going to show the Comfort Workflow via an example called a titanium
+
+2
+00:00:05,520 --> 00:00:09,840
+micro resistor actuator. This is not a blue flow related problem but it could
+
+3
+00:00:09,840 --> 00:00:17,040
+be. So imagine a bridge shaped beam that has two feet and then a bend. So basically
+
+4
+00:00:17,040 --> 00:00:21,400
+you apply it's a conductive material titanium. So when you apply a potential
+
+5
+00:00:21,400 --> 00:00:25,740
+bias across the two feet you're going to have current flow through it. And then
+
+6
+00:00:25,740 --> 00:00:29,220
+because of the current flowing then you're going to have resistive heating.
+
+7
+00:00:29,220 --> 00:00:33,060
+So the dual heating is going to generate heat and the entire structure is going to heat up.
+
+8
+00:00:33,060 --> 00:00:37,080
+So there is going to be a temperature gradient in the structure. Because there
+
+9
+00:00:37,080 --> 00:00:40,920
+is temperature gradient then it causes thermal stress. So this entire structure is
+
+10
+00:00:40,920 --> 00:00:46,980
+actually going to deform because of all that. So the problem definition here we
+
+11
+00:00:46,980 --> 00:00:53,220
+have the first physics which is the electric current simulation DC current
+
+12
+00:00:53,220 --> 00:00:58,560
+through conductive medium. And the second physics is the thermal conduction with
+
+13
+00:00:58,560 --> 00:00:59,220
+a dual heating element.
+
+14
+00:00:59,220 --> 00:01:02,700
+So the thermal conduction is going to be the heat source. So it's a purely conductive problem.
+
+15
+00:01:02,700 --> 00:01:08,100
+So the boundary condition we'll be setting will be will glue the two feet on a huge heat sink.
+
+16
+00:01:08,100 --> 00:01:14,940
+So the temperature remains unchanged to 93.15. And then for the rest of the surfaces we'll assume
+
+17
+00:01:14,940 --> 00:01:18,780
+they are adjacent to dry air so they actually subjected to conductive cooling.
+
+18
+00:01:18,780 --> 00:01:23,640
+And then the third physics is a solid mechanics problem with the thermal stress.
+
+19
+00:01:23,640 --> 00:01:28,980
+So to make the problem more interesting you can introduce the reverse coupling.
+
+20
+00:01:29,220 --> 00:01:37,080
+You can easily say through the temperature dependent material properties the electric conductivity is the function of the local temperature.
+
+21
+00:01:37,080 --> 00:01:40,440
+Alright so I'm going to start COMSOL.
+
+22
+00:01:40,440 --> 00:01:45,720
+Here it is.
+
+23
+00:01:45,720 --> 00:01:48,040
+And I'm going to start a new model.
+
+24
+00:01:48,040 --> 00:01:55,000
+So the two options you have on this first interface is you can either start with a blank model or start with a model wizard.
+
+25
+00:01:55,000 --> 00:01:58,860
+So the model wizard is basically the first of few steps of the
+
+26
+00:01:59,220 --> 00:02:01,380
+in your model workspace.
+
+27
+00:02:01,380 --> 00:02:03,840
+So I select the Model Wizard, and now it
+
+28
+00:02:03,840 --> 00:02:05,840
+asks me to select what's the space dimension
+
+29
+00:02:05,840 --> 00:02:07,040
+I want to work with.
+
+30
+00:02:07,040 --> 00:02:09,780
+So of course, in a more theoretical class,
+
+31
+00:02:09,780 --> 00:02:12,260
+you would always start with a more simple situation,
+
+32
+00:02:12,260 --> 00:02:14,840
+like a 0D or 1D problem.
+
+33
+00:02:14,840 --> 00:02:16,500
+0D, you don't have to create a geometry.
+
+34
+00:02:16,500 --> 00:02:19,220
+1D, you just draw a line with a certain length.
+
+35
+00:02:19,220 --> 00:02:22,360
+And then the other options would be the 1D and 2D axis
+
+36
+00:02:22,360 --> 00:02:22,920
+symmetric.
+
+37
+00:02:22,920 --> 00:02:25,220
+So 1D axis symmetric is essentially
+
+38
+00:02:25,220 --> 00:02:28,580
+equivalent to a 2D circle surface.
+
+39
+00:02:28,580 --> 00:02:30,280
+And then the 2D axis symmetric is
+
+40
+00:02:30,280 --> 00:02:33,940
+equivalent to a 3D rotation symmetry way.
+
+41
+00:02:33,940 --> 00:02:36,580
+Both the physics plus the load and the boundary conditions
+
+42
+00:02:36,580 --> 00:02:39,020
+have to be, plus material properties,
+
+43
+00:02:39,020 --> 00:02:42,700
+have to be axis symmetric in order to qualify for that.
+
+44
+00:02:42,700 --> 00:02:45,740
+And then there is also the 2D and 3D options.
+
+45
+00:02:45,740 --> 00:02:47,820
+So right now, I'm going to choose a 3D.
+
+46
+00:02:47,820 --> 00:02:49,740
+It's a 3D actual beam.
+
+47
+00:02:49,740 --> 00:02:51,760
+And then I'm going to choose the first physics
+
+48
+00:02:51,760 --> 00:02:54,160
+I want to solve for, which is the electric currents, right
+
+49
+00:02:54,160 --> 00:02:55,760
+under the ACDC folder.
+
+50
+00:02:55,760 --> 00:02:58,580
+So here, the physics are grouped not by modules,
+
+51
+00:02:58,580 --> 00:03:00,880
+but by application areas.
+
+52
+00:03:00,880 --> 00:03:02,480
+So I'm going to choose Add.
+
+53
+00:03:02,480 --> 00:03:05,900
+There is a little specification on what is the interface
+
+54
+00:03:05,900 --> 00:03:07,080
+and what it does.
+
+55
+00:03:07,080 --> 00:03:10,780
+It's going to solve for a capital case V, the electric
+
+56
+00:03:10,780 --> 00:03:11,660
+potential.
+
+57
+00:03:11,660 --> 00:03:13,880
+And I can move to the study node.
+
+58
+00:03:13,880 --> 00:03:17,540
+In this case, I'll choose the simplest, the stationary,
+
+59
+00:03:17,540 --> 00:03:19,280
+as the solver type.
+
+60
+00:03:19,280 --> 00:03:21,300
+Click on Done.
+
+61
+00:03:21,300 --> 00:03:23,360
+So now the model, we are finished its task.
+
+62
+00:03:23,360 --> 00:03:26,700
+Now you're in the main console graphical user interface.
+
+63
+00:03:26,700 --> 00:03:27,440
+We call this the GUI.
+
+64
+00:03:28,580 --> 00:03:31,460
+So in the GUI, you see I'm using a Windows system.
+
+65
+00:03:31,460 --> 00:03:33,540
+So the screen now gets divided into a few parts.
+
+66
+00:03:33,540 --> 00:03:35,900
+If you use a Mac or a Linux, you'll
+
+67
+00:03:35,900 --> 00:03:40,140
+see a slightly variant of this interface.
+
+68
+00:03:40,140 --> 00:03:42,220
+Instead of this console ribbon, we
+
+69
+00:03:42,220 --> 00:03:44,520
+call the console ribbon and tabs on the very top,
+
+70
+00:03:44,520 --> 00:03:47,280
+you would have a console toolbar, so a slightly condensed
+
+71
+00:03:47,280 --> 00:03:48,640
+version of it.
+
+72
+00:03:48,640 --> 00:03:51,780
+And then basically, on the ribbon,
+
+73
+00:03:51,780 --> 00:03:54,580
+you have the different tabs that goes from definition
+
+74
+00:03:54,580 --> 00:03:57,880
+to geometry to material, physics, mesh, study,
+
+75
+00:03:57,880 --> 00:03:58,380
+and results.
+
+76
+00:03:58,380 --> 00:04:00,380
+So that's the workflow I'm talking about from left
+
+77
+00:04:00,380 --> 00:04:01,480
+to right.
+
+78
+00:04:01,480 --> 00:04:02,380
+And the same thing here.
+
+79
+00:04:02,380 --> 00:04:04,940
+In the model builder, you have an inverted tree structure
+
+80
+00:04:04,940 --> 00:04:07,760
+with a root on the top and branches and nodes after it.
+
+81
+00:04:07,760 --> 00:04:11,140
+There are a few options because we dictated that during the
+
+82
+00:04:11,140 --> 00:04:12,540
+model wizard step.
+
+83
+00:04:12,540 --> 00:04:14,860
+But essentially, you go from top to bottom of this tree.
+
+84
+00:04:14,860 --> 00:04:18,060
+You will go from definition, geometry, material, physics,
+
+85
+00:04:18,060 --> 00:04:19,500
+mesh, study, to results.
+
+86
+00:04:19,500 --> 00:04:22,840
+So that's the workflow, too, from top to bottom of the tree.
+
+87
+00:04:22,840 --> 00:04:24,900
+You can change the sequence in any part of the model.
+
+88
+00:04:24,900 --> 00:04:27,820
+It's just a general guideline that once you
+
+89
+00:04:27,820 --> 00:04:29,320
+have all the steps aligned, you'll
+
+90
+00:04:29,320 --> 00:04:31,380
+eventually have the results.
+
+91
+00:04:31,380 --> 00:04:33,860
+So all the options here are either
+
+92
+00:04:33,860 --> 00:04:35,480
+through the buttons on the ribbon
+
+93
+00:04:35,480 --> 00:04:38,680
+or through the right clicks on the model builder tree.
+
+94
+00:04:38,680 --> 00:04:40,520
+So all the options are through the right click.
+
+95
+00:04:40,520 --> 00:04:43,240
+So when you're in doubt, right click.
+
+96
+00:04:43,240 --> 00:04:45,040
+And in the middle, we have a settings window.
+
+97
+00:04:45,040 --> 00:04:47,820
+So when you click on a certain node in the model builder tree,
+
+98
+00:04:47,820 --> 00:04:49,780
+you have the corresponding settings for it.
+
+99
+00:04:49,780 --> 00:04:51,700
+And then in the right, we have a graphics window
+
+100
+00:04:51,700 --> 00:04:52,480
+with many buttons.
+
+101
+00:04:52,480 --> 00:04:55,640
+Now it's a 3D geometry, so it shows the 3D coordinate.
+
+102
+00:04:55,640 --> 00:04:57,820
+And in the very bottom, we have messages, progress,
+
+103
+00:04:57,820 --> 00:04:59,820
+and log.
+
+104
+00:04:59,820 --> 00:05:01,360
+So in this case, we're going to start
+
+105
+00:05:01,360 --> 00:05:03,200
+with building the geometry in console.
+
+106
+00:05:03,200 --> 00:05:06,840
+So I'm going to start with a work plane.
+
+107
+00:05:06,840 --> 00:05:08,840
+So work plane is right here.
+
+108
+00:05:08,840 --> 00:05:11,700
+You see there are some 3D primitives.
+
+109
+00:05:11,700 --> 00:05:15,800
+And if you import, there is some CAD-defeaturing tools.
+
+110
+00:05:15,800 --> 00:05:18,140
+And there is also the, I want to emphasize,
+
+111
+00:05:18,140 --> 00:05:19,460
+the virtual operations.
+
+112
+00:05:19,460 --> 00:05:21,840
+For those of you who have complicated CAD geometries,
+
+113
+00:05:21,840 --> 00:05:24,060
+those would come in very handy.
+
+114
+00:05:24,060 --> 00:05:26,220
+And then after I created a work plane,
+
+115
+00:05:26,220 --> 00:05:29,280
+I essentially added a work plane step
+
+116
+00:05:29,280 --> 00:05:31,200
+under my geometry sequence.
+
+117
+00:05:31,200 --> 00:05:34,180
+And under that work plane 1, now you
+
+118
+00:05:34,180 --> 00:05:35,780
+might see the settings of work plane 1.
+
+119
+00:05:35,780 --> 00:05:37,460
+So horizontal plane, which I actually
+
+120
+00:05:37,460 --> 00:05:41,380
+want to change it to a vertical plane, so xz plane.
+
+121
+00:05:41,380 --> 00:05:44,280
+So under work plane 1, I have a plane geometry.
+
+122
+00:05:44,280 --> 00:05:47,120
+When I click on it, I go into the 2D workspace.
+
+123
+00:05:47,120 --> 00:05:50,200
+I could use the draw line operation
+
+124
+00:05:50,200 --> 00:05:52,680
+to sketch the profile of the beam very quickly.
+
+125
+00:05:52,680 --> 00:05:58,360
+So I do a series of left clicks and then a right click.
+
+126
+00:05:58,360 --> 00:06:00,980
+It forms an enclosed surface.
+
+127
+00:06:00,980 --> 00:06:03,600
+You could change that surface into a closed curve or open
+
+128
+00:06:03,600 --> 00:06:05,220
+curve as well.
+
+129
+00:06:05,220 --> 00:06:07,400
+And you see that each of the points
+
+130
+00:06:07,400 --> 00:06:08,600
+that I click on, the coordinates,
+
+131
+00:06:08,600 --> 00:06:10,920
+are documented as a Bezel polygon
+
+132
+00:06:10,920 --> 00:06:12,080
+in the geometry sequence.
+
+133
+00:06:12,080 --> 00:06:14,900
+So everything you do is documented in that model
+
+134
+00:06:14,900 --> 00:06:16,040
+builder tree.
+
+135
+00:06:16,040 --> 00:06:19,280
+And you can change those coordinates if you need to.
+
+136
+00:06:19,280 --> 00:06:21,600
+So this is actually a microbeam.
+
+137
+00:06:21,600 --> 00:06:22,680
+So I'm going to go back to the geometry.
+
+138
+00:06:22,680 --> 00:06:24,840
+And I'm going to go back to the geometry node.
+
+139
+00:06:24,840 --> 00:06:28,440
+Before I forget, change the default length unit
+
+140
+00:06:28,440 --> 00:06:30,360
+from meter to micrometer.
+
+141
+00:06:30,360 --> 00:06:33,360
+So now I don't have to type the e to the minus 6.
+
+142
+00:06:33,360 --> 00:06:34,920
+So now I have a 2D geometry.
+
+143
+00:06:34,920 --> 00:06:38,860
+I can right click on work plane 1, add an extrude.
+
+144
+00:06:38,860 --> 00:06:42,920
+And I'm going to extrude it for about 0.2 micron.
+
+145
+00:06:42,920 --> 00:06:45,240
+That should be good.
+
+146
+00:06:45,240 --> 00:06:50,440
+So now I have a 3D geometry with a 0.2 micron as the thickness.
+
+147
+00:06:50,440 --> 00:06:52,440
+So now that's the geometry step.
+
+148
+00:06:52,440 --> 00:06:53,980
+I'm going to go back to the geometry node
+
+149
+00:06:53,980 --> 00:06:56,400
+and move to the next one, which is the materials node.
+
+150
+00:06:56,400 --> 00:07:00,680
+I can right click, choose the first one, add material.
+
+151
+00:07:00,680 --> 00:07:04,440
+And it's going to browse to the console material library.
+
+152
+00:07:04,440 --> 00:07:05,680
+I'm going to choose the building.
+
+153
+00:07:05,680 --> 00:07:07,680
+The building folder actually comes with the base package.
+
+154
+00:07:07,680 --> 00:07:09,200
+So you always have it.
+
+155
+00:07:09,200 --> 00:07:11,520
+I can right click on the titanium materials,
+
+156
+00:07:11,520 --> 00:07:17,000
+add it to component 1, and close the add material panel here.
+
+157
+00:07:17,000 --> 00:07:19,800
+So now titanium is added to my material list.
+
+158
+00:07:19,800 --> 00:07:22,200
+And automatically, it assigns the properties
+
+159
+00:07:22,440 --> 00:07:22,940
+that I have.
+
+160
+00:07:22,940 --> 00:07:25,980
+The first material I pick will be assigned to all the domains.
+
+161
+00:07:25,980 --> 00:07:28,220
+So right now, there is only one domain.
+
+162
+00:07:28,220 --> 00:07:30,760
+And now it's going to use two of the properties.
+
+163
+00:07:30,760 --> 00:07:33,600
+So those properties are what the physics calls for.
+
+164
+00:07:33,600 --> 00:07:35,920
+And that's because in the physics,
+
+165
+00:07:35,920 --> 00:07:37,980
+it's assigned to domain number 1.
+
+166
+00:07:37,980 --> 00:07:40,040
+And the material property says from material.
+
+167
+00:07:40,040 --> 00:07:42,720
+So that's how the geometry node, the material node,
+
+168
+00:07:42,720 --> 00:07:45,000
+and the physics node all tie together.
+
+169
+00:07:45,000 --> 00:07:47,920
+If the material pick actually doesn't have that information
+
+170
+00:07:47,920 --> 00:07:50,720
+necessary, you're going to get a stop sign right here.
+
+171
+00:07:50,720 --> 00:07:52,180
+And when it goes through the solver,
+
+172
+00:07:52,180 --> 00:07:54,180
+it's going to give you an error message saying,
+
+173
+00:07:54,180 --> 00:07:58,680
+mat.epsn is missing, or something similar to that.
+
+174
+00:07:58,680 --> 00:08:01,700
+So always check the material property.
+
+175
+00:08:01,700 --> 00:08:04,120
+And then the next node is the physics node.
+
+176
+00:08:04,120 --> 00:08:08,060
+So as I said, you always follow the same workflow,
+
+177
+00:08:08,060 --> 00:08:09,860
+no matter what kind of physics you work with.
+
+178
+00:08:09,860 --> 00:08:13,620
+So you'll see that essentially, the first physics I added
+
+179
+00:08:13,620 --> 00:08:15,080
+has three default nodes.
+
+180
+00:08:15,080 --> 00:08:17,780
+You can tell they are the default from the uppercase D
+
+181
+00:08:17,780 --> 00:08:19,640
+on the icon.
+
+182
+00:08:19,640 --> 00:08:21,900
+So the default governing equation,
+
+183
+00:08:22,180 --> 00:08:24,220
+you can tell from the shape of the icon, which
+
+184
+00:08:24,220 --> 00:08:25,240
+is a field cylinder.
+
+185
+00:08:25,240 --> 00:08:27,800
+That means it's on the domain level.
+
+186
+00:08:27,800 --> 00:08:30,280
+So if you see the equations very quickly here,
+
+187
+00:08:30,280 --> 00:08:34,840
+that is the Laplacian type of equation we want to solve for.
+
+188
+00:08:34,840 --> 00:08:37,600
+And that applies to everywhere in the domain.
+
+189
+00:08:37,600 --> 00:08:39,260
+If you right click on electric currents,
+
+190
+00:08:39,260 --> 00:08:41,140
+you see the other options here.
+
+191
+00:08:41,140 --> 00:08:43,000
+That's other than the current conservation,
+
+192
+00:08:43,000 --> 00:08:47,940
+you also have terminals, the domain, force calculation,
+
+193
+00:08:47,940 --> 00:08:50,880
+and then a list of boundary conditions.
+
+194
+00:08:50,880 --> 00:08:52,180
+So right now, the default boundary
+
+195
+00:08:52,180 --> 00:08:54,900
+conditions is electrically insulated everywhere.
+
+196
+00:08:54,900 --> 00:08:57,460
+So no current goes in or out.
+
+197
+00:08:57,460 --> 00:08:59,440
+And dot j equals to 0.
+
+198
+00:08:59,440 --> 00:09:01,160
+And the initial value, essentially
+
+199
+00:09:01,160 --> 00:09:04,180
+in a stationary problem, that's the initial gas that
+
+200
+00:09:04,180 --> 00:09:06,160
+is 0 potential everywhere.
+
+201
+00:09:06,160 --> 00:09:08,780
+So we're happy with comparing these equations
+
+202
+00:09:08,780 --> 00:09:11,940
+with the equations we wrote down on the slide.
+
+203
+00:09:11,940 --> 00:09:13,480
+We're happy with the governing equations,
+
+204
+00:09:13,480 --> 00:09:16,100
+but we do need to replace some of the boundary conditions.
+
+205
+00:09:16,100 --> 00:09:18,080
+So I can do that by right clicking
+
+206
+00:09:18,080 --> 00:09:21,460
+the electric current physics, add a ground condition.
+
+207
+00:09:21,460 --> 00:09:24,460
+And now I can choose that boundary I want to work with.
+
+208
+00:09:24,460 --> 00:09:27,140
+So the graphics window in COMSOL works with a three button
+
+209
+00:09:27,140 --> 00:09:27,640
+mouse.
+
+210
+00:09:27,640 --> 00:09:31,800
+You can left click, rotate the view, right click,
+
+211
+00:09:31,800 --> 00:09:34,500
+handle the view, click on the center scroll wheel
+
+212
+00:09:34,500 --> 00:09:38,260
+as if it's a button, move up and down, it'll zoom in or out.
+
+213
+00:09:38,260 --> 00:09:39,640
+So with the combination of that, you
+
+214
+00:09:39,640 --> 00:09:42,380
+can very easily navigate to any part of the geometry.
+
+215
+00:09:42,380 --> 00:09:44,220
+And you can always go back to the default view
+
+216
+00:09:44,220 --> 00:09:47,360
+with those default buttons here.
+
+217
+00:09:47,360 --> 00:09:48,820
+So in this case, the ground is going
+
+218
+00:09:48,820 --> 00:09:50,560
+to be applied to one of the feet.
+
+219
+00:09:50,560 --> 00:09:51,300
+So I'm going to rotate.
+
+220
+00:09:51,300 --> 00:09:55,140
+And basically expose the foot.
+
+221
+00:09:55,140 --> 00:09:58,120
+And then hover my mouse over, do a single click.
+
+222
+00:09:58,120 --> 00:10:00,680
+So now boundary number one is being selected
+
+223
+00:10:00,680 --> 00:10:03,540
+to satisfy the ground condition.
+
+224
+00:10:03,540 --> 00:10:05,900
+If there is actually a very complicated geometry
+
+225
+00:10:05,900 --> 00:10:08,900
+that some surfaces are hidden inside the domain,
+
+226
+00:10:08,900 --> 00:10:13,000
+you could use the transparency option or the wire rendering
+
+227
+00:10:13,000 --> 00:10:14,840
+to have the different visualization.
+
+228
+00:10:14,840 --> 00:10:16,880
+And you can hover your mouse over and then
+
+229
+00:10:16,880 --> 00:10:18,740
+use the center scroll wheel to rotate
+
+230
+00:10:18,740 --> 00:10:21,040
+through the different surfaces, the different layers
+
+231
+00:10:21,040 --> 00:10:23,800
+of the geometry to get to the inside layers.
+
+232
+00:10:23,800 --> 00:10:27,160
+So again, that makes the selection easy.
+
+233
+00:10:27,160 --> 00:10:29,720
+You can also, in the definitions,
+
+234
+00:10:29,720 --> 00:10:31,280
+define some selection lists.
+
+235
+00:10:31,280 --> 00:10:35,420
+Like everything within this certain ball shape
+
+236
+00:10:35,420 --> 00:10:36,940
+belongs to one group, and they'll
+
+237
+00:10:36,940 --> 00:10:39,720
+satisfy the same condition through the model,
+
+238
+00:10:39,720 --> 00:10:43,060
+through the entire model, something like that.
+
+239
+00:10:43,060 --> 00:10:44,540
+The other condition I need to change
+
+240
+00:10:44,540 --> 00:10:47,980
+is the electric potential condition on the other foot.
+
+241
+00:10:47,980 --> 00:10:49,040
+And that's going to be 0.2.
+
+242
+00:10:49,040 --> 00:10:50,160
+And now you can see that the other foot is going to be 0.2.
+
+243
+00:10:50,160 --> 00:10:50,820
+And now you can see that the other foot is going to be 0.2.
+
+244
+00:10:50,820 --> 00:10:53,160
+Now, if I go back to electrical insulation,
+
+245
+00:10:53,160 --> 00:10:55,560
+surface number 1 and 10 are both overridden.
+
+246
+00:10:55,560 --> 00:10:58,380
+So they no longer satisfy that n dot j equals to 0.
+
+247
+00:10:58,380 --> 00:11:02,520
+Instead, they satisfy the one with the red triangles that
+
+248
+00:11:02,520 --> 00:11:05,100
+basically tells you what's the correspondence
+
+249
+00:11:05,100 --> 00:11:08,260
+communications between the different nodes.
+
+250
+00:11:08,260 --> 00:11:09,840
+All right, so that's it for the physics.
+
+251
+00:11:09,840 --> 00:11:12,940
+Any questions for the physics?
+
+252
+00:11:12,940 --> 00:11:16,000
+Could you say more about the red triangle
+
+253
+00:11:16,000 --> 00:11:18,000
+and how it's about to reach there?
+
+254
+00:11:18,000 --> 00:11:20,520
+Yeah, so when you click on electrical insulation,
+
+255
+00:11:20,520 --> 00:11:22,200
+the ground and electric potential
+
+256
+00:11:22,200 --> 00:11:24,700
+has the upward red triangle, meaning
+
+257
+00:11:24,700 --> 00:11:28,080
+that this condition gets later on overridden by the other two
+
+258
+00:11:28,080 --> 00:11:29,080
+conditions.
+
+259
+00:11:29,080 --> 00:11:30,900
+When you click on the ground, it says
+
+260
+00:11:30,900 --> 00:11:33,900
+that the electrical insulation has actually
+
+261
+00:11:33,900 --> 00:11:35,940
+definition on some boundary conditions
+
+262
+00:11:35,940 --> 00:11:38,580
+on the same boundaries, and it's overridden by the ground.
+
+263
+00:11:38,580 --> 00:11:41,640
+So it means those two nodes are actually
+
+264
+00:11:41,640 --> 00:11:44,820
+defined on the same space, and which one dominates which one.
+
+265
+00:11:44,820 --> 00:11:48,160
+So in terms of a lot of places, the sequence does not matter.
+
+266
+00:11:48,160 --> 00:11:50,360
+For example, if you have 10 different physics,
+
+267
+00:11:50,360 --> 00:11:53,140
+how they are actually sequenced in that component one,
+
+268
+00:11:53,140 --> 00:11:54,420
+it doesn't matter.
+
+269
+00:11:54,420 --> 00:11:56,140
+The only thing matters between the physics
+
+270
+00:11:56,140 --> 00:11:58,100
+is how you have the communication between them,
+
+271
+00:11:58,100 --> 00:12:00,920
+what's the coupling that's happening between the physics.
+
+272
+00:12:00,920 --> 00:12:03,120
+But the sequence of the boundary conditions do matter,
+
+273
+00:12:03,120 --> 00:12:05,740
+especially if you duplicate boundaries.
+
+274
+00:12:05,740 --> 00:12:07,180
+Then the later defined conditions
+
+275
+00:12:07,180 --> 00:12:08,940
+will override the earlier defined ones.
+
+276
+00:12:08,940 --> 00:12:11,400
+Some of the boundary conditions can coexist.
+
+277
+00:12:11,400 --> 00:12:14,220
+For example, natural convection and radiation
+
+278
+00:12:14,220 --> 00:12:17,860
+can coexist on the same surface in heat transfer problems,
+
+279
+00:12:17,860 --> 00:12:19,840
+and some conditions are not coexisting.
+
+280
+00:12:19,840 --> 00:12:19,920
+So what's the difference?
+
+281
+00:12:19,920 --> 00:12:23,520
+So the later defined ones will be the one effective.
+

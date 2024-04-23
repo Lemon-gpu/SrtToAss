@@ -1,0 +1,724 @@
+1
+00:00:00,000 --> 00:00:19,200
+So let's give that a try. So let's make another file, function dudt wave, and the t of u still, we have dudt.
+
+2
+00:00:19,200 --> 00:00:27,500
+So this u may not be a good, let's do phi and psi.
+
+3
+00:00:27,500 --> 00:00:33,160
+So let's give that a try. dudt of phi and psi.
+
+4
+00:00:33,840 --> 00:00:37,400
+I'll just write that as dudt.
+
+5
+00:00:38,160 --> 00:00:46,000
+So n is equal to length of phi psi over 2.
+
+6
+00:00:46,820 --> 00:00:48,820
+So because phi and psi,
+
+7
+00:00:49,200 --> 00:00:54,600
+is going to contain a variable that is discretized.
+
+8
+00:00:56,600 --> 00:00:59,960
+That is, so here I use the u and k, but this is,
+
+9
+00:01:00,700 --> 00:01:06,740
+yeah, so it contains the discretized phi and psi for all the spatial grid points.
+
+10
+00:01:07,960 --> 00:01:08,080
+Okay.
+
+11
+00:01:10,480 --> 00:01:16,100
+And phi is going to be equal to phi psi from 1 to n,
+
+12
+00:01:16,720 --> 00:01:19,000
+and psi is equal to phi psi,
+
+13
+00:01:19,200 --> 00:01:21,100
+from n plus 1 to n.
+
+14
+00:01:21,100 --> 00:01:26,200
+So this is basically splitting the input variable into the two different variables.
+
+15
+00:01:26,200 --> 00:01:28,200
+Does it make sense?
+
+16
+00:01:32,200 --> 00:01:34,200
+So let's use central difference.
+
+17
+00:01:34,200 --> 00:01:40,200
+And actually let me just copy what we did in this case.
+
+18
+00:01:42,200 --> 00:01:44,200
+Except for here we du dx.
+
+19
+00:01:44,200 --> 00:01:47,200
+And in this case we need d.
+
+20
+00:01:47,200 --> 00:01:48,200
+d.
+
+21
+00:01:49,200 --> 00:01:50,760
+d is equal to phi dx.
+
+22
+00:01:50,760 --> 00:01:58,760
+I would also want to say dx is equal to 2 pi over n.
+
+23
+00:02:00,200 --> 00:02:09,180
+And let's do a find and replace u with phi.
+
+24
+00:02:10,200 --> 00:02:13,420
+Replace all editor current file.
+
+25
+00:02:15,860 --> 00:02:17,460
+Looking okay.
+
+26
+00:02:19,200 --> 00:02:30,200
+Okay, here I actually saved it as dudt, so just to make it better, I will just rename
+
+27
+00:02:30,200 --> 00:02:35,200
+it as ddt, because we are not using u here.
+
+28
+00:02:35,200 --> 00:02:47,160
+Okay, ddt, not central, yeah, ddt central.
+
+29
+00:02:47,160 --> 00:02:50,600
+I opened the wrong file, yes, I opened the wrong file.
+
+30
+00:02:50,600 --> 00:02:59,160
+So this is still ddt central, I wanted ddt wave.
+
+31
+00:02:59,160 --> 00:03:04,980
+Alright.
+
+32
+00:03:04,980 --> 00:03:09,400
+How do you do a replacement only in the selection?
+
+33
+00:03:09,400 --> 00:03:16,400
+Anyway, so before I figure that out, I will just do a manual replacement.
+
+34
+00:03:16,400 --> 00:03:16,920
+Okay.
+
+35
+00:03:17,160 --> 00:03:20,520
+That's it, right?
+
+36
+00:03:20,520 --> 00:03:25,720
+So we have dphi dx and dpsi dx.
+
+37
+00:03:25,720 --> 00:03:31,060
+Both figured out.
+
+38
+00:03:31,060 --> 00:03:41,480
+And now our dphi dt is equal to dpsi dx, dpsi dt is equal to dphi dx, right?
+
+39
+00:03:41,480 --> 00:03:46,400
+That's our derivation of the wave equation.
+
+40
+00:03:46,400 --> 00:03:46,900
+Okay.
+
+41
+00:03:47,160 --> 00:03:58,520
+And the ddt is going to be, first I'm going to put, so in the beginning I have psi phi
+
+42
+00:03:58,520 --> 00:04:02,440
+in the beginning, so dphi dt and dpsi dt.
+
+43
+00:04:02,440 --> 00:04:06,720
+So that's my output of the function.
+
+44
+00:04:06,720 --> 00:04:09,240
+Alright.
+
+45
+00:04:09,240 --> 00:04:12,320
+So let's start with a phi being dpsi.
+
+46
+00:04:12,320 --> 00:04:13,320
+Okay.
+
+47
+00:04:13,320 --> 00:04:14,320
+So that's my output of the function.
+
+48
+00:04:14,320 --> 00:04:15,320
+Alright.
+
+49
+00:04:15,320 --> 00:04:16,320
+So let's start with a phi being dpsi dt.
+
+50
+00:04:16,320 --> 00:04:17,000
+Okay.
+
+51
+00:04:17,160 --> 00:04:19,780
+So I'm going to start with the same as my u0, maybe.
+
+52
+00:04:19,780 --> 00:04:24,600
+Oh, my u0 was a bad one, right?
+
+53
+00:04:24,600 --> 00:04:25,900
+So let me see.
+
+54
+00:04:25,900 --> 00:04:37,960
+U0 is equal to, let's set my phi zero to be that, and the psi zero to be phi zero multiplied
+
+55
+00:04:37,960 --> 00:04:39,780
+by zero.
+
+56
+00:04:39,780 --> 00:04:42,280
+So this corresponds to a wave that is initially phi.
+
+57
+00:04:42,280 --> 00:04:43,280
+Okay.
+
+58
+00:04:43,280 --> 00:04:45,280
+So now it's going to be a wave that is a very small wave.
+
+59
+00:04:45,280 --> 00:04:46,280
+Okay.
+
+60
+00:04:46,280 --> 00:04:52,920
+initially flat because du dx is initially equal to zero so the whole thing is flat the whole
+
+61
+00:04:52,920 --> 00:04:59,800
+solution is zero but with the initial velocity with the initial d ud t right that is like this
+
+62
+00:04:59,800 --> 00:05:16,360
+wave okay so let's do a t and uh phi and psi equal to od 45 of ddt wave zero so how long do
+
+63
+00:05:16,360 --> 00:05:25,480
+we want to integrate it still just uh let's let's do pi just to see what do we get and we put phi
+
+64
+00:05:25,480 --> 00:05:29,720
+first and psi second oh zero great
+
+65
+00:05:29,800 --> 00:05:32,840
+okay now we solved it
+
+66
+00:05:32,840 --> 00:05:42,080
+this is our solution we are only interested in the very last part so let's just plot it uh to see
+
+67
+00:05:42,080 --> 00:05:55,400
+x and phi psi and and one to a hundred right so that's our phi
+
+68
+00:05:55,400 --> 00:05:59,700
+oh i didn't
+
+69
+00:05:59,800 --> 00:06:00,960
+close the previous one
+
+70
+00:06:05,200 --> 00:06:06,160
+that doesn't look good
+
+71
+00:06:09,040 --> 00:06:12,080
+i must have made an error somewhere
+
+72
+00:06:13,920 --> 00:06:26,800
+okay so let's plot phi zero what is phi zero psi zero is zero okay let me see ddt wave
+
+73
+00:06:29,800 --> 00:06:36,640
+to end n plus one to the end
+
+74
+00:06:47,680 --> 00:06:50,920
+so if i do this from one direction to the other
+
+75
+00:06:52,600 --> 00:06:56,540
+my λ 1 to the partial and when i do this from one direction to the other dangling to for right i'm wouldn't
+
+76
+00:06:56,540 --> 00:07:03,540
+so if I do this from 101 to 200 what is it giving us?
+
+77
+00:07:03,540 --> 00:07:16,540
+I don't know if it makes a difference but when you parse the 5 aside from the initial
+
+78
+00:07:16,540 --> 00:07:24,540
+values you're referring to a vector index and you're providing a matrix so instead of
+
+79
+00:07:24,540 --> 00:07:35,540
+the semicolon you can call the ODE.
+
+80
+00:07:35,540 --> 00:07:37,540
+You mean when I'm doing here?
+
+81
+00:07:37,540 --> 00:07:40,540
+Yeah, I don't know if that would...
+
+82
+00:07:40,540 --> 00:07:45,540
+Oh, thank you, yeah, that's right.
+
+83
+00:07:45,540 --> 00:07:47,540
+That's right.
+
+84
+00:07:47,540 --> 00:07:48,540
+That's what I should do.
+
+85
+00:07:48,540 --> 00:07:50,540
+Okay.
+
+86
+00:07:50,540 --> 00:07:53,540
+So let's see, plot the...
+
+87
+00:07:53,540 --> 00:07:54,540
+Now...
+
+88
+00:07:54,540 --> 00:07:56,540
+Now that's a lot better.
+
+89
+00:07:56,540 --> 00:07:57,540
+Okay.
+
+90
+00:07:57,540 --> 00:08:05,540
+And let's plot the side...
+
+91
+00:08:05,540 --> 00:08:07,540
+Okay, okay, that's good.
+
+92
+00:08:07,540 --> 00:08:12,540
+So let's do an animation of how this is going to work.
+
+93
+00:08:12,540 --> 00:08:14,540
+So let's do T...
+
+94
+00:08:14,540 --> 00:08:19,540
+Let's do I goes from 1 to 1000.
+
+95
+00:08:19,540 --> 00:08:23,540
+Let's actually keep this going.
+
+96
+00:08:23,540 --> 00:08:26,540
+So let's do this.
+
+97
+00:08:26,540 --> 00:08:27,540
+Okay, sorry.
+
+98
+00:08:27,540 --> 00:08:36,540
+So let's do 5 psi 0 equal to what we had in the beginning.
+
+99
+00:08:36,540 --> 00:08:38,540
+Okay.
+
+100
+00:08:38,540 --> 00:08:42,540
+And...
+
+101
+00:08:42,540 --> 00:08:50,540
+So let's do T and 5 psi is equal to that ODE 45.
+
+102
+00:08:50,540 --> 00:08:54,540
+Okay.
+
+103
+00:08:54,540 --> 00:08:57,540
+And let's only time integrate it for a short time.
+
+104
+00:08:57,540 --> 00:09:03,540
+So 0 to, let's say, 0.1.
+
+105
+00:09:03,540 --> 00:09:07,540
+5 psi 0 as initial condition.
+
+106
+00:09:07,540 --> 00:09:17,540
+And I'd like to hold off and plot x and 5 psi...
+
+107
+00:09:17,540 --> 00:09:18,540
+Okay.
+
+108
+00:09:18,540 --> 00:09:21,540
+Let's do 5 psi 0.
+
+109
+00:09:21,540 --> 00:09:28,540
+So we are going to overwrite the initial condition using the last solution of ODE 45.
+
+110
+00:09:28,540 --> 00:09:35,540
+And we are going to plot x with 5 psi 0, 1 to 100.
+
+111
+00:09:35,540 --> 00:09:41,540
+Let's use blue and hold on.
+
+112
+00:09:41,540 --> 00:09:47,540
+Plot x 5 psi 0 of 101 to 200.
+
+113
+00:09:47,540 --> 00:09:49,540
+Let's do red.
+
+114
+00:09:49,540 --> 00:09:54,540
+And let's pause for a little bit.
+
+115
+00:09:54,540 --> 00:09:57,540
+Pause.
+
+116
+00:09:57,540 --> 00:09:59,540
+Do I need to draw?
+
+117
+00:09:59,540 --> 00:10:00,540
+Maybe I don't.
+
+118
+00:10:00,540 --> 00:10:01,540
+And...
+
+119
+00:10:01,540 --> 00:10:05,540
+So let's see what do we get.
+
+120
+00:10:05,540 --> 00:10:11,540
+So that's the solution of the wave equation we see.
+
+121
+00:10:11,540 --> 00:10:16,540
+Because it's periodic, basically the wave goes out and comes back from the other side.
+
+122
+00:10:17,540 --> 00:10:25,540
+So remember when we look at the eigenvalues of the matrix, we get 1 and minus 1.
+
+123
+00:10:25,540 --> 00:10:27,540
+Right?
+
+124
+00:10:27,540 --> 00:10:36,540
+What that means is that similar to a linear advection equation which only has one velocity going towards the right,
+
+125
+00:10:36,540 --> 00:10:40,540
+in this equation we essentially have two velocities.
+
+126
+00:10:40,540 --> 00:10:46,540
+One going towards the right with velocity 1, another going towards the left at velocity 1.
+
+127
+00:10:46,540 --> 00:10:54,540
+It's a superposition of linear advection equations with 1 and minus 1 velocities.
+
+128
+00:10:54,540 --> 00:10:59,540
+And of course now we are seeing, because we are doing this for so long,
+
+129
+00:10:59,540 --> 00:11:04,540
+and using central difference, which error is taking its toll over here?
+
+130
+00:11:04,540 --> 00:11:06,540
+Dispersion error.
+
+131
+00:11:06,540 --> 00:11:07,540
+Dispersion error, right.
+
+132
+00:11:07,540 --> 00:11:14,540
+So we are seeing some of the frequencies are probably not at the right place anymore after evolving for so long.
+
+133
+00:11:14,540 --> 00:11:15,540
+But because we are using central difference, we are seeing that the frequencies are probably not at the right place anymore after evolving for so long.
+
+134
+00:11:15,540 --> 00:11:22,540
+But because we are using central difference scheme, there is not much, actually not any dissipation error in this numerical solution.
+
+135
+00:11:22,540 --> 00:11:25,540
+The wave keeps going.
+
+136
+00:11:25,540 --> 00:11:27,540
+Alright.
+
+137
+00:11:27,540 --> 00:11:29,540
+Any questions about this?
+
+138
+00:11:29,540 --> 00:11:31,540
+Yes?
+
+139
+00:11:31,540 --> 00:11:35,540
+What is the physical difference between a dissipation error and a dispersion error?
+
+140
+00:11:35,540 --> 00:11:39,540
+What is the physical difference?
+
+141
+00:11:39,540 --> 00:11:43,540
+Dissipation, it's...
+
+142
+00:11:43,540 --> 00:11:45,540
+So I think there is a...
+
+143
+00:11:45,540 --> 00:11:49,540
+So the physical meaning of what is dissipation, right,
+
+144
+00:11:49,540 --> 00:11:57,540
+I mean when you say dissipation error, that means you have a numerical error, not physical, that acts like a dissipation.
+
+145
+00:11:57,540 --> 00:12:00,540
+So...
+
+146
+00:12:00,540 --> 00:12:01,540
+Right.
+
+147
+00:12:01,540 --> 00:12:04,540
+Dissipation means it is diffusing things.
+
+148
+00:12:04,540 --> 00:12:08,540
+It is like the dissipation of heat, for example.
+
+149
+00:12:08,540 --> 00:12:14,540
+Dissipation of heat is if you have a very hot object, the heat is going to dissipate.
+
+150
+00:12:14,540 --> 00:12:19,540
+It means it is going to transfer the high temperature region into the lower temperature regions.
+
+151
+00:12:19,540 --> 00:12:21,540
+Entropy increases.
+
+152
+00:12:21,540 --> 00:12:29,540
+The hot thing is going to cool down and the cold thing is going to heat up due to dissipation of heat.
+
+153
+00:12:29,540 --> 00:12:31,540
+Dispersion is different.
+
+154
+00:12:31,540 --> 00:12:39,540
+Dispersion maintains how much energy or how much almost kinetic energy you have.
+
+155
+00:12:39,540 --> 00:12:42,540
+But like you have different components of the energy.
+
+156
+00:12:42,540 --> 00:12:46,540
+You have different components of the energy going into different places.
+
+157
+00:12:46,540 --> 00:12:54,540
+That's roughly my understanding of what dissipation and dispersion means.
+
+158
+00:12:54,540 --> 00:12:58,540
+Yes?
+
+159
+00:12:58,540 --> 00:13:04,540
+.
+
+160
+00:13:04,540 --> 00:13:06,540
+Yes.
+
+161
+00:13:06,540 --> 00:13:08,540
+How do I go back to you?
+
+162
+00:13:08,540 --> 00:13:10,540
+Good question.
+
+163
+00:13:10,540 --> 00:13:15,540
+The best way to go back to you is to look at both of the solutions.
+
+164
+00:13:15,540 --> 00:13:17,540
+For example, you have du dx.
+
+165
+00:13:17,540 --> 00:13:18,540
+Right?
+
+166
+00:13:18,540 --> 00:13:30,540
+If you integrate over the spatial domain for du dx, you are going to recover the solution u up to a constant.
+
+167
+00:13:30,540 --> 00:13:37,540
+And exactly what constant we are recovering, we need to look at the other component, du dt.
+
+168
+00:13:37,540 --> 00:13:40,540
+To decide from the last time step what is the constant.
+
+169
+00:13:40,540 --> 00:13:42,540
+To the next time step, what is the constant?
+
+170
+00:13:42,540 --> 00:13:43,540
+Right?
+
+171
+00:13:43,540 --> 00:13:48,540
+So we know, for example, we know the evolution of du dx.
+
+172
+00:13:48,540 --> 00:13:50,540
+We know the value of du dt.
+
+173
+00:13:50,540 --> 00:13:55,540
+So we know the averaged, spatially averaged du dt.
+
+174
+00:13:55,540 --> 00:14:02,540
+And that is going to give us how the constant term, how the average of u is going to evolve as a function of time.
+
+175
+00:14:02,540 --> 00:14:06,540
+So you need to combine, again, combine these two solutions to recover the u.
+
+176
+00:14:06,540 --> 00:14:09,540
+Any other questions?
+
+177
+00:14:09,540 --> 00:14:10,540
+Yeah.
+
+178
+00:14:10,540 --> 00:14:11,540
+Any other questions?
+
+179
+00:14:11,540 --> 00:14:12,540
+Yeah.
+
+180
+00:14:12,540 --> 00:14:13,540
+Thank you.
+
+181
+00:14:13,540 --> 00:14:14,540
+Thank you.
+

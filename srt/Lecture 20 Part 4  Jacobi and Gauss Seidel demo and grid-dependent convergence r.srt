@@ -1,0 +1,556 @@
+1
+00:00:00,000 --> 00:00:08,700
+Let's load, we have a matrix B that is 1025 by 1025. This is our right-hand side.
+
+2
+00:00:09,920 --> 00:00:19,920
+So let's say the center, which is the middle 123 by 123, is our right-hand side.
+
+3
+00:00:19,920 --> 00:00:24,840
+We put it as 125 to make up the boundary conditions we need.
+
+4
+00:00:24,840 --> 00:00:35,520
+So let's figure out for a matrix like that, how do we code up a Jacobi iteration and how do we code up a Gauss-Seidel iteration.
+
+5
+00:00:36,400 --> 00:00:42,700
+So let's first remind us what the Jacobi iteration looks like.
+
+6
+00:00:42,700 --> 00:00:44,360
+Jacobi, not Jacobi.
+
+7
+00:00:46,260 --> 00:00:46,820
+Okay.
+
+8
+00:00:49,300 --> 00:00:54,820
+So let's make up a function that applies the Jacobi iteration for only one.
+
+9
+00:00:54,840 --> 00:01:01,400
+So the input is u0, v, and the output is u1.
+
+10
+00:01:02,180 --> 00:01:11,500
+So here, if we plug in uk to u0, we would get uk plus 1.
+
+11
+00:01:12,960 --> 00:01:13,960
+Okay.
+
+12
+00:01:14,520 --> 00:01:22,280
+So we assume that n is the dimension of the matrix.
+
+13
+00:01:22,280 --> 00:01:24,280
+So let's...
+
+14
+00:01:24,840 --> 00:01:31,240
+Let me tell you what is the grid I'm doing here.
+
+15
+00:01:32,060 --> 00:01:38,440
+So this is the boundaries.
+
+16
+00:01:38,860 --> 00:01:41,720
+We have values even on the boundaries.
+
+17
+00:01:41,720 --> 00:01:46,720
+So the whole thing is going to be 125 points.
+
+18
+00:01:48,180 --> 00:01:52,700
+That means the interior is going to be 123.
+
+19
+00:01:54,840 --> 00:01:55,100
+Okay.
+
+20
+00:01:55,960 --> 00:02:05,260
+And so if we look at the grids, if you look at the cells, this would be 1, this would be 124.
+
+21
+00:02:05,260 --> 00:02:05,800
+Right.
+
+22
+00:02:05,980 --> 00:02:13,240
+So there are 124 intervals and 125 points, 123 interior points.
+
+23
+00:02:14,220 --> 00:02:22,700
+So n interval would be the size of v1.
+
+24
+00:02:22,820 --> 00:02:24,740
+So that's the first dimension of 1 minus 1.
+
+25
+00:02:24,840 --> 00:02:25,840
+Right.
+
+26
+00:02:25,840 --> 00:02:26,840
+Okay.
+
+27
+00:02:26,840 --> 00:02:27,840
+125 minus 1.
+
+28
+00:02:27,840 --> 00:02:31,300
+And that helps me to compute dx.
+
+29
+00:02:31,300 --> 00:02:35,060
+So let's assume our domain size is still equal to 1.
+
+30
+00:02:35,060 --> 00:02:37,960
+So it's going to be 1 over n.
+
+31
+00:02:37,960 --> 00:02:40,120
+Okay.
+
+32
+00:02:40,120 --> 00:02:43,380
+So what do we need to...
+
+33
+00:02:43,380 --> 00:02:46,960
+How do we apply the Jacobi iteration?
+
+34
+00:02:46,960 --> 00:02:49,980
+We have u1 is going to be 0's.
+
+35
+00:02:49,980 --> 00:02:51,940
+So we're going to use u1.
+
+36
+00:02:51,940 --> 00:02:52,940
+Okay.
+
+37
+00:02:52,940 --> 00:02:53,960
+So we're going to use u1.
+
+38
+00:02:53,960 --> 00:02:54,060
+Okay.
+
+39
+00:02:54,060 --> 00:02:54,140
+So we're going to use u1.
+
+40
+00:02:54,140 --> 00:02:54,160
+Okay.
+
+41
+00:02:54,160 --> 00:02:54,240
+So we're going to use u1.
+
+42
+00:02:54,240 --> 00:02:54,300
+Okay.
+
+43
+00:02:54,300 --> 00:02:54,360
+So we're going to use u1.
+
+44
+00:02:54,360 --> 00:02:54,480
+Okay.
+
+45
+00:02:54,480 --> 00:02:54,540
+So we're going to use u1.
+
+46
+00:02:54,540 --> 00:02:54,560
+Okay.
+
+47
+00:02:54,560 --> 00:02:54,600
+Okay.
+
+48
+00:02:54,600 --> 00:02:54,660
+Okay.
+
+49
+00:02:54,840 --> 00:02:55,360
+Okay.
+
+50
+00:02:56,080 --> 00:03:04,660
+So we make, well, we don't have to do this.
+
+51
+00:03:04,780 --> 00:03:10,820
+We can do minus dx squared over 4 times b.
+
+52
+00:03:11,040 --> 00:03:15,280
+So that is this term, right?
+
+53
+00:03:15,360 --> 00:03:17,280
+The first term in our iteration.
+
+54
+00:03:18,560 --> 00:03:23,600
+And then for i goes from 1 to n plus...
+
+55
+00:03:24,300 --> 00:03:24,600
+Well, I would...
+
+56
+00:03:24,600 --> 00:03:35,000
+we are doing the interior so 2 to n and for j goes from 2 to n we would be doing u1 of i j
+
+57
+00:03:36,120 --> 00:03:47,160
+would be equal to this itself plus the average of the in the average
+
+58
+00:03:47,160 --> 00:03:57,000
+of well this is uh for jacobi the only difference is these are all of them are k instead of k plus 1
+
+59
+00:03:57,000 --> 00:04:14,200
+right so u0 of i minus 1 j plus u0 of i plus 1 j plus u0 of i j minus 1 plus u0 of i j plus 1
+
+60
+00:04:16,120 --> 00:04:16,920
+divided by 4
+
+61
+00:04:17,160 --> 00:04:29,240
+so that's what we are looking at and end so that completes our jacobi iteration for the matrix
+
+62
+00:04:31,000 --> 00:04:34,040
+and for example let's make a u0
+
+63
+00:04:36,280 --> 00:04:38,840
+to be zeros the size of b
+
+64
+00:04:42,360 --> 00:04:47,080
+so it's the same and we can do u1 equal to jacobi
+
+65
+00:04:47,480 --> 00:04:50,600
+u0 to be u0 and b so jav
+
+66
+00:04:50,600 --> 00:04:53,720
+so
+
+67
+00:04:55,000 --> 00:04:58,200
+thank you
+
+68
+00:05:03,400 --> 00:05:12,840
+oh that works okay so so if we do i am sure of u1 it'll be pretty much a dark right because we
+
+69
+00:05:12,840 --> 00:05:17,000
+only applied for worrying tradition and what we can do is that let's say
+
+70
+00:05:17,160 --> 00:05:22,380
+u is equal to u0, and we can do basically u is equal to Jacobi u, b,
+
+71
+00:05:22,760 --> 00:05:26,180
+and we can do that again, that again, that again, right?
+
+72
+00:05:26,260 --> 00:05:30,800
+We can do this again for many times, and we can show I am sure of u.
+
+73
+00:05:30,920 --> 00:05:33,640
+So we start to see some contour.
+
+74
+00:05:33,880 --> 00:05:36,440
+You may be able to see something white about it, right?
+
+75
+00:05:36,620 --> 00:05:43,440
+And I can do for i equals 1 to 100, u is equal to Jacobi u and b.
+
+76
+00:05:47,160 --> 00:05:58,220
+I probably need to put a semicolon so that I don't get crazy output.
+
+77
+00:06:00,480 --> 00:06:01,820
+So I do that.
+
+78
+00:06:02,840 --> 00:06:06,060
+I seem to see an airplane showing up, right?
+
+79
+00:06:06,100 --> 00:06:07,300
+So this is iterative method.
+
+80
+00:06:07,300 --> 00:06:14,740
+As you iterate more, you see the solution closer and closer to something you may expect.
+
+81
+00:06:16,020 --> 00:06:16,340
+Okay.
+
+82
+00:06:16,580 --> 00:06:17,140
+So let's...
+
+83
+00:06:17,160 --> 00:06:23,260
+try to modify the Jacobi iteration to Jacobi to Gauss-Seidel.
+
+84
+00:06:27,220 --> 00:06:28,920
+I'll just call it Gauss.
+
+85
+00:06:30,220 --> 00:06:31,100
+And...
+
+86
+00:06:31,100 --> 00:06:34,920
+So what do I need to modify here?
+
+87
+00:06:39,700 --> 00:06:41,400
+Which line should I modify?
+
+88
+00:06:47,160 --> 00:06:48,160
+Line 8.
+
+89
+00:06:48,160 --> 00:06:49,160
+Line 8, right.
+
+90
+00:06:49,160 --> 00:07:01,100
+And which other terms I need to change if you think about the difference between Jacobi and Gauss-Seidel?
+
+91
+00:07:01,100 --> 00:07:07,260
+I just need to change the u, k to u, k plus 1 for two terms, right?
+
+92
+00:07:07,260 --> 00:07:10,060
+And which other terms are already computed?
+
+93
+00:07:10,060 --> 00:07:13,060
+This one and this one, right?
+
+94
+00:07:13,060 --> 00:07:15,060
+The j minus 1 and i minus 1 terms.
+
+95
+00:07:15,060 --> 00:07:16,060
+So that will be...
+
+96
+00:07:16,060 --> 00:07:17,100
+So that will be...
+
+97
+00:07:17,100 --> 00:07:21,100
+all the modifications I need to change Jacobi to Gauss-Seidel.
+
+98
+00:07:21,100 --> 00:07:27,100
+And again, let's see what the effect is.
+
+99
+00:07:27,100 --> 00:07:29,100
+Okay.
+
+100
+00:07:29,100 --> 00:07:32,100
+So let's do u equal to u0 again.
+
+101
+00:07:32,100 --> 00:07:35,100
+And for i goes from 1 to 100.
+
+102
+00:07:35,100 --> 00:07:40,100
+u is equal to Gauss-Seidel u .
+
+103
+00:07:40,100 --> 00:07:45,100
+Okay.
+
+104
+00:07:45,100 --> 00:07:46,160
+So now let's take a look.
+
+105
+00:07:46,160 --> 00:07:51,160
+Again, we are converging to the solution, right?
+
+106
+00:07:51,160 --> 00:07:54,160
+But the convergence is going to be very slow.
+
+107
+00:07:54,160 --> 00:07:58,160
+Because now I have...
+
+108
+00:07:58,160 --> 00:08:04,160
+Now I have an eigenvalue that is...
+
+109
+00:08:04,160 --> 00:08:10,160
+that is cosine of pi divided by 124.
+
+110
+00:08:10,160 --> 00:08:14,160
+That's what I expect to be the highest eigenvalue if I have a 1-point solution.
+
+111
+00:08:14,160 --> 00:08:22,160
+If I have a 2-point solution, I will have an eigenvalue that is pretty much 1.
+
+112
+00:08:22,160 --> 00:08:23,160
+Right?
+
+113
+00:08:23,160 --> 00:08:26,160
+Format long.
+
+114
+00:08:26,160 --> 00:08:32,160
+That will give me the actual eigenvalue, not rounded to something that is only 5 digits.
+
+115
+00:08:32,160 --> 00:08:35,160
+So I get a bunch of 9s.
+
+116
+00:08:35,160 --> 00:08:40,160
+And if I do that, okay, I get something times 10 to the minus 6.
+
+117
+00:08:40,160 --> 00:08:42,160
+If I take 1, divide by that.
+
+118
+00:08:42,160 --> 00:08:46,160
+Or more rigorously, log 2, divide by that.
+
+119
+00:08:46,160 --> 00:08:56,160
+I need something like 74,000 iterations to make the error to be even half.
+
+120
+00:08:56,160 --> 00:08:59,160
+That's a lot of iterations I need.
+
+121
+00:08:59,160 --> 00:09:07,160
+And generally, if you remember the cosine curve at x equal to 0,
+
+122
+00:09:07,160 --> 00:09:10,160
+the cosine curve is like a parabola, right?
+
+123
+00:09:10,160 --> 00:09:11,160
+So if you take a term, right?
+
+124
+00:09:11,160 --> 00:09:14,160
+So if you take a Taylor series approximation,
+
+125
+00:09:14,160 --> 00:09:17,160
+the more n you have,
+
+126
+00:09:17,160 --> 00:09:23,160
+the number of iterations you require would go like n squared.
+
+127
+00:09:23,160 --> 00:09:25,160
+So because...
+
+128
+00:09:25,160 --> 00:09:29,160
+I should illustrate that a little bit more.
+
+129
+00:09:29,160 --> 00:09:39,160
+So your biggest lambda is equal to cosine of pi over n, right?
+
+130
+00:09:39,160 --> 00:09:41,160
+So that is approximately...
+
+131
+00:09:41,160 --> 00:09:47,160
+1 minus half, if you do the Taylor series expansion,
+
+132
+00:09:47,160 --> 00:09:50,160
+pi over n squared.
+
+133
+00:09:50,160 --> 00:09:51,160
+Okay.
+
+134
+00:09:51,160 --> 00:10:01,160
+And my number of iterations required would be proportional to 1 over 1 minus lambda.
+
+135
+00:10:01,160 --> 00:10:07,160
+Or log 2 over 1 minus lambda, which is log 2,
+
+136
+00:10:07,160 --> 00:10:09,160
+divided by half of pi over n squared.
+
+137
+00:10:09,160 --> 00:10:15,160
+So that goes like n squared.
+
+138
+00:10:15,160 --> 00:10:17,160
+If you double your grid points,
+
+139
+00:10:17,160 --> 00:10:23,160
+you should quadruple your number of iterations to converge to the same accuracy.
+

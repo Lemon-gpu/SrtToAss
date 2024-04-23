@@ -1,0 +1,264 @@
+1
+00:00:00,000 --> 00:00:10,000
+Let me write a hat just to emphasize we have a numerical solution.
+
+2
+00:00:10,000 --> 00:00:13,000
+hat, hat, hat.
+
+3
+00:00:13,000 --> 00:00:23,000
+We want to know what is the error which is u hat minus ua.
+
+4
+00:00:23,000 --> 00:00:27,000
+What we know is the truncation error.
+
+5
+00:00:27,000 --> 00:00:33,000
+What we know is, well we don't know exactly, but we know how it behaves.
+
+6
+00:00:33,000 --> 00:00:43,000
+We know how fast it goes to zero as delta x decreases.
+
+7
+00:00:43,000 --> 00:00:45,000
+Actually, no.
+
+8
+00:00:45,000 --> 00:00:54,000
+Tau is equal to this, not on the numerical solution, but on the analytical solution.
+
+9
+00:00:54,000 --> 00:00:57,000
+So I'm going to write a here, a here, a here.
+
+10
+00:00:57,000 --> 00:01:13,000
+The important thing is that the discrete operator and the continuous operator is applied to the same solution when you're looking at Taylor series analysis.
+
+11
+00:01:13,000 --> 00:01:24,000
+All of these analyses only are true when this and this is operated on the same function as this derivative.
+
+12
+00:01:24,000 --> 00:01:27,000
+If there are different functions, it doesn't apply.
+
+13
+00:01:27,000 --> 00:01:34,000
+And they have to be analytic solution because only the analytic solution has a derivative.
+
+14
+00:01:34,000 --> 00:01:38,000
+The discrete solutions, the ui hats, I mean they are only at discrete points.
+
+15
+00:01:38,000 --> 00:01:45,000
+They don't even have a derivative, a well defined, a uniquely defined derivative.
+
+16
+00:01:45,000 --> 00:01:50,000
+So when we do truncation error, we apply this on the analytical solution.
+
+17
+00:01:50,000 --> 00:01:52,000
+All right.
+
+18
+00:01:52,000 --> 00:01:55,000
+But when you look at the solution error.
+
+19
+00:01:55,000 --> 00:01:56,000
+And when you.
+
+20
+00:01:56,000 --> 00:02:11,000
+And when you derive the evolution of the solution error by taking the analytical solution and the analytical equation and numerical solution and subtract them from each other.
+
+21
+00:02:11,000 --> 00:02:20,000
+What you get is dui hat dt minus partial ua partial t.
+
+22
+00:02:20,000 --> 00:02:25,000
+So the left hand side would be equal to something very similar to the truncation error.
+
+23
+00:02:25,000 --> 00:02:31,000
+But not the truncation error.
+
+24
+00:02:31,000 --> 00:02:42,000
+It's not the truncation error because the discrete operator, the finite difference operator is operated on the discrete solution, not the analytical solution.
+
+25
+00:02:42,000 --> 00:02:49,000
+And the derivative, the analytical derivative is operated on the analytical operator.
+
+26
+00:02:49,000 --> 00:02:54,000
+So who remembers what we did to resolve that discrepancy?
+
+27
+00:02:54,000 --> 00:03:01,000
+You summed and subtracted the same terms.
+
+28
+00:03:01,000 --> 00:03:03,000
+So that's what we get there.
+
+29
+00:03:03,000 --> 00:03:07,000
+Both the brain, they were subtracting and they added because.
+
+30
+00:03:07,000 --> 00:03:08,000
+Exactly.
+
+31
+00:03:08,000 --> 00:03:14,000
+So I added and subtracted a term that is u analytic.
+
+32
+00:03:14,000 --> 00:03:17,000
+i plus 1 plus u analytic.
+
+33
+00:03:17,000 --> 00:03:20,000
+i minus 1 minus 2u analytic i.
+
+34
+00:03:24,000 --> 00:03:26,000
+Divided by delta x square.
+
+35
+00:03:26,000 --> 00:03:38,000
+So I subtracted this term and I added the same term.
+
+36
+00:03:38,000 --> 00:03:39,000
+Okay.
+
+37
+00:03:39,000 --> 00:03:44,000
+So this is the term I added and subtracted which changes nothing.
+
+38
+00:03:44,000 --> 00:03:45,000
+Right.
+
+39
+00:03:45,000 --> 00:03:52,000
+Then I copy what I have originally on this equation.
+
+40
+00:03:54,000 --> 00:03:58,000
+Also subtract derivative.
+
+41
+00:03:58,000 --> 00:04:00,000
+Now I group here.
+
+42
+00:04:00,000 --> 00:04:02,000
+I group here.
+
+43
+00:04:02,000 --> 00:04:03,000
+I get two terms.
+
+44
+00:04:03,000 --> 00:04:12,000
+One of them, which is this term, is exactly equal to the truncation error.
+
+45
+00:04:12,000 --> 00:04:19,000
+And this term goes like o delta x square.
+
+46
+00:04:19,000 --> 00:04:21,000
+The first term.
+
+47
+00:04:21,000 --> 00:04:25,000
+They are the same operator operated on different solutions.
+
+48
+00:04:25,000 --> 00:04:31,000
+And the difference between them is actually the discrete operator operated on what?
+
+49
+00:04:31,000 --> 00:04:34,000
+On u hat minus u a.
+
+50
+00:04:34,000 --> 00:04:37,000
+Which is the error.
+
+51
+00:04:37,000 --> 00:04:45,000
+So here we basically derived what's called the error equation.
+
+52
+00:04:45,000 --> 00:04:49,000
+So the left hand side is basically de dt.
+
+53
+00:04:49,000 --> 00:04:50,000
+D.
+
+54
+00:04:50,000 --> 00:05:01,320
+dt right this is the left hand side is equal to first of all this term is let
+
+55
+00:05:01,320 --> 00:05:19,320
+me say you ei okay ei so put an i here okay is equal to ei plus 1 plus ei
+
+56
+00:05:19,320 --> 00:05:28,780
+minus 1 minus 2 ei divided by Delta x squared so that's this first parenthesis
+
+57
+00:05:28,780 --> 00:05:40,920
+plus tau i this is called the error equation this is how the error of our
+
+58
+00:05:40,920 --> 00:05:47,340
+numerical solution evolves in time it has two terms one term is contribution
+
+59
+00:05:47,340 --> 00:05:48,480
+from tau i
+
+60
+00:05:49,320 --> 00:05:58,980
+the other term is a self evolution of this error okay and this is why we need
+
+61
+00:05:58,980 --> 00:06:07,620
+to make sure that this discrete operator itself is stable okay it is stable in
+
+62
+00:06:07,620 --> 00:06:15,680
+the sense that it has to be stable in the sense that if on the last time step
+
+63
+00:06:15,680 --> 00:06:19,200
+there is a certain amount of numerical error
+
+64
+00:06:19,320 --> 00:06:24,360
+if assuming we have no contribution from tau we have no contribution we have no
+
+65
+00:06:24,360 --> 00:06:28,980
+truncation error even in the absence of truncation error the error should decay
+
+66
+00:06:28,980 --> 00:06:34,560
+by itself at least it shouldn't amplify itself
+

@@ -1,0 +1,1076 @@
+1
+00:00:00,000 --> 00:00:04,540
+So phi of r should be exactly equal to 0 whenever r is less than 0.
+
+2
+00:00:05,560 --> 00:00:10,200
+Okay, let's then figure out if the positive part of this proposal works.
+
+3
+00:00:11,580 --> 00:00:16,240
+We only considered a case where r is equal to 1,
+
+4
+00:00:16,400 --> 00:00:21,020
+and we know that phi is equal to 1 is the appropriate value.
+
+5
+00:00:21,660 --> 00:00:25,040
+So let's consider two cases when phi is less than 1,
+
+6
+00:00:25,040 --> 00:00:30,440
+when r is less than 1, greater than 0, and when r is greater than 1.
+
+7
+00:00:31,060 --> 00:00:35,880
+So let's first consider this case when r is between 0 and 1.
+
+8
+00:00:37,000 --> 00:00:45,640
+So just to draw this case, r is less than 1 means let's look at the definition.
+
+9
+00:00:46,420 --> 00:00:49,380
+It means the difference between ui and ui minus 1,
+
+10
+00:00:49,380 --> 00:00:55,020
+the difference between ui plus 1 and ui is less than the difference between ui and ui minus 1.
+
+11
+00:00:55,580 --> 00:00:59,400
+So the slope is higher on the left than on the right.
+
+12
+00:01:00,260 --> 00:01:05,260
+So ui, ui minus 1, and ui plus 1.
+
+13
+00:01:05,540 --> 00:01:09,280
+So this is the case when I have r between 0 and 1.
+
+14
+00:01:10,640 --> 00:01:16,840
+Okay, so the question is when I want to reconstruct the solution at i plus half
+
+15
+00:01:16,840 --> 00:01:18,940
+using ui minus 1 and ui,
+
+16
+00:01:19,640 --> 00:01:24,840
+how should I guarantee that the solution would never overwrite?
+
+17
+00:01:25,040 --> 00:01:26,040
+Well, I should.
+
+18
+00:01:26,040 --> 00:01:29,040
+To the existing maximum or minimum.
+
+19
+00:01:30,040 --> 00:01:36,540
+The proposal we had before, the blue proposal, is whenever r is greater than 0,
+
+20
+00:01:36,540 --> 00:01:42,040
+which is the case, we are performing a linear reconstruction up to here.
+
+21
+00:01:43,040 --> 00:01:47,040
+Would that guarantee a non-increasing local maxima?
+
+22
+00:01:48,040 --> 00:01:53,040
+No, because the ui plus 1 could possibly be a local maxima.
+
+23
+00:01:53,680 --> 00:01:54,680
+Right?
+
+24
+00:01:55,040 --> 00:02:02,040
+So in this particular case, phi equal to 1 actually does not guarantee monotonicity.
+
+25
+00:02:04,040 --> 00:02:07,040
+In this case, phi has to be less than what?
+
+26
+00:02:08,040 --> 00:02:09,040
+r?
+
+27
+00:02:09,040 --> 00:02:11,040
+Well, it's not easy to figure out.
+
+28
+00:02:11,040 --> 00:02:14,040
+Actually, let me write the condition here.
+
+29
+00:02:15,040 --> 00:02:19,040
+So the reconstructed value u at i plus half,
+
+30
+00:02:19,040 --> 00:02:24,040
+I think I used the red here, ui plus half left,
+
+31
+00:02:24,040 --> 00:02:36,040
+is equal to ui plus ui minus ui minus 1 divided by delta x times delta x over 2 times phi.
+
+32
+00:02:37,040 --> 00:02:38,040
+Right?
+
+33
+00:02:39,040 --> 00:02:40,040
+Okay.
+
+34
+00:02:40,040 --> 00:02:47,040
+And this has to be less or equal to ui plus 1 for monotonicity reasons.
+
+35
+00:02:48,040 --> 00:02:53,040
+Now, if I look at this inequality and move that ui to the right-hand side,
+
+36
+00:02:53,040 --> 00:02:59,040
+what we get is ui minus ui minus 1.
+
+37
+00:02:59,040 --> 00:03:07,040
+These two delta x's cancel, we get over 2 times phi is less or equal to ui plus 1 minus ui.
+
+38
+00:03:08,040 --> 00:03:09,040
+Right?
+
+39
+00:03:11,040 --> 00:03:17,040
+And we divide this on both sides to get the inequality for phi.
+
+40
+00:03:17,040 --> 00:03:22,040
+We get phi is less or equal to 2 times ui plus 1 minus ui
+
+41
+00:03:22,040 --> 00:03:28,040
+divided by ui minus ui minus 1, which is exactly 2r.
+
+42
+00:03:30,040 --> 00:03:36,040
+So phi has to be less than 2r in this range.
+
+43
+00:03:36,040 --> 00:03:44,040
+If I draw it, if this is half, 2r at r equal to half is equal to 1.
+
+44
+00:03:44,040 --> 00:03:51,040
+And this is the upper limit for what phi could be within this range.
+
+45
+00:03:52,040 --> 00:03:53,040
+Alright?
+
+46
+00:03:53,040 --> 00:03:56,040
+Does it make sense?
+
+47
+00:03:56,040 --> 00:03:57,040
+Okay.
+
+48
+00:03:57,040 --> 00:04:00,040
+So this part doesn't work.
+
+49
+00:04:00,040 --> 00:04:03,040
+This part could still work, right, in your proposal.
+
+50
+00:04:03,040 --> 00:04:04,040
+Alright.
+
+51
+00:04:04,040 --> 00:04:10,040
+So this part of the domain I can't be.
+
+52
+00:04:10,040 --> 00:04:12,040
+So this is what this says.
+
+53
+00:04:12,040 --> 00:04:20,040
+So I already know less than 0, I have to be exactly 0,
+
+54
+00:04:20,040 --> 00:04:23,040
+and I have a slope of phi equal to 2r.
+
+55
+00:04:23,040 --> 00:04:26,040
+It has to stay underneath.
+
+56
+00:04:26,040 --> 00:04:31,040
+And at r equal to 1, I know I have to be phi equal to 1.
+
+57
+00:04:31,040 --> 00:04:37,040
+So the other case is when r greater than 1.
+
+58
+00:04:37,040 --> 00:04:48,040
+So for r greater than 1, we have conditions we want to satisfy is the so-called symmetry of the flux reconstruction scheme.
+
+59
+00:04:48,040 --> 00:04:49,040
+Okay.
+
+60
+00:04:49,040 --> 00:04:58,040
+So when we try to compute, so phi of r,
+
+61
+00:04:58,040 --> 00:05:08,040
+so when we multiply phi of r times ui minus ui minus 1,
+
+62
+00:05:08,040 --> 00:05:18,040
+we want it to be the same as phi of 1 over r multiplied by u plus 1 minus ui.
+
+63
+00:05:19,040 --> 00:05:23,040
+So that gives us a symmetric scheme.
+
+64
+00:05:23,040 --> 00:05:29,040
+That is, when we flip this x-axis,
+
+65
+00:05:29,040 --> 00:05:36,040
+so this is symmetry,
+
+66
+00:05:36,040 --> 00:05:45,040
+because if we consider the x-axis to go that way,
+
+67
+00:05:45,040 --> 00:05:48,040
+and if we look at a scheme that is,
+
+68
+00:05:48,040 --> 00:05:51,040
+if we look at a discretization that has i-th grid point here,
+
+69
+00:05:51,040 --> 00:05:52,040
+i plus 1 grid point here,
+
+70
+00:05:52,040 --> 00:05:54,040
+and i minus 1 grid point here,
+
+71
+00:05:54,040 --> 00:05:56,040
+so this going backwards,
+
+72
+00:05:56,040 --> 00:06:00,040
+we are still going to have exactly the same type of reconstruction.
+
+73
+00:06:00,040 --> 00:06:09,040
+Here r, remember r is defined as ui plus 1 minus ui over ui minus ui minus 1.
+
+74
+00:06:09,040 --> 00:06:11,040
+So if we flip the axis,
+
+75
+00:06:11,040 --> 00:06:16,040
+if we flip the i plus 1 and i minus 1, r becomes 1 over r.
+
+76
+00:06:16,040 --> 00:06:17,040
+And,
+
+77
+00:06:17,040 --> 00:06:22,040
+ui minus ui minus 1 becomes ui plus 1 minus ui.
+
+78
+00:06:22,040 --> 00:06:25,040
+So we should have flipped over,
+
+79
+00:06:25,040 --> 00:06:28,040
+we should have,
+
+80
+00:06:28,040 --> 00:06:30,040
+the symmetry means if we flip this over,
+
+81
+00:06:30,040 --> 00:06:34,040
+the solution we get should be equal.
+
+82
+00:06:34,040 --> 00:06:36,040
+I think there may be a minus sign somewhere.
+
+83
+00:06:36,040 --> 00:06:38,040
+But like,
+
+84
+00:06:38,040 --> 00:06:41,040
+what this tells us is that,
+
+85
+00:06:41,040 --> 00:06:43,040
+what this tells us is that,
+
+86
+00:06:43,040 --> 00:06:45,040
+ui,
+
+87
+00:06:45,040 --> 00:06:46,040
+okay,
+
+88
+00:06:46,040 --> 00:06:51,040
+what this tells us is that if you divide both sides by ui minus ui minus 1,
+
+89
+00:06:51,040 --> 00:06:53,040
+what we get is,
+
+90
+00:06:53,040 --> 00:06:55,040
+phi of r,
+
+91
+00:06:55,040 --> 00:07:00,040
+would be equal to r times phi of 1 over r.
+
+92
+00:07:00,040 --> 00:07:02,040
+Right.
+
+93
+00:07:02,040 --> 00:07:03,040
+And,
+
+94
+00:07:03,040 --> 00:07:08,040
+if we have in the range of r goes from 0 to 1,
+
+95
+00:07:08,040 --> 00:07:10,040
+phi is less than 2r,
+
+96
+00:07:10,040 --> 00:07:14,040
+that translates into the case when,
+
+97
+00:07:14,040 --> 00:07:17,040
+the argument of phi is greater than 1.
+
+98
+00:07:17,040 --> 00:07:20,040
+Because if you take r in between 0 and 1,
+
+99
+00:07:20,040 --> 00:07:23,040
+1 over r is greater than 1.
+
+100
+00:07:23,040 --> 00:07:27,040
+And if phi has to be less than 2r,
+
+101
+00:07:27,040 --> 00:07:29,040
+when r is,
+
+102
+00:07:29,040 --> 00:07:32,040
+being between 0 and 1,
+
+103
+00:07:32,040 --> 00:07:35,040
+so if this is less than or equal to 2r,
+
+104
+00:07:35,040 --> 00:07:36,040
+it means,
+
+105
+00:07:36,040 --> 00:07:37,040
+when,
+
+106
+00:07:37,040 --> 00:07:40,040
+it means when 1 over r is greater than 1,
+
+107
+00:07:40,040 --> 00:07:42,040
+phi should be less than,
+
+108
+00:07:42,040 --> 00:07:43,040
+what?
+
+109
+00:07:44,040 --> 00:07:47,040
+should be less than or equal to 2, right?
+
+110
+00:07:47,040 --> 00:07:48,040
+If you,
+
+111
+00:07:48,040 --> 00:07:49,040
+so there is r here,
+
+112
+00:07:49,040 --> 00:07:50,040
+there is r here,
+
+113
+00:07:50,040 --> 00:07:52,040
+if you divide on both sides,
+
+114
+00:07:52,040 --> 00:07:55,040
+it means phi of 1 over r has to be less than or equal to 2.
+
+115
+00:07:55,040 --> 00:07:56,040
+So,
+
+116
+00:07:56,040 --> 00:07:59,040
+there is another line that caps the value of phi,
+
+117
+00:07:59,040 --> 00:08:02,040
+when r is greater than 1.
+
+118
+00:08:02,040 --> 00:08:04,040
+So this is the region,
+
+119
+00:08:04,040 --> 00:08:05,040
+where,
+
+120
+00:08:05,040 --> 00:08:09,040
+we are going to get monotonic schemes.
+
+121
+00:08:09,040 --> 00:08:10,040
+So,
+
+122
+00:08:10,040 --> 00:08:13,040
+we are going to get monotonic schemes.
+
+123
+00:08:13,040 --> 00:08:14,040
+Alright?
+
+124
+00:08:14,040 --> 00:08:15,040
+Alright?
+
+125
+00:08:15,040 --> 00:08:16,040
+But,
+
+126
+00:08:16,040 --> 00:08:17,040
+here is the question.
+
+127
+00:08:17,040 --> 00:08:19,040
+If I keep phi equal to 0,
+
+128
+00:08:19,040 --> 00:08:20,040
+all the way,
+
+129
+00:08:20,040 --> 00:08:21,040
+is that good?
+
+130
+00:08:21,040 --> 00:08:26,040
+It satisfies both phi of r less than 2r and phi less than 2.
+
+131
+00:08:26,040 --> 00:08:31,040
+What requirement does phi always equal to 0 not satisfy?
+
+132
+00:08:31,040 --> 00:08:37,040
+It also satisfies the criterion that phi is equal to 0 when r is less than 0.
+
+133
+00:08:37,040 --> 00:08:38,040
+Yes,
+
+134
+00:08:38,040 --> 00:08:40,040
+I think that's a good question.
+
+135
+00:08:40,040 --> 00:08:41,040
+So,
+
+136
+00:08:41,040 --> 00:08:42,040
+I think that's a good question.
+
+137
+00:08:42,040 --> 00:08:43,040
+Yeah,
+
+138
+00:08:43,040 --> 00:08:48,040
+it doesn't satisfy that phi has to equal to 1 when r is equal to 1.
+
+139
+00:08:48,040 --> 00:08:51,040
+And that is for second order accuracy.
+
+140
+00:08:51,040 --> 00:08:52,040
+Right?
+
+141
+00:08:52,040 --> 00:08:53,040
+So,
+
+142
+00:08:53,040 --> 00:08:59,040
+choosing a phi always equal to 0 is actually going to get us a monotonic scheme.
+
+143
+00:08:59,040 --> 00:09:00,040
+But,
+
+144
+00:09:00,040 --> 00:09:01,040
+it doesn't have second order accuracy.
+
+145
+00:09:01,040 --> 00:09:03,040
+It's first order accurate.
+
+146
+00:09:03,040 --> 00:09:04,040
+And it turns out,
+
+147
+00:09:04,040 --> 00:09:08,040
+if we analyze the criterion for second order accuracy,
+
+148
+00:09:08,040 --> 00:09:11,040
+we get two more regions that we cannot be in.
+
+149
+00:09:11,040 --> 00:09:13,040
+These two more regions are,
+
+150
+00:09:13,040 --> 00:09:15,040
+if you draw a straight line,
+
+151
+00:09:15,040 --> 00:09:18,040
+so this is phi equal to 2r,
+
+152
+00:09:18,040 --> 00:09:20,040
+this is phi equal to r.
+
+153
+00:09:20,040 --> 00:09:24,040
+If you also draw a line that is phi equal to 1,
+
+154
+00:09:24,040 --> 00:09:29,040
+the two additional forbidden regions is here.
+
+155
+00:09:29,040 --> 00:09:30,040
+So we cannot,
+
+156
+00:09:30,040 --> 00:09:32,040
+if phi goes into here,
+
+157
+00:09:32,040 --> 00:09:34,040
+we don't have second order accuracy.
+
+158
+00:09:34,040 --> 00:09:37,040
+We also don't allow phi to be in here.
+
+159
+00:09:37,040 --> 00:09:38,040
+So if phi is here,
+
+160
+00:09:38,040 --> 00:09:40,040
+we don't have second order accuracy.
+
+161
+00:09:40,040 --> 00:09:41,040
+So if phi is here,
+
+162
+00:09:41,040 --> 00:09:43,040
+we don't get second order accuracy.
+
+163
+00:09:43,040 --> 00:09:47,040
+So the only region we can get both a monotonic scheme
+
+164
+00:09:47,040 --> 00:09:51,040
+and a second order accuracy is within this region.
+
+165
+00:09:51,040 --> 00:09:54,040
+Is,
+
+166
+00:09:54,040 --> 00:09:58,040
+is for phi greater than 1,
+
+167
+00:09:58,040 --> 00:10:00,040
+phi has to be,
+
+168
+00:10:00,040 --> 00:10:02,040
+oh, is for r greater than 1,
+
+169
+00:10:02,040 --> 00:10:05,040
+phi has to be greater than 1
+
+170
+00:10:05,040 --> 00:10:09,040
+and less than the minimum of r,
+
+171
+00:10:09,040 --> 00:10:11,040
+and 2.
+
+172
+00:10:11,040 --> 00:10:13,040
+So for phi less than 1,
+
+173
+00:10:13,040 --> 00:10:16,040
+for r less than 1 greater than 0,
+
+174
+00:10:16,040 --> 00:10:20,040
+phi has to be greater than r
+
+175
+00:10:20,040 --> 00:10:27,040
+and less than the minimum of 2r and 1.
+
+176
+00:10:27,040 --> 00:10:31,040
+So these are the two criterions
+
+177
+00:10:31,040 --> 00:10:34,040
+we have to satisfy for a second order
+
+178
+00:10:34,040 --> 00:10:37,040
+and a monotonic scheme.
+
+179
+00:10:37,040 --> 00:10:39,040
+So now we can start
+
+180
+00:10:39,040 --> 00:10:42,040
+discussing several possible choices.
+
+181
+00:10:42,040 --> 00:10:45,040
+Do you have a question?
+
+182
+00:10:45,040 --> 00:10:47,040
+Question here?
+
+183
+00:10:47,040 --> 00:10:49,040
+Okay.
+
+184
+00:10:49,040 --> 00:10:53,040
+So the first choice is the most,
+
+185
+00:10:53,040 --> 00:10:57,040
+is the one that gets us to second order accuracy
+
+186
+00:10:57,040 --> 00:11:00,040
+while being as close
+
+187
+00:11:00,040 --> 00:11:03,040
+to the piecewise constant reconstruction as possible.
+
+188
+00:11:03,040 --> 00:11:05,040
+What is that?
+
+189
+00:11:05,040 --> 00:11:07,040
+Remember, phi equal to 0
+
+190
+00:11:07,040 --> 00:11:09,040
+means piecewise constant reconstruction.
+
+191
+00:11:09,040 --> 00:11:10,040
+Right?
+
+192
+00:11:10,040 --> 00:11:12,040
+Not using the slope at all.
+
+193
+00:11:12,040 --> 00:11:14,040
+So how do we get second order accuracy
+
+194
+00:11:14,040 --> 00:11:15,040
+being the green region
+
+195
+00:11:15,040 --> 00:11:18,040
+while be as close to phi equal to 0 as possible?
+
+196
+00:11:18,040 --> 00:11:22,040
+No question we have to trace through this 0 line.
+
+197
+00:11:22,040 --> 00:11:24,040
+In this region, I can't be state 0,
+
+198
+00:11:24,040 --> 00:11:29,040
+but I can stay at r, phi equal to r.
+
+199
+00:11:29,040 --> 00:11:30,040
+While in this region,
+
+200
+00:11:30,040 --> 00:11:35,040
+I can stay at phi equal to 1, always.
+
+201
+00:11:35,040 --> 00:11:36,040
+Right?
+
+202
+00:11:36,040 --> 00:11:37,040
+So the,
+
+203
+00:11:37,040 --> 00:11:41,040
+this is called the mean mod limiter.
+
+204
+00:11:41,040 --> 00:11:45,040
+So mean mod
+
+205
+00:11:45,040 --> 00:11:46,040
+of r
+
+206
+00:11:46,040 --> 00:11:48,040
+has three pieces.
+
+207
+00:11:48,040 --> 00:11:52,040
+It can be 0, it can be r, it can be 1.
+
+208
+00:11:52,040 --> 00:11:55,040
+It's 0 when r is less than 0.
+
+209
+00:11:55,040 --> 00:11:58,040
+And it's r when
+
+210
+00:11:58,040 --> 00:12:02,040
+r is less or equal to 1, greater or equal to 0.
+
+211
+00:12:02,040 --> 00:12:06,040
+And it's 1 if r is greater or equal to 1.
+
+212
+00:12:07,040 --> 00:12:10,040
+So that's the first type of limiter
+
+213
+00:12:10,040 --> 00:12:12,040
+that is going to give us
+
+214
+00:12:12,040 --> 00:12:15,040
+second order accuracy and monotonic.
+
+215
+00:12:17,040 --> 00:12:20,040
+There are also other limiters.
+
+216
+00:12:20,040 --> 00:12:23,040
+For example, the other extreme
+
+217
+00:12:23,040 --> 00:12:26,040
+is to stay as high as possible.
+
+218
+00:12:26,040 --> 00:12:27,040
+Right?
+
+219
+00:12:27,040 --> 00:12:30,040
+It's the other scheme using the green one
+
+220
+00:12:30,040 --> 00:12:31,040
+goes like this.
+
+221
+00:12:31,040 --> 00:12:32,040
+It stays 0.
+
+222
+00:12:32,040 --> 00:12:36,040
+Still, any working limiter has to stay 0
+
+223
+00:12:36,040 --> 00:12:39,040
+for r less than 0.
+
+224
+00:12:39,040 --> 00:12:42,040
+Then it traces the upper limit
+
+225
+00:12:42,040 --> 00:12:46,040
+of the allowable region.
+
+226
+00:12:46,040 --> 00:12:48,040
+So instead of three pieces,
+
+227
+00:12:48,040 --> 00:12:52,040
+it has 1, 2, 3, 4, 5 pieces.
+
+228
+00:12:52,040 --> 00:12:58,040
+So this limiter is called a super b.
+
+229
+00:12:58,040 --> 00:13:01,040
+It has five cases.
+
+230
+00:13:01,040 --> 00:13:03,040
+It is either 0,
+
+231
+00:13:03,040 --> 00:13:05,040
+in this range is 2r,
+
+232
+00:13:05,040 --> 00:13:06,040
+in this range is 1,
+
+233
+00:13:06,040 --> 00:13:08,040
+in this range is r, and 2.
+
+234
+00:13:08,040 --> 00:13:12,040
+So it can be 0 or 2r,
+
+235
+00:13:12,040 --> 00:13:15,040
+or 1 or r or 2,
+
+236
+00:13:15,040 --> 00:13:17,040
+depending on if r is greater than 0,
+
+237
+00:13:17,040 --> 00:13:20,040
+or r is in between 0 and half,
+
+238
+00:13:20,040 --> 00:13:25,040
+or when r is between half and 1,
+
+239
+00:13:25,040 --> 00:13:28,040
+and if r is between 1 and 2,
+
+240
+00:13:28,040 --> 00:13:31,040
+and r greater than 2.
+
+241
+00:13:31,040 --> 00:13:32,040
+All right.
+
+242
+00:13:32,040 --> 00:13:35,040
+So this is tracing the upper limit
+
+243
+00:13:35,040 --> 00:13:38,040
+of the contour of this allowable region.
+
+244
+00:13:41,040 --> 00:13:45,040
+And you can see that both type,
+
+245
+00:13:45,040 --> 00:13:48,040
+both mean limiter and super b limiter,
+
+246
+00:13:48,040 --> 00:13:52,040
+so this is super b,
+
+247
+00:13:52,040 --> 00:13:55,040
+they are piecewise continuous.
+
+248
+00:13:55,040 --> 00:13:59,040
+They have many discontinuous pieces.
+
+249
+00:13:59,040 --> 00:14:00,040
+And that is,
+
+250
+00:14:00,040 --> 00:14:03,040
+sometimes is not the most desirable behavior
+
+251
+00:14:03,040 --> 00:14:05,040
+for differential equation solvers.
+
+252
+00:14:05,040 --> 00:14:12,040
+When people want as little non-smoothness
+
+253
+00:14:12,040 --> 00:14:15,040
+as possible in their discrete solver,
+
+254
+00:14:15,040 --> 00:14:17,040
+they usually choose something in between
+
+255
+00:14:17,040 --> 00:14:20,040
+that align, that go smoothly
+
+256
+00:14:20,040 --> 00:14:23,040
+over all these regions
+
+257
+00:14:23,040 --> 00:14:27,040
+and stay in the allowable region always.
+
+258
+00:14:27,040 --> 00:14:29,040
+This type of,
+
+259
+00:14:29,040 --> 00:14:31,040
+the first type of this limiter
+
+260
+00:14:31,040 --> 00:14:33,040
+is constructed by Van Leer.
+
+261
+00:14:33,040 --> 00:14:34,040
+And, you know,
+
+262
+00:14:34,040 --> 00:14:36,040
+it's also,
+
+263
+00:14:36,040 --> 00:14:40,040
+so this limiter is called the Van Leer limiter.
+
+264
+00:14:40,040 --> 00:14:42,040
+It is only,
+
+265
+00:14:42,040 --> 00:14:44,040
+it only has two pieces.
+
+266
+00:14:44,040 --> 00:14:48,040
+Again, it is 0 when r is less or equal to 0.
+
+267
+00:14:48,040 --> 00:14:52,040
+But when r is greater than or equal to 0,
+
+268
+00:14:52,040 --> 00:14:54,040
+it has the same function,
+
+269
+00:14:54,040 --> 00:14:57,960
+2r divided by 1 plus r.
+

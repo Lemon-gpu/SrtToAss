@@ -1,0 +1,572 @@
+1
+00:00:00,000 --> 00:00:08,760
+No matter what kind of meshes you have, you can construct a finite volume solver
+
+2
+00:00:08,760 --> 00:00:15,840
+that works for all of these meshes through a common data structure. So you
+
+3
+00:00:15,840 --> 00:00:21,540
+don't need to adapt your finite volume solver to every different type of mesh.
+
+4
+00:00:21,540 --> 00:00:29,000
+So you can have a solver that, given a mesh, you ask for what are my, for example,
+
+5
+00:00:29,000 --> 00:00:39,560
+interface normals, okay, and what are my neighbors of each cell, and you can
+
+6
+00:00:39,560 --> 00:00:46,420
+apply the same solver to all kinds of different meshes. How do we achieve this?
+
+7
+00:00:46,420 --> 00:00:53,860
+We need several data structures in order to make the finite volume mesh work, and
+
+8
+00:00:53,860 --> 00:00:58,760
+the most important data structures is the interface.
+
+9
+00:00:58,760 --> 00:00:59,000
+Okay?
+
+10
+00:00:59,000 --> 00:01:09,000
+So for every interface, every interface must know,
+
+11
+00:01:09,000 --> 00:01:20,260
+oops, must know its neighbors, its neighboring cells.
+
+12
+00:01:20,260 --> 00:01:28,760
+Right, so this is the most important criterion,
+
+13
+00:01:28,760 --> 00:01:38,760
+and so essentially if, let's say, if I have every interface marked as i and j,
+
+14
+00:01:38,760 --> 00:01:45,760
+okay, so i and j are the index of the cells which lies on both sides.
+
+15
+00:01:45,760 --> 00:01:54,760
+So in applying finite volume, we first go through, we first go through the
+
+16
+00:01:54,760 --> 00:01:56,760
+finite volume.
+
+17
+00:01:56,760 --> 00:01:58,760
+Okay?
+
+18
+00:01:58,760 --> 00:02:08,760
+So every pair of i and j's compute the f i j equal to f numerical u i and u j.
+
+19
+00:02:08,760 --> 00:02:22,760
+Because in the computer, you know for every interface what is the corresponding i and
+
+20
+00:02:22,760 --> 00:02:23,760
+j.
+
+21
+00:02:23,760 --> 00:02:24,760
+So using the i and j, you can find the cell averages at the cell i and cell j.
+
+22
+00:02:24,760 --> 00:02:25,760
+Okay?
+
+23
+00:02:25,760 --> 00:02:26,760
+So you can see that the i and j are the index of the cells which lie on both sides.
+
+24
+00:02:26,760 --> 00:02:27,760
+Okay?
+
+25
+00:02:27,760 --> 00:02:28,760
+So this is the i and j.
+
+26
+00:02:28,760 --> 00:02:32,760
+With these cell averages, we can compute the numerical flux.
+
+27
+00:02:32,760 --> 00:02:33,760
+Right?
+
+28
+00:02:33,760 --> 00:02:34,760
+Okay.
+
+29
+00:02:34,760 --> 00:02:45,760
+And also for every interface, you must, must store, and that's something that's good to
+
+30
+00:02:45,760 --> 00:02:52,760
+calculate in advance, the normal of that interface times the size of that interface.
+
+31
+00:02:52,760 --> 00:02:53,760
+So we can compute the normal of that interface.
+
+32
+00:02:53,760 --> 00:02:54,760
+Okay?
+
+33
+00:02:54,760 --> 00:03:01,760
+So we can compute that in advance before we even start solving the differential equations.
+
+34
+00:03:01,760 --> 00:03:11,760
+So the second step after computing the flux, so this is a vector, we compute the flux dot
+
+35
+00:03:11,760 --> 00:03:17,760
+with the surface normal times the cell size.
+
+36
+00:03:17,760 --> 00:03:19,760
+Alright?
+
+37
+00:03:19,760 --> 00:03:21,760
+Okay.
+
+38
+00:03:21,760 --> 00:03:22,760
+And then after this.
+
+39
+00:03:22,760 --> 00:03:23,760
+Okay?
+
+40
+00:03:23,760 --> 00:03:35,280
+And then after this, we can clear, we can set all dui dt to zero.
+
+41
+00:03:35,280 --> 00:03:39,160
+So clear the time derivatives.
+
+42
+00:03:39,160 --> 00:03:45,760
+And that can actually be applied when you start computing that time step.
+
+43
+00:03:45,760 --> 00:03:46,760
+Right?
+
+44
+00:03:46,760 --> 00:03:49,120
+So set dui dt to zero.
+
+45
+00:03:49,120 --> 00:03:53,760
+And then, then after you compute this.
+
+46
+00:03:53,760 --> 00:04:02,760
+Which you know, if I sum over this for all the neighbors of i, I get the time derivative.
+
+47
+00:04:02,760 --> 00:04:21,280
+So with this, I simply dui dt is equal to dui dt plus, right, plus is the, so for i,
+
+48
+00:04:21,280 --> 00:04:23,280
+I think it's going to be minus.
+
+49
+00:04:23,280 --> 00:04:34,800
+Minus one over vi times fij and ij, sij.
+
+50
+00:04:34,800 --> 00:04:40,680
+So this is, this is i.
+
+51
+00:04:40,680 --> 00:04:51,520
+And for the jth cell, it'll be minus, it'll be, it'll be add, it'll be addition.
+
+52
+00:04:51,520 --> 00:04:52,780
+So this is one over vj.
+
+53
+00:04:52,780 --> 00:04:57,300
+The same, the same flux.
+
+54
+00:04:57,300 --> 00:05:06,300
+Is the left hand side and right hand side dui dt, they are corresponding to different
+
+55
+00:05:06,300 --> 00:05:07,300
+time steps?
+
+56
+00:05:07,300 --> 00:05:11,180
+No, they are, they are corresponding to the same time step.
+
+57
+00:05:11,180 --> 00:05:14,540
+I'm just, so imagine this as a variable.
+
+58
+00:05:14,540 --> 00:05:18,040
+This and this as a variable you have in your computer.
+
+59
+00:05:18,040 --> 00:05:21,700
+In the beginning, I set all these variables to zero.
+
+60
+00:05:21,700 --> 00:05:22,700
+And as I go through.
+
+61
+00:05:22,700 --> 00:05:32,140
+Every pairs of neighboring grid points or every interface equivalently, I am, I'm changing
+
+62
+00:05:32,140 --> 00:05:40,560
+the values of dui dt and duj dt for these values.
+
+63
+00:05:40,560 --> 00:05:50,820
+You can imagine after I go through every interface, the value of dui dt is going to be the total
+
+64
+00:05:50,820 --> 00:05:51,820
+sum of.
+
+65
+00:05:51,820 --> 00:05:52,320
+Oh.
+
+66
+00:05:52,700 --> 00:05:54,320
+These quantities.
+
+67
+00:05:54,320 --> 00:05:55,320
+Right?
+
+68
+00:05:55,320 --> 00:05:58,580
+As I go over all the neighbors of i.
+
+69
+00:05:58,580 --> 00:06:03,580
+And the value of duj dt is also going to be the correct value after I go through all
+
+70
+00:06:03,580 --> 00:06:07,920
+the, all the interfaces.
+
+71
+00:06:07,920 --> 00:06:16,200
+And the advantage of this method is it doesn't matter how many neighbors does each cell have.
+
+72
+00:06:16,200 --> 00:06:21,700
+I don't have to do anything differently for neighbors of different sizes.
+
+73
+00:06:21,700 --> 00:06:22,700
+Of different sizes.
+
+74
+00:06:22,700 --> 00:06:25,320
+So for cells of different number of neighbors.
+
+75
+00:06:25,320 --> 00:06:33,320
+So in this case you did that for the t instead of having nji instead of nij.
+
+76
+00:06:33,320 --> 00:06:43,320
+Since you're taking 7j, the output face is going to be nji.
+
+77
+00:06:43,320 --> 00:06:44,320
+Right.
+
+78
+00:06:44,320 --> 00:06:49,700
+The difference between these two are, I'm still using nij here.
+
+79
+00:06:49,700 --> 00:06:50,820
+Because nij is the normal.
+
+80
+00:06:50,820 --> 00:06:51,820
+That's the normal.
+
+81
+00:06:51,820 --> 00:06:51,860
+So.
+
+82
+00:06:51,860 --> 00:06:52,060
+So.
+
+83
+00:06:52,060 --> 00:06:52,120
+So.
+
+84
+00:06:52,120 --> 00:06:53,120
+So.
+
+85
+00:06:53,120 --> 00:06:54,120
+So.
+
+86
+00:06:54,120 --> 00:06:55,120
+So.
+
+87
+00:06:55,120 --> 00:06:56,120
+So that's normal.
+
+88
+00:06:56,120 --> 00:06:57,120
+That points from the cell i to cell j.
+
+89
+00:06:57,120 --> 00:06:58,120
+Nij here.
+
+90
+00:06:58,120 --> 00:07:03,740
+Nij is going to be exactly equal to the minus of nji.
+
+91
+00:07:03,740 --> 00:07:08,460
+And sij being a scalar is equal to the same as sji.
+
+92
+00:07:08,460 --> 00:07:09,460
+Right.
+
+93
+00:07:09,460 --> 00:07:10,460
+So.
+
+94
+00:07:10,460 --> 00:07:11,460
+So the size is the same.
+
+95
+00:07:11,460 --> 00:07:12,460
+Ah.
+
+96
+00:07:12,460 --> 00:07:19,360
+So this is actually what guarantees the discreet conservation in finite volume schemes.
+
+97
+00:07:19,360 --> 00:07:20,360
+If you.
+
+98
+00:07:20,360 --> 00:07:21,360
+If you think of.
+
+99
+00:07:21,360 --> 00:07:28,320
+of quantity, if you track a quantity that is total is equal to the summation of VI
+
+100
+00:07:28,320 --> 00:07:39,580
+over all the I's, DUI DT, after you iterate over every interface, you added a
+
+101
+00:07:39,580 --> 00:07:47,760
+certain quantity to DUI DT and you subtracted the same quantity but like
+
+102
+00:07:47,760 --> 00:07:52,760
+with a different ratio with a different VI versus VJ.
+
+103
+00:07:52,760 --> 00:07:57,660
+This total is always going to be staying the same this total will
+
+104
+00:07:57,660 --> 00:08:04,600
+always be the same throughout your iteration over all the interfaces.
+
+105
+00:08:04,600 --> 00:08:09,580
+So this total is initially 0 because you set DUI DT equal to 0 for all
+
+106
+00:08:09,580 --> 00:08:17,260
+the I's and after you go through every interface, this total is going to stay
+
+107
+00:08:17,260 --> 00:08:17,760
+the same unlike Stew.
+
+108
+00:08:17,760 --> 00:08:22,900
+because if you multiply this with v i and this with v j,
+
+109
+00:08:23,400 --> 00:08:26,040
+the add and subtraction exactly cancels each other.
+
+110
+00:08:27,220 --> 00:08:31,860
+That's what guarantees the discrete conservation properties in finite volume.
+
+111
+00:08:34,020 --> 00:08:42,280
+And to honor it, you must use the same flux for i and for j,
+
+112
+00:08:42,440 --> 00:08:45,540
+the same flux between i and j for the cell i and cell j.
+
+113
+00:08:45,540 --> 00:08:54,240
+And you should, I don't see any reason not, to have these properties satisfied.
+
+114
+00:08:55,120 --> 00:09:01,860
+The interface must be, we call, consistent when seen from the cell i and seen from cell j.
+
+115
+00:09:01,860 --> 00:09:03,540
+All right.
+
+116
+00:09:04,640 --> 00:09:08,540
+So this du by dt equal to zero is the initialization state,
+
+117
+00:09:08,660 --> 00:09:10,700
+the next two equations are the update state.
+
+118
+00:09:11,100 --> 00:09:12,160
+Yes, yes.
+
+119
+00:09:12,720 --> 00:09:14,720
+So update is the difference with respect to what?
+
+120
+00:09:15,540 --> 00:09:16,580
+Each iteration.
+
+121
+00:09:17,380 --> 00:09:19,400
+Or the design of this iteration.
+
+122
+00:09:20,020 --> 00:09:26,100
+The update is applied when we go through all the interfaces.
+
+123
+00:09:27,540 --> 00:09:30,940
+So after you go through all the interfaces,
+
+124
+00:09:31,200 --> 00:09:37,740
+you completed calculating the du dt for on time step.
+
+125
+00:09:39,740 --> 00:09:45,160
+So the loop through the interfaces is the same as our loop
+
+126
+00:09:45,160 --> 00:09:45,520
+through the interfaces.
+
+127
+00:09:45,540 --> 00:09:49,080
+So we can see that the loop is the same as our loop through the grid points in the one-dimensional case.
+
+128
+00:09:49,080 --> 00:09:52,600
+It's just in the one-dimensional case, as we loop over the i,
+
+129
+00:09:52,600 --> 00:09:56,100
+you can either see it as if we are looping through the cells,
+
+130
+00:09:56,100 --> 00:10:00,600
+or you can see it as if we are looping through the interfaces.
+
+131
+00:10:04,020 --> 00:10:09,660
+Right, remember in the 1D case, in our code over here,
+
+132
+00:10:09,660 --> 00:10:14,760
+right, so we,
+
+133
+00:10:15,540 --> 00:10:20,540
+all the way up to here, up to line 20,
+
+134
+00:10:20,540 --> 00:10:24,540
+is actually constructing the fluxes.
+
+135
+00:10:24,540 --> 00:10:32,540
+Right, in the, so I mean, we didn't do any loop over here,
+
+136
+00:10:32,540 --> 00:10:36,300
+but you can see this as we are looping through the interfaces
+
+137
+00:10:36,300 --> 00:10:39,300
+to construct the flux at each interface.
+
+138
+00:10:39,300 --> 00:10:42,300
+And here, when we perform the loop,
+
+139
+00:10:42,300 --> 00:10:44,300
+we are actually constructing the flux.
+
+140
+00:10:44,300 --> 00:10:44,980
+Right.
+
+141
+00:10:44,980 --> 00:10:50,560
+When we perform a loop, we are looping over all the interfaces
+
+142
+00:10:50,560 --> 00:10:54,740
+to construct the flux and add and subtract the numbers
+
+143
+00:10:54,740 --> 00:10:57,300
+to the adjacent cells.
+

@@ -1,0 +1,560 @@
+1
+00:00:00,000 --> 00:00:07,860
+The way to satisfy the entropy condition is a contribution by a person called Godunov.
+
+2
+00:00:08,580 --> 00:00:14,480
+So he first constructed a numerical way to calculate the flux,
+
+3
+00:00:15,080 --> 00:00:18,240
+which is a modification to the upwind flux
+
+4
+00:00:18,240 --> 00:00:22,860
+that guarantees that the solution satisfies the entropy condition.
+
+5
+00:00:24,080 --> 00:00:25,800
+So what is his solution?
+
+6
+00:00:25,800 --> 00:00:31,840
+His solution, it's still, remember like in the upwind scheme,
+
+7
+00:00:32,100 --> 00:00:35,860
+we are thinking of approximating the solution as piecewise constant.
+
+8
+00:00:36,520 --> 00:00:37,860
+Here we still do the same.
+
+9
+00:00:38,420 --> 00:00:44,800
+So here we are explicitly considering that we are storing the solution averages,
+
+10
+00:00:45,580 --> 00:00:49,460
+but then we are reconstructing the solution as piecewise constants.
+
+11
+00:00:50,280 --> 00:00:52,760
+So let's say this is our numerical solution.
+
+12
+00:00:53,560 --> 00:00:55,760
+Okay, so this is my...
+
+13
+00:00:56,340 --> 00:00:59,460
+domain, this is my u, and this is delta x,
+
+14
+00:01:00,140 --> 00:01:06,820
+2 delta x, etc. So in between every two grid points, the solution is a constant.
+
+15
+00:01:07,560 --> 00:01:11,560
+Of course, that's a first-order approximation, right? So we are going to get a first-order scheme.
+
+16
+00:01:12,060 --> 00:01:14,740
+But like this is going to get us at least a
+
+17
+00:01:15,720 --> 00:01:21,700
+entropy satisfying solution, and then we can talk about later how to extend that to second order and higher order.
+
+18
+00:01:23,480 --> 00:01:25,480
+So with that piecewise constant approximation,
+
+19
+00:01:25,800 --> 00:01:34,340
+we want to compute the flux at every interface.
+
+20
+00:01:36,260 --> 00:01:37,760
+Now,
+
+21
+00:01:37,760 --> 00:01:42,000
+computing the flux is an interesting question because
+
+22
+00:01:42,920 --> 00:01:47,740
+previously, we are considering that if this whole thing
+
+23
+00:01:49,040 --> 00:01:51,040
+stays as a shockwave,
+
+24
+00:01:51,880 --> 00:01:53,880
+what is going to be the flux?
+
+25
+00:01:54,100 --> 00:01:55,380
+Right?
+
+26
+00:01:55,380 --> 00:02:05,480
+So we have been using upwind, and to determine which side is upwind, we are using the speed of a shockwave,
+
+27
+00:02:06,060 --> 00:02:13,460
+which implicitly assumes that this discontinuity is going to stay as a discontinuity after some time.
+
+28
+00:02:14,700 --> 00:02:17,800
+In reality, we just looked at it is no longer the case,
+
+29
+00:02:18,680 --> 00:02:25,220
+right? In some cases, this discontinuity is going to be no longer discontinuity,
+
+30
+00:02:25,380 --> 00:02:28,620
+almost immediately after you start evolving in time.
+
+31
+00:02:31,260 --> 00:02:34,580
+So, good enough insights is really from that.
+
+32
+00:02:35,340 --> 00:02:37,120
+It's really
+
+33
+00:02:37,120 --> 00:02:40,840
+analyzing for each, every interface, analyzing
+
+34
+00:02:41,320 --> 00:02:45,200
+is that discontinuity going to be, if you solve the equation exactly,
+
+35
+00:02:45,840 --> 00:02:54,080
+for infinitesimal amount of time, is that discontinuity still going to be a discontinuity after a while, after this infinitesimal amount of time?
+
+36
+00:02:54,080 --> 00:02:55,180
+And then,
+
+37
+00:02:55,180 --> 00:02:58,680
+after that analysis, you should be figuring out,
+
+38
+00:02:59,300 --> 00:03:03,060
+after this infinitesimal amount of time, what is the flux over there?
+
+39
+00:03:03,560 --> 00:03:06,480
+I'm just going to give you an example of the same
+
+40
+00:03:07,180 --> 00:03:14,920
+thing we did before. So that is, if we have two cells, one cell being minus one, the other cell being plus one,
+
+41
+00:03:15,560 --> 00:03:18,560
+okay, and the cell interface lies over here.
+
+42
+00:03:21,140 --> 00:03:23,140
+According to the upwind flux,
+
+43
+00:03:23,140 --> 00:03:31,520
+the speed is equal to zero. So it's okay to either choose the flux on the right or flux at the left.
+
+44
+00:03:32,140 --> 00:03:36,440
+Either way, the flux is going to be half of u squared, which is equal to half.
+
+45
+00:03:38,460 --> 00:03:41,380
+But, use good enough insight.
+
+46
+00:03:42,360 --> 00:03:47,920
+What is going to be the flux at this point after an infinitesimal amount of time?
+
+47
+00:03:48,560 --> 00:03:50,560
+Think of that.
+
+48
+00:03:53,140 --> 00:03:58,740
+What is the shape of the function after an infinitesimal amount of time, if you are solving the equation exactly?
+
+49
+00:03:59,620 --> 00:04:05,380
+So you should, after infinitesimal amount of time, you should have an infinitesimal range of solutions
+
+50
+00:04:05,780 --> 00:04:11,820
+between minus one and one that goes linearly. That's right. Now, what is the flux at
+
+51
+00:04:12,640 --> 00:04:14,700
+the interface
+
+52
+00:04:14,700 --> 00:04:16,700
+after infinitesimal amount of time?
+
+53
+00:04:18,620 --> 00:04:19,900
+Zero!
+
+54
+00:04:19,900 --> 00:04:23,020
+That's right. Why is it zero? Because the value of the function,
+
+55
+00:04:23,020 --> 00:04:26,680
+at this point, is going to become zero very soon, right?
+
+56
+00:04:27,860 --> 00:04:29,860
+It'll stay zero for a while.
+
+57
+00:04:30,440 --> 00:04:38,800
+And so the correct way to say the flux at this particular interface is the flux is equal to zero, not half.
+
+58
+00:04:39,620 --> 00:04:45,860
+It's not, you shouldn't choose either the left side flux nor the right side flux. It is zero.
+
+59
+00:04:46,340 --> 00:04:49,480
+Zero is the right flux to choose at this point.
+
+60
+00:04:51,100 --> 00:04:53,000
+So, of course, this is a special case.
+
+61
+00:04:53,020 --> 00:04:57,100
+What is the Moore general case? The Moore general case is exactly thinking like that.
+
+62
+00:04:57,620 --> 00:04:59,620
+If you solve, if you
+
+63
+00:05:00,140 --> 00:05:02,140
+analytically solve the differential equation
+
+64
+00:05:03,200 --> 00:05:08,620
+in a very tiny region around the discontinuity for a very tiny amount of time,
+
+65
+00:05:09,800 --> 00:05:17,280
+what is going to be the flux value? What is going to be the solution value at that discontinuity, at that, or not discontinuity, at this
+
+66
+00:05:18,060 --> 00:05:22,780
+location where the discontinuity is at t equal to zero, but maybe not
+
+67
+00:05:23,020 --> 00:05:28,320
+after a small amount of time. And then figure out the flux of that u value.
+
+68
+00:05:30,060 --> 00:05:32,060
+Right?
+
+69
+00:05:32,320 --> 00:05:34,320
+There are many different cases.
+
+70
+00:05:34,600 --> 00:05:41,340
+For example, if I have a discontinuity originally like that, and it has advected towards the right,
+
+71
+00:05:42,100 --> 00:05:43,660
+I become like this.
+
+72
+00:05:43,660 --> 00:05:50,440
+Then I should choose f of u left as my flux, right?
+
+73
+00:05:51,100 --> 00:05:52,700
+If I have the flux towards the right, I become like this. I should choose f of u left as my flux. Right?
+
+74
+00:05:52,700 --> 00:05:52,800
+If I have the flux towards the right, I become like this. Then I should choose f of u left as my flux. Right?
+
+75
+00:05:52,800 --> 00:05:57,820
+if I have a discontinuity like this,
+
+76
+00:05:58,920 --> 00:06:02,300
+and after a while it stays as a discontinuity
+
+77
+00:06:02,300 --> 00:06:04,040
+but advected towards the left,
+
+78
+00:06:04,420 --> 00:06:09,100
+then my correct f at this point is f of u right.
+
+79
+00:06:10,760 --> 00:06:11,920
+Do we agree?
+
+80
+00:06:12,820 --> 00:06:13,100
+Okay.
+
+81
+00:06:14,240 --> 00:06:18,180
+And there are other cases if originally I have a discontinuity.
+
+82
+00:06:18,300 --> 00:06:20,220
+I mean, we always originally have a discontinuity
+
+83
+00:06:20,220 --> 00:06:23,280
+if we approximate the solution as piecewise constant.
+
+84
+00:06:23,800 --> 00:06:26,700
+But later on, it becomes no longer a discontinuity.
+
+85
+00:06:26,820 --> 00:06:29,780
+Let's say it goes like this.
+
+86
+00:06:30,100 --> 00:06:32,240
+So it no longer becomes a discontinuity,
+
+87
+00:06:32,360 --> 00:06:35,800
+but it goes towards the left or towards the right.
+
+88
+00:06:35,800 --> 00:06:39,520
+I still should be having f of u right.
+
+89
+00:06:40,200 --> 00:06:42,820
+And if I originally have a discontinuity
+
+90
+00:06:42,820 --> 00:06:46,000
+and it becomes no longer a discontinuity
+
+91
+00:06:46,000 --> 00:06:48,160
+but advects towards the right,
+
+92
+00:06:48,320 --> 00:06:50,200
+I still want to use f.
+
+93
+00:06:50,220 --> 00:06:52,220
+So I choose f of u left.
+
+94
+00:06:52,780 --> 00:06:57,180
+And the very last case is I have a discontinuity in the beginning
+
+95
+00:06:57,180 --> 00:07:00,180
+and the discontinuity becomes like that.
+
+96
+00:07:02,180 --> 00:07:05,180
+While the right hand side of the solution goes towards the right,
+
+97
+00:07:05,180 --> 00:07:07,580
+the left side of the solution goes towards the left.
+
+98
+00:07:07,580 --> 00:07:11,700
+Then I should choose f of u,
+
+99
+00:07:11,700 --> 00:07:15,700
+the particular value of u that stays stationary.
+
+100
+00:07:18,120 --> 00:07:18,620
+Okay.
+
+101
+00:07:18,620 --> 00:07:20,120
+Do we see all these cases?
+
+102
+00:07:20,220 --> 00:07:20,860
+Yes?
+
+103
+00:07:20,860 --> 00:07:25,440
+The final case is when the left and right are equal but opposite sides.
+
+104
+00:07:25,600 --> 00:07:31,600
+The last case is when the left and right have different characteristic speeds
+
+105
+00:07:31,600 --> 00:07:33,660
+and they go towards different directions.
+
+106
+00:07:33,840 --> 00:07:36,020
+They don't have to have equal value.
+
+107
+00:07:37,980 --> 00:07:41,920
+The minus 1, 1 case is a special example.
+
+108
+00:07:42,140 --> 00:07:44,600
+But even if you have minus 2, 1,
+
+109
+00:07:44,880 --> 00:07:47,500
+you're still going to have the same problem.
+
+110
+00:07:47,620 --> 00:07:49,060
+You still compute the wrong flux
+
+111
+00:07:49,060 --> 00:07:50,180
+if you just use r.1.
+
+112
+00:07:50,220 --> 00:07:51,960
+So the first case is the discontinuity.
+
+113
+00:07:51,960 --> 00:07:55,460
+The discontinuity crosses the horizontal axis.
+
+114
+00:07:55,460 --> 00:07:56,900
+Oh, yeah, okay.
+
+115
+00:07:56,900 --> 00:07:58,900
+So for Burke's equation, that's right.
+
+116
+00:07:58,900 --> 00:08:00,900
+For Burke's equation,
+
+117
+00:08:00,900 --> 00:08:06,900
+because my characteristic speed df is equal to u,
+
+118
+00:08:06,900 --> 00:08:08,220
+yeah, that's right,
+
+119
+00:08:08,220 --> 00:08:11,540
+it only changes sign when u changes sign.
+
+120
+00:08:11,540 --> 00:08:15,540
+So for Burke's equation, this would only happen if
+
+121
+00:08:15,540 --> 00:08:19,920
+the value of the solution is positive on i plus 2.
+
+122
+00:08:20,220 --> 00:08:24,380
+So we just let u choose here to get the solution of way back from wherever
+
+123
+00:08:24,580 --> 00:08:26,820
+which is fta where the one-eighth?
+
+124
+00:08:26,820 --> 00:08:27,420
+We get 2, 2, 2x.
+
+125
+00:08:27,420 --> 00:08:35,240
+And the solution, i, 0x
+
+126
+00:08:37,660 --> 00:08:43,160
+equals feet at in a want and
+
+127
+00:08:45,960 --> 00:08:47,960
+it can't just satisfied when it's sorry.
+
+128
+00:08:48,180 --> 00:08:49,080
+Well, that's true.
+
+129
+00:08:49,080 --> 00:08:49,920
+But this is not wholly true.
+
+130
+00:08:49,920 --> 00:08:49,940
+No, that's not true.
+
+131
+00:08:49,940 --> 00:08:57,620
+It should go from negative to positive as u increases, right?
+
+132
+00:08:57,620 --> 00:09:02,980
+Yeah, that's right.
+
+133
+00:09:02,980 --> 00:09:14,520
+So df du has to go from, let's say 0, from negative to positive, which means f has a
+
+134
+00:09:14,520 --> 00:09:24,260
+watt over here, has a local maximum over here, right?
+
+135
+00:09:24,260 --> 00:09:32,820
+So if you look at f, it has a local maximum over here, and the value we choose to evaluate
+
+136
+00:09:32,820 --> 00:09:42,260
+in this particular u is actually the maximum of f, is the local maximum of f at this location.
+
+137
+00:09:42,260 --> 00:09:43,260
+Do you get it?
+
+138
+00:09:43,260 --> 00:09:44,260
+Like, this is actually...
+
+139
+00:09:44,260 --> 00:09:44,360
+Okay.
+
+140
+00:09:44,520 --> 00:09:55,300
+So this is max of f for u that is greater than ul and less than ur.
+

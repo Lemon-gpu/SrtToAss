@@ -1,0 +1,568 @@
+1
+00:00:00,880 --> 00:00:02,280
+Let's see another equation.
+
+2
+00:00:02,280 --> 00:00:06,460
+Let's say we want to solve the Helmholtz equation.
+
+3
+00:00:06,460 --> 00:00:08,340
+This is the equation we want to solve.
+
+4
+00:00:08,340 --> 00:00:15,040
+So what we do next is, OK, what's the boundary condition, and then what is the template?
+
+5
+00:00:15,040 --> 00:00:16,400
+Now this is the template.
+
+6
+00:00:16,400 --> 00:00:18,040
+Now we just compare, OK?
+
+7
+00:00:18,040 --> 00:00:22,000
+We're trying to fit this template with the other equation.
+
+8
+00:00:22,000 --> 00:00:24,780
+What do we have?
+
+9
+00:00:24,780 --> 00:00:27,680
+We don't have all of those terms, right?
+
+10
+00:00:27,680 --> 00:00:33,120
+And all we have now is C is equal to the same thing.
+
+11
+00:00:33,120 --> 00:00:44,140
+And then K, the wave number, we have that in the absorption term.
+
+12
+00:00:44,140 --> 00:00:45,420
+But that's it.
+
+13
+00:00:45,420 --> 00:00:52,340
+But these are now C and A and F are the only terms that we have.
+
+14
+00:00:52,340 --> 00:00:57,180
+Now all these things in the template are just...
+
+15
+00:00:57,180 --> 00:00:57,680
+OK.
+
+16
+00:00:57,680 --> 00:01:03,240
+So this is standing for some value, but for you, depending on the physics you are trying
+
+17
+00:01:03,240 --> 00:01:06,740
+to solve, they could mean one thing or another.
+
+18
+00:01:06,740 --> 00:01:11,300
+So this C, for example, for chemical problems, it's concentration.
+
+19
+00:01:11,300 --> 00:01:14,540
+For heat transfer problem, I mean, it's diffusion coefficient.
+
+20
+00:01:14,540 --> 00:01:19,720
+For heat transfer problems, it's convection coefficient.
+
+21
+00:01:19,720 --> 00:01:27,120
+If you were solving a one-dimensional elasticity stress analysis problem, that's the same thing.
+
+22
+00:01:27,120 --> 00:01:32,620
+So this is a two-dimensional elasticity stress analysis problem.
+
+23
+00:01:32,620 --> 00:01:35,440
+That would be your Young's modulus.
+
+24
+00:01:35,440 --> 00:01:39,500
+They can stand for different things.
+
+25
+00:01:39,500 --> 00:01:44,660
+But still you just find it and fill the template.
+
+26
+00:01:44,660 --> 00:01:47,640
+So it's really something like this, right?
+
+27
+00:01:47,640 --> 00:01:51,960
+You have things you want to fit in into a template and you're like, oh, where do I fit
+
+28
+00:01:51,960 --> 00:01:53,620
+in this?
+
+29
+00:01:53,620 --> 00:01:55,240
+Put this here.
+
+30
+00:01:55,240 --> 00:01:56,280
+Put this here.
+
+31
+00:01:56,280 --> 00:01:57,840
+like it might not fit.
+
+32
+00:01:57,840 --> 00:01:59,060
+So how can now we do this?
+
+33
+00:02:06,620 --> 00:02:08,900
+Yeah, so for example, forget that we're working with
+
+34
+00:02:08,900 --> 00:02:09,380
+equations.
+
+35
+00:02:09,380 --> 00:02:13,700
+I just want to fit this circle and find them which are
+
+36
+00:02:13,700 --> 00:02:18,820
+upside-down rectangular into those open areas.
+
+37
+00:02:18,820 --> 00:02:20,260
+You need to cut, exactly.
+
+38
+00:02:20,260 --> 00:02:21,800
+So you need to cut.
+
+39
+00:02:21,800 --> 00:02:24,920
+So this is for the cutting.
+
+40
+00:02:24,920 --> 00:02:27,320
+So you need to cut.
+
+41
+00:02:27,320 --> 00:02:28,360
+This will fit in.
+
+42
+00:02:28,360 --> 00:02:33,700
+But the other ones, you need to cut them and modify them.
+
+43
+00:02:33,700 --> 00:02:37,280
+So let's see an equation where we have to do this.
+
+44
+00:02:37,280 --> 00:02:40,900
+We want to do, let's say, Voxel's equation for finance.
+
+45
+00:02:40,900 --> 00:02:44,280
+Now, this is the equation that we want to solve.
+
+46
+00:02:44,280 --> 00:02:46,720
+Then we will compare it with a template.
+
+47
+00:02:46,720 --> 00:02:48,840
+And this is the template that we have.
+
+48
+00:02:48,840 --> 00:02:52,840
+Now, we can easily see that we don't have those terms.
+
+49
+00:02:52,840 --> 00:02:54,920
+We don't have the math terms.
+
+50
+00:02:54,920 --> 00:02:58,000
+We don't have a source term.
+
+51
+00:02:58,000 --> 00:03:00,440
+dA is 1.
+
+52
+00:03:00,440 --> 00:03:07,500
+Now, what is the problem with using C is equal to half sigma
+
+53
+00:03:07,500 --> 00:03:10,260
+squared x squared?
+
+54
+00:03:10,260 --> 00:03:15,120
+So C looks like it could be half sigma squared x squared,
+
+55
+00:03:15,120 --> 00:03:16,540
+right?
+
+56
+00:03:16,540 --> 00:03:17,540
+Beneficial for that.
+
+57
+00:03:23,160 --> 00:03:23,900
+For x, right?
+
+58
+00:03:23,900 --> 00:03:24,360
+They're going to have a . . .
+
+59
+00:03:24,920 --> 00:03:29,520
+So what's the derivative with respect to x out of sigma squared x squared?
+
+60
+00:03:29,520 --> 00:03:32,440
+Because it's going to be inside the divergence.
+
+61
+00:03:32,440 --> 00:03:35,540
+So when that happens, what can I do?
+
+62
+00:03:35,540 --> 00:03:37,600
+OK, I'm going to do this.
+
+63
+00:03:37,600 --> 00:03:42,000
+But then, since I have this extra derivative, I will move it, right?
+
+64
+00:03:42,000 --> 00:03:50,000
+This term, sigma squared x, that comes out of this term here, next to last.
+
+65
+00:03:50,000 --> 00:03:52,060
+That comes out of the .
+
+66
+00:03:52,060 --> 00:03:53,000
+I will just move it and try to fit it somewhere else.
+
+67
+00:03:53,000 --> 00:03:54,000
+So I'm going to move it.
+
+68
+00:03:54,000 --> 00:03:54,500
+I'm going to move it.
+
+69
+00:03:54,920 --> 00:03:55,920
+I'm going to move it.
+
+70
+00:03:55,920 --> 00:03:56,920
+I'm going to move it.
+
+71
+00:03:56,920 --> 00:03:57,920
+And balance it so that the end of the rate is the same.
+
+72
+00:03:57,920 --> 00:04:02,920
+I convert it to a form that I understand, and it's the same format.
+
+73
+00:04:02,920 --> 00:04:04,600
+Then there are more than one ways to do this.
+
+74
+00:04:04,600 --> 00:04:11,040
+I could have put it there, or I could also have moved it to the source term.
+
+75
+00:04:11,040 --> 00:04:20,320
+But in any case, it is in a format that at first doesn't look like x squared.
+
+76
+00:04:20,320 --> 00:04:23,720
+Just try to convert it into a familiar form and fit that.
+
+77
+00:04:23,720 --> 00:04:24,720
+OK.
+
+78
+00:04:24,920 --> 00:04:25,920
+Is that clear?
+
+79
+00:04:25,920 --> 00:04:26,920
+Is that clear?
+
+80
+00:04:26,920 --> 00:04:27,920
+So there was this .
+
+81
+00:04:27,920 --> 00:04:32,920
+I don't know if you guys heard about this, but there was this mathematician who lost
+
+82
+00:04:32,920 --> 00:04:33,920
+his job.
+
+83
+00:04:33,920 --> 00:04:38,920
+And he goes to the fire department to get a job.
+
+84
+00:04:38,920 --> 00:04:40,920
+And he had an interview.
+
+85
+00:04:40,920 --> 00:04:46,920
+And the first question was, assume you are working in a certain neighborhood and one
+
+86
+00:04:46,920 --> 00:04:47,920
+house is on fire.
+
+87
+00:04:47,920 --> 00:04:48,920
+What do you do?
+
+88
+00:04:48,920 --> 00:04:51,920
+And he says, OK, I'm going to call 911.
+
+89
+00:04:51,920 --> 00:04:52,920
+And until I get that number, I'm going to call 911.
+
+90
+00:04:52,920 --> 00:04:53,920
+And I'm going to tell 911.
+
+91
+00:04:53,920 --> 00:04:58,920
+And until I get help, I'm going to find a hydrant and do what I can do in the meantime.
+
+92
+00:04:58,920 --> 00:05:01,920
+And I'm like, okay, that's a very good answer.
+
+93
+00:05:01,920 --> 00:05:02,920
+Second question.
+
+94
+00:05:02,920 --> 00:05:04,920
+You are working in a neighborhood.
+
+95
+00:05:04,920 --> 00:05:06,920
+Everything is fine, no problem.
+
+96
+00:05:06,920 --> 00:05:08,920
+What do you do?
+
+97
+00:05:08,920 --> 00:05:11,920
+First, I put one house on fire.
+
+98
+00:05:11,920 --> 00:05:13,920
+After that, it's a social problem, right?
+
+99
+00:05:13,920 --> 00:05:16,920
+You know how to handle that question.
+
+100
+00:05:16,920 --> 00:05:20,920
+So a lot of times in mathematical modeling, when things look strange,
+
+101
+00:05:20,920 --> 00:05:26,920
+the first thing is can I rewrite this in a form that is familiar?
+
+102
+00:05:26,920 --> 00:05:28,920
+Then I know how to handle it.
+
+103
+00:05:28,920 --> 00:05:32,920
+So that's how these templates work.
+
+104
+00:05:32,920 --> 00:05:39,920
+So when you are working with this, then you need to sometimes access the derivatives of certain quantities.
+
+105
+00:05:39,920 --> 00:05:43,920
+So here are some operators in console to give you derivatives.
+
+106
+00:05:43,920 --> 00:05:46,920
+If the solution field was u, for example,
+
+107
+00:05:46,920 --> 00:05:50,920
+then ux, uy, uz will give you special derivatives.
+
+108
+00:05:50,920 --> 00:05:53,920
+And then you can add them.
+
+109
+00:05:53,920 --> 00:05:58,920
+It will give you a second derivative, mixed derivative.
+
+110
+00:05:58,920 --> 00:06:09,920
+If you are on surfaces, we have this solution field uppercase T special direction variable,
+
+111
+00:06:09,920 --> 00:06:13,920
+which will give you a tangential derivative on boundaries.
+
+112
+00:06:13,920 --> 00:06:19,920
+Now, that only works if you are differentiating the solution field.
+
+113
+00:06:19,920 --> 00:06:20,920
+But other times,
+
+114
+00:06:20,920 --> 00:06:22,920
+you want to differentiate other quantities.
+
+115
+00:06:22,920 --> 00:06:25,920
+For example, this would mean that for a heat transfer problem,
+
+116
+00:06:25,920 --> 00:06:29,920
+these operators will work if you are differentiating temperature.
+
+117
+00:06:29,920 --> 00:06:33,920
+But if you are trying to differentiate flux or another quantity, they don't work.
+
+118
+00:06:33,920 --> 00:06:38,920
+But the operators which work irrespective of the quantity you are using
+
+119
+00:06:38,920 --> 00:06:45,920
+are this d, quantity, comma, what you are differentiating it against with operators.
+
+120
+00:06:45,920 --> 00:06:49,920
+So those give you partial derivatives of any quantity with respect to x, y, z.
+
+121
+00:06:49,920 --> 00:06:54,920
+Or r of z in a cis-emitter component.
+
+122
+00:06:54,920 --> 00:06:56,920
+And time.
+
+123
+00:06:56,920 --> 00:07:00,920
+In the reference manual, you can find more differentiation operators.
+
+124
+00:07:00,920 --> 00:07:04,920
+So you will use this operator sometimes when you need access to the derivatives.
+
+125
+00:07:04,920 --> 00:07:05,920
+Yes?
+
+126
+00:07:05,920 --> 00:07:07,920
+Can we get normal derivatives the same way?
+
+127
+00:07:07,920 --> 00:07:09,920
+Is that going to happen or something?
+
+128
+00:07:14,920 --> 00:07:15,920
+I have to check.
+
+129
+00:07:15,920 --> 00:07:18,920
+I don't think it's available.
+
+130
+00:07:18,920 --> 00:07:20,920
+Yeah.
+
+131
+00:07:20,920 --> 00:07:30,920
+Because mostly the way you can do is,
+
+132
+00:07:30,920 --> 00:07:34,920
+the way I evaluate normal derivatives is,
+
+133
+00:07:34,920 --> 00:07:36,920
+the derivative itself is available.
+
+134
+00:07:36,920 --> 00:07:41,920
+And the unit outward normal on boundaries is also available.
+
+135
+00:07:41,920 --> 00:07:43,920
+So you can take a dope product.
+
+136
+00:07:43,920 --> 00:07:44,920
+Yeah.
+
+137
+00:07:44,920 --> 00:07:47,920
+But the tangential derivatives are important because a lot of times,
+
+138
+00:07:47,920 --> 00:07:55,920
+you might want to, if you have a surface, some equation only valid on the surface.
+
+139
+00:07:55,920 --> 00:08:00,920
+If you have surface chemistry, for example, you might want to have access to the tangential derivatives.
+
+140
+00:08:00,920 --> 00:08:06,920
+But yeah, you get the derivative and you can dot multiply them with a unit outward normal.
+
+141
+00:08:06,920 --> 00:08:07,920
+Other questions?
+
+142
+00:08:08,920 --> 00:08:09,920
+Is it clear so far?
+

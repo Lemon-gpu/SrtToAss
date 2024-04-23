@@ -1,0 +1,928 @@
+1
+00:00:00,000 --> 00:00:08,420
+When we are performing a minimization, we are performing it over all possible functions that satisfies a certain criterion.
+
+2
+00:00:08,660 --> 00:00:12,280
+And these all possible functions is what we call the space.
+
+3
+00:00:14,340 --> 00:00:20,120
+And here I'm going to give two examples of that space over here.
+
+4
+00:00:22,360 --> 00:00:28,080
+So the first example is x is the space.
+
+5
+00:00:28,080 --> 00:00:31,760
+And the space is a set of functions.
+
+6
+00:00:32,080 --> 00:00:35,440
+It's a collection of functions that satisfy a certain criterion.
+
+7
+00:00:35,440 --> 00:00:53,440
+For example, is f of x between 0 and 1 such that for all i.
+
+8
+00:00:53,920 --> 00:00:54,720
+Okay.
+
+9
+00:00:55,180 --> 00:00:58,060
+So for all the i.
+
+10
+00:00:58,080 --> 00:01:07,040
+We are still representing the space using a finite number of intervals.
+
+11
+00:01:07,040 --> 00:01:10,360
+And these intervals are now what we call elements.
+
+12
+00:01:12,040 --> 00:01:19,820
+And for reasons I'm going to discuss a little bit later, let's now, instead of labeling the elements as integers,
+
+13
+00:01:20,080 --> 00:01:22,700
+let's label the element boundaries as integers.
+
+14
+00:01:22,980 --> 00:01:25,080
+1, 2, 3, 4, etc.
+
+15
+00:01:25,780 --> 00:01:28,040
+So for all the i's.
+
+16
+00:01:28,080 --> 00:01:30,080
+Let's see.
+
+17
+00:01:31,660 --> 00:01:42,440
+fx is linear in x in xi minus 1 and xi.
+
+18
+00:01:44,960 --> 00:01:45,720
+Okay.
+
+19
+00:01:45,880 --> 00:01:49,200
+So this is one class of functions.
+
+20
+00:01:50,960 --> 00:01:55,440
+So can somebody tell me does this correspond to this case or the previous case?
+
+21
+00:01:56,680 --> 00:01:57,740
+This one, right?
+
+22
+00:01:57,840 --> 00:01:58,040
+Because.
+
+23
+00:01:58,080 --> 00:02:02,440
+Because I'm no longer requiring my x to be continuous.
+
+24
+00:02:04,080 --> 00:02:04,580
+So.
+
+25
+00:02:05,960 --> 00:02:13,640
+So for example, when i is equal to 1, when x is in x0 and x1, the function is linear like this.
+
+26
+00:02:14,080 --> 00:02:16,760
+In between 1 and 2, the function can be like that.
+
+27
+00:02:16,880 --> 00:02:17,280
+Okay.
+
+28
+00:02:17,280 --> 00:02:22,760
+So I can have a function that is like that to approximate whatever function I want to approximate.
+
+29
+00:02:23,760 --> 00:02:27,880
+The second case, which is the case we're going to discuss in this lecture.
+
+30
+00:02:27,880 --> 00:02:33,760
+Is putting an additional constraint on the function.
+
+31
+00:02:37,880 --> 00:02:40,720
+And f is continuous.
+
+32
+00:02:45,480 --> 00:02:46,240
+Continuous.
+
+33
+00:02:48,040 --> 00:02:54,080
+And for all the i, fx is linear.
+
+34
+00:02:56,380 --> 00:02:56,880
+In x.
+
+35
+00:02:56,880 --> 00:02:58,280
+x.
+
+36
+00:02:59,280 --> 00:03:00,960
+i minus 1 and xi.
+
+37
+00:03:03,680 --> 00:03:09,760
+So this is a space that I require the function to be not only piecewise linear but continuous.
+
+38
+00:03:10,080 --> 00:03:16,120
+So these are these kind of piecewise lines that I can draw with one stroke.
+
+39
+00:03:17,440 --> 00:03:17,940
+Okay.
+
+40
+00:03:20,360 --> 00:03:20,860
+Now.
+
+41
+00:03:21,680 --> 00:03:26,280
+What I claim is that this space of x satisfies a particular.
+
+42
+00:03:26,280 --> 00:03:30,280
+Particularly nice properties called linearity.
+
+43
+00:03:30,280 --> 00:03:32,280
+So what does linearity mean?
+
+44
+00:03:32,280 --> 00:03:40,280
+Linearity means that if I have x1 and x2 both in the space x.
+
+45
+00:03:40,280 --> 00:03:42,280
+Okay.
+
+46
+00:03:42,280 --> 00:03:44,280
+So linearity.
+
+47
+00:03:44,280 --> 00:03:50,280
+So this is not linearity of the function but linearity of the function space.
+
+48
+00:03:50,280 --> 00:03:51,280
+Right.
+
+49
+00:03:51,280 --> 00:03:53,280
+That's different from the linearity of the function f.
+
+50
+00:03:53,280 --> 00:03:55,280
+Linearity of the function f just says like f is a straight line.
+
+51
+00:03:55,280 --> 00:03:56,280
+If you put it like this.
+
+52
+00:03:56,280 --> 00:03:57,280
+You plot it.
+
+53
+00:03:57,280 --> 00:04:00,280
+But linearity of the function space is something different.
+
+54
+00:04:00,280 --> 00:04:06,280
+It's saying that for any pair of f1 and f2 in that linear space.
+
+55
+00:04:06,280 --> 00:04:20,280
+a1 times f1 plus a2 times f2 is also in the space for any real numbers a1 and a2.
+
+56
+00:04:20,280 --> 00:04:21,280
+Alright.
+
+57
+00:04:21,280 --> 00:04:22,280
+So.
+
+58
+00:04:22,280 --> 00:04:31,280
+Any linear combination of any two elements in the space also belongs to the same space.
+
+59
+00:04:31,280 --> 00:04:33,280
+That is linearity.
+
+60
+00:04:35,280 --> 00:04:37,280
+So in this case why is the case?
+
+61
+00:04:37,280 --> 00:04:40,280
+Why is this particular space linear?
+
+62
+00:04:40,280 --> 00:04:42,280
+So let's check it.
+
+63
+00:04:43,280 --> 00:04:45,280
+First of all if I have a function like that.
+
+64
+00:04:45,280 --> 00:04:48,280
+If I scale the function by a real number.
+
+65
+00:04:48,280 --> 00:04:50,280
+The scaled function.
+
+66
+00:04:50,280 --> 00:04:53,280
+Let's say if I scale it to a little bigger.
+
+67
+00:04:53,280 --> 00:04:56,280
+The scaled function would look like that.
+
+68
+00:04:56,280 --> 00:04:58,280
+Of course it's still continuous.
+
+69
+00:04:58,280 --> 00:05:03,280
+And of course for every interval the scaled function is also linear.
+
+70
+00:05:03,280 --> 00:05:04,280
+Right.
+
+71
+00:05:04,280 --> 00:05:08,280
+So if I have f1 in x.
+
+72
+00:05:08,280 --> 00:05:11,280
+a1 times f1 is also in x.
+
+73
+00:05:11,280 --> 00:05:14,280
+Again if I have f2 in x.
+
+74
+00:05:14,280 --> 00:05:16,280
+a2 times f2 is also in x.
+
+75
+00:05:16,280 --> 00:05:17,280
+This is pretty much linear.
+
+76
+00:05:17,280 --> 00:05:22,280
+This is because scaling is invariant.
+
+77
+00:05:22,280 --> 00:05:24,280
+Scaling is.
+
+78
+00:05:24,280 --> 00:05:27,280
+I mean the x is invariant to scaling.
+
+79
+00:05:27,280 --> 00:05:33,280
+And also if I have both a1 f1 and a2 f2 in the space.
+
+80
+00:05:33,280 --> 00:05:39,280
+Adding them together the sum of two continuous functions is continuous.
+
+81
+00:05:39,280 --> 00:05:43,280
+And the sum of two linear functions is linear.
+
+82
+00:05:43,280 --> 00:05:44,280
+So.
+
+83
+00:05:44,280 --> 00:05:47,280
+a1 f1 plus a2 f2 is also.
+
+84
+00:05:47,280 --> 00:05:50,280
+Continuous and piecewise linear.
+
+85
+00:05:50,280 --> 00:05:53,280
+Therefore we can prove that x is a linear space.
+
+86
+00:05:53,280 --> 00:05:57,280
+By simply arguing about the properties of the functions.
+
+87
+00:05:57,280 --> 00:06:00,280
+It has to satisfy.
+
+88
+00:06:00,280 --> 00:06:01,280
+Alright.
+
+89
+00:06:01,280 --> 00:06:07,280
+Any questions so far?
+
+90
+00:06:07,280 --> 00:06:09,280
+Okay.
+
+91
+00:06:09,280 --> 00:06:10,280
+Now.
+
+92
+00:06:10,280 --> 00:06:12,280
+We need to introduce the concept.
+
+93
+00:06:12,280 --> 00:06:14,280
+Once we have a linear space.
+
+94
+00:06:14,280 --> 00:06:16,280
+A linear space is particularly nice.
+
+95
+00:06:16,280 --> 00:06:26,280
+That it has this thing called a basis.
+
+96
+00:06:26,280 --> 00:06:27,280
+Okay.
+
+97
+00:06:27,280 --> 00:06:33,280
+A basis in a linear space.
+
+98
+00:06:33,280 --> 00:06:37,280
+x1 x2 all the way to xn for example.
+
+99
+00:06:37,280 --> 00:06:41,280
+Is a basis.
+
+100
+00:06:41,280 --> 00:06:43,280
+So this is a basis.
+
+101
+00:06:46,280 --> 00:06:56,280
+Of x.
+
+102
+00:06:56,280 --> 00:06:57,280
+If and only if.
+
+103
+00:06:57,280 --> 00:06:58,280
+The following properties are satisfied.
+
+104
+00:06:58,280 --> 00:06:59,280
+So first of all.
+
+105
+00:06:59,280 --> 00:07:00,280
+For any x.
+
+106
+00:07:00,280 --> 00:07:01,280
+In that linear space.
+
+107
+00:07:01,280 --> 00:07:02,280
+X can be represented as a linear combination.
+
+108
+00:07:02,280 --> 00:07:03,280
+Of these basis.
+
+109
+00:07:03,280 --> 00:07:04,280
+Alright.
+
+110
+00:07:04,280 --> 00:07:05,280
+So this is the first property.
+
+111
+00:07:05,280 --> 00:07:06,280
+But that's not the case.
+
+112
+00:07:06,280 --> 00:07:07,280
+Because.
+
+113
+00:07:07,280 --> 00:07:08,280
+The first property.
+
+114
+00:07:08,280 --> 00:07:09,280
+Is the linear space.
+
+115
+00:07:09,280 --> 00:07:10,280
+And the second property.
+
+116
+00:07:10,280 --> 00:07:11,280
+Is the linear space.
+
+117
+00:07:11,280 --> 00:07:12,280
+And the third property.
+
+118
+00:07:12,280 --> 00:07:13,280
+Is the linear space.
+
+119
+00:07:13,280 --> 00:07:14,280
+And the fourth property.
+
+120
+00:07:14,280 --> 00:07:15,280
+Is the linear space.
+
+121
+00:07:15,280 --> 00:07:16,280
+So this is the first property.
+
+122
+00:07:16,280 --> 00:07:17,280
+But that's not enough.
+
+123
+00:07:17,280 --> 00:07:18,280
+Another property is that.
+
+124
+00:07:18,280 --> 00:07:19,280
+For any.
+
+125
+00:07:19,280 --> 00:07:20,280
+Another property.
+
+126
+00:07:20,280 --> 00:07:21,280
+Let me just say like this.
+
+127
+00:07:21,280 --> 00:07:22,280
+Another property is that.
+
+128
+00:07:22,280 --> 00:07:23,280
+This representation.
+
+129
+00:07:23,280 --> 00:07:24,280
+Is unique.
+
+130
+00:07:24,280 --> 00:07:25,280
+So.
+
+131
+00:07:25,280 --> 00:07:26,280
+For any x.
+
+132
+00:07:26,280 --> 00:07:27,280
+The.
+
+133
+00:07:27,280 --> 00:07:28,280
+The set of.
+
+134
+00:07:28,280 --> 00:07:29,280
+A i's.
+
+135
+00:07:29,280 --> 00:07:30,280
+Is.
+
+136
+00:07:30,280 --> 00:07:31,280
+A x.
+
+137
+00:07:31,280 --> 00:07:32,280
+And a x.
+
+138
+00:07:32,280 --> 00:07:33,280
+Is.
+
+139
+00:07:33,280 --> 00:07:34,280
+A x.
+
+140
+00:07:34,280 --> 00:07:35,280
+And a x.
+
+141
+00:07:35,280 --> 00:07:36,280
+Is.
+
+142
+00:07:36,280 --> 00:07:37,280
+A x.
+
+143
+00:07:37,280 --> 00:07:38,280
+And a x.
+
+144
+00:07:38,280 --> 00:07:39,280
+Is.
+
+145
+00:07:39,280 --> 00:07:40,280
+A x.
+
+146
+00:07:40,280 --> 00:07:41,280
+And a x.
+
+147
+00:07:41,280 --> 00:07:42,280
+Is.
+
+148
+00:07:42,280 --> 00:07:43,280
+A x.
+
+149
+00:07:43,280 --> 00:07:44,280
+Is.
+
+150
+00:07:44,280 --> 00:07:45,280
+A x.
+
+151
+00:07:45,280 --> 00:07:46,280
+Is.
+
+152
+00:07:46,280 --> 00:07:47,280
+A x.
+
+153
+00:07:47,280 --> 00:07:48,280
+Is.
+
+154
+00:07:48,280 --> 00:07:49,280
+A x.
+
+155
+00:07:49,280 --> 00:07:50,280
+And a x.
+
+156
+00:07:50,280 --> 00:07:51,280
+Such that.
+
+157
+00:07:51,280 --> 00:07:52,280
+A x.
+
+158
+00:07:52,280 --> 00:07:53,280
+Is.
+
+159
+00:07:53,280 --> 00:07:54,280
+A x.
+
+160
+00:07:54,280 --> 00:07:55,280
+Is.
+
+161
+00:07:55,280 --> 00:07:56,280
+A x.
+
+162
+00:07:56,280 --> 00:07:57,280
+Is.
+
+163
+00:07:57,280 --> 00:07:58,280
+A x.
+
+164
+00:07:58,280 --> 00:07:59,280
+Is.
+
+165
+00:07:59,280 --> 00:08:00,280
+Such that.
+
+166
+00:08:00,280 --> 00:08:01,280
+X.
+
+167
+00:08:01,280 --> 00:08:02,280
+Is.
+
+168
+00:08:02,280 --> 00:08:03,280
+E.
+
+169
+00:08:03,280 --> 00:08:04,280
+Equal to.
+
+170
+00:08:04,280 --> 00:08:05,280
+A i.
+
+171
+00:08:05,280 --> 00:08:06,280
+X.
+
+172
+00:08:06,280 --> 00:08:07,280
+I.
+
+173
+00:08:07,280 --> 00:08:08,280
+So.
+
+174
+00:08:08,280 --> 00:08:09,280
+This is i.
+
+175
+00:08:09,280 --> 00:08:10,280
+Is.
+
+176
+00:08:10,280 --> 00:08:11,280
+Unique.
+
+177
+00:08:11,280 --> 00:08:12,280
+So you can't find.
+
+178
+00:08:12,280 --> 00:08:13,280
+Two.
+
+179
+00:08:13,280 --> 00:08:14,280
+Different.
+
+180
+00:08:14,280 --> 00:08:15,280
+Set of.
+
+181
+00:08:15,280 --> 00:08:21,900
+clues you from having a basis in which xn can be represented as a linear
+
+182
+00:08:21,900 --> 00:08:30,440
+combination of x1 x2 to xn-1. Because if you can do that, xn is of course a
+
+183
+00:08:30,440 --> 00:08:39,280
+member of x, right? And then xn has two different representations. One
+
+184
+00:08:39,280 --> 00:08:44,760
+representation is that xn is equal to a summation where all the a i's are zero
+
+185
+00:08:44,760 --> 00:08:51,300
+except for a n which is 1. So xn is equal to xn. And also it has a different
+
+186
+00:08:51,300 --> 00:08:56,640
+representation using only the values x1 to xn-1. So the
+
+187
+00:08:56,640 --> 00:09:03,020
+representation of a summation of a i is not unique, right? So basically if we
+
+188
+00:09:03,020 --> 00:09:08,520
+have property 2 that means any members of the basis cannot be represented as a
+
+189
+00:09:08,520 --> 00:09:12,140
+linear combination of the other members.
+
+190
+00:09:13,040 --> 00:09:14,040
+Okay.
+
+191
+00:09:14,760 --> 00:09:25,180
+Also it means if we have a basis we cannot add anything onto the basis. So if
+
+192
+00:09:25,180 --> 00:09:30,140
+we add any other members of x onto the basis it becomes no longer a basis.
+
+193
+00:09:30,140 --> 00:09:37,760
+Because if we add another member that that additional member would be able to
+
+194
+00:09:37,760 --> 00:09:41,600
+be represented either just as a linear combination of itself or as a linear
+
+195
+00:09:41,600 --> 00:09:44,600
+combination of the previous set of basis.
+
+196
+00:09:44,760 --> 00:09:47,760
+Okay.
+
+197
+00:09:47,760 --> 00:09:54,760
+Any questions so far?
+
+198
+00:09:54,760 --> 00:10:02,980
+So the basis is very useful because it reduces an optimization problem. It reduces a least
+
+199
+00:10:02,980 --> 00:10:09,520
+squares problem just like what we saw before. From a least squares problem in the abstract
+
+200
+00:10:09,520 --> 00:10:10,680
+function space to a least squares problem that a computer can solve.
+
+201
+00:10:10,680 --> 00:10:11,680
+Okay.
+
+202
+00:10:11,680 --> 00:10:12,680
+So that's the basic.
+
+203
+00:10:12,680 --> 00:10:13,680
+Thank you.
+
+204
+00:10:13,680 --> 00:10:14,680
+Thank you.
+
+205
+00:10:14,680 --> 00:10:16,560
+Thank you.
+
+206
+00:10:16,560 --> 00:10:22,640
+So but we'll have to think about how to solve a least squares problem in a bunch of
+
+207
+00:10:22,640 --> 00:10:29,140
+numbers. So for example if I want to say I want to minimize the distance. We're going
+
+208
+00:10:29,140 --> 00:10:34,560
+to define what the distance should be before or a little bit later. Between the distance
+
+209
+00:10:34,560 --> 00:10:41,680
+between any function f and x for all x in the linear space, x. Right so if we want to solve that minimization problem.
+
+210
+00:10:41,680 --> 00:10:42,680
+Right so if we want to solve that minimization problem.
+
+211
+00:10:42,680 --> 00:10:43,680
+Right.
+
+212
+00:10:43,680 --> 00:10:52,800
+minimization problem. It's pretty tricky because I'm minimizing over a function space that I don't
+
+213
+00:10:52,800 --> 00:11:02,560
+know how to choose. But I can transform that minimization problem because any x in x can be
+
+214
+00:11:02,560 --> 00:11:10,040
+represented as a linear combination. I can minimize over all the possible a's that is in Rn,
+
+215
+00:11:10,040 --> 00:11:21,000
+right? So if the basis has n entries, the distance between f and that linear combination
+
+216
+00:11:21,000 --> 00:11:32,500
+of xi. So I know I'm minimizing over a space of n numbers, and that is something I can solve
+
+217
+00:11:32,500 --> 00:11:39,700
+with the computer. So that's why basis is useful, okay?
+
+218
+00:11:40,040 --> 00:11:45,720
+Now let's discuss... Yeah?
+
+219
+00:11:45,720 --> 00:12:02,360
+That's a good question. What if the basis is not finite? Actually, for some function spaces,
+
+220
+00:12:02,360 --> 00:12:09,560
+the basis is infinite. For example, you can simply choose x to be all functions that are
+
+221
+00:12:09,560 --> 00:12:10,020
+continuous. So if you have a function space that is infinite, and you want to write it as a linear
+
+222
+00:12:10,020 --> 00:12:15,100
+continuous, it don't require x to be piecewise linear or anything. In that case, you actually
+
+223
+00:12:15,100 --> 00:12:20,880
+cannot find a finite set of basis. You can still have a basis, but the basis is going to be an
+
+224
+00:12:20,880 --> 00:12:27,580
+infinite set. It's not a finite set. And in that case, this particular problem cannot be transformed
+
+225
+00:12:27,580 --> 00:12:34,340
+into a finite dimensional optimization problem. That is why in finite element, there is this word
+
+226
+00:12:34,340 --> 00:12:39,540
+finite, okay? We need to construct...
+
+227
+00:12:40,020 --> 00:12:47,460
+Because the space of functions, as you can see, it's of my choice. I can choose what function space
+
+228
+00:12:47,460 --> 00:12:56,060
+I want to operate in. Therefore, I need to choose a function space that I can actually construct
+
+229
+00:12:56,060 --> 00:13:03,520
+a finite set of basis. And that enables me to transform any minimization problem. So this is
+
+230
+00:13:03,520 --> 00:13:09,500
+just for approximating a function, a known function. I'm going to tell you a little bit later, like,
+
+231
+00:13:09,500 --> 00:13:15,800
+how to do the same for approximating an unknown function, which is a solution for PDE using the same
+
+232
+00:13:15,800 --> 00:13:21,920
+framework. We are also going to be able to translate that into a finite dimensional optimization problem.
+

@@ -1,0 +1,300 @@
+1
+00:00:00,000 --> 00:00:11,500
+So we have a function of u, u of x and t at a particular t as a function of x.
+
+2
+00:00:11,500 --> 00:00:20,800
+We are going to discretize the domain into x0, x1, etc. to xn.
+
+3
+00:00:22,060 --> 00:00:27,700
+So these are a bunch of grid points monotonically increasing.
+
+4
+00:00:27,700 --> 00:00:42,040
+What I'm going to do is I'm going to only remember ui, which is defined as u at a particular xi.
+
+5
+00:00:42,040 --> 00:00:47,340
+And ui is a function of t only, and u is a function of x and t.
+
+6
+00:00:50,480 --> 00:00:57,420
+So now we can see that the time derivative of ui is what?
+
+7
+00:00:57,700 --> 00:01:05,760
+Well, because ui is just a function of t, I should write it as dui dt.
+
+8
+00:01:08,000 --> 00:01:13,720
+It's equal to partial u of xi t partial t.
+
+9
+00:01:17,420 --> 00:01:27,680
+Right, so if we can derive dui dt as an algebraic function of ui and probably other ui functions,
+
+10
+00:01:27,700 --> 00:01:28,280
+we get a system of uis.
+
+11
+00:01:28,860 --> 00:01:29,960
+We get an ode.
+
+12
+00:01:30,680 --> 00:01:32,500
+We get a system of odes.
+
+13
+00:01:33,220 --> 00:01:35,060
+A coupled system of odes.
+
+14
+00:01:35,720 --> 00:01:36,780
+And that we can solve.
+
+15
+00:01:38,120 --> 00:01:41,100
+Okay, so let's continue the derivation.
+
+16
+00:01:41,680 --> 00:01:50,840
+By the pde, this is equal to kappa times the second order derivative of u at this xi and t.
+
+17
+00:01:51,980 --> 00:01:54,480
+So the question is, now what?
+
+18
+00:01:54,480 --> 00:01:57,000
+How do we approximate this?
+
+19
+00:01:57,700 --> 00:02:01,700
+How do we write this as a function of ui?
+
+20
+00:02:01,700 --> 00:02:06,260
+Probably ui minus 1, ui plus 1, and et cetera.
+
+21
+00:02:06,260 --> 00:02:11,420
+Right, how do we write this as a function of these u's?
+
+22
+00:02:11,420 --> 00:02:20,620
+So here, the second order derivative has a very nice approximation.
+
+23
+00:02:20,620 --> 00:02:25,980
+This is because a second order derivative is the first order derivative of the function
+
+24
+00:02:25,980 --> 00:02:26,980
+of ui.
+
+25
+00:02:26,980 --> 00:02:30,460
+So we have the derivative of the first order derivative.
+
+26
+00:02:30,460 --> 00:02:36,740
+And the first order derivative on this function is the slope.
+
+27
+00:02:36,740 --> 00:02:45,620
+And if we discretize this solution on these grid points, remember these circles we saw
+
+28
+00:02:45,620 --> 00:02:47,280
+on the computer?
+
+29
+00:02:47,280 --> 00:02:51,200
+We have the slopes.
+
+30
+00:02:51,200 --> 00:02:56,260
+We don't have the slope on the grid points, but we have the average slope in between the
+
+31
+00:02:56,260 --> 00:02:56,760
+grid points.
+
+32
+00:02:56,980 --> 00:02:57,980
+Right?
+
+33
+00:02:57,980 --> 00:03:11,160
+We basically, we can link any of these two circles, and we get the average slope.
+
+34
+00:03:11,160 --> 00:03:15,560
+And now, this average slope approximates the first order derivative.
+
+35
+00:03:15,560 --> 00:03:21,980
+So taking the difference between the nearest average slopes, we can hope to approximate
+
+36
+00:03:21,980 --> 00:03:23,980
+the second order derivative.
+
+37
+00:03:23,980 --> 00:03:24,980
+So, we can do this.
+
+38
+00:03:24,980 --> 00:03:25,980
+We can do this.
+
+39
+00:03:25,980 --> 00:03:26,980
+We can do this.
+
+40
+00:03:26,980 --> 00:03:29,880
+So let's write down the approximation.
+
+41
+00:03:29,880 --> 00:03:37,200
+So the approximation can be written as the difference between the nearest slopes divided
+
+42
+00:03:37,200 --> 00:03:43,220
+by the difference between the location of these nearest slopes.
+
+43
+00:03:43,220 --> 00:03:51,660
+So the nearest slope can be written as ui plus 1 minus ui divided by delta x.
+
+44
+00:03:51,660 --> 00:03:54,980
+So delta x is the spacing between all the uniform slopes.
+
+45
+00:03:54,980 --> 00:03:55,980
+So delta x is the spacing between all the uniform slopes.
+
+46
+00:03:55,980 --> 00:03:56,980
+So the nearest slope can be written as ui plus 1 minus ui into the point delta x.
+
+47
+00:03:56,980 --> 00:03:57,980
+And then delta x is the spacing between all the uniform grid points.
+
+48
+00:03:57,980 --> 00:03:58,260
+The uniform.
+
+49
+00:03:58,260 --> 00:04:08,820
+In the simplest case for finite difference, we use the uniform grid points.
+
+50
+00:04:08,820 --> 00:04:10,360
+And this is the slope.
+
+51
+00:04:10,360 --> 00:04:15,020
+Let's say this is the ith grid point.
+
+52
+00:04:15,020 --> 00:04:23,360
+This is the i plus one, and this is the i minus one grid point.
+
+53
+00:04:23,360 --> 00:04:24,880
+And now what we have written down is, we have the slope.
+
+54
+00:04:24,880 --> 00:04:24,980
+The slope is now 0.
+
+55
+00:04:24,980 --> 00:04:25,340
+And we introduced the slope.
+
+56
+00:04:25,340 --> 00:04:25,380
+We have the slope.
+
+57
+00:04:25,380 --> 00:04:25,680
+We have the slope.
+
+58
+00:04:25,680 --> 00:04:25,780
+We have the slope.
+
+59
+00:04:25,780 --> 00:04:25,880
+And now, this is the slope.
+
+60
+00:04:25,880 --> 00:04:25,980
+And now, we have the slope.
+
+61
+00:04:25,980 --> 00:04:35,340
+this slope and we also need to minus ui minus ui minus 1 divided by delta x. So
+
+62
+00:04:35,340 --> 00:04:43,660
+that's that slope. We divide that by the spacing between these two slopes which
+
+63
+00:04:43,660 --> 00:04:52,980
+is again delta x and we collect the terms. What we get is ui plus 1 plus ui
+
+64
+00:04:52,980 --> 00:05:02,360
+minus 1 minus 2 times ui divided by delta x squared. That is a standard way
+
+65
+00:05:02,360 --> 00:05:09,940
+to approximate the second order derivative using finite difference. Now
+
+66
+00:05:09,940 --> 00:05:17,640
+with that approximation we get this being left hand side and this being
+
+67
+00:05:17,640 --> 00:05:22,420
+right hand side. That's an ODE we can solve.
+
+68
+00:05:22,980 --> 00:05:36,400
+We get dui dt equal to kappa times ui plus 1 plus ui minus 1 minus 2 ui
+
+69
+00:05:36,400 --> 00:05:43,320
+divided by delta x. And that is true for
+
+70
+00:05:52,980 --> 00:06:04,980
+i equal to 1 2 3 2n minus 1. And on the two sides we have boundary conditions
+
+71
+00:06:04,980 --> 00:06:10,720
+which we will talk later. The simplest type of boundary condition is u0 which
+
+72
+00:06:10,720 --> 00:06:15,480
+is u at the left hand side of the domain has to equal to a specific value at the
+
+73
+00:06:15,480 --> 00:06:20,940
+left and un which is the value at the right end of the domain is equal to a
+
+74
+00:06:20,940 --> 00:06:22,900
+different specific number.
+
+75
+00:06:22,980 --> 00:06:25,040
+Thank you.
+

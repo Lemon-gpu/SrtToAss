@@ -1,0 +1,748 @@
+1
+00:00:00,000 --> 00:00:15,920
+Approximating second-order derivative with finite difference. So the
+
+2
+00:00:15,920 --> 00:00:25,040
+approximation error we define is basically this minus this. Okay
+
+3
+00:00:25,040 --> 00:00:35,440
+approximation error is ui plus 1 plus ui minus 1 minus 2 ui divided by delta x
+
+4
+00:00:35,440 --> 00:00:44,500
+square minus this. And one of the very powerful way to analyze the accuracy of
+
+5
+00:00:44,500 --> 00:00:50,040
+an approximation scheme is Taylor series.
+
+6
+00:00:55,040 --> 00:01:04,340
+Taylor series expands the solution at a particular point as a function of the
+
+7
+00:01:04,340 --> 00:01:11,060
+values and derivatives of the same function at a different point. So for
+
+8
+00:01:11,060 --> 00:01:21,780
+example ui plus 1 which is defined as the solution u at i times delta x, right?
+
+9
+00:01:21,780 --> 00:01:25,020
+Because each grid spacing is delta x, the i-th gradient
+
+10
+00:01:25,020 --> 00:01:34,700
+point is at x equal to i times delta x. Oh not i but i plus 1 delta x. So i delta x
+
+11
+00:01:34,700 --> 00:01:44,160
+plus another delta x. It can be expanded using Taylor series assuming the
+
+12
+00:01:44,160 --> 00:01:54,980
+function is smooth analytic. It is equal to k goes from 0 to infinity of
+
+13
+00:01:55,020 --> 00:02:15,100
+u at i delta x of the k-th derivative times delta x to the k-th power and
+
+14
+00:02:15,100 --> 00:02:25,020
+times 1 over k factorial. Right so this is the Taylor series of expanding the
+
+15
+00:02:25,020 --> 00:02:32,020
+solution at a particular point. So we can see that the first term k equals 0 is
+
+16
+00:02:35,100 --> 00:02:42,100
+the 0-th derivative which is u itself. And the second term is the first-order
+
+17
+00:02:43,020 --> 00:02:47,260
+derivative. The third term is the second-order derivative which is what we
+
+18
+00:02:47,260 --> 00:02:54,260
+are trying to approximate. And the third-order derivative etc. is something
+
+19
+00:02:54,260 --> 00:03:02,260
+also we don't want. So basically in this Taylor series analysis we want to also
+
+20
+00:03:02,260 --> 00:03:09,260
+write down the Taylor series of ui minus 1 and use the coefficients to cancel the
+
+21
+00:03:09,260 --> 00:03:17,260
+0-th term, k equal to 0 term, cancel k equal to 1 term and preserve k equal to 2 term.
+
+22
+00:03:17,260 --> 00:03:22,340
+And make the k equal to 3, 4, etc terms as small as we can. That's the first term.
+
+23
+00:03:22,340 --> 00:03:23,340
+Thank you.
+
+24
+00:03:24,260 --> 00:03:34,260
+Something we want to do right now. ui minus 1 would be equal to ui delta x minus delta x.
+
+25
+00:03:34,260 --> 00:03:43,260
+It is equal to the same summation, same 1 over k factorial. This is just a copying Taylor series.
+
+26
+00:03:43,260 --> 00:03:52,260
+i delta x except for instead of plus delta x here we get a minus delta x to the k-th power.
+
+27
+00:03:52,260 --> 00:03:53,260
+Right.
+
+28
+00:03:54,260 --> 00:04:00,260
+Okay. So now add them up.
+
+29
+00:04:00,260 --> 00:04:07,260
+Let me make another page. What? Okay. Let me make another page for that.
+
+30
+00:04:16,260 --> 00:04:22,260
+Didn't know it does that. Okay. So of course you
+
+31
+00:04:24,260 --> 00:04:27,260
+can see.
+
+32
+00:04:27,260 --> 00:04:39,260
+Of course ui is just equal to u of k i delta x.
+
+33
+00:04:39,260 --> 00:04:46,260
+All right. Only one term. So let's look at the accuracy of this scheme.
+
+34
+00:04:46,260 --> 00:04:56,260
+So the solution error is 2 over delta x.
+
+35
+00:04:56,260 --> 00:05:00,260
+Let me just copy them down. Not 2.
+
+36
+00:05:00,260 --> 00:05:12,260
+It's 1 over delta x times ui plus 1 plus 1 over delta x times ui minus 1 minus 2 over delta x.
+
+37
+00:05:12,260 --> 00:05:14,260
+By the way, it's squared.
+
+38
+00:05:14,260 --> 00:05:16,260
+So it's squared.
+
+39
+00:05:16,260 --> 00:05:22,260
+So the solution error is 1 over delta x times ui and also minus.
+
+40
+00:05:22,260 --> 00:05:31,260
+So this is plus and also minus partial x squared partial x squared.
+
+41
+00:05:33,260 --> 00:05:42,260
+And for each of these terms, we are going to expand the Taylor series.
+
+42
+00:05:42,260 --> 00:05:46,260
+The first term, we look at the first order.
+
+43
+00:05:46,260 --> 00:05:53,260
+Right. So this one is proportional to u of i, which is also u at ix, i delta x.
+
+44
+00:05:53,260 --> 00:05:56,260
+This is ui prime.
+
+45
+00:05:56,260 --> 00:05:58,260
+This is ui double prime.
+
+46
+00:05:58,260 --> 00:06:00,260
+ui triple prime.
+
+47
+00:06:00,260 --> 00:06:03,260
+ui quad prime.
+
+48
+00:06:03,260 --> 00:06:08,260
+So this prime, I use it as shorthand for taking derivatives.
+
+49
+00:06:08,260 --> 00:06:09,260
+1 prime is first order.
+
+50
+00:06:09,260 --> 00:06:11,260
+Double prime is second order.
+
+51
+00:06:11,260 --> 00:06:22,260
+For example, if we just expand the second order derivative, we get, of course, 0, 0, minus 1, 0, 0, etc.
+
+52
+00:06:22,260 --> 00:06:24,260
+Right.
+
+53
+00:06:24,260 --> 00:06:31,260
+So this is, I'm writing down minus partial square u partial x squared as a linear combination of all the derivatives.
+
+54
+00:06:31,260 --> 00:06:37,260
+And this is at xi.
+
+55
+00:06:37,260 --> 00:06:38,260
+OK.
+
+56
+00:06:38,260 --> 00:06:40,260
+Another example is when I look at the third term.
+
+57
+00:06:40,260 --> 00:06:43,260
+The third term, which is also very easy.
+
+58
+00:06:43,260 --> 00:06:48,260
+The first coefficient minus 2 over delta x squared.
+
+59
+00:06:48,260 --> 00:06:53,260
+And all the other coefficients are 0.
+
+60
+00:06:53,260 --> 00:06:55,260
+Right.
+
+61
+00:06:55,260 --> 00:06:58,260
+And these two terms are a little bit more tricky.
+
+62
+00:06:58,260 --> 00:07:02,260
+So that we need to follow this Taylor series.
+
+63
+00:07:02,260 --> 00:07:07,260
+The first term is 1 over delta x squared.
+
+64
+00:07:07,260 --> 00:07:15,260
+The second term is 1 over delta x squared times the coefficient in the Taylor series, which is k equal to 1.
+
+65
+00:07:15,260 --> 00:07:18,260
+1 over 1 factorial is 1.
+
+66
+00:07:18,260 --> 00:07:20,260
+And this is the first order derivative.
+
+67
+00:07:20,260 --> 00:07:22,260
+And delta x.
+
+68
+00:07:22,260 --> 00:07:25,260
+So delta x is the only thing that comes out.
+
+69
+00:07:25,260 --> 00:07:26,260
+All right.
+
+70
+00:07:26,260 --> 00:07:32,260
+And then the second order derivative, we still have 1 over delta x squared.
+
+71
+00:07:32,260 --> 00:07:35,260
+And now 2 factorial is actually 2.
+
+72
+00:07:35,260 --> 00:07:39,260
+So we have delta x squared.
+
+73
+00:07:39,260 --> 00:07:42,260
+The third term, still 1 over delta x squared.
+
+74
+00:07:42,260 --> 00:07:48,260
+We have delta x to the cubed and 3 factorial.
+
+75
+00:07:48,260 --> 00:07:54,260
+And delta x fourth, 4 factorial.
+
+76
+00:07:54,260 --> 00:08:03,260
+The minus 1 term, the same, except for when we multiply by delta x, we multiply by minus delta x.
+
+77
+00:08:03,260 --> 00:08:04,260
+When we multiply by delta x squared, we multiply by minus delta x.
+
+78
+00:08:04,260 --> 00:08:07,260
+When we multiply by delta x squared, we multiply by minus delta x.
+
+79
+00:08:07,260 --> 00:08:08,260
+When we multiply by delta x squared, we multiply by minus delta x.
+
+80
+00:08:08,260 --> 00:08:10,260
+Which is the same as delta x squared.
+
+81
+00:08:10,260 --> 00:08:15,260
+And here, delta x cubed, we get a minus sign again.
+
+82
+00:08:15,260 --> 00:08:20,260
+And fourth, we get no minus sign.
+
+83
+00:08:20,260 --> 00:08:23,260
+And this goes on forever.
+
+84
+00:08:23,260 --> 00:08:27,260
+Right?
+
+85
+00:08:27,260 --> 00:08:33,260
+So the cool thing is, when we add them up, what happens?
+
+86
+00:08:33,260 --> 00:08:37,260
+First, let's look at the first term.
+
+87
+00:08:37,260 --> 00:08:46,260
+When we add all the constant terms together, what happens?
+
+88
+00:08:46,260 --> 00:08:47,260
+Yeah?
+
+89
+00:08:47,260 --> 00:08:49,260
+They cancel each other.
+
+90
+00:08:49,260 --> 00:08:52,260
+They cancel each other, we get 0.
+
+91
+00:08:52,260 --> 00:08:53,260
+Right?
+
+92
+00:08:53,260 --> 00:08:55,260
+Minus 2, 1, 1.
+
+93
+00:08:55,260 --> 00:08:57,260
+How about the second?
+
+94
+00:08:57,260 --> 00:08:58,260
+0.
+
+95
+00:08:58,260 --> 00:08:59,260
+Right?
+
+96
+00:08:59,260 --> 00:09:01,260
+So that's a well-constructed scheme.
+
+97
+00:09:01,260 --> 00:09:02,260
+We are canceling a lot of things.
+
+98
+00:09:03,260 --> 00:09:05,260
+We are canceling a lot of terms.
+
+99
+00:09:05,260 --> 00:09:10,260
+How about this one?
+
+100
+00:09:10,260 --> 00:09:11,260
+Also 0.
+
+101
+00:09:11,260 --> 00:09:12,260
+Right?
+
+102
+00:09:12,260 --> 00:09:14,260
+This and this cancels.
+
+103
+00:09:14,260 --> 00:09:16,260
+We have half, half, and minus 1.
+
+104
+00:09:16,260 --> 00:09:17,260
+0.
+
+105
+00:09:17,260 --> 00:09:18,260
+All right?
+
+106
+00:09:18,260 --> 00:09:24,260
+So this minus 1 here, coming from here, is the only one that, if you just look at the
+
+107
+00:09:24,260 --> 00:09:26,260
+scheme alone, that doesn't cancel within itself.
+
+108
+00:09:26,260 --> 00:09:31,260
+It cancels with the term it tries to approximate.
+
+109
+00:09:31,260 --> 00:09:32,260
+All right?
+
+110
+00:09:32,260 --> 00:09:36,260
+Now if you look at this again, the third derivative term, 0 again.
+
+111
+00:09:36,260 --> 00:09:37,260
+All right?
+
+112
+00:09:37,260 --> 00:09:38,260
+It's great.
+
+113
+00:09:38,260 --> 00:09:43,260
+But it can go on forever.
+
+114
+00:09:43,260 --> 00:09:44,260
+Right?
+
+115
+00:09:44,260 --> 00:09:48,260
+This is the first term that it actually makes a non-zero error.
+
+116
+00:09:48,260 --> 00:09:50,260
+And look at how small it is.
+
+117
+00:09:50,260 --> 00:09:56,260
+The delta x squared cancels with the fourth, so we get square here.
+
+118
+00:09:56,260 --> 00:10:00,260
+And at the 1 over 24th, what we get is delta x squared divided by 1 over 24.
+
+119
+00:10:00,260 --> 00:10:04,260
+And this is the first derivative.
+
+120
+00:10:04,260 --> 00:10:11,260
+And the second derivative is delta x squared divided by 12, times the fourth order derivative
+
+121
+00:10:11,260 --> 00:10:12,260
+of u.
+
+122
+00:10:12,260 --> 00:10:16,260
+This is the leading term of the approximation error.
+
+123
+00:10:16,260 --> 00:10:22,260
+Because all the follow on terms, this term is going to be delta x cubed something.
+
+124
+00:10:22,260 --> 00:10:23,260
+Maybe it's even 0.
+
+125
+00:10:23,260 --> 00:10:26,260
+This is delta x fourth something.
+
+126
+00:10:26,260 --> 00:10:28,260
+All the other terms.
+
+127
+00:10:28,260 --> 00:10:30,260
+But remember, delta x is a small thing.
+
+128
+00:10:30,260 --> 00:10:34,260
+In our previous example, it's 1 hundredth.
+
+129
+00:10:34,260 --> 00:10:39,260
+That means delta x squared is going to be 10 to the minus 4.
+
+130
+00:10:39,260 --> 00:10:40,260
+Right?
+
+131
+00:10:40,260 --> 00:10:45,260
+We are dividing by 12, and that makes it 10 to the minus 5.
+
+132
+00:10:45,260 --> 00:10:51,260
+And we multiply it by the fourth order derivative of u, which may or may not be large, depending
+
+133
+00:10:51,260 --> 00:10:55,260
+on what u is.
+
+134
+00:10:55,260 --> 00:10:57,260
+So this scheme works well.
+
+135
+00:10:57,260 --> 00:11:01,260
+But the approximation error is something small.
+
+136
+00:11:01,260 --> 00:11:09,260
+Something scales, something decays to 0 very fast as delta x goes to 0.
+
+137
+00:11:09,260 --> 00:11:11,260
+All right.
+
+138
+00:11:11,260 --> 00:11:17,260
+Any questions about this?
+
+139
+00:11:17,260 --> 00:11:25,260
+So this scheme also makes it easy for us to construct approximations.
+
+140
+00:11:25,260 --> 00:11:26,260
+For example.
+
+141
+00:11:26,260 --> 00:11:33,260
+We derived this particular finite difference scheme from the interpretation of a second
+
+142
+00:11:33,260 --> 00:11:37,260
+order derivative being the first order derivative of slope.
+
+143
+00:11:37,260 --> 00:11:38,260
+Right?
+
+144
+00:11:38,260 --> 00:11:46,260
+We can also derive it completely algebraically by saying that I want to multiply some unknown
+
+145
+00:11:46,260 --> 00:11:48,260
+coefficient onto here.
+
+146
+00:11:48,260 --> 00:11:50,260
+Let's say a.
+
+147
+00:11:50,260 --> 00:11:52,260
+Some unknown coefficient into here.
+
+148
+00:11:52,260 --> 00:11:53,260
+Let's say b.
+
+149
+00:11:53,260 --> 00:11:54,260
+And some unknown coefficient here.
+
+150
+00:11:54,260 --> 00:11:55,260
+Let's say c.
+
+151
+00:11:55,260 --> 00:12:02,260
+And I want a times ui plus 1 times b plus b times ui minus 1 plus c times ui minus the
+
+152
+00:12:02,260 --> 00:12:07,260
+second order derivative to be something small.
+
+153
+00:12:07,260 --> 00:12:12,260
+I want the approximation error to be small.
+
+154
+00:12:12,260 --> 00:12:15,260
+Then you can derive some linear equations.
+
+155
+00:12:15,260 --> 00:12:16,260
+This is going to be a.
+
+156
+00:12:16,260 --> 00:12:17,260
+This is going to be b.
+
+157
+00:12:17,260 --> 00:12:19,260
+This is going to be c instead.
+
+158
+00:12:19,260 --> 00:12:23,260
+You want a plus b plus c equal to 0.
+
+159
+00:12:23,260 --> 00:12:24,260
+Right?
+
+160
+00:12:24,260 --> 00:12:26,260
+That gives you one equation for three unknowns.
+
+161
+00:12:26,260 --> 00:12:29,260
+The second you want a minus b to also be 0.
+
+162
+00:12:29,260 --> 00:12:35,260
+That gives you another linear equation.
+
+163
+00:12:35,260 --> 00:12:38,260
+Here you want a plus b equal to 1.
+
+164
+00:12:38,260 --> 00:12:41,260
+That gives you another linear equation.
+
+165
+00:12:41,260 --> 00:12:44,260
+That's three equations for three unknowns.
+
+166
+00:12:44,260 --> 00:12:45,260
+You solve them.
+
+167
+00:12:45,260 --> 00:12:49,260
+You get exactly the same numbers you're going to get here.
+
+168
+00:12:49,260 --> 00:12:50,260
+1 over b.
+
+169
+00:12:50,260 --> 00:12:51,260
+That's the same number.
+
+170
+00:12:51,260 --> 00:12:52,260
+That's the same number.
+
+171
+00:12:52,260 --> 00:12:53,260
+You get here.
+
+172
+00:12:53,260 --> 00:12:54,260
+1 over delta x squared.
+
+173
+00:12:54,260 --> 00:12:55,260
+1 over delta x squared.
+
+174
+00:12:55,260 --> 00:12:59,760
+And minus 2 over delta x squared.
+
+175
+00:12:59,760 --> 00:13:07,760
+So that also gives you a route to derive finite difference approximations for other operators.
+
+176
+00:13:07,760 --> 00:13:11,160
+All right.
+
+177
+00:13:11,160 --> 00:13:15,260
+So you start working on your project today I hope.
+
+178
+00:13:15,260 --> 00:13:20,920
+And the first question require no knowledge of what I'm teaching here.
+
+179
+00:13:20,920 --> 00:13:22,260
+It's just a calculus.
+
+180
+00:13:22,260 --> 00:13:28,660
+The second you are starting to derive schemes to solve the equations.
+
+181
+00:13:28,660 --> 00:13:32,660
+And I already told you how to do second order derivative.
+
+182
+00:13:32,660 --> 00:13:35,960
+You're going to be doing first order derivative yourself.
+
+183
+00:13:35,960 --> 00:13:36,960
+All right.
+
+184
+00:13:36,960 --> 00:13:42,560
+And many of you may already know what is a good approximation for first order derivative.
+
+185
+00:13:42,560 --> 00:13:46,160
+If you don't, use this to derive it.
+
+186
+00:13:46,160 --> 00:13:48,460
+All right.
+
+187
+00:13:48,460 --> 00:13:51,000
+Any questions?
+

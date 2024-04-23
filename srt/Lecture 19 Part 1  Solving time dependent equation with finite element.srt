@@ -1,0 +1,812 @@
+1
+00:00:00,000 --> 00:00:07,760
+The final thing we want to discuss for finite element is how to solve time-dependent equations using finite elements.
+
+2
+00:00:08,420 --> 00:00:14,320
+We have previously focused on mostly steady-state equations, including Poisson's equation.
+
+3
+00:00:15,020 --> 00:00:23,840
+The second derivative is equal to a known function, and we also touched the beam equation, which is again a steady-state equation.
+
+4
+00:00:23,840 --> 00:00:33,800
+The question today is how do we discretize the time derivative using finite volume, or how do we deal with the time derivative?
+
+5
+00:00:34,520 --> 00:00:42,960
+How do we transform the PD with DDT unit into an OD as we did before?
+
+6
+00:00:43,240 --> 00:00:53,820
+We are going to use again a very simple example, just adding a time derivative term onto the right-hand side of a Poisson's equation.
+
+7
+00:00:53,840 --> 00:00:59,960
+So Poisson's equation would be the second derivative equal to a given function f.
+
+8
+00:01:00,120 --> 00:01:02,280
+Today we are going to look at a heat equation instead.
+
+9
+00:01:03,560 --> 00:01:06,700
+Okay, so we remember infinite element.
+
+10
+00:01:07,500 --> 00:01:10,460
+How do we start in discretizing an equation?
+
+11
+00:01:11,080 --> 00:01:17,540
+We started by multiplying this equation with a test function, right?
+
+12
+00:01:17,540 --> 00:01:23,540
+With an arbitrary test function within a certain space, and thereby derive the weak form.
+
+13
+00:01:23,840 --> 00:01:29,200
+All finite element discretization started with a weak form.
+
+14
+00:01:29,200 --> 00:01:40,840
+So if we multiply this equation with a V, so let's say, let's use the bracket as inner product in the L2 sense.
+
+15
+00:01:40,840 --> 00:01:49,400
+So the bracket is going to be integration over the entire space, V times the ODT over the x.
+
+16
+00:01:49,400 --> 00:01:53,320
+Would be equal to V.
+
+17
+00:01:53,840 --> 00:02:03,160
+So we have a second derivative for all V within a certain space that we don't know yet.
+
+18
+00:02:03,160 --> 00:02:05,160
+So let's decide about it later.
+
+19
+00:02:05,160 --> 00:02:10,160
+Okay, so let's now write down what this inner product is.
+
+20
+00:02:10,160 --> 00:02:20,160
+So first of all, we have V times the ODT over, let's say, a one-dimensional space from A to B.
+
+21
+00:02:20,160 --> 00:02:23,160
+Would be equal to the integral from A to B.
+
+22
+00:02:23,840 --> 00:02:27,840
+V times the second derivative of U.
+
+23
+00:02:27,840 --> 00:02:36,840
+And if we want to use the same technique we used to deal with Poisson's equation, on the right-hand side of this equation, what should we do?
+
+24
+00:02:36,840 --> 00:02:38,840
+Integrate by parts, right.
+
+25
+00:02:38,840 --> 00:02:40,840
+So here we need some boundary conditions.
+
+26
+00:02:40,840 --> 00:02:46,840
+Let's assume we have a simple boundary condition, U A equal to U B equal to zero.
+
+27
+00:02:46,840 --> 00:02:50,840
+Then through integration by parts,
+
+28
+00:02:50,840 --> 00:02:51,840
+we know that this V, or the integral from A to B, is equal to 0.
+
+29
+00:02:51,840 --> 00:02:52,840
+So we have a simple boundary condition, U A equal to U B equal to 0.
+
+30
+00:02:53,840 --> 00:02:56,840
+And we also have to satisfy the same boundary condition.
+
+31
+00:02:56,840 --> 00:03:02,840
+So with integration by parts, the boundary terms get removed through the boundary condition.
+
+32
+00:03:02,840 --> 00:03:07,840
+And we also are removing the second-order derivative.
+
+33
+00:03:07,840 --> 00:03:14,840
+And both U and V have a first-order derivative in this bilinear form.
+
+34
+00:03:14,840 --> 00:03:17,840
+Right?
+
+35
+00:03:17,840 --> 00:03:18,840
+Okay.
+
+36
+00:03:18,840 --> 00:03:22,840
+And we also look at the left-hand side.
+
+37
+00:03:22,840 --> 00:03:29,840
+And realize that we are integrating only in space, not in time.
+
+38
+00:03:29,840 --> 00:03:35,840
+So the time derivative can be removed, can be pulled out of the integral.
+
+39
+00:03:35,840 --> 00:03:45,840
+So the left-hand side becomes d dt of a integral U V dx,
+
+40
+00:03:45,840 --> 00:03:51,840
+would be equal to minus integration of derivative of V,
+
+41
+00:03:51,840 --> 00:03:58,840
+derivative of U dx.
+
+42
+00:03:58,840 --> 00:04:01,840
+Now we get two bilinear forms.
+
+43
+00:04:01,840 --> 00:04:04,840
+One is integration of U V.
+
+44
+00:04:04,840 --> 00:04:09,840
+The other integration of du dx times dv dx.
+
+45
+00:04:09,840 --> 00:04:11,840
+Right? Both are bilinear forms.
+
+46
+00:04:11,840 --> 00:04:18,840
+Except for one bilinear form has a time derivative in it.
+
+47
+00:04:18,840 --> 00:04:19,840
+Okay.
+
+48
+00:04:19,840 --> 00:04:26,840
+To discretize this equation, we apply the same type of finite element discretization
+
+49
+00:04:26,840 --> 00:04:29,840
+on both bilinear forms at the same time.
+
+50
+00:04:29,840 --> 00:04:32,840
+What is that discretization?
+
+51
+00:04:32,840 --> 00:04:41,840
+The discretization is restricting ourselves from an infinite dimensional space
+
+52
+00:04:41,840 --> 00:04:44,840
+to a finite dimensional subspace.
+
+53
+00:04:44,840 --> 00:04:46,840
+Okay.
+
+54
+00:04:46,840 --> 00:04:48,840
+So for discretization,
+
+55
+00:04:48,840 --> 00:04:51,840
+so up to here, everything is analytical.
+
+56
+00:04:51,840 --> 00:04:55,840
+So now let's switch to a discretized form.
+
+57
+00:04:55,840 --> 00:05:10,840
+So now, restrict U to be a summation of I goes from 1 to n of U I,
+
+58
+00:05:10,840 --> 00:05:13,840
+which is now a number instead of a function,
+
+59
+00:05:13,840 --> 00:05:14,840
+times phi I,
+
+60
+00:05:14,840 --> 00:05:17,840
+which are the basis functions of the finite dimensional space.
+
+61
+00:05:17,840 --> 00:05:20,840
+So now we have the finite dimensional subspace.
+
+62
+00:05:20,840 --> 00:05:25,840
+Here, we can use the piecewise linear and continuous space
+
+63
+00:05:25,840 --> 00:05:28,840
+as we did before in Poisson's equation.
+
+64
+00:05:28,840 --> 00:05:30,840
+Right?
+
+65
+00:05:30,840 --> 00:05:31,840
+Okay.
+
+66
+00:05:31,840 --> 00:05:34,840
+Where the phi's, if we draw them,
+
+67
+00:05:34,840 --> 00:05:36,840
+phi 1 is going to be like that,
+
+68
+00:05:36,840 --> 00:05:38,840
+phi 2 is going to be like that in 1D,
+
+69
+00:05:38,840 --> 00:05:40,840
+phi 3 is going to be like that.
+
+70
+00:05:40,840 --> 00:05:42,840
+So these are the piecewise,
+
+71
+00:05:42,840 --> 00:05:46,840
+these are the basis functions of the piecewise continuous and continuous space.
+
+72
+00:05:47,840 --> 00:05:50,840
+And these are the continuous and piecewise linear functions.
+
+73
+00:05:50,840 --> 00:05:53,840
+Well, the continuous and piecewise linear functions.
+
+74
+00:05:53,840 --> 00:05:54,840
+Okay.
+
+75
+00:05:54,840 --> 00:06:02,840
+Now we also substitute phi j to our test function v,
+
+76
+00:06:02,840 --> 00:06:07,840
+because if this is satisfied for v equal to any of the phi j's,
+
+77
+00:06:07,840 --> 00:06:12,840
+this can be satisfied by the principle of linear superposition
+
+78
+00:06:12,840 --> 00:06:14,840
+for all the v's.
+
+79
+00:06:14,840 --> 00:06:17,840
+That can be expressed as linear combination of phi j's.
+
+80
+00:06:17,840 --> 00:06:26,840
+So what we have is d dt of integral a to b.
+
+81
+00:06:26,840 --> 00:06:30,840
+u is now a linear combination.
+
+82
+00:06:30,840 --> 00:06:35,840
+v is now phi j, phi x,
+
+83
+00:06:35,840 --> 00:06:40,840
+is equal to minus of now the derivative of v,
+
+84
+00:06:40,840 --> 00:06:42,840
+which is phi j,
+
+85
+00:06:42,840 --> 00:06:44,840
+and the derivative of u,
+
+86
+00:06:44,840 --> 00:06:46,840
+which is a summation.
+
+87
+00:06:47,840 --> 00:06:51,840
+So we have the integral of ui,
+
+88
+00:06:51,840 --> 00:06:56,840
+the derivative of phi i.
+
+89
+00:06:56,840 --> 00:07:01,840
+The right hand side is exactly the same as we dealt with in Poisson's equation.
+
+90
+00:07:01,840 --> 00:07:05,840
+We pull the summation and the ui out of the integral,
+
+91
+00:07:05,840 --> 00:07:10,840
+thereby getting summation of i goes from 1 to n,
+
+92
+00:07:10,840 --> 00:07:16,840
+ui times the integral of derivative of phi j,
+
+93
+00:07:16,840 --> 00:07:19,840
+times the derivative of phi i.
+
+94
+00:07:19,840 --> 00:07:24,840
+This is exactly the matrix we call A.
+
+95
+00:07:24,840 --> 00:07:30,840
+And this is the j-th entry of the matrix A
+
+96
+00:07:30,840 --> 00:07:35,840
+we used before to discretize the Poisson's equation.
+
+97
+00:07:35,840 --> 00:07:36,840
+Right?
+
+98
+00:07:36,840 --> 00:07:39,840
+Okay.
+
+99
+00:07:39,840 --> 00:07:42,840
+And the left hand side is a little bit different.
+
+100
+00:07:42,840 --> 00:07:44,840
+The left hand side, we still pull all of these out.
+
+101
+00:07:44,840 --> 00:07:45,840
+But the left hand side, we still pull all of these out.
+
+102
+00:07:45,840 --> 00:07:48,840
+But remember these ui's,
+
+103
+00:07:48,840 --> 00:07:52,840
+they are individual numbers at every t.
+
+104
+00:07:52,840 --> 00:07:59,840
+But these ui's are what makes the solution u time dependent.
+
+105
+00:07:59,840 --> 00:08:05,840
+So ui's are actually functions of t,
+
+106
+00:08:05,840 --> 00:08:07,840
+while the phi j and phi i,
+
+107
+00:08:07,840 --> 00:08:10,840
+they are not functions of t.
+
+108
+00:08:10,840 --> 00:08:14,840
+Therefore, we can pull the summation of ui
+
+109
+00:08:14,840 --> 00:08:17,840
+out of the integral.
+
+110
+00:08:17,840 --> 00:08:22,840
+But we cannot pull it out of the time derivative.
+
+111
+00:08:22,840 --> 00:08:24,840
+What we can pull out of the time derivative
+
+112
+00:08:24,840 --> 00:08:28,840
+is the remaining integral in space.
+
+113
+00:08:28,840 --> 00:08:30,840
+So let's write it down.
+
+114
+00:08:30,840 --> 00:08:33,840
+d dt of...
+
+115
+00:08:33,840 --> 00:08:36,840
+And the summation can be pulled out.
+
+116
+00:08:36,840 --> 00:08:37,840
+Right?
+
+117
+00:08:37,840 --> 00:08:38,840
+Summation can be pulled out,
+
+118
+00:08:38,840 --> 00:08:39,840
+but like,
+
+119
+00:08:39,840 --> 00:08:43,840
+d ui dt has to be put onto the time derivative.
+
+120
+00:08:43,840 --> 00:08:46,840
+And then we have integration of
+
+121
+00:08:46,840 --> 00:08:48,840
+phi i,
+
+122
+00:08:48,840 --> 00:08:49,840
+phi j,
+
+123
+00:08:49,840 --> 00:08:51,840
+d x.
+
+124
+00:08:51,840 --> 00:08:54,840
+And these are not in the time derivative
+
+125
+00:08:54,840 --> 00:08:57,840
+because they are not functions of time.
+
+126
+00:08:57,840 --> 00:08:59,840
+Now,
+
+127
+00:08:59,840 --> 00:09:00,840
+this is another,
+
+128
+00:09:00,840 --> 00:09:04,840
+this is the discretization of a different bilinear form.
+
+129
+00:09:06,840 --> 00:09:11,840
+This bilinear form also is discretized into a matrix.
+
+130
+00:09:11,840 --> 00:09:12,840
+And let's call it mj.
+
+131
+00:09:13,840 --> 00:09:19,840
+Equating the left hand side to the right hand side,
+
+132
+00:09:19,840 --> 00:09:21,840
+what we get is m,
+
+133
+00:09:21,840 --> 00:09:23,840
+the matrix m,
+
+134
+00:09:23,840 --> 00:09:24,840
+okay?
+
+135
+00:09:24,840 --> 00:09:25,840
+Think of mj,
+
+136
+00:09:25,840 --> 00:09:28,840
+I multiply it by d ui dt.
+
+137
+00:09:28,840 --> 00:09:30,840
+This is m times d u dt,
+
+138
+00:09:30,840 --> 00:09:36,840
+where u is now the vector of u1, u2, u3, etc.
+
+139
+00:09:36,840 --> 00:09:38,840
+So this is a vector times a matrix,
+
+140
+00:09:38,840 --> 00:09:40,840
+being the left hand side.
+
+141
+00:09:40,840 --> 00:09:42,840
+And the right hand side is equal to
+
+142
+00:09:42,840 --> 00:09:46,840
+minus a matrix times the vector u.
+
+143
+00:09:50,840 --> 00:09:52,840
+Interestingly, we get,
+
+144
+00:09:52,840 --> 00:09:54,840
+when we discretize this equation,
+
+145
+00:09:54,840 --> 00:09:59,840
+we don't get a d vector u dt equal to a matrix times u.
+
+146
+00:09:59,840 --> 00:10:01,840
+We get another matrix,
+
+147
+00:10:01,840 --> 00:10:03,840
+we call the math matrix.
+
+148
+00:10:03,840 --> 00:10:05,840
+You find the element.
+
+149
+00:10:05,840 --> 00:10:08,840
+Times the time derivative of u equal to,
+
+150
+00:10:08,840 --> 00:10:11,840
+now this is something we call the stiffness matrix,
+
+151
+00:10:11,840 --> 00:10:12,840
+minus a.
+
+152
+00:10:12,840 --> 00:10:14,840
+Times the vector u.
+
+153
+00:10:14,840 --> 00:10:18,840
+So in finite element jargon,
+
+154
+00:10:18,840 --> 00:10:20,840
+this is math matrix.
+
+155
+00:10:20,840 --> 00:10:24,840
+This is stiffness.
+
+156
+00:10:24,840 --> 00:10:26,840
+The reason for that is,
+
+157
+00:10:26,840 --> 00:10:31,840
+in the days even without computers,
+
+158
+00:10:31,840 --> 00:10:34,840
+people are trying to simulate complex structures.
+
+159
+00:10:34,840 --> 00:10:37,840
+Not by using computer simulation,
+
+160
+00:10:37,840 --> 00:10:40,840
+but by connecting a bunch of math
+
+161
+00:10:40,840 --> 00:10:41,840
+with,
+
+162
+00:10:41,840 --> 00:10:43,840
+with springs.
+
+163
+00:10:43,840 --> 00:10:46,840
+Okay, to study the vibration of buildings,
+
+164
+00:10:46,840 --> 00:10:48,840
+bridges, for example.
+
+165
+00:10:48,840 --> 00:10:50,840
+And that is when,
+
+166
+00:10:50,840 --> 00:10:53,840
+when you have some mass,
+
+167
+00:10:53,840 --> 00:10:56,840
+represented by a math matrix,
+
+168
+00:10:56,840 --> 00:10:58,840
+and the stiffness of the springs,
+
+169
+00:10:58,840 --> 00:11:00,840
+represented by the stiffness matrix.
+
+170
+00:11:00,840 --> 00:11:04,840
+And people used to solve these equations by hand,
+
+171
+00:11:04,840 --> 00:11:08,840
+until about the 1940s,
+
+172
+00:11:08,840 --> 00:11:10,840
+when finally there are electronic computers,
+
+173
+00:11:10,840 --> 00:11:15,840
+when people start to solve these equations using computers.
+
+174
+00:11:15,840 --> 00:11:18,840
+And they are now able to solve huge equations,
+
+175
+00:11:18,840 --> 00:11:21,840
+coming from structures.
+
+176
+00:11:21,840 --> 00:11:23,840
+But they still use the words,
+
+177
+00:11:23,840 --> 00:11:25,840
+math matrix and stiffness matrix,
+
+178
+00:11:25,840 --> 00:11:29,840
+to represent the discretization
+
+179
+00:11:29,840 --> 00:11:33,840
+of what is multiplied on the time derivative term,
+
+180
+00:11:33,840 --> 00:11:35,840
+and what is multiplied,
+
+181
+00:11:35,840 --> 00:11:38,840
+to get the,
+
+182
+00:11:38,840 --> 00:11:40,840
+multiplied on the,
+
+183
+00:11:40,840 --> 00:11:42,840
+on the state.
+
+184
+00:11:42,840 --> 00:11:44,840
+And what you can imagine is that,
+
+185
+00:11:44,840 --> 00:11:46,840
+if you have a wave equation,
+
+186
+00:11:46,840 --> 00:11:49,840
+so instead of a first order derivative on t,
+
+187
+00:11:49,840 --> 00:11:52,840
+you have a second order derivative on t.
+
+188
+00:11:52,840 --> 00:11:54,840
+Right, so then instead of heat equation,
+
+189
+00:11:54,840 --> 00:11:56,840
+you get wave equation.
+
+190
+00:11:56,840 --> 00:11:59,840
+Everything follows exactly the same way.
+
+191
+00:11:59,840 --> 00:12:02,840
+This is because it doesn't matter in the,
+
+192
+00:12:02,840 --> 00:12:04,840
+in what we pull out and pull in,
+
+193
+00:12:04,840 --> 00:12:07,840
+the derivatives and integrals.
+
+194
+00:12:07,840 --> 00:12:11,840
+It doesn't matter if the time derivative is first order or second order.
+
+195
+00:12:11,840 --> 00:12:13,840
+If it's a wave equation,
+
+196
+00:12:13,840 --> 00:12:15,840
+we have exactly the same math matrix,
+
+197
+00:12:15,840 --> 00:12:18,840
+exactly the same stiffness matrix.
+
+198
+00:12:18,840 --> 00:12:21,840
+Except for the dU dt becomes d square U,
+
+199
+00:12:21,840 --> 00:12:23,840
+dt square.
+
+200
+00:12:23,840 --> 00:12:25,840
+Right.
+
+201
+00:12:25,840 --> 00:12:27,840
+Then we can use,
+
+202
+00:12:27,840 --> 00:12:31,840
+just a different method of time integration for the ODE,
+
+203
+00:12:31,840 --> 00:12:33,840
+to solve the wave equation.
+

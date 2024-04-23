@@ -1,0 +1,708 @@
+1
+00:00:00,000 --> 00:00:09,720
+So we have the parabolic equation which is partial u partial t is equal to kappa
+
+2
+00:00:09,720 --> 00:00:15,440
+of partial square u partial x squared. We are going to analyze this equation
+
+3
+00:00:15,440 --> 00:00:23,220
+analytically using what's called Fourier analysis. Fourier analysis is a very
+
+4
+00:00:23,220 --> 00:00:27,840
+powerful tool in studying differential equations especially when you have
+
+5
+00:00:27,840 --> 00:00:34,020
+periodic boundary condition and when you have non periodic boundary condition the
+
+6
+00:00:34,020 --> 00:00:40,460
+qualitative result of what you get in Fourier analysis is very likely to
+
+7
+00:00:40,460 --> 00:00:48,220
+translate into the non periodic boundary condition. So the Fourier analysis is
+
+8
+00:00:48,220 --> 00:00:54,960
+expanding the u which is a function of x so u is the solution to the partial
+
+9
+00:00:54,960 --> 00:00:57,820
+differential equation. Kappa is a constant
+
+10
+00:00:57,820 --> 00:01:11,380
+and we are thinking of a spatial domain of 0 and 2 pi. Okay so if we have such a
+
+11
+00:01:11,380 --> 00:01:19,920
+domain and if the u is periodic which means it ends exactly where it begins
+
+12
+00:01:19,920 --> 00:01:27,460
+then I can expand ux as a summation of u hat of k
+
+13
+00:01:27,820 --> 00:01:39,080
+times a sinusoidal wave which I can write as exponential of ikx and this case
+
+14
+00:01:39,080 --> 00:01:44,140
+was summed over from minus infinity to infinity.
+
+15
+00:01:44,140 --> 00:01:55,920
+mhm k is an integer exactly k th�� summed over r possible
+
+16
+00:01:55,920 --> 00:01:56,540
+integers.
+
+17
+00:01:56,540 --> 00:01:56,700
+And e to the iала is less than initial iba. Okay ut drip is less than initialorship.
+
+18
+00:01:56,700 --> 00:01:57,280
+From there, misma is holds for e into pol.
+
+19
+00:01:57,280 --> 00:01:57,780
+You are supposed to just solve this.
+
+20
+00:01:57,780 --> 00:02:00,380
+What does it look like?
+
+21
+00:02:00,380 --> 00:02:05,200
+What does e to the i k x look like?
+
+22
+00:02:05,200 --> 00:02:12,220
+E to the i k x looks like a cosine of k x plus an imaginary part of sine k x.
+
+23
+00:02:12,220 --> 00:02:20,780
+Okay, so this u hat of k is a complex number that has imaginary and real parts.
+
+24
+00:02:20,780 --> 00:02:29,900
+And if the u hat of k is exactly the conjugate of u hat of minus k, then the imaginary part
+
+25
+00:02:29,900 --> 00:02:36,840
+cancels and you have perfect sines and cosines added up together to form a solution u as
+
+26
+00:02:36,840 --> 00:02:42,020
+a function of x.
+
+27
+00:02:42,020 --> 00:02:49,600
+The reason we introduce Fourier series, one is because any periodic function can be written
+
+28
+00:02:49,600 --> 00:02:50,600
+in such a way.
+
+29
+00:02:50,600 --> 00:02:54,780
+Okay.
+
+30
+00:02:54,780 --> 00:03:02,760
+And two is that when we're looking at partial differential equations, we have spatial derivatives.
+
+31
+00:03:02,760 --> 00:03:09,620
+And spatial derivatives work very, very nicely with Fourier series.
+
+32
+00:03:09,620 --> 00:03:17,940
+So for example, when we look at this case, what is the first order derivative of this
+
+33
+00:03:17,940 --> 00:03:19,940
+u?
+
+34
+00:03:19,940 --> 00:03:20,580
+Okay.
+
+35
+00:03:20,580 --> 00:03:30,140
+When we take the first order derivatives, of course, the derivative commutes with this
+
+36
+00:03:30,140 --> 00:03:32,220
+summation.
+
+37
+00:03:32,220 --> 00:03:34,100
+And u hat of k is just a number.
+
+38
+00:03:34,100 --> 00:03:35,960
+It doesn't depend on x.
+
+39
+00:03:35,960 --> 00:03:39,020
+So u hat of k is also here.
+
+40
+00:03:39,020 --> 00:03:44,760
+And we only have the derivative of e to the i k x dx.
+
+41
+00:03:44,760 --> 00:03:45,960
+Okay.
+
+42
+00:03:45,960 --> 00:03:46,960
+Okay.
+
+43
+00:03:46,960 --> 00:03:47,960
+Okay.
+
+44
+00:03:47,960 --> 00:03:48,960
+Okay.
+
+45
+00:03:48,960 --> 00:03:49,960
+Okay.
+
+46
+00:03:49,960 --> 00:03:50,960
+Okay.
+
+47
+00:03:50,960 --> 00:03:51,960
+Okay.
+
+48
+00:03:51,960 --> 00:04:01,600
+So if you take that derivative, it becomes i k times e to the i k x.
+
+49
+00:04:01,600 --> 00:04:12,040
+So taking derivative to a Fourier series is like multiplying i k to each of the u hat
+
+50
+00:04:12,040 --> 00:04:16,220
+k's in the expansion using Fourier series.
+
+51
+00:04:16,220 --> 00:04:17,320
+Okay.
+
+52
+00:04:17,320 --> 00:04:18,320
+Okay.
+
+53
+00:04:18,320 --> 00:04:19,320
+Okay.
+
+54
+00:04:19,320 --> 00:04:20,320
+So this gives us our sponsors, right?
+
+55
+00:04:20,320 --> 00:04:21,320
+So that's the original n i?
+
+56
+00:04:21,320 --> 00:04:22,320
+So, there is no同 advertial.
+
+57
+00:04:22,320 --> 00:04:23,320
+There is no half- intentar introversion.
+
+58
+00:04:23,320 --> 00:04:24,320
+But I now invite you to remember what I said in the earlier part, basically manipulating
+
+59
+00:04:24,320 --> 00:04:25,320
+this sorrows disgusting way slightly.
+
+60
+00:04:25,320 --> 00:04:41,320
+So we empresas, hopefully to be able to reduce yourhi
+
+61
+00:04:41,320 --> 00:04:42,320
+Honda.
+
+62
+00:04:42,320 --> 00:04:43,320
+So say tllo sisters.
+
+63
+00:04:43,320 --> 00:04:44,320
+Tell me, how do you calculate the imaginary verb on e?
+
+64
+00:04:44,320 --> 00:04:45,320
+Well, can you gist this is to say級 n?
+
+65
+00:04:45,320 --> 00:04:47,320
+So if you can get the h with the t part, and i had u, and we get the k hat, we朔
+
+66
+00:04:47,320 --> 00:04:48,320
+tell it to ją with u k hat of i, k-je хоть, and things pure dbut.
+
+67
+00:04:48,320 --> 00:05:04,680
+I k squared times e to the, times e to the I k x.
+
+68
+00:05:06,860 --> 00:05:09,460
+And what is I k square?
+
+69
+00:05:09,460 --> 00:05:14,660
+I k square is minus k square because I square is minus 1.
+
+70
+00:05:14,660 --> 00:05:18,800
+Minus k square, u hat of k, u to the I k x.
+
+71
+00:05:23,000 --> 00:05:26,500
+Third derivative, multiply by I k again.
+
+72
+00:05:26,880 --> 00:05:29,720
+Fourth derivative, multiply by I k again.
+
+73
+00:05:30,240 --> 00:05:30,420
+Right?
+
+74
+00:05:31,840 --> 00:05:32,540
+So good.
+
+75
+00:05:33,760 --> 00:05:38,020
+Now, this is only looking at a function of only space.
+
+76
+00:05:39,080 --> 00:05:42,680
+When we are talking about the solution to this partial differential equation,
+
+77
+00:05:42,680 --> 00:05:44,640
+u is a function of not only x,
+
+78
+00:05:44,660 --> 00:05:45,800
+but also what?
+
+79
+00:05:47,520 --> 00:05:48,620
+But also t.
+
+80
+00:05:48,900 --> 00:05:49,020
+Right.
+
+81
+00:05:49,660 --> 00:05:53,400
+And when u is a function of x and t,
+
+82
+00:05:53,540 --> 00:05:54,840
+this is even nicer.
+
+83
+00:05:55,780 --> 00:05:59,440
+So if you take the derivative of x and t,
+
+84
+00:05:59,920 --> 00:06:01,600
+oh, let's not take the derivative yet.
+
+85
+00:06:01,900 --> 00:06:06,560
+Let's look at if I expand a function of u and t into Fourier series,
+
+86
+00:06:07,140 --> 00:06:08,500
+only in x,
+
+87
+00:06:09,380 --> 00:06:10,200
+what do I get?
+
+88
+00:06:10,200 --> 00:06:14,160
+What becomes different?
+
+89
+00:06:14,660 --> 00:06:15,500
+In the expansion.
+
+90
+00:06:15,500 --> 00:06:15,520
+In the expansion.
+
+91
+00:06:22,980 --> 00:06:26,940
+u hat becomes a function of time, exactly.
+
+92
+00:06:28,060 --> 00:06:29,560
+This is like expanding,
+
+93
+00:06:30,200 --> 00:06:33,060
+this is like looking at a function u of x and t
+
+94
+00:06:33,060 --> 00:06:37,640
+as functions of x at different t.
+
+95
+00:06:38,320 --> 00:06:38,520
+Right?
+
+96
+00:06:38,720 --> 00:06:42,600
+For each t, I look at u x of t as a function of x.
+
+97
+00:06:42,600 --> 00:06:43,900
+And I expand.
+
+98
+00:06:44,660 --> 00:06:47,160
+That function of x using Fourier series.
+
+99
+00:06:47,160 --> 00:06:52,580
+As a result, the u hat of k is going to be different for every slice of t.
+
+100
+00:06:52,580 --> 00:06:56,220
+That means u hat is going to be a function of t.
+
+101
+00:06:56,220 --> 00:07:07,660
+And this is a separation of variable because now the second derivative of x becomes a summation.
+
+102
+00:07:07,660 --> 00:07:11,460
+Still, k goes from minus infinity to t infinity.
+
+103
+00:07:11,460 --> 00:07:14,100
+Minus k squared is still the same.
+
+104
+00:07:14,660 --> 00:07:18,660
+u hat of k as a function of t e to the ikx.
+
+105
+00:07:20,580 --> 00:07:26,580
+I can do this because u hat of k is a function of t but not x.
+
+106
+00:07:27,420 --> 00:07:32,540
+So all the spatial derivatives goes right through u hat of t and into the exponentials.
+
+107
+00:07:36,060 --> 00:07:40,940
+And this formula is great, especially when combined with,
+
+108
+00:07:40,940 --> 00:07:43,260
+when substituted into the differential equation.
+
+109
+00:07:43,260 --> 00:07:44,280
+Let's do that.
+
+110
+00:07:44,660 --> 00:07:45,660
+Oops.
+
+111
+00:07:45,660 --> 00:07:55,980
+So let's substitute the Fourier series into this differential equation.
+
+112
+00:07:55,980 --> 00:08:01,580
+Kappa is still here.
+
+113
+00:08:01,580 --> 00:08:05,780
+K goes from minus infinity to infinity.
+
+114
+00:08:05,780 --> 00:08:10,940
+Minus k squared.
+
+115
+00:08:10,940 --> 00:08:13,580
+u hat of k e to the ikx.
+
+116
+00:08:13,580 --> 00:08:14,580
+So that's the differential equation.
+
+117
+00:08:14,580 --> 00:08:15,580
+So this looks normal.
+
+118
+00:08:15,580 --> 00:08:26,580
+But we should also realize that du dt can also be expanded using Fourier series.
+
+119
+00:08:26,580 --> 00:08:27,580
+So let's write it over here.
+
+120
+00:08:27,580 --> 00:08:36,820
+That is a summation of k goes to minus infinity to infinity of, now, when you're taking the
+
+121
+00:08:36,820 --> 00:08:41,200
+Fourier series, a time derivative.
+
+122
+00:08:41,200 --> 00:08:43,580
+The e to the ikx is not a function of time.
+
+123
+00:08:43,580 --> 00:08:44,580
+The only function of time is the u hats.
+
+124
+00:08:44,580 --> 00:08:45,580
+So we have the time derivative of the u hat times e to the ikx.
+
+125
+00:08:45,580 --> 00:08:50,580
+When you have two sides of an equality, right, two sides of equality, both represented using
+
+126
+00:08:50,580 --> 00:08:55,580
+Fourier series, you know that the coefficients has to match.
+
+127
+00:08:55,580 --> 00:09:02,580
+So the two sides of an equality, right, both represented using Fourier series, you know
+
+128
+00:09:02,580 --> 00:09:04,580
+that the coefficients has to match.
+
+129
+00:09:04,580 --> 00:09:11,580
+So if you're going to do a derivative, you have to write the derivative of your derivative
+
+130
+00:09:11,580 --> 00:09:12,580
+as the e to the ikx.
+
+131
+00:09:12,580 --> 00:09:19,900
+has to match. This is because if you study Fourier series analysis you know
+
+132
+00:09:19,900 --> 00:09:24,340
+that you can multiply both sides of the equation with e to the ikx and
+
+133
+00:09:24,340 --> 00:09:29,620
+integrate and you are going to isolate only one of the terms because the inner
+
+134
+00:09:29,620 --> 00:09:34,900
+product of e to the ikx with the ik prime x is going to be zero if k is not
+
+135
+00:09:34,900 --> 00:09:41,200
+equal to k prime. So you can isolate the terms from each other and say that so
+
+136
+00:09:41,200 --> 00:09:53,500
+so the partial derivative of u hat of k, and by the way this is I
+
+137
+00:09:53,500 --> 00:09:57,640
+shouldn't write this as a partial derivative anymore because u hat is only
+
+138
+00:09:57,640 --> 00:10:07,440
+a function of t, this should be a du hat dt, right? Partial derivative operates
+
+139
+00:10:07,440 --> 00:10:10,960
+only on functions of two variables. So this is
+
+140
+00:10:10,960 --> 00:10:11,060
+d.
+
+141
+00:10:11,200 --> 00:10:17,160
+du hat dt has to equal to minus k square u hat of k.
+
+142
+00:10:24,340 --> 00:10:26,700
+Does this equation ring a bell with you?
+
+143
+00:10:30,880 --> 00:10:32,060
+Yes, thank you.
+
+144
+00:10:32,140 --> 00:10:33,300
+I missed a larger kappa.
+
+145
+00:10:35,340 --> 00:10:40,540
+Should be minus a kappa times k square u hat k.
+
+146
+00:10:41,200 --> 00:10:41,640
+Thank you.
+
+147
+00:10:43,740 --> 00:10:52,300
+So up to this point, we get no longer a partial differential equation, but a what?
+
+148
+00:10:53,220 --> 00:10:55,140
+OD, ordinary differential equation.
+
+149
+00:10:55,400 --> 00:10:58,360
+And do you know what is the solution to this ordinary differential equation?
+
+150
+00:11:02,100 --> 00:11:04,220
+It's an exponential function, exactly.
+
+151
+00:11:04,800 --> 00:11:11,180
+So u hat of k as a function of t is equal to u hat of k at time 0.
+
+152
+00:11:11,200 --> 00:11:18,760
+Whatever it is, times exponential of minus kappa k square t, right?
+
+153
+00:11:20,780 --> 00:11:23,560
+The behavior of this function, let me go back.
+
+154
+00:11:23,900 --> 00:11:35,740
+The behavior of this function is going to be like that.
+
+155
+00:11:37,980 --> 00:11:40,840
+So for small k, when k is equal to 0.
+
+156
+00:11:41,200 --> 00:11:43,840
+What does the function look like?
+
+157
+00:11:45,020 --> 00:11:45,880
+It's constant.
+
+158
+00:11:48,620 --> 00:11:51,580
+So k equal to 0 means constant term.
+
+159
+00:11:52,000 --> 00:11:56,920
+So e to the i 0 x, which means that term doesn't depend on x.
+
+160
+00:11:57,000 --> 00:11:58,140
+It's a constant in space.
+
+161
+00:11:58,660 --> 00:12:02,960
+So a constant in space term in the Fourier series doesn't change with time.
+
+162
+00:12:02,960 --> 00:12:07,260
+Come on.
+
+163
+00:12:08,900 --> 00:12:09,280
+Okay.
+
+164
+00:12:11,200 --> 00:12:13,000
+So you can do this.
+
+165
+00:12:13,000 --> 00:12:13,400
+You can do this.
+
+166
+00:12:13,400 --> 00:12:16,360
+So you can do this.
+
+167
+00:12:16,360 --> 00:12:17,120
+You can do this.
+
+168
+00:12:17,120 --> 00:12:19,300
+Now, let's look at a small k.
+
+169
+00:12:19,300 --> 00:12:26,540
+So for small k, it's the exponential decay, because minus kappa k square is always negative.
+
+170
+00:12:29,780 --> 00:12:32,240
+Small k is a slow exponential decay.
+
+171
+00:12:35,360 --> 00:12:40,020
+And for the larger case, for the larger case,
+
+172
+00:12:40,020 --> 00:12:43,140
+it can be a very steep exponential decay.
+
+173
+00:12:51,140 --> 00:12:55,300
+So the solution to this differential equation
+
+174
+00:12:55,300 --> 00:13:00,100
+is a decay to a constant.
+
+175
+00:13:00,100 --> 00:13:04,060
+Because at the end, as t goes to infinity, so this is t.
+
+176
+00:13:04,060 --> 00:13:10,180
+As t goes to infinity, all the terms become zero
+
+177
+00:13:10,180 --> 00:13:12,820
+except for the k equal to zero term.
+

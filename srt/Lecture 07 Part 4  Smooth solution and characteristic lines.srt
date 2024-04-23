@@ -1,0 +1,572 @@
+1
+00:00:00,000 --> 00:00:06,720
+So let's first analyze the behavior of the conservation law equation on the
+
+2
+00:00:06,720 --> 00:00:12,960
+smooth region. So if you think of back over here, over this previous
+
+3
+00:00:12,960 --> 00:00:19,600
+solution, we want to analyze the behavior of this equation on somewhere other than
+
+4
+00:00:19,600 --> 00:00:26,560
+this discontinuity, like over this region for example, how does it behave. And if
+
+5
+00:00:26,560 --> 00:00:36,080
+you take a look at the contour in space and time, let's magnify it a little bit,
+
+6
+00:00:36,080 --> 00:00:41,920
+can somebody describe to me how the solution behaves? Is there something
+
+7
+00:00:41,920 --> 00:00:47,820
+special you see on the spacetime plot? Yeah there is a discontinuity, let's talk
+
+8
+00:00:47,820 --> 00:00:50,380
+about this later. Right now we are talking about smooth part of the
+
+9
+00:00:50,380 --> 00:00:54,180
+solution, that's right. Did you see something special on the smooth part of
+
+10
+00:00:54,180 --> 00:00:56,520
+the solution?
+
+11
+00:00:56,520 --> 00:00:56,540
+What did you see?
+
+12
+00:00:56,560 --> 00:01:08,140
+A lot of what? Dispersion? I'm just, don't interpret it yet. It's leaning
+
+13
+00:01:08,140 --> 00:01:14,260
+inwards. Yeah what else, what do you see on this plot other than colors?
+
+14
+00:01:14,260 --> 00:01:19,840
+A bunch of lines, right? A bunch of not just the regular lines, a bunch of
+
+15
+00:01:19,840 --> 00:01:26,520
+straight lines. Does it occur to you as non-obvious
+
+16
+00:01:26,520 --> 00:01:33,600
+that the contour of a function should be straight lines? If you draw an arbitrary
+
+17
+00:01:33,600 --> 00:01:39,960
+function of space and time, you would expect I get curved contours. It's not
+
+18
+00:01:39,960 --> 00:01:44,400
+common to see functions in two dimensions with straight lines being
+
+19
+00:01:44,400 --> 00:01:51,780
+contours, right? So why do we get straight lines? I mean that's actually not the
+
+20
+00:01:51,780 --> 00:01:56,480
+case when you hit discontinuity. For example, over here,
+
+21
+00:01:56,520 --> 00:02:01,760
+we don't get a straight line. We get a line that actually turns, right? Two things
+
+22
+00:02:01,760 --> 00:02:07,320
+hitting to each other and it turns. But on the smooth portion, you see all straight
+
+23
+00:02:07,320 --> 00:02:15,660
+lines, so why do we see straight lines and what are these lines? That's a great point.
+
+24
+00:02:15,660 --> 00:02:22,240
+So you already did the analysis I want you to do. So that analysis is from the differential
+
+25
+00:02:22,240 --> 00:02:26,480
+form of the equation, right? So if you go back to the differential form of the
+
+26
+00:02:26,480 --> 00:02:37,440
+equation partial u partial t plus df du times partial u partial x equal to zero okay and we
+
+27
+00:02:37,440 --> 00:02:46,880
+said this is the wave speed and if f is only a function of u then df du is only a function of u
+
+28
+00:02:46,880 --> 00:02:55,740
+that means the speed at which the wave propagates they are just a function of u
+
+29
+00:02:56,480 --> 00:03:04,520
+so as the wave propagates at for example towards the right the because if i'm if i'm riding along
+
+30
+00:03:04,520 --> 00:03:11,260
+the wave then locally the solution value u doesn't change and therefore the speed doesn't change
+
+31
+00:03:11,260 --> 00:03:20,480
+intuitively that's the answer right mathematically let's do a little bit a little bit of analysis
+
+32
+00:03:20,480 --> 00:03:25,740
+so so if we look at the differential equation
+
+33
+00:03:25,740 --> 00:03:26,240
+okay
+
+34
+00:03:26,240 --> 00:03:26,460
+okay
+
+35
+00:03:26,480 --> 00:03:35,740
+what what we can do is we can write the solution u at a particular x plus
+
+36
+00:03:35,740 --> 00:03:48,220
+plus or minus x plus yes x plus uh df so let's let's just do this x plus a ct so let's look at
+
+37
+00:03:48,220 --> 00:03:56,000
+a function along the the value of the solution along a straight line
+
+38
+00:03:56,480 --> 00:04:20,640
+on the xt plot
+
+39
+00:04:20,640 --> 00:04:22,000
+only x more than on the right distance to be the slope of dx dt
+
+40
+00:04:22,000 --> 00:04:22,640
+okay
+
+41
+00:04:22,640 --> 00:04:26,340
+so the derivative so now because i wrote u as a function of not x plus ct so x plus ct
+
+42
+00:04:26,340 --> 00:04:29,380
+x plus ct is x, and also t.
+
+43
+00:04:29,640 --> 00:04:31,100
+So this is x, this is t.
+
+44
+00:04:32,780 --> 00:04:34,340
+Does it make sense what I'm doing?
+
+45
+00:04:34,500 --> 00:04:38,700
+I'm looking at a function of the solution along a line.
+
+46
+00:04:38,700 --> 00:04:42,440
+So basically, if I make x a dependent variable of t,
+
+47
+00:04:43,040 --> 00:04:49,460
+then I reduced u into a single-variate, univariate function instead of bivariate function.
+
+48
+00:04:50,480 --> 00:04:52,440
+x plus, I think.
+
+49
+00:04:52,440 --> 00:04:59,320
+So basically, let me use x0 to be a distinguishing from this x.
+
+50
+00:04:59,560 --> 00:05:02,200
+So this is x0, this is t equal to 0.
+
+51
+00:05:02,860 --> 00:05:07,920
+So as t increases, x is going to increase by c times t.
+
+52
+00:05:12,180 --> 00:05:18,020
+So this function, if we fix x0, is just a function of t.
+
+53
+00:05:18,160 --> 00:05:22,120
+So let's look at what is du of x0 plus ct.
+
+54
+00:05:22,440 --> 00:05:24,220
+t dt.
+
+55
+00:05:27,800 --> 00:05:30,320
+Again, we are using chain rule.
+
+56
+00:05:30,320 --> 00:05:41,320
+So this is equal to partial u, partial t times dx0 plus ct dt plus partial u.
+
+57
+00:05:42,200 --> 00:05:44,100
+Oh, sorry, this is partial x, right?
+
+58
+00:05:44,220 --> 00:05:46,360
+I am differentiating towards the first variable.
+
+59
+00:05:46,840 --> 00:05:49,320
+Partial u, partial t times 1.
+
+60
+00:05:49,500 --> 00:05:51,060
+So this is dt dt.
+
+61
+00:05:52,440 --> 00:05:53,700
+And what is this?
+
+62
+00:05:56,180 --> 00:05:57,320
+What is the first term?
+
+63
+00:05:58,540 --> 00:05:59,440
+It's just c, right?
+
+64
+00:05:59,800 --> 00:06:06,100
+So this whole thing is equal to c times partial u, partial x plus partial u, partial t.
+
+65
+00:06:06,240 --> 00:06:09,220
+Now, let's go back to the original differential equation.
+
+66
+00:06:09,800 --> 00:06:12,020
+According to the original differential equation,
+
+67
+00:06:12,220 --> 00:06:16,900
+this whole term is equal to 0 when c is equal to what?
+
+68
+00:06:18,500 --> 00:06:21,000
+If c is equal to df du,
+
+69
+00:06:22,440 --> 00:06:24,520
+this whole thing is going to be equal to 0.
+
+70
+00:06:25,300 --> 00:06:27,780
+So there is a chain reaction here.
+
+71
+00:06:27,780 --> 00:06:45,260
+So if I choose c to be equal to df du at x equal to x0 and t equal to 0,
+
+72
+00:06:45,720 --> 00:06:52,100
+then I know that the time derivative of u along that line is going to be 0.
+
+73
+00:06:52,440 --> 00:06:57,660
+Which means along that line, my u is going to be constant.
+
+74
+00:06:58,780 --> 00:07:02,660
+My u is going to be constant tells me that c is going to be constant.
+
+75
+00:07:03,580 --> 00:07:07,100
+So that means I can go along straight into that line
+
+76
+00:07:07,100 --> 00:07:10,600
+and expect my solution to hold constant, not changing at all.
+
+77
+00:07:12,560 --> 00:07:14,340
+All right, does it make sense?
+
+78
+00:07:14,340 --> 00:07:18,140
+And that is why we see a lot of straight lines on this contour.
+
+79
+00:07:19,560 --> 00:07:22,380
+A contour is a line on which the value,
+
+80
+00:07:22,380 --> 00:07:24,380
+the value of a solution holds constant.
+
+81
+00:07:25,820 --> 00:07:30,120
+And these contours are characterized by these lines,
+
+82
+00:07:30,740 --> 00:07:33,440
+x equal to x0 plus c.
+
+83
+00:07:33,440 --> 00:07:35,940
+So, okay, so this line is,
+
+84
+00:07:36,940 --> 00:07:40,040
+you can either write x equal to x0 plus ct,
+
+85
+00:07:40,380 --> 00:07:43,880
+or you can write it as x minus ct equal to constant.
+
+86
+00:07:45,280 --> 00:07:47,280
+Either way is fine.
+
+87
+00:07:48,880 --> 00:07:51,580
+I think maybe you are thinking about this, right?
+
+88
+00:07:51,580 --> 00:07:52,080
+So,
+
+89
+00:07:52,380 --> 00:07:54,380
+if x minus ct is a constant,
+
+90
+00:07:54,380 --> 00:07:57,380
+that also represents that straight line.
+
+91
+00:07:58,380 --> 00:07:59,380
+All right, okay.
+
+92
+00:07:59,380 --> 00:08:01,380
+So now, another question is,
+
+93
+00:08:01,380 --> 00:08:04,880
+how does the slope of the line depend on the local solution?
+
+94
+00:08:05,880 --> 00:08:09,880
+The slope of the line is the inverse of df du, right?
+
+95
+00:08:11,380 --> 00:08:15,380
+So if I have a df du locally equal to 0, for example,
+
+96
+00:08:15,880 --> 00:08:17,380
+what kind of line should I get?
+
+97
+00:08:17,880 --> 00:08:19,380
+I get a vertical line, exactly.
+
+98
+00:08:19,380 --> 00:08:21,880
+If df du is equal to 0, c is equal to 0.
+
+99
+00:08:22,380 --> 00:08:23,380
+I get a vertical line.
+
+100
+00:08:23,380 --> 00:08:25,380
+What if df du is negative?
+
+101
+00:08:25,380 --> 00:08:29,380
+I get a line that is tilted towards your left, right?
+
+102
+00:08:29,380 --> 00:08:31,380
+If df du is positive,
+
+103
+00:08:31,380 --> 00:08:33,380
+I get a line that tilts towards your right.
+
+104
+00:08:33,880 --> 00:08:36,380
+And again, let's look at the Berger's equation
+
+105
+00:08:36,380 --> 00:08:38,880
+to see how does my df du depend on u.
+
+106
+00:08:38,880 --> 00:08:40,380
+So Berger's equation,
+
+107
+00:08:41,380 --> 00:08:45,380
+if f of u is equal to u squared over 2,
+
+108
+00:08:45,880 --> 00:08:49,380
+df du is equal to u,
+
+109
+00:08:49,380 --> 00:08:50,380
+then,
+
+110
+00:08:50,380 --> 00:08:51,380
+u less than 0, c is equal to 0.
+
+111
+00:08:52,380 --> 00:08:57,380
+I get negatively sloping contours.
+
+112
+00:08:57,380 --> 00:09:00,380
+u equal to 0, I get vertical contours.
+
+113
+00:09:00,380 --> 00:09:04,380
+u greater than 0, I get rightward tilting contours.
+
+114
+00:09:04,380 --> 00:09:07,380
+Let's look at this to see if that's the case.
+
+115
+00:09:07,380 --> 00:09:08,380
+Right, so,
+
+116
+00:09:08,380 --> 00:09:09,380
+so,
+
+117
+00:09:09,380 --> 00:09:12,380
+when u is positive, the color is u,
+
+118
+00:09:12,380 --> 00:09:14,380
+I get right sloping contours.
+
+119
+00:09:14,380 --> 00:09:17,380
+When u is negative, I get left sloping contours.
+
+120
+00:09:18,380 --> 00:09:20,380
+And when u is almost 0,
+
+121
+00:09:20,380 --> 00:09:21,380
+towards here and here,
+
+122
+00:09:21,380 --> 00:09:23,380
+I get vertical contours.
+
+123
+00:09:23,380 --> 00:09:25,380
+And the more negative I get,
+
+124
+00:09:25,380 --> 00:09:27,380
+the more leftward sloping I get.
+
+125
+00:09:27,380 --> 00:09:28,380
+The more positive I get,
+
+126
+00:09:28,380 --> 00:09:30,380
+the more right sloping I get.
+
+127
+00:09:31,380 --> 00:09:32,380
+So that's
+
+128
+00:09:32,380 --> 00:09:35,380
+the contours we call characteristic lines.
+
+129
+00:09:36,380 --> 00:09:37,380
+So these are
+
+130
+00:09:37,380 --> 00:09:40,380
+the characteristic lines of my solution.
+
+131
+00:09:40,380 --> 00:09:43,380
+x equal to any x naught
+
+132
+00:09:43,380 --> 00:09:46,380
+times df du locally,
+
+133
+00:09:46,380 --> 00:09:49,380
+df du plus t,
+
+134
+00:09:49,380 --> 00:09:51,380
+uh, not, not this one,
+
+135
+00:09:51,380 --> 00:09:54,380
+this way, the other way, I think.
+
+136
+00:09:54,380 --> 00:09:59,380
+x plus df du times t
+
+137
+00:09:59,380 --> 00:10:02,380
+are called
+
+138
+00:10:02,380 --> 00:10:05,380
+characteristics.
+
+139
+00:10:10,380 --> 00:10:12,380
+Alright.
+
+140
+00:10:13,380 --> 00:10:16,380
+So, so, when we solve
+
+141
+00:10:16,380 --> 00:10:18,380
+nonlinear conservation laws using any numerical methods,
+
+142
+00:10:18,380 --> 00:10:20,380
+we should expect to see these
+
+143
+00:10:20,380 --> 00:10:22,380
+characteristics.
+

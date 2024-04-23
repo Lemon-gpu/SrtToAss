@@ -1,0 +1,372 @@
+1
+00:00:00,000 --> 00:00:07,400
+So find everything in 2D. So here, to limit time, we're just going to focus on one single equation.
+
+2
+00:00:07,720 --> 00:00:18,480
+We are focusing on the Laplace equation, the divergence of the gradient of a scalar function u plus f is equal to 0.
+
+3
+00:00:18,480 --> 00:00:33,340
+Okay, and in particular, let's focus first on the very simple case where u is equal to 0 at the boundary of a domain.
+
+4
+00:00:33,580 --> 00:00:39,120
+So we have a domain omega, and the boundary of the domain is called partial omega.
+
+5
+00:00:39,120 --> 00:00:43,780
+Okay, so u is equal to 0 everywhere on the domain.
+
+6
+00:00:44,720 --> 00:00:47,120
+And here, let's also...
+
+7
+00:00:47,620 --> 00:00:48,120
+For the...
+
+8
+00:00:48,480 --> 00:00:59,740
+For the purpose of simplicity in integrating the right-hand side, let's say f is also equal to 1 over the whole space.
+
+9
+00:01:00,340 --> 00:01:04,300
+But even though the solution is going to be non-trivial, because of...
+
+10
+00:01:04,300 --> 00:01:09,940
+For different geometry, the solution to this differential equation is going to have different shapes.
+
+11
+00:01:10,900 --> 00:01:11,580
+Right? Okay.
+
+12
+00:01:12,540 --> 00:01:16,120
+So what is the weak form? How do we derive the weak form of this equation?
+
+13
+00:01:17,780 --> 00:01:18,300
+We use...
+
+14
+00:01:18,480 --> 00:01:20,480
+We use the same...
+
+15
+00:01:20,480 --> 00:01:28,540
+Same methodology of multiplying a v with the differential equation.
+
+16
+00:01:28,540 --> 00:01:33,420
+And integrate over the whole domain.
+
+17
+00:01:33,800 --> 00:01:37,440
+That has to be equal to 0 for any v.
+
+18
+00:01:40,060 --> 00:01:43,160
+And we use integration by parts.
+
+19
+00:01:43,160 --> 00:01:48,160
+So v times the Laplacian, which is the divergence of gradient.
+
+20
+00:01:48,480 --> 00:01:49,620
+So we have the gradient of u.
+
+21
+00:01:50,620 --> 00:01:52,500
+Can be computed, can be...
+
+22
+00:01:52,500 --> 00:01:54,200
+Can be integrated by parts.
+
+23
+00:01:54,580 --> 00:01:56,640
+And what we get is...
+
+24
+00:01:56,640 --> 00:02:04,480
+This divergence operator is going to become a gradient operator on v.
+
+25
+00:02:05,440 --> 00:02:05,760
+Okay?
+
+26
+00:02:06,000 --> 00:02:09,540
+So we have a gradient of v, and the dot is still the same.
+
+27
+00:02:10,060 --> 00:02:12,800
+And the gradient of u is still here.
+
+28
+00:02:13,360 --> 00:02:15,660
+So this is integrated over dx.
+
+29
+00:02:15,660 --> 00:02:18,200
+If we have a boundary term...
+
+30
+00:02:18,200 --> 00:02:21,880
+The boundary term is going to be the normal of the boundary.
+
+31
+00:02:21,880 --> 00:02:24,200
+Dot with gradient of u times v.
+
+32
+00:02:24,200 --> 00:02:29,720
+But here, because we are having a u satisfying the zero boundary condition,
+
+33
+00:02:29,720 --> 00:02:34,280
+therefore our test function v should also satisfy the same zero boundary condition.
+
+34
+00:02:34,840 --> 00:02:38,120
+Because v represents a perturbation on u.
+
+35
+00:02:38,840 --> 00:02:39,340
+Okay.
+
+36
+00:02:39,840 --> 00:02:40,340
+So...
+
+37
+00:02:41,440 --> 00:02:44,640
+So the boundary term goes away because v is equal to 0.
+
+38
+00:02:45,080 --> 00:02:48,040
+And the remaining part is simply v times f.
+
+39
+00:02:48,200 --> 00:02:49,560
+So we have the gradient of v.
+
+40
+00:02:49,560 --> 00:02:50,760
+And the gradient of v is equal to 0.
+
+41
+00:02:50,760 --> 00:02:51,720
+So we have the gradient of v.
+
+42
+00:02:51,720 --> 00:02:52,760
+And the gradient of v is equal to 0.
+
+43
+00:02:52,760 --> 00:02:53,800
+And the gradient of v is equal to 0.
+
+44
+00:02:53,800 --> 00:02:57,800
+And now from this formulation, we can see that...
+
+45
+00:02:57,800 --> 00:03:02,480
+The first term, again, is a bilinear form.
+
+46
+00:03:02,780 --> 00:03:03,000
+Right?
+
+47
+00:03:04,680 --> 00:03:10,320
+And the bilinear form would be an integral of the gradient of u, dot product with the gradient of v.
+
+48
+00:03:11,000 --> 00:03:13,760
+Again, it is a symmetric bilinear form.
+
+49
+00:03:15,760 --> 00:03:18,040
+And the integral of v dot f, again,
+
+50
+00:03:18,040 --> 00:03:20,280
+is going to be a linear functional.
+
+51
+00:03:22,520 --> 00:03:26,520
+So let's write this as a of u and v.
+
+52
+00:03:27,240 --> 00:03:33,560
+In this case, it's integral over the domain gradient u dot gradient of v.
+
+53
+00:03:34,840 --> 00:03:38,520
+And l of v is equal to integration.
+
+54
+00:03:40,200 --> 00:03:41,560
+Let's substitute the...
+
+55
+00:03:42,120 --> 00:03:43,000
+Yeah, let's do...
+
+56
+00:03:43,000 --> 00:03:43,400
+Okay.
+
+57
+00:03:43,400 --> 00:03:44,600
+So v times f dx.
+
+58
+00:03:44,600 --> 00:03:48,200
+All right.
+
+59
+00:03:50,840 --> 00:03:54,600
+So what space are we in here?
+
+60
+00:03:56,840 --> 00:04:05,240
+In what space would you need to define u and v for the bilinear form and the linear functional to be well defined?
+
+61
+00:04:07,420 --> 00:04:09,460
+What linear space do we have to be in?
+
+62
+00:04:09,500 --> 00:04:11,720
+What functional space does u and v have to be in?
+
+63
+00:04:12,720 --> 00:04:13,720
+Each one again.
+
+64
+00:04:13,880 --> 00:04:14,240
+Exactly.
+
+65
+00:04:14,240 --> 00:04:14,360
+Exactly.
+
+66
+00:04:14,600 --> 00:04:22,440
+So u and v also has to be in each one because their respective derivatives has to be square integrable.
+
+67
+00:04:23,320 --> 00:04:34,040
+If I have the derivatives to be square integrable, then I can use Cauchy-Schwarz inequality to guarantee that the weak form is going to be finite.
+
+68
+00:04:34,560 --> 00:04:35,060
+Right?
+
+69
+00:04:36,760 --> 00:04:44,240
+The integral of the product of the gradients is less or equal to the product of the integral of the...
+
+70
+00:04:44,240 --> 00:04:45,240
+I mean, okay.
+
+71
+00:04:45,240 --> 00:04:59,240
+So this is less or equal to integration of grad u dot grad u half times integration of grad v dot grad v half.
+
+72
+00:04:59,240 --> 00:04:59,740
+Right?
+
+73
+00:04:59,740 --> 00:05:00,240
+So that's...
+
+74
+00:05:00,240 --> 00:05:12,240
+And if each of these are bounded by the definition of the Sobolev norm, then my a u v is bounded, also called continuous.
+
+75
+00:05:12,240 --> 00:05:12,740
+Okay.
+
+76
+00:05:12,740 --> 00:05:13,240
+So that's...
+
+77
+00:05:13,240 --> 00:05:13,480
+Okay.
+
+78
+00:05:13,480 --> 00:05:13,580
+Okay.
+
+79
+00:05:13,580 --> 00:05:13,640
+Okay.
+
+80
+00:05:13,640 --> 00:05:13,880
+Okay.
+
+81
+00:05:13,880 --> 00:05:13,940
+Okay.
+
+82
+00:05:13,940 --> 00:05:14,120
+Okay.
+
+83
+00:05:14,120 --> 00:05:14,200
+Okay.
+
+84
+00:05:14,200 --> 00:05:14,220
+Okay.
+
+85
+00:05:14,240 --> 00:05:14,340
+Okay.
+
+86
+00:05:14,340 --> 00:05:20,520
+And the right-hand side is going to be bounded by just another Cauchy-Schwarz inequality.
+
+87
+00:05:21,420 --> 00:05:22,240
+So this is...
+
+88
+00:05:23,300 --> 00:05:32,900
+So if f is well-defined, if f is also in L2, then I can bond this by that.
+
+89
+00:05:36,860 --> 00:05:42,240
+And this occasionally is also well-defined even if f is not a proper L2 function.
+
+90
+00:05:43,300 --> 00:05:43,580
+Okay.
+
+91
+00:05:43,580 --> 00:05:43,640
+Okay.
+
+92
+00:05:43,640 --> 00:05:46,340
+Any questions on the weak form?
+
+93
+00:05:46,340 --> 00:05:49,740
+So this is A and this is L for the two-dimensional Poisson's equation.
+

@@ -1,0 +1,624 @@
+1
+00:00:00,000 --> 00:00:11,200
+very good and now let's try to use this to solve the Poisson's equation okay so
+
+2
+00:00:11,200 --> 00:00:18,840
+so now we have these basis functions and remember in Poisson's equation we have
+
+3
+00:00:18,840 --> 00:00:28,600
+the AIJ's being the integration of the derivative of a pair of basis functions
+
+4
+00:00:28,600 --> 00:00:41,980
+plus a boundary term right and in particular we are if we have the zero
+
+5
+00:00:41,980 --> 00:00:51,880
+delicious boundary condition so if we know you and zero is equal to u at 1
+
+6
+00:00:51,880 --> 00:00:58,160
+equal to 0 what do we know about these linear combination coefficients
+
+7
+00:00:58,600 --> 00:01:11,200
+so if we want to if we want to represent a u of X equal to summation of I goes
+
+8
+00:01:11,200 --> 00:01:22,000
+from 0 to n ui of phi i of X we know that the first term can be 0 can be
+
+9
+00:01:22,000 --> 00:01:26,220
+removed from this linear combination and the last term can be removed from the
+
+10
+00:01:26,220 --> 00:01:28,560
+linear combination right
+
+11
+00:01:28,600 --> 00:01:36,060
+so essentially the effect of the this particular boundary condition is
+
+12
+00:01:36,060 --> 00:01:44,280
+reducing the dimensionality of the linear space it reduces the first and
+
+13
+00:01:44,280 --> 00:01:51,160
+last basis to be redundant right you don't need any contribution from the
+
+14
+00:01:51,160 --> 00:01:54,820
+base first basis and you don't need any contribution from the last basis or
+
+15
+00:01:54,820 --> 00:01:58,600
+equivalently you can eliminate these two functions from the linear combination
+
+16
+00:01:58,600 --> 00:02:05,360
+so basically we have the basic set so then we basically instead of I goes from
+
+17
+00:02:05,360 --> 00:02:15,000
+0 we have I goes from 1 to n minus 1 right so that removes two basis functions
+
+18
+00:02:15,000 --> 00:02:27,040
+two basis functions
+
+19
+00:02:28,600 --> 00:02:32,980
+ok now why not
+
+20
+00:02:32,980 --> 00:02:35,660
+we remove theses basis functions we only
+
+21
+00:02:35,660 --> 00:02:42,240
+have the interior head functions whose whose values are 0 at both X and
+
+22
+00:02:42,240 --> 00:02:52,460
+x equal to 0 and x equal to 1 so so the so the boundary terms the boundary terms
+
+23
+00:02:52,460 --> 00:02:57,420
+we have phi j times the derivative of phi i at 0 and 1 is equal to 0 and 1 hier boat
+
+24
+00:02:57,420 --> 00:02:57,940
+okay so here we are finding the MAS EST Nash V if we let the variation go from 0 to n you will see that the derivative fromostic解 from 0 and it can play off to the term with the difference in and if the asking which branch row average is equal to 1 and x which one mimic whose values represent the finals whose values are at 0 andasion equals to zero and x equals 1 so we now set a boundary conditions to equal to 0.
+
+25
+00:02:57,940 --> 00:03:02,420
+is equal to 0 for all the interior points for the all the interior basis
+
+26
+00:03:02,420 --> 00:03:14,800
+functions right for for J equal to 1 all the way to M minus 1 C J times the
+
+27
+00:03:14,800 --> 00:03:26,440
+derivative of C I to X is equal to 0 so we have a I J is equal to integration of
+
+28
+00:03:26,440 --> 00:03:39,260
+V I DX and the derivative of V J DX so we only have a I J equal to that we also
+
+29
+00:03:39,260 --> 00:03:55,980
+have B J equal to no derivative just the P J times F DX okay so let's figure out
+
+30
+00:03:55,980 --> 00:03:56,420
+what the derivative of V I is equal to 0 for all the interior points for the all the
+
+31
+00:03:56,420 --> 00:04:04,700
+interior points for the all the interior points for the all the interior points for the
+
+32
+00:04:04,700 --> 00:04:11,100
+so for the matrix we are looking at the integral of the derivative of the
+
+33
+00:04:11,100 --> 00:04:16,760
+product now the pro the integral of the product of the derivative of two basis
+
+34
+00:04:16,760 --> 00:04:25,140
+functions and because of the locality of the basis functions so both VI and VJ
+
+35
+00:04:25,140 --> 00:04:26,400
+are nonzero only zero so we can see that the derivative of the product of the
+
+36
+00:04:26,420 --> 00:04:45,820
+monetary duty SSD complete using no linear Fish I
+
+37
+00:04:45,820 --> 00:04:50,840
+this stoichiometric passion of this say pattern so now the D and the relative
+
+38
+00:04:50,840 --> 00:04:54,940
+molar of their premiums is equal to zero we show the hermit Europeans are general
+
+39
+00:04:54,940 --> 00:04:56,220
+Association and I D viewer k
+
+40
+00:04:56,220 --> 00:05:02,820
+or their support, the region in which they are non-zero, has no overlap,
+
+41
+00:05:04,140 --> 00:05:08,780
+then their product is going to stay zero over the entire domain.
+
+42
+00:05:09,980 --> 00:05:22,320
+Right, so remember we have, if this is x i, this is x j, we have many subintervals.
+
+43
+00:05:22,320 --> 00:05:32,700
+Because x i, if you think of the derivative of x i, phi x, so this is phi i, this is phi j,
+
+44
+00:05:32,940 --> 00:05:34,040
+they are both hat functions.
+
+45
+00:05:35,100 --> 00:05:42,980
+The derivative of phi i and phi j are like what?
+
+46
+00:05:44,560 --> 00:05:50,200
+The derivative of phi i is a constant positive value here and a constant negative here,
+
+47
+00:05:50,200 --> 00:05:51,240
+and zero.
+
+48
+00:05:51,240 --> 00:05:53,040
+Everywhere else.
+
+49
+00:05:53,040 --> 00:05:58,360
+And the derivative of phi j is positive here, negative here, and zero everywhere else.
+
+50
+00:05:58,360 --> 00:06:03,660
+So if you multiply the derivative of phi i with the derivative of phi j,
+
+51
+00:06:03,660 --> 00:06:07,660
+the product is zero in the entire domain,
+
+52
+00:06:07,660 --> 00:06:12,960
+because there is no interval in which both of the derivatives are non-zero.
+
+53
+00:06:12,960 --> 00:06:18,720
+So for most of pairs of i and j, aij is going to be zero.
+
+54
+00:06:21,240 --> 00:06:28,200
+aij is only non-zero when i and j are close enough.
+
+55
+00:06:29,820 --> 00:06:36,520
+How close do they need to be for this entry to be non-zero?
+
+56
+00:06:40,420 --> 00:06:41,720
+Well, of course, yeah.
+
+57
+00:06:43,180 --> 00:06:46,860
+They have to be immediate neighbors in this case, right?
+
+58
+00:06:46,860 --> 00:06:50,080
+So if they are immediate neighbors,
+
+59
+00:06:51,240 --> 00:06:54,220
+one of phi i is like that,
+
+60
+00:06:55,320 --> 00:06:57,540
+phi j is going to be like that.
+
+61
+00:06:57,740 --> 00:07:01,260
+So they have one element of overlap
+
+62
+00:07:01,260 --> 00:07:06,360
+in which the product of the derivatives are going to be non-zero.
+
+63
+00:07:07,700 --> 00:07:11,220
+Or if i is equal to j, right?
+
+64
+00:07:11,460 --> 00:07:13,080
+If i and j are equal,
+
+65
+00:07:13,320 --> 00:07:16,640
+then the derivative are the same,
+
+66
+00:07:16,640 --> 00:07:19,320
+and they are non-zero in two adjacent intervals.
+
+67
+00:07:21,240 --> 00:07:33,340
+So aij non-zero if i minus j absolute value less or equal to 1, right?
+
+68
+00:07:33,340 --> 00:07:37,120
+They are either immediate neighbors or they are the same.
+
+69
+00:07:39,620 --> 00:07:47,440
+So if a matrix is non-zero only for absolute value of i minus j less or equal to 1,
+
+70
+00:07:47,440 --> 00:07:50,300
+how does the sparsity pattern of the matrix look like?
+
+71
+00:07:51,240 --> 00:07:55,780
+It's going to be a tri-diagonal matrix, right?
+
+72
+00:07:56,840 --> 00:07:57,680
+Okay, so good.
+
+73
+00:07:57,680 --> 00:08:07,900
+Let's try to construct this tri-diagonal matrix for one-dimensional space.
+
+74
+00:08:07,900 --> 00:08:14,700
+All right.
+
+75
+00:08:14,700 --> 00:08:14,740
+All right.
+
+76
+00:08:21,240 --> 00:08:28,740
+, so here again, let's use the interval x to be a link space,
+
+77
+00:08:28,740 --> 00:08:31,740
+0, 1, and n.
+
+78
+00:08:31,740 --> 00:08:37,740
+Let's choose n to be just a 10 to start with, n equal to 10.
+
+79
+00:08:38,540 --> 00:08:40,140
+Okay, so we have,
+
+80
+00:08:41,940 --> 00:08:44,940
+we actually only have nine intervals in this case, right?
+
+81
+00:08:44,940 --> 00:08:50,040
+Because x goes from 0 to 1,
+
+82
+00:08:50,040 --> 00:08:51,140
+and there are nine intervals in this case.
+
+83
+00:08:51,240 --> 00:08:52,740
+So we have to put n in between.
+
+84
+00:08:52,740 --> 00:08:56,740
+So let's choose n equal to 9, right?
+
+85
+00:08:56,740 --> 00:08:57,740
+Okay.
+
+86
+00:08:57,740 --> 00:09:03,740
+So on that space, we have nine basis functions.
+
+87
+00:09:03,740 --> 00:09:06,740
+If we know the solution has zero boundary conditions.
+
+88
+00:09:06,740 --> 00:09:09,740
+If we know the solution has non-zero boundary conditions,
+
+89
+00:09:09,740 --> 00:09:11,740
+we need more basis functions.
+
+90
+00:09:11,740 --> 00:09:14,740
+Now we have nine basis functions.
+
+91
+00:09:14,740 --> 00:09:20,740
+We want to construct the matrix A, which is, let's set 0, 9.
+
+92
+00:09:20,740 --> 00:09:22,240
+In the beginning, right?
+
+93
+00:09:22,240 --> 00:09:26,240
+So we know most of the entries are 0, so we set it to be 0.
+
+94
+00:09:26,240 --> 00:09:30,240
+Let's first construct the diagonal entries.
+
+95
+00:09:31,240 --> 00:09:38,240
+So how big are the diagonal entries of this matrix,
+
+96
+00:09:40,240 --> 00:09:43,240
+which corresponds to i equals to j?
+
+97
+00:09:44,240 --> 00:09:49,240
+So the diagonal entries are entries corresponding to
+
+98
+00:09:50,740 --> 00:09:55,240
+aii is equal to integration from 0 to 1.
+
+99
+00:09:55,240 --> 00:10:00,240
+The derivative of phi i squared.
+
+100
+00:10:00,240 --> 00:10:08,240
+And we know it is non-zero only in two intervals.
+
+101
+00:10:08,240 --> 00:10:14,240
+Either the interval from xi minus 1 to xi,
+
+102
+00:10:14,240 --> 00:10:18,240
+and the interval xi to xi.
+
+103
+00:10:18,240 --> 00:10:19,240
+And the interval xi to xi.
+
+104
+00:10:19,240 --> 00:10:20,240
+And the interval xi to xi.
+
+105
+00:10:20,740 --> 00:10:21,740
+What's go on?
+
+106
+00:10:21,740 --> 00:10:22,740
+It's all linear.
+
+107
+00:10:22,740 --> 00:10:23,740
+So the all- punches.
+
+108
+00:10:23,740 --> 00:10:24,740
+Then i equals O are from 1 to 1.
+
+109
+00:10:24,740 --> 00:10:26,740
+So when we compute, y equals 1,
+
+110
+00:10:26,740 --> 00:10:27,740
+where's our investigations coming from?
+
+111
+00:10:27,740 --> 00:10:28,740
+Divided byuffy.
+
+112
+00:10:28,740 --> 00:10:29,740
+All our stuff is goes regular.
+
+113
+00:10:29,740 --> 00:10:31,740
+And we can choose what over Here we do an encryption theory.
+
+114
+00:10:31,740 --> 00:10:33,740
+Anamour has proved it is just an assumption for the
+
+115
+00:10:33,740 --> 00:10:34,740
+product end Execution we can do.
+
+116
+00:10:34,740 --> 00:10:35,740
+And if this is the value of method of one over x- of the
+
+117
+00:10:35,740 --> 00:10:36,740
+answer is f.
+
+118
+00:10:36,740 --> 00:10:37,740
+So far, very similar.
+
+119
+00:10:37,740 --> 00:10:38,740
+But we have to connect the type, the 얘.
+
+120
+00:10:38,740 --> 00:10:39,740
+And we want the definition.
+
+121
+00:10:39,740 --> 00:10:40,740
+And we want the definition for policy n 0.
+
+122
+00:10:40,740 --> 00:10:41,740
+Both, have all to be true.
+
+123
+00:10:41,740 --> 00:10:42,740
+Or we can write the!!!
+
+124
+00:10:42,740 --> 00:10:43,740
+For Я And this is .
+
+125
+00:10:43,740 --> 00:10:44,740
+And this- this is even better.
+
+126
+00:10:44,740 --> 00:10:46,740
+Thank you so much for your answers.
+
+127
+00:10:46,740 --> 00:10:56,580
+x i plus 1 minus x i right so in this case all our axes are the same but we're
+
+128
+00:10:56,580 --> 00:11:03,220
+going to evaluate to the X anyway so it's X 2 to n minus X 1 to n minus 1 and
+
+129
+00:11:03,220 --> 00:11:12,720
+now we have the squared values in both domains and we also want to multiply
+
+130
+00:11:12,720 --> 00:11:18,300
+this by the length of this integral so after multiplying by the interval
+
+131
+00:11:18,300 --> 00:11:22,920
+which is X i minus X i minus 1 the square is gone again and once we
+
+132
+00:11:22,920 --> 00:11:28,880
+multiply by this interval the minus 1 is gone and the square is gone so this
+
+133
+00:11:28,880 --> 00:11:39,900
+a ii is equal to X i minus X i minus 1 plus 1 over X i plus 1 minus X i right
+
+134
+00:11:39,900 --> 00:11:41,660
+so this is a ii
+
+135
+00:11:42,720 --> 00:12:00,180
+so our DX right now is the length of the right so so this is a a ii is going to
+
+136
+00:12:00,180 --> 00:12:11,760
+be a summation between two adjacent intervals so I think let me see
+
+137
+00:12:12,720 --> 00:12:21,800
+right okay so I I made a mistake here when I'm constructing the matrix a so so
+
+138
+00:12:21,800 --> 00:12:29,880
+should the matrix a be a length be a 9 by 9 matrix or 8x8 matrix should be 8x8
+
+139
+00:12:29,880 --> 00:12:42,360
+matrix right because I only have oops I only have n minus 1 interior grid points
+
+140
+00:12:42,720 --> 00:13:04,520
+Okay, so it's an 8x8 matrix, and so the diagonal entries of A are, I should be making, so diagonal is a function that constructs a diagonal matrix from a vector,
+
+141
+00:13:04,520 --> 00:13:13,680
+should be dx, so 1 over dx, 2 to n, plus 1 over dx, 1 to n minus 1.
+
+142
+00:13:19,600 --> 00:13:26,260
+So A has its diagonal entries assigned, right, so they are all 18.
+
+143
+00:13:26,860 --> 00:13:30,200
+Now let's figure out the off-diagonal entries of A.
+
+144
+00:13:31,780 --> 00:13:32,420
+Okay.
+
+145
+00:13:33,180 --> 00:13:34,500
+The off-diagonal entries of A.
+
+146
+00:13:34,520 --> 00:13:43,820
+The off-diagonal entries of A, A i, i plus 1, is going to be equal to an integration from 0 to 1,
+
+147
+00:13:46,100 --> 00:13:56,080
+the derivative of phi i times the derivative of phi j, which is i plus 1, partial x dx.
+
+148
+00:13:56,080 --> 00:14:04,080
+And this, because phi i is non-diagonal,
+
+149
+00:14:04,520 --> 00:14:10,600
+is non-zero at interval between x i minus 1 and x i plus 1.
+
+150
+00:14:11,100 --> 00:14:16,320
+And phi i plus 1 is non-zero in the interval between phi i and phi i plus 2.
+
+151
+00:14:17,060 --> 00:14:23,060
+So their product is only non-zero between x i and x i plus 1.
+
+152
+00:14:28,540 --> 00:14:32,480
+And their derivatives are what?
+
+153
+00:14:34,520 --> 00:14:41,960
+This derivative in between x i and x i, i minus 1, is something we derived before,
+
+154
+00:14:42,600 --> 00:14:48,080
+minus 1 over x i plus 1 minus x i.
+
+155
+00:14:48,840 --> 00:14:53,420
+Now this derivative is positive, because it's on the left of the basis.
+
+156
+00:14:54,640 --> 00:14:59,480
+But the value is the same, it's also 1 over the same interval length.
+

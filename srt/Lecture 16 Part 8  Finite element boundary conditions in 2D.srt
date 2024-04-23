@@ -1,0 +1,744 @@
+1
+00:00:00,000 --> 00:00:04,540
+We have essential boundary conditions, and we have natural boundary conditions.
+
+2
+00:00:06,840 --> 00:00:14,180
+Essential boundary conditions work by restricting the space for which we can have the solution.
+
+3
+00:00:15,220 --> 00:00:19,880
+Natural boundary conditions don't restrict the space. It comes out naturally from the weak form.
+
+4
+00:00:21,140 --> 00:00:25,860
+What type of boundary conditions did we set in the two-dimensional example we just went through?
+
+5
+00:00:25,860 --> 00:00:31,840
+Essential, because we are restricting the space. We're removing degrees of freedoms on the boundary.
+
+6
+00:00:33,860 --> 00:00:41,840
+So let's also discuss what we can do for natural boundary conditions.
+
+7
+00:00:42,900 --> 00:00:49,320
+So we have the divergence of gradient of u plus f equal to zero.
+
+8
+00:00:49,840 --> 00:00:55,680
+We cannot have the numerous boundary conditions everywhere.
+
+9
+00:00:55,860 --> 00:01:00,000
+So let's say we have split the domain into two parts.
+
+10
+00:01:01,700 --> 00:01:04,840
+This is partial omega 1, partial omega 2.
+
+11
+00:01:05,420 --> 00:01:13,020
+So let's say u at partial omega 1 is equal to zero, and how do we set the Newman boundary condition?
+
+12
+00:01:14,400 --> 00:01:22,060
+The other domain, we set it as the normal dot with the gradient of u equal to zero.
+
+13
+00:01:24,660 --> 00:01:25,300
+Okay.
+
+14
+00:01:25,860 --> 00:01:30,480
+So this is usually, for example, if you are solving a heat transfer problem,
+
+15
+00:01:31,980 --> 00:01:35,300
+this is saying that u is the solution of the temperature.
+
+16
+00:01:36,000 --> 00:01:40,660
+This is saying that I'm fixing the temperature in this part of the domain.
+
+17
+00:01:41,680 --> 00:01:47,620
+For example, I'm having this in contact with a heat source or heat sink
+
+18
+00:01:47,620 --> 00:01:51,200
+that maintains that boundary to be a constant temperature.
+
+19
+00:01:52,100 --> 00:01:54,920
+While on partial omega 2,
+
+20
+00:01:55,860 --> 00:02:01,860
+I have the gradient of the heat dot with the normal equal to zero.
+
+21
+00:02:01,860 --> 00:02:02,860
+What does that mean?
+
+22
+00:02:02,860 --> 00:02:05,860
+If I have a heat transfer problem?
+
+23
+00:02:05,860 --> 00:02:06,860
+Yes?
+
+24
+00:02:06,860 --> 00:02:12,860
+The flux is equal to zero, which means no heat goes through the boundary.
+
+25
+00:02:12,860 --> 00:02:15,860
+It's insulated on the other side.
+
+26
+00:02:15,860 --> 00:02:16,860
+Right?
+
+27
+00:02:16,860 --> 00:02:19,860
+So these are the two types of boundary conditions we can set,
+
+28
+00:02:19,860 --> 00:02:23,860
+Dirichlet and Newman boundary conditions.
+
+29
+00:02:23,860 --> 00:02:24,980
+Of course, you can set these two types of boundary conditions.
+
+30
+00:02:24,980 --> 00:02:25,480
+Okay.
+
+31
+00:02:25,480 --> 00:02:28,480
+So I set this to be non-zero to a certain other value.
+
+32
+00:02:28,480 --> 00:02:32,480
+That means I'm giving a fixed heat flux through the boundary.
+
+33
+00:02:32,480 --> 00:02:33,480
+Okay.
+
+34
+00:02:33,480 --> 00:02:36,480
+So how do we set this type of boundary conditions?
+
+35
+00:02:36,480 --> 00:02:40,480
+It turns out if we derive the weak form, it'll come out naturally.
+
+36
+00:02:40,480 --> 00:02:52,480
+So the weak form works by integrating the equation with the product of a test function.
+
+37
+00:02:55,480 --> 00:03:00,480
+And through integration by parts,
+
+38
+00:03:00,480 --> 00:03:08,480
+this came out to be V times n dot with the grad of U.
+
+39
+00:03:08,480 --> 00:03:10,480
+Right?
+
+40
+00:03:10,480 --> 00:03:17,480
+At the boundaries minus the weak form we had before.
+
+41
+00:03:17,480 --> 00:03:19,480
+Okay.
+
+42
+00:03:19,480 --> 00:03:20,480
+So we have the weak form.
+
+43
+00:03:20,480 --> 00:03:21,480
+We have the non-zero.
+
+44
+00:03:21,480 --> 00:03:22,480
+We have the non-zero.
+
+45
+00:03:22,480 --> 00:03:23,480
+We have the non-zero.
+
+46
+00:03:23,480 --> 00:03:24,480
+Okay.
+
+47
+00:03:24,480 --> 00:03:25,480
+So we have the non-zero.
+
+48
+00:03:25,480 --> 00:03:39,480
+And this boundary term is, it is zero for partial omega 1 because we restrict the space.
+
+49
+00:03:39,480 --> 00:03:42,480
+And therefore, V is going to be zero at the boundary.
+
+50
+00:03:42,480 --> 00:03:53,480
+It is going to be zero at partial omega 2 because the grad U dot n should satisfy the Newman boundary condition.
+
+51
+00:03:53,480 --> 00:03:54,480
+Right?
+
+52
+00:03:54,480 --> 00:04:04,480
+So that means we don't need to do anything at partial omega 2 other than not restricting the space to set it to zero.
+
+53
+00:04:04,480 --> 00:04:06,480
+Okay.
+
+54
+00:04:06,480 --> 00:04:10,480
+In order for you to satisfy that Newman boundary condition.
+
+55
+00:04:10,480 --> 00:04:15,480
+So, for example, in the code, let's do a very simple thing.
+
+56
+00:04:15,480 --> 00:04:21,480
+Remember I said this E, the boundary E, is,
+
+57
+00:04:21,480 --> 00:04:27,480
+has a flag at the very end.
+
+58
+00:04:27,480 --> 00:04:34,480
+So here, this 5, I think it corresponds to which edge it is.
+
+59
+00:04:34,480 --> 00:04:50,480
+So, for example, if I plot the P of x direction, E of, so, 0 to 5.
+
+60
+00:04:50,480 --> 00:04:57,480
+E of 1, 1 to 5.
+
+61
+00:04:57,480 --> 00:04:59,480
+So this is the first edge.
+
+62
+00:04:59,480 --> 00:05:06,480
+And, is that right?
+
+63
+00:05:06,480 --> 00:05:09,480
+Second dimension.
+
+64
+00:05:09,480 --> 00:05:12,480
+So this is 1 by, okay.
+
+65
+00:05:12,480 --> 00:05:16,480
+So then I should do P of 1 and E of 2, 1 to 5.
+
+66
+00:05:16,480 --> 00:05:19,480
+So this is the x direction of the boundary.
+
+67
+00:05:19,480 --> 00:05:26,480
+This is the x direction of, I'm just plotting the first 5 edges corresponding to the flag 5 equal to 1.
+
+68
+00:05:26,480 --> 00:05:37,480
+And the y direction, what I'm going to get is this.
+
+69
+00:05:37,480 --> 00:05:39,480
+That's weird.
+
+70
+00:05:39,480 --> 00:05:43,480
+Oh, I have another bunch of 1s over there.
+
+71
+00:05:43,480 --> 00:05:48,480
+So instead of 1 to 5, I should be setting,
+
+72
+00:05:48,480 --> 00:05:53,480
+setting E of 5 equal to 1.
+
+73
+00:05:53,480 --> 00:05:59,480
+So I'm just going to remove this 1 to 5 by this flag.
+
+74
+00:05:59,480 --> 00:06:04,480
+I have one more thing I need to replace, I guess.
+
+75
+00:06:04,480 --> 00:06:07,480
+Right, so that's one of the straight edges.
+
+76
+00:06:07,480 --> 00:06:12,480
+So let's take an example of setting one of these straight edges to,
+
+77
+00:06:12,480 --> 00:06:14,480
+to a Newman boundary condition.
+
+78
+00:06:14,480 --> 00:06:16,480
+Okay.
+
+79
+00:06:16,480 --> 00:06:18,480
+The only thing we have to do,
+
+80
+00:06:18,480 --> 00:06:23,480
+is to remove this, is to do a little bit trick on the IB, right?
+
+81
+00:06:23,480 --> 00:06:30,480
+So we did, we figured out IB was equal to all these,
+
+82
+00:06:30,480 --> 00:06:33,480
+all these edges, right?
+
+83
+00:06:33,480 --> 00:06:39,480
+So now we want to remove a certain set of points from IB.
+
+84
+00:06:39,480 --> 00:06:44,480
+So we want to remove the,
+
+85
+00:06:44,480 --> 00:06:45,480
+okay.
+
+86
+00:06:45,480 --> 00:06:46,480
+So let's only,
+
+87
+00:06:46,480 --> 00:06:48,480
+so let's only keep,
+
+88
+00:06:48,480 --> 00:06:50,480
+so to make it easier, let's only,
+
+89
+00:06:50,480 --> 00:06:55,480
+let's do Newman boundary condition to all the edges except for one of the edges.
+
+90
+00:06:55,480 --> 00:07:02,480
+So we are going to set it to E of 5 star equal to 1.
+
+91
+00:07:02,480 --> 00:07:04,480
+So we are going to,
+
+92
+00:07:04,480 --> 00:07:06,480
+we are going to set IB,
+
+93
+00:07:06,480 --> 00:07:10,480
+which is the value, which is the basic functions we restrict to 0,
+
+94
+00:07:10,480 --> 00:07:16,480
+only for the points along the first edge.
+
+95
+00:07:16,480 --> 00:07:19,480
+So now IB is going to be a much lower dimension,
+
+96
+00:07:19,480 --> 00:07:21,480
+it's much less number of points.
+
+97
+00:07:21,480 --> 00:07:23,480
+It only has 11 points.
+
+98
+00:07:23,480 --> 00:07:26,480
+So we are going to set 0,
+
+99
+00:07:26,480 --> 00:07:29,480
+this is bounded condition, only on these 11 points.
+
+100
+00:07:29,480 --> 00:07:34,480
+And all the other bounded conditions, we just don't do anything to it.
+
+101
+00:07:34,480 --> 00:07:37,480
+And according to our analysis on the natural bounded condition,
+
+102
+00:07:37,480 --> 00:07:42,480
+the bounded condition is naturally satisfied on the other points should be what?
+
+103
+00:07:42,480 --> 00:07:45,480
+Should be a 0 Newman boundary condition, right?
+
+104
+00:07:46,480 --> 00:07:53,480
+So now we have modified the IB and let's run this again.
+
+105
+00:07:53,480 --> 00:07:55,480
+And this obviously ran.
+
+106
+00:07:55,480 --> 00:08:00,480
+And let's do a try serve of this time.
+
+107
+00:08:00,480 --> 00:08:01,480
+All right.
+
+108
+00:08:01,480 --> 00:08:05,480
+So that's the solution we get.
+
+109
+00:08:05,480 --> 00:08:11,480
+Obviously, we are satisfying a 0 Dirichlet bounded condition on this particular edge, right?
+
+110
+00:08:11,480 --> 00:08:16,480
+So that's the edge that we set, still included in the set of IBs.
+
+111
+00:08:16,480 --> 00:08:21,480
+And all the other bounded conditions, let's actually look at the edge on
+
+112
+00:08:21,480 --> 00:08:24,480
+to make it a little bit more obvious that.
+
+113
+00:08:24,480 --> 00:08:30,480
+So we are, for example, we are looking at the left edge over here, right?
+
+114
+00:08:30,480 --> 00:08:33,480
+So from this particular point of view,
+
+115
+00:08:33,480 --> 00:08:38,480
+we are actually satisfying the normal derivative equal to 0 condition.
+
+116
+00:08:38,480 --> 00:08:43,480
+The derivative in normal to this edge should be on the horizontal direction
+
+117
+00:08:43,480 --> 00:08:45,480
+when I view it at this angle, right?
+
+118
+00:08:45,480 --> 00:08:50,480
+The horizontal direction, the derivative is equal to 0.
+
+119
+00:08:50,480 --> 00:08:54,480
+If I rotate it again, look at this edge from edge on,
+
+120
+00:08:54,480 --> 00:08:58,480
+the normal derivative is also going to be equal to 0.
+
+121
+00:08:58,480 --> 00:09:02,480
+So for any of these other edges, if you look at the normal,
+
+122
+00:09:02,480 --> 00:09:06,480
+the derivative normal to that edge, it's going to be 0.
+
+123
+00:09:06,480 --> 00:09:11,480
+So that's how we are satisfying a natural bounded condition.
+
+124
+00:09:11,480 --> 00:09:14,480
+Right?
+
+125
+00:09:14,480 --> 00:09:20,480
+Questions on this one?
+
+126
+00:09:20,480 --> 00:09:21,480
+Yes?
+
+127
+00:09:21,480 --> 00:09:26,480
+In the non-square-thick thing, there's a minus,
+
+128
+00:09:26,480 --> 00:09:28,480
+I can't remember what it comes from.
+
+129
+00:09:28,480 --> 00:09:35,480
+So the second equation on this page, where does that minus come from?
+
+130
+00:09:35,480 --> 00:09:38,480
+Oh, the minus comes from integration by parts.
+
+131
+00:09:38,480 --> 00:09:43,480
+So the minus comes from the fact that
+
+132
+00:09:43,480 --> 00:09:53,480
+if, so the integration by parts comes from taking v times gradient of u.
+
+133
+00:09:53,480 --> 00:09:56,480
+So v is a scalar, gradient of u is a vector, right?
+
+134
+00:09:56,480 --> 00:09:57,480
+So this is a vector.
+
+135
+00:09:57,480 --> 00:10:01,480
+So let's define this as a vector.
+
+136
+00:10:01,480 --> 00:10:03,480
+So let's define this as a w.
+
+137
+00:10:03,480 --> 00:10:05,480
+It's a vector, right?
+
+138
+00:10:05,480 --> 00:10:10,480
+So if I apply Gauss's theorem on this vector,
+
+139
+00:10:10,480 --> 00:10:11,480
+which is Gauss,
+
+140
+00:10:11,480 --> 00:10:16,480
+Gauss's theorem on this vector,
+
+141
+00:10:16,480 --> 00:10:21,480
+which means that the divergence of the vector
+
+142
+00:10:21,480 --> 00:10:25,480
+integrated over the whole domain should be equal to
+
+143
+00:10:25,480 --> 00:10:31,480
+the normal, output normal times the vector integrated over the boundary of the domain.
+
+144
+00:10:31,480 --> 00:10:35,480
+Right?
+
+145
+00:10:35,480 --> 00:10:38,480
+Oh, by the way, thanks for notifying this.
+
+146
+00:10:38,480 --> 00:10:39,480
+This is,
+
+147
+00:10:39,480 --> 00:10:42,480
+as opposed to the one-dimensional integration by parts,
+
+148
+00:10:42,480 --> 00:10:47,480
+the two-dimensional integration by parts is going to give me a boundary integral.
+
+149
+00:10:47,480 --> 00:10:51,480
+So this term needs to be integrated not in the interior, but over the boundary.
+
+150
+00:10:51,480 --> 00:10:57,480
+So this is ds, over the edge of the boundary.
+
+151
+00:10:57,480 --> 00:11:06,480
+So the interior divergence integral is equal to the boundary normal dot vector integral.
+
+152
+00:11:06,480 --> 00:11:09,480
+And then if I substitute,
+
+153
+00:11:09,480 --> 00:11:13,480
+the particular form of w into both left and right hand side,
+
+154
+00:11:13,480 --> 00:11:16,480
+the left hand side becomes
+
+155
+00:11:16,480 --> 00:11:21,480
+the divergence of the product of a scalar and the vector
+
+156
+00:11:21,480 --> 00:11:28,480
+is equal to two terms.
+
+157
+00:11:28,480 --> 00:11:32,480
+This is equal to the gradient of the vector,
+
+158
+00:11:32,480 --> 00:11:37,480
+dot product with the vector that is already inside,
+
+159
+00:11:37,480 --> 00:11:39,480
+which is grad of u,
+
+160
+00:11:39,480 --> 00:11:42,480
+plus v,
+
+161
+00:11:42,480 --> 00:11:44,480
+which is the scalar,
+
+162
+00:11:44,480 --> 00:11:50,480
+times the divergence of the vector that is already inside,
+
+163
+00:11:50,480 --> 00:11:52,480
+which is grad of u.
+
+164
+00:11:52,480 --> 00:11:57,480
+Alright, so this is just a chain rule for vector calculus.
+
+165
+00:11:57,480 --> 00:12:02,480
+And so this is the left hand side,
+
+166
+00:12:02,480 --> 00:12:04,480
+and the right hand side is,
+
+167
+00:12:04,480 --> 00:12:07,480
+we also substitute this w,
+
+168
+00:12:07,480 --> 00:12:08,480
+and that becomes v,
+
+169
+00:12:08,480 --> 00:12:10,480
+v is a scalar,
+
+170
+00:12:10,480 --> 00:12:11,480
+so I put it in front,
+
+171
+00:12:11,480 --> 00:12:18,480
+and dot with grad of u, ds.
+
+172
+00:12:18,480 --> 00:12:25,480
+So this is becoming our formula for integration by parsing 2D,
+
+173
+00:12:25,480 --> 00:12:28,480
+which is basically taking this on the left hand side,
+
+174
+00:12:28,480 --> 00:12:31,480
+and this on the right hand side,
+
+175
+00:12:31,480 --> 00:12:33,480
+and this on the right hand side.
+
+176
+00:12:33,480 --> 00:12:36,480
+Okay, so it says that the left hand side,
+
+177
+00:12:36,480 --> 00:12:42,480
+the integration of v times the Laplacian of a scalar u,
+
+178
+00:12:42,480 --> 00:12:46,480
+is going to be the boundary integral,
+
+179
+00:12:46,480 --> 00:12:48,480
+the first term on the right hand side,
+
+180
+00:12:48,480 --> 00:12:52,480
+v, n dot grad u, ds,
+
+181
+00:12:52,480 --> 00:12:56,480
+minus integration over the whole domain,
+
+182
+00:12:56,480 --> 00:13:00,480
+so that's the first term on the left hand side,
+
+183
+00:13:00,480 --> 00:13:03,480
+grad v dot grad u, dx.
+
+184
+00:13:03,480 --> 00:13:05,480
+So that's our formula for integration,
+
+185
+00:13:05,480 --> 00:13:07,480
+by parsing 2D.
+
+186
+00:13:07,480 --> 00:13:11,480
+That is going to help us derive all these equations.
+

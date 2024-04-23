@@ -1,0 +1,348 @@
+1
+00:00:00,000 --> 00:00:09,020
+Now I want to spend the last little time discussing what we can do with non-Numan
+
+2
+00:00:09,020 --> 00:00:13,520
+boundary conditions, what's called the natural boundary condition. So natural
+
+3
+00:00:13,520 --> 00:00:18,760
+boundary condition is quite interesting because it's something unique to finite
+
+4
+00:00:18,760 --> 00:00:23,960
+element. We don't have this infinite volume or finite difference. It turns out
+
+5
+00:00:23,960 --> 00:00:32,320
+what if I have a boundary condition that is du dx at 0 equal to 0? Okay, I still
+
+6
+00:00:32,320 --> 00:00:38,640
+have u1 equal to 0 being Dirichlet boundary condition. So I have
+
+7
+00:00:38,640 --> 00:00:53,920
+N on the left and Dirichlet on the right.
+
+8
+00:00:53,960 --> 00:01:03,960
+So that is, I'm looking for solutions like that. On the left has to be flat and on the right it has to be equal to 0.
+
+9
+00:01:03,960 --> 00:01:11,340
+I'm looking for these kind of solutions. So let's use the Poisson's
+
+10
+00:01:11,340 --> 00:01:18,960
+equation as an example. So how should I deal with this kind of boundary conditions?
+
+11
+00:01:18,960 --> 00:01:23,960
+It turns out I don't need to do anything for this boundary condition.
+
+12
+00:01:23,960 --> 00:01:28,100
+That's why it is called a natural boundary condition.
+
+13
+00:01:28,100 --> 00:01:33,960
+What do I mean by I don't need to do anything? So to parameterize a function
+
+14
+00:01:33,960 --> 00:01:45,380
+like this, I need to define my x u to be all the functions f within a Sobolev
+
+15
+00:01:45,380 --> 00:01:52,640
+space and f1 is equal to 0. So I only need to enforce the right-hand side
+
+16
+00:01:52,640 --> 00:01:53,340
+boundary condition.
+
+17
+00:01:53,960 --> 00:02:04,780
+Okay, and I'm going to define my x v to be the same as x u. So what happens is
+
+18
+00:02:04,780 --> 00:02:13,520
+that when I derive the weak form, the weak form is going to be integration of
+
+19
+00:02:13,520 --> 00:02:23,860
+a and b. v times the second order derivative of x plus a and b f times v.
+
+20
+00:02:23,960 --> 00:02:24,660
+Δ had b times 2 buses because all those Totals are in Koblenz.
+
+21
+00:02:24,660 --> 00:02:31,340
+So when Iع perform it with my partииo an the on the first term we no longer
+
+22
+00:02:31,340 --> 00:02:38,240
+because because we no longer have you Ovi to be equal to 0 on the left side
+
+23
+00:02:38,240 --> 00:02:44,700
+boundary we have to start considering the boundary terms at the left. It's no
+
+24
+00:02:44,700 --> 00:02:51,020
+longer going to be the same as what we have before. so when we integrate by
+
+25
+00:02:51,020 --> 00:02:53,680
+parts we get V times the
+
+26
+00:02:53,960 --> 00:03:04,480
+derivative of u at so so when x equal to 1 we get when when x equal to 1 V is
+
+27
+00:03:04,480 --> 00:03:08,860
+equal to 0 so this is gone we only have this equal to 0 we have a minus sign
+
+28
+00:03:08,860 --> 00:03:16,820
+here minus the integration of partial V partial X partial u partial X DX plus
+
+29
+00:03:16,820 --> 00:03:29,840
+integration of F times V equal to 0 right okay so here this is what becomes
+
+30
+00:03:29,840 --> 00:03:37,660
+very interesting this has to be satisfied for any V whose value at the
+
+31
+00:03:37,660 --> 00:03:43,840
+left boundary can be anything right and in order for me to satisfy this for any
+
+32
+00:03:43,840 --> 00:03:46,120
+V
+
+33
+00:03:46,820 --> 00:04:04,740
+this becomes 0 so so so for the solution u to satisfy the weak form for any V
+
+34
+00:04:04,740 --> 00:04:16,460
+that doesn't have to be 0 which can be anything at X equal to 0
+
+35
+00:04:16,460 --> 00:04:16,800
+right so this becomes 0 so so for the solution u to satisfy the weak form for
+
+36
+00:04:16,800 --> 00:04:25,740
+we have to have partial u partial X at 0 to be 0 so the bond the condition of
+
+37
+00:04:25,740 --> 00:04:33,320
+the derivative of u at the F-bond is equal to 0 comes naturally from the weak
+
+38
+00:04:33,320 --> 00:04:39,960
+form okay so that's why we call it a natural bond the condition it naturally
+
+39
+00:04:39,960 --> 00:04:46,640
+falls out of the weak form now perhaps we have a question
+
+40
+00:04:46,640 --> 00:04:46,680
+now perhaps we have a question
+
+41
+00:04:46,680 --> 00:04:51,280
+What if I want to enforce a Newman boundary condition that is not exactly equal to 0?
+
+42
+00:04:51,420 --> 00:04:52,660
+What if I want it to be 1?
+
+43
+00:04:54,380 --> 00:04:56,560
+How can I design it?
+
+44
+00:04:56,720 --> 00:04:59,280
+Does it still come naturally out of the weak form?
+
+45
+00:05:04,780 --> 00:05:10,360
+I can still make it come out of the weak form by modifying one term.
+
+46
+00:05:11,360 --> 00:05:15,940
+The term I need to modify is this.
+
+47
+00:05:16,680 --> 00:05:31,080
+So what if I set this not to be 0, but if I remove the 0 and add another term, that is v at 0.
+
+48
+00:05:32,780 --> 00:05:45,060
+Remember, we just discussed that the linear functional doesn't have to be the integral of a function times v.
+
+49
+00:05:45,060 --> 00:05:46,260
+It can also be.
+
+50
+00:05:46,680 --> 00:05:49,460
+The value of v at a particular point.
+
+51
+00:05:49,720 --> 00:05:58,180
+So in this case, what if I set the linear functional to be the summation of an integral with a known function and the value of v at a boundary?
+
+52
+00:05:59,040 --> 00:06:02,740
+What turns out to be is that we are going to have a v of 0 here.
+
+53
+00:06:03,280 --> 00:06:05,680
+And now v can be anything at 0.
+
+54
+00:06:07,240 --> 00:06:14,480
+Because the weak form has to be satisfied for any v within xv, which can be anything at x equal to 0.
+
+55
+00:06:14,700 --> 00:06:16,660
+So for this to be equal to 0, we have to do the same thing.
+
+56
+00:06:16,660 --> 00:06:25,480
+So if I do this, the derivative of u at x has to be, in this case, minus 1.
+
+57
+00:06:27,560 --> 00:06:35,060
+And of course, if I want the derivative to be plus 1, I just set this to be negative v.
+
+58
+00:06:35,340 --> 00:06:36,440
+And I have a negative v.
+
+59
+00:06:36,680 --> 00:06:41,660
+If I want the derivative to be 0.5, then it's negative 0.5 of v.
+
+60
+00:06:42,100 --> 00:06:46,380
+So by modifying just the weak form a little bit,
+
+61
+00:06:46,380 --> 00:06:51,160
+particularly the right-hand side of the weak form, which is the linear functional a little bit,
+
+62
+00:06:51,640 --> 00:06:55,540
+we can have the boundary condition naturally satisfied.
+
+63
+00:06:57,180 --> 00:07:00,440
+Remember, this is very different from the Dirichlet boundary condition.
+
+64
+00:07:00,780 --> 00:07:04,680
+The Dirichlet boundary condition, we actually modify the space of xu.
+
+65
+00:07:05,360 --> 00:07:12,060
+And we also reduce the dimension of the space xv to satisfy the boundary condition.
+
+66
+00:07:12,620 --> 00:07:15,900
+We actually force the solution u a priori.
+
+67
+00:07:16,380 --> 00:07:20,380
+And we also reduce the dimension of the space xv to satisfy that boundary condition.
+
+68
+00:07:20,380 --> 00:07:24,380
+Any possible solution that is in the space has to satisfy the Dirichlet boundary condition.
+
+69
+00:07:24,380 --> 00:07:26,380
+But for the Newman boundary condition, it's natural.
+
+70
+00:07:26,380 --> 00:07:29,380
+We only modify the weak form a little bit.
+
+71
+00:07:29,380 --> 00:07:36,380
+And it turns out the boundary condition is going to be naturally satisfied once the weak form is satisfied.
+
+72
+00:07:36,380 --> 00:07:41,380
+So these are two types of strategies for enforcing boundary conditions in finite element.
+
+73
+00:07:41,380 --> 00:07:44,380
+Yes, so I already got the weak form.
+
+74
+00:07:44,380 --> 00:07:45,380
+There is no problem.
+
+75
+00:07:46,380 --> 00:07:48,380
+No violation to the Poisson.
+
+76
+00:07:48,380 --> 00:07:49,880
+I mean, this is assuming.
+
+77
+00:07:50,380 --> 00:07:53,160
+So I can derive the weak form from the Poisson's equation.
+
+78
+00:07:53,280 --> 00:07:58,640
+Because if any solution satisfies the Poisson's equation, it also satisfies the weak form.
+
+79
+00:07:58,840 --> 00:08:00,080
+It's just the other is not true.
+
+80
+00:08:00,460 --> 00:08:06,760
+So if I have a function that satisfies the weak form, it doesn't have to correspond to any particular Poisson's equation.
+
+81
+00:08:06,940 --> 00:08:12,080
+I mean, if you try to derive it, you get something that is not a function on the right-hand side.
+
+82
+00:08:12,080 --> 00:08:16,360
+So I went through this procedure to derive the weak form.
+
+83
+00:08:16,380 --> 00:08:23,380
+It's just the boundary condition is going to fall out as an additional term on the right-hand side.
+
+84
+00:08:23,380 --> 00:08:26,380
+You can still do the same derivation.
+
+85
+00:08:26,380 --> 00:08:28,380
+You can still integrate by parts.
+
+86
+00:08:28,380 --> 00:08:34,380
+And we are still going to get the same form.
+
+87
+00:08:34,380 --> 00:08:42,380
+It's just that if we have a non-zero boundary condition, then this boundary term becomes something non-trivial.
+

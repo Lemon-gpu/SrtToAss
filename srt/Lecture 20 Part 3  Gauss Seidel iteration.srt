@@ -1,0 +1,424 @@
+1
+00:00:00,000 --> 00:00:09,080
+So before we go to more complex iterative methods, let's introduce another very
+
+2
+00:00:09,080 --> 00:00:15,600
+simple iterative method called the Gauss-Seidel method. It is very similar to the
+
+3
+00:00:15,600 --> 00:00:20,880
+Jacobi iteration method in terms of we are solving a u equal to b and we are
+
+4
+00:00:20,880 --> 00:00:29,640
+writing a into the summation of lower diagonal and upper diagonal parts. And
+
+5
+00:00:29,640 --> 00:00:38,400
+therefore this equation can be rewritten as l plus d, so l u plus d u plus u u equal to b.
+
+6
+00:00:39,400 --> 00:00:52,120
+Now instead of moving both l and u to the right hand side, we only move u to the right hand side.
+
+7
+00:00:52,120 --> 00:00:58,840
+So l plus d times u would be equal to b minus u.
+
+8
+00:00:59,640 --> 00:01:05,240
+And now we put indices. This is k plus 1 and this is k.
+
+9
+00:01:08,280 --> 00:01:14,920
+The value of this splitting is that this iteration would be easy to perform.
+
+10
+00:01:16,200 --> 00:01:19,800
+Last time when we are talking about Jacobi iteration, it is easy to perform because the
+
+11
+00:01:19,800 --> 00:01:29,080
+left-hand side involves inverting d only. So why is inverting d only easy?
+
+12
+00:01:29,640 --> 00:01:31,640
+Because the left-hand side involves inverting d only.
+
+13
+00:01:31,640 --> 00:01:40,440
+It's diagonal, right? So the inversion of d can be computed explicitly. It's just another diagonal matrix with the
+
+14
+00:01:40,440 --> 00:01:52,200
+reciprocal of the diagonal entries of d. But this is more complex. This is l plus d and l plus d is not a diagonal matrix.
+
+15
+00:01:52,200 --> 00:01:55,240
+It is a matrix with what?
+
+16
+00:01:55,240 --> 00:01:57,240
+With lower diagonal matrix.
+
+17
+00:01:57,240 --> 00:01:59,240
+It is a lower diagonal matrix.
+
+18
+00:01:59,640 --> 00:02:03,640
+And how do we invert a lower diagonal matrix?
+
+19
+00:02:03,640 --> 00:02:13,640
+It's not that easy, right?
+
+20
+00:02:13,640 --> 00:02:23,640
+But it can also be done without having to perform complex manipulation to the matrix.
+
+21
+00:02:23,640 --> 00:02:27,640
+So let's look at what the lower diagonal matrix is.
+
+22
+00:02:27,640 --> 00:02:29,640
+So we only keep one matrix.
+
+23
+00:02:29,640 --> 00:02:35,640
+The diagonal and lower diagonal parts, etc.
+
+24
+00:02:35,640 --> 00:02:43,640
+Times u1 of k plus 1, u2 of k plus 1.
+
+25
+00:02:43,640 --> 00:02:49,640
+So imagine we are at the kth iteration and the u k is already known.
+
+26
+00:02:49,640 --> 00:02:55,640
+So it is equal to b1 minus u k1.
+
+27
+00:02:55,640 --> 00:02:57,640
+And the right-hand side is completely known.
+
+28
+00:02:57,640 --> 00:02:59,640
+B2 minus u k2, etc.
+
+29
+00:02:59,640 --> 00:03:11,720
+to be a minus UK n so where should we start in computing these u of k plus 1
+
+30
+00:03:15,720 --> 00:03:24,060
+oh yeah sorry we have a big view here yeah thank you yeah mistake so so here
+
+31
+00:03:24,060 --> 00:03:30,300
+we are let's see we already computed you you so you you is easy to compute
+
+32
+00:03:30,300 --> 00:03:41,280
+because it's a explicit multiplication right so you UK of 1 you UK of 2 so so
+
+33
+00:03:41,280 --> 00:03:53,880
+all of these entries are you times UK at the corresponding row of that okay
+
+34
+00:03:53,880 --> 00:03:54,040
+okay so now we have a negative equation and we are going to compute the value of
+
+35
+00:03:54,040 --> 00:03:58,780
+so so now we have the right hand side and we have a lower diagonal matrix where
+
+36
+00:03:58,780 --> 00:04:05,740
+should we start we start from the first row or the last row first row because the
+
+37
+00:04:05,740 --> 00:04:13,700
+first row is a 1 1 times u 1 of k plus 1 equal to a known number so in that is
+
+38
+00:04:13,700 --> 00:04:20,620
+easy we just need to take the reciprocal of a 1 1 multiplied with the first row
+
+39
+00:04:20,620 --> 00:04:23,860
+of the right hand side we get u 1 of k plus 1
+
+40
+00:04:23,860 --> 00:04:32,220
+so just give us k they wasted and now you see you can take a set of our
+
+41
+00:04:37,840 --> 00:04:42,260
+answers and out of the state thinking which thing we assumed is 2 and also
+
+42
+00:04:42,260 --> 00:04:47,480
+here you can see that we are not going to get 0 here we presenting those first
+
+43
+00:04:47,480 --> 00:04:51,500
+staffers now if we continue to можете input the terms of the first column and
+
+44
+00:04:51,500 --> 00:04:53,560
+we keep talking these statics to isn't it going toصل it out and get the other
+
+45
+00:04:53,560 --> 00:04:58,180
+Once we solve for the first two entries, we can just get the third entry by using the same procedure.
+
+46
+00:05:00,180 --> 00:05:00,740
+Right?
+
+47
+00:05:00,980 --> 00:05:04,020
+So we solve this one by one.
+
+48
+00:05:05,680 --> 00:05:10,460
+This is why Gauss-Seidel iteration is easy to implement.
+
+49
+00:05:11,500 --> 00:05:16,180
+It's because once we have the first, the first entry is easy to get.
+
+50
+00:05:16,280 --> 00:05:20,740
+And once we have the first entry, we get all the subsequent entries pretty easily.
+
+51
+00:05:20,740 --> 00:05:28,700
+So for example, let's see how do we apply this to Poisson's equation.
+
+52
+00:05:29,720 --> 00:05:30,480
+Yeah.
+
+53
+00:05:31,640 --> 00:05:48,120
+So in Poisson's equation, we are solving u of i minus 1 minus u of 2 of ui plus u of i plus 1 divided by delta x squared equal to bi.
+
+54
+00:05:48,900 --> 00:05:50,720
+And we would have...
+
+55
+00:05:50,740 --> 00:05:57,920
+We would have k plus 1 here, k plus 1 here, because this is lower diagonal, and k here.
+
+56
+00:05:58,980 --> 00:05:59,160
+Right?
+
+57
+00:06:01,200 --> 00:06:09,280
+As opposed to k both on i minus 1 and i plus 1, we now have k only at i plus 1, the upper diagonal part.
+
+58
+00:06:09,740 --> 00:06:13,000
+And the lower and the diagonal part are now k plus 1.
+
+59
+00:06:16,020 --> 00:06:20,000
+I would argue this is as easy to apply as...
+
+60
+00:06:20,740 --> 00:06:21,880
+Jacobi's iteration.
+
+61
+00:06:23,300 --> 00:06:24,180
+This is...
+
+62
+00:06:24,180 --> 00:06:29,140
+This is because when I sweep from the first i to the last i,
+
+63
+00:06:29,140 --> 00:06:33,380
+I have already computed ui minus 1 at the k plus 1 iteration.
+
+64
+00:06:34,360 --> 00:06:41,580
+Now I am supposed to compute ui at k plus 1 iteration.
+
+65
+00:06:42,240 --> 00:06:44,140
+That would be equal to...
+
+66
+00:06:45,980 --> 00:06:50,720
+minus delta x over 2 times bi.
+
+67
+00:06:50,740 --> 00:06:58,300
+So I have ui plus the average of ui minus 1 k plus 1.
+
+68
+00:06:58,300 --> 00:07:01,540
+Now this is the only difference from Jacobi's iteration.
+
+69
+00:07:02,140 --> 00:07:03,500
+u of i plus 1 k.
+
+70
+00:07:05,040 --> 00:07:07,120
+So this is actually...
+
+71
+00:07:07,120 --> 00:07:08,520
+This is the only difference.
+
+72
+00:07:08,680 --> 00:07:13,840
+And this is the value I just have computed, right, in my previous i.
+
+73
+00:07:14,480 --> 00:07:19,120
+So instead of using the old ui minus 1,
+
+74
+00:07:19,420 --> 00:07:20,720
+the value for ui minus 1,
+
+75
+00:07:20,740 --> 00:07:22,740
+I just use the value from the last entire iteration.
+
+76
+00:07:22,740 --> 00:07:26,740
+I use the value at the current iteration I just have computed.
+
+77
+00:07:28,240 --> 00:07:28,740
+Okay?
+
+78
+00:07:28,740 --> 00:07:33,740
+The major difference between Jacobi's iteration and Gauss-Seidel's iteration is...
+
+79
+00:07:35,740 --> 00:07:38,740
+The major difference is I can't now apply this in parallel
+
+80
+00:07:38,740 --> 00:07:42,240
+because I have to compute all the i's in serial.
+
+81
+00:07:42,240 --> 00:07:45,240
+I have to rely on my previous i to get the current i.
+
+82
+00:07:46,240 --> 00:07:49,240
+Well, Jacobi's iteration is very easy to parallelize.
+
+83
+00:07:50,740 --> 00:07:57,440
+Okay, so in the two-dimensional case, it's equally easy.
+
+84
+00:07:58,740 --> 00:08:05,120
+In the two-dimensional case, I would have u of ij at k plus 1
+
+85
+00:08:05,120 --> 00:08:11,620
+would be equal to delta x squared over 4 minus bij, right?
+
+86
+00:08:12,340 --> 00:08:19,740
+And here I would be having something over 4 of ui minus 1 j.
+
+87
+00:08:19,900 --> 00:08:20,720
+Okay, should this be k?
+
+88
+00:08:20,740 --> 00:08:21,740
+k plus 1 over k?
+
+89
+00:08:24,240 --> 00:08:26,540
+Is this something I already have or I don't have?
+
+90
+00:08:32,860 --> 00:08:34,240
+Right, I have multiple terms.
+
+91
+00:08:34,240 --> 00:08:37,060
+I also have ui plus 1 j.
+
+92
+00:08:38,120 --> 00:08:43,740
+ui j minus 1, ui j plus 1, right?
+
+93
+00:08:43,860 --> 00:08:44,240
+So this is...
+
+94
+00:08:45,420 --> 00:08:49,260
+If I remove the superscripts, this would be the Poisson's equation.
+
+95
+00:08:49,260 --> 00:08:52,860
+So now I need to put superscripts on all of these.
+
+96
+00:08:53,400 --> 00:08:58,300
+In Jacobi's iteration, I basically put k plus 1 on everything I already computed
+
+97
+00:08:58,300 --> 00:09:00,700
+and k on everything I have not computed.
+
+98
+00:09:01,440 --> 00:09:08,460
+So if I go from smaller i to bigger i and smaller j to bigger j,
+
+99
+00:09:08,660 --> 00:09:11,880
+what are the terms that I should put as k plus 1?
+
+100
+00:09:16,820 --> 00:09:18,760
+I want to find out the bigger one.
+
+101
+00:09:19,080 --> 00:09:19,240
+Yes.
+
+102
+00:09:19,260 --> 00:09:22,560
+All the minus 1s is something I already computed.
+
+103
+00:09:22,880 --> 00:09:24,980
+Well, this term is something I haven't computed.
+
+104
+00:09:25,360 --> 00:09:26,760
+This is what I have computed.
+
+105
+00:09:27,180 --> 00:09:29,920
+This is something I have not computed, right?
+
+106
+00:09:33,100 --> 00:09:39,560
+So this would be how we apply the Gauss-Seidel iteration to a 2D Poisson's equation.
+

@@ -1,0 +1,156 @@
+1
+00:00:00,000 --> 00:00:03,700
+So this is for linear functionals.
+
+2
+00:00:04,120 --> 00:00:12,620
+So that's one of the conditions that we need for the well-posedness of a weak form like that.
+
+3
+00:00:12,960 --> 00:00:16,540
+The right-hand side, the linear functional, has to be bounded or continuous.
+
+4
+00:00:17,660 --> 00:00:21,740
+If you don't have a continuous, let's say if you have a right-hand side,
+
+5
+00:00:21,740 --> 00:00:25,520
+that is even more non-smooth than the delta function.
+
+6
+00:00:25,520 --> 00:00:30,080
+Then the Poisson's equation doesn't have to have a solution even in the weak sense.
+
+7
+00:00:31,100 --> 00:00:37,300
+But in this case, because the delta function is a bounded linear functional for H1,
+
+8
+00:00:37,760 --> 00:00:42,240
+and our weak form for Poisson's equation we did last lecture is defining H1,
+
+9
+00:00:42,880 --> 00:00:46,360
+therefore we still have a perfectly valid solution.
+
+10
+00:00:46,360 --> 00:00:51,940
+And we can do error analysis and a bunch of things for finite element
+
+11
+00:00:51,940 --> 00:00:55,500
+if we have a Poisson's equation with a delta function being the right-hand side.
+
+12
+00:00:55,520 --> 00:01:04,200
+Is your question if you define L of V as the integral of the function between 0 and 1?
+
+13
+00:01:05,940 --> 00:01:08,600
+What do you mean by a step function between 0 and 2?
+
+14
+00:01:11,980 --> 00:01:15,640
+And you're saying you're going to replace the delta function with a step function?
+
+15
+00:01:16,260 --> 00:01:16,740
+Is that right?
+
+16
+00:01:18,080 --> 00:01:25,500
+So L of V is a function that maps from a linear space, from a functional space.
+
+17
+00:01:25,520 --> 00:01:29,900
+To a field, let's say the field of real numbers.
+
+18
+00:01:31,900 --> 00:01:35,840
+Okay, so the result of the L of V has to be a number.
+
+19
+00:01:38,320 --> 00:01:42,860
+So what do you mean by L of V is a step function?
+
+20
+00:01:44,020 --> 00:01:49,200
+I can define this, I can replace the delta function by a step function, for example.
+
+21
+00:01:49,320 --> 00:01:51,780
+That'll be a perfectly valid linear function though.
+
+22
+00:01:53,020 --> 00:01:53,940
+Is that true?
+
+23
+00:01:55,520 --> 00:01:57,460
+Yeah, exactly.
+
+24
+00:01:57,460 --> 00:01:59,940
+Okay, so we can do the same thing.
+
+25
+00:01:59,940 --> 00:02:03,300
+The example we are taking here is L2 and H1.
+
+26
+00:02:04,780 --> 00:02:06,860
+The L2 space and H1 space.
+
+27
+00:02:07,280 --> 00:02:10,260
+L2 space is all the functions whose square is integrable.
+
+28
+00:02:11,080 --> 00:02:15,360
+H1 is all the functions, is the space of all the functions whose square is integrable
+
+29
+00:02:15,360 --> 00:02:19,060
+and also have square integrable derivatives.
+
+30
+00:02:19,060 --> 00:02:19,280
+Yes.
+
+31
+00:02:21,900 --> 00:02:23,020
+All right.
+
+32
+00:02:24,840 --> 00:02:25,480
+Does that answer?
+
+33
+00:02:25,520 --> 00:02:25,880
+Your question?
+
+34
+00:02:28,880 --> 00:02:29,780
+Oh, okay.
+
+35
+00:02:30,040 --> 00:02:32,560
+I mean, if you're still confused, keep asking.
+
+36
+00:02:34,760 --> 00:02:35,320
+Okay.
+
+37
+00:02:35,760 --> 00:02:36,680
+Any other questions?
+
+38
+00:02:39,540 --> 00:02:40,100
+Okay.
+
+39
+00:02:40,500 --> 00:02:43,580
+So this is what we have to have for L of V.
+

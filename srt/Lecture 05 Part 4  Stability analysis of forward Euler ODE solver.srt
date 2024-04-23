@@ -1,0 +1,672 @@
+1
+00:00:00,000 --> 00:00:05,000
+And as we know, nobody can integrate time exactly.
+
+2
+00:00:05,000 --> 00:00:15,000
+So from your project, if you use OD45, I know some people see weird oscillations that can be reduced if you set the tolerance of OD45 to smaller.
+
+3
+00:00:15,000 --> 00:00:24,000
+Right? So that's because OD45 also don't know how to integrate things exactly.
+
+4
+00:00:24,000 --> 00:00:33,000
+But if now we don't know how to integrate things exactly, we may not have a stable solution, even with that good numerical scheme.
+
+5
+00:00:33,000 --> 00:00:35,000
+Yes, question?
+
+6
+00:00:37,000 --> 00:00:42,000
+To take a Fourier transform, does the system have to be stable in the first place?
+
+7
+00:00:42,000 --> 00:00:44,000
+The answer is no.
+
+8
+00:00:44,000 --> 00:00:51,000
+Because we are only taking Fourier transform to the function, to the solution at a particular time.
+
+9
+00:00:51,000 --> 00:00:54,000
+So if you draw y-axis as time, x-axis as time.
+
+10
+00:00:54,000 --> 00:00:55,000
+And y-axis as space.
+
+11
+00:00:55,000 --> 00:01:02,000
+We are only doing Fourier series to every horizontal slice of the solution.
+
+12
+00:01:02,000 --> 00:01:10,000
+And stability means as you go up in the time domain, does things blow up or does things not blow up?
+
+13
+00:01:10,000 --> 00:01:16,000
+So the Fourier series and the stability is analyzed on two different axes.
+
+14
+00:01:16,000 --> 00:01:21,000
+They commute. They don't interfere with each other.
+
+15
+00:01:21,000 --> 00:01:22,000
+Right.
+
+16
+00:01:22,000 --> 00:01:23,000
+So yes, if I'm taking Fourier series on the x-axis, I can't do anything.
+
+17
+00:01:23,000 --> 00:01:24,000
+Right.
+
+18
+00:01:24,000 --> 00:01:28,000
+But if I'm taking Fourier series on t, then I do have to make sure it is stable.
+
+19
+00:01:28,000 --> 00:01:30,000
+That's a good question.
+
+20
+00:01:30,000 --> 00:01:32,000
+Any other questions?
+
+21
+00:01:32,000 --> 00:01:34,000
+All right.
+
+22
+00:01:36,000 --> 00:01:40,000
+Space-time discretization.
+
+23
+00:01:40,000 --> 00:01:43,000
+So that's what we said.
+
+24
+00:01:43,000 --> 00:01:53,000
+Now if we further discretize the differential equation in time, then what we have is the system is no longer stable.
+
+25
+00:01:53,000 --> 00:01:54,000
+Always.
+
+26
+00:01:54,000 --> 00:01:56,000
+Always.
+
+27
+00:01:56,000 --> 00:01:57,000
+Always.
+
+28
+00:01:57,000 --> 00:02:03,000
+So how many people knows stability analysis of ODE solvers?
+
+29
+00:02:03,000 --> 00:02:16,000
+Like, forward Euler is stable if, anybody can answer the question?
+
+30
+00:02:16,000 --> 00:02:19,000
+Forward Euler is basically solving a differential equation.
+
+31
+00:02:19,000 --> 00:02:22,000
+Let's say x at k plus one over t.
+
+32
+00:02:22,000 --> 00:02:23,000
+Right.
+
+33
+00:02:23,000 --> 00:02:28,000
+So k plus one minus x k divided by delta t.
+
+34
+00:02:28,000 --> 00:02:30,000
+No delta x.
+
+35
+00:02:30,000 --> 00:02:32,000
+Let's say equal to lambda x k.
+
+36
+00:02:32,000 --> 00:02:33,000
+Right.
+
+37
+00:02:33,000 --> 00:02:36,000
+So that's for solving a scalar ODE.
+
+38
+00:02:36,000 --> 00:02:40,000
+It is stable if what?
+
+39
+00:02:40,000 --> 00:02:43,000
+Delta t is less than something.
+
+40
+00:02:43,000 --> 00:02:46,000
+Right.
+
+41
+00:02:46,000 --> 00:02:48,000
+Let's look at this equation.
+
+42
+00:02:48,000 --> 00:02:49,000
+All right.
+
+43
+00:02:49,000 --> 00:02:51,000
+So the way to analyze stability of ODE solvers is to look at the following.
+
+44
+00:02:51,000 --> 00:02:56,000
+So let's say here of ODE solver, explicit ODE solvers doing this.
+
+45
+00:02:56,000 --> 00:02:59,000
+It's moving all the known.
+
+46
+00:02:59,000 --> 00:03:03,000
+So let's imagine we are solving this at time step k.
+
+47
+00:03:03,000 --> 00:03:05,000
+What are the known numbers?
+
+48
+00:03:05,000 --> 00:03:10,000
+What are the unknown numbers?
+
+49
+00:03:10,000 --> 00:03:11,000
+x k is known.
+
+50
+00:03:11,000 --> 00:03:13,000
+x at k plus one is unknown.
+
+51
+00:03:13,000 --> 00:03:14,000
+Right.
+
+52
+00:03:14,000 --> 00:03:16,000
+We solve for x k plus one.
+
+53
+00:03:16,000 --> 00:03:18,000
+And then k plus one becomes my k.
+
+54
+00:03:18,000 --> 00:03:20,000
+And we go forward to solve for k plus two.
+
+55
+00:03:20,000 --> 00:03:32,000
+So I'm going to use red to specify the unknown and blue to specify the known.
+
+56
+00:03:32,000 --> 00:03:39,000
+So the way to analyze the stability is move all the unknowns to the left-hand side.
+
+57
+00:03:39,000 --> 00:03:43,000
+And move all the known to the right-hand side.
+
+58
+00:03:43,000 --> 00:03:47,000
+So x k over delta t is moved to here.
+
+59
+00:03:47,000 --> 00:03:48,000
+Bless you.
+
+60
+00:03:48,000 --> 00:03:49,000
+And.
+
+61
+00:03:49,000 --> 00:03:53,000
+And lambda x k is over here.
+
+62
+00:03:53,000 --> 00:03:58,000
+Which is combined into one over delta t plus lambda times x k.
+
+63
+00:03:58,000 --> 00:04:01,000
+And imagine.
+
+64
+00:04:01,000 --> 00:04:04,000
+And also multiply the delta t on both sides.
+
+65
+00:04:04,000 --> 00:04:10,000
+So we get x k plus one is equal to one plus delta t lambda times x k.
+
+66
+00:04:10,000 --> 00:04:16,000
+And you can do this exercise for all kinds of ODE solvers.
+
+67
+00:04:16,000 --> 00:04:19,000
+Including the schemes used in ODE 45.
+
+68
+00:04:19,000 --> 00:04:20,000
+I mean ODE 45 uses two schemes.
+
+69
+00:04:20,000 --> 00:04:23,000
+A fourth order scheme and a fifth order scheme.
+
+70
+00:04:23,000 --> 00:04:25,000
+That's why it is called 4-5.
+
+71
+00:04:25,000 --> 00:04:31,000
+And it adapts its time step by comparing the error, the difference between the fourth order
+
+72
+00:04:31,000 --> 00:04:33,000
+scheme and the fifth order scheme.
+
+73
+00:04:33,000 --> 00:04:38,000
+If they agree pretty well, it thinks the solution is accurate enough and keeps going.
+
+74
+00:04:38,000 --> 00:04:42,000
+Otherwise it tries to reduce delta t to make it better.
+
+75
+00:04:42,000 --> 00:04:43,000
+So.
+
+76
+00:04:43,000 --> 00:04:44,000
+So you can do the same thing for there.
+
+77
+00:04:44,000 --> 00:04:46,000
+Just to move all the unknowns to the left-hand side.
+
+78
+00:04:46,000 --> 00:04:47,000
+Move all the knowns to the right-hand side.
+
+79
+00:04:47,000 --> 00:04:48,000
+So.
+
+80
+00:04:48,000 --> 00:04:49,000
+So you can do the same thing for there.
+
+81
+00:04:49,000 --> 00:04:50,000
+Just to move all the unknowns to the left-hand side.
+
+82
+00:04:50,000 --> 00:04:52,000
+And remember here lambda can be complex.
+
+83
+00:04:52,000 --> 00:05:01,000
+So for what values of lambda delta t would this equation be stable?
+
+84
+00:05:01,000 --> 00:05:07,000
+If I draw a complex plan for delta t lambda.
+
+85
+00:05:07,000 --> 00:05:08,000
+So this is the real part.
+
+86
+00:05:08,000 --> 00:05:10,000
+This is imaginary part.
+
+87
+00:05:10,000 --> 00:05:13,000
+Delta t lambda.
+
+88
+00:05:13,000 --> 00:05:17,000
+Which part of the complex domain is this iteration.
+
+89
+00:05:17,000 --> 00:05:18,000
+Stable.
+
+90
+00:05:18,000 --> 00:05:19,000
+Meaning not going to infinity.
+
+91
+00:05:19,000 --> 00:05:20,000
+Right part.
+
+92
+00:05:20,000 --> 00:05:21,000
+Huh?
+
+93
+00:05:21,000 --> 00:05:22,000
+Right part of the domain.
+
+94
+00:05:22,000 --> 00:05:23,000
+Right part of the domain.
+
+95
+00:05:23,000 --> 00:05:24,000
+So if my lambda delta t is for example 1.
+
+96
+00:05:24,000 --> 00:05:25,000
+Is the iteration going to be stable?
+
+97
+00:05:25,000 --> 00:05:26,000
+If lambda delta t is equal to 1.
+
+98
+00:05:26,000 --> 00:05:27,000
+1 plus 1 is going to be 2.
+
+99
+00:05:27,000 --> 00:05:28,000
+That means xk plus 1 is equal to 2.
+
+100
+00:05:28,000 --> 00:05:29,000
+xk plus 1 is equal to 2.
+
+101
+00:05:29,000 --> 00:05:30,000
+xk plus 1 is equal to 2.
+
+102
+00:05:30,000 --> 00:05:31,000
+So.
+
+103
+00:05:31,000 --> 00:05:32,000
+So.
+
+104
+00:05:32,000 --> 00:05:33,000
+So.
+
+105
+00:05:33,000 --> 00:05:34,000
+So.
+
+106
+00:05:34,000 --> 00:05:35,000
+So.
+
+107
+00:05:35,000 --> 00:05:36,000
+So.
+
+108
+00:05:36,000 --> 00:05:37,000
+So.
+
+109
+00:05:37,000 --> 00:05:38,000
+So.
+
+110
+00:05:38,000 --> 00:05:39,000
+So.
+
+111
+00:05:39,000 --> 00:05:40,000
+So.
+
+112
+00:05:40,000 --> 00:05:41,000
+So.
+
+113
+00:05:41,000 --> 00:05:42,000
+So.
+
+114
+00:05:42,000 --> 00:05:43,000
+So.
+
+115
+00:05:43,000 --> 00:05:44,000
+So.
+
+116
+00:05:44,000 --> 00:05:45,000
+So.
+
+117
+00:05:45,000 --> 00:05:46,000
+So.
+
+118
+00:05:46,000 --> 00:05:47,000
+So.
+
+119
+00:05:47,000 --> 00:05:48,000
+So.
+
+120
+00:05:48,000 --> 00:05:49,000
+So.
+
+121
+00:05:49,000 --> 00:05:50,000
+Is it stable?
+
+122
+00:05:50,000 --> 00:05:51,000
+The xk?
+
+123
+00:05:51,000 --> 00:05:52,000
+Is that stable?
+
+124
+00:05:52,000 --> 00:05:53,000
+No.
+
+125
+00:05:53,000 --> 00:05:54,000
+Right?
+
+126
+00:05:54,000 --> 00:05:55,000
+If you multiply by 2.
+
+127
+00:05:55,000 --> 00:05:56,000
+I get thousand times.
+
+128
+00:05:56,000 --> 00:05:57,000
+After eight.
+
+129
+00:05:57,000 --> 00:05:58,000
+After 10 iterations.
+
+130
+00:05:58,000 --> 00:05:59,000
+I get a million.
+
+131
+00:05:59,000 --> 00:06:00,000
+After 20 iterations.
+
+132
+00:06:00,000 --> 00:06:01,000
+I get a trivial after 30 iterations.
+
+133
+00:06:01,000 --> 00:06:02,000
+Ok.
+
+134
+00:06:02,000 --> 00:06:03,000
+It goes to infinity pretty fast.
+
+135
+00:06:03,000 --> 00:06:04,000
+Yes?
+
+136
+00:06:04,000 --> 00:06:09,000
+Within the circle of unity?
+
+137
+00:06:09,000 --> 00:06:12,000
+Within the circle of unity?
+
+138
+00:06:12,000 --> 00:06:13,000
+One.
+
+139
+00:06:13,000 --> 00:06:14,000
+Like this.
+
+140
+00:06:14,000 --> 00:06:15,000
+.
+
+141
+00:06:15,000 --> 00:06:16,000
+Like this.
+
+142
+00:06:16,000 --> 00:06:17,000
+.
+
+143
+00:06:17,000 --> 00:06:22,320
+Now imagine if I draw a point here, delta t lambda equal to half.
+
+144
+00:06:24,040 --> 00:06:27,060
+1 plus delta t lambda is equal to 2 third.
+
+145
+00:06:27,820 --> 00:06:30,060
+No, 3, like 1.5.
+
+146
+00:06:30,620 --> 00:06:33,240
+I get xk plus 1 equal to 1.5 times xk.
+
+147
+00:06:33,340 --> 00:06:33,900
+Is that stable?
+
+148
+00:06:36,020 --> 00:06:36,500
+No.
+
+149
+00:06:37,120 --> 00:06:37,580
+Not again.
+
+150
+00:06:37,700 --> 00:06:37,920
+Yes?
+
+151
+00:06:37,920 --> 00:06:40,940
+A circle of radius 1 and dot 1.8 of 1?
+
+152
+00:06:41,960 --> 00:06:43,560
+About negative 1.
+
+153
+00:06:43,560 --> 00:06:47,520
+So your answer is negative 1.
+
+154
+00:06:47,840 --> 00:06:49,360
+I draw a circle like that.
+
+155
+00:06:50,900 --> 00:06:52,280
+That's the right answer.
+
+156
+00:06:53,200 --> 00:06:56,760
+Because if delta t lambda is within this circle,
+
+157
+00:06:57,100 --> 00:07:02,360
+then 1 plus delta t lambda is going to be in this dashed circle.
+
+158
+00:07:03,100 --> 00:07:03,200
+Right?
+
+159
+00:07:04,260 --> 00:07:10,580
+And the dashed circle has a modulus less than 1.
+
+160
+00:07:11,040 --> 00:07:13,260
+And the modulus less than 1,
+
+161
+00:07:13,560 --> 00:07:16,700
+is what we need for this iteration to be stable.
+
+162
+00:07:17,260 --> 00:07:17,980
+To not grow.
+
+163
+00:07:19,220 --> 00:07:24,820
+The magnitude of xk plus 1 is equal to the modulus of this complex number
+
+164
+00:07:24,820 --> 00:07:26,520
+times the magnitude of xk.
+
+165
+00:07:27,000 --> 00:07:29,600
+So you need something that is less than unity
+
+166
+00:07:29,600 --> 00:07:32,680
+for the iteration to be stable.
+
+167
+00:07:32,680 --> 00:07:34,160
+All right.
+
+168
+00:07:34,220 --> 00:07:36,840
+So that's for this scalar equation.
+

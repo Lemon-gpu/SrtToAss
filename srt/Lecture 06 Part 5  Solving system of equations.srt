@@ -1,0 +1,656 @@
+1
+00:00:00,000 --> 00:00:05,880
+So today we are going to introduce to you how do we solve system of equations.
+
+2
+00:00:05,880 --> 00:00:10,440
+System of equations is not just one differential equation but multiple
+
+3
+00:00:10,440 --> 00:00:11,760
+differential equations.
+
+4
+00:00:11,760 --> 00:00:19,560
+Okay so it's not that much different from solving one single differential
+
+5
+00:00:19,560 --> 00:00:25,860
+equation. For example, I'm going to motivate that using a very simple
+
+6
+00:00:25,860 --> 00:00:35,820
+example. Partial u, partial t plus I'm going to say u11 of partial u, partial x
+
+7
+00:00:35,820 --> 00:00:45,800
+plus u12 of partial v, partial x equal to 0 and partial v, partial t plus u21 of
+
+8
+00:00:45,800 --> 00:00:52,680
+partial u, partial x plus u22 of partial v, partial x equal to 0.
+
+9
+00:00:55,860 --> 00:01:07,020
+Right. So the only difference from our previous case is that every equation
+
+10
+00:01:07,020 --> 00:01:12,680
+involves another equation. The time derivative for u involves v and the time
+
+11
+00:01:12,680 --> 00:01:20,260
+derivative for v involves u. Right. So how do we solve it?
+
+12
+00:01:22,720 --> 00:01:25,740
+We just do exactly the same thing as we did in the previous example.
+
+13
+00:01:25,740 --> 00:01:25,840
+So we solve the equation, we just do exactly the same thing as we did in the previous example.
+
+14
+00:01:25,840 --> 00:01:33,020
+did before the UI DT would be equal to u11 for example if you want to use
+
+15
+00:01:33,020 --> 00:01:42,940
+central difference ui plus 1 minus ui minus 1 divided by 2 del x plus u12 v i
+
+16
+00:01:42,940 --> 00:01:51,520
+plus 1 minus v i minus 1 2 del x and this is the same so this is
+
+17
+00:01:51,520 --> 00:01:56,860
+discretization how do we perform error how do we analyze the truncation error
+
+18
+00:01:56,860 --> 00:02:02,980
+of the scheme same thing right so we basically plug in Taylor series on each
+
+19
+00:02:02,980 --> 00:02:12,860
+of these derivatives same thing the only difference is how to analyze stability
+
+20
+00:02:12,860 --> 00:02:20,000
+how do we know this is gonna be a stable scheme instead of being an unstable
+
+21
+00:02:20,000 --> 00:02:20,280
+scheme
+
+22
+00:02:21,520 --> 00:02:32,240
+right again we have two ways to analyze stability the simplest way I would say
+
+23
+00:02:32,240 --> 00:02:37,560
+is the what we discussed in the last lecture for Newman stability analysis
+
+24
+00:02:37,560 --> 00:02:50,680
+right but now in this case we have a little bit more complication because let's for example just
+
+25
+00:02:50,680 --> 00:02:51,480
+take this one
+
+26
+00:02:51,520 --> 00:02:59,900
+and use our Fourier Series and but in this case we need to expand the Fourier
+
+27
+00:02:59,900 --> 00:03:12,020
+Series both on u and v again K goes from minus n over 2 to n over 2 minus 1
+
+28
+00:03:12,020 --> 00:03:17,060
+because of the aliasing of the higher frequencies back to the lower frequencies
+
+29
+00:03:17,060 --> 00:03:28,300
+VI is going to be the same summation over the same range of Vk-hat, same explanation.
+
+30
+00:03:28,300 --> 00:03:43,220
+So if we plug this in, what we get is du-hat of k dt, which is a result of substituting
+
+31
+00:03:43,220 --> 00:03:50,640
+the Fourier series into the time derivative and collect the terms with regard to the same
+
+32
+00:03:50,640 --> 00:04:06,260
+exponential of k, plus u11 of V-hat of k and the same thing as we did before is going to
+
+33
+00:04:06,260 --> 00:04:13,040
+come in, jk-delta-x minus e to the minus jk-delta-x divided by 2-delta-x.
+
+34
+00:04:13,040 --> 00:04:13,120
+.
+
+35
+00:04:13,220 --> 00:04:18,860
+This is actually going to be a common term also for V.
+
+36
+00:04:18,860 --> 00:04:23,740
+So u12, oh sorry, this one is u, this one is V.
+
+37
+00:04:26,640 --> 00:04:28,280
+And the same term.
+
+38
+00:04:35,440 --> 00:04:39,680
+Okay, and I'm just going to write down the same equation for V.
+
+39
+00:04:43,220 --> 00:04:56,980
+Now in this case, do we still have that very simple scalar ODE we can analyze the stability of?
+
+40
+00:04:56,980 --> 00:05:05,240
+We no longer, right?
+
+41
+00:05:05,240 --> 00:05:12,120
+We need to have a coupled ODE.
+
+42
+00:05:12,400 --> 00:05:13,060
+So we can...
+
+43
+00:05:13,060 --> 00:05:13,120
+.
+
+44
+00:05:13,120 --> 00:05:13,140
+.
+
+45
+00:05:13,140 --> 00:05:13,180
+.
+
+46
+00:05:13,180 --> 00:05:13,200
+.
+
+47
+00:05:13,200 --> 00:05:13,320
+.
+
+48
+00:05:13,320 --> 00:05:13,340
+.
+
+49
+00:05:13,340 --> 00:05:13,360
+.
+
+50
+00:05:13,360 --> 00:05:13,400
+.
+
+51
+00:05:13,400 --> 00:05:13,460
+.
+
+52
+00:05:13,460 --> 00:05:20,240
+We can only look at the time derivative of these two numbers at the same time.
+
+53
+00:05:20,560 --> 00:05:31,720
+This is actually going to be equal to a matrix times u-hat of k, V-hat of k.
+
+54
+00:05:32,700 --> 00:05:38,480
+And that matrix involves u11, u12, u21, u22.
+
+55
+00:05:39,560 --> 00:05:42,480
+It also involves the same vector.
+
+56
+00:05:42,480 --> 00:05:59,660
+factor, let me just write as, not k, but ck, where ck is equal to e to the jk delta x minus
+
+57
+00:05:59,660 --> 00:06:03,800
+e to the jk minus jk delta x over 2 delta x.
+
+58
+00:06:05,020 --> 00:06:06,600
+This is equal to 0.
+
+59
+00:06:06,600 --> 00:06:15,100
+So, in order to ensure that the scheme is stable, what do we need to ensure about this
+
+60
+00:06:15,100 --> 00:06:15,920
+whole matrix?
+
+61
+00:06:18,220 --> 00:06:20,840
+The norm is less than 1.
+
+62
+00:06:21,100 --> 00:06:24,680
+That is an excellent way to ensure the stability.
+
+63
+00:06:25,920 --> 00:06:31,880
+And another excellent way to ensure the stability is look at the eigenvalues.
+
+64
+00:06:33,180 --> 00:06:34,720
+Let's talk about it.
+
+65
+00:06:34,720 --> 00:06:35,720
+So, this is...
+
+66
+00:06:35,720 --> 00:06:45,340
+If I write it as d dt of u hat of k v hat of k is equal to, let's move this to the other
+
+67
+00:06:45,340 --> 00:06:49,740
+side, ak times the same vector.
+
+68
+00:06:51,700 --> 00:06:56,140
+What do we know about the solution to this equation?
+
+69
+00:06:59,140 --> 00:07:05,640
+The solution to this equation can be derived analytically by factorizing.
+
+70
+00:07:05,720 --> 00:07:09,560
+So, let's look at the solution to this matrix and its eigenvalues and eigenvectors.
+
+71
+00:07:09,560 --> 00:07:14,560
+If we say ak is equal to...
+
+72
+00:07:16,740 --> 00:07:17,560
+What is...
+
+73
+00:07:18,160 --> 00:07:20,260
+What's the notation for the eigenvectors?
+
+74
+00:07:20,540 --> 00:07:31,580
+vk times lambda k times vk inverse.
+
+75
+00:07:33,560 --> 00:07:34,640
+Okay.
+
+76
+00:07:35,720 --> 00:07:39,340
+So, this is...
+
+77
+00:07:39,340 --> 00:07:43,960
+The vk is going to contain all the eigenvectors of the matrix.
+
+78
+00:07:44,540 --> 00:07:47,840
+Lambda k is going to contain all the eigenvalues of the matrix.
+
+79
+00:07:48,840 --> 00:07:51,280
+In this case, it's a 2 by 2 matrix.
+
+80
+00:07:52,080 --> 00:07:58,800
+Unless the two eigenvalues happens to be exactly the same, this lambda k is going to be a diagonal
+
+81
+00:07:58,800 --> 00:07:59,280
+matrix.
+
+82
+00:07:59,280 --> 00:08:05,280
+It has two diagonal entries corresponding to the two eigenvalues.
+
+83
+00:08:05,720 --> 00:08:08,280
+And that's what we call the method of linear operation.
+
+84
+00:08:08,280 --> 00:08:10,060
+We can call this the linear operation.
+
+85
+00:08:10,060 --> 00:08:11,580
+So, we can call the method of linear operation.
+
+86
+00:08:11,580 --> 00:08:12,580
+Okay?
+
+87
+00:08:12,580 --> 00:08:17,380
+And these eigenvalues are exactly ck because taking eigenvalue of a matrix is a linear
+
+88
+00:08:17,380 --> 00:08:18,380
+operator.
+
+89
+00:08:18,380 --> 00:08:21,620
+If you multiply the matrix by 2, the eigenvalues are multiplied by 2.
+
+90
+00:08:21,620 --> 00:08:28,620
+So, these eigenvalues are equal to ck times the eigenvalues of this u matrix.
+
+91
+00:08:28,620 --> 00:08:35,180
+So, in trying to ensure the scheme is stable, we have to put in the eigenvalues.
+
+92
+00:08:35,180 --> 00:08:41,340
+is stable you only need to compute the eigenvalues of that matrix and the scale these eigenvalues by
+
+93
+00:08:41,340 --> 00:08:48,860
+ck for different case so once you have that eigenvalue expansion what we can do is that
+
+94
+00:08:51,740 --> 00:09:02,060
+we can multiply both sides by vk inverse so vk inverse d dt and by the way vk is not a function
+
+95
+00:09:02,060 --> 00:09:08,540
+i mean the matrix ak is not a function of t therefore the eigenvectors are also not a
+
+96
+00:09:08,540 --> 00:09:14,380
+function of t so once you multiply both sides by vk inverse we get that
+
+97
+00:09:21,100 --> 00:09:31,660
+and in particular let's define the transformed vks as u tilde k and v tilde k let's define them
+
+98
+00:09:31,660 --> 00:09:31,980
+as
+
+99
+00:09:32,060 --> 00:09:43,900
+vk inverse times u hat k and v hat k right so the reason we're doing this is to diagonalize
+
+100
+00:09:44,620 --> 00:09:52,060
+the differential equation is to decouple these coupled differential equations if we do this
+
+101
+00:09:52,060 --> 00:09:58,300
+what we have is ddt because this vk is not a function of time it can be taken
+
+102
+00:09:58,300 --> 00:10:01,660
+into the time derivative without modifying anything else
+
+103
+00:10:03,020 --> 00:10:07,980
+so we can just write down the matrix as u tilde k and v tilde k
+
+104
+00:10:07,980 --> 00:10:14,140
+so we have the first eigenvalue and the second eigenvalue let's just write down this matrix
+
+105
+00:10:14,140 --> 00:10:20,060
+like this times u tilde k v tilde k
+
+106
+00:10:24,060 --> 00:10:28,620
+we have zero and zero here that means these two variables
+
+107
+00:10:28,620 --> 00:10:31,900
+u tilde and v tilde of k they evolve independently
+
+108
+00:10:32,060 --> 00:10:45,200
+so산oった kv Yunnan
+
+109
+00:10:45,200 --> 00:10:47,980
+pastors
+
+110
+00:10:47,980 --> 00:10:50,460
+daniel
+
+111
+00:10:50,460 --> 00:10:57,140
+ripman
+
+112
+00:10:57,140 --> 00:10:58,020
+barrington
+
+113
+00:10:58,020 --> 00:10:59,820
+joseph
+
+114
+00:10:59,820 --> 00:11:00,060
+going along step two calling the same values as alfa from the last stage when we say fh would equal to one and y equals one and y equals two but an cuando daniel says if one equals n and if you and y is equal to one and y equals two or dz equals to y the rise then y del over y equals ni and de miedo a part of the rising Strauss Att基本 to be n ventura achieved by selling a buckle of the iris merchants' proof hash power to the law as result of the hollowisen maxima some general Kawar's migrants later shocked domin terminimally the theory of January morning staffer actually Jiang y 재 spine as a呕 1500 and onlywrote hagi ä Norerbeck group Viktor Paul and Ingredant Tasker Concerns for analytical capacities � me look and..
+
+115
+00:11:00,060 --> 00:11:02,020
+understand how working out
+
+116
+00:11:02,060 --> 00:11:09,700
+u tilde of k. d dt of v tilde of k is equal to lambda k2 times v tilde of k.
+
+117
+00:11:09,700 --> 00:11:22,500
+As long as these two eigenvalues lie in the stability region of whatever time
+
+118
+00:11:22,500 --> 00:11:31,620
+integration scheme we are using, we know we have a stable scheme. To summarize
+
+119
+00:11:31,620 --> 00:11:37,260
+if we want to ensure a spatial discretization is stable for a system of
+
+120
+00:11:37,260 --> 00:11:48,660
+equations, we first perform voluminos stability analysis, which means
+
+121
+00:11:48,660 --> 00:11:54,780
+substituting a discrete Fourier series into the into the discretized difference
+
+122
+00:11:54,780 --> 00:12:01,460
+equation. And then for each wave number k, instead of deriving a single number
+
+123
+00:12:01,460 --> 00:12:01,600
+which is the consequential property tangent variance over k, the quadratic
+
+124
+00:12:01,600 --> 00:12:07,120
+determines the stability we are going to derive a 2x2 matrix if we have two
+
+125
+00:12:07,120 --> 00:12:10,900
+system of equations or a 3x3 matrix if we have three equations that is
+
+126
+00:12:10,900 --> 00:12:17,400
+coupled and we have one matrix for each K and we need to make sure that every
+
+127
+00:12:17,400 --> 00:12:25,540
+eigenvalue of every matrix associated with every K lies within the stability
+
+128
+00:12:25,540 --> 00:12:35,080
+region of the time integration scheme okay any questions what if we have
+
+129
+00:12:35,080 --> 00:12:39,520
+equal eigenvalues that's a very good question in the case we have equal
+
+130
+00:12:39,520 --> 00:12:44,860
+eigenvalues we need to make still want to make sure that equal eigenvalue lies
+
+131
+00:12:44,860 --> 00:12:53,820
+within the stability region of our time integration scheme what's a little bit
+
+132
+00:12:53,820 --> 00:12:55,480
+tricky is when
+
+133
+00:12:55,480 --> 00:12:55,520
+that
+
+134
+00:12:55,520 --> 00:13:00,380
+equal eigenvalue lies on the boundary of the stability region that's a lot more
+
+135
+00:13:00,380 --> 00:13:10,460
+complex case so we know like in when you have a when we have a single equation
+
+136
+00:13:10,460 --> 00:13:14,720
+not a system equation if we have eigenvalue lies exactly on the boundary
+
+137
+00:13:14,720 --> 00:13:19,200
+then we have a linear growth on the solution error and if you have a system
+
+138
+00:13:19,200 --> 00:13:23,560
+of equation and you have you have a duplicate eigenvalue lies on the
+
+139
+00:13:23,560 --> 00:13:25,460
+boundary it's a lot more complex case
+
+140
+00:13:25,460 --> 00:13:30,900
+but if every eigenvalue is within the the stability region then it's a you
+
+141
+00:13:30,900 --> 00:13:35,140
+still have the same property you still have found it still have bounded
+
+142
+00:13:35,140 --> 00:13:43,380
+solution error you need to make sure all the most K have all the landas falling
+
+143
+00:13:43,380 --> 00:13:46,540
+into the stability region
+
+144
+00:13:46,540 --> 00:13:49,540
+how do you ensure that this is the case
+
+145
+00:13:49,540 --> 00:13:53,260
+lambda ah lambdas are numbers
+
+146
+00:13:53,260 --> 00:13:55,440
+lambda are numbers
+
+147
+00:13:55,460 --> 00:13:56,700
+They are not functions.
+
+148
+00:13:57,300 --> 00:14:00,820
+So each lambda k1 and each lambda k2 is a number.
+
+149
+00:14:00,820 --> 00:14:06,220
+And k, remember, goes from minus n over 2 to n over 2 minus 1.
+
+150
+00:14:07,740 --> 00:14:08,040
+Right?
+
+151
+00:14:08,500 --> 00:14:11,900
+So what I would do in this case is to take this matrix, analyze,
+
+152
+00:14:12,420 --> 00:14:15,060
+take this u11, u12, u21, u22 matrix,
+
+153
+00:14:15,240 --> 00:14:18,200
+look at the eigenvalues of that matrix.
+
+154
+00:14:19,220 --> 00:14:22,940
+And we know the eigenvalues of the matrix ak
+
+155
+00:14:22,940 --> 00:14:28,020
+is equal to the eigenvalues of this matrix times the ck for different k's.
+
+156
+00:14:30,200 --> 00:14:30,720
+Okay?
+
+157
+00:14:31,340 --> 00:14:37,740
+So basically there are two classes of numbers we want to look at.
+
+158
+00:14:37,920 --> 00:14:41,280
+One is ck times the first eigenvalue of that matrix,
+
+159
+00:14:41,500 --> 00:14:44,020
+and also the second number is the ck's, different ck's,
+
+160
+00:14:44,960 --> 00:14:47,280
+multiplied by the second eigenvalue of the matrix.
+
+161
+00:14:48,960 --> 00:14:50,200
+If all of them, like I'm saying,
+
+162
+00:14:50,620 --> 00:14:52,880
+so you can plot them in the stability,
+
+163
+00:14:53,300 --> 00:14:54,480
+in the complex plane,
+
+164
+00:14:54,480 --> 00:14:57,680
+if all of them lies within the stability region, you are good.
+

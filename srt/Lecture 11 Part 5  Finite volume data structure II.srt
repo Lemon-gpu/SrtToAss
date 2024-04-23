@@ -1,0 +1,996 @@
+1
+00:00:00,000 --> 00:00:04,000
+Yes?
+
+2
+00:00:04,000 --> 00:00:08,000
+What is the structure of the grid going to be?
+
+3
+00:00:08,000 --> 00:00:12,000
+Like the actual...
+
+4
+00:00:12,000 --> 00:00:16,000
+How do you get the normal
+
+5
+00:00:16,000 --> 00:00:20,000
+and the SIG from
+
+6
+00:00:20,000 --> 00:00:24,000
+your grid information? How do I get that from the grid information?
+
+7
+00:00:24,000 --> 00:00:28,000
+Yeah, okay.
+
+8
+00:00:28,000 --> 00:00:32,000
+That's a very good question. So let me
+
+9
+00:00:32,000 --> 00:00:36,000
+actually demonstrate using
+
+10
+00:00:36,000 --> 00:00:40,000
+one thing. How do I do that?
+
+11
+00:00:40,000 --> 00:00:44,000
+So for example, in MATLAB there is a good PD toolbox.
+
+12
+00:00:44,000 --> 00:00:48,000
+Okay. So the
+
+13
+00:00:48,000 --> 00:00:52,000
+PD toolbox is useful for generating a mesh. For example,
+
+14
+00:00:52,000 --> 00:00:56,000
+if I just draw a circle over here and
+
+15
+00:00:56,000 --> 00:01:00,000
+I click mesh, I get a mesh.
+
+16
+00:01:00,000 --> 00:01:04,000
+MATLAB PD toolbox supports the kind of unstructured
+
+17
+00:01:04,000 --> 00:01:08,000
+triangular mesh.
+
+18
+00:01:08,000 --> 00:01:12,000
+Then after you generate a mesh, you can export the mesh
+
+19
+00:01:12,000 --> 00:01:16,000
+into this environment.
+
+20
+00:01:16,000 --> 00:01:20,000
+So we can see we have E
+
+21
+00:01:20,000 --> 00:01:24,000
+and P and T. So P is
+
+22
+00:01:24,000 --> 00:01:28,000
+going to be all the grid points. So for example,
+
+23
+00:01:28,000 --> 00:01:32,000
+if you plot P1 and P2
+
+24
+00:01:36,000 --> 00:01:40,000
+you get all
+
+25
+00:01:40,000 --> 00:01:44,000
+the points where we generated.
+
+26
+00:01:44,000 --> 00:01:48,000
+The T, the triangle, the T's
+
+27
+00:01:48,000 --> 00:01:52,000
+are a 4 by the number of triangles.
+
+28
+00:01:52,000 --> 00:01:56,000
+So we have 992 triangles. The fourth
+
+29
+00:01:56,000 --> 00:02:00,000
+column is R1. It's the number of, it's the domain
+
+30
+00:02:00,000 --> 00:02:04,000
+index. So in this case we only have one domain, so it's R1. We don't
+
+31
+00:02:04,000 --> 00:02:08,000
+need to care about that. And the other three rows, 1, 2, 3
+
+32
+00:02:08,000 --> 00:02:12,000
+are integers corresponding to the index
+
+33
+00:02:12,000 --> 00:02:16,000
+in the P array. Okay.
+
+34
+00:02:16,000 --> 00:02:20,000
+So these, for example, gives you
+
+35
+00:02:20,000 --> 00:02:22,000
+gives you
+
+36
+00:02:22,000 --> 00:02:26,000
+the length, so the length of the
+
+37
+00:02:26,000 --> 00:02:30,000
+triangle size and the direction of the triangle size
+
+38
+00:02:30,000 --> 00:02:34,000
+are going to give you the surface normals.
+
+39
+00:02:34,000 --> 00:02:38,000
+Right. So for example,
+
+40
+00:02:38,000 --> 00:02:42,000
+so let me
+
+41
+00:02:42,000 --> 00:02:46,000
+let me just walk you through this one. So for example, I
+
+42
+00:02:46,000 --> 00:02:50,000
+coded up a function, it's a pretty short function that extracts
+
+43
+00:02:50,000 --> 00:02:54,000
+the edges from the P's and T's. So from the points and triangles.
+
+44
+00:02:54,000 --> 00:02:58,000
+So if you run it, for example,
+
+45
+00:02:58,000 --> 00:03:02,000
+extract edges, P and T, what I
+
+46
+00:03:02,000 --> 00:03:06,000
+returned you is an array
+
+47
+00:03:06,000 --> 00:03:10,000
+of 4 by
+
+48
+00:03:10,000 --> 00:03:14,000
+1520. And 1520 turns out to be the
+
+49
+00:03:14,000 --> 00:03:18,000
+number of edges in the whole mesh.
+
+50
+00:03:18,000 --> 00:03:20,000
+And
+
+51
+00:03:20,000 --> 00:03:24,000
+the four rows are
+
+52
+00:03:24,000 --> 00:03:28,000
+the first two rows
+
+53
+00:03:28,000 --> 00:03:30,000
+are indices corresponding
+
+54
+00:03:30,000 --> 00:03:32,000
+to the array P.
+
+55
+00:03:32,000 --> 00:03:34,000
+That means which two
+
+56
+00:03:34,000 --> 00:03:36,000
+points are these edges
+
+57
+00:03:36,000 --> 00:03:38,000
+connected.
+
+58
+00:03:38,000 --> 00:03:40,000
+The three and
+
+59
+00:03:40,000 --> 00:03:42,000
+fourth row are
+
+60
+00:03:42,000 --> 00:03:44,000
+indices in the
+
+61
+00:03:44,000 --> 00:03:46,000
+array T. That means
+
+62
+00:03:46,000 --> 00:03:48,000
+which two triangles
+
+63
+00:03:48,000 --> 00:03:50,000
+are these edges
+
+64
+00:03:50,000 --> 00:03:52,000
+separated.
+
+65
+00:03:52,000 --> 00:03:54,000
+Okay. So if you
+
+66
+00:03:54,000 --> 00:03:56,000
+if you use, if you follow
+
+67
+00:03:56,000 --> 00:03:58,000
+the unstructured
+
+68
+00:03:58,000 --> 00:04:00,000
+mesh finite volume, then
+
+69
+00:04:00,000 --> 00:04:02,000
+it's the third and fourth
+
+70
+00:04:02,000 --> 00:04:04,000
+row that
+
+71
+00:04:04,000 --> 00:04:06,000
+identifies which control,
+
+72
+00:04:06,000 --> 00:04:08,000
+that identifies the corresponding
+
+73
+00:04:08,000 --> 00:04:10,000
+i and j of that interface.
+
+74
+00:04:10,000 --> 00:04:12,000
+But you can use
+
+75
+00:04:12,000 --> 00:04:14,000
+the row one and row two to calculate
+
+76
+00:04:14,000 --> 00:04:16,000
+what is the normal
+
+77
+00:04:16,000 --> 00:04:18,000
+and the s i j.
+
+78
+00:04:18,000 --> 00:04:20,000
+So for example,
+
+79
+00:04:20,000 --> 00:04:22,000
+for example, if you
+
+80
+00:04:22,000 --> 00:04:24,000
+compute the distance,
+
+81
+00:04:24,000 --> 00:04:26,000
+so let's say d s,
+
+82
+00:04:26,000 --> 00:04:28,000
+the distance between these two
+
+83
+00:04:28,000 --> 00:04:30,000
+points would be equal to
+
+84
+00:04:30,000 --> 00:04:32,000
+P of
+
+85
+00:04:32,000 --> 00:04:34,000
+P of
+
+86
+00:04:34,000 --> 00:04:36,000
+column, which includes
+
+87
+00:04:36,000 --> 00:04:38,000
+both x and y.
+
+88
+00:04:38,000 --> 00:04:40,000
+So the first dimension is x and y.
+
+89
+00:04:40,000 --> 00:04:42,000
+Of e1
+
+90
+00:04:42,000 --> 00:04:44,000
+column minus
+
+91
+00:04:44,000 --> 00:04:46,000
+p e2
+
+92
+00:04:46,000 --> 00:04:48,000
+column. That'll give
+
+93
+00:04:48,000 --> 00:04:50,000
+us the, the
+
+94
+00:04:50,000 --> 00:04:52,000
+the distance,
+
+95
+00:04:52,000 --> 00:04:54,000
+the vector that points from
+
+96
+00:04:54,000 --> 00:04:56,000
+one point to the other point
+
+97
+00:04:56,000 --> 00:04:58,000
+along the edge.
+
+98
+00:04:58,000 --> 00:05:00,000
+So the length would be just
+
+99
+00:05:00,000 --> 00:05:02,000
+equal to
+
+100
+00:05:02,000 --> 00:05:04,000
+the square root of d s
+
+101
+00:05:04,000 --> 00:05:06,000
+one
+
+102
+00:05:06,000 --> 00:05:08,000
+square
+
+103
+00:05:08,000 --> 00:05:10,000
+square plus
+
+104
+00:05:10,000 --> 00:05:12,000
+d s two
+
+105
+00:05:12,000 --> 00:05:14,000
+square.
+
+106
+00:05:14,000 --> 00:05:16,000
+So that'll give me
+
+107
+00:05:16,000 --> 00:05:18,000
+that'll give me the
+
+108
+00:05:18,000 --> 00:05:20,000
+length
+
+109
+00:05:20,000 --> 00:05:22,000
+of each interface.
+
+110
+00:05:22,000 --> 00:05:24,000
+These numbers are similar.
+
+111
+00:05:24,000 --> 00:05:26,000
+Okay, so the surface normals
+
+112
+00:05:26,000 --> 00:05:28,000
+would be equal
+
+113
+00:05:28,000 --> 00:05:30,000
+to d s
+
+114
+00:05:30,000 --> 00:05:32,000
+of two
+
+115
+00:05:32,000 --> 00:05:34,000
+and d s
+
+116
+00:05:34,000 --> 00:05:36,000
+minus of d s
+
+117
+00:05:36,000 --> 00:05:38,000
+one.
+
+118
+00:05:38,000 --> 00:05:40,000
+Divided
+
+119
+00:05:40,000 --> 00:05:42,000
+by
+
+120
+00:05:42,000 --> 00:05:44,000
+uh, divided by
+
+121
+00:05:44,000 --> 00:05:46,000
+s. I don't know if the division works.
+
+122
+00:05:48,000 --> 00:05:50,000
+Okay, so I have to wrap
+
+123
+00:05:50,000 --> 00:05:52,000
+that, uh, s
+
+124
+00:05:52,000 --> 00:05:54,000
+over two and one. So that's
+
+125
+00:05:54,000 --> 00:05:56,000
+right, so that'll
+
+126
+00:05:56,000 --> 00:05:58,000
+that'll give me
+
+127
+00:06:02,000 --> 00:06:04,000
+the matrix dimension must
+
+128
+00:06:04,000 --> 00:06:06,000
+agree.
+
+129
+00:06:06,000 --> 00:06:08,000
+s is this by this.
+
+130
+00:06:08,000 --> 00:06:10,000
+If I replicate it,
+
+131
+00:06:14,000 --> 00:06:16,000
+is it wrapped like that?
+
+132
+00:06:20,000 --> 00:06:22,000
+Oh, yeah.
+
+133
+00:06:22,000 --> 00:06:24,000
+It should be a semicolon, yeah.
+
+134
+00:06:24,000 --> 00:06:26,000
+So that'll give me
+
+135
+00:06:26,000 --> 00:06:28,000
+the normals of all the interfaces.
+
+136
+00:06:28,000 --> 00:06:30,000
+Right.
+
+137
+00:06:30,000 --> 00:06:32,000
+Does that make sense?
+
+138
+00:06:32,000 --> 00:06:34,000
+So it's all from
+
+139
+00:06:34,000 --> 00:06:36,000
+it's all from like a
+
+140
+00:06:36,000 --> 00:06:38,000
+geometric manipulations
+
+141
+00:06:38,000 --> 00:06:40,000
+of the mesh.
+
+142
+00:06:40,000 --> 00:06:42,000
+Any other questions?
+
+143
+00:06:42,000 --> 00:06:44,000
+The number of points
+
+144
+00:06:44,000 --> 00:06:46,000
+is like 529.
+
+145
+00:06:46,000 --> 00:06:48,000
+So the number of points
+
+146
+00:06:48,000 --> 00:06:50,000
+is like 529.
+
+147
+00:06:50,000 --> 00:06:52,000
+So the number of edges should be
+
+148
+00:06:52,000 --> 00:06:54,000
+529, see through them.
+
+149
+00:06:54,000 --> 00:06:56,000
+Or something less than that, but
+
+150
+00:06:56,000 --> 00:06:58,000
+Uh,
+
+151
+00:06:58,000 --> 00:07:00,000
+No,
+
+152
+00:07:00,000 --> 00:07:02,000
+because
+
+153
+00:07:02,000 --> 00:07:04,000
+every point
+
+154
+00:07:04,000 --> 00:07:06,000
+can share many edges.
+
+155
+00:07:06,000 --> 00:07:08,000
+Right, so
+
+156
+00:07:08,000 --> 00:07:10,000
+so if you look at
+
+157
+00:07:10,000 --> 00:07:12,000
+the unstructured mesh
+
+158
+00:07:12,000 --> 00:07:14,000
+over here,
+
+159
+00:07:14,000 --> 00:07:16,000
+so every point has
+
+160
+00:07:16,000 --> 00:07:18,000
+1, 2, 3, 4, 5, 6, 7, 8
+
+161
+00:07:18,000 --> 00:07:20,000
+I mean, did I count?
+
+162
+00:07:20,000 --> 00:07:22,000
+Did I count correctly?
+
+163
+00:07:22,000 --> 00:07:24,000
+I mean, every point can have many edges
+
+164
+00:07:24,000 --> 00:07:26,000
+and every edge only have 2 points.
+
+165
+00:07:26,000 --> 00:07:28,000
+So the number of
+
+166
+00:07:28,000 --> 00:07:30,000
+edges is equal to the number of points
+
+167
+00:07:32,000 --> 00:07:34,000
+times the average number of edges
+
+168
+00:07:34,000 --> 00:07:36,000
+shared by a point
+
+169
+00:07:36,000 --> 00:07:38,000
+divided by 2, which is the number of
+
+170
+00:07:38,000 --> 00:07:40,000
+points shared by an edge.
+
+171
+00:07:40,000 --> 00:07:42,000
+So if the number of
+
+172
+00:07:44,000 --> 00:07:46,000
+if the number of edges
+
+173
+00:07:46,000 --> 00:07:48,000
+shared by a point is greater than
+
+174
+00:07:48,000 --> 00:07:50,000
+4 on average, then the number
+
+175
+00:07:50,000 --> 00:07:52,000
+of edges is going to be more than
+
+176
+00:07:52,000 --> 00:07:54,000
+twice the number of points.
+
+177
+00:07:58,000 --> 00:08:00,000
+Well, there is
+
+178
+00:08:00,000 --> 00:08:02,000
+a relationship between the number of edges
+
+179
+00:08:02,000 --> 00:08:04,000
+and the number of triangles.
+
+180
+00:08:04,000 --> 00:08:06,000
+So if you look at T,
+
+181
+00:08:06,000 --> 00:08:08,000
+we have this many triangles
+
+182
+00:08:08,000 --> 00:08:10,000
+and we have this many edges. Every triangle
+
+183
+00:08:10,000 --> 00:08:12,000
+is shared by
+
+184
+00:08:14,000 --> 00:08:16,000
+3, uh, every triangle
+
+185
+00:08:16,000 --> 00:08:18,000
+is shared by 3 edges.
+
+186
+00:08:18,000 --> 00:08:20,000
+Right, and
+
+187
+00:08:20,000 --> 00:08:22,000
+every edge is shared
+
+188
+00:08:22,000 --> 00:08:24,000
+by either 1 or 2 triangles
+
+189
+00:08:24,000 --> 00:08:26,000
+depending on if that edge lies on the boundary
+
+190
+00:08:26,000 --> 00:08:28,000
+or in the interior.
+
+191
+00:08:28,000 --> 00:08:30,000
+So there is a
+
+192
+00:08:30,000 --> 00:08:32,000
+inequality
+
+193
+00:08:32,000 --> 00:08:34,000
+constraining the number of edges
+
+194
+00:08:34,000 --> 00:08:36,000
+and the number of triangles you can
+
+195
+00:08:36,000 --> 00:08:38,000
+apply here. But I don't
+
+196
+00:08:38,000 --> 00:08:40,000
+see any constraints in the
+
+197
+00:08:40,000 --> 00:08:42,000
+number of points and number of edges.
+
+198
+00:08:44,000 --> 00:08:46,000
+Okay, any other
+
+199
+00:08:46,000 --> 00:08:48,000
+questions regarding to this
+
+200
+00:08:48,000 --> 00:08:50,000
+uh, mesh
+
+201
+00:08:50,000 --> 00:08:52,000
+geometry
+
+202
+00:08:52,000 --> 00:08:54,000
+finite volume business?
+
+203
+00:08:58,000 --> 00:09:00,000
+Okay, we are
+
+204
+00:09:00,000 --> 00:09:02,000
+all fine.
+
+205
+00:09:02,000 --> 00:09:04,000
+You can do this in your project.
+
+206
+00:09:06,000 --> 00:09:08,000
+Okay.
+
+207
+00:09:10,000 --> 00:09:12,000
+Alright.
+
+208
+00:09:12,000 --> 00:09:14,000
+So let's, uh,
+
+209
+00:09:14,000 --> 00:09:16,000
+now
+
+210
+00:09:16,000 --> 00:09:18,000
+we are basically talking
+
+211
+00:09:18,000 --> 00:09:20,000
+about how to apply
+
+212
+00:09:20,000 --> 00:09:22,000
+finite volume, uh, on, uh,
+
+213
+00:09:22,000 --> 00:09:24,000
+on, uh,
+
+214
+00:09:24,000 --> 00:09:26,000
+on multiple
+
+215
+00:09:26,000 --> 00:09:28,000
+dimensions on, uh,
+
+216
+00:09:28,000 --> 00:09:30,000
+complex geometry. Right?
+
+217
+00:09:30,000 --> 00:09:32,000
+So you need to generate a mesh and
+
+218
+00:09:32,000 --> 00:09:34,000
+there are plenty of mesh
+
+219
+00:09:34,000 --> 00:09:36,000
+generators out there.
+
+220
+00:09:36,000 --> 00:09:38,000
+You can use, if you just want to
+
+221
+00:09:38,000 --> 00:09:40,000
+generate a two-dimensional mesh,
+
+222
+00:09:40,000 --> 00:09:42,000
+MATLAB is a pretty good
+
+223
+00:09:42,000 --> 00:09:44,000
+mesh generator.
+
+224
+00:09:44,000 --> 00:09:46,000
+If you want to go to three dimensions,
+
+225
+00:09:46,000 --> 00:09:48,000
+MATLAB doesn't really do that
+
+226
+00:09:48,000 --> 00:09:50,000
+for you. And, uh,
+
+227
+00:09:50,000 --> 00:09:52,000
+we have, uh, open source mesh generators
+
+228
+00:09:52,000 --> 00:09:54,000
+like Gmesh and commercial
+
+229
+00:09:54,000 --> 00:09:56,000
+mesh generators, uh, like Pointwise
+
+230
+00:09:56,000 --> 00:09:58,000
+that can generate good meshes
+
+231
+00:09:58,000 --> 00:10:00,000
+for us.
+
+232
+00:10:00,000 --> 00:10:02,000
+Okay. Um, so
+
+233
+00:10:02,000 --> 00:10:04,000
+once we generate a mesh, we can compute
+
+234
+00:10:04,000 --> 00:10:06,000
+these surface normals
+
+235
+00:10:06,000 --> 00:10:08,000
+and surface sizes, and we
+
+236
+00:10:08,000 --> 00:10:10,000
+use the same type of
+
+237
+00:10:10,000 --> 00:10:12,000
+reconstruction schemes. We use
+
+238
+00:10:12,000 --> 00:10:14,000
+the same type of finite volume schemes
+
+239
+00:10:14,000 --> 00:10:16,000
+to compute a flux
+
+240
+00:10:16,000 --> 00:10:18,000
+as a function
+
+241
+00:10:18,000 --> 00:10:20,000
+of the
+
+242
+00:10:20,000 --> 00:10:22,000
+volume averages on the two sides.
+
+243
+00:10:22,000 --> 00:10:24,000
+And then, by
+
+244
+00:10:24,000 --> 00:10:26,000
+accumulating this flux
+
+245
+00:10:26,000 --> 00:10:28,000
+over all the edges,
+
+246
+00:10:28,000 --> 00:10:30,000
+we compute the time derivative,
+
+247
+00:10:30,000 --> 00:10:32,000
+which we can apply to an
+
+248
+00:10:32,000 --> 00:10:34,000
+ODE solver to solve the differential
+
+249
+00:10:34,000 --> 00:10:36,000
+equation.
+

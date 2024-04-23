@@ -1,0 +1,704 @@
+1
+00:00:00,000 --> 00:00:06,880
+What we have just derived works great for near discontinuities, but it doesn't
+
+2
+00:00:06,880 --> 00:00:15,660
+really work great in smooth regions. And we can probably see this from the
+
+3
+00:00:15,660 --> 00:00:23,580
+solution over here. So in this solution, can you see the obvious place
+
+4
+00:00:23,580 --> 00:00:31,680
+that is not accurate? Can you see a feature of this solution where you can
+
+5
+00:00:31,680 --> 00:00:39,660
+point it and say, okay, this should not be the proper behavior? Yes?
+
+6
+00:00:43,820 --> 00:00:52,580
+Exactly. So look at the slope over here and the gap between the line and y equal to 1.
+
+7
+00:00:52,580 --> 00:00:53,560
+So look at the slope over here and the gap between the line and y equal to 1.
+
+8
+00:00:53,560 --> 00:01:06,020
+The gap should not exist. Okay? So the wave is losing magnitude even before the discontinuity forms.
+
+9
+00:01:06,800 --> 00:01:14,320
+So remember, before any shock wave forms, the solution follows characteristic lines.
+
+10
+00:01:15,380 --> 00:01:21,900
+And if you follow the characteristic line of this point of x equal to a quarter,
+
+11
+00:01:22,560 --> 00:01:23,540
+the characteristic line of x equal to a quarter is the same as the characteristic line of x equal to a quarter.
+
+12
+00:01:23,540 --> 00:01:27,980
+The characteristic should move towards the right, and the solution along the characteristic should be what?
+
+13
+00:01:29,400 --> 00:01:34,240
+Constant. Yes. So if you move towards the right along the characteristic,
+
+14
+00:01:34,440 --> 00:01:39,780
+the solution should stay at u equal to 1. It should not decay in magnitude.
+
+15
+00:01:41,820 --> 00:01:48,880
+So the fact that the solution gets artificially dissipated is called what?
+
+16
+00:01:50,040 --> 00:01:52,880
+Artificial dissipation, right? So it's a diffusion.
+
+17
+00:01:53,540 --> 00:01:57,780
+Dissipation error. So dispersion error, dissipation error, remember,
+
+18
+00:01:58,120 --> 00:02:00,880
+dispersion error is moving the wave to the wrong places.
+
+19
+00:02:01,720 --> 00:02:04,880
+Dissipation error is artificially damping down the waves.
+
+20
+00:02:06,000 --> 00:02:12,700
+The first order upwind or Godunov scheme, they both have a lot of dissipation error in it.
+
+21
+00:02:14,000 --> 00:02:17,880
+And it's pretty obvious in this case.
+
+22
+00:02:18,440 --> 00:02:23,480
+So how do we improve upon the scheme to make it higher order?
+
+23
+00:02:23,540 --> 00:02:24,540
+Oops.
+
+24
+00:02:24,540 --> 00:02:35,540
+So the idea comes from a place called reconstruction.
+
+25
+00:02:36,600 --> 00:02:42,200
+The reconstruction, it's saying that we already see one case of reconstruction,
+
+26
+00:02:42,400 --> 00:02:44,420
+that is the piecewise constant reconstruction.
+
+27
+00:02:45,420 --> 00:02:48,440
+In the first order upwind scheme and in the Godunov scheme,
+
+28
+00:02:48,440 --> 00:02:53,440
+we both have reconstructed the solution from the piecewise constant reconstruction.
+
+29
+00:02:53,540 --> 00:03:00,540
+So we can say that the solution is not going to be a piecewise volume averages.
+
+30
+00:03:00,540 --> 00:03:02,540
+So let's draw three functions.
+
+31
+00:03:02,540 --> 00:03:06,540
+One function is an original function that looks like that.
+
+32
+00:03:06,540 --> 00:03:07,540
+Okay.
+
+33
+00:03:07,540 --> 00:03:20,540
+And then the second is not a function, but just a series of numbers that is taking the value of the average.
+
+34
+00:03:20,540 --> 00:03:22,540
+That's probably this point.
+
+35
+00:03:22,540 --> 00:03:24,540
+Maybe this point and here, maybe that point.
+
+36
+00:03:24,540 --> 00:03:26,540
+So it's taking the volume averages.
+
+37
+00:03:27,540 --> 00:03:30,540
+And the third function is the reconstruction.
+
+38
+00:03:31,540 --> 00:03:37,540
+And the reconstruction is what is not done well in the Godunov scheme.
+
+39
+00:03:38,540 --> 00:03:41,540
+In Godunov scheme, we are doing a piecewise constant reconstruction.
+
+40
+00:03:41,540 --> 00:03:51,540
+We are drawing a flat line over each interval that approximates the value of the function.
+
+41
+00:03:51,540 --> 00:03:57,540
+And of course, if you just look at the difference between the green function and the red function,
+
+42
+00:03:57,540 --> 00:04:01,540
+you can see that the approximation is not very good.
+
+43
+00:04:01,540 --> 00:04:03,540
+Right?
+
+44
+00:04:03,540 --> 00:04:10,540
+So the question is, in what way can we perform a better reconstruction of the function,
+
+45
+00:04:10,540 --> 00:04:13,540
+a more accurate reconstruction function?
+
+46
+00:04:13,540 --> 00:04:19,540
+And so, for example, if we want a second order scheme instead of just a first order scheme,
+
+47
+00:04:19,540 --> 00:04:23,540
+we can reconstruct the function using just a slightly different way.
+
+48
+00:04:23,540 --> 00:04:29,540
+So instead of just using the function value at this grid point,
+
+49
+00:04:29,540 --> 00:04:33,540
+how can we reconstruct the function to make it better?
+
+50
+00:04:33,540 --> 00:04:36,540
+For example, we can also look at the slope.
+
+51
+00:04:36,540 --> 00:04:45,540
+So if we have the blue point over here, we know the cell average here locally is a monotonically decreasing trend.
+
+52
+00:04:45,540 --> 00:04:48,540
+We can use the difference between this and this and this and this.
+
+53
+00:04:48,540 --> 00:04:55,540
+To figure out, okay, can I draw a straight line like that,
+
+54
+00:04:55,540 --> 00:05:02,540
+which respects the average slope between this and this and this and this?
+
+55
+00:05:02,540 --> 00:05:07,540
+So that I actually get a better approximation to the red function.
+
+56
+00:05:07,540 --> 00:05:14,540
+So not just using the volume averages, but also using the derivative information,
+
+57
+00:05:14,540 --> 00:05:17,540
+which we can infer from the adjacent volume averages.
+
+58
+00:05:18,540 --> 00:05:25,540
+That's a good way to reconstruct the solution to better accuracy.
+
+59
+00:05:25,540 --> 00:05:28,540
+So let's say we have the reconstruction here.
+
+60
+00:05:28,540 --> 00:05:31,540
+We also can probably perform a reconstruction here.
+
+61
+00:05:31,540 --> 00:05:35,540
+The reconstruction here is a little bit more tricky, but maybe something like that.
+
+62
+00:05:35,540 --> 00:05:39,540
+And over here, it may be something like that.
+
+63
+00:05:39,540 --> 00:05:41,540
+Okay?
+
+64
+00:05:41,540 --> 00:05:45,540
+We still have a piecewise continuous function.
+
+65
+00:05:45,540 --> 00:05:47,540
+No longer have a piecewise constant function.
+
+66
+00:05:47,540 --> 00:05:48,540
+But still.
+
+67
+00:05:48,540 --> 00:05:53,540
+It's a piecewise linear function instead.
+
+68
+00:05:53,540 --> 00:05:58,540
+We still need to figure out what is the appropriate flux to use,
+
+69
+00:05:58,540 --> 00:06:03,540
+for example, around this interface, where I still have a discontinuity.
+
+70
+00:06:03,540 --> 00:06:08,540
+Where here, I still have a discontinuity, maybe even larger.
+
+71
+00:06:08,540 --> 00:06:10,540
+Right?
+
+72
+00:06:10,540 --> 00:06:15,540
+So what do I do here?
+
+73
+00:06:15,540 --> 00:06:20,540
+I can use exactly the same flux reconstruction scheme.
+
+74
+00:06:20,540 --> 00:06:24,540
+I can still use the same good enough numerical flux over here.
+
+75
+00:06:24,540 --> 00:06:28,540
+But instead of using just the piecewise averages,
+
+76
+00:06:28,540 --> 00:06:37,540
+I can use the reconstructed value immediately on the left and on the right of that interface.
+
+77
+00:06:37,540 --> 00:06:44,540
+So this is the idea we use to get second-order accuracy.
+
+78
+00:06:45,540 --> 00:06:47,540
+Okay?
+
+79
+00:06:47,540 --> 00:06:50,540
+So, for example,
+
+80
+00:06:50,540 --> 00:06:54,540
+I hope I have enough time to do that.
+
+81
+00:06:54,540 --> 00:06:57,540
+So I can copy my upwind.
+
+82
+00:06:57,540 --> 00:07:03,540
+Yeah, because I know my upwind works in this particular case,
+
+83
+00:07:03,540 --> 00:07:07,540
+I'll just use upwind instead of changing that to good enough.
+
+84
+00:07:07,540 --> 00:07:12,540
+So reconstruct upwind.
+
+85
+00:07:12,540 --> 00:07:13,540
+Okay.
+
+86
+00:07:15,540 --> 00:07:23,540
+So, okay.
+
+87
+00:07:23,540 --> 00:07:31,540
+So here, instead of just using the solution u to compute the flux,
+
+88
+00:07:31,540 --> 00:07:43,540
+I'm going to reconstruct at the interfaces.
+
+89
+00:07:43,540 --> 00:07:44,540
+All right.
+
+90
+00:07:44,540 --> 00:07:53,540
+So, for example,
+
+91
+00:07:53,540 --> 00:07:59,540
+I can compute the du dx to be,
+
+92
+00:07:59,540 --> 00:08:01,540
+we are going to use central difference here,
+
+93
+00:08:01,540 --> 00:08:07,540
+u of 3 to n minus u of 1 to n minus 2
+
+94
+00:08:07,540 --> 00:08:10,540
+divided by 2 delta x.
+
+95
+00:08:10,540 --> 00:08:12,540
+Oops.
+
+96
+00:08:12,540 --> 00:08:13,540
+All right.
+
+97
+00:08:13,540 --> 00:08:25,540
+So I have my du dx and my u at the right of the cell is going to be,
+
+98
+00:08:25,540 --> 00:08:29,540
+let me see, u at the right of the cell.
+
+99
+00:08:29,540 --> 00:08:30,540
+Okay.
+
+100
+00:08:30,540 --> 00:08:32,540
+So let me also du dx is equal to,
+
+101
+00:08:32,540 --> 00:08:36,540
+I also want to u at the first cell.
+
+102
+00:08:36,540 --> 00:08:41,540
+I'll just use first-order difference minus u1.
+
+103
+00:08:43,540 --> 00:08:53,540
+So u at the first cell is going to be u at the right of the cell.
+
+104
+00:08:53,540 --> 00:08:55,540
+So, u at the right of the cell is equal to u plus du dx upon 0.5 by dx.
+
+105
+00:08:55,540 --> 00:09:01,540
+So u at the right of the cell is equal to u plus du dx upon 0.5 by dx.
+
+106
+00:09:01,540 --> 00:09:07,540
+So this is my reconstructed value immediately on the left of u i plus half.
+
+107
+00:09:07,540 --> 00:09:08,540
+Okay.
+
+108
+00:09:08,540 --> 00:09:09,540
+So if I say that this is the value of u,
+
+109
+00:09:09,540 --> 00:09:10,540
+I can do that.
+
+110
+00:09:10,540 --> 00:09:11,540
+So that's the result.
+
+111
+00:09:11,540 --> 00:09:23,460
+the left of u i plus half u at the left of the cell is equal to u minus du dx times this
+
+112
+00:09:25,380 --> 00:09:37,220
+all right so when i compute my f i also have my f at the right of the cell is equal to
+
+113
+00:09:37,220 --> 00:09:48,580
+this and my f equal to left cell is equal to that
+
+114
+00:09:51,140 --> 00:09:56,980
+yeah so so this this is still my first order optimus scheme if you use good enough scheme
+
+115
+00:09:56,980 --> 00:10:04,900
+these are something you don't actually want to compute right you want to compute the f as you
+
+116
+00:10:04,900 --> 00:10:06,900
+want to look at the u right cell and you want to add this to the right整 есте fool decía
+
+117
+00:10:06,900 --> 00:10:07,120
+so но又改變了
+
+118
+00:10:07,120 --> 00:10:07,200
+這 responding模式 對方的 ру HAVE YOU PUT THIS OUT
+
+119
+00:10:07,200 --> 00:10:12,060
+u left cell, and you want to compute the maximum, you want to compare which one is larger, and
+
+120
+00:10:12,060 --> 00:10:15,800
+you want to, depending on which one is larger, you want to compute the maximum or minimum
+
+121
+00:10:15,800 --> 00:10:17,940
+of the flux within that range.
+
+122
+00:10:19,540 --> 00:10:19,800
+Okay.
+
+123
+00:10:22,000 --> 00:10:25,960
+So, I don't know if we have, we probably don't have time to do that.
+
+124
+00:10:27,880 --> 00:10:30,280
+So, okay.
+
+125
+00:10:31,880 --> 00:10:35,540
+So, let me just do one thing before we finish.
+
+126
+00:10:35,540 --> 00:10:39,340
+So, let's don't do that yet.
+
+127
+00:10:39,520 --> 00:10:43,800
+So, the one thing we want to do before we finish is that when we look at the shock speed,
+
+128
+00:10:44,740 --> 00:10:47,000
+what U should we look at?
+
+129
+00:10:48,500 --> 00:10:48,980
+Right.
+
+130
+00:10:49,400 --> 00:10:57,340
+We want to use U of left cell for the range of 2 to n.
+
+131
+00:10:57,640 --> 00:11:04,740
+We want to use left cell of I plus 1, because we are looking at the interface I plus half
+
+132
+00:11:04,740 --> 00:11:05,180
+over here.
+
+133
+00:11:05,180 --> 00:11:12,820
+We want to use the value immediately to the right of the interface is the value at the
+
+134
+00:11:12,820 --> 00:11:14,260
+left of the next cell.
+
+135
+00:11:14,720 --> 00:11:21,520
+And the value immediately to the left of the interface is the value at the right side of
+
+136
+00:11:21,520 --> 00:11:23,420
+the cell immediately to the left.
+
+137
+00:11:24,060 --> 00:11:27,520
+So, this is the proper shock speed to use.
+
+138
+00:11:28,780 --> 00:11:28,900
+Okay.
+
+139
+00:11:29,500 --> 00:11:31,180
+And F interface is...
+
+140
+00:11:31,180 --> 00:11:33,180
+If the shock speed is greater than zero...
+
+141
+00:11:33,180 --> 00:11:35,160
+If the shock speed is greater than zero...
+
+142
+00:11:35,160 --> 00:11:39,000
+Coming from the left, I want to use the left.
+
+143
+00:11:39,340 --> 00:11:43,220
+So, F, which is F right cell of I minus 1.
+
+144
+00:11:43,640 --> 00:11:46,040
+If the shock is...
+
+145
+00:11:46,040 --> 00:11:51,160
+If the information coming from the right, I want to use the value immediately to the
+
+146
+00:11:51,160 --> 00:11:56,100
+right, which is the left cell of I.
+
+147
+00:11:56,800 --> 00:11:57,160
+Okay.
+
+148
+00:11:58,740 --> 00:12:03,560
+So, that is going to give us a second order reconstruction.
+
+149
+00:12:03,560 --> 00:12:03,880
+Okay.
+
+150
+00:12:05,160 --> 00:12:06,440
+So, let's do...
+
+151
+00:12:06,440 --> 00:12:12,540
+Hopefully...
+
+152
+00:12:12,540 --> 00:12:18,440
+Reconstruction, not reconstruction.
+
+153
+00:12:18,440 --> 00:12:30,800
+Here, which line?
+
+154
+00:12:30,800 --> 00:12:34,380
+U2 minus U1.
+
+155
+00:12:34,380 --> 00:12:34,520
+Okay.
+
+156
+00:12:34,520 --> 00:12:34,560
+Okay.
+
+157
+00:12:34,560 --> 00:12:34,600
+Okay.
+
+158
+00:12:34,600 --> 00:12:34,620
+Okay.
+
+159
+00:12:34,620 --> 00:12:34,700
+Okay.
+
+160
+00:12:34,700 --> 00:12:34,760
+Okay.
+
+161
+00:12:35,160 --> 00:12:35,800
+Thank you.
+
+162
+00:12:39,220 --> 00:12:39,700
+Okay.
+
+163
+00:12:45,860 --> 00:12:46,480
+All right.
+
+164
+00:12:46,560 --> 00:12:49,580
+So, we can see that this no longer diminishes.
+
+165
+00:12:50,420 --> 00:12:50,900
+Right?
+
+166
+00:12:51,340 --> 00:12:53,640
+So, let me run it longer.
+
+167
+00:12:54,000 --> 00:12:57,480
+I will tell you, I still will have a problem at the shock wave.
+
+168
+00:12:57,840 --> 00:12:58,060
+Okay.
+
+169
+00:12:58,140 --> 00:12:59,140
+I still have...
+
+170
+00:12:59,140 --> 00:13:01,280
+I still going to see problems at the shock wave.
+
+171
+00:13:01,620 --> 00:13:04,580
+It's a little bit better than what we see last time, but like this is still going to have a problem.
+
+172
+00:13:04,580 --> 00:13:04,640
+Okay.
+
+173
+00:13:04,640 --> 00:13:04,700
+Okay.
+
+174
+00:13:04,700 --> 00:13:09,860
+But if this still appears and we will see that we have to switch the scheme to a first
+
+175
+00:13:09,860 --> 00:13:15,620
+order scheme near the shock waves and keep the reconstruction to second order away from
+
+176
+00:13:15,620 --> 00:13:19,100
+the shock waves and that's the limiter we will be talking about in the next lecture.
+

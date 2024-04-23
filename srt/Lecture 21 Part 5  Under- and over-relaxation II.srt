@@ -1,0 +1,424 @@
+1
+00:00:00,000 --> 00:00:05,960
+If we use a lambda that is greater than 1, what's going to happen?
+
+2
+00:00:06,120 --> 00:00:08,260
+What do you think is going to happen to the iteration?
+
+3
+00:00:11,800 --> 00:00:17,220
+It'll diverge exactly because I get an eigenvalue that has magnitude greater than 1.
+
+4
+00:00:18,340 --> 00:00:24,380
+So, very, very close to 1, if you exceed 1 even by a little bit, the iteration is going to diverge.
+
+5
+00:00:24,460 --> 00:00:24,980
+Not good.
+
+6
+00:00:24,980 --> 00:00:32,180
+But if you make lambda to be smaller than 1, let's say 0.6, if you make it 0.5,
+
+7
+00:00:32,360 --> 00:00:40,480
+it'll be the slow converging negative eigenvalue is now going to be the fastest converging eigenvalue, right?
+
+8
+00:00:41,440 --> 00:00:46,400
+So, it gets rid of the slow convergence of the oscillatory modes.
+
+9
+00:00:48,540 --> 00:00:51,680
+Now, what does it do to this one?
+
+10
+00:00:52,940 --> 00:00:54,680
+What does under-relaxation...
+
+11
+00:00:54,980 --> 00:01:00,960
+What does under-relaxation do to the slowly converging smooth eigenmode?
+
+12
+00:01:02,040 --> 00:01:02,300
+Yes.
+
+13
+00:01:02,800 --> 00:01:03,780
+Pretty much nothing.
+
+14
+00:01:04,520 --> 00:01:05,280
+Pretty much nothing?
+
+15
+00:01:06,720 --> 00:01:10,360
+Yeah, I mean, it puts it closer to 1.
+
+16
+00:01:10,820 --> 00:01:13,440
+Yes, it puts it closer to 1, that's right.
+
+17
+00:01:13,860 --> 00:01:16,200
+And what's the effect of putting it closer to 1?
+
+18
+00:01:17,300 --> 00:01:20,280
+So, yeah, at 1, it's about 0.98.
+
+19
+00:01:20,640 --> 00:01:23,940
+At 0.5, it'll be 0.99, right?
+
+20
+00:01:24,760 --> 00:01:24,900
+Right.
+
+21
+00:01:24,900 --> 00:01:24,960
+Right.
+
+22
+00:01:25,100 --> 00:01:28,520
+And it'll be even slower convergence, right?
+
+23
+00:01:30,520 --> 00:01:39,400
+So, if you just apply Jacobi iteration without multigrid, it's smarter to just use lambda equal to 1.
+
+24
+00:01:39,540 --> 00:01:41,320
+Just use the original Jacobi iteration.
+
+25
+00:01:42,100 --> 00:01:48,740
+But with multigrid, because this mode, we shouldn't really worry about this mode,
+
+26
+00:01:48,820 --> 00:01:51,180
+because this mode is handled by the cosigrids.
+
+27
+00:01:51,500 --> 00:01:54,960
+So, it's a lot smarter to use a lambda.
+
+28
+00:01:55,080 --> 00:01:58,480
+That is less than 1.
+
+29
+00:01:59,980 --> 00:02:04,080
+So, let's see it again.
+
+30
+00:02:05,480 --> 00:02:15,520
+So, if I am close, I'm sure of you, that's the solution we get if we don't do any under-relaxation on Jacobi.
+
+31
+00:02:16,260 --> 00:02:16,660
+All right.
+
+32
+00:02:18,900 --> 00:02:21,880
+And now, let's do an under-relaxation on Jacobi.
+
+33
+00:02:24,960 --> 00:02:28,840
+On the paper, it looks pretty complicated, but here, it's pretty easy.
+
+34
+00:02:28,840 --> 00:02:35,360
+So, I do 0.5 times U0 plus 0.5 times Jacobi, right?
+
+35
+00:02:36,440 --> 00:02:40,740
+So, under-relaxation factor lambda equal to 0.5 is just that easy to implement.
+
+36
+00:02:41,760 --> 00:02:45,360
+And I'll also do it on the post-smoothing.
+
+37
+00:02:49,780 --> 00:02:51,620
+I'll paste it here.
+
+38
+00:02:51,960 --> 00:02:54,880
+So, this is the under-relaxation factor of 0.5.
+
+39
+00:02:54,880 --> 00:03:00,600
+If I want to do it as 0.7, I'll just make 0.7 here, and what will be here?
+
+40
+00:03:01,660 --> 00:03:02,760
+0.3, yes.
+
+41
+00:03:04,920 --> 00:03:05,080
+Hmm?
+
+42
+00:03:07,200 --> 00:03:08,760
+Oh, it should be U1. Thank you.
+
+43
+00:03:09,520 --> 00:03:09,880
+All right.
+
+44
+00:03:10,660 --> 00:03:11,320
+We are done.
+
+45
+00:03:13,180 --> 00:03:18,980
+So, let's initialize this to 0 again.
+
+46
+00:03:20,040 --> 00:03:21,180
+Multi-grid of U.
+
+47
+00:03:21,180 --> 00:03:24,460
+Those, I'm sure of you.
+
+48
+00:03:24,880 --> 00:03:26,680
+Right?
+
+49
+00:03:26,680 --> 00:03:30,260
+We get what solution we got yesterday.
+
+50
+00:03:31,820 --> 00:03:32,520
+Okay.
+
+51
+00:03:33,240 --> 00:03:41,500
+So, basically, by doing under-relaxation, we can fix the problem of Jacobi iteration of not being a good smoother.
+
+52
+00:03:43,660 --> 00:03:50,520
+The reason Gauss-Seidel didn't have this problem and did not require under-relaxation is because
+
+53
+00:03:50,520 --> 00:03:54,420
+Gauss-Seidel actually didn't have this very close to minus 1.
+
+54
+00:03:54,880 --> 00:03:57,180
+What is this?
+
+55
+00:03:57,180 --> 00:04:01,640
+This one in the manual is ve x e x e .
+
+56
+00:04:01,640 --> 00:04:03,880
+z and t.
+
+57
+00:04:03,880 --> 00:04:05,380
+And this is the median.
+
+58
+00:04:05,380 --> 00:04:06,820
+So, we're trying to simplify this somewhere.
+
+59
+00:04:06,820 --> 00:04:08,260
+Hopefully, this is the formula as shown.
+
+60
+00:04:08,260 --> 00:04:09,580
+No.
+
+61
+00:04:09,580 --> 00:04:14,980
+All that's missing is the larger's unit, which was in the entry value, but also inside.
+
+62
+00:04:14,980 --> 00:04:17,100
+So, we are done.
+
+63
+00:04:17,100 --> 00:04:19,880
+So, then we have a next edge objet�로
+
+64
+00:04:21,360 --> 00:04:22,660
+A白 dot comma r吃 j q.
+
+65
+00:04:22,660 --> 00:04:23,700
+aka k last x 1.
+
+66
+00:04:23,700 --> 00:04:24,240
+Right?
+
+67
+00:04:24,240 --> 00:04:24,580
+Okay.
+
+68
+00:04:24,580 --> 00:04:29,200
+instead of looking at these two it will be looking at this red one and these two
+
+69
+00:04:29,200 --> 00:04:33,520
+so it'll be draw a straight line over here the second one is gonna be here
+
+70
+00:04:33,520 --> 00:04:39,120
+instead of drawing a straight line between these two grid points it'll draw
+
+71
+00:04:39,120 --> 00:04:41,760
+a straight line between these two because it's using the most up-to-date
+
+72
+00:04:41,760 --> 00:04:47,320
+value so it'll be here and it'll be here so this mode that converges very slowly
+
+73
+00:04:47,320 --> 00:04:54,400
+for Jacobi is not converging very slowly for Gauss-Seidel right and we Gauss-Seidel
+
+74
+00:04:54,400 --> 00:05:00,700
+does not have an under-relaxation, that does not have an eigenvalue close to
+
+75
+00:05:00,700 --> 00:05:08,200
+minus 1 and for Gauss-Seidel we can even apply the over relaxation so
+
+76
+00:05:08,200 --> 00:05:17,080
+for example if we do Gauss-Seidel here we can even do a 1.2 here and make it
+
+77
+00:05:17,080 --> 00:05:24,300
+minus two point minus 0.2 on the on the one minus lambda
+
+78
+00:05:24,300 --> 00:05:32,500
+part so this is lambda if lambda is equal to 1.2 then 1 minus lambda is equal to minus 0.2 right so
+
+79
+00:05:32,500 --> 00:05:33,880
+that'll still work
+
+80
+00:05:33,880 --> 00:05:44,940
+so it still gives us a good solution even if we do
+
+81
+00:05:45,660 --> 00:05:51,620
+over relaxation on gauss-seidel because the the smallest eigenvalue it's very tricky to analyze
+
+82
+00:05:51,620 --> 00:05:57,980
+but like you show it is the smallest eigenvalue it's still a little bit away from minus 1
+
+83
+00:05:57,980 --> 00:06:04,860
+so it's okay to to use the over relaxation to push it even further towards minus 1
+
+84
+00:06:04,860 --> 00:06:12,680
+with the benefit of perhaps moving the largest eigenvalue a little bit further away from 1
+
+85
+00:06:12,680 --> 00:06:16,840
+so the convergence is a little bit faster all right
+
+86
+00:06:16,840 --> 00:06:21,280
+okay any questions on the
+
+87
+00:06:21,280 --> 00:06:21,600
+you
+
+88
+00:06:21,620 --> 00:06:25,260
+effect of iterations on smoothing
+
+89
+00:06:25,260 --> 00:06:32,200
+and if you apply multigrade to your own problem for example
+
+90
+00:06:32,200 --> 00:06:40,340
+and you find it not converging very well or diverging even it's probably the the smoothing
+
+91
+00:06:40,340 --> 00:06:49,720
+is a very is is you should look at the smoothing and especially pre-smoothing if you if you make
+
+92
+00:06:49,720 --> 00:06:51,280
+this uh uh
+
+93
+00:06:51,280 --> 00:07:00,000
+so so for some very tough problems you five pre-smoothing iterations may not be enough you may have to do 10 even 20
+
+94
+00:07:00,000 --> 00:07:16,940
+basically to make the residual you compute to be smooth enough so that this interpolation you are doing here is not going to give you a completely bogus uh residual right
+
+95
+00:07:16,940 --> 00:07:20,880
+okay so so if you
+
+96
+00:07:21,280 --> 00:07:30,240
+If your total residual hole rod is not actually paling above the final Celsius then you just model the w strip so you are 두ゆžiöng
+
+97
+00:07:30,240 --> 00:07:37,320
+you're puzzle problem gonna healthier if we move on over R Max
+
+98
+00:07:37,320 --> 00:07:42,080
+as for a seg però
+
+99
+00:07:42,080 --> 00:07:46,680
+et tu
+
+100
+00:07:46,680 --> 00:07:47,860
+and so for a skid
+
+101
+00:07:47,860 --> 00:07:48,560
+youil
+
+102
+00:07:48,560 --> 00:07:50,400
+you got this
+
+103
+00:07:50,400 --> 00:07:51,120
+here
+
+104
+00:07:51,120 --> 00:07:56,600
+and your correction would be pretty wrong.
+
+105
+00:07:57,640 --> 00:07:59,880
+It may lead to divergence of multigrid
+
+106
+00:07:59,880 --> 00:08:05,020
+if the smoothing didn't make the residual to be smooth.
+

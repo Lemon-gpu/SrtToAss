@@ -1,0 +1,96 @@
+1
+00:00:00,000 --> 00:00:04,760
+So this is a previous project done in Virginia Tech, so in another university.
+
+2
+00:00:05,400 --> 00:00:12,760
+So basically, you have a code that is going to evaluate your solution.
+
+3
+00:00:13,680 --> 00:00:16,720
+So you can look at the project description over here.
+
+4
+00:00:16,860 --> 00:00:18,100
+So this is a demo project.
+
+5
+00:00:18,440 --> 00:00:21,460
+Please write a function with a function name, computer lab 5.
+
+6
+00:00:22,280 --> 00:00:29,720
+So whatever you write, the function name should be the same as what the project name is,
+
+7
+00:00:29,720 --> 00:00:31,740
+which in this case is computer lab 5.
+
+8
+00:00:32,940 --> 00:00:37,940
+And you can see that this code calls the computer lab 5, which is the function you wrote.
+
+9
+00:00:39,580 --> 00:00:42,360
+And then it assesses the result.
+
+10
+00:00:42,740 --> 00:00:50,200
+If it's not equal to, this is a dummy case, if it is not 256, it tells you your solution is wrong, otherwise it's right.
+
+11
+00:00:50,380 --> 00:00:58,080
+So for example, you can come into the room, you can say code up takes one x,
+
+12
+00:00:58,560 --> 00:00:59,640
+and you say, okay.
+
+13
+00:00:59,720 --> 00:01:04,840
+My result, you need to say result is equal to computer lab 5.
+
+14
+00:01:04,840 --> 00:01:08,160
+So the syntax is the same as what you would do in MATLAB.
+
+15
+00:01:09,280 --> 00:01:10,720
+Say 256.
+
+16
+00:01:11,740 --> 00:01:13,420
+Somebody is also, okay.
+
+17
+00:01:14,580 --> 00:01:17,020
+Then you can run it.
+
+18
+00:01:17,220 --> 00:01:18,360
+It says your answer is right.
+
+19
+00:01:18,740 --> 00:01:24,360
+So I see a lot of people are in the room, so can you just change the result to something else and run it?
+
+20
+00:01:24,360 --> 00:01:24,440
+Okay.
+
+21
+00:01:26,940 --> 00:01:29,700
+T-plant.
+
+22
+00:01:29,720 --> 00:01:31,180
+Yeah, 25.
+
+23
+00:01:32,040 --> 00:01:34,080
+And yeah, it says your result is wrong.
+
+24
+00:01:34,200 --> 00:01:38,280
+So click this one to look at the result.
+

@@ -1,0 +1,508 @@
+1
+00:00:00,880 --> 00:00:03,300
+Today we are going to go beyond 1D.
+
+2
+00:00:03,900 --> 00:00:06,600
+We are going to have two spatial dimensions at least.
+
+3
+00:00:07,520 --> 00:00:10,080
+We will have x, we will have y.
+
+4
+00:00:11,520 --> 00:00:15,260
+We will look at how differential equations are going to look like
+
+5
+00:00:15,260 --> 00:00:17,580
+in two spatial dimensions.
+
+6
+00:00:18,600 --> 00:00:21,180
+How to discretize a function of two dimensions,
+
+7
+00:00:22,020 --> 00:00:24,820
+how to approximate differential operators in 2D,
+
+8
+00:00:25,560 --> 00:00:29,000
+how to solve for it, how to visualize the solution.
+
+9
+00:00:30,000 --> 00:00:34,200
+And also, what is the matrix form of two-dimensional problems?
+
+10
+00:00:35,100 --> 00:00:39,580
+If you remember, in 1D we get this nice tri-diagonal matrix.
+
+11
+00:00:40,540 --> 00:00:42,160
+In 2D, what do we get?
+
+12
+00:00:42,520 --> 00:00:44,420
+How do we construct such matrices?
+
+13
+00:00:45,740 --> 00:00:49,480
+And then, if we have time, we are going to talk about
+
+14
+00:00:49,480 --> 00:00:53,020
+how to solve these matrix systems.
+
+15
+00:00:54,860 --> 00:00:57,680
+And still, recall what we get in 1D.
+
+16
+00:00:58,340 --> 00:00:59,980
+If we are solving an on-step,
+
+17
+00:01:00,000 --> 00:01:04,400
+steady problem, we convert the PDE into ODE,
+
+18
+00:01:05,040 --> 00:01:06,740
+and we use ODE solvers.
+
+19
+00:01:08,080 --> 00:01:10,140
+If we are solving a steady-state problem,
+
+20
+00:01:10,620 --> 00:01:14,960
+we convert the PDE into a matrix equation,
+
+21
+00:01:15,600 --> 00:01:17,940
+and we need to solve that matrix equation.
+
+22
+00:01:19,060 --> 00:01:21,000
+So here we are going to talk about
+
+23
+00:01:21,000 --> 00:01:23,200
+how to solve the matrix equation
+
+24
+00:01:23,200 --> 00:01:27,320
+coming out of multi-dimensional PDE problems.
+
+25
+00:01:30,000 --> 00:01:35,540
+So, first of all, I want to discuss
+
+26
+00:01:35,540 --> 00:01:40,780
+how do you discretize a multi-dimensional function.
+
+27
+00:01:42,040 --> 00:01:46,580
+So, this is a pretty simple domain I call omega.
+
+28
+00:01:47,740 --> 00:01:50,340
+So in 1D, we have been focused on an interval
+
+29
+00:01:50,340 --> 00:01:52,060
+from, let's say, 0 to L.
+
+30
+00:01:53,340 --> 00:01:58,440
+So in 2D, we usually use a Greek letter,
+
+31
+00:01:58,800 --> 00:01:59,940
+omega, big omega, and we use omega to describe the function.
+
+32
+00:01:59,940 --> 00:02:01,740
+So we use omega to denote the domain
+
+33
+00:02:01,740 --> 00:02:03,040
+in which we solve the problem.
+
+34
+00:02:04,300 --> 00:02:08,600
+So in this case, the omega is just a rectangle.
+
+35
+00:02:10,040 --> 00:02:10,220
+Right?
+
+36
+00:02:10,800 --> 00:02:14,480
+So our solution, the reason I have said elliptic
+
+37
+00:02:14,480 --> 00:02:16,800
+is because we are considering the case
+
+38
+00:02:16,800 --> 00:02:18,240
+where there is no time.
+
+39
+00:02:18,500 --> 00:02:22,620
+We are just considering a function u of x and y.
+
+40
+00:02:24,520 --> 00:02:25,120
+Okay?
+
+41
+00:02:25,880 --> 00:02:28,720
+And let's say we want to solve this equation
+
+42
+00:02:28,720 --> 00:02:29,720
+in the simplest form.
+
+43
+00:02:29,940 --> 00:02:33,240
+Partial square u partial x square
+
+44
+00:02:33,240 --> 00:02:37,240
+plus partial square u partial y square
+
+45
+00:02:37,240 --> 00:02:40,300
+equal to f of x and y.
+
+46
+00:02:41,660 --> 00:02:44,420
+And f is a given function of x and y.
+
+47
+00:02:45,080 --> 00:02:49,160
+For example, let's say f is equal to 1.
+
+48
+00:02:50,180 --> 00:02:51,300
+How to solve this?
+
+49
+00:02:53,520 --> 00:02:55,540
+In addition to the differential equation,
+
+50
+00:02:56,100 --> 00:02:58,720
+what else do we need to uniquely determine the solution?
+
+51
+00:02:59,940 --> 00:03:01,880
+The affinity constant u.
+
+52
+00:03:02,880 --> 00:03:04,420
+In addition to f we will in the remaining state
+
+53
+00:03:04,420 --> 00:03:05,860
+have a relative positive component equal to semi-true.
+
+54
+00:03:06,460 --> 00:03:08,080
+From these M-th tapes of the set B-th system,
+
+55
+00:03:08,360 --> 00:03:09,660
+we should be able to determine the solution
+
+56
+00:03:09,660 --> 00:03:10,320
+as U-tites x dot x plus x.
+
+57
+00:03:11,760 --> 00:03:12,620
+So, let's take the relatively common function
+
+58
+00:03:13,200 --> 00:03:15,220
+ofでした to have it as in the solution
+
+59
+00:03:15,220 --> 00:03:16,420
+where the component R подIS critical x.
+
+60
+00:03:16,660 --> 00:03:17,960
+If we need, we can take this as the moment
+
+61
+00:03:17,960 --> 00:03:19,420
+value that meets h s and assign space
+
+62
+00:03:19,420 --> 00:03:21,260
+and be able to get it by along the X axis over 3
+
+63
+00:03:21,280 --> 00:03:23,420
+or even ten space up to the endors from here.
+
+64
+00:03:24,420 --> 00:03:25,200
+A
+
+65
+00:03:26,700 --> 00:03:29,620
+So� outcomes predict the final answer
+
+66
+00:03:29,620 --> 00:03:32,640
+Maybe it's that long, if you look at the code itself.
+
+67
+00:03:33,160 --> 00:03:36,980
+And if you compare the length of the code to discretize the boundary conditions,
+
+68
+00:03:37,980 --> 00:03:39,360
+what do you think is the ratio?
+
+69
+00:03:40,180 --> 00:03:45,960
+Which one do you think is more code, more effort, more time it takes to program?
+
+70
+00:03:48,680 --> 00:03:50,820
+Boundary conditions, that's right.
+
+71
+00:03:51,080 --> 00:03:52,120
+And how much longer?
+
+72
+00:03:56,280 --> 00:03:57,460
+Five times longer?
+
+73
+00:03:59,620 --> 00:04:01,880
+Like how long can you use your own tree as a boundary condition?
+
+74
+00:04:03,220 --> 00:04:03,880
+That's right.
+
+75
+00:04:03,940 --> 00:04:04,760
+It depends a lot.
+
+76
+00:04:04,820 --> 00:04:07,500
+It depends on how many types of boundary conditions you have.
+
+77
+00:04:07,500 --> 00:04:14,820
+For example, if your geometry has boundary condition of different types on different parts of the boundary.
+
+78
+00:04:15,140 --> 00:04:17,780
+For example, in this case, I have four boundaries.
+
+79
+00:04:18,100 --> 00:04:19,780
+That's only in 2D, right?
+
+80
+00:04:20,540 --> 00:04:23,180
+The four boundaries may have different boundary conditions.
+
+81
+00:04:24,580 --> 00:04:29,500
+In 3D, and also in more complex domains than this,
+
+82
+00:04:29,620 --> 00:04:33,060
+I may have more than four types of boundary conditions.
+
+83
+00:04:34,100 --> 00:04:39,540
+And the boundaries can be curved, and it can have other special tricks on them.
+
+84
+00:04:39,860 --> 00:04:45,540
+So the length of the code used to discretize the boundary can easily be five times longer.
+
+85
+00:04:46,100 --> 00:04:47,380
+Sometimes even more.
+
+86
+00:04:47,860 --> 00:04:53,140
+So boundary conditions is a very complicated consideration.
+
+87
+00:04:53,700 --> 00:04:57,620
+In this case, let's first consider the simplest type of boundary conditions.
+
+88
+00:04:58,100 --> 00:04:59,540
+Let's say U.
+
+89
+00:04:59,620 --> 00:05:07,780
+is equal to zero at x, y in the boundary.
+
+90
+00:05:08,740 --> 00:05:09,860
+That's lambda.
+
+91
+00:05:10,580 --> 00:05:12,760
+Oh, that's, yeah, that's the gamma.
+
+92
+00:05:13,280 --> 00:05:16,460
+So gamma denotes the boundary of the domain.
+
+93
+00:05:17,220 --> 00:05:17,420
+Okay.
+
+94
+00:05:19,420 --> 00:05:26,140
+So remember in 1D, we discretize the function by storing only which part of the function?
+
+95
+00:05:30,260 --> 00:05:33,460
+The value of the function on the grid points, right?
+
+96
+00:05:34,180 --> 00:05:35,540
+In 2D, we do the same.
+
+97
+00:05:36,980 --> 00:05:42,580
+And the most commonly used type of grid points are what we call Cartesian grid.
+
+98
+00:05:43,940 --> 00:05:50,660
+A Cartesian grid is basically a tensor product of finite difference grids in 1D.
+
+99
+00:05:52,260 --> 00:05:55,780
+So you discretize one of the dimensions using uniform grids.
+
+100
+00:05:55,780 --> 00:05:59,540
+You discretize the other dimension also using uniform grids.
+
+101
+00:05:59,620 --> 00:06:09,620
+So we are going to denote the x-axis with the index i, i equal to zero, i equal to one, two, et cetera, to nx.
+
+102
+00:06:10,660 --> 00:06:16,420
+And the second dimension is used to, is, we use j.
+
+103
+00:06:16,420 --> 00:06:20,420
+So j equal to zero, one, two, three, and all the way to ny.
+
+104
+00:06:22,420 --> 00:06:27,220
+So we have nx intervals in x dimension.
+
+105
+00:06:27,220 --> 00:06:29,380
+We have ny intervals in y dimension.
+
+106
+00:06:29,940 --> 00:06:37,540
+So the number of grid points including the boundary is nx plus one and ny plus one,
+
+107
+00:06:37,540 --> 00:06:43,940
+excluding the boundaries is nx minus one and nxny minus one.
+
+108
+00:06:45,060 --> 00:06:46,260
+Yes?
+
+109
+00:06:46,260 --> 00:06:52,100
+What is a tensor product and why is it called a tensor product?
+
+110
+00:06:52,100 --> 00:06:55,780
+What is a tensor product and why is it called a tensor product?
+
+111
+00:06:55,780 --> 00:06:58,740
+So the tensor product in mathematics is usually a non-tensor product.
+
+112
+00:06:58,740 --> 00:06:59,380
+So if you want to, you're going to use a tensor product.
+
+113
+00:06:59,380 --> 00:07:11,540
+a notation that is basically if you have a set A, if you have a set B, the tensor product
+
+114
+00:07:11,540 --> 00:07:23,400
+A multiplied by B is defined as pairs of A and B for which A is in A and B is in B.
+
+115
+00:07:23,400 --> 00:07:27,960
+So this is what's called a tensor product.
+
+116
+00:07:29,380 --> 00:07:36,860
+Right, so this case basically the set A is all the grid points in the x dimension, the
+
+117
+00:07:36,860 --> 00:07:39,340
+B is all the grid points in y dimension.
+
+118
+00:07:39,340 --> 00:07:41,940
+So all possible combinations.
+
+119
+00:07:41,940 --> 00:07:48,200
+Yes, yes, right, basically Cartesian product.
+
+120
+00:07:48,200 --> 00:07:59,100
+So U with two subscripts are used to denote the solution U at x i and y j.
+
+121
+00:07:59,100 --> 00:07:59,200
+Okay.
+
+122
+00:07:59,380 --> 00:08:13,200
+Similarly, f of i j is used to denote the function f at x i and y j.
+
+123
+00:08:13,200 --> 00:08:15,320
+All right.
+
+124
+00:08:15,320 --> 00:08:24,820
+So with this, U i j and f i j, we start, we discretize the functions and next thing is
+
+125
+00:08:24,820 --> 00:08:28,900
+we need to discretize the differential operators.
+
+126
+00:08:28,900 --> 00:08:38,760
+By approximating them using only U i j's without having to access the solution at, in between
+
+127
+00:08:38,760 --> 00:08:39,920
+the grid points.
+

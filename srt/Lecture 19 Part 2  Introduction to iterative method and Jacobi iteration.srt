@@ -1,0 +1,532 @@
+1
+00:00:00,000 --> 00:00:06,840
+So let's first discuss what is iterative methods for solving steady state equations.
+
+2
+00:00:08,320 --> 00:00:14,800
+Okay, so iterative methods have been developed pretty early.
+
+3
+00:00:16,140 --> 00:00:23,560
+They are developed because of a simple reason that when the matrices get large enough,
+
+4
+00:00:24,560 --> 00:00:28,020
+it is very hard to solve these matrix equations.
+
+5
+00:00:28,020 --> 00:00:36,100
+And again, going back to the age when people don't even have computers,
+
+6
+00:00:36,460 --> 00:00:38,520
+they started using iterative methods.
+
+7
+00:00:40,040 --> 00:00:44,840
+So let's say somebody wants to solve a structural equation,
+
+8
+00:00:45,220 --> 00:00:53,720
+and they want to figure out what are the deformations of various elements under a certain load.
+
+9
+00:00:55,840 --> 00:00:57,380
+How they do it?
+
+10
+00:00:58,020 --> 00:01:01,400
+Is how they started doing it.
+
+11
+00:01:03,020 --> 00:01:08,340
+When the matrix is very large, when the system is too large to be solved using Gauss elimination.
+
+12
+00:01:08,720 --> 00:01:12,120
+Remember at that time there is no computer, so if you want to do Gauss elimination,
+
+13
+00:01:12,460 --> 00:01:17,580
+there is a huge amount of numbers just to be calculated by hand.
+
+14
+00:01:18,800 --> 00:01:25,140
+So what they started doing is to relax, is to move one element at a time.
+
+15
+00:01:26,180 --> 00:01:27,480
+And figure out.
+
+16
+00:01:28,020 --> 00:01:33,020
+If you go through all the elements, just make each individual element into equilibrium.
+
+17
+00:01:34,220 --> 00:01:39,120
+If you go around a few times, although the entire system may not achieve equilibrium yet,
+
+18
+00:01:39,420 --> 00:01:46,640
+but it may be a good enough approximation if you iteratively make individual elements into equilibrium.
+
+19
+00:01:48,020 --> 00:01:51,820
+So that is one way of thinking about iterative methods.
+
+20
+00:01:52,720 --> 00:01:57,820
+Okay, so I'm going to introduce iterative methods using the Poisson's equation.
+
+21
+00:01:58,020 --> 00:02:05,620
+So if you have a Poisson's equation, du squared dx squared equal to f.
+
+22
+00:02:08,320 --> 00:02:13,220
+And if you are not allowed to use any matrix solvers, let's say, let's assume.
+
+23
+00:02:14,020 --> 00:02:19,220
+Okay, or let's see, let's say, how do you solve this equation?
+
+24
+00:02:21,320 --> 00:02:26,220
+One way to solve this equation if you are not allowed to use backslash or any matrix solvers,
+
+25
+00:02:26,220 --> 00:02:29,720
+is to solve an unsteady equation instead.
+
+26
+00:02:30,820 --> 00:02:31,320
+Right?
+
+27
+00:02:31,520 --> 00:02:34,520
+So I can change this equation, I can change my problem.
+
+28
+00:02:35,320 --> 00:02:44,720
+To that, I want to solve the heat equation, du dt equal to partial square u partial x squared.
+
+29
+00:02:44,920 --> 00:02:46,920
+And what should I add on top of that?
+
+30
+00:02:49,520 --> 00:02:55,520
+If I solve this equation, what I get at the end is, so let's say boundary condition again, very simple.
+
+31
+00:02:55,520 --> 00:02:56,020
+u z.
+
+32
+00:02:56,020 --> 00:02:58,020
+u zero equal to u one equal to zero.
+
+33
+00:03:00,020 --> 00:03:06,020
+And again, u zero equal to u one equal to zero.
+
+34
+00:03:06,320 --> 00:03:09,520
+So if I solve this equation, I will get zero at the end.
+
+35
+00:03:09,820 --> 00:03:10,320
+Right?
+
+36
+00:03:11,320 --> 00:03:18,320
+So how should I modify this equation so that I get a solution to the equation I want to solve at the end?
+
+37
+00:03:20,320 --> 00:03:22,320
+Minus f, right?
+
+38
+00:03:23,320 --> 00:03:25,320
+So if I solve this equation, and assume myself,
+
+39
+00:03:26,020 --> 00:03:28,020
+that the solution procedure is stable,
+
+40
+00:03:29,520 --> 00:03:33,520
+then at the end, when I converge to a steady state solution,
+
+41
+00:03:34,320 --> 00:03:40,520
+the du dt term becomes smaller and smaller as I iterate, because of stability.
+
+42
+00:03:42,020 --> 00:03:46,020
+What I get at the end is a solution to the equation I want to solve.
+
+43
+00:03:47,520 --> 00:03:48,020
+Right?
+
+44
+00:03:50,020 --> 00:03:54,020
+And remember, by solving this unsteady equation,
+
+45
+00:03:54,020 --> 00:03:56,520
+we don't actually have to solve any matrix equations.
+
+46
+00:03:56,520 --> 00:04:01,020
+Even if, let's say, we discretize this equation no matter using finite,
+
+47
+00:04:01,020 --> 00:04:03,520
+so okay, so let's not talk about finite element yet.
+
+48
+00:04:03,520 --> 00:04:05,520
+So let's talk about finite difference.
+
+49
+00:04:05,520 --> 00:04:10,520
+If we talk about finite difference, what we get is du dt, where u is a vector,
+
+50
+00:04:10,520 --> 00:04:15,520
+being equal to matrix A times u minus this f,
+
+51
+00:04:15,520 --> 00:04:20,520
+where A is a finite difference approximation to the second-order derivative.
+
+52
+00:04:21,020 --> 00:04:22,020
+Right?
+
+53
+00:04:22,020 --> 00:04:23,020
+So,
+
+54
+00:04:23,020 --> 00:04:28,020
+in order to solve this equation, for example, using forward Euler or Runge-Kaede method,
+
+55
+00:04:28,020 --> 00:04:31,020
+I don't need to solve a matrix equation for A.
+
+56
+00:04:32,020 --> 00:04:33,020
+What do I need?
+
+57
+00:04:34,520 --> 00:04:38,520
+How do I use this matrix if I solve this equation with forward Euler?
+
+58
+00:04:39,520 --> 00:04:41,020
+Multiplication, right.
+
+59
+00:04:41,020 --> 00:04:48,020
+I only, iterating method in general only requires explicit operation with the matrix,
+
+60
+00:04:48,020 --> 00:04:49,520
+for example, multiplication.
+
+61
+00:04:49,520 --> 00:04:52,020
+Okay, multiplication is a very,
+
+62
+00:04:52,020 --> 00:04:56,520
+it's basically sometimes the only requirement you have on the matrix
+
+63
+00:04:56,520 --> 00:05:00,020
+in order to apply iterative methods.
+
+64
+00:05:01,020 --> 00:05:03,520
+So, for example, if I want forward Euler,
+
+65
+00:05:03,520 --> 00:05:13,020
+I'm going to be saying u of k plus 1 minus u k divided by delta t
+
+66
+00:05:13,020 --> 00:05:17,520
+is equal to A times u k minus f.
+
+67
+00:05:18,020 --> 00:05:20,520
+Right, so k here is the time step.
+
+68
+00:05:20,520 --> 00:05:28,020
+And it makes sense for me to choose delta t to be as large as this method is stable,
+
+69
+00:05:28,020 --> 00:05:31,520
+so that I converge to a steady state as fast as possible.
+
+70
+00:05:32,520 --> 00:05:33,020
+So,
+
+71
+00:05:34,020 --> 00:05:35,020
+so you can,
+
+72
+00:05:35,020 --> 00:05:38,520
+I'm going to be talking about Jacobi iteration method next,
+
+73
+00:05:38,520 --> 00:05:46,520
+and you're going to see a very close analogy to the forward Euler method of solving an unsteady equation,
+
+74
+00:05:47,520 --> 00:05:50,020
+the iterative method of solving the steady state equation.
+
+75
+00:05:50,520 --> 00:05:56,020
+And in general, you can think of iterative method as a generalization
+
+76
+00:05:56,020 --> 00:06:00,520
+of solving an unsteady version of the equation,
+
+77
+00:06:00,520 --> 00:06:04,520
+so that you obtain a steady state equation,
+
+78
+00:06:04,520 --> 00:06:06,520
+a steady state solution,
+
+79
+00:06:06,520 --> 00:06:10,520
+when k here goes to infinity.
+
+80
+00:06:10,520 --> 00:06:14,020
+k can be considered as a pseudo time,
+
+81
+00:06:14,020 --> 00:06:15,520
+in this case,
+
+82
+00:06:15,520 --> 00:06:18,520
+or a iteration number,
+
+83
+00:06:18,520 --> 00:06:19,520
+rigorously.
+
+84
+00:06:20,520 --> 00:06:22,520
+Okay.
+
+85
+00:06:22,520 --> 00:06:29,520
+So the first type of iterative method we are going to be talking about is the Jacobi iteration method.
+
+86
+00:06:29,520 --> 00:06:34,520
+So the Jacobi iteration method starts with,
+
+87
+00:06:34,520 --> 00:06:38,520
+so all the iteration methods start with a matrix.
+
+88
+00:06:38,520 --> 00:06:43,520
+So we want to look at the solution A u equal to b.
+
+89
+00:06:43,520 --> 00:06:44,520
+Okay, so,
+
+90
+00:06:44,520 --> 00:06:47,520
+so iterative methods for solving linear equations start with the linear equation.
+
+91
+00:06:47,520 --> 00:06:49,520
+They don't usually start with the,
+
+92
+00:06:49,520 --> 00:06:51,520
+the PDE.
+
+93
+00:06:51,520 --> 00:06:56,520
+But sometimes you have to use the properties of the PDE.
+
+94
+00:06:56,520 --> 00:06:57,520
+Okay.
+
+95
+00:06:57,520 --> 00:07:00,520
+So, but Jacobi iteration requires just the matrix.
+
+96
+00:07:00,520 --> 00:07:03,520
+So you have A u equal to b.
+
+97
+00:07:03,520 --> 00:07:05,520
+That can be,
+
+98
+00:07:05,520 --> 00:07:11,520
+that equation can be split into many parts.
+
+99
+00:07:11,520 --> 00:07:17,520
+When the matrix A can be split into a diagonal part of A,
+
+100
+00:07:17,520 --> 00:07:19,520
+plus the lower diagonal part of A,
+
+101
+00:07:19,520 --> 00:07:24,520
+plus upper diagonal part of A.
+
+102
+00:07:24,520 --> 00:07:29,520
+And Jacobi iteration works very well if the Jacobi,
+
+103
+00:07:29,520 --> 00:07:35,520
+if the diagonal part of A is dominant,
+
+104
+00:07:35,520 --> 00:07:36,520
+at least not zero.
+
+105
+00:07:36,520 --> 00:07:38,520
+The diagonal part of A cannot be zero,
+
+106
+00:07:38,520 --> 00:07:39,520
+and it works,
+
+107
+00:07:39,520 --> 00:07:45,520
+the larger the diagonal part of A is compared to the off diagonal parts,
+
+108
+00:07:45,520 --> 00:07:46,520
+the better.
+
+109
+00:07:46,520 --> 00:07:50,520
+The better usually Jacobi iteration is going to work.
+
+110
+00:07:50,520 --> 00:07:56,520
+Because how it works is when you have a splitting that way,
+
+111
+00:07:56,520 --> 00:08:03,520
+you can write the equation as d times u plus l times u plus u times u.
+
+112
+00:08:03,520 --> 00:08:06,520
+So this u and this u is different.
+
+113
+00:08:06,520 --> 00:08:09,520
+This u is the upper diagonal part,
+
+114
+00:08:09,520 --> 00:08:12,520
+and this u is the solution equal to b.
+
+115
+00:08:12,520 --> 00:08:14,520
+And what we do is,
+
+116
+00:08:14,520 --> 00:08:19,520
+we move all the off diagonal components to the right hand side.
+
+117
+00:08:19,520 --> 00:08:28,520
+And thereby getting d u is equal to b minus l u minus u u.
+
+118
+00:08:28,520 --> 00:08:32,520
+So up to now this is just an algebraic manipulation.
+
+119
+00:08:32,520 --> 00:08:37,520
+But then something is going to be different.
+
+120
+00:08:37,520 --> 00:08:42,520
+I'm going to put a superscript,
+
+121
+00:08:42,520 --> 00:08:43,520
+k plus,
+
+122
+00:08:43,520 --> 00:08:46,520
+k plus one on here,
+
+123
+00:08:46,520 --> 00:08:53,520
+and a superscript k over here.
+
+124
+00:08:53,520 --> 00:08:55,520
+So this is saying that,
+
+125
+00:08:55,520 --> 00:08:56,520
+okay, first of all,
+
+126
+00:08:56,520 --> 00:09:01,520
+let's look at what if I started with the correct solution.
+
+127
+00:09:01,520 --> 00:09:04,520
+What if I have an initial guess?
+
+128
+00:09:04,520 --> 00:09:09,520
+So u zero is called the initial guess.
+
+129
+00:09:09,520 --> 00:09:12,520
+In general, it is just a guess.
+
+130
+00:09:12,520 --> 00:09:16,520
+It doesn't have to be accurate at all.
+
+131
+00:09:16,520 --> 00:09:19,520
+But if you started with the correct solution,
+
+132
+00:09:19,520 --> 00:09:21,520
+if u zero is equal to u,
+
+133
+00:09:21,520 --> 00:09:24,520
+what is u one going to be?
+

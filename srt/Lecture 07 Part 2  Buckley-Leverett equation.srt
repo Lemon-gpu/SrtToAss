@@ -1,0 +1,152 @@
+1
+00:00:00,000 --> 00:00:13,400
+So for example, there is this equation called the Berkeley-Leverett equation
+
+2
+00:00:13,400 --> 00:00:19,920
+that models how oil and water flows in the porous media, for example, an oil
+
+3
+00:00:19,920 --> 00:00:27,300
+reservoir. Okay, so and particularly describes the flow of oil and water
+
+4
+00:00:27,300 --> 00:00:35,860
+under a constant driven flow. So think of the total volumetric flow is constant.
+
+5
+00:00:35,860 --> 00:00:43,940
+So you have a porous media, you have a sponge or rock or something, and you have
+
+6
+00:00:43,940 --> 00:00:48,980
+your injecting water on the left side and you see what comes out on the right
+
+7
+00:00:48,980 --> 00:00:56,460
+side. And because oil and water have different properties, they don't really
+
+8
+00:00:56,460 --> 00:00:57,220
+mix together.
+
+9
+00:00:57,220 --> 00:00:57,280
+So the beauty of the flow is what it can merge into. So for example, if I have a
+
+10
+00:00:57,280 --> 00:01:01,720
+very well but the some of them are trapping small pores and they're off
+
+11
+00:01:01,720 --> 00:01:08,260
+surface tension etc if you look at the time evolution of a saturation for
+
+12
+00:01:08,260 --> 00:01:17,380
+example of oil DT it is not going to be so if if oil and water they are the same
+
+13
+00:01:17,380 --> 00:01:25,540
+material they are the same of the so if there is no porous media the situation
+
+14
+00:01:25,540 --> 00:01:33,460
+just at bats in a pipe linearly I would have partial s o partial X equal to zero
+
+15
+00:01:33,460 --> 00:01:37,660
+right so that's linear vector equation if I have a certain waveform of
+
+16
+00:01:37,660 --> 00:01:41,900
+saturation in the beginning that way would shift towards the right if there
+
+17
+00:01:41,900 --> 00:01:47,500
+was no porous media but the existence of porous media makes it a nonlinear
+
+18
+00:01:47,500 --> 00:01:55,300
+conservation law the F actually depends on the saturation at that local point
+
+19
+00:01:55,300 --> 00:01:55,500
+okay
+
+20
+00:01:55,500 --> 00:01:55,520
+okay
+
+21
+00:01:55,520 --> 00:02:25,520
+
+
+22
+00:02:25,520 --> 00:02:31,280
+region the flux of oil oil is more like in the free flow is in the bigger pour
+
+23
+00:02:31,280 --> 00:02:38,000
+so that they get pushed faster and as you approach full saturation equal to
+
+24
+00:02:38,000 --> 00:02:46,280
+warm everything is oil and water is now trapped into small pores that makes the
+
+25
+00:02:46,280 --> 00:02:51,320
+flux of oil to be more or less independent of how much water there is
+
+26
+00:02:51,320 --> 00:03:00,580
+so it's it the curve becomes flat again so this is this is a an example of a
+
+27
+00:03:00,580 --> 00:03:06,140
+scalar conservation law where you can use only one variable to denote the
+
+28
+00:03:06,140 --> 00:03:14,200
+state and all flux is a direct a scalar function of that one one variable more
+
+29
+00:03:14,200 --> 00:03:21,280
+often we have a system of conservation laws in which my U is a vector and
+
+30
+00:03:21,280 --> 00:03:21,300
+it has a function that is a value of u so if I have a function that is a state and I
+
+31
+00:03:21,300 --> 00:03:26,380
+is momentum and density, for example, or momentum, density, and energy.
+
+32
+00:03:27,220 --> 00:03:33,680
+And the flux of mass would depend on the momentum.
+
+33
+00:03:34,380 --> 00:03:37,160
+The flux of momentum would depend on the density.
+
+34
+00:03:37,320 --> 00:03:40,500
+The flux of energy would depend on also momentum and energy.
+
+35
+00:03:40,500 --> 00:03:43,000
+So you have a system of conservation loss,
+
+36
+00:03:43,320 --> 00:03:48,000
+but then always the flux, be it a vector or a scalar,
+
+37
+00:03:48,000 --> 00:03:52,640
+is completely determined by the state at that local point.
+
+38
+00:03:53,640 --> 00:03:56,300
+The state can be, again, a scalar or a vector.
+

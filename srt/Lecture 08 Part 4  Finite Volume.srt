@@ -1,0 +1,296 @@
+1
+00:00:00,760 --> 00:00:06,000
+So remember, the starting point of a scalar conservation law, discretizing a scalar conservation
+
+2
+00:00:06,000 --> 00:00:09,680
+law is the what form?
+
+3
+00:00:09,680 --> 00:00:13,200
+Is the integral form because this is the only form that makes sense.
+
+4
+00:00:13,200 --> 00:00:18,680
+The only form that doesn't involve d dx of any discontinuous functions.
+
+5
+00:00:18,680 --> 00:00:19,680
+Right?
+
+6
+00:00:19,680 --> 00:00:25,520
+I mean, if you remember when we do finite difference, we are using Taylor series to
+
+7
+00:00:25,520 --> 00:00:29,780
+analyze the accuracy of our discretization.
+
+8
+00:00:29,780 --> 00:00:36,180
+And in the Taylor series, we, no matter how high order the scheme is, we have a remaining
+
+9
+00:00:36,180 --> 00:00:45,560
+term that is proportional to delta x to the whatever power times the certain derivative
+
+10
+00:00:45,560 --> 00:00:46,800
+of this function.
+
+11
+00:00:46,800 --> 00:00:47,800
+Right?
+
+12
+00:00:47,800 --> 00:00:56,460
+For example, a second order scheme, the error term would be proportional to delta x squared
+
+13
+00:00:56,460 --> 00:00:59,760
+times maybe the third order derivative.
+
+14
+00:00:59,760 --> 00:01:02,200
+So, the third order derivative of the function may be the fourth order derivative of the
+
+15
+00:01:02,200 --> 00:01:05,760
+function, depending on what is the differential operator.
+
+16
+00:01:05,760 --> 00:01:12,420
+But the thing is, when you have a discontinuous solution, the third order derivative is what?
+
+17
+00:01:12,420 --> 00:01:13,420
+Is infinite.
+
+18
+00:01:13,420 --> 00:01:14,420
+Okay?
+
+19
+00:01:14,420 --> 00:01:15,420
+Is infinite.
+
+20
+00:01:15,420 --> 00:01:17,920
+The fourth order derivative is infinite.
+
+21
+00:01:17,920 --> 00:01:25,340
+So the order of accuracy doesn't, Taylor series order of accuracy doesn't make any sense anymore.
+
+22
+00:01:25,340 --> 00:01:29,760
+So no matter what you do, you get potentially infinite amount of error.
+
+23
+00:01:29,760 --> 00:01:33,740
+And use the integral form.
+
+24
+00:01:33,740 --> 00:01:43,640
+Use the integral form to avoid the potential problems with finite difference.
+
+25
+00:01:43,640 --> 00:01:52,000
+F of u at b minus f of u at a equal to zero.
+
+26
+00:01:52,000 --> 00:01:53,800
+Okay?
+
+27
+00:01:53,800 --> 00:01:57,500
+And let us divide the whole equation by b minus f of u at a.
+
+28
+00:01:57,500 --> 00:01:58,500
+Okay?
+
+29
+00:01:58,500 --> 00:01:59,500
+So, we have the integral form.
+
+30
+00:01:59,500 --> 00:02:00,500
+So we have b minus a.
+
+31
+00:02:00,500 --> 00:02:09,620
+So, if you divide this, the integral of the solution over a small range by b over a, we
+
+32
+00:02:09,620 --> 00:02:12,560
+get the average.
+
+33
+00:02:12,560 --> 00:02:16,220
+The average value of u inside b and a.
+
+34
+00:02:16,220 --> 00:02:28,480
+So d dt of u bar, okay, over b and a plus f over the left, on the right side of the
+
+35
+00:02:28,480 --> 00:02:29,480
+domain.
+
+36
+00:02:29,500 --> 00:02:30,500
+Okay?
+
+37
+00:02:30,500 --> 00:02:32,500
+So e to the right minus f left equal to zero.
+
+38
+00:02:32,500 --> 00:02:33,500
+Okay?
+
+39
+00:02:33,500 --> 00:02:35,500
+A plus f over the right minus f left equal to zero.
+
+40
+00:02:35,500 --> 00:02:37,280
+Apply, oh sorry, over b minus a.
+
+41
+00:02:37,280 --> 00:02:43,040
+So apply this in a domain discretized in small intervals.
+
+42
+00:02:43,040 --> 00:02:45,000
+Delta x, two delta x, three delta x.
+
+43
+00:02:45,000 --> 00:02:50,880
+And this is N delta x.
+
+44
+00:02:50,880 --> 00:02:55,260
+How many, how many of these averages do we have?
+
+45
+00:02:55,260 --> 00:02:56,260
+So be very careful.
+
+46
+00:02:56,260 --> 00:02:57,260
+We just go wrong.
+
+47
+00:02:57,260 --> 00:02:58,260
+We need some more.
+
+48
+00:02:58,260 --> 00:02:59,260
+No, we don't want any more.
+
+49
+00:02:59,260 --> 00:03:03,820
+about the distinction between finite volume and finite difference. In finite
+
+50
+00:03:03,820 --> 00:03:08,620
+difference, depending on boundary conditions, we may have n-1
+
+51
+00:03:08,620 --> 00:03:13,840
+unknowns, we may have n-plus-1 unknowns, we may have n unknowns if the two sides
+
+52
+00:03:13,840 --> 00:03:18,700
+have different boundary conditions. For finite volume, we always have n
+
+53
+00:03:18,700 --> 00:03:28,000
+unknowns, the number of intervals. So let me write this as u-bar-1, so
+
+54
+00:03:28,000 --> 00:03:36,100
+the first self-average u-bar-2, etc., u-bar this would be n, what I have is
+
+55
+00:03:36,100 --> 00:03:52,120
+d u-bar-i dt plus b-minus-a would be delta x, right. And this is the flux at the
+
+56
+00:03:52,120 --> 00:03:57,220
+right side of the interval, i, which I call i-plus-half because it's
+
+57
+00:03:57,220 --> 00:03:57,980
+writing
+
+58
+00:03:57,980 --> 00:04:07,580
+between the interval i and i plus 1. Now we use integers to denote the cells, and
+
+59
+00:04:08,780 --> 00:04:17,980
+the grid points now become like second-class citizens. So we use the half-fractional
+
+60
+00:04:18,540 --> 00:04:23,900
+numbers to denote them. Like in finite difference, the grid points are first-class citizens. We use
+
+61
+00:04:23,900 --> 00:04:29,820
+integers to denote them. In finite volume, that's not the case. We reserve the integers to denote
+
+62
+00:04:29,820 --> 00:04:36,780
+the cells and the boundaries. They are less important. We use fractional indices.
+
+63
+00:04:37,580 --> 00:04:45,340
+Minus f of i minus half equal to zero. All right, so this is our finite volume scheme,
+
+64
+00:04:45,340 --> 00:04:53,820
+and this is exact. So there is no approximation yet in this derivation.
+
+65
+00:04:53,900 --> 00:04:57,580
+Now let's start our approximation.
+
+66
+00:05:00,780 --> 00:05:12,700
+The approximation needs to be there because the f is evaluated at the grid points.
+
+67
+00:05:12,700 --> 00:05:23,660
+So this f i plus 1, for example, is equal to f of u at x i plus half, right? x i plus half is
+
+68
+00:05:23,900 --> 00:05:33,820
+the grid points. And we don't have them in finite volume. We only remember the cell averages.
+
+69
+00:05:34,380 --> 00:05:41,980
+So we have to do some kind of interpolation. So this is what we have to interpolate.
+
+70
+00:05:44,460 --> 00:05:49,580
+So there are two types of interpolations. One type is to interpolate the u, the solution,
+
+71
+00:05:49,580 --> 00:05:53,500
+and apply the flux on top of the interpolated solution.
+
+72
+00:05:53,900 --> 00:06:03,260
+The other way is to compute the flux directly on the cell averages and then interpolate the flux.
+
+73
+00:06:03,260 --> 00:06:07,580
+So either way is a perfectly fine finite volume approximation.
+
+74
+00:06:08,380 --> 00:06:15,920
+For example, I'm just going to give a very elementary example that is we call the central flux scheme.
+

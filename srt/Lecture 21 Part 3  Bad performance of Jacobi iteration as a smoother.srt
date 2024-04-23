@@ -1,0 +1,836 @@
+1
+00:00:00,000 --> 00:00:04,380
+We have used Gauss-Seidel as smoother.
+
+2
+00:00:04,980 --> 00:00:13,540
+And we have the purpose of the smoother is one is to improve the solution, right?
+
+3
+00:00:15,440 --> 00:00:26,440
+And another important role of the smoother is to remove the high frequency content of the solution error.
+
+4
+00:00:26,440 --> 00:00:33,560
+So that the residual can be interpolated to the causal grid.
+
+5
+00:00:35,000 --> 00:00:43,840
+So this is the single most important role of these few iterations I performed in the beginning of the multigrid cycle.
+
+6
+00:00:45,620 --> 00:00:53,140
+So for example, if instead of Gauss-Seidel iterations I'm performing here,
+
+7
+00:00:53,560 --> 00:00:56,140
+if I change them to Jacobi iterations,
+
+8
+00:00:56,440 --> 00:01:01,940
+what do you think is going to be the effect to the multigrid algorithm?
+
+9
+00:01:03,580 --> 00:01:05,580
+Let's try that.
+
+10
+00:01:05,840 --> 00:01:07,460
+Jacobi.
+
+11
+00:01:07,460 --> 00:01:11,040
+So let me remove all these breakpoints and
+
+12
+00:01:12,440 --> 00:01:15,140
+I'll also make
+
+13
+00:01:16,680 --> 00:01:18,680
+this to be Jacobi.
+
+14
+00:01:20,020 --> 00:01:26,320
+Okay, I'm not going to change the causal grid iteration because it's going to be, no matter using Gauss-Seidel,
+
+15
+00:01:26,320 --> 00:01:29,200
+it is going to basically give us the exact solution.
+
+16
+00:01:29,200 --> 00:01:31,200
+Okay.
+
+17
+00:01:31,200 --> 00:01:39,200
+Now I just changed the pre- and post-smoothing operations from Gauss-Seidel to Jacobi.
+
+18
+00:01:39,200 --> 00:01:41,200
+And let's see what is the effect.
+
+19
+00:01:41,200 --> 00:01:48,200
+Let's also make a bunch of zeros and perform one multigrid cycle.
+
+20
+00:01:48,200 --> 00:01:54,200
+U is equal to multigrid of U and B.
+
+21
+00:01:54,200 --> 00:01:56,200
+That's IMP.
+
+22
+00:01:56,320 --> 00:01:57,320
+And show a few.
+
+23
+00:01:57,320 --> 00:01:59,320
+What do you think we're going to get?
+
+24
+00:02:01,320 --> 00:02:06,320
+We get something that is a little bit less accurate than what we had before.
+
+25
+00:02:06,320 --> 00:02:07,320
+Right?
+
+26
+00:02:07,320 --> 00:02:11,320
+Maybe we just perform one iteration.
+
+27
+00:02:11,320 --> 00:02:13,320
+Let's do this again.
+
+28
+00:02:15,320 --> 00:02:16,320
+Doesn't really help.
+
+29
+00:02:16,320 --> 00:02:17,320
+Right?
+
+30
+00:02:17,320 --> 00:02:19,320
+So what's happening?
+
+31
+00:02:19,320 --> 00:02:24,320
+Why is Gauss-Seidel working but Jacobi is not working?
+
+32
+00:02:26,320 --> 00:02:37,320
+For this, we again have to dive into the eigenvalue and eigenvector analysis of Gauss-Seidel and Jacobi.
+
+33
+00:02:37,320 --> 00:02:43,320
+So do we remember when we performed many, many Jacobi iterations,
+
+34
+00:02:43,320 --> 00:02:47,320
+what is the mode that converged the slowest?
+
+35
+00:02:52,320 --> 00:02:55,320
+What is the solution error after many iterations?
+
+36
+00:02:55,320 --> 00:03:01,320
+It was the low frequency mode, exactly.
+
+37
+00:03:01,320 --> 00:03:07,320
+But for Jacobi iteration, it is not only the low frequency mode that converges the slowest.
+
+38
+00:03:07,320 --> 00:03:12,320
+There are some other modes that also converge very slowly.
+
+39
+00:03:12,320 --> 00:03:14,320
+What do you think is that mode?
+
+40
+00:03:14,320 --> 00:03:16,320
+So let's think in 1D.
+
+41
+00:03:16,320 --> 00:03:18,320
+1D.
+
+42
+00:03:18,320 --> 00:03:21,320
+So X.
+
+43
+00:03:21,320 --> 00:03:24,320
+We have grid point over here.
+
+44
+00:03:24,320 --> 00:03:29,320
+And the matrix.
+
+45
+00:03:29,320 --> 00:03:33,320
+Let's just write down the discretization.
+
+46
+00:03:33,320 --> 00:03:44,320
+So U of I minus 1 minus 2 U I plus U I plus 1 divided by delta X square equal to F of I.
+
+47
+00:03:44,320 --> 00:03:51,320
+And to make the Jacobi iteration, we are assigning this to K.
+
+48
+00:03:51,320 --> 00:03:52,320
+This is the lower diagonal part.
+
+49
+00:03:52,320 --> 00:03:54,320
+This is the K plus 1.
+
+50
+00:03:54,320 --> 00:03:55,320
+The diagonal part.
+
+51
+00:03:55,320 --> 00:04:01,320
+And the K, the upper diagonal part.
+
+52
+00:04:01,320 --> 00:04:08,320
+So the Jacobi iteration is moving the K plus 1 part, keeping that on the left-hand side,
+
+53
+00:04:08,320 --> 00:04:13,320
+and moving the known to the right-hand side.
+
+54
+00:04:13,320 --> 00:04:21,320
+So we have minus delta X square over 2 F I plus half of U I K.
+
+55
+00:04:21,320 --> 00:04:23,320
+And the U I K.
+
+56
+00:04:24,320 --> 00:04:28,320
+U I minus 1 K, U I plus 1 K.
+
+57
+00:04:28,320 --> 00:04:39,320
+It is very intuitive that if I have a mode that is very, very smooth,
+
+58
+00:04:39,320 --> 00:04:50,320
+this particular iteration being the average of the two neighboring grid points would converge very slowly.
+
+59
+00:04:50,320 --> 00:04:51,320
+Right?
+
+60
+00:04:51,320 --> 00:04:53,320
+So particularly if I write the error equation,
+
+61
+00:04:53,320 --> 00:05:02,320
+if I define E I K plus 1 to be defined as U I K plus 1 minus U I,
+
+62
+00:05:02,320 --> 00:05:04,320
+which is the exact solution.
+
+63
+00:05:04,320 --> 00:05:08,320
+My E I of K plus 1 would be equal to,
+
+64
+00:05:08,320 --> 00:05:16,320
+this term gets cancelled if I subtract the iteration with what is satisfied by the exact solution.
+
+65
+00:05:16,320 --> 00:05:21,320
+What I get is E I K plus 1 is equal to the average of E I K plus 1.
+
+66
+00:05:21,320 --> 00:05:28,320
+So I have the average of E I plus 1 K and E I minus 1 K.
+
+67
+00:05:28,320 --> 00:05:33,320
+That means if I have a very, very smooth solution,
+
+68
+00:05:33,320 --> 00:05:35,320
+so let's say this is my,
+
+69
+00:05:35,320 --> 00:05:38,320
+I have a very smooth solution error.
+
+70
+00:05:38,320 --> 00:05:39,320
+Excuse me.
+
+71
+00:05:39,320 --> 00:05:44,320
+So if this is E I K,
+
+72
+00:05:44,320 --> 00:05:48,320
+in my next iteration, what is going to be my solution error?
+
+73
+00:05:48,320 --> 00:05:50,320
+What is going to be, let's say, blue is E I K.
+
+74
+00:05:51,320 --> 00:05:54,320
+K plus 1.
+
+75
+00:05:54,320 --> 00:06:02,320
+My solution error is going to decay very slowly because my E I K plus 1 on this grid point would be the average of these two.
+
+76
+00:06:02,320 --> 00:06:08,320
+So I would be drawing a straight line and my E I K plus 1 would be here.
+
+77
+00:06:08,320 --> 00:06:12,320
+So see how slow it decays.
+
+78
+00:06:12,320 --> 00:06:14,320
+To figure out what is the blue line at this point,
+
+79
+00:06:14,320 --> 00:06:17,320
+I would be drawing a straight line between the neighboring grid points.
+
+80
+00:06:17,320 --> 00:06:20,320
+E I K plus 1 would be here.
+
+81
+00:06:20,320 --> 00:06:24,320
+I would be drawing a straight line and the E I K plus 1 would be here.
+
+82
+00:06:24,320 --> 00:06:29,320
+As long as this line still has some curvature,
+
+83
+00:06:29,320 --> 00:06:36,320
+my E I K is going to decay as K increases as I'm taking these averages.
+
+84
+00:06:36,320 --> 00:06:41,320
+But you can see the smaller the curvature of the E I K is,
+
+85
+00:06:41,320 --> 00:06:43,320
+the smoother it is,
+
+86
+00:06:43,320 --> 00:06:47,320
+in other words, the slower it will decay.
+
+87
+00:06:50,320 --> 00:06:55,320
+But this is one opposite of the spectrum for Jacobi iteration.
+
+88
+00:06:55,320 --> 00:07:03,320
+There is another type of solution error that also would decay very slowly.
+
+89
+00:07:03,320 --> 00:07:08,320
+And that type of error is the extreme opposite of a smooth solution.
+
+90
+00:07:08,320 --> 00:07:16,320
+It is the most non-smooth solution you can imagine that also decays very slowly.
+
+91
+00:07:16,320 --> 00:07:18,320
+Why is that?
+
+92
+00:07:20,320 --> 00:07:22,320
+Let's try it.
+
+93
+00:07:22,320 --> 00:07:26,320
+Let's try to imagine I have a solution x.
+
+94
+00:07:26,320 --> 00:07:28,320
+And this is solution error.
+
+95
+00:07:28,320 --> 00:07:34,320
+If I have a solution error that is as non-smooth as you can imagine,
+
+96
+00:07:34,320 --> 00:07:38,320
+that is one positive, one negative, one positive, one negative,
+
+97
+00:07:38,320 --> 00:07:43,320
+another positive, another negative, another positive, another negative, like that.
+
+98
+00:07:43,320 --> 00:07:47,320
+A grid by grid oscillation.
+
+99
+00:07:47,320 --> 00:07:48,320
+So let's see.
+
+100
+00:07:48,320 --> 00:07:50,320
+If this is E I K,
+
+101
+00:07:50,320 --> 00:07:57,320
+and I use another color to denote E I K plus 1,
+
+102
+00:07:57,320 --> 00:08:02,320
+what is going to be E I K plus 1 for the second grid point?
+
+103
+00:08:06,320 --> 00:08:09,320
+It's going to be the average between these two, right?
+
+104
+00:08:09,320 --> 00:08:12,320
+So I would get here.
+
+105
+00:08:12,320 --> 00:08:16,320
+E I K plus 1 for this grid point would be here, right?
+
+106
+00:08:16,320 --> 00:08:20,320
+So I would get an error that is going to be,
+
+107
+00:08:20,320 --> 00:08:27,320
+like this, like that.
+
+108
+00:08:27,320 --> 00:08:28,320
+Right?
+
+109
+00:08:28,320 --> 00:08:36,320
+So I would get a grid by grid oscillation again on the opposite direction.
+
+110
+00:08:36,320 --> 00:08:39,320
+Great.
+
+111
+00:08:39,320 --> 00:08:46,320
+So this is actually not better.
+
+112
+00:08:46,320 --> 00:08:48,320
+The convergence rate is actually not better
+
+113
+00:08:48,320 --> 00:08:53,320
+than if I just have one smooth solution.
+
+114
+00:08:53,320 --> 00:08:56,320
+The most non-smooth solution possible you can find
+
+115
+00:08:56,320 --> 00:09:00,320
+have a very similar convergence rate
+
+116
+00:09:00,320 --> 00:09:02,320
+to the most smooth solution,
+
+117
+00:09:02,320 --> 00:09:04,320
+except for every iteration,
+
+118
+00:09:04,320 --> 00:09:11,320
+the solution area flips its sign.
+
+119
+00:09:11,320 --> 00:09:13,320
+All right.
+
+120
+00:09:13,320 --> 00:09:14,320
+Okay.
+
+121
+00:09:14,320 --> 00:09:16,320
+That can also be seen mathematically
+
+122
+00:09:16,320 --> 00:09:17,320
+through,
+
+123
+00:09:17,320 --> 00:09:21,320
+through the same analysis as we did before.
+
+124
+00:09:21,320 --> 00:09:23,320
+And mathematically,
+
+125
+00:09:23,320 --> 00:09:30,320
+the eigenvalues
+
+126
+00:09:30,320 --> 00:09:41,320
+of Jacobi iteration matrix,
+
+127
+00:09:41,320 --> 00:09:44,320
+they are cosine
+
+128
+00:09:44,320 --> 00:09:45,320
+of
+
+129
+00:09:45,320 --> 00:09:46,320
+J
+
+130
+00:09:46,320 --> 00:09:47,320
+pi
+
+131
+00:09:47,320 --> 00:09:49,320
+divided by N,
+
+132
+00:09:49,320 --> 00:09:50,320
+right?
+
+133
+00:09:50,320 --> 00:09:54,320
+Where N is the number of intervals
+
+134
+00:09:54,320 --> 00:09:57,320
+and J is the mode.
+
+135
+00:09:57,320 --> 00:10:00,320
+Last time we focused on the mode
+
+136
+00:10:00,320 --> 00:10:02,320
+that corresponds to J equal to 1.
+
+137
+00:10:02,320 --> 00:10:07,320
+That corresponds to the most smooth solution.
+
+138
+00:10:07,320 --> 00:10:13,320
+But equally difficult to converge is
+
+139
+00:10:13,320 --> 00:10:16,320
+J equal to N minus 1.
+
+140
+00:10:16,320 --> 00:10:18,320
+Why is that?
+
+141
+00:10:18,320 --> 00:10:19,320
+This is because
+
+142
+00:10:19,320 --> 00:10:21,320
+when J is equal to 1,
+
+143
+00:10:21,320 --> 00:10:25,320
+cosine of pi over N is very close to 1
+
+144
+00:10:25,320 --> 00:10:27,320
+when N is large.
+
+145
+00:10:27,320 --> 00:10:30,320
+But when J is equal to N minus 1,
+
+146
+00:10:30,320 --> 00:10:34,320
+cosine of J pi over N is very close to what?
+
+147
+00:10:34,320 --> 00:10:37,320
+Minus 1.
+
+148
+00:10:37,320 --> 00:10:38,320
+That's right.
+
+149
+00:10:38,320 --> 00:10:42,320
+So I have an eigenvalue that is close to 1
+
+150
+00:10:42,320 --> 00:10:44,320
+that contributes to the slow convergence
+
+151
+00:10:44,320 --> 00:10:45,320
+of the non-smooth part.
+
+152
+00:10:45,320 --> 00:10:50,320
+I also have an eigenvalue very, very close to minus 1.
+
+153
+00:10:50,320 --> 00:10:52,320
+And it's minus 1 that contributes
+
+154
+00:10:52,320 --> 00:10:54,320
+the flipping of this solution error.
+
+155
+00:10:54,320 --> 00:10:57,320
+I have an eigenvalue close to minus 1
+
+156
+00:10:57,320 --> 00:10:59,320
+that contributes the slow convergence
+
+157
+00:10:59,320 --> 00:11:04,320
+of the most non-smooth part.
+
+158
+00:11:04,320 --> 00:11:08,320
+The reason we don't see it as much
+
+159
+00:11:08,320 --> 00:11:09,320
+in the solution error
+
+160
+00:11:09,320 --> 00:11:12,320
+when we perform Jacobi iterations
+
+161
+00:11:12,320 --> 00:11:13,320
+is because usually
+
+162
+00:11:13,320 --> 00:11:14,320
+in the initial guess,
+
+163
+00:11:14,320 --> 00:11:17,320
+usually in the solution error
+
+164
+00:11:17,320 --> 00:11:19,320
+of the initial guess,
+
+165
+00:11:19,320 --> 00:11:21,320
+the most high-frequency content
+
+166
+00:11:21,320 --> 00:11:23,320
+is usually smaller
+
+167
+00:11:23,320 --> 00:11:26,320
+than the lowest frequency contents.
+
+168
+00:11:26,320 --> 00:11:28,320
+So although the high-frequency content
+
+169
+00:11:28,320 --> 00:11:37,320
+converges as low as the low-frequency content,
+
+170
+00:11:37,320 --> 00:11:40,320
+because initially it is small,
+
+171
+00:11:40,320 --> 00:11:43,320
+finally it also is a lot smaller
+
+172
+00:11:43,320 --> 00:11:45,320
+than the low-frequency content.
+
+173
+00:11:45,320 --> 00:11:50,320
+But in multi-grid,
+
+174
+00:11:50,320 --> 00:11:53,320
+that actually becomes very important
+
+175
+00:11:53,320 --> 00:11:56,320
+because as we perform iterations
+
+176
+00:11:56,320 --> 00:11:58,320
+on the coarse grid,
+
+177
+00:11:58,320 --> 00:12:00,320
+we know we are reducing
+
+178
+00:12:00,320 --> 00:12:04,320
+the smooth portion of the solution error
+
+179
+00:12:04,320 --> 00:12:06,320
+very, very fast.
+
+180
+00:12:06,320 --> 00:12:10,320
+So the ability of the smoother
+
+181
+00:12:10,320 --> 00:12:12,320
+of the five iterations,
+
+182
+00:12:12,320 --> 00:12:14,320
+we did in the beginning
+
+183
+00:12:14,320 --> 00:12:16,320
+and then at the end of the multi-grid,
+
+184
+00:12:16,320 --> 00:12:18,320
+to reduce the non-smooth portion
+
+185
+00:12:18,320 --> 00:12:19,320
+of the solution error
+
+186
+00:12:19,320 --> 00:12:23,320
+becomes very, very important.
+
+187
+00:12:23,320 --> 00:12:25,320
+And not only it is important
+
+188
+00:12:25,320 --> 00:12:27,320
+in reducing the most non-smooth
+
+189
+00:12:27,320 --> 00:12:29,320
+part of the solution,
+
+190
+00:12:29,320 --> 00:12:30,320
+because we are applying
+
+191
+00:12:30,320 --> 00:12:31,320
+the same iterations
+
+192
+00:12:31,320 --> 00:12:33,320
+on the successively coarser grids.
+
+193
+00:12:33,320 --> 00:12:35,320
+And on the coarser grids,
+
+194
+00:12:35,320 --> 00:12:37,320
+the most non-smooth portion
+
+195
+00:12:37,320 --> 00:12:39,320
+of the solution is actually
+
+196
+00:12:39,320 --> 00:12:41,320
+contains everything, right?
+
+197
+00:12:41,320 --> 00:12:46,320
+So no matter what frequency,
+
+198
+00:12:46,320 --> 00:12:49,320
+how smooth or non-smooth it is,
+
+199
+00:12:49,320 --> 00:12:51,320
+at a certain grid,
+
+200
+00:12:51,320 --> 00:12:53,320
+it can be close to the most non-smooth
+
+201
+00:12:53,320 --> 00:12:55,320
+part of the solution.
+
+202
+00:12:55,320 --> 00:12:58,320
+So if your iteration
+
+203
+00:12:58,320 --> 00:13:00,320
+is like the Jacobi iteration,
+
+204
+00:13:00,320 --> 00:13:02,320
+not very good at reducing
+
+205
+00:13:02,320 --> 00:13:04,320
+some non-smooth features
+
+206
+00:13:04,320 --> 00:13:05,320
+of the solution,
+
+207
+00:13:05,320 --> 00:13:09,320
+then it is not a good smoother.
+
+208
+00:13:09,320 --> 00:13:11,320
+Okay, it is not,
+
+209
+00:13:11,320 --> 00:13:13,320
+a good thing to use in multi-grid.
+

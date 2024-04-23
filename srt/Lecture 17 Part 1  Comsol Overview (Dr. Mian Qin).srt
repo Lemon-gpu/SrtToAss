@@ -1,0 +1,872 @@
+1
+00:00:00,000 --> 00:00:11,000
+Good morning everyone. So about myself, my name is Mian Qing. I'm a PhD in mechanical engineering from the University of Pennsylvania.
+
+2
+00:00:11,000 --> 00:00:19,000
+That was about six years ago and then I started in Comso as an applications engineer, basically doing technical support.
+
+3
+00:00:19,000 --> 00:00:28,000
+And then about three years ago I moved over to technical sales. So right now I'm in charge of all the accounts at MIT, Harvard, and the entire Illinois and part of Rhode Island.
+
+4
+00:00:28,000 --> 00:00:41,000
+So basically the professor of this class, Chi Chi, he said that he'll be traveling for this week, as you know, and he wants to basically, that part of the class may have a project that's based on Comso.
+
+5
+00:00:41,000 --> 00:00:51,000
+So he's like, why don't you introduce Comso to the students? So the purpose of today's lesson is basically we talk over how to use Comso.
+
+6
+00:00:51,000 --> 00:00:58,000
+What's the capability of Comso, what are the modules, and also how to build from the very beginning.
+
+7
+00:00:58,000 --> 00:01:05,000
+So the first thing that I want to talk about is how to build a building from scratch, how to create the geometry, how to set up the physics, how does the measure work, and then the solver, and then the post-processing.
+
+8
+00:01:05,000 --> 00:01:15,000
+So I'll try to go into a little bit of depth into each of the building steps, like what are the options, but I won't go into too much detail as to how the solver actually works.
+
+9
+00:01:15,000 --> 00:01:20,000
+So it'll be a little bit different from what you typically have as part of this lecture.
+
+10
+00:01:20,000 --> 00:01:25,000
+So feel free to ask questions, but as I said, raise your hand first.
+
+11
+00:01:25,000 --> 00:01:27,000
+So I have on the cover slide a link to the website.
+
+12
+00:01:27,000 --> 00:01:28,000
+So I have on the cover slide a link to the website.
+
+13
+00:01:28,000 --> 00:01:30,000
+So I have on the cover slide a link to the website.
+
+14
+00:01:30,000 --> 00:01:39,000
+So that is a place that we host a lot of different application examples that you can basically log in with the username and password that I created for you.
+
+15
+00:01:39,000 --> 00:01:42,000
+And then you can launch any of the apps and test it later on.
+
+16
+00:01:42,000 --> 00:01:47,000
+I'll send out the slides later so you're going to have all this information.
+
+17
+00:01:47,000 --> 00:01:49,000
+So a couple words about the company.
+
+18
+00:01:49,000 --> 00:01:57,000
+So Comso is essentially, the software itself is essentially an equation solver based on finite element methods, at least 95% of it.
+
+19
+00:01:57,000 --> 00:01:58,000
+So a couple words about the company.
+
+20
+00:01:58,000 --> 00:01:59,000
+So a couple words about the company.
+
+21
+00:01:59,000 --> 00:02:00,000
+And then it started in 1986 as a distributor for Mathworks in Stockholm, Sweden.
+
+22
+00:02:00,000 --> 00:02:01,000
+And then the CEO actually started, he himself is a programmer and an engineer.
+
+23
+00:02:01,000 --> 00:02:04,000
+And then the CEO actually started, he himself is a programmer and an engineer.
+
+24
+00:02:04,000 --> 00:02:06,000
+So he actually started something called the PDE solver for Mathworks.
+
+25
+00:02:06,000 --> 00:02:07,000
+So that Mathworks is actually still selling in the States.
+
+26
+00:02:07,000 --> 00:02:08,000
+So that Mathworks is actually still selling in the States.
+
+27
+00:02:08,000 --> 00:02:09,000
+And then it became a standalone software called SamLab, but it still actually requires Mathlab to run.
+
+28
+00:02:09,000 --> 00:02:10,000
+And then it was renamed as Comso Multiphysics and it's completely standalone.
+
+29
+00:02:10,000 --> 00:02:11,000
+And then it was renamed as Comso Multiphysics and it's completely standalone.
+
+30
+00:02:11,000 --> 00:02:12,000
+And right now it's just a little bit of a new solution.
+
+31
+00:02:12,000 --> 00:02:13,000
+So I have a question.
+
+32
+00:02:13,000 --> 00:02:14,000
+Does Comso work with media and using sini to run commands?
+
+33
+00:02:14,000 --> 00:02:15,000
+Yes, it's fully standalone.
+
+34
+00:02:15,000 --> 00:02:17,120
+is actually still selling in the States.
+
+35
+00:02:17,120 --> 00:02:19,960
+And then it became a standalone software called SamLab,
+
+36
+00:02:19,960 --> 00:02:22,480
+but it still actually requires MathLab to run.
+
+37
+00:02:22,480 --> 00:02:25,620
+And then it was renamed as ComSol Multiphysics,
+
+38
+00:02:25,620 --> 00:02:27,420
+and it's completely standalone.
+
+39
+00:02:27,420 --> 00:02:29,640
+And right now we have derived many different modules
+
+40
+00:02:29,640 --> 00:02:31,460
+for different application areas.
+
+41
+00:02:31,460 --> 00:02:35,520
+And so we have about 22 worldwide offices.
+
+42
+00:02:35,520 --> 00:02:37,400
+I myself am from Burlington, Massachusetts,
+
+43
+00:02:37,400 --> 00:02:38,760
+not too far from here.
+
+44
+00:02:38,760 --> 00:02:41,160
+We have a couple of offices on the West Coast
+
+45
+00:02:41,160 --> 00:02:44,360
+and many distribution networks across the world.
+
+46
+00:02:44,360 --> 00:02:48,680
+So one of the magazines we brought up is the ComSol News.
+
+47
+00:02:48,680 --> 00:02:51,360
+We have an annual news magazine, basically a collection
+
+48
+00:02:51,360 --> 00:02:53,120
+of user success stories.
+
+49
+00:02:53,120 --> 00:02:55,220
+So those users may be from national labs,
+
+50
+00:02:55,220 --> 00:02:58,580
+large corporations, or an academic environment.
+
+51
+00:02:58,580 --> 00:03:00,440
+So some of the interesting stories
+
+52
+00:03:00,440 --> 00:03:02,440
+you can read about what people use ComSol for.
+
+53
+00:03:02,440 --> 00:03:04,800
+And just judging the books from the cover,
+
+54
+00:03:04,800 --> 00:03:06,680
+you see that it's basically different industries
+
+55
+00:03:06,680 --> 00:03:10,200
+from aerospace, which still relates to 416,
+
+56
+00:03:10,200 --> 00:03:13,560
+and then also oil and gas, automotive, clean energy,
+
+57
+00:03:13,560 --> 00:03:14,160
+those things.
+
+58
+00:03:14,360 --> 00:03:17,600
+We also have another magazine called the Multiphysics
+
+59
+00:03:17,600 --> 00:03:21,940
+Evolution, which is an insert for the IEEE magazine.
+
+60
+00:03:21,940 --> 00:03:23,820
+Both magazines are actually available online
+
+61
+00:03:23,820 --> 00:03:26,500
+on the ComSol main page.
+
+62
+00:03:26,500 --> 00:03:28,600
+So what can ComSol do?
+
+63
+00:03:28,600 --> 00:03:31,680
+So you see the different blocks here on the honeycomb,
+
+64
+00:03:31,680 --> 00:03:35,040
+how they are magnetics, heat transfer, structural mechanics,
+
+65
+00:03:35,040 --> 00:03:36,080
+fluid flow, chemical.
+
+66
+00:03:36,080 --> 00:03:38,080
+Those are a few typical categories of problems
+
+67
+00:03:38,080 --> 00:03:39,700
+people use ComSol for.
+
+68
+00:03:39,700 --> 00:03:43,560
+And the missing piece here is user-defined equations.
+
+69
+00:03:43,560 --> 00:03:47,500
+So basically, from each of the existing predefined physics
+
+70
+00:03:47,500 --> 00:03:49,880
+types, you can choose a set of equations
+
+71
+00:03:49,880 --> 00:03:52,320
+and start solving for those, which are already
+
+72
+00:03:52,320 --> 00:03:53,220
+made for you.
+
+73
+00:03:53,220 --> 00:03:55,920
+All the domain conditions, boundary conditions
+
+74
+00:03:55,920 --> 00:03:57,240
+are in the predefined way.
+
+75
+00:03:57,240 --> 00:03:59,620
+But a lot of times, especially in research environment,
+
+76
+00:03:59,620 --> 00:04:01,740
+people deal with non-standard equations.
+
+77
+00:04:01,740 --> 00:04:05,500
+That's when you can implement your own user-defined equations
+
+78
+00:04:05,500 --> 00:04:07,540
+in the last column here.
+
+79
+00:04:07,540 --> 00:04:08,880
+So my colleague, Tammy, is going
+
+80
+00:04:08,880 --> 00:04:11,400
+to teach on Wednesday about equation-based modeling.
+
+81
+00:04:11,400 --> 00:04:13,560
+So he'll talk about more on the equation-based modeling.
+
+82
+00:04:13,560 --> 00:04:16,000
+And then he'll talk about how you can implement
+
+83
+00:04:16,000 --> 00:04:18,400
+all different types of equations in ComSol.
+
+84
+00:04:18,400 --> 00:04:20,600
+So stay tuned for that one.
+
+85
+00:04:20,600 --> 00:04:23,300
+So the beauty of ComSol is in the core,
+
+86
+00:04:23,300 --> 00:04:25,320
+which is the multi-physics approach.
+
+87
+00:04:25,320 --> 00:04:27,440
+So basically, you can grab any of the physics
+
+88
+00:04:27,440 --> 00:04:29,480
+from any of those lattice.
+
+89
+00:04:29,480 --> 00:04:31,920
+And then you can solve them in either uncoupled way,
+
+90
+00:04:31,920 --> 00:04:36,920
+one-way coupled way, or a strongly coupled way.
+
+91
+00:04:36,920 --> 00:04:39,920
+So just a quick view of the product chart.
+
+92
+00:04:39,920 --> 00:04:43,540
+So you always require the ComSol multi-physics, the long blue bar
+
+93
+00:04:43,560 --> 00:04:47,160
+on the very top, to run the software, which gives you
+
+94
+00:04:47,160 --> 00:04:49,200
+the building steps that I mentioned earlier,
+
+95
+00:04:49,200 --> 00:04:51,800
+the geometry tools, matching tools, solvers,
+
+96
+00:04:51,800 --> 00:04:54,560
+and post-processing tools, and a few fundamental physics,
+
+97
+00:04:54,560 --> 00:04:57,520
+such as electric currents, electrostatics, laminar flow,
+
+98
+00:04:57,520 --> 00:04:58,780
+heat conduction.
+
+99
+00:04:58,780 --> 00:05:00,820
+And then if you want to have access to more advanced
+
+100
+00:05:00,820 --> 00:05:06,060
+physics types, then we have the last four columns, 20-some boxes.
+
+101
+00:05:06,060 --> 00:05:07,900
+Those are the physics-based modules.
+
+102
+00:05:07,900 --> 00:05:10,280
+We divide them into four categories.
+
+103
+00:05:10,280 --> 00:05:11,680
+So the first one is electrical.
+
+104
+00:05:11,680 --> 00:05:13,560
+It goes from low frequency to high frequency.
+
+105
+00:05:13,560 --> 00:05:15,880
+It goes all the way beyond optics.
+
+106
+00:05:15,880 --> 00:05:19,440
+And you also have plasma physics and plasma chemistry.
+
+107
+00:05:19,440 --> 00:05:21,840
+And then also semiconductor module and the MAMS module
+
+108
+00:05:21,840 --> 00:05:24,400
+that deals with very straightforward from the names.
+
+109
+00:05:24,400 --> 00:05:26,060
+Chart carriers in the semiconductor,
+
+110
+00:05:26,060 --> 00:05:32,240
+how they distribute, where MAMS actuators, sensors, basically
+
+111
+00:05:32,240 --> 00:05:34,880
+has a unique electromechanics in the thing.
+
+112
+00:05:34,880 --> 00:05:37,540
+And then the second category is structural category.
+
+113
+00:05:37,540 --> 00:05:40,380
+So you have from the linear materials,
+
+114
+00:05:40,380 --> 00:05:42,660
+you can use the structural mechanics module.
+
+115
+00:05:42,660 --> 00:05:45,840
+We have non-linearity, plasticity, hyper-elasticity.
+
+116
+00:05:45,840 --> 00:05:48,300
+You have a non-linear structural materials module.
+
+117
+00:05:48,300 --> 00:05:52,060
+Geomechanics module deals with large-scale rock concrete soil.
+
+118
+00:05:52,060 --> 00:05:55,280
+Fatigue deals with low and high cycle fatigue, thermal fatigue.
+
+119
+00:05:55,280 --> 00:05:58,800
+Multi-body dynamics allow you to solve many different parts
+
+120
+00:05:58,800 --> 00:06:00,120
+being assembled together.
+
+121
+00:06:00,120 --> 00:06:02,100
+Use different joint types in comms and solve
+
+122
+00:06:02,100 --> 00:06:04,840
+the rigid and flexible body, how the stress and strain
+
+123
+00:06:04,840 --> 00:06:05,880
+is distributed.
+
+124
+00:06:05,880 --> 00:06:09,580
+Rotor dynamics is just released a couple of months ago.
+
+125
+00:06:09,580 --> 00:06:12,040
+So it deals with the vibrational stress.
+
+126
+00:06:12,040 --> 00:06:14,700
+So it's not just in the vibrational devices.
+
+127
+00:06:14,700 --> 00:06:17,860
+And then acoustics module deals with acoustics propagation,
+
+128
+00:06:17,860 --> 00:06:20,920
+basically vibration propagation in solid and also
+
+129
+00:06:20,920 --> 00:06:22,800
+in fluid domains.
+
+130
+00:06:22,800 --> 00:06:25,860
+Then we have the fluid category, I guess, for the course 16
+
+131
+00:06:25,860 --> 00:06:30,160
+you're most interested in, which is from the CFD module, which
+
+132
+00:06:30,160 --> 00:06:33,840
+can simulate from single-phase to multi-phase flows,
+
+133
+00:06:33,840 --> 00:06:36,940
+to low and high mach number flows,
+
+134
+00:06:36,940 --> 00:06:40,480
+and also isothermal and non-isothermal flows,
+
+135
+00:06:40,480 --> 00:06:41,320
+all different things.
+
+136
+00:06:42,040 --> 00:06:45,160
+And of course, many different turbulence models as well.
+
+137
+00:06:45,160 --> 00:06:47,360
+So there's about 11 different turbulence models
+
+138
+00:06:47,360 --> 00:06:49,380
+you can choose from.
+
+139
+00:06:49,380 --> 00:06:53,360
+And then if you deal with a mixer, a stir tank mixer,
+
+140
+00:06:53,360 --> 00:06:56,540
+a baffle, then you can use the mixer module.
+
+141
+00:06:56,540 --> 00:06:59,360
+Then we also have coarse media flow capability
+
+142
+00:06:59,360 --> 00:07:01,300
+in the subsurface flow module.
+
+143
+00:07:01,300 --> 00:07:03,980
+We have low and thin pipes with large aspect ratio.
+
+144
+00:07:03,980 --> 00:07:07,160
+You want to use an approximation of the 1D pipe,
+
+145
+00:07:07,160 --> 00:07:09,280
+so the pipe flow module.
+
+146
+00:07:09,280 --> 00:07:11,740
+Microfluidics module deals with mostly electrokinetic flow.
+
+147
+00:07:11,740 --> 00:07:12,040
+.
+
+148
+00:07:12,040 --> 00:07:13,040
+And then we have the high mass flow,
+
+149
+00:07:13,040 --> 00:07:16,260
+and also the multi-phase flows.
+
+150
+00:07:16,260 --> 00:07:18,940
+Molecular flow is when you have continuum mechanics fails.
+
+151
+00:07:18,940 --> 00:07:21,820
+And then you deal with high numbers,
+
+152
+00:07:21,820 --> 00:07:24,880
+verified gas flow in your vacuum system.
+
+153
+00:07:24,880 --> 00:07:27,240
+Then heat transfer module, which is actually
+
+154
+00:07:27,240 --> 00:07:30,180
+a versatile, very versatile module that can pretty much
+
+155
+00:07:30,180 --> 00:07:32,280
+couple with any other physics that
+
+156
+00:07:32,280 --> 00:07:36,820
+can deal with heat conduction, convection, and also radiation.
+
+157
+00:07:36,820 --> 00:07:40,080
+On top of that, we can deal with heat transfer with phase change,
+
+158
+00:07:40,080 --> 00:07:41,740
+as well as bioheat.
+
+159
+00:07:41,740 --> 00:07:45,860
+So we can deal with bioheating and cryogenic cooling problems.
+
+160
+00:07:45,860 --> 00:07:47,860
+Then the last category is chemical.
+
+161
+00:07:47,860 --> 00:07:49,860
+So you can deal with species transport
+
+162
+00:07:49,860 --> 00:07:53,360
+in both the diluted sense or concentrated sense,
+
+163
+00:07:53,360 --> 00:07:57,360
+and also transporting both free space and coarse media.
+
+164
+00:07:57,360 --> 00:07:59,860
+When you have the actual migration for the charge species,
+
+165
+00:07:59,860 --> 00:08:02,740
+then we have a few electrochemistry related modules
+
+166
+00:08:02,740 --> 00:08:03,240
+as well.
+
+167
+00:08:03,240 --> 00:08:06,740
+So I won't go into too much detail on the fourth branch.
+
+168
+00:08:06,740 --> 00:08:10,400
+And then to the right, in the yellow boxes, or orange boxes,
+
+169
+00:08:10,400 --> 00:08:11,580
+you have the. how COMSOL works with the third part, which is the yellow box.
+
+170
+00:08:11,580 --> 00:08:31,320
+We have the DCPロ knife, the
+
+171
+00:08:31,400 --> 00:08:34,800
+cellnit library for production farming in either group
+
+172
+00:08:34,800 --> 00:08:37,340
+to see why it's effective.
+
+173
+00:08:37,340 --> 00:08:39,640
+U2 and U3 have the same taką面.
+
+174
+00:08:39,640 --> 00:08:41,360
+Available in MLS Sid with datum data.
+
+175
+00:08:41,360 --> 00:08:41,400
+.
+
+176
+00:08:41,400 --> 00:08:41,500
+This...!
+
+177
+00:08:41,500 --> 00:08:41,520
+.
+
+178
+00:08:41,520 --> 00:08:41,560
+restaurant fazendo de cardio de установépoque de commentary deträmentar y teaches y'all
+
+179
+00:08:41,560 --> 00:08:41,580
+früllest in on top of things using measuring bags as roku sen later.
+
+180
+00:08:41,580 --> 00:08:46,380
+into mScript and then you can run it entirely from that with just a console server in the
+
+181
+00:08:46,380 --> 00:08:51,700
+background and you can easily add for loops and add different modify any part of the model.
+
+182
+00:08:51,700 --> 00:08:57,480
+You can also draw the console from Excel so you'll be able to synchronize tabularized data
+
+183
+00:08:57,480 --> 00:09:03,300
+and generate reports out of Excel. And then in the green boxes in the middle we have the
+
+184
+00:09:03,300 --> 00:09:08,480
+multi-purpose module which is the optimization which you can define an objective function,
+
+185
+00:09:08,480 --> 00:09:13,280
+a scalar function, and define what kind of variables can change, what constraints they
+
+186
+00:09:13,280 --> 00:09:18,620
+satisfy, within what ranges, then the console can find the optimum solution for you. Material
+
+187
+00:09:18,620 --> 00:09:23,460
+library is just the database you fetch information from and then the last one is particle tracing.
+
+188
+00:09:23,460 --> 00:09:29,840
+So two common examples is charge particle tracing in electrical magnetic field or trace of particles
+
+189
+00:09:29,840 --> 00:09:36,020
+in blue flow. Alright so any questions on any of the modules? Anything in particular you want to
+
+190
+00:09:36,020 --> 00:09:36,380
+hear about?
+
+191
+00:09:38,480 --> 00:09:48,860
+Okay so with that said I'm going to quickly demonstrate a multi-physics problem how to build
+
+192
+00:09:48,860 --> 00:09:54,920
+in console in the building step where to find the different buttons. So have you received the trial
+
+193
+00:09:54,920 --> 00:10:02,860
+download yet? Some of you did. If you haven't had a trial yet, email and let me know so I can send
+
+194
+00:10:02,860 --> 00:10:08,360
+you the trial installation. So basically the trial will have every box on this one I think except for
+
+195
+00:10:08,360 --> 00:10:08,460
+the module. So that's it. Thank you.
+
+196
+00:10:08,480 --> 00:10:17,240
+So basically you can explore the package and the mathematical mathematics in physics in the base
+
+197
+00:10:17,240 --> 00:10:24,740
+package. So you can feel free to define your own equations down too. Alright so the workflow in
+
+198
+00:10:24,740 --> 00:10:29,420
+console as I mentioned you start always with the geometry by either importing or sketching in
+
+199
+00:10:29,420 --> 00:10:34,100
+console and then you define the physics. So the physics includes what's the governing equation
+
+200
+00:10:34,100 --> 00:10:38,360
+and what are the boundary conditions. You also assign the material properties to the geometry.
+
+201
+00:10:38,360 --> 00:10:42,920
+So you can see the different domains or boundaries or even edge and point. And then you match the
+
+202
+00:10:42,920 --> 00:10:47,420
+domain that's what the finite element method does. I guess you already went over the finite element
+
+203
+00:10:47,420 --> 00:10:53,060
+method as part of the lecture. So you know that basically discretize the domain and then solve the
+
+204
+00:10:53,060 --> 00:10:58,880
+equation in each of the smaller elements and assemble them in a system matrix and feed them to
+
+205
+00:10:58,880 --> 00:11:05,540
+the solver. So that's what that does. And then you solve the model. You have the different solver
+
+206
+00:11:05,540 --> 00:11:08,240
+types in console. There is fully coupled and then segregated solvers. So you can see that the model
+
+207
+00:11:08,240 --> 00:11:12,200
+you have is the first solver for the multi-physics problem. There is a direct and integrated solvers.
+
+208
+00:11:12,200 --> 00:11:17,580
+And for each of the categories there are many options. And then you will have a solution dataset.
+
+209
+00:11:17,580 --> 00:11:22,940
+You can basically run the post processing upon. And then you can generate colorful images,
+
+210
+00:11:22,940 --> 00:11:28,760
+generate the tabularized data, animations, whatever you want. And then the very last step,
+
+211
+00:11:28,760 --> 00:11:33,920
+step number six, is actually you can create one more step based on the model. You can create it
+
+212
+00:11:33,920 --> 00:11:38,180
+into an app. So basically you can customize the app interface and deliver that to the console.
+
+213
+00:11:38,180 --> 00:11:39,920
+to your customer, your colleagues,
+
+214
+00:11:40,120 --> 00:11:41,820
+who don't have to know every detail
+
+215
+00:11:41,820 --> 00:11:43,220
+of how you build this model,
+
+216
+00:11:43,360 --> 00:11:44,580
+but they need to have a few buttons
+
+217
+00:11:44,580 --> 00:11:46,660
+and a few input fields that they can play with.
+
+218
+00:11:47,060 --> 00:11:49,980
+So basically, you can customize the model into an app.
+

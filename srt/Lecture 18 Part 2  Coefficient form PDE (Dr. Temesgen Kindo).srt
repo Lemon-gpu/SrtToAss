@@ -1,0 +1,500 @@
+1
+00:00:00,000 --> 00:00:08,160
+So what we will do is we will start with a quick introduction of PDEs, how we
+
+2
+00:00:08,160 --> 00:00:14,240
+interpret PDEs in ComSol, and solve a simple problem, then go back and start
+
+3
+00:00:14,240 --> 00:00:17,960
+with an algebraic equation, go to ordinary differential equations, go back to
+
+4
+00:00:17,960 --> 00:00:26,680
+partial differential equations, and solve a bigger coupled problem. So in ComSol
+
+5
+00:00:26,680 --> 00:00:34,720
+there are, for the PDE interfaces, you have options between coefficient form, general
+
+6
+00:00:34,720 --> 00:00:43,240
+form, and WIP form. So the coefficient form and the general form are ways to
+
+7
+00:00:43,240 --> 00:00:50,420
+basically put in your equations using the strong form of your PDE. Well once
+
+8
+00:00:50,420 --> 00:00:54,680
+you have that, the software uses the finite element method to solve this
+
+9
+00:00:54,680 --> 00:00:56,600
+equation. So in the background it's
+
+10
+00:00:56,600 --> 00:00:56,660
+going to be a little bit more complicated, but it's going to be a little bit more
+
+11
+00:00:56,660 --> 00:01:00,940
+complicated. So in the background it's going to be a little bit more complicated, but it's going to convert them into a WIP form. But if you
+
+12
+00:01:00,940 --> 00:01:07,540
+already have your own WIP form, you can directly put in the WIP form as well.
+
+13
+00:01:07,540 --> 00:01:13,160
+Most people use the coefficient and general form, but sometimes the WIP form
+
+14
+00:01:13,160 --> 00:01:22,520
+gives you more flexibility. It's the strongest form anyway in terms of giving
+
+15
+00:01:22,520 --> 00:01:26,580
+you flexibility and being faster.
+
+16
+00:01:26,580 --> 00:01:32,340
+So let's say you're in your numerical PDE class, are you guys doing finite differences or finite elements as well?
+
+17
+00:01:32,340 --> 00:01:36,740
+Both, right? Okay, so you would have seen the WIP form.
+
+18
+00:01:36,740 --> 00:01:56,500
+Okay, so let's start with the coefficient form PDE. It works really with a template. So there is this big template which says, okay, if your independent variable, if your dependent variable, the variable you find to solve for, let's say you called it U, and you're going to call it U, so you're going to call it U.
+
+19
+00:01:56,500 --> 00:02:08,580
+Then you get this equation where you have to specify the mass term, E, the down-pinning or mass term, D, the diffusion coefficient, C, the flux coefficient,
+
+20
+00:02:08,580 --> 00:02:26,480
+convection coefficient, absorption coefficient, and source terms. And this can be fixed numbers or they can be functions of your special coordinates and time, but they can also be a function of the
+
+21
+00:02:26,500 --> 00:02:45,300
+unknown itself. So if they are a function of the unknown itself, for example, let's say you are solving a heat transfer problem where the conductivity is temperature dependent, then the diffusion coefficient there is not going to be constant, but it's going to be a function of the independent variable itself.
+
+22
+00:02:45,300 --> 00:02:54,480
+Or if you are having heat sources where the heat generation rate is temperature dependent or reaction rates being concentration dependent, then you can solve for the heat transfer problem.
+
+23
+00:02:54,480 --> 00:02:56,500
+Okay, so you have the heat transfer problem.
+
+24
+00:02:56,500 --> 00:02:56,740
+You have the heat transfer problem.
+
+25
+00:02:56,740 --> 00:02:56,760
+So if you have the heat transfer problem, you have the heat transfer problem.
+
+26
+00:02:56,760 --> 00:02:57,280
+So if you have the heat transfer problem, you have the heat transfer problem.
+
+27
+00:02:57,280 --> 00:03:06,620
+Then the source terms will not be fixed, but they will be functions of the unknown itself, and you are going to have an unlinear problem.
+
+28
+00:03:08,060 --> 00:03:15,540
+So once you specify all of these terms, if you don't have them, you put them to zero.
+
+29
+00:03:15,660 --> 00:03:25,000
+So, for example, if you are solving paramodic equations such as heat transfer or chemical reactions or groundwater flow, you don't have this mass term.
+
+30
+00:03:25,060 --> 00:03:26,260
+You don't have the second time derivative.
+
+31
+00:03:26,260 --> 00:03:26,480
+It's not a mass term.
+
+32
+00:03:26,480 --> 00:03:31,980
+So you would specify zero for E, and then you'd specify the other values.
+
+33
+00:03:32,240 --> 00:03:34,940
+So there are two units you want to specify here.
+
+34
+00:03:35,520 --> 00:03:39,100
+You have to specify the units for the independent variable.
+
+35
+00:03:40,240 --> 00:03:56,240
+Probably you guys being now doing a lot of mathematics like to do all of this in a non-dimensionalized manner, but a lot of engineers, they want the units, and they have data in certain physical units.
+
+36
+00:03:56,240 --> 00:03:59,000
+And they just want to use that directly.
+
+37
+00:03:59,480 --> 00:04:07,040
+So if you're using the dimensions, then you have to specify the unit for the independent variable and for the source term.
+
+38
+00:04:07,400 --> 00:04:11,000
+Now, we have a lot of terms here to be entered in this equation.
+
+39
+00:04:11,000 --> 00:04:13,640
+One, two, three, four, five, six, seven, eight.
+
+40
+00:04:13,880 --> 00:04:22,480
+We have eight terms, but we are saying specify the units for the source term F and for the independent variable.
+
+41
+00:04:23,840 --> 00:04:26,000
+Why not specify the others then?
+
+42
+00:04:26,240 --> 00:04:27,600
+How is that enough?
+
+43
+00:04:28,160 --> 00:04:34,180
+How is it enough to specify two units for just two quantities when you have multiple terms in your equation?
+
+44
+00:04:39,080 --> 00:04:40,580
+How would it fill in the rest?
+
+45
+00:04:44,740 --> 00:04:45,540
+It would.
+
+46
+00:04:46,060 --> 00:04:47,100
+How do you think it will?
+
+47
+00:04:52,800 --> 00:04:56,120
+You're specifying the units for the independent variable?
+
+48
+00:04:56,120 --> 00:04:56,200
+Okay.
+
+49
+00:04:56,240 --> 00:05:00,280
+So here is U and then the source term in this equation, F.
+
+50
+00:05:04,920 --> 00:05:07,240
+Yeah, right, from dimensional consistency.
+
+51
+00:05:07,460 --> 00:05:17,640
+Basically, for example, if you think about the absorption term, the units of A multiplied by the units of U should be the same dimension as F.
+
+52
+00:05:17,900 --> 00:05:22,440
+So all of these others will be filled in from dimensional consistency.
+
+53
+00:05:22,440 --> 00:05:26,100
+And that basically makes it consistent.
+
+54
+00:05:26,240 --> 00:05:33,880
+Instead, if we allow people to change, to specify all of them, you can end up specifying an inconsistent set of units.
+
+55
+00:05:34,360 --> 00:05:49,000
+And the source form also uses that to track, for example, if it was expecting something in one unit, you specify your data in another unit, then it will complain that there is a unit that's expecting one unit and you are specifying another unit.
+
+56
+00:05:50,000 --> 00:05:56,000
+So it works by basically looking at, you write your equations first and you compare it with the template.
+
+57
+00:05:56,240 --> 00:05:57,200
+And you fill it in.
+
+58
+00:05:57,200 --> 00:05:57,960
+It's that easy.
+
+59
+00:05:58,680 --> 00:06:13,020
+So, for example, if you think of this template, all of these problems from acoustics, chemistry, finance, or population dynamics, you can fit them into this template.
+
+60
+00:06:13,020 --> 00:06:24,760
+If you start with the acoustics equation, we don't have B, but the EA would be 1 over root C squared, where rho is the density and C is the speed of sound.
+
+61
+00:06:24,760 --> 00:06:29,760
+Or if you're doing chemistry, you don't have EA.
+
+62
+00:06:29,760 --> 00:06:31,120
+EA would be 1.
+
+63
+00:06:31,120 --> 00:06:34,960
+The independent you are solving for, U, would be concentration.
+
+64
+00:06:34,960 --> 00:06:36,960
+C would be a diffusion coefficient.
+
+65
+00:06:36,960 --> 00:06:42,560
+If you have advection, beta would be your advection velocity.
+
+66
+00:06:42,560 --> 00:06:45,040
+And then F would be your reaction rate.
+
+67
+00:06:45,040 --> 00:06:53,040
+Or if you are doing a population model, like say the Fisher Ecological Model, then U would be your population size.
+
+68
+00:06:53,040 --> 00:06:54,240
+You don't have E.
+
+69
+00:06:54,240 --> 00:06:54,740
+You don't have E.
+
+70
+00:06:54,760 --> 00:06:56,040
+So, you have E, A.
+
+71
+00:06:56,040 --> 00:06:57,920
+D, A is 1.
+
+72
+00:06:57,920 --> 00:07:03,160
+C is basically the migration rate.
+
+73
+00:07:03,160 --> 00:07:16,880
+And then A can be basically formed out of the burst rate or the net burst rate and then the carrying capacity.
+
+74
+00:07:16,880 --> 00:07:23,300
+So, you know, R, U, over K carrying the carrying capacity minus 1.
+
+75
+00:07:23,300 --> 00:07:24,240
+So, you basically.
+
+76
+00:07:24,240 --> 00:07:30,760
+You basically look at your equation and see how does it fit into any of that template.
+
+77
+00:07:30,760 --> 00:07:37,240
+So, the same way that once you specify the equations, you have to specify the boundary conditions.
+
+78
+00:07:37,240 --> 00:07:40,480
+And the boundary conditions also come in templates.
+
+79
+00:07:40,480 --> 00:07:45,440
+And the way the boundary condition templates work is you will see something on the left hand.
+
+80
+00:07:45,440 --> 00:07:49,280
+It gives you something like left hand side is equal to right hand side.
+
+81
+00:07:49,280 --> 00:07:51,880
+And you're going to enter the right hand side.
+
+82
+00:07:51,880 --> 00:07:53,400
+So, for example, the Grishley boundary condition.
+
+83
+00:07:53,400 --> 00:08:01,440
+The template is U is equal to R or whatever your intended variable was is equal to R.
+
+84
+00:08:01,440 --> 00:08:08,240
+So, if you want to put a 0 for the boundary condition everywhere, then you basically pick
+
+85
+00:08:08,240 --> 00:08:13,080
+Grishley and then for R, you basically say R is equal to 0.
+
+86
+00:08:13,080 --> 00:08:14,800
+So, that's the template.
+
+87
+00:08:14,800 --> 00:08:20,400
+Or if you are having a more complicated one, we have something called a constraint.
+
+88
+00:08:20,400 --> 00:08:23,400
+The constraint basically says 0 is equal to R.
+
+89
+00:08:23,400 --> 00:08:29,640
+So, then what you have to do is put the expression that needs to be 0 at the boundary.
+
+90
+00:08:29,640 --> 00:08:38,240
+And that is R. And then where there are others as well, but you pick the boundary condition.
+
+91
+00:08:38,240 --> 00:08:40,080
+Some of them you don't have to specify anything.
+
+92
+00:08:40,080 --> 00:08:46,400
+For example, if you are doing 0 flux or if you are doing periodic boundary conditions,
+
+93
+00:08:46,400 --> 00:08:49,400
+there is nothing more to enter.
+
+94
+00:08:49,400 --> 00:08:51,400
+You just have to specify where you have 0 flux.
+
+95
+00:08:51,400 --> 00:08:52,400
+So, that's the template.
+
+96
+00:08:52,400 --> 00:08:53,400
+Okay.
+
+97
+00:08:53,400 --> 00:08:58,240
+So, you can specify where you have 0 flux or between which boundaries you have periodicity.
+
+98
+00:08:58,240 --> 00:09:00,840
+But it's really picking from the template.
+
+99
+00:09:00,840 --> 00:09:04,640
+I will demonstrate this with an example.
+
+100
+00:09:04,640 --> 00:09:12,080
+So, for example, for the boundary conditions, let's say we want to have 0 normal component.
+
+101
+00:09:12,080 --> 00:09:13,440
+You are solving for U.
+
+102
+00:09:13,440 --> 00:09:16,680
+Let U be a vector.
+
+103
+00:09:16,680 --> 00:09:21,640
+And then the normal component of that vector is going to be 0 in some direction.
+
+104
+00:09:21,640 --> 00:09:22,640
+So, you have to specify that.
+
+105
+00:09:22,640 --> 00:09:27,160
+So, this happens, for example, in structural mechanics.
+
+106
+00:09:27,160 --> 00:09:32,520
+If you have rollers somewhere, then the normal displacement in that direction is going to
+
+107
+00:09:32,520 --> 00:09:33,520
+be 0.
+
+108
+00:09:33,520 --> 00:09:39,400
+It can slip tangentially, but it's not going to move in the direction normal to your boundary.
+
+109
+00:09:39,400 --> 00:09:44,380
+Or whenever you have symmetry, then you're going to have that.
+
+110
+00:09:44,380 --> 00:09:48,060
+Like symmetry in fluid flow, for example, would mean that the normal component of the
+
+111
+00:09:48,060 --> 00:09:50,640
+velocity in some direction is going to be 0.
+
+112
+00:09:50,640 --> 00:09:51,640
+Now, you can use this.
+
+113
+00:09:51,640 --> 00:09:52,640
+Okay.
+
+114
+00:09:52,640 --> 00:09:53,640
+So, you can use the constraint condition.
+
+115
+00:09:53,640 --> 00:09:59,040
+For example, it says 0 is equal to R. So, what you have to do is what should be R so
+
+116
+00:09:59,040 --> 00:10:01,480
+that you have 0 normal component.
+
+117
+00:10:01,480 --> 00:10:02,480
+That's what you have.
+
+118
+00:10:02,480 --> 00:10:11,020
+If R is basically the dot product of your solution with the outward normal, you just
+
+119
+00:10:11,020 --> 00:10:18,320
+type the right hand side for R. And that will basically mean a 0 constraint, 0 normal component.
+
+120
+00:10:18,320 --> 00:10:21,400
+Or if you had a convective flux, the template you get is here.
+
+121
+00:10:21,400 --> 00:10:22,400
+What you get is this.
+
+122
+00:10:22,400 --> 00:10:29,160
+What you have to specify is the two terms, G and Q. And then, for example, if you have
+
+123
+00:10:29,160 --> 00:10:35,420
+a Newton type cooling, then G is going to be your convection coefficient multiplied
+
+124
+00:10:35,420 --> 00:10:40,800
+by the ambient temperature, whereas Q is simply your convection coefficient.
+
+125
+00:10:40,800 --> 00:10:43,800
+So, this is how it works.
+

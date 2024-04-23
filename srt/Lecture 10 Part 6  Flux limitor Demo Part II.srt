@@ -1,0 +1,600 @@
+1
+00:00:00,000 --> 00:00:14,440
+right no okay so F is equal to good enough of UI plus just copy and paste
+
+2
+00:00:14,440 --> 00:00:22,920
+UI plus half left UI plus half right I'm going to code up the good enough scheme
+
+3
+00:00:22,920 --> 00:00:42,120
+over here you L and you are okay so just to review our good enough scheme so the
+
+4
+00:00:42,120 --> 00:00:49,340
+flux is going to be taking either maximum or minimum depending on which you L or
+
+5
+00:00:49,340 --> 00:00:52,760
+you are is larger right
+
+6
+00:00:52,920 --> 00:01:01,780
+so so let me just so when we are taking maximum or minimum for burgers flux
+
+7
+00:01:01,780 --> 00:01:10,940
+burgers it can only be taking three possible values it can either FL is
+
+8
+00:01:10,940 --> 00:01:21,680
+equal to UL square over 2 F right is equal to UR square over 2 or F mean is
+
+9
+00:01:21,680 --> 00:01:22,880
+equal to Z
+
+10
+00:01:22,920 --> 00:01:29,620
+right so so because when we are taking the maximum and minimum of the flux over
+
+11
+00:01:29,620 --> 00:01:37,540
+a range of U values and the minimum or maximum depending on which side of U is
+
+12
+00:01:37,540 --> 00:01:44,060
+going to be larger and because the burgers flux is U square over 2 it's a
+
+13
+00:01:44,060 --> 00:01:49,100
+convex function and because it's a convex function when whenever we are
+
+14
+00:01:49,100 --> 00:01:52,820
+taking the maximum the maximum can
+
+15
+00:01:52,820 --> 00:01:59,360
+it can only be possible on one of the ends it's either F left or F right
+
+16
+00:01:59,360 --> 00:02:14,340
+right so so burgers the floor is like this F as a function of U so whenever
+
+17
+00:02:14,340 --> 00:02:19,500
+we have a range of U taking the maximum over the range can either a go on this
+
+18
+00:02:19,500 --> 00:02:20,720
+side or this side
+
+19
+00:02:20,720 --> 00:02:27,260
+Well, taking the minimum can be different.
+
+20
+00:02:27,260 --> 00:02:33,000
+So if I'm taking the minimum over a monotonically increasing or decreasing region, the minimum
+
+21
+00:02:33,000 --> 00:02:34,680
+occurs on one side.
+
+22
+00:02:34,680 --> 00:02:41,160
+But if the range of U overlaps with U equal to zero, then the minimum actually happens
+
+23
+00:02:41,160 --> 00:02:42,160
+to be zero.
+
+24
+00:02:42,160 --> 00:02:45,440
+That's why I'm writing fmin is equal to zero here.
+
+25
+00:02:45,440 --> 00:02:48,140
+So several cases.
+
+26
+00:02:48,140 --> 00:03:01,200
+So first, let me just say f is equal to zero's length of U .
+
+27
+00:03:01,200 --> 00:03:05,180
+Okay, length of U .
+
+28
+00:03:05,180 --> 00:03:10,980
+So I'm making a function of this length.
+
+29
+00:03:10,980 --> 00:03:18,120
+So f over the region of U is greater than U .
+
+30
+00:03:18,120 --> 00:03:29,280
+So when U is greater than U , should we take the minimum or maximum?
+
+31
+00:03:29,280 --> 00:03:36,160
+U greater than U , we should be taking the maximum, right?
+
+32
+00:03:36,160 --> 00:03:43,380
+So it is equal to, when we have a maximum, it doesn't matter, is it max or maximum in
+
+33
+00:03:43,380 --> 00:03:44,380
+MATLAB?
+
+34
+00:03:44,380 --> 00:03:45,380
+Max.
+
+35
+00:03:45,380 --> 00:03:46,380
+Max, okay.
+
+36
+00:03:46,380 --> 00:03:47,380
+Is f and f ?
+
+37
+00:03:47,380 --> 00:03:47,880
+Yes.
+
+38
+00:03:48,120 --> 00:03:51,680
+So f and f are.
+
+39
+00:03:51,680 --> 00:03:54,560
+Alright.
+
+40
+00:03:54,560 --> 00:04:03,940
+So this makes sense because when both are positive, when both are positive, so over
+
+41
+00:04:03,940 --> 00:04:15,260
+this region, over this region, so if I have U left, U ,
+
+42
+00:04:15,260 --> 00:04:17,260
+right?
+
+43
+00:04:18,120 --> 00:04:25,680
+I have a shockwave like that, and the flux should be taken on the left, which is U and
+
+44
+00:04:25,680 --> 00:04:26,680
+this is the maximum.
+
+45
+00:04:26,680 --> 00:04:27,680
+Okay, that's good.
+
+46
+00:04:27,680 --> 00:04:28,680
+Okay.
+
+47
+00:04:28,680 --> 00:04:41,680
+So f less or equal to U is going to be equal to the minimum of f and f .
+
+48
+00:04:41,680 --> 00:04:42,680
+And f less or equal to zero.
+
+49
+00:04:42,680 --> 00:04:43,680
+Okay.
+
+50
+00:04:43,680 --> 00:04:44,680
+So f less or equal to zero.
+
+51
+00:04:44,680 --> 00:04:45,680
+Okay.
+
+52
+00:04:45,680 --> 00:04:46,680
+So f less or equal to zero.
+
+53
+00:04:46,680 --> 00:04:47,680
+Okay.
+
+54
+00:04:47,680 --> 00:04:58,240
+So f less or equal to zero and U and the zero less or equal to U should be equal to
+
+55
+00:04:58,240 --> 00:04:59,240
+f .
+
+56
+00:04:59,240 --> 00:05:02,240
+So these are the three cases.
+
+57
+00:05:02,240 --> 00:05:03,240
+Right?
+
+58
+00:05:03,240 --> 00:05:08,920
+So this is the case when U is less than U , which means we should be taking the
+
+59
+00:05:08,920 --> 00:05:14,800
+minimum and that U and U overlaps with the region of zero.
+
+60
+00:05:14,800 --> 00:05:16,920
+And by taking minimum, we are not taking one side.
+
+61
+00:05:16,920 --> 00:05:21,280
+We are taking the minimum inside that range, which is zero.
+
+62
+00:05:21,280 --> 00:05:25,160
+So this is the Berger's Goodenow scheme.
+
+63
+00:05:25,160 --> 00:05:26,680
+Okay.
+
+64
+00:05:26,680 --> 00:05:29,080
+So let's try it.
+
+65
+00:05:29,080 --> 00:05:32,660
+I'm sure I still have box somewhere, but let's do it anyway.
+
+66
+00:05:32,660 --> 00:05:38,980
+So let's make a, okay, x interface.
+
+67
+00:05:38,980 --> 00:05:42,700
+Let's still use what we had in the last lecture.
+
+68
+00:05:42,700 --> 00:05:45,760
+X would be equal to the cell averages.
+
+69
+00:05:45,760 --> 00:05:53,120
+And U is equal to sine of x times two pi.
+
+70
+00:05:53,120 --> 00:05:58,260
+So x and U is still the same as what we have in the last lecture.
+
+71
+00:05:58,260 --> 00:05:59,920
+So that's good.
+
+72
+00:05:59,920 --> 00:06:03,500
+Let's make U zero equal to U again.
+
+73
+00:06:03,500 --> 00:06:10,700
+And let's use the DDT.
+
+74
+00:06:10,700 --> 00:06:12,720
+We call it Berger's.
+
+75
+00:06:12,720 --> 00:06:14,520
+We solve it for this much.
+
+76
+00:06:14,520 --> 00:06:15,520
+Okay.
+
+77
+00:06:15,520 --> 00:06:16,520
+So starting debugging.
+
+78
+00:06:16,520 --> 00:06:17,520
+Error in this.
+
+79
+00:06:17,520 --> 00:06:22,520
+Oh, A and B must be the same.
+
+80
+00:06:22,520 --> 00:06:27,320
+So it's actually the maximum of these within that range.
+
+81
+00:06:27,320 --> 00:06:32,540
+So it's max of this and min of this.
+
+82
+00:06:32,540 --> 00:06:34,640
+And here should be the same.
+
+83
+00:06:34,640 --> 00:06:40,280
+It should be FL of this and FR of that.
+
+84
+00:06:40,280 --> 00:06:42,360
+All right.
+
+85
+00:06:42,360 --> 00:06:43,360
+Let's try again.
+
+86
+00:06:43,360 --> 00:06:44,360
+Okay.
+
+87
+00:06:44,360 --> 00:06:56,920
+Oh, so here, if I go back up to here, return the vector of length 1 0 1.
+
+88
+00:06:56,920 --> 00:06:58,000
+Oh, I see.
+
+89
+00:06:58,000 --> 00:06:58,540
+Okay.
+
+90
+00:06:58,540 --> 00:07:03,360
+So here we actually computed i plus half.
+
+91
+00:07:03,360 --> 00:07:07,360
+So we shouldn't have this anymore, right?
+
+92
+00:07:07,360 --> 00:07:11,880
+So because we only need i goes when, so for i plus half, we need, it goes from minus one to n.
+
+93
+00:07:11,880 --> 00:07:13,360
+Do this again.
+
+94
+00:07:13,360 --> 00:07:16,000
+we have a solution. So let's look at it.
+
+95
+00:07:17,380 --> 00:07:19,200
+Plot x u.
+
+96
+00:07:21,100 --> 00:07:23,880
+Right. So that way we, so you see
+
+97
+00:07:23,880 --> 00:07:27,820
+something different from what we got in the last lecture, right?
+
+98
+00:07:27,820 --> 00:07:31,740
+So we no longer, on the same grid, we no longer
+
+99
+00:07:31,740 --> 00:07:36,220
+see the minimum of this decaying as the wave propagates
+
+100
+00:07:36,220 --> 00:07:40,180
+towards the right. So that's the good thing about
+
+101
+00:07:40,180 --> 00:07:43,960
+a second order accurate scheme. That is, when we have the wave
+
+102
+00:07:43,960 --> 00:07:48,240
+going, we no longer, in smooth regions, we no longer have that much
+
+103
+00:07:48,240 --> 00:07:51,740
+dissipation error. The maximum of the solution no longer
+
+104
+00:07:51,740 --> 00:07:55,520
+seems to decrease over time.
+
+105
+00:07:55,520 --> 00:07:58,060
+We no longer see this weird gap over here.
+
+106
+00:07:59,360 --> 00:08:02,440
+And just to remind you what we have before,
+
+107
+00:08:03,280 --> 00:08:07,300
+the easiest case is to set phi
+
+108
+00:08:07,300 --> 00:08:10,160
+is equal to zero. So that's our
+
+109
+00:08:10,160 --> 00:08:13,120
+first order scheme.
+
+110
+00:08:16,740 --> 00:08:18,400
+And plot this again.
+
+111
+00:08:19,140 --> 00:08:23,000
+What we have is this curious gap over here
+
+112
+00:08:23,000 --> 00:08:26,900
+that it decreases the maximum of the solution and
+
+113
+00:08:26,900 --> 00:08:31,000
+increases the minimum of the solution. And by having
+
+114
+00:08:31,000 --> 00:08:32,280
+a proper
+
+115
+00:08:32,280 --> 00:08:38,020
+limiter, we no longer have that.
+
+116
+00:08:38,020 --> 00:08:42,020
+Alright, so previously we have a case that violates,
+
+117
+00:08:42,020 --> 00:08:44,320
+so if we set phi equal to zero, we
+
+118
+00:08:44,320 --> 00:08:49,320
+violate the condition that phi has to be,
+
+119
+00:08:50,720 --> 00:08:51,560
+we violate
+
+120
+00:08:54,060 --> 00:08:58,320
+the condition that, this page I think, ph has to be
+
+121
+00:08:58,320 --> 00:09:01,320
+greater than this black line.
+
+122
+00:09:02,520 --> 00:09:05,700
+So for example, if we try another,
+
+123
+00:09:05,700 --> 00:09:13,620
+if we try like your proposal what's your name again if I try Mike's proposal
+
+124
+00:09:13,620 --> 00:09:22,980
+which violates the second condition that is that is instead of setting fee to
+
+125
+00:09:22,980 --> 00:09:28,080
+this we set fee of everything is equal to one except for in the region of our
+
+126
+00:09:28,080 --> 00:09:33,980
+less than zero right basically we are violating I think we are violating the
+
+127
+00:09:33,980 --> 00:09:40,640
+met the monotonicity of total variation condition it's still gonna be second
+
+128
+00:09:40,640 --> 00:09:49,160
+order but if we look at the solution here it looks good but like if you see
+
+129
+00:09:49,160 --> 00:09:56,780
+MATLAB is a it's a smart thing whenever you have a solution exceed the one and
+
+130
+00:09:56,780 --> 00:10:03,740
+minus one it rescales the screen so that like it looks like you have let's let's
+
+131
+00:10:03,740 --> 00:10:03,960
+zoom in a little bit and see if we can see the difference between the two so
+
+132
+00:10:03,960 --> 00:10:04,460
+it's a smart thing whenever you have a solution exceed the one and minus one it
+
+133
+00:10:04,460 --> 00:10:12,760
+actually see this so you see that the solution has peaks now that exceeds the
+
+134
+00:10:12,760 --> 00:10:17,580
+the value one so it is not monotonically decreasing the total
+
+135
+00:10:17,580 --> 00:10:24,420
+variation all right but the solution is still second-order accurate so so the
+
+136
+00:10:24,420 --> 00:10:31,080
+proposal is not too bad and over over this region it actually damps down the
+
+137
+00:10:31,080 --> 00:10:33,800
+shockwave and doesn't it doesn't create wild or
+
+138
+00:10:33,960 --> 00:10:49,800
+the
+
+139
+00:10:49,800 --> 00:10:55,580
+everywhere because it's actually using information from the wrong side okay so
+
+140
+00:10:55,580 --> 00:11:03,720
+so this lecture we discussed how to solve scalar conservation loss in one
+
+141
+00:11:03,720 --> 00:11:03,800
+way or another so we're going to go through the whole thing and we're going to
+
+142
+00:11:03,800 --> 00:11:03,920
+go through the whole thing and we're going to go through the whole thing and
+
+143
+00:11:03,920 --> 00:11:09,680
+one dimension but now we have going to second order schemes okay so this
+
+144
+00:11:09,680 --> 00:11:09,700
+one dimension but now we have going to second order schemes okay so this
+
+145
+00:11:09,700 --> 00:11:14,500
+finishes our discussion on solving scalar conservation loss on one
+
+146
+00:11:14,500 --> 00:11:19,300
+dimensional domain and in the rest of final volume we are going to say we're
+
+147
+00:11:19,300 --> 00:11:24,360
+going to see how do we extend this type of techniques to more than one
+
+148
+00:11:24,360 --> 00:11:29,200
+dimensions and it turns out extending this to more than one dimensions is very
+
+149
+00:11:29,200 --> 00:11:33,680
+straightforward even for very complex unstructured mesh
+
+150
+00:11:33,680 --> 00:11:35,100
+straightforward even for very complex unstructured mesh
+

@@ -1,0 +1,132 @@
+1
+00:00:00,000 --> 00:00:08,000
+Okay, now let's take a look at how do we do this for finite, for an example equation.
+
+2
+00:00:08,500 --> 00:00:12,260
+Okay, and so let's first look at finite difference.
+
+3
+00:00:15,240 --> 00:00:23,120
+Let's look at a finite difference approximation to the one-dimensional and two-dimensional Poisson's equation.
+
+4
+00:00:23,120 --> 00:00:26,560
+So one-dimensional Poisson's equation would be this.
+
+5
+00:00:26,560 --> 00:00:41,300
+And after we discretize it, we have ui plus 1 minus 2ui plus ui minus 1 divided by delta x squared equal to f of i.
+
+6
+00:00:43,440 --> 00:00:49,660
+Okay, so let's just look at this equation.
+
+7
+00:00:49,660 --> 00:00:55,040
+Can we already tell which term corresponds to the lower diagonal part,
+
+8
+00:00:55,140 --> 00:00:56,540
+which term corresponds to the diagonal?
+
+9
+00:00:56,560 --> 00:00:59,900
+Which term corresponds to the diagonal part and which term corresponds to the upper diagonal part?
+
+10
+00:01:02,940 --> 00:01:03,640
+Can we?
+
+11
+00:01:04,260 --> 00:01:06,280
+So the first term is lower or upper?
+
+12
+00:01:09,900 --> 00:01:10,840
+Upper, right.
+
+13
+00:01:11,080 --> 00:01:11,860
+So this is u.
+
+14
+00:01:12,160 --> 00:01:13,020
+How about this term?
+
+15
+00:01:14,760 --> 00:01:16,200
+It's the diagonal part.
+
+16
+00:01:16,400 --> 00:01:20,060
+So we are lucky that for all the i's, the diagonal term is non-zero.
+
+17
+00:01:20,460 --> 00:01:22,900
+So Jacobi iteration is applicable.
+
+18
+00:01:22,900 --> 00:01:23,860
+How about this one?
+
+19
+00:01:25,040 --> 00:01:26,540
+This is going to be lower diagonal part.
+
+20
+00:01:26,680 --> 00:01:27,480
+Right?
+
+21
+00:01:28,340 --> 00:01:33,680
+So even without constructing the matrix, we can already apply the Jacobi iteration method
+
+22
+00:01:33,680 --> 00:01:38,040
+by moving all these terms into different sides.
+
+23
+00:01:38,520 --> 00:01:42,000
+And of course, this corresponds to the b in our equation.
+
+24
+00:01:42,260 --> 00:01:47,620
+So let's keep the d term on the left-hand side and move all the other terms to the right-hand side.
+
+25
+00:01:48,340 --> 00:01:56,440
+What we have is minus 2 over delta x squared times ui is equal to fi.
+
+26
+00:01:56,560 --> 00:02:07,340
+Minus ui plus 1 over delta x squared minus ui minus 1 over delta x squared.
+
+27
+00:02:09,040 --> 00:02:09,800
+Okay.
+
+28
+00:02:10,740 --> 00:02:18,200
+Jacobi iteration method, what we do is we keep the diagonal part to be an unknown
+
+29
+00:02:18,200 --> 00:02:22,580
+and the lower and upper diagonal part to be known.
+
+30
+00:02:22,580 --> 00:02:26,040
+So these are index k and ui.
+
+31
+00:02:26,040 --> 00:02:28,300
+The diagonal part is index k plus 1.
+
+32
+00:02:31,000 --> 00:02:33,800
+So this is going to be our iteration.
+
+33
+00:02:34,660 --> 00:02:35,040
+Right?
+

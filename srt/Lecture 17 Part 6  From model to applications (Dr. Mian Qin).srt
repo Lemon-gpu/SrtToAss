@@ -1,0 +1,1356 @@
+1
+00:00:00,000 --> 00:00:03,960
+Okay, so that's how to run a parametric sweep.
+
+2
+00:00:03,960 --> 00:00:05,880
+You add a global parameter.
+
+3
+00:00:05,880 --> 00:00:12,080
+You use that parameter to drive any part of the model, including the geometry or any physical
+
+4
+00:00:12,080 --> 00:00:17,400
+calculations or even mesh nodes, mesh density, and then you can compute and then compare
+
+5
+00:00:17,400 --> 00:00:19,620
+the results.
+
+6
+00:00:19,620 --> 00:00:23,960
+I do want to show you the very last step, was converting from model to an app.
+
+7
+00:00:23,960 --> 00:00:29,600
+I won't go into too much details here because I think we are getting closer with time.
+
+8
+00:00:29,600 --> 00:00:32,140
+So I have 14 more minutes, right?
+
+9
+00:00:32,140 --> 00:00:33,140
+To 1055?
+
+10
+00:00:33,140 --> 00:00:34,140
+Okay.
+
+11
+00:00:34,140 --> 00:00:43,560
+So what I'll do is I will show you app building 101 or even 000.
+
+12
+00:00:43,560 --> 00:00:51,100
+So what I'll do is I'll pick one model that's already built and solved in COMSOL in the
+
+13
+00:00:51,100 --> 00:00:53,480
+... Let's see.
+
+14
+00:00:53,480 --> 00:00:57,100
+So first of all, how to get here.
+
+15
+00:00:57,100 --> 00:00:59,480
+When you ... After you install the trial of COMSOL, go to ...
+
+16
+00:00:59,480 --> 00:00:59,580
+Okay.
+
+17
+00:00:59,580 --> 00:01:01,820
+... File, Application Library.
+
+18
+00:01:01,820 --> 00:01:05,400
+Here's the collection of examples we have built with each of the module.
+
+19
+00:01:05,400 --> 00:01:10,760
+So before you want to build a molecular flow problem, don't do it yet.
+
+20
+00:01:10,760 --> 00:01:14,280
+Go into one of the example, open the PDF.
+
+21
+00:01:14,280 --> 00:01:18,520
+Each of the example comes with a PDF including a background introduction of that particular
+
+22
+00:01:18,520 --> 00:01:26,520
+example plus some meaningful results and analysis plus a step-by-step instruction of how this
+
+23
+00:01:26,520 --> 00:01:27,740
+model was built.
+
+24
+00:01:27,740 --> 00:01:29,460
+So duplicate a couple of them.
+
+25
+00:01:29,460 --> 00:01:33,520
+Just to familiarize yourself with the workflow and where to find out different options.
+
+26
+00:01:33,520 --> 00:01:37,700
+Or hopefully there is even an example that's similar to exactly what you want to do.
+
+27
+00:01:37,700 --> 00:01:40,660
+And then make changes on that and start building your own model.
+
+28
+00:01:40,660 --> 00:01:46,140
+So what I'll use right here ... Well, so first of all, before you attend Wednesday's class,
+
+29
+00:01:46,140 --> 00:01:50,480
+I would strongly recommend you to go through the COMSOL multi-physics, which is the base
+
+30
+00:01:50,480 --> 00:01:53,400
+package and the equation-based examples here.
+
+31
+00:01:53,400 --> 00:01:57,260
+So some of those, Tammy will be explaining a lot more details, but it doesn't hurt to
+
+32
+00:01:57,260 --> 00:01:58,460
+just have a preview of those.
+
+33
+00:01:58,460 --> 00:01:59,460
+Okay.
+
+34
+00:01:59,460 --> 00:02:05,960
+So right now, to demonstrate the app building, I'm going to use one under multi-physics and
+
+35
+00:02:05,960 --> 00:02:07,960
+it's called the BossBar.
+
+36
+00:02:07,960 --> 00:02:11,080
+I'm going to open that model.
+
+37
+00:02:11,080 --> 00:02:15,160
+If you do want to know how to build this BossBar, which is another dual heating problem, that's
+
+38
+00:02:15,160 --> 00:02:16,160
+intro booklet.
+
+39
+00:02:16,160 --> 00:02:18,460
+There are two examples you can work through.
+
+40
+00:02:18,460 --> 00:02:20,340
+Again, step-by-step instructions.
+
+41
+00:02:20,340 --> 00:02:22,740
+The second one is this BossBar one.
+
+42
+00:02:22,740 --> 00:02:27,180
+I mentioned that this example, although it's electrical and heat transfer so far, it can
+
+43
+00:02:27,180 --> 00:02:28,460
+easily become a fluid flow problem.
+
+44
+00:02:28,460 --> 00:02:33,700
+Because you can add a surrounding box and introduce convective cooling, which is a lot
+
+45
+00:02:33,700 --> 00:02:38,860
+of times happens in especially older generation laptop when you have a fan inside that helps
+
+46
+00:02:38,860 --> 00:02:41,900
+you have the cooling of the actual component.
+
+47
+00:02:41,900 --> 00:02:44,560
+So you can add fluid flow on top of that.
+
+48
+00:02:44,560 --> 00:02:46,500
+That's what I mean.
+
+49
+00:02:46,500 --> 00:02:48,080
+So here is the working model.
+
+50
+00:02:48,080 --> 00:02:49,080
+Again, it's soft.
+
+51
+00:02:49,080 --> 00:02:50,080
+It has colorful images.
+
+52
+00:02:50,080 --> 00:02:52,420
+It's the actual current plus heat transfer.
+
+53
+00:02:52,420 --> 00:02:57,280
+I want to use this one because it already has a defined parameter list that controls
+
+54
+00:02:57,280 --> 00:02:58,340
+the different parts of the system.
+
+55
+00:02:58,340 --> 00:03:00,800
+So how do I convert this model to an app?
+
+56
+00:03:00,800 --> 00:03:07,620
+If you are using Windows and you have the console ribbon on the top and you'll see the
+
+57
+00:03:07,620 --> 00:03:10,140
+first button here is called Application Builder.
+
+58
+00:03:10,140 --> 00:03:13,840
+Hit the Application Builder button.
+
+59
+00:03:13,840 --> 00:03:17,360
+Now you are switched from Model Builder to Application Builder.
+
+60
+00:03:17,360 --> 00:03:21,460
+There is a button to switch you back, again, on the Home tab, the first tab here.
+
+61
+00:03:21,460 --> 00:03:25,140
+So the two key concepts here I want to introduce is a new form and a new method.
+
+62
+00:03:25,140 --> 00:03:28,340
+A new form is essentially the layout of your user-defined app.
+
+63
+00:03:28,340 --> 00:03:33,560
+So you add a new form, you tell CommSol what you want to include on that front panel.
+
+64
+00:03:33,960 --> 00:03:35,780
+It's like LabVIEW for those of you who know.
+
+65
+00:03:36,480 --> 00:03:41,440
+So, for example, I want my user to be able to change a few parameters.
+
+66
+00:03:42,040 --> 00:03:44,700
+I want them to be able to see what is the temperature plot.
+
+67
+00:03:45,200 --> 00:03:48,020
+I want to give them some buttons, for example, a compute button.
+
+68
+00:03:49,100 --> 00:03:49,780
+So that's it.
+
+69
+00:03:50,120 --> 00:03:52,500
+So that's the layout of the app.
+
+70
+00:03:52,620 --> 00:03:53,760
+I could move things around.
+
+71
+00:03:53,840 --> 00:03:54,820
+It's essentially a PowerPoint.
+
+72
+00:03:54,820 --> 00:03:57,620
+I could resize the graphics window.
+
+73
+00:03:58,340 --> 00:04:02,740
+And then when you hit test application, it'll just work.
+
+74
+00:04:03,980 --> 00:04:07,980
+You could either run the app through a CommSol license or CommSol server license.
+
+75
+00:04:08,200 --> 00:04:12,920
+The demo.comsol.com link I gave earlier allows you to upload and run apps.
+
+76
+00:04:13,100 --> 00:04:18,580
+So anywhere you are, as long as you have internet access, you don't have to use a Windows machine to run an app.
+
+77
+00:04:18,860 --> 00:04:21,500
+Any platform, including your iPhone, would be able to run an app.
+
+78
+00:04:21,880 --> 00:04:23,460
+So you can just log into that website.
+
+79
+00:04:24,480 --> 00:04:28,320
+Either upload or if you already saved it out, then you can just hit compute.
+
+80
+00:04:28,540 --> 00:04:30,060
+Change one of the parameters.
+
+81
+00:04:30,320 --> 00:04:31,780
+It'll work and it'll give you the results.
+
+82
+00:04:32,860 --> 00:04:36,080
+This is not, well, this is the very simple version of it.
+
+83
+00:04:36,480 --> 00:04:38,340
+You can also add a method.
+
+84
+00:04:39,000 --> 00:04:42,060
+So method is essentially a JavaScript environment.
+
+85
+00:04:42,900 --> 00:04:45,160
+So I myself don't know any Java.
+
+86
+00:04:45,340 --> 00:04:46,860
+So how am I going to demonstrate it?
+
+87
+00:04:47,100 --> 00:04:49,520
+I'm going to record a code.
+
+88
+00:04:49,960 --> 00:04:55,240
+So now everything here shows in a round box, a red box.
+
+89
+00:04:55,640 --> 00:04:57,340
+So I'm going to switch back to Model Builder.
+
+90
+00:04:57,520 --> 00:04:58,320
+Say if I share.
+
+91
+00:04:58,540 --> 00:05:02,440
+I'm going to change any part of the model from 6 to 8.
+
+92
+00:05:02,940 --> 00:05:03,940
+I'll do something else.
+
+93
+00:05:04,160 --> 00:05:07,040
+Change the mesh to user defined.
+
+94
+00:05:07,300 --> 00:05:08,100
+Build a mesh.
+
+95
+00:05:08,780 --> 00:05:11,780
+And I could stop recording, go back to my app builder.
+
+96
+00:05:12,080 --> 00:05:14,440
+Everything I did will be recorded as a JavaScript.
+
+97
+00:05:15,000 --> 00:05:16,840
+So at least you know where to go.
+
+98
+00:05:17,080 --> 00:05:23,180
+And now instead of 8, I'm smart enough to know I can change that 8 into a different parameter and that'll still work.
+
+99
+00:05:23,740 --> 00:05:26,400
+And then on top of that, you can add more things.
+
+100
+00:05:26,860 --> 00:05:27,660
+So.
+
+101
+00:05:27,660 --> 00:05:34,580
+I'll show you one example that everybody knows and the beauty of it is actually play some sound.
+
+102
+00:05:35,080 --> 00:05:36,240
+So I'm going to find.
+
+103
+00:05:36,500 --> 00:05:37,780
+Yeah, so every application.
+
+104
+00:05:38,020 --> 00:05:40,980
+So the ones with the app interface is in the application folder.
+
+105
+00:05:41,220 --> 00:05:43,160
+Each of the module has an application folder.
+
+106
+00:05:43,420 --> 00:05:47,780
+So the ACDC example with the app interface that's actually in that folder.
+
+107
+00:05:48,280 --> 00:05:49,940
+So I'm going to show you a tuning fork.
+
+108
+00:05:51,460 --> 00:05:53,000
+Directly hit run app.
+
+109
+00:05:54,020 --> 00:05:55,060
+Don't save the change.
+
+110
+00:05:57,660 --> 00:06:00,740
+So this is a tuning fork app.
+
+111
+00:06:00,980 --> 00:06:01,880
+It runs in two modes.
+
+112
+00:06:02,120 --> 00:06:06,880
+You can tell Comso how long the tuning fork forks are.
+
+113
+00:06:07,380 --> 00:06:08,160
+The prone length.
+
+114
+00:06:08,660 --> 00:06:09,700
+And it computes.
+
+115
+00:06:10,200 --> 00:06:12,000
+It's going to tell you the natural frequency.
+
+116
+00:06:15,840 --> 00:06:17,120
+So that is what a
+
+117
+00:06:17,620 --> 00:06:20,700
+455.6 Hz sounds like.
+
+118
+00:06:21,220 --> 00:06:25,560
+The other mode it works on is actually a combination of structural mechanics and optimization.
+
+119
+00:06:26,080 --> 00:06:26,840
+So I want to.
+
+120
+00:06:27,100 --> 00:06:27,600
+I mean.
+
+121
+00:06:27,860 --> 00:06:28,360
+I want to.
+
+122
+00:06:28,680 --> 00:06:29,180
+You know maybe.
+
+123
+00:06:29,460 --> 00:06:30,660
+Next to a 3D printer.
+
+124
+00:06:30,900 --> 00:06:31,860
+I want to say I want to.
+
+125
+00:06:32,420 --> 00:06:35,080
+50, 90, 490 Hz.
+
+126
+00:06:35,600 --> 00:06:38,160
+Tell me how long that the prone length should be.
+
+127
+00:06:39,440 --> 00:06:43,020
+It's going to take slightly longer because of the optimization algorithm here.
+
+128
+00:06:47,620 --> 00:06:49,160
+And by the way to add that optimization.
+
+129
+00:06:49,420 --> 00:06:52,240
+Literally one expression in one step of the solver.
+
+130
+00:06:52,500 --> 00:06:53,520
+Not complicated at all.
+
+131
+00:06:57,660 --> 00:06:58,420
+So you can see that.
+
+132
+00:06:58,680 --> 00:06:59,200
+It's going to be.
+
+133
+00:06:59,460 --> 00:06:59,960
+A little bit.
+
+134
+00:07:00,220 --> 00:07:00,740
+A little bit.
+
+135
+00:07:00,980 --> 00:07:01,500
+A little bit.
+
+136
+00:07:01,760 --> 00:07:02,520
+Slightly higher pitch.
+
+137
+00:07:02,780 --> 00:07:06,360
+So if you have good ears you can tell the difference between 450 and 490.
+
+138
+00:07:06,620 --> 00:07:10,720
+Or if you are tuning your violin you can maybe use the app as well.
+
+139
+00:07:13,540 --> 00:07:16,600
+All right so that's the very last step here from the model to the app.
+
+140
+00:07:17,120 --> 00:07:20,180
+So app is essentially a model plus a user interface.
+
+141
+00:07:20,700 --> 00:07:24,540
+And by user interface we mean not only just the front cover of it.
+
+142
+00:07:24,800 --> 00:07:25,300
+Like the W.
+
+143
+00:07:25,560 --> 00:07:26,840
+But also the back wires.
+
+144
+00:07:26,840 --> 00:07:28,380
+Which is what makes the buttons work.
+
+145
+00:07:28,640 --> 00:07:29,660
+So you can associate different.
+
+146
+00:07:29,920 --> 00:07:31,200
+Commands with the different buttons.
+
+147
+00:07:31,700 --> 00:07:32,980
+Trigger them to do different things.
+
+148
+00:07:34,000 --> 00:07:39,640
+So the app builder is only including Windows because it so far uses the Windows native technology.
+
+149
+00:07:39,900 --> 00:07:44,240
+But once you have the app as I said you can run across all the different smart devices.
+
+150
+00:07:45,780 --> 00:07:47,580
+So the server I mentioned.
+
+151
+00:07:47,840 --> 00:07:50,140
+So once you log in it's actually.
+
+152
+00:07:51,920 --> 00:07:52,700
+Nothing you need to set up.
+
+153
+00:07:52,960 --> 00:07:54,240
+So you basically.
+
+154
+00:07:54,740 --> 00:07:56,020
+I've set you to be the user.
+
+155
+00:07:56,280 --> 00:07:56,800
+Authority.
+
+156
+00:07:57,100 --> 00:07:58,380
+So you can run any of the.
+
+157
+00:07:58,640 --> 00:07:59,920
+Apps that's been uploaded out.
+
+158
+00:08:00,160 --> 00:08:01,960
+We use them for workshop demos a lot of times.
+
+159
+00:08:02,480 --> 00:08:04,000
+You can upload your own.
+
+160
+00:08:04,520 --> 00:08:06,060
+And then you can run your own.
+
+161
+00:08:06,820 --> 00:08:07,340
+Apps from now.
+
+162
+00:08:07,600 --> 00:08:08,880
+So for show and tell right.
+
+163
+00:08:09,900 --> 00:08:11,440
+Okay so.
+
+164
+00:08:11,940 --> 00:08:14,500
+Next thing I just want to say a few quick words about.
+
+165
+00:08:14,760 --> 00:08:16,560
+We'll show you some colorful images.
+
+166
+00:08:17,060 --> 00:08:18,340
+Before the end of the presentation.
+
+167
+00:08:18,860 --> 00:08:20,640
+So for the electrical category.
+
+168
+00:08:20,900 --> 00:08:26,280
+The ACDC module as I mentioned does a lower frequency or even stationary and transient problems.
+
+169
+00:08:26,540 --> 00:08:26,800
+So.
+
+170
+00:08:27,100 --> 00:08:27,860
+When you simulate.
+
+171
+00:08:28,120 --> 00:08:30,160
+I know you are from different engineering courses.
+
+172
+00:08:30,420 --> 00:08:37,080
+So when you're simulating like conductors, resistors, inductors, capacitors, calculate capacitances.
+
+173
+00:08:37,340 --> 00:08:39,900
+Or the transformers, generators.
+
+174
+00:08:40,160 --> 00:08:42,720
+They can use ACDC module.
+
+175
+00:08:42,960 --> 00:08:45,780
+Anything that's involving the full Maxwell equation.
+
+176
+00:08:46,040 --> 00:08:48,340
+So the wave propagation that is RF module.
+
+177
+00:08:48,860 --> 00:08:50,400
+When you have the.
+
+178
+00:08:50,640 --> 00:08:54,740
+You know when the system size, the simulation domain size is much larger than the wavelength.
+
+179
+00:08:55,260 --> 00:08:56,540
+Computational effort goes up.
+
+180
+00:08:56,840 --> 00:08:57,860
+Very very quickly.
+
+181
+00:08:58,120 --> 00:08:59,920
+So usually the rule of thumb is you have your.
+
+182
+00:09:00,160 --> 00:09:02,480
+10 wavelengths by 10 wavelengths by 10 wavelengths.
+
+183
+00:09:02,720 --> 00:09:05,280
+For the full Maxwell equation.
+
+184
+00:09:05,540 --> 00:09:08,880
+You probably want to have a machine with 64 gigabit of memory or more.
+
+185
+00:09:09,120 --> 00:09:10,400
+So.
+
+186
+00:09:10,660 --> 00:09:16,040
+Basically it scales very quickly because for each of the wavelengths you want to have at least 5 quadratic elements.
+
+187
+00:09:16,560 --> 00:09:19,360
+So when you go beyond that system size.
+
+188
+00:09:19,620 --> 00:09:22,440
+You use an alternative approach. Either beam envelope method.
+
+189
+00:09:22,700 --> 00:09:24,480
+A slow invariant beam capturing the wave.
+
+190
+00:09:24,740 --> 00:09:26,280
+With the capturing.
+
+191
+00:09:26,280 --> 00:09:30,880
+Faster wave in each of the wavelengths.
+
+192
+00:09:31,140 --> 00:09:32,940
+Or the ray tracing.
+
+193
+00:09:33,200 --> 00:09:36,000
+Technique in the ray optics module.
+
+194
+00:09:36,780 --> 00:09:40,100
+Plasma module that works on all the different dimensions.
+
+195
+00:09:40,360 --> 00:09:44,460
+And then you can couple with the existing coil designs as well.
+
+196
+00:09:44,960 --> 00:09:51,120
+It basically covers the ICP, the inductively coupled plasma, CCP, the capacitively coupled
+
+197
+00:09:51,360 --> 00:09:52,400
+microwave plasma.
+
+198
+00:09:52,640 --> 00:09:55,200
+And also the DC discharge plasma as well.
+
+199
+00:09:55,200 --> 00:09:55,720
+So the.
+
+200
+00:09:55,720 --> 00:09:57,000
+So the low temperature.
+
+201
+00:09:57,260 --> 00:09:57,760
+9 qubit.
+
+202
+00:10:00,080 --> 00:10:01,860
+And then the MAMS module. I mentioned this.
+
+203
+00:10:02,120 --> 00:10:05,440
+Basically a combined capability from ACDC and structural.
+
+204
+00:10:05,700 --> 00:10:08,000
+Plus the unique airfo-mechanics in space.
+
+205
+00:10:08,780 --> 00:10:15,180
+So some of the examples here are antenna communications on an airplane and also in the windshield wipers in the car.
+
+206
+00:10:16,720 --> 00:10:20,800
+And yeah this example is actually quite a popular one. It's called thermal lensing.
+
+207
+00:10:21,060 --> 00:10:23,880
+So we have ray tracing but the lens actually.
+
+208
+00:10:24,140 --> 00:10:25,420
+Expands because of thermal effects.
+
+209
+00:10:25,720 --> 00:10:27,520
+And then you have that the shift of the focal.
+
+210
+00:10:28,540 --> 00:10:30,320
+Then the mechanical branch.
+
+211
+00:10:30,580 --> 00:10:31,600
+So the.
+
+212
+00:10:31,860 --> 00:10:35,440
+No matter what dimension it is. You can have the 1d beam and truss network.
+
+213
+00:10:35,700 --> 00:10:38,520
+Or you can have the 2d membrane or shells. You can have a 3d solid.
+
+214
+00:10:38,780 --> 00:10:40,320
+Or a combination of those materials.
+
+215
+00:10:40,560 --> 00:10:44,400
+As long as they are linear materials. You can use structural mechanics module for it.
+
+216
+00:10:44,660 --> 00:10:46,720
+Then the different non-linearity.
+
+217
+00:10:46,960 --> 00:10:49,280
+Using the non-linear structural materials module.
+
+218
+00:10:49,520 --> 00:10:54,140
+I do want to emphasize that if you do deal with piezoelectric actuation in any of the cases.
+
+219
+00:10:54,400 --> 00:10:55,420
+Then the structural mechanics module.
+
+220
+00:10:55,720 --> 00:10:59,820
+Can deal with any type of orientation of the piezoelectric activity.
+
+221
+00:11:00,320 --> 00:11:03,400
+A reinforced concrete beam in picture number one.
+
+222
+00:11:03,920 --> 00:11:05,700
+And let's see what else.
+
+223
+00:11:05,960 --> 00:11:09,040
+Fluid structure interaction way in that the satellite panel.
+
+224
+00:11:09,280 --> 00:11:13,380
+So basically that's another pretty fun coupled in space in COMSO.
+
+225
+00:11:13,640 --> 00:11:15,680
+Which saw fluid flow and solid mechanics.
+
+226
+00:11:15,940 --> 00:11:17,480
+And the moving mesh mechanism.
+
+227
+00:11:17,740 --> 00:11:20,300
+The arbitrary log around Eulerian method.
+
+228
+00:11:20,560 --> 00:11:22,860
+The moving mesh in COMSO.
+
+229
+00:11:23,120 --> 00:11:24,140
+There's also.
+
+230
+00:11:24,400 --> 00:11:25,420
+Comparing to the moving mesh.
+
+231
+00:11:25,720 --> 00:11:28,020
+There's also something called a deformed geometry.
+
+232
+00:11:28,280 --> 00:11:31,100
+The difference is that moving mesh captures the same material frame.
+
+233
+00:11:31,360 --> 00:11:34,160
+Which means that there's no addition or removal of material.
+
+234
+00:11:34,420 --> 00:11:36,220
+To introduce that shape change.
+
+235
+00:11:36,480 --> 00:11:38,780
+You're literally deforming certain existing.
+
+236
+00:11:39,040 --> 00:11:40,060
+Sixth-max geometry.
+
+237
+00:11:40,560 --> 00:11:41,840
+So when you have a.
+
+238
+00:11:42,100 --> 00:11:42,880
+For example an.
+
+239
+00:11:43,120 --> 00:11:44,160
+Electrodeposition.
+
+240
+00:11:44,400 --> 00:11:45,440
+Or corrosion problem.
+
+241
+00:11:45,680 --> 00:11:46,960
+Then that's a deformed geometry.
+
+242
+00:11:47,220 --> 00:11:48,240
+Because you're adding materials.
+
+243
+00:11:48,500 --> 00:11:49,280
+Or moving materials.
+
+244
+00:11:49,520 --> 00:11:50,800
+Or some growth of materials.
+
+245
+00:11:53,120 --> 00:11:54,400
+I don't know if you have.
+
+246
+00:11:54,640 --> 00:11:55,420
+So far in the lecture.
+
+247
+00:11:55,720 --> 00:11:58,020
+Where the level set and the phase field method is.
+
+248
+00:11:58,540 --> 00:12:00,580
+So basically we have.
+
+249
+00:12:01,100 --> 00:12:04,160
+Well I'll talk about it in the next slide actually.
+
+250
+00:12:04,420 --> 00:12:06,480
+We have two phase flow.
+
+251
+00:12:06,720 --> 00:12:08,000
+If you want to track where the interface.
+
+252
+00:12:09,800 --> 00:12:10,820
+The surface tension induced.
+
+253
+00:12:11,080 --> 00:12:12,880
+And the momentum induced.
+
+254
+00:12:13,120 --> 00:12:15,180
+The shape change of the meniscus.
+
+255
+00:12:15,680 --> 00:12:18,000
+Then you could use either the level set or phase field method.
+
+256
+00:12:18,240 --> 00:12:19,780
+Which is essentially another set.
+
+257
+00:12:20,040 --> 00:12:21,580
+Or two additional.
+
+258
+00:12:21,840 --> 00:12:22,600
+Deformed volumes.
+
+259
+00:12:22,860 --> 00:12:24,140
+On top of the Navier-Stokes equation.
+
+260
+00:12:24,400 --> 00:12:25,420
+And the.
+
+261
+00:12:25,720 --> 00:12:26,740
+Additional parameter.
+
+262
+00:12:27,000 --> 00:12:27,520
+Basically when.
+
+263
+00:12:27,760 --> 00:12:29,300
+Larger than 0.5 is one phase.
+
+264
+00:12:29,560 --> 00:12:31,100
+More than 0.5 is another phase.
+
+265
+00:12:31,360 --> 00:12:32,640
+And it's a diffused in phase.
+
+266
+00:12:33,400 --> 00:12:35,440
+As opposed to the third method in.
+
+267
+00:12:35,700 --> 00:12:36,480
+Tracking the in phase.
+
+268
+00:12:36,720 --> 00:12:37,760
+Is the moving mesh method.
+
+269
+00:12:38,000 --> 00:12:39,280
+Which you have an x-ray mesh.
+
+270
+00:12:39,800 --> 00:12:40,820
+So the level set and phase field.
+
+271
+00:12:41,080 --> 00:12:41,840
+Solved on fixed mesh.
+
+272
+00:12:42,100 --> 00:12:43,900
+And moving mesh actually disturbed the.
+
+273
+00:12:44,160 --> 00:12:45,440
+Perturbs the mesh nodes.
+
+274
+00:12:46,200 --> 00:12:48,240
+Limitation of moving mesh is that.
+
+275
+00:12:48,500 --> 00:12:50,300
+You cannot merge or split the nodes.
+
+276
+00:12:50,800 --> 00:12:52,340
+You cannot make nodes disappear.
+
+277
+00:12:52,600 --> 00:12:54,640
+So basically we have a.
+
+278
+00:12:54,900 --> 00:12:55,420
+Joclet.
+
+279
+00:12:55,720 --> 00:12:56,740
+Merging or breaking.
+
+280
+00:12:57,000 --> 00:12:57,520
+Problems.
+
+281
+00:12:57,760 --> 00:12:58,540
+That you cannot use the moving mesh.
+
+282
+00:12:58,800 --> 00:12:59,560
+But the other two methods.
+
+283
+00:12:59,820 --> 00:13:00,320
+Still work.
+
+284
+00:13:00,580 --> 00:13:01,860
+They have different other concepts.
+
+285
+00:13:02,120 --> 00:13:02,880
+In terms of the.
+
+286
+00:13:03,140 --> 00:13:04,940
+Solving other types of physics as well.
+
+287
+00:13:07,760 --> 00:13:08,260
+So the.
+
+288
+00:13:08,520 --> 00:13:10,320
+Just want to briefly talk about examples here.
+
+289
+00:13:10,560 --> 00:13:11,600
+The first one is the.
+
+290
+00:13:11,840 --> 00:13:12,360
+Heated floor.
+
+291
+00:13:12,620 --> 00:13:13,900
+So it uses the.
+
+292
+00:13:14,160 --> 00:13:15,440
+Piped flow module.
+
+293
+00:13:15,680 --> 00:13:16,960
+For the non-isothermal pipe flow.
+
+294
+00:13:17,480 --> 00:13:19,520
+The pipe flow can actually do piped acoustics as well.
+
+295
+00:13:20,040 --> 00:13:22,080
+And you can specify different pipe cross-section shapes.
+
+296
+00:13:22,340 --> 00:13:23,120
+And the geometry.
+
+297
+00:13:24,140 --> 00:13:25,420
+Heat transfer.
+
+298
+00:13:25,720 --> 00:13:27,000
+So that's a hidden tube.
+
+299
+00:13:27,260 --> 00:13:28,020
+Exchanger.
+
+300
+00:13:28,280 --> 00:13:29,300
+That you can have.
+
+301
+00:13:29,560 --> 00:13:33,140
+Because both the heat transfer part and fluid part are based on.
+
+302
+00:13:33,400 --> 00:13:36,220
+So the flux calculation is most accurate.
+
+303
+00:13:36,480 --> 00:13:39,040
+And the coupling is the most accurate as well.
+
+304
+00:13:39,280 --> 00:13:40,560
+So some simulator conditions.
+
+305
+00:13:40,820 --> 00:13:42,100
+You use in your heat sink.
+
+306
+00:13:45,940 --> 00:13:47,480
+So that's the corrosion.
+
+307
+00:13:47,740 --> 00:13:48,240
+And the.
+
+308
+00:13:48,500 --> 00:13:49,520
+Plating that I mentioned.
+
+309
+00:13:49,780 --> 00:13:50,800
+So that's the electrochemistry.
+
+310
+00:13:51,060 --> 00:13:51,580
+On top of the.
+
+311
+00:13:51,840 --> 00:13:53,120
+Deformed geometry.
+
+312
+00:13:53,360 --> 00:13:54,140
+You know.
+
+313
+00:13:54,400 --> 00:13:55,160
+For the mesh.
+
+314
+00:13:55,720 --> 00:13:57,520
+And then there's some surface reaction.
+
+315
+00:13:57,760 --> 00:13:58,280
+And the.
+
+316
+00:13:58,540 --> 00:13:59,040
+Dark curves.
+
+317
+00:13:59,300 --> 00:13:59,560
+For the.
+
+318
+00:13:59,820 --> 00:14:00,580
+Sexy photometry.
+
+319
+00:14:01,360 --> 00:14:02,880
+So I do want to.
+
+320
+00:14:03,140 --> 00:14:05,960
+Quickly mention that optimization module. A lot of times people use.
+
+321
+00:14:06,220 --> 00:14:09,040
+Two different scenarios. One is called the shape optimization.
+
+322
+00:14:09,280 --> 00:14:11,080
+That's the top one. Which is actually.
+
+323
+00:14:11,340 --> 00:14:13,900
+Acoustics problem with straight walls on the horn.
+
+324
+00:14:14,160 --> 00:14:14,660
+In the beginning.
+
+325
+00:14:14,920 --> 00:14:15,680
+And then you allow five.
+
+326
+00:14:15,940 --> 00:14:18,500
+Points. Physical points to move on their boundaries.
+
+327
+00:14:18,760 --> 00:14:19,780
+To make the corrugated shape.
+
+328
+00:14:20,300 --> 00:14:21,840
+To get a maximum sound effect.
+
+329
+00:14:22,340 --> 00:14:25,160
+So again. You cannot have mesh nodes crossing each other.
+
+330
+00:14:25,160 --> 00:14:25,680
+So.
+
+331
+00:14:25,880 --> 00:14:27,480
+You'll end up with the same topology.
+
+332
+00:14:27,720 --> 00:14:29,260
+You won't go from a sphere to a donut.
+
+333
+00:14:29,520 --> 00:14:32,080
+If you do want to go from a sphere to a donut.
+
+334
+00:14:32,340 --> 00:14:34,640
+Any number of holes. You use the topology optimization.
+
+335
+00:14:35,160 --> 00:14:36,440
+That basically.
+
+336
+00:14:36,680 --> 00:14:40,020
+Just specify what the bounding box. And you can have shaded material anywhere.
+
+337
+00:14:42,580 --> 00:14:44,620
+Alright. I think.
+
+338
+00:14:46,420 --> 00:14:47,700
+Yeah. That's pretty much it.
+
+339
+00:14:47,960 --> 00:14:51,420
+So just want to emphasize the resources that you can use.
+

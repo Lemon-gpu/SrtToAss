@@ -1,0 +1,864 @@
+1
+00:00:00,000 --> 00:00:05,580
+ok so let's go to MATLAB and figure out
+
+2
+00:00:05,580 --> 00:00:13,600
+how to implement this. Close all. So what we
+
+3
+00:00:13,600 --> 00:00:17,560
+do is let's say we construct a right hand
+
+4
+00:00:17,560 --> 00:00:26,220
+side. So let's say n is equal to 16 to
+
+5
+00:00:26,220 --> 00:00:31,140
+start with and let's make f equal to 1.
+
+6
+00:00:31,140 --> 00:00:34,620
+So this is our right hand side
+
+7
+00:00:34,620 --> 00:00:41,340
+for f and let's also make the boundary
+
+8
+00:00:41,340 --> 00:00:45,660
+conditions to be 0. So u of 0 is equal to
+
+9
+00:00:45,660 --> 00:00:49,200
+u of n plus 1 is equal to 0. So we don't
+
+10
+00:00:49,200 --> 00:00:51,720
+have these terms when we are approaching
+
+11
+00:00:51,720 --> 00:00:52,800
+the boundary.
+
+12
+00:00:52,800 --> 00:00:55,940
+Okay.
+
+13
+00:00:56,220 --> 00:01:00,240
+And let's make u to be 0s and 1s.
+
+14
+00:01:00,240 --> 00:01:03,180
+That's our initial guess. Initial guess can
+
+15
+00:01:03,180 --> 00:01:08,060
+be anything and as long as our Jaccobby
+
+16
+00:01:08,060 --> 00:01:10,900
+iteration matrix has less than one
+
+17
+00:01:10,900 --> 00:01:13,200
+eigenvalues, then it doesn't matter what
+
+18
+00:01:13,200 --> 00:01:14,820
+your initial condition is. You're going to
+
+19
+00:01:14,820 --> 00:01:17,260
+converge to the right value. If your
+
+20
+00:01:17,260 --> 00:01:19,560
+initial condition, if your initial guess is
+
+21
+00:01:19,560 --> 00:01:21,500
+close to the true solution, you're going
+
+22
+00:01:21,500 --> 00:01:24,280
+to converge a little bit faster but
+
+23
+00:01:24,280 --> 00:01:25,800
+nevertheless you're going to converge.
+
+24
+00:01:25,800 --> 00:01:29,120
+So it's pretty commonplace to use a
+
+25
+00:01:29,120 --> 00:01:33,300
+zero initial guess. Now our next
+
+26
+00:01:33,300 --> 00:01:36,300
+is to, let's actually multiply this thing
+
+27
+00:01:36,300 --> 00:01:39,420
+to the other side to make our formula a
+
+28
+00:01:39,420 --> 00:01:42,180
+little bit cleaner. So this is going to be
+
+29
+00:01:42,180 --> 00:01:47,040
+minus delta x squared over 2 times f of i
+
+30
+00:01:47,040 --> 00:01:53,280
+and this is going to be plus half of ui
+
+31
+00:01:53,280 --> 00:01:55,120
+plus 1k
+
+32
+00:01:55,120 --> 00:01:59,220
+plus ui minus 1k. Both are half because
+
+33
+00:01:59,220 --> 00:02:03,180
+these are 1 over delta x squared, these are 2 over
+
+34
+00:02:03,180 --> 00:02:08,800
+delta x squared. Okay. So now we start,
+
+35
+00:02:08,800 --> 00:02:12,580
+let's perform one iteration. Okay. So
+
+36
+00:02:12,580 --> 00:02:20,620
+uk, uk plus 1 would be equal to the
+
+37
+00:02:20,620 --> 00:02:25,000
+existing, okay so it's going to be delta x,
+
+38
+00:02:25,120 --> 00:02:26,860
+I haven't completed delta x yet, so
+
+39
+00:02:26,860 --> 00:02:31,360
+let's imagine our domain is 1 and in
+
+40
+00:02:31,360 --> 00:02:33,640
+final difference we are dividing this
+
+41
+00:02:33,640 --> 00:02:37,720
+one domain size by n plus 1, right. So
+
+42
+00:02:37,720 --> 00:02:44,440
+uk plus 1 is going to be minus delta x
+
+43
+00:02:44,440 --> 00:02:53,740
+squared divided by 2 times f. Alright so
+
+44
+00:02:53,740 --> 00:02:56,980
+let's first make this first. So we get a
+
+45
+00:02:56,980 --> 00:03:02,140
+uk plus 1 and then we add this part. So
+
+46
+00:03:02,140 --> 00:03:06,520
+this part is going to be calculated like
+
+47
+00:03:06,520 --> 00:03:12,500
+that. So for i goes from 1 to n. So okay
+
+48
+00:03:12,500 --> 00:03:15,200
+so I first want to add the i plus 1
+
+49
+00:03:15,200 --> 00:03:20,500
+part. So if i is less than n, I want to
+
+50
+00:03:20,500 --> 00:03:23,440
+say uk plus 1 of i plus 1.
+
+51
+00:03:23,740 --> 00:03:33,420
+Okay so i is equal to itself plus u of i
+
+52
+00:03:33,420 --> 00:03:38,680
+plus 1 divided by 2. Okay else if i is
+
+53
+00:03:38,680 --> 00:03:46,500
+greater than 1, you, oh not else, sorry. So
+
+54
+00:03:46,500 --> 00:03:50,960
+so let's, okay so let's let's initialize
+
+55
+00:03:50,960 --> 00:03:53,540
+zeros again. So not else if because I, you
+
+56
+00:03:53,540 --> 00:04:00,920
+if i is in the middle, I both wanted to be added with i plus 1 and i minus 1.
+
+57
+00:04:01,140 --> 00:04:04,020
+So it should be another if, not else if.
+
+58
+00:04:04,660 --> 00:04:07,240
+So this is still the same.
+
+59
+00:04:07,560 --> 00:04:08,780
+This is the same.
+
+60
+00:04:08,940 --> 00:04:09,800
+This is the same.
+
+61
+00:04:09,960 --> 00:04:11,580
+And then I'll do an end.
+
+62
+00:04:12,140 --> 00:04:14,660
+Another if is if i is greater than 1.
+
+63
+00:04:16,480 --> 00:04:23,160
+u k p plus 1 i is going to be the same thing.
+
+64
+00:04:23,540 --> 00:04:28,660
+And plus u of i minus 1 divided by 2.
+
+65
+00:04:30,520 --> 00:04:33,880
+And so that completes our one iteration.
+
+66
+00:04:35,100 --> 00:04:36,560
+Do we want to look at it?
+
+67
+00:04:37,760 --> 00:04:39,220
+Okay, let's do that.
+
+68
+00:04:40,120 --> 00:04:42,140
+u k plus 1.
+
+69
+00:04:46,260 --> 00:04:49,180
+It's pretty much 0, right?
+
+70
+00:04:50,600 --> 00:04:53,520
+In fact, I'm concerned it looks exactly the same.
+
+71
+00:04:53,540 --> 00:04:54,040
+It's 0.
+
+72
+00:04:54,920 --> 00:05:01,160
+So, oh, sorry, I forgot to add this after.
+
+73
+00:05:01,920 --> 00:05:07,100
+So I only did this u i plus 1 and u i minus 1 part.
+
+74
+00:05:07,100 --> 00:05:08,600
+I forgot to add that part.
+
+75
+00:05:09,140 --> 00:05:09,780
+So, okay.
+
+76
+00:05:10,000 --> 00:05:11,120
+So I should do it again.
+
+77
+00:05:11,160 --> 00:05:17,300
+u k plus 1 is equal to the f part.
+
+78
+00:05:17,800 --> 00:05:19,940
+And then I'm going to do the loop.
+
+79
+00:05:21,300 --> 00:05:23,420
+Okay, so let's look at this again.
+
+80
+00:05:23,540 --> 00:05:32,360
+So, right, I guess it's non-zero, but it's too small for this to show.
+
+81
+00:05:34,740 --> 00:05:36,200
+Okay, it is non-zero.
+
+82
+00:05:37,080 --> 00:05:39,420
+So we can see that we have to be patient, right?
+
+83
+00:05:39,520 --> 00:05:41,040
+One iteration doesn't really do much.
+
+84
+00:05:42,240 --> 00:05:45,200
+So let's make another 100 iterations.
+
+85
+00:05:45,480 --> 00:05:49,520
+So for k goes from 1 to 100.
+
+86
+00:05:50,520 --> 00:05:53,220
+So let's first say u is equal to u k.
+
+87
+00:05:53,540 --> 00:05:55,540
+So we can say u is equal to u k plus 1.
+
+88
+00:05:55,540 --> 00:06:01,040
+And then we are going to do the for loop over the indices.
+
+89
+00:06:01,040 --> 00:06:05,040
+And end.
+
+90
+00:06:05,040 --> 00:06:09,040
+So that completes 100 iterations.
+
+91
+00:06:09,040 --> 00:06:13,040
+And it seems to be getting a diverging answer.
+
+92
+00:06:13,040 --> 00:06:16,040
+Should we have added the f?
+
+93
+00:06:18,040 --> 00:06:21,040
+Oh, yes, we should have added f.
+
+94
+00:06:21,040 --> 00:06:21,540
+That's right.
+
+95
+00:06:21,540 --> 00:06:22,040
+That's right.
+
+96
+00:06:22,040 --> 00:06:22,540
+That's right.
+
+97
+00:06:22,540 --> 00:06:22,780
+That's right.
+
+98
+00:06:22,780 --> 00:06:23,080
+That's right.
+
+99
+00:06:23,080 --> 00:06:25,080
+But why am I diverging here?
+
+100
+00:06:25,080 --> 00:06:27,080
+Da, da, da, da.
+
+101
+00:06:27,080 --> 00:06:29,080
+Plus 1, minus 1.
+
+102
+00:06:31,080 --> 00:06:42,080
+Okay, so let's start with u is equal to 0s and 1.
+
+103
+00:06:42,080 --> 00:06:46,080
+So for k goes from the loop.
+
+104
+00:06:46,080 --> 00:06:51,080
+So u k p plus 1 is going to be.
+
+105
+00:06:51,080 --> 00:06:52,080
+Uh.
+
+106
+00:06:53,080 --> 00:07:01,080
+So this should be equal to f.
+
+107
+00:07:01,080 --> 00:07:04,080
+Or dx.
+
+108
+00:07:04,080 --> 00:07:08,080
+Uh.
+
+109
+00:07:08,080 --> 00:07:09,080
+Right.
+
+110
+00:07:09,080 --> 00:07:13,080
+I think I had one of these sentences before.
+
+111
+00:07:13,080 --> 00:07:14,080
+Right.
+
+112
+00:07:14,080 --> 00:07:15,080
+So this is equal to.
+
+113
+00:07:15,080 --> 00:07:17,080
+Uh.
+
+114
+00:07:17,080 --> 00:07:19,080
+Minus dx squared divided by 2 times f.
+
+115
+00:07:19,080 --> 00:07:20,080
+Uh.
+
+116
+00:07:20,080 --> 00:07:21,080
+Uh.
+
+117
+00:07:21,080 --> 00:07:24,080
+Divided by 2 times f.
+
+118
+00:07:24,080 --> 00:07:28,080
+And then I'm going to go through the for loop.
+
+119
+00:07:28,080 --> 00:07:32,080
+So for i goes from 1 to n.
+
+120
+00:07:32,080 --> 00:07:38,080
+If i is less than k, u is added.
+
+121
+00:07:38,080 --> 00:07:41,080
+And if it's greater than 1.
+
+122
+00:07:41,080 --> 00:07:44,080
+So that is good.
+
+123
+00:07:44,080 --> 00:07:45,080
+Okay.
+
+124
+00:07:45,080 --> 00:07:49,080
+And at the end, I want to say u is equal to u k plus 1.
+
+125
+00:07:49,080 --> 00:07:50,080
+Uh.
+
+126
+00:07:50,080 --> 00:07:51,080
+Minus 1.
+
+127
+00:07:51,080 --> 00:07:52,080
+Okay.
+
+128
+00:07:52,080 --> 00:07:58,080
+So this time I did 100 loops of the Jacobi iteration.
+
+129
+00:07:58,080 --> 00:08:01,080
+Let's plot it to see what I get.
+
+130
+00:08:01,080 --> 00:08:10,080
+So this now looks a lot better as the solution to the Poisson's equation.
+
+131
+00:08:10,080 --> 00:08:11,080
+Right.
+
+132
+00:08:11,080 --> 00:08:12,080
+Okay.
+
+133
+00:08:12,080 --> 00:08:16,080
+So just to compare, let's figure out.
+
+134
+00:08:16,080 --> 00:08:17,080
+Uh.
+
+135
+00:08:17,080 --> 00:08:18,080
+Let's.
+
+136
+00:08:18,080 --> 00:08:20,080
+Let's look at the analytical solution.
+
+137
+00:08:20,080 --> 00:08:21,080
+The true solution.
+
+138
+00:08:21,080 --> 00:08:24,080
+Let's look at the residual to see how much the residual is.
+
+139
+00:08:24,080 --> 00:08:27,080
+So the residual would be equal to.
+
+140
+00:08:27,080 --> 00:08:29,080
+Um.
+
+141
+00:08:29,080 --> 00:08:30,080
+Would be equal to.
+
+142
+00:08:30,080 --> 00:08:32,080
+Let me see.
+
+143
+00:08:32,080 --> 00:08:34,080
+The f.
+
+144
+00:08:34,080 --> 00:08:36,080
+Minus.
+
+145
+00:08:36,080 --> 00:08:37,080
+That.
+
+146
+00:08:37,080 --> 00:08:38,080
+Right.
+
+147
+00:08:38,080 --> 00:08:42,080
+So the residual would be equal to f.
+
+148
+00:08:42,080 --> 00:08:45,080
+Let's do that first.
+
+149
+00:08:45,080 --> 00:08:46,080
+And.
+
+150
+00:08:46,080 --> 00:08:47,080
+Uh.
+
+151
+00:08:47,080 --> 00:08:49,080
+We'll fix that.
+
+152
+00:08:49,080 --> 00:08:50,080
+Um.
+
+153
+00:08:50,080 --> 00:08:51,080
+Uh.
+
+154
+00:08:51,080 --> 00:08:52,080
+So the residual is going to be 3.
+
+155
+00:08:52,080 --> 00:08:53,080
+So the residual would be equal to.
+
+156
+00:08:53,080 --> 00:08:54,080
+Uh.
+
+157
+00:08:54,080 --> 00:08:55,080
+Uh.
+
+158
+00:08:55,080 --> 00:08:56,080
+Uh.
+
+159
+00:08:56,080 --> 00:08:57,080
+Because we have already had the residual.
+
+160
+00:08:57,080 --> 00:08:58,080
+Uh.
+
+161
+00:08:58,080 --> 00:08:59,080
+Well.
+
+162
+00:08:59,080 --> 00:09:00,080
+Okay.
+
+163
+00:09:00,080 --> 00:09:01,080
+So just like the derivative of the residual.
+
+164
+00:09:01,080 --> 00:09:02,080
+We're going to find out.
+
+165
+00:09:02,080 --> 00:09:03,080
+We're going to find out.
+
+166
+00:09:03,080 --> 00:09:04,080
+The residual.
+
+167
+00:09:04,080 --> 00:09:05,080
+If u is equal to.
+
+168
+00:09:05,080 --> 00:09:06,080
+So.
+
+169
+00:09:06,080 --> 00:09:07,080
+If u is equal to 1.
+
+170
+00:09:07,080 --> 00:09:08,080
+R i.
+
+171
+00:09:08,080 --> 00:09:09,080
+Is going to be ri.
+
+172
+00:09:09,080 --> 00:09:10,080
+Uh.
+
+173
+00:09:10,080 --> 00:09:11,080
+Minus.
+
+174
+00:09:11,080 --> 00:09:12,080
+This.
+
+175
+00:09:12,080 --> 00:09:13,080
+u of.
+
+176
+00:09:13,080 --> 00:09:14,080
+I minus 1.
+
+177
+00:09:14,080 --> 00:09:15,080
+Divided by delta.
+
+178
+00:09:15,080 --> 00:09:16,080
+X squared.
+
+179
+00:09:16,080 --> 00:09:17,080
+Okay.
+
+180
+00:09:17,080 --> 00:09:33,640
+all right if I is less than n our eye is going to be our eye divided by minus UI
+
+181
+00:09:33,640 --> 00:09:41,320
+plus 1 divided by Delta x squared and no matter what I is our eye needs to be
+
+182
+00:09:41,320 --> 00:09:49,060
+added with the diagonal term so I'm looking at the right hand side minus the left hand side so
+
+183
+00:09:49,060 --> 00:10:04,300
+we have a plus 2 times UI divided by Delta x squared so here is my R my R looks like point
+
+184
+00:10:04,300 --> 00:10:10,720
+zero point something so we see that it is not very small yet
+
+185
+00:10:11,320 --> 00:10:18,640
+right so so remember if we have a zero solution U my R would be simply F which
+
+186
+00:10:18,640 --> 00:10:24,980
+is our all ones so after a hundred iterations we see that the residual has
+
+187
+00:10:24,980 --> 00:10:32,980
+reduced from the magnitude of F which is equal to 1 to something like point 2 so
+
+188
+00:10:32,980 --> 00:10:38,200
+it has reduced a lot but not quite yet what does that mean we need to increase
+
+189
+00:10:38,200 --> 00:10:41,320
+K so let's
+
+190
+00:10:41,320 --> 00:10:49,360
+do another thousand iterations okay and we are going to look up our history for
+
+191
+00:10:49,360 --> 00:11:01,780
+what we had have done before so from here to here now we have done another
+
+192
+00:11:01,780 --> 00:11:10,440
+thousand iterations let's hold on and the plot the U again
+
+193
+00:11:11,320 --> 00:11:17,100
+so the new one is the red solution now we have seen that the blue solution
+
+194
+00:11:17,100 --> 00:11:22,780
+although it qualitatively approximates the solution it's the magnitude is not
+
+195
+00:11:22,780 --> 00:11:28,360
+that right yet so so the red solution has gone even lower all right so let's
+
+196
+00:11:28,360 --> 00:11:34,420
+figure out what is the residual now so again let's use what we let's try to use
+
+197
+00:11:34,420 --> 00:11:41,280
+our history R is equal to for I goes from 1 to n
+
+198
+00:11:41,320 --> 00:11:53,140
+so the computation of R and it over here all right so with another thousand
+
+199
+00:11:53,140 --> 00:12:00,820
+iterations we get something much better right so all the other residuals are 10
+
+200
+00:12:00,820 --> 00:12:10,300
+to the minus 9 okay so so that means the red solution should be pretty much the
+
+201
+00:12:10,300 --> 00:12:11,300
+analytical solution
+
+202
+00:12:11,320 --> 00:12:15,680
+you shouldn't we shouldn't find a difference between them so let's
+
+203
+00:12:15,680 --> 00:12:19,600
+confirm that so we are going to construct the matrix now explicitly
+
+204
+00:12:19,600 --> 00:12:28,840
+right so a is going to be minus 2 times identity of n divided by Delta x square
+
+205
+00:12:28,840 --> 00:12:40,360
+AZ equal to a plus diagonal of 1 and minus 1 1 and I'll shift it up to 1 by 1
+
+206
+00:12:40,360 --> 00:12:41,300
+and then we have the red solution which is the negative integral of the red solution
+
+207
+00:12:41,320 --> 00:12:48,040
+and I'll add another lower diagonal entry so I'm going to say you exact is
+
+208
+00:12:48,040 --> 00:12:59,760
+equal to a backslash F now I'm allowed to use matrix solve oh yes thanks so I
+
+209
+00:12:59,760 --> 00:13:10,880
+will do this and divide by Delta x square okay now I'm supposed to be right
+
+210
+00:13:10,880 --> 00:13:17,640
+okay thanks for her thanks for pointing out the buck so you exact is equal to a
+
+211
+00:13:17,640 --> 00:13:27,200
+backslash F and let's hold on again and plot you exact by let's do diamonds okay
+
+212
+00:13:27,200 --> 00:13:34,820
+and what do we have okay we have it's very hard to see but we have the
+
+213
+00:13:34,820 --> 00:13:39,860
+diamonds overlapping with circles I can see it
+
+214
+00:13:39,860 --> 00:13:40,720
+okay
+
+215
+00:13:40,880 --> 00:13:47,000
+yeah so so basically we get pretty much the same solution as these Jacobi
+
+216
+00:13:47,000 --> 00:13:54,060
+iteration after a thousand iterations all right any questions on these
+

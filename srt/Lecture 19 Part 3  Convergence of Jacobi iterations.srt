@@ -1,0 +1,620 @@
+1
+00:00:00,000 --> 00:00:06,160
+If u0 is equal to u, it's still going to be u, exactly.
+
+2
+00:00:06,680 --> 00:00:12,820
+This is because we just wrote the equation without the superscripts, right?
+
+3
+00:00:12,900 --> 00:00:19,080
+Without the superscript, the equation is exactly satisfied by the solution to the linear equations.
+
+4
+00:00:20,480 --> 00:00:27,420
+So if u0 is already u, then the left-hand side is u1.
+
+5
+00:00:27,420 --> 00:00:31,580
+And u1 has to be also u in order for this equation to be satisfied.
+
+6
+00:00:32,720 --> 00:00:38,240
+Well, unless d is degenerate, unless d has zero entries, it's a diagonal matrix, right?
+
+7
+00:00:38,300 --> 00:00:43,920
+So if all the diagonal parts are non-zero, then u1 can only be u.
+
+8
+00:00:45,440 --> 00:00:48,820
+And therefore, if u1 is equal to u, u2 also has to be u.
+
+9
+00:00:48,960 --> 00:00:51,660
+If u2 has to be u, u3 also has to be u, etc.
+
+10
+00:00:51,660 --> 00:00:56,580
+So if you start it with the right solution, you'll always end up with the right solution.
+
+11
+00:00:57,680 --> 00:00:59,520
+Of course, that's a big assumption, right?
+
+12
+00:00:59,660 --> 00:01:02,260
+So you almost never start with the right solution.
+
+13
+00:01:03,000 --> 00:01:04,120
+So what do you get?
+
+14
+00:01:04,720 --> 00:01:07,760
+What do you get if you don't have the right solution to start with?
+
+15
+00:01:08,220 --> 00:01:09,460
+So let's define.
+
+16
+00:01:10,080 --> 00:01:12,640
+Let's look at now the error equation.
+
+17
+00:01:13,380 --> 00:01:15,280
+So the error equation is looking at,
+
+18
+00:01:15,280 --> 00:01:26,220
+so if I define solution error ek to be the difference between the solution I have minus the real solution,
+
+19
+00:01:27,420 --> 00:01:35,380
+well, in practice, I never know what ek is because I don't know the true solution.
+
+20
+00:01:36,660 --> 00:01:42,060
+But if I can derive a governing equation for the evolution of ek,
+
+21
+00:01:42,880 --> 00:01:48,880
+we can analyze is the solution error becoming smaller and smaller or becoming larger and larger as I iterate.
+
+22
+00:01:48,880 --> 00:01:56,880
+And we want to construct the method or derive conditions for the method so that ek is going to,
+
+23
+00:01:56,880 --> 00:01:57,020
+you know,
+
+24
+00:01:57,020 --> 00:01:57,080
+you know,
+
+25
+00:01:57,080 --> 00:01:57,140
+you know,
+
+26
+00:01:57,140 --> 00:01:57,400
+you know,
+
+27
+00:01:57,400 --> 00:01:57,420
+you know,
+
+28
+00:01:57,420 --> 00:01:59,480
+decreasing as I increase k.
+
+29
+00:02:00,400 --> 00:02:03,440
+So how do we derive the equation for ek?
+
+30
+00:02:04,160 --> 00:02:08,700
+We subtract this equation with the superscript.
+
+31
+00:02:10,080 --> 00:02:16,820
+We subtract the equation without a superscript from the equation with the superscript.
+
+32
+00:02:18,160 --> 00:02:24,100
+By doing this, the left-hand side would be du k plus 1 minus du.
+
+33
+00:02:24,880 --> 00:02:27,400
+The right-hand side would be b,
+
+34
+00:02:27,400 --> 00:02:28,520
+minus l,
+
+35
+00:02:28,520 --> 00:02:28,960
+u,
+
+36
+00:02:28,960 --> 00:02:29,580
+k,
+
+37
+00:02:29,580 --> 00:02:30,620
+minus u,
+
+38
+00:02:30,620 --> 00:02:31,020
+u,
+
+39
+00:02:31,020 --> 00:02:31,520
+k,
+
+40
+00:02:31,520 --> 00:02:35,520
+minus b,
+
+41
+00:02:35,520 --> 00:02:36,220
+minus l,
+
+42
+00:02:36,220 --> 00:02:36,760
+u,
+
+43
+00:02:36,760 --> 00:02:37,600
+minus u,
+
+44
+00:02:37,600 --> 00:02:38,100
+u.
+
+45
+00:02:38,100 --> 00:02:40,200
+Right?
+
+46
+00:02:40,200 --> 00:02:42,360
+This is just subtracting two equalities.
+
+47
+00:02:43,000 --> 00:02:44,520
+Both are true.
+
+48
+00:02:45,720 --> 00:02:49,720
+And simply by linearity and the definition of ek,
+
+49
+00:02:49,720 --> 00:02:53,920
+the left-hand side becomes d of ek plus 1.
+
+50
+00:02:55,620 --> 00:02:56,640
+And the right-hand side,
+
+51
+00:02:56,640 --> 00:02:57,380
+the b,
+
+52
+00:02:57,380 --> 00:02:58,180
+fortunately,
+
+53
+00:02:58,180 --> 00:02:58,780
+cancels.
+
+54
+00:02:58,780 --> 00:03:05,480
+What we are left with is l plus u,
+
+55
+00:03:05,480 --> 00:03:08,100
+and I think we have a minus sign here,
+
+56
+00:03:08,100 --> 00:03:09,380
+times ek.
+
+57
+00:03:09,380 --> 00:03:16,580
+So the last thing we want to do is further simplify this by multiplying a d inverse.
+
+58
+00:03:16,580 --> 00:03:22,780
+Remember, the method only works if d has non-zero diagonals.
+
+59
+00:03:22,780 --> 00:03:26,500
+So let's multiply a d inverse on both equations,
+
+60
+00:03:26,500 --> 00:03:26,980
+both equations.
+
+61
+00:03:26,980 --> 00:03:31,480
+So the left-hand side becomes ek plus 1,
+
+62
+00:03:31,480 --> 00:03:37,780
+the right-hand side becomes minus d inverse times l plus u times ek.
+
+63
+00:03:37,780 --> 00:03:40,420
+Good here?
+
+64
+00:03:40,420 --> 00:03:47,580
+So we can start analyzing whether the ek would increase or decrease over time.
+
+65
+00:03:47,580 --> 00:03:53,660
+What determines if ek is going to increase or decrease over time?
+
+66
+00:03:53,660 --> 00:03:54,780
+The eigenvalue.
+
+67
+00:03:54,780 --> 00:03:55,780
+Yes, the eigenvalue.
+
+68
+00:03:55,780 --> 00:03:56,180
+Right.
+
+69
+00:03:56,180 --> 00:03:56,780
+So the eigenvalue is going to be the eigenvalue of the equation.
+
+70
+00:03:56,780 --> 00:03:58,680
+The eigenvalue of this matrix.
+
+71
+00:03:58,680 --> 00:04:01,940
+This matrix is so important it has a name.
+
+72
+00:04:01,940 --> 00:04:06,480
+It's called the iteration matrix.
+
+73
+00:04:06,480 --> 00:04:14,960
+So this matrix determines, actually, the stability of this matrix determines if the ek is going
+
+74
+00:04:14,960 --> 00:04:17,980
+to increase over time or decrease over time.
+
+75
+00:04:17,980 --> 00:04:19,180
+Okay.
+
+76
+00:04:19,180 --> 00:04:26,700
+So because if this matrix, if the iteration matrix, well, the iteration matrix of Jacobi
+
+77
+00:04:26,700 --> 00:04:36,240
+iteration or Jacobi iteration matrix can be expressed as eigenvalue recomposition v times
+
+78
+00:04:36,240 --> 00:04:46,480
+lambda times the inverse, okay, then if we can say E zero, our initial error, which of
+
+79
+00:04:46,480 --> 00:04:55,380
+course we don't know, can be expressed as a summation of a times vi where vi
+
+80
+00:04:55,380 --> 00:04:56,500
+is a operated function.
+
+81
+00:04:56,700 --> 00:04:59,980
+v i is the columns of the matrix v.
+
+82
+00:05:01,980 --> 00:05:09,060
+Okay, the same expression can be written as the matrix v times a vector a,
+
+83
+00:05:09,220 --> 00:05:11,260
+so a1, et cetera, to an.
+
+84
+00:05:13,460 --> 00:05:18,080
+Right, so this is a, so if the iteration matrix is,
+
+85
+00:05:19,880 --> 00:05:24,500
+has a full set of eigenvalues, we can basically write it like that, right?
+
+86
+00:05:24,500 --> 00:05:35,180
+Write any vector to be v times a vector corresponding to the linear combination of the eigenvectors that gives you that vector.
+
+87
+00:05:35,720 --> 00:05:35,940
+Yes?
+
+88
+00:05:37,040 --> 00:05:39,240
+Why isn't that the lambda?
+
+89
+00:05:40,400 --> 00:05:43,240
+Shouldn't that be the lambda matrix?
+
+90
+00:05:44,420 --> 00:05:46,300
+Aren't we, like, decoupling?
+
+91
+00:05:48,380 --> 00:05:51,360
+Why is it lambda here?
+
+92
+00:05:51,980 --> 00:05:52,440
+Why not?
+
+93
+00:05:53,020 --> 00:05:53,320
+Here?
+
+94
+00:05:54,500 --> 00:05:56,280
+Which equation are you looking at?
+
+95
+00:05:56,320 --> 00:05:57,240
+Sorry, yeah, right there.
+
+96
+00:05:57,600 --> 00:06:05,700
+Okay, yeah, this is, we are just trying to express the initial error in our initial guess
+
+97
+00:06:05,700 --> 00:06:09,460
+as a linear combination of the columns in v.
+
+98
+00:06:09,800 --> 00:06:11,380
+Yeah, sorry, I didn't think of that.
+
+99
+00:06:12,000 --> 00:06:23,760
+Right, so if we can do that, then e1 is going to be v times lambda times v inverse times e0.
+
+100
+00:06:24,500 --> 00:06:25,000
+Right?
+
+101
+00:06:25,000 --> 00:06:32,900
+Which, by this expression, is v times lambda times v inverse times v times this vector a.
+
+102
+00:06:34,280 --> 00:06:34,960
+Right?
+
+103
+00:06:36,220 --> 00:06:39,120
+Okay, and this v inverse and v cancels.
+
+104
+00:06:40,260 --> 00:06:47,340
+So we get v times lambda times vector a.
+
+105
+00:06:49,460 --> 00:06:50,860
+We can keep going.
+
+106
+00:06:50,860 --> 00:06:54,420
+Okay, now, instead of v times a,
+
+107
+00:06:55,140 --> 00:06:56,260
+we can keep going.
+
+108
+00:06:56,260 --> 00:06:58,360
+Okay, so e1 is going to be v times lambda times a.
+
+109
+00:06:58,360 --> 00:07:00,080
+We can do the same trick again.
+
+110
+00:07:00,660 --> 00:07:03,940
+e2 would be equal to going through the same thing.
+
+111
+00:07:04,100 --> 00:07:08,200
+We would have v lambda v inverse times v lambda a.
+
+112
+00:07:09,200 --> 00:07:10,780
+And again, this cancels.
+
+113
+00:07:11,140 --> 00:07:14,200
+We get a v times lambda square times a.
+
+114
+00:07:15,680 --> 00:07:17,020
+And we can keep going, right?
+
+115
+00:07:17,020 --> 00:07:24,480
+So, e to the kth index would be v times lambda to the kth power.
+
+116
+00:07:24,500 --> 00:07:32,380
+times a. So as long as the diagonal entries of lambdas are all less than 1,
+
+117
+00:07:32,380 --> 00:07:41,020
+right, or if it's complex, its magnitude has to be less than 1, and then
+
+118
+00:07:41,020 --> 00:07:48,200
+this ek would ultimately diminish to 0. We would be happy that we have a
+
+119
+00:07:48,200 --> 00:07:55,040
+convergent iterative method which means ek is going to go to 0, and what
+
+120
+00:07:55,040 --> 00:08:01,320
+does ek goes to 0 mean? my uk is going to converge to u.
+
+121
+00:08:01,320 --> 00:08:07,420
+So although I don't know what u is, I mean when k is sufficiently large, I have
+
+122
+00:08:07,420 --> 00:08:17,940
+a sufficiently accurate approximation to you. Alright, and also
+
+123
+00:08:17,940 --> 00:08:26,060
+here we are lucky that we can check how well we are converging because we also
+
+124
+00:08:26,060 --> 00:08:33,320
+have the residual that is we can check conversions by looking at the residual
+
+125
+00:08:33,320 --> 00:08:45,200
+K equal to B minus a UK so this should be zero if UK is already you right so
+
+126
+00:08:45,200 --> 00:08:57,860
+this is a good criterion for convergence and by the way the convergence here is
+
+127
+00:08:57,860 --> 00:09:02,360
+different from the convergence of a numerical method of a finite difference
+
+128
+00:09:02,360 --> 00:09:07,580
+discretization or a finite element discretization when we talk about
+
+129
+00:09:07,580 --> 00:09:12,460
+convergence in finite difference we are thinking oh okay so let's decrease our
+
+130
+00:09:12,460 --> 00:09:15,020
+grid size by a factor of two
+
+131
+00:09:15,200 --> 00:09:21,700
+should my numerical solution approach the analytical solution right so that is
+
+132
+00:09:21,700 --> 00:09:27,320
+the kind of convergence we are talking about in finite difference or finite
+
+133
+00:09:27,320 --> 00:09:31,820
+element or finite volume but here convergence has a different meaning
+
+134
+00:09:31,820 --> 00:09:36,220
+although we all use the word convergence it actually means different things
+
+135
+00:09:36,220 --> 00:09:44,300
+convergence here means the convergence of the kth iteration to the discrete
+
+136
+00:09:44,300 --> 00:09:44,820
+solution
+
+137
+00:09:45,200 --> 00:09:52,980
+of a PD right so so the because a u equal to B is already a discretized
+
+138
+00:09:52,980 --> 00:09:59,420
+differential equation so even if I get the exact u here the u would be a
+
+139
+00:09:59,420 --> 00:10:06,360
+discrete solution and this UK is an approximation to the discrete solution
+
+140
+00:10:06,360 --> 00:10:13,780
+we are talking about how does UK converge to the discrete solution here
+
+141
+00:10:13,780 --> 00:10:14,300
+well that makes sense so that's the first thing we are talking about here
+
+142
+00:10:14,300 --> 00:10:21,500
+well that means when you solve the equation using intuitive methods you are
+
+143
+00:10:21,500 --> 00:10:26,540
+making two approximations here one approximation is of of course the
+
+144
+00:10:26,540 --> 00:10:32,060
+discretization of the PDE the numerical solution only approximate the analytical
+
+145
+00:10:32,060 --> 00:10:38,100
+solution up to an approximation error and the second is that you are that of
+
+146
+00:10:38,100 --> 00:10:42,000
+course both involves spatial discretization and time discretization if
+
+147
+00:10:42,000 --> 00:10:44,160
+you have time so so remember you can go to the internet and you can go to the
+
+148
+00:10:44,160 --> 00:10:44,280
+computer and you can go to the computer and you can go to the computer and you
+
+149
+00:10:44,300 --> 00:10:48,680
+have the spatial terms also you have time derivative squarization terms and
+
+150
+00:10:48,680 --> 00:10:53,340
+now if you have space and time squarization you count that as two
+
+151
+00:10:53,340 --> 00:10:58,280
+sources of errors now this is a third source of error that is when K is not
+
+152
+00:10:58,280 --> 00:11:06,280
+sufficiently large you not even have an exact solution to the discrete equations
+
+153
+00:11:06,280 --> 00:11:14,780
+right you can estimate how much error you have by looking at the residual but
+
+154
+00:11:14,780 --> 00:11:19,820
+then remember that's a another source of approximation another source of error
+
+155
+00:11:19,820 --> 00:11:22,160
+here
+

@@ -1,0 +1,480 @@
+1
+00:00:00,000 --> 00:00:13,800
+If we write the solution u, which is a function of t, a vector function of t, as u1, u2, etc. to u n minus 1,
+
+2
+00:00:14,260 --> 00:00:20,540
+assuming we know the boundary conditions, which means we don't have to solve for u0 and u n,
+
+3
+00:00:20,540 --> 00:00:34,800
+then what we have is du as a vector dt would be equal to something times u.
+
+4
+00:00:35,340 --> 00:00:36,260
+What is that something?
+
+5
+00:00:38,340 --> 00:00:38,500
+Yeah?
+
+6
+00:00:38,500 --> 00:00:44,080
+It's a trinomial matrix where it's 1, negative 2, 1, to this, to that.
+
+7
+00:00:44,880 --> 00:00:46,380
+It's going to be a matrix, right?
+
+8
+00:00:46,880 --> 00:00:50,180
+And the matrix can be constructed by looking at the coefficients.
+
+9
+00:00:50,540 --> 00:00:59,180
+For example, the diagonal entries of the matrix is the coefficients corresponding to the same ui as the i that appears on the left-hand side.
+
+10
+00:01:00,040 --> 00:01:09,240
+That coefficient, kappa times minus 2, divided by delta x squared, is what is going to be appearing on the diagonal.
+
+11
+00:01:11,820 --> 00:01:17,420
+And that is the same in this case for every diagonal element.
+
+12
+00:01:17,420 --> 00:01:25,600
+There are also going to be off-diagonal elements corresponding to ui plus 1 and ui minus 1.
+
+13
+00:01:26,340 --> 00:01:34,020
+Because the ui's are ordered in an increasing manner, the one corresponding to ui plus 1 is going to be where?
+
+14
+00:01:37,640 --> 00:01:40,100
+Think of how you multiply a matrix and a vector.
+
+15
+00:01:42,100 --> 00:01:43,060
+To the right.
+
+16
+00:01:43,420 --> 00:01:44,360
+To the right.
+
+17
+00:01:44,540 --> 00:01:46,100
+It's going to be on the upper diagonal because...
+
+18
+00:01:47,420 --> 00:01:51,740
+So you are going to be multiplying, let's say this is ui, ui plus 1.
+
+19
+00:01:51,740 --> 00:01:59,100
+You need to multiply this element and put it on this row of the equation.
+
+20
+00:01:59,520 --> 00:02:01,340
+So that has to be here.
+
+21
+00:02:01,340 --> 00:02:03,640
+So kappa divided by delta x squared.
+
+22
+00:02:03,640 --> 00:02:09,600
+And in this case, if you make an error, it actually doesn't matter because the lower diagonal is the same number.
+
+23
+00:02:09,600 --> 00:02:13,340
+But that's not true for all discretizations.
+
+24
+00:02:17,420 --> 00:02:25,300
+And if you just look at this, this corresponds to boundary conditions of u0 and un equal to both 0.
+
+25
+00:02:26,400 --> 00:02:28,300
+Because the very first equation...
+
+26
+00:02:30,060 --> 00:02:34,120
+The very first equation does not have a term corresponding to u0.
+
+27
+00:02:34,120 --> 00:02:36,120
+The very last term does not have a...
+
+28
+00:02:36,120 --> 00:02:38,120
+So this is nothing.
+
+29
+00:02:38,120 --> 00:02:40,120
+This is also nothing, right?
+
+30
+00:02:41,880 --> 00:02:45,620
+Nothing means the coefficient here multiplied by 0.
+
+31
+00:02:45,620 --> 00:02:46,120
+.
+
+32
+00:02:46,120 --> 00:02:46,620
+.
+
+33
+00:02:46,620 --> 00:02:47,120
+.
+
+34
+00:02:47,120 --> 00:02:52,120
+And in case you have non-trivial boundary conditions, how should you modify this matrix equation?
+
+35
+00:02:56,720 --> 00:02:57,220
+Hmm?
+
+36
+00:02:58,320 --> 00:02:59,420
+Interpolation?
+
+37
+00:03:01,420 --> 00:03:03,620
+Yeah, but what should you...
+
+38
+00:03:03,620 --> 00:03:04,120
+Hmm?
+
+39
+00:03:04,120 --> 00:03:05,620
+You make it a circular matrix.
+
+40
+00:03:06,020 --> 00:03:07,620
+You make it a circular matrix?
+
+41
+00:03:07,920 --> 00:03:11,920
+If you make it a circular matrix, if you put things here and here, you get...
+
+42
+00:03:12,220 --> 00:03:15,820
+You get periodic boundary conditions.
+
+43
+00:03:16,520 --> 00:03:17,020
+Right?
+
+44
+00:03:17,120 --> 00:03:18,420
+You get a constant.
+
+45
+00:03:18,420 --> 00:03:18,720
+Right?
+
+46
+00:03:18,720 --> 00:03:19,720
+You get a constant.
+
+47
+00:03:19,720 --> 00:03:19,920
+Right?
+
+48
+00:03:19,920 --> 00:03:22,920
+So what if u0 is equal to un-1?
+
+49
+00:03:22,920 --> 00:03:28,920
+And un is equal to u1, then by adding two numbers here, the right solution.
+
+50
+00:03:28,920 --> 00:03:31,920
+.
+
+51
+00:03:31,920 --> 00:03:34,220
+What if u0 is equal to 1?
+
+52
+00:03:34,220 --> 00:03:36,620
+un is equal to minus 1?
+
+53
+00:03:36,620 --> 00:03:38,720
+What do you get?
+
+54
+00:03:38,720 --> 00:03:40,720
+How do you modify this equation?
+
+55
+00:03:40,720 --> 00:03:42,720
+.
+
+56
+00:03:42,720 --> 00:03:44,720
+.
+
+57
+00:03:44,720 --> 00:03:45,120
+Yes?
+
+58
+00:03:45,120 --> 00:03:45,820
+.
+
+59
+00:03:45,820 --> 00:03:47,780
+you could add a constant, exactly.
+
+60
+00:03:48,600 --> 00:03:51,100
+So if u0 is equal to a known number,
+
+61
+00:03:52,240 --> 00:03:54,760
+that known number is going to be a constant
+
+62
+00:03:54,760 --> 00:03:56,920
+that doesn't depend on this vector u.
+
+63
+00:03:57,660 --> 00:04:01,680
+So it is going to be this equation plus something.
+
+64
+00:04:03,060 --> 00:04:06,300
+And that something has to be a vector, right?
+
+65
+00:04:06,420 --> 00:04:09,080
+Has to be a vector of the same length as u.
+
+66
+00:04:10,680 --> 00:04:14,760
+And that vector only has to be non-zero for two equations,
+
+67
+00:04:14,760 --> 00:04:16,060
+which two are they?
+
+68
+00:04:20,540 --> 00:04:23,960
+First and last, we only need to modify the first row and the last row,
+
+69
+00:04:24,080 --> 00:04:25,140
+first equation and last equation.
+
+70
+00:04:25,540 --> 00:04:28,840
+So starting from the second to the second last, it will be zeros.
+
+71
+00:04:29,820 --> 00:04:37,540
+And for the first one, it will be kappa over delta x squared times u0.
+
+72
+00:04:38,220 --> 00:04:44,340
+For the last one, it will be kappa over delta x squared times ua.
+
+73
+00:04:44,760 --> 00:04:47,920
+Right, these are given numbers, and you know them.
+
+74
+00:04:48,320 --> 00:04:49,900
+So this is a constant term.
+
+75
+00:04:51,460 --> 00:04:57,940
+At the end, what you get is du dt equal to au plus b.
+
+76
+00:04:58,480 --> 00:05:00,540
+Well, a is that matrix, b is that vector.
+
+77
+00:05:02,760 --> 00:05:06,980
+That's a standard ODE you can solve using standard methods.
+
+78
+00:05:08,380 --> 00:05:12,380
+So this is what we achieve by discretizing the equations.
+
+79
+00:05:13,380 --> 00:05:14,580
+What we achieve is...
+
+80
+00:05:14,580 --> 00:05:19,580
+We start from a PDE, we approximate the function,
+
+81
+00:05:19,680 --> 00:05:22,480
+and we approximate the spatial derivative.
+
+82
+00:05:22,580 --> 00:05:25,580
+What we get is an ODE we can solve.
+
+83
+00:05:26,680 --> 00:05:27,680
+Yes?
+
+84
+00:05:27,780 --> 00:05:32,080
+Do you need to add rows and columns and zeros into the matrix though?
+
+85
+00:05:32,180 --> 00:05:33,180
+Or no?
+
+86
+00:05:35,280 --> 00:05:39,280
+Do I need to add a row of zeros into the matrix?
+
+87
+00:05:39,380 --> 00:05:40,380
+Yes.
+
+88
+00:05:41,280 --> 00:05:43,280
+In this case, no.
+
+89
+00:05:43,380 --> 00:05:44,380
+Because...
+
+90
+00:05:44,380 --> 00:05:47,180
+I want the matrix to be a square matrix.
+
+91
+00:05:48,180 --> 00:05:51,180
+du dt has the same length as u.
+
+92
+00:05:51,380 --> 00:05:52,180
+Right?
+
+93
+00:05:52,380 --> 00:05:56,180
+So the output of the a times u has to be the same length as u.
+
+94
+00:05:56,380 --> 00:05:59,180
+Which means the matrix has to be square.
+
+95
+00:06:00,180 --> 00:06:03,180
+So here, the matrix is already square.
+
+96
+00:06:03,380 --> 00:06:09,180
+You are correct in some other cases when you derive the discretization,
+
+97
+00:06:09,380 --> 00:06:11,180
+and the matrix is not square.
+
+98
+00:06:11,380 --> 00:06:14,180
+For example, if the solution...
+
+99
+00:06:14,180 --> 00:06:15,980
+If the bounded condition is more complex,
+
+100
+00:06:16,180 --> 00:06:18,980
+so that u0 and ua is also unknown,
+
+101
+00:06:19,180 --> 00:06:20,980
+then after you derive the matrix,
+
+102
+00:06:21,180 --> 00:06:23,980
+you may not get a square matrix.
+
+103
+00:06:24,180 --> 00:06:28,980
+In that case, you may add rows onto the matrix.
+
+104
+00:06:29,180 --> 00:06:31,980
+Maybe not necessarily zero,
+
+105
+00:06:32,180 --> 00:06:34,980
+but you need to add rows that behave differently.
+
+106
+00:06:35,180 --> 00:06:37,980
+So in this case, we don't have to.
+
+107
+00:06:38,180 --> 00:06:42,980
+Because we already derived the time derivative
+
+108
+00:06:42,980 --> 00:06:44,780
+of all the unknowns.
+
+109
+00:06:46,980 --> 00:06:47,780
+Alright.
+
+110
+00:06:47,980 --> 00:06:51,780
+So for example, if you implement this into an ODE solver,
+
+111
+00:06:51,980 --> 00:06:53,780
+what you need to do is you need to...
+
+112
+00:06:53,980 --> 00:07:00,780
+In MATLAB, you need a function that calculates a times u plus b.
+
+113
+00:07:00,980 --> 00:07:03,780
+That's all you need to write.
+
+114
+00:07:03,980 --> 00:07:05,780
+You need to precalculate what a is.
+
+115
+00:07:05,980 --> 00:07:07,780
+You need to precalculate what b is.
+
+116
+00:07:07,980 --> 00:07:09,780
+But in the ODE solver,
+
+117
+00:07:09,980 --> 00:07:12,780
+what you are going to be writing is a function that just does that.
+
+118
+00:07:12,980 --> 00:07:13,780
+Alright.
+
+119
+00:07:13,980 --> 00:07:15,780
+So it's that simple.
+
+120
+00:07:15,980 --> 00:07:20,780
+The trick or the math goes into construction of A and construction of B.
+

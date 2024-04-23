@@ -1,0 +1,836 @@
+1
+00:00:00,000 --> 00:00:16,960
+We have the finite difference approximation, which is dui dt equal to kappa ui plus 1 plus ui minus 1 minus 2 times ui divided by delta x squared.
+
+2
+00:00:19,020 --> 00:00:24,720
+We can also apply the Fourier series on the discrete solution.
+
+3
+00:00:24,720 --> 00:00:37,920
+All right. So here, we remember that u of i is defined as the numerical solution at u times i delta x, right?
+
+4
+00:00:39,100 --> 00:00:53,820
+And if you represent using the same Fourier series, we get a summation over k of u hat of k e to the j k instead of x.
+
+5
+00:00:53,820 --> 00:00:54,700
+We have a summation over k of u hat of k e to the j k instead of x.
+
+6
+00:00:54,700 --> 00:00:54,720
+We have a summation over k of u hat of k e to the j k instead of x.
+
+7
+00:00:54,720 --> 00:00:57,180
+We have i delta x.
+
+8
+00:00:58,900 --> 00:01:04,760
+Now you know why we use j for the square root of minus 1, because we have i as the index.
+
+9
+00:01:06,760 --> 00:01:07,080
+All right.
+
+10
+00:01:08,200 --> 00:01:18,180
+So, but this summation, it actually doesn't make sense to sum over from minus infinity to infinity.
+
+11
+00:01:19,020 --> 00:01:22,720
+Because of the phenomenon called aliasing.
+
+12
+00:01:22,720 --> 00:01:26,900
+So what does aliasing mean?
+
+13
+00:01:26,900 --> 00:01:49,000
+Aliasing means that for a particular u k and a different u k that is of a different k, the effect of this term is going to be the same, exactly the same, represented on the discrete grid.
+
+14
+00:01:49,000 --> 00:01:50,940
+So let's imagine we have a discrete grid.
+
+15
+00:01:50,940 --> 00:01:52,100
+So let's imagine we have a discrete grid.
+
+16
+00:01:52,100 --> 00:01:57,880
+We have a discrete grid that is 0, delta x, etc., all the way to 2 pi.
+
+17
+00:01:58,780 --> 00:01:59,060
+Okay.
+
+18
+00:01:59,060 --> 00:02:11,500
+The question, intuitively thinking, if I have one Fourier mode, that is exactly one period.
+
+19
+00:02:12,540 --> 00:02:12,880
+All right.
+
+20
+00:02:13,340 --> 00:02:15,020
+So that is k equal to what?
+
+21
+00:02:17,760 --> 00:02:19,320
+1 minus 1, right?
+
+22
+00:02:20,100 --> 00:02:21,060
+So e to the...
+
+23
+00:02:21,060 --> 00:02:22,080
+e to the...
+
+24
+00:02:22,080 --> 00:02:24,420
+jk...
+
+25
+00:02:24,420 --> 00:02:28,280
+Sorry, e to the ji delta x is a waveform like that.
+
+26
+00:02:29,660 --> 00:02:30,460
+All right.
+
+27
+00:02:31,340 --> 00:02:42,260
+Now, if I only look at the function value at the discrete points, I can actually draw a different wave that looks exactly the same on these discrete points.
+
+28
+00:02:43,640 --> 00:02:44,900
+How do I draw that?
+
+29
+00:02:48,460 --> 00:02:49,780
+Anybody have any idea?
+
+30
+00:02:49,960 --> 00:02:51,900
+How can I draw a different wave that...
+
+31
+00:02:52,080 --> 00:02:55,200
+has exactly the same value at these discrete points?
+
+32
+00:02:57,240 --> 00:02:57,880
+Straight lines.
+
+33
+00:02:58,380 --> 00:02:58,600
+Huh?
+
+34
+00:02:59,080 --> 00:02:59,780
+Straight lines.
+
+35
+00:03:00,240 --> 00:03:00,940
+Straight lines?
+
+36
+00:03:00,940 --> 00:03:04,380
+But remember, I have to be sinusoidal functions.
+
+37
+00:03:04,660 --> 00:03:06,280
+Sine of something or cosine of something.
+
+38
+00:03:06,860 --> 00:03:07,080
+Yes?
+
+39
+00:03:07,920 --> 00:03:13,180
+A 2 pi increase in the frequency?
+
+40
+00:03:14,100 --> 00:03:16,940
+Anything modulo 2 pi is...
+
+41
+00:03:16,940 --> 00:03:19,780
+That's a good thought.
+
+42
+00:03:20,080 --> 00:03:21,940
+But, like, 2 pi is not...
+
+43
+00:03:22,080 --> 00:03:23,080
+That's a lot of frequency.
+
+44
+00:03:23,080 --> 00:03:25,080
+2 pi is a period, right?
+
+45
+00:03:25,080 --> 00:03:30,080
+So you're thinking of increasing the frequency to something that makes it the same?
+
+46
+00:03:32,080 --> 00:03:34,080
+Anybody wants to come and draw something?
+
+47
+00:03:34,080 --> 00:03:36,080
+.
+
+48
+00:03:36,080 --> 00:03:38,080
+That's a very good idea.
+
+49
+00:03:38,080 --> 00:03:44,080
+So we no longer are thinking of functions that are long and smooth.
+
+50
+00:03:44,080 --> 00:03:46,080
+We're thinking of functions that are...
+
+51
+00:03:46,080 --> 00:03:50,080
+have a period that is almost equal to one grid point.
+
+52
+00:03:50,080 --> 00:03:51,080
+Right?
+
+53
+00:03:51,080 --> 00:03:52,080
+If we draw a function like that.
+
+54
+00:03:52,080 --> 00:03:54,080
+So we still have maximum being the same,
+
+55
+00:03:54,080 --> 00:03:57,080
+but we have a function that goes like this,
+
+56
+00:03:57,080 --> 00:03:59,080
+and back to minus 1,
+
+57
+00:03:59,080 --> 00:04:02,080
+and come back to here.
+
+58
+00:04:02,080 --> 00:04:05,080
+It has exactly the same function value.
+
+59
+00:04:05,080 --> 00:04:06,080
+And now it goes...
+
+60
+00:04:06,080 --> 00:04:08,080
+keeps on doing that.
+
+61
+00:04:10,080 --> 00:04:12,080
+It keeps on doing that.
+
+62
+00:04:12,080 --> 00:04:14,080
+The next time it'll come over.
+
+63
+00:04:14,080 --> 00:04:17,080
+So this way we have two functions
+
+64
+00:04:17,080 --> 00:04:25,080
+whose frequency is different by what?
+
+65
+00:04:25,080 --> 00:04:28,080
+Anybody take a guess?
+
+66
+00:04:28,080 --> 00:04:30,080
+So if this long one...
+
+67
+00:04:30,080 --> 00:04:33,080
+if this long wave number one has a...
+
+68
+00:04:33,080 --> 00:04:36,080
+if the long period one has a k equal to 1,
+
+69
+00:04:36,080 --> 00:04:39,080
+what is the k corresponding to the grid line?
+
+70
+00:04:42,080 --> 00:04:44,080
+So this is k equal to 1.
+
+71
+00:04:44,080 --> 00:04:46,080
+This is k equal to what?
+
+72
+00:04:46,080 --> 00:04:53,080
+That makes your 2 pi over delta x plus 1.
+
+73
+00:04:53,080 --> 00:04:54,080
+Right?
+
+74
+00:04:54,080 --> 00:04:56,080
+So if you...
+
+75
+00:04:56,080 --> 00:04:58,080
+if you think of this...
+
+76
+00:04:58,080 --> 00:05:00,080
+so e to the j...
+
+77
+00:05:00,080 --> 00:05:05,080
+2 pi over delta x plus 1
+
+78
+00:05:05,080 --> 00:05:08,080
+times i delta x.
+
+79
+00:05:08,080 --> 00:05:13,080
+I can expand it into a j of...
+
+80
+00:05:13,080 --> 00:05:15,080
+2 pi over delta x cancels with this.
+
+81
+00:05:15,080 --> 00:05:19,080
+So I get a 2 pi times i delta x cancels
+
+82
+00:05:19,080 --> 00:05:23,080
+plus j i delta x.
+
+83
+00:05:23,080 --> 00:05:25,080
+Right?
+
+84
+00:05:25,080 --> 00:05:27,080
+And the first term...
+
+85
+00:05:27,080 --> 00:05:28,080
+the first term...
+
+86
+00:05:28,080 --> 00:05:29,080
+and I can write this as...
+
+87
+00:05:29,080 --> 00:05:33,080
+the exponential of summation is equal to the product of exponentials.
+
+88
+00:05:33,080 --> 00:05:37,080
+And the first part is always equal to what?
+
+89
+00:05:39,080 --> 00:05:40,080
+1.
+
+90
+00:05:40,080 --> 00:05:41,080
+Right?
+
+91
+00:05:43,080 --> 00:05:44,080
+So that means...
+
+92
+00:05:45,080 --> 00:05:47,080
+when I shift the frequency...
+
+93
+00:05:47,080 --> 00:05:49,080
+and this happens for any k.
+
+94
+00:05:49,080 --> 00:05:51,080
+This actually happens...
+
+95
+00:05:51,080 --> 00:05:53,080
+for any k.
+
+96
+00:05:53,080 --> 00:05:55,080
+If I replace the 1 by k...
+
+97
+00:05:55,080 --> 00:05:57,080
+this is...
+
+98
+00:05:57,080 --> 00:05:59,080
+oh, so this is k i...
+
+99
+00:05:59,080 --> 00:06:00,080
+sorry, k i delta x.
+
+100
+00:06:00,080 --> 00:06:02,080
+This is going to be the...
+
+101
+00:06:02,080 --> 00:06:03,080
+exactly the same.
+
+102
+00:06:03,080 --> 00:06:07,080
+So if I shift the frequency by 2 pi over delta x
+
+103
+00:06:07,080 --> 00:06:09,080
+or 4 pi over delta x
+
+104
+00:06:09,080 --> 00:06:11,080
+or 6 pi over delta x,
+
+105
+00:06:11,080 --> 00:06:14,080
+I have exactly the same...
+
+106
+00:06:15,080 --> 00:06:17,080
+values at the grid points.
+
+107
+00:06:17,080 --> 00:06:19,080
+Therefore,
+
+108
+00:06:19,080 --> 00:06:22,080
+when I expand a discrete...
+
+109
+00:06:22,080 --> 00:06:23,080
+function...
+
+110
+00:06:23,080 --> 00:06:25,080
+in Fourier series,
+
+111
+00:06:25,080 --> 00:06:27,080
+it only makes sense to...
+
+112
+00:06:27,080 --> 00:06:29,080
+have a k...
+
+113
+00:06:29,080 --> 00:06:31,080
+go...
+
+114
+00:06:31,080 --> 00:06:33,080
+in between...
+
+115
+00:06:33,080 --> 00:06:35,080
+minus n over 2...
+
+116
+00:06:35,080 --> 00:06:38,080
+and n over 2 minus 1.
+
+117
+00:06:38,080 --> 00:06:41,080
+Where...
+
+118
+00:06:41,080 --> 00:06:43,080
+n is equal to...
+
+119
+00:06:43,080 --> 00:06:45,080
+the number of intervals...
+
+120
+00:06:45,080 --> 00:06:48,080
+basically 2 pi over delta x.
+
+121
+00:06:48,080 --> 00:06:50,080
+2 pi is the whole...
+
+122
+00:06:50,080 --> 00:06:51,080
+length of the interval.
+
+123
+00:06:51,080 --> 00:06:53,080
+Delta x is the length of each interval.
+
+124
+00:06:53,080 --> 00:06:55,080
+So n is the number of intervals...
+
+125
+00:06:55,080 --> 00:06:57,080
+over the domain.
+
+126
+00:06:57,080 --> 00:06:59,080
+If I, for example,
+
+127
+00:06:59,080 --> 00:07:00,080
+go all the way to 2 n...
+
+128
+00:07:00,080 --> 00:07:02,080
+instead of 2 n minus 1,
+
+129
+00:07:02,080 --> 00:07:03,080
+then I have a duplication.
+
+130
+00:07:03,080 --> 00:07:06,080
+Because k equal to minus n over 2...
+
+131
+00:07:06,080 --> 00:07:08,080
+is the same as positive n over 2.
+
+132
+00:07:08,080 --> 00:07:09,080
+Right?
+
+133
+00:07:09,080 --> 00:07:11,080
+They are exactly off by n.
+
+134
+00:07:11,080 --> 00:07:13,080
+Which is 2 pi over delta x.
+
+135
+00:07:13,080 --> 00:07:14,080
+And we already said...
+
+136
+00:07:14,080 --> 00:07:15,080
+if I shift...
+
+137
+00:07:15,080 --> 00:07:16,080
+k by 2 pi...
+
+138
+00:07:16,080 --> 00:07:17,080
+over delta x...
+
+139
+00:07:17,080 --> 00:07:18,080
+is the same function...
+
+140
+00:07:18,080 --> 00:07:20,080
+on the discrete points.
+
+141
+00:07:20,080 --> 00:07:22,080
+So this is what we call...
+
+142
+00:07:22,080 --> 00:07:23,080
+a discrete...
+
+143
+00:07:23,080 --> 00:07:24,080
+Fourier series.
+
+144
+00:07:24,080 --> 00:07:26,080
+Instead of a continuous Fourier series.
+
+145
+00:07:26,080 --> 00:07:28,080
+A continuous one goes from...
+
+146
+00:07:28,080 --> 00:07:29,080
+minus infinity to infinity.
+
+147
+00:07:29,080 --> 00:07:30,080
+A discrete one.
+
+148
+00:07:30,080 --> 00:07:32,080
+Because of this effect...
+
+149
+00:07:32,080 --> 00:07:35,080
+called aliasing...
+
+150
+00:07:35,080 --> 00:07:37,080
+we always have k go from...
+
+151
+00:07:37,080 --> 00:07:38,080
+minus n over 2...
+
+152
+00:07:38,080 --> 00:07:41,080
+to n over 2 minus 1.
+
+153
+00:07:41,080 --> 00:07:43,080
+Alright?
+
+154
+00:07:44,080 --> 00:07:45,080
+And...
+
+155
+00:07:45,080 --> 00:07:46,080
+why is it called aliasing?
+
+156
+00:07:46,080 --> 00:07:49,080
+There is a...
+
+157
+00:07:49,080 --> 00:07:53,080
+Anybody play video games?
+
+158
+00:07:53,080 --> 00:07:54,080
+Nobody?
+
+159
+00:07:54,080 --> 00:07:55,080
+Okay.
+
+160
+00:07:55,080 --> 00:07:56,080
+Some people.
+
+161
+00:07:56,080 --> 00:07:57,080
+So...
+
+162
+00:07:57,080 --> 00:07:58,080
+So when you...
+
+163
+00:07:58,080 --> 00:07:59,080
+when you draw a texture...
+
+164
+00:07:59,080 --> 00:08:01,080
+when you have a 3D video game...
+
+165
+00:08:01,080 --> 00:08:04,080
+and you draw a certain texture...
+
+166
+00:08:04,080 --> 00:08:07,080
+very, very far away from you...
+
+167
+00:08:07,080 --> 00:08:10,080
+the texture is going to contain frequencies...
+
+168
+00:08:10,080 --> 00:08:12,080
+that is...
+
+169
+00:08:12,080 --> 00:08:13,080
+that is going to be...
+
+170
+00:08:13,080 --> 00:08:15,080
+under resolved on the screen.
+
+171
+00:08:15,080 --> 00:08:16,080
+Like...
+
+172
+00:08:16,080 --> 00:08:18,080
+think of these grid points as pixels...
+
+173
+00:08:18,080 --> 00:08:20,080
+on your screen.
+
+174
+00:08:20,080 --> 00:08:21,080
+And...
+
+175
+00:08:21,080 --> 00:08:23,080
+think of this wave as...
+
+176
+00:08:23,080 --> 00:08:24,080
+the color...
+
+177
+00:08:24,080 --> 00:08:26,080
+or the variation of the color...
+
+178
+00:08:26,080 --> 00:08:27,080
+on your texture...
+
+179
+00:08:27,080 --> 00:08:29,080
+that you want to draw on the surface...
+
+180
+00:08:29,080 --> 00:08:31,080
+far, far away.
+
+181
+00:08:31,080 --> 00:08:32,080
+What you end up seeing...
+
+182
+00:08:32,080 --> 00:08:34,080
+is some pattern that has...
+
+183
+00:08:34,080 --> 00:08:35,080
+nothing to do...
+
+184
+00:08:35,080 --> 00:08:37,080
+with the texture you are drawing...
+
+185
+00:08:37,080 --> 00:08:38,080
+but looks like...
+
+186
+00:08:38,080 --> 00:08:40,080
+just a blob of weird things...
+
+187
+00:08:40,080 --> 00:08:42,080
+that emerges...
+
+188
+00:08:42,080 --> 00:08:44,080
+from the far away texture.
+
+189
+00:08:44,080 --> 00:08:46,080
+And that is called aliasing.
+
+190
+00:08:46,080 --> 00:08:48,080
+And anti-aliasing is...
+
+191
+00:08:48,080 --> 00:08:51,080
+one of the key technologies of...
+
+192
+00:08:51,080 --> 00:08:52,080
+video gaming.
+
+193
+00:08:52,080 --> 00:08:53,080
+So...
+
+194
+00:08:53,080 --> 00:08:54,080
+many different ways.
+
+195
+00:08:54,080 --> 00:08:55,080
+One way is you...
+
+196
+00:08:55,080 --> 00:08:56,080
+you basically do a...
+
+197
+00:08:56,080 --> 00:08:58,080
+some sort of smoothing to the texture...
+
+198
+00:08:58,080 --> 00:08:59,080
+before you draw it.
+
+199
+00:08:59,080 --> 00:09:01,080
+Another way is...
+
+200
+00:09:01,080 --> 00:09:02,080
+you actually over-sample...
+
+201
+00:09:02,080 --> 00:09:03,080
+which means...
+
+202
+00:09:03,080 --> 00:09:05,080
+I'm going to draw the texture...
+
+203
+00:09:05,080 --> 00:09:07,080
+at a resolution that is a lot higher...
+
+204
+00:09:07,080 --> 00:09:09,080
+than my screen resolution...
+
+205
+00:09:09,080 --> 00:09:10,080
+and then display it.
+
+206
+00:09:10,080 --> 00:09:11,080
+So there are ways to deal with it.
+
+207
+00:09:11,080 --> 00:09:13,080
+But this aliasing is the same...
+
+208
+00:09:13,080 --> 00:09:15,080
+as the aliasing we have in...
+
+209
+00:09:15,080 --> 00:09:17,080
+solving differential equations.
+

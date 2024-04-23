@@ -1,0 +1,496 @@
+1
+00:00:00,000 --> 00:00:05,800
+Okay, so the third limiting case is hyperbolic equations. So that is when
+
+2
+00:00:05,800 --> 00:00:14,520
+Kappa, what we take as the primary driver for the spatial derivative to 0, we also
+
+3
+00:00:14,520 --> 00:00:21,420
+take f equal to 0. We have the equation partial u partial t plus a big U
+
+4
+00:00:21,420 --> 00:00:31,660
+partial u partial x equal to 0. This equation has a very interesting
+
+5
+00:00:31,660 --> 00:00:41,220
+analytical solution and let's just draw it from MATLAB. So if I, for example, if I
+
+6
+00:00:41,220 --> 00:00:49,340
+take Kappa equal to 0 and big U equal to 1. So I'd like to have somebody again to
+
+7
+00:00:49,340 --> 00:00:51,400
+draw an initial condition and see how the solution
+
+8
+00:00:51,400 --> 00:00:59,680
+evolves. Can we have somebody to draw an initial condition again?
+
+9
+00:01:05,680 --> 00:01:08,680
+Yeah, please.
+
+10
+00:01:17,680 --> 00:01:21,380
+All right, thanks. So this is the solution to
+
+11
+00:01:21,380 --> 00:01:29,300
+the case where U is equal to 1 and Kappa is equal to 0. What we see is a linear
+
+12
+00:01:29,300 --> 00:01:35,960
+translation. The solution keeps the original shape but just translates
+
+13
+00:01:35,960 --> 00:01:47,660
+towards the right. Can we analyze that also from the differential equation itself?
+
+14
+00:01:51,380 --> 00:02:01,380
+We can put Fourier analysis again. That's right. So let's express U again as a function
+
+15
+00:02:01,380 --> 00:02:10,940
+of x and t using a summation. I'm going to not write K. It goes from minus infinity to
+
+16
+00:02:10,940 --> 00:02:17,660
+infinity. And then the spatial derivative is going to be operated on. So this is the
+
+17
+00:02:17,660 --> 00:02:18,660
+derivative.
+
+18
+00:02:18,660 --> 00:02:19,660
+So this is the derivative.
+
+19
+00:02:19,660 --> 00:02:20,660
+So this is the derivative.
+
+20
+00:02:20,660 --> 00:02:21,660
+So this is the derivative.
+
+21
+00:02:21,660 --> 00:02:22,660
+So this is the derivative.
+
+22
+00:02:22,660 --> 00:02:23,660
+And then the spatial derivative is going to be operated on U .
+
+23
+00:02:23,660 --> 00:02:34,920
+So we get an i k in front of this. And the time derivative is going to be operated on
+
+24
+00:02:34,920 --> 00:02:41,100
+U only. And we get this.
+
+25
+00:02:41,100 --> 00:02:44,340
+Right?
+
+26
+00:02:44,340 --> 00:02:48,940
+So the solution we get is d U hat of K d t.
+
+27
+00:02:48,940 --> 00:03:13,940
+d t plus i k big U times U hat of K is equal to 0.
+
+28
+00:03:13,940 --> 00:03:16,940
+So this...
+
+29
+00:03:16,940 --> 00:03:17,940
+Also...
+
+30
+00:03:17,940 --> 00:03:18,940
+So this...
+
+31
+00:03:18,940 --> 00:03:19,940
+This equation has the same...
+
+32
+00:03:19,940 --> 00:03:24,440
+This is another ordinary differential equation.
+
+33
+00:03:24,440 --> 00:03:29,940
+And the form of this equation is exactly the same as what we have been seeing before.
+
+34
+00:03:29,940 --> 00:03:40,940
+It is U hat of K is equal to U hat of K at time 0 times e to the minus i k t...
+
+35
+00:03:40,940 --> 00:03:42,940
+i k t...
+
+36
+00:03:42,940 --> 00:03:43,940
+i k u t.
+
+37
+00:03:43,940 --> 00:03:44,940
+Oh, i k u t.
+
+38
+00:03:44,940 --> 00:03:45,940
+Oh, i k u t.
+
+39
+00:03:45,940 --> 00:03:46,940
+Oh, i k u t.
+
+40
+00:03:46,940 --> 00:03:47,940
+Oh, i k u t.
+
+41
+00:03:47,940 --> 00:03:48,940
+Oh, i k u t.
+
+42
+00:03:48,940 --> 00:03:49,940
+Oh, i k u t.
+
+43
+00:03:49,940 --> 00:03:50,940
+Oh, i k u t.
+
+44
+00:03:50,940 --> 00:03:51,940
+Oh, I k u t.
+
+45
+00:03:51,940 --> 00:03:52,940
+Oh, I k u t.
+
+46
+00:03:52,940 --> 00:03:53,940
+Oh, i k u t.
+
+47
+00:03:53,940 --> 00:03:54,940
+Oh, i k u t.
+
+48
+00:03:54,940 --> 00:03:55,940
+Oh, i k u t.
+
+49
+00:03:56,940 --> 00:04:01,940
+So how does this solution look like?
+
+50
+00:04:01,940 --> 00:04:08,140
+It's a sinusoidal oscillation.
+
+51
+00:04:08,140 --> 00:04:09,440
+Right?
+
+52
+00:04:09,440 --> 00:04:12,940
+So the solution for every component oscillates in a sinusoidal way.
+
+53
+00:04:12,940 --> 00:04:14,940
+We will have several thousand ways, two ways to swinging parall uniforms.
+
+54
+00:04:14,940 --> 00:04:15,940
+And so it's in sin��릴 Agriculture.
+
+55
+00:04:15,940 --> 00:04:16,940
+It's shaftics.
+
+56
+00:04:16,940 --> 00:04:29,980
+and the period of the oscillation is going to be it's going to be 2 pi over
+
+57
+00:04:29,980 --> 00:04:41,340
+uk right so the higher the k the smaller the period is and if you can decompose
+
+58
+00:04:41,340 --> 00:04:45,020
+the solution into different Fourier modes the different Fourier modes would
+
+59
+00:04:45,020 --> 00:04:54,780
+oscillate periodically in different rates and the higher the the slower variation in space is going
+
+60
+00:04:54,780 --> 00:05:03,260
+to also oscillate with slower frequencies in time and the composition of all these oscillations
+
+61
+00:05:04,780 --> 00:05:07,980
+forms a linear translation in space
+
+62
+00:05:10,700 --> 00:05:13,900
+so in fact you can another way to analyze this
+
+63
+00:05:14,540 --> 00:05:14,780
+is
+
+64
+00:05:15,020 --> 00:05:31,820
+is the fact that this u of x and k x and t can always be written as a function of g of x minus u
+
+65
+00:05:31,820 --> 00:05:41,020
+times t when you take the derivative of this function with respect with respect to time
+
+66
+00:05:41,020 --> 00:05:44,540
+so
+
+67
+00:05:44,540 --> 00:05:49,660
+you get minus u times g prime the derivative of g
+
+68
+00:05:49,660 --> 00:05:55,260
+you take the same derivative to x you get just a g prime the summation of these two
+
+69
+00:05:55,260 --> 00:06:03,260
+where the space derivative is multiplied by u is going to give you zero so this kind of solution is
+
+70
+00:06:03,260 --> 00:06:09,420
+exactly a linear translation in time okay so now we're going to look at the next step
+
+71
+00:06:09,420 --> 00:06:11,740
+which is the derivative of g prime
+
+72
+00:06:11,740 --> 00:06:14,380
+so we're going to look at the next step which is the derivative of g prime
+
+73
+00:06:14,540 --> 00:06:21,260
+so these are the three Leibniz cases of this convection diffusion equation
+
+74
+00:06:22,940 --> 00:06:29,660
+and all of these cases can be analyzed pretty easily using analytical methods
+
+75
+00:06:31,260 --> 00:06:35,020
+and the combination of them becomes quite interesting for example
+
+76
+00:06:35,020 --> 00:06:43,420
+if i put a big u of one and cup of point one what do you think you're going to see when i do an initial condition
+
+77
+00:06:44,540 --> 00:06:52,940
+if i put a big u of one and cup of point one what do you think you're going to see when i do an initial condition
+
+78
+00:06:52,940 --> 00:06:57,900
+so it'll be a translation and gradually becomes a constant let's see that
+
+79
+00:07:01,260 --> 00:07:09,100
+okay that's perfectly right there is a advection towards the right but during that action
+
+80
+00:07:09,100 --> 00:07:13,580
+it becomes smoother and smoother and ultimately becomes a constant
+
+81
+00:07:14,540 --> 00:07:24,140
+and we can try different things we can put it as 0.01 and we should see the same speed of translation but
+
+82
+00:07:26,220 --> 00:07:30,300
+the speed where it goes to a constant should be decreased
+
+83
+00:07:31,900 --> 00:07:37,660
+so we can see that now it maintains this oscillatory wave for a bit longer
+
+84
+00:07:39,740 --> 00:07:43,100
+and when we draw a different u
+
+85
+00:07:44,540 --> 00:07:52,140
+a u of equal to 10 for example what should we see in this case
+
+86
+00:07:52,140 --> 00:08:01,500
+i'm trying to draw the same initial condition we see the translation becomes a lot faster right
+
+87
+00:08:03,260 --> 00:08:05,580
+what if we draw a negative u in this case
+
+88
+00:08:07,980 --> 00:08:11,900
+minus two what do you think is going to happen
+
+89
+00:08:14,540 --> 00:08:19,260
+so we can see that the translation goes towards the left
+
+90
+00:08:19,260 --> 00:08:21,420
+so we can see that the translation goes towards the left
+
+91
+00:08:21,420 --> 00:08:25,740
+okay and i think you had a question what if we put a negative kappa
+
+92
+00:08:25,740 --> 00:08:29,420
+let's try that minus 0.1
+
+93
+00:08:32,700 --> 00:08:38,220
+huh oh didn't even allow me to draw this that shouldn't happen
+
+94
+00:08:38,220 --> 00:08:40,220
+let me see
+
+95
+00:08:40,220 --> 00:08:42,220
+okay
+
+96
+00:08:44,540 --> 00:08:46,540
+let's try this
+
+97
+00:08:46,540 --> 00:08:48,540
+okay
+
+98
+00:08:48,540 --> 00:08:50,540
+uh oh
+
+99
+00:08:50,540 --> 00:08:59,100
+that's what happens when you have a instability okay so so things becomes
+
+100
+00:08:59,100 --> 00:09:05,100
+okay so let's try that
+
+101
+00:09:05,100 --> 00:09:09,100
+like that
+
+102
+00:09:09,100 --> 00:09:14,460
+i never tried it so let's see how it goes
+
+103
+00:09:14,540 --> 00:09:18,540
+so i do see something before it goes
+
+104
+00:09:18,540 --> 00:09:22,540
+before it goes to infinity so okay the thing to remember is that
+
+105
+00:09:22,540 --> 00:09:26,540
+this minus point whatever how many zeros one is multiplied by k
+
+106
+00:09:26,540 --> 00:09:30,540
+square and k when you discretize
+
+107
+00:09:30,540 --> 00:09:34,540
+when you discretize a condition of k
+
+108
+00:09:34,540 --> 00:09:38,540
+you can see that the function of k is the same as the function of k
+
+109
+00:09:38,540 --> 00:09:42,540
+so if you have a condition of k and you have a condition of k
+
+110
+00:09:42,540 --> 00:09:48,940
+then you discretize a continuous signal using fourier series
+
+111
+00:09:48,940 --> 00:09:56,620
+but the largest k can be pretty large right so so let's say if you have if you
+
+112
+00:09:56,620 --> 00:09:59,100
+have a thousand grid points distributed across the spatial domain
+
+113
+00:09:59,100 --> 00:10:01,100
+from zero to two pi
+
+114
+00:10:01,100 --> 00:10:05,820
+then the largest k can be on the order of like a thousand
+
+115
+00:10:05,820 --> 00:10:06,540
+and this thing no matter how small is multiplied by k square and for the
+
+116
+00:10:06,540 --> 00:10:12,140
+mean- 언�straight lines this thing no matter how small is multiplied by k square and for the
+
+117
+00:10:12,140 --> 00:10:12,540
+mean- 언�estraight lines this thing no matter how small is multiplied by k square and for the
+
+118
+00:10:12,540 --> 00:10:17,160
+the largest k even though this one is small you should expect to have a very
+
+119
+00:10:17,160 --> 00:10:22,580
+fast divergence to infinity.
+
+120
+00:10:25,580 --> 00:10:34,340
+That's a good point if we have a very smooth initial signal. Oh I think I may
+
+121
+00:10:34,340 --> 00:10:42,220
+not be able to draw it smoothly exactly at the boundaries. Sorry I think
+
+122
+00:10:42,220 --> 00:10:48,580
+because it's periodic so usually the discontinuity at the boundary is going
+
+123
+00:10:48,580 --> 00:10:52,180
+to introduce some high frequency components even though I draw it very
+
+124
+00:10:52,180 --> 00:10:56,360
+very carefully so it's pretty difficult.
+

@@ -1,0 +1,208 @@
+1
+00:00:00,000 --> 00:00:10,200
+so the project is not completely given out yet there is a still a question that is not given
+
+2
+00:00:10,200 --> 00:00:16,620
+but if you look at the government equations and the government equations particularly looks for
+
+3
+00:00:16,620 --> 00:00:27,720
+supersonic flows so we have a equation like that it should be equal to zero all right and supersonic
+
+4
+00:00:27,720 --> 00:00:37,620
+flows means this M infinity means the how much faster is the flow compared to the speed of sound
+
+5
+00:00:37,620 --> 00:00:46,020
+so it is a number that is greater than one can you see the similarity between this equation and
+
+6
+00:00:46,020 --> 00:00:57,700
+the equation we just looked at it's similar except for one major difference
+
+7
+00:00:57,700 --> 00:01:06,760
+it's there is no time right but instead the spatial derivative term have a negative sign
+
+8
+00:01:06,760 --> 00:01:13,640
+between X and Y and Z because M infinity is greater than one this term is actually negative
+
+9
+00:01:13,640 --> 00:01:19,420
+these two terms are positive if you move the negative terms to the other side of the equation
+
+10
+00:01:19,420 --> 00:01:25,120
+which makes it positive it's the same as our wave equation which goes on in time
+
+11
+00:01:27,700 --> 00:01:39,040
+so we can perfectly treat this as a time integration differential equation but like instead of
+
+12
+00:01:39,040 --> 00:01:48,340
+integrating time we're integrating X all right so now we are getting to the domain when there is the
+
+13
+00:01:48,340 --> 00:01:55,340
+difference between now we have this we can see that the difference between what we call hyperbolic
+
+14
+00:01:55,340 --> 00:01:57,680
+equations and
+
+15
+00:01:57,700 --> 00:02:05,920
+elliptic equations it's not just the fact that hyperbolic equations has a time in it while
+
+16
+00:02:05,920 --> 00:02:12,640
+elliptic equation doesn't have a time it's only a spatial thing it's actually more mathematical than
+
+17
+00:02:12,640 --> 00:02:20,980
+that for example this equation has no time in it but the fact it is a hyperbolic equation means it
+
+18
+00:02:20,980 --> 00:02:27,520
+means that you can treat the X dimension as a time and solve the equation using time integration
+
+19
+00:02:27,700 --> 00:02:30,880
+so it's essentially only the number of times tangential to the Nosmosis equation
+
+20
+00:02:34,340 --> 00:02:38,220
+so let's say that the N is nothing but the decimal point that happened and that we must
+
+21
+00:02:38,220 --> 00:02:41,060
+integrate the N teddy bit망 to get the percent of times N in our x-ング forecast
+
+22
+00:02:41,060 --> 00:02:44,580
+so the N possession of the x-eng of thenight is nothing
+
+23
+00:02:44,580 --> 00:02:50,380
+only the correct solution part of the equation half and half wheel the momentum of and that's
+
+24
+00:02:50,380 --> 00:02:53,980
+not the case you make an equation which is indeed lambda over the time except that very
+
+25
+00:02:53,980 --> 00:02:56,940
+nearly przykład
+
+26
+00:02:57,700 --> 00:03:03,940
+that X after where you put the perturbation and by after it doesn't mean
+
+27
+00:03:03,940 --> 00:03:10,960
+time it means the X location right so if you you can you can look at some of the
+
+28
+00:03:10,960 --> 00:03:16,480
+pictures I included these are not linearized equations these are real
+
+29
+00:03:16,480 --> 00:03:22,960
+experiments so so the existence of this airplane actually is not felt by the
+
+30
+00:03:22,960 --> 00:03:33,100
+flow for X locations smaller than where this thing is so so if you put a
+
+31
+00:03:33,100 --> 00:03:36,700
+per base in here so think of this entire airplane as a perturbation this
+
+32
+00:03:36,700 --> 00:03:41,100
+perturbation is not going to influence the flowfield anywhere that is upstream
+
+33
+00:03:41,100 --> 00:03:47,800
+so this is characteristics of a hyperbolic equation where you can think
+
+34
+00:03:47,800 --> 00:03:52,860
+of one of the dimensions as time where the domain of influence only happens
+
+35
+00:03:52,860 --> 00:03:52,960
+continuing on from国界的波波磁相对比就相反了
+
+36
+00:03:52,960 --> 00:03:54,460
+after that time.
+
+37
+00:03:55,980 --> 00:03:58,240
+Several other pictures are like that.
+
+38
+00:04:00,060 --> 00:04:01,160
+So the question is,
+
+39
+00:04:02,580 --> 00:04:05,220
+do the transformation of variables
+
+40
+00:04:05,220 --> 00:04:07,800
+and derive a system of equations you can solve?
+
+41
+00:04:09,540 --> 00:04:12,680
+And consider a lot simplified two-dimensional problem
+
+42
+00:04:12,680 --> 00:04:16,700
+and try to gain some intuition from the pictures you use
+
+43
+00:04:16,700 --> 00:04:18,920
+and derive an analytical solution
+
+44
+00:04:18,920 --> 00:04:20,600
+for the two-dimensional case.
+
+45
+00:04:20,600 --> 00:04:25,600
+And design a solver to solve this two-dimensional,
+
+46
+00:04:26,520 --> 00:04:28,460
+I mean, no, the solver is actually,
+
+47
+00:04:28,460 --> 00:04:31,380
+so design a solver for the two-dimensional problem
+
+48
+00:04:31,380 --> 00:04:36,380
+and justify the use of numerical schemes in the solver.
+
+49
+00:04:38,500 --> 00:04:40,860
+And compare the solution
+
+50
+00:04:40,860 --> 00:04:44,240
+with the analytical solution you derived.
+
+51
+00:04:44,240 --> 00:04:45,900
+All right, so play around
+
+52
+00:04:45,900 --> 00:04:48,120
+with some supersonic flow problems.
+

@@ -1,0 +1,264 @@
+1
+00:00:00,000 --> 00:00:07,280
+Let's remind ourselves of the difference between finite difference, finite volume,
+
+2
+00:00:07,280 --> 00:00:13,640
+and finite element. So I'm going back to the illustration I had before. In finite
+
+3
+00:00:13,640 --> 00:00:25,240
+difference, remember we have... in finite difference, when we draw a function, the
+
+4
+00:00:25,240 --> 00:00:30,160
+finite difference stores the values of the function on the grid points. Right?
+
+5
+00:00:30,160 --> 00:00:40,440
+That's finite difference. In finite volume, we draw a function. Finite volume
+
+6
+00:00:40,440 --> 00:00:46,480
+stores the cell averages. These are completely different ways of
+
+7
+00:00:46,480 --> 00:00:54,780
+discretizing a function, representing a function. In finite element, let's see if
+
+8
+00:00:54,780 --> 00:00:55,220
+we draw a function...
+
+9
+00:00:55,220 --> 00:01:03,960
+For a similar function, how does finite element store the function?
+
+10
+00:01:03,960 --> 00:01:11,580
+This is how finite element stores the function. It looks like piecewise straight lines, but
+
+11
+00:01:11,580 --> 00:01:19,420
+can somebody take a guess at what is actually the piecewise linear representation of the
+
+12
+00:01:19,420 --> 00:01:24,760
+function? How does the... how does the thick red line
+
+13
+00:01:24,760 --> 00:01:31,760
+relate to the thin red line I just drew on the screen?
+
+14
+00:01:31,760 --> 00:01:39,620
+List squares. That red line seems to be somehow minimizing the distance, minimizing the average
+
+15
+00:01:39,620 --> 00:01:50,620
+distance in a certain way between the piecewise linear line and the original thin line. Right?
+
+16
+00:01:50,620 --> 00:01:53,660
+So this is one way of doing finite element.
+
+17
+00:01:54,760 --> 00:01:59,000
+And this is the primary way we are going to be discussing this in this class.
+
+18
+00:01:59,000 --> 00:02:07,220
+But just to give you a little bit more insight into what finite element is doing, I'm just going to give you another...
+
+19
+00:02:07,220 --> 00:02:12,000
+another demo, also with finite difference.
+
+20
+00:02:12,000 --> 00:02:17,500
+I'm going to try to draw a very similar function as I did before.
+
+21
+00:02:17,500 --> 00:02:23,900
+And this is also a different finite element approximation to the same... to the function.
+
+22
+00:02:24,760 --> 00:02:26,820
+Let's see.
+
+23
+00:02:26,820 --> 00:02:33,120
+So now you could draw a representation, say, for which the font size and the dark color
+
+24
+00:02:33,120 --> 00:02:38,220
+are the mult deserve oversize out of the component.
+
+25
+00:02:38,220 --> 00:02:39,700
+If you draw this!.
+
+26
+00:02:39,700 --> 00:02:40,200
+Yeah.
+
+27
+00:02:40,200 --> 00:02:42,360
+One could draw this.
+
+28
+00:02:42,360 --> 00:02:44,860
+Can you show it?
+
+29
+00:02:44,860 --> 00:02:50,020
+Yeah, so that would be the Mitt onwards.
+
+30
+00:02:50,020 --> 00:02:53,000
+M attempting to create a line across a picture over the strictly jon lecturer in class.
+
+31
+00:02:53,000 --> 00:02:54,020
+What's the%?
+
+32
+00:02:54,020 --> 00:02:59,500
+We are restricting the approximation in different space of functions.
+
+33
+00:03:00,820 --> 00:03:05,820
+In the previous case, we require our representation to be continuous.
+
+34
+00:03:06,920 --> 00:03:14,580
+In this case, we no longer require our function to be continuous, but we are still doing these squares.
+
+35
+00:03:14,580 --> 00:03:25,580
+And in this case, because we are allowing ourselves to minimize the distance between the original and approximation function over a bigger space,
+
+36
+00:03:25,920 --> 00:03:28,580
+because we no longer require it to be continuous,
+
+37
+00:03:28,840 --> 00:03:34,540
+we can get a better approximation of the function, potentially.
+
+38
+00:03:35,520 --> 00:03:42,460
+We are minimizing the distance between the approximate function and the original function.
+
+39
+00:03:42,460 --> 00:03:44,560
+And you can see that the approximation function is still doing the same thing.
+
+40
+00:03:44,560 --> 00:03:44,580
+And you can see that the approximation function is still doing the same thing.
+
+41
+00:03:44,580 --> 00:03:50,720
+And you can think of the previous example as performing that minimization under some constraint,
+
+42
+00:03:51,020 --> 00:03:56,200
+while this is performing the same optimization without these constraints.
+
+43
+00:03:57,160 --> 00:04:04,800
+And of course, without the constraint, potentially, you can get a better, smaller objective function in your minimization.
+
+44
+00:04:05,080 --> 00:04:07,400
+So you can approximate the function slightly better.
+
+45
+00:04:09,700 --> 00:04:14,020
+Of course, another way to get a richer space or a bigger space
+
+46
+00:04:14,020 --> 00:04:18,680
+is just to divide every cell by a factor of two.
+
+47
+00:04:20,460 --> 00:04:28,100
+Any function that is piecewise linear in the bigger, in the coarser discretization
+
+48
+00:04:28,560 --> 00:04:33,220
+is going to be a piecewise linear function in the finer discretization.
+
+49
+00:04:34,600 --> 00:04:37,600
+But the finer discretization has a richer space
+
+50
+00:04:38,600 --> 00:04:44,000
+because there are more functions that does not live in the original coarser space.
+
+51
+00:04:44,280 --> 00:05:01,260
+So should you move the division by
+
+52
+00:05:02,360 --> 00:05:03,120
+character質
+
+53
+00:05:03,120 --> 00:05:03,300
+and
+
+54
+00:05:03,300 --> 00:05:03,660
+cause
+
+55
+00:05:03,660 --> 00:05:04,680
+Arctic
+
+56
+00:05:04,680 --> 00:05:05,280
+is
+
+57
+00:05:05,280 --> 00:05:05,900
+확
+
+58
+00:05:05,900 --> 00:05:06,420
+natural
+
+59
+00:05:06,460 --> 00:05:07,080
+equal
+
+60
+00:05:07,080 --> 00:05:07,740
+r
+
+61
+00:05:07,740 --> 00:05:07,940
+with
+
+62
+00:05:07,940 --> 00:05:12,560
+an
+
+63
+00:05:12,560 --> 00:05:12,900
+program
+
+64
+00:05:12,900 --> 00:05:13,380
+for
+
+65
+00:05:13,380 --> 00:05:13,620
+and
+
+66
+00:05:13,620 --> 00:05:14,000
+with
+

@@ -1,0 +1,760 @@
+1
+00:00:00,000 --> 00:00:03,000
+If you do this analysis, it's called modified equation analysis.
+
+2
+00:00:04,040 --> 00:00:09,320
+You derive that, you derive, so instead of deriving a discrete scheme from the differential equation,
+
+3
+00:00:09,480 --> 00:00:14,100
+you use the same Taylor series analysis to derive a differential equation from the scheme.
+
+4
+00:00:15,680 --> 00:00:21,140
+And look at what is the leading term of this modified equation.
+
+5
+00:00:21,520 --> 00:00:22,960
+So this is the modified equation.
+
+6
+00:00:22,960 --> 00:00:32,640
+And what is the leading difference between the modified equation and the original equation?
+
+7
+00:00:36,820 --> 00:00:40,860
+And in this case, the leading term is a dissipation.
+
+8
+00:00:41,920 --> 00:00:47,560
+When the leading term is dissipation, you expect to see a lot of dissipation error in the solution.
+
+9
+00:00:47,880 --> 00:00:52,540
+That almost as if you added a dissipation term into the differential equation.
+
+10
+00:00:52,960 --> 00:01:01,440
+Now, this other term, this term is called dispersion.
+
+11
+00:01:03,920 --> 00:01:06,520
+It is a third order derivative.
+
+12
+00:01:07,720 --> 00:01:13,960
+In this case, it's almost overshadowed by the dissipation error,
+
+13
+00:01:14,060 --> 00:01:19,640
+because the dissipation error is O delta x, the dispersion error is O delta x squared.
+
+14
+00:01:19,640 --> 00:01:19,720
+Okay.
+
+15
+00:01:21,820 --> 00:01:22,940
+Is there some case?
+
+16
+00:01:22,960 --> 00:01:27,280
+This is where this is not overshadowed by the dissipation error.
+
+17
+00:01:28,200 --> 00:01:29,100
+Central difference.
+
+18
+00:01:33,280 --> 00:01:34,220
+That's right.
+
+19
+00:01:35,360 --> 00:01:42,840
+So to look at the effect of dispersion error, let's, instead of using the upwind difference,
+
+20
+00:01:42,980 --> 00:01:45,980
+let's use the central difference to solve the same equation.
+
+21
+00:01:47,840 --> 00:01:52,880
+Central difference is Ui plus 1 minus Ui minus 1 divided by 2 delta x.
+
+22
+00:01:52,960 --> 00:01:54,960
+So Ui plus 1 is equal to 0.
+
+23
+00:01:54,960 --> 00:01:57,460
+And again, we do Taylor series analysis.
+
+24
+00:01:58,320 --> 00:02:16,720
+Ui plus 1 is equal to Ui plus delta x U prime plus half delta x squared U double prime plus delta x cubed U triple prime plus O delta x to the fourth.
+
+25
+00:02:17,200 --> 00:02:22,680
+Ui minus 1 is equal to this minus delta x plus minus.
+
+26
+00:02:22,960 --> 00:02:27,580
+I mean, this is the same, the same, the same.
+
+27
+00:02:28,080 --> 00:02:28,300
+Right?
+
+28
+00:02:30,160 --> 00:02:31,800
+Now we take the difference.
+
+29
+00:02:33,080 --> 00:02:39,340
+Ui plus 1 minus Ui minus 1 divided by delta x is equal to this got canceled.
+
+30
+00:02:40,240 --> 00:02:41,200
+Oh, 2 delta x.
+
+31
+00:02:41,820 --> 00:02:45,180
+And this is not canceled, but the 2 delta x is canceled.
+
+32
+00:02:45,540 --> 00:02:47,860
+So this term, we are having a Ui prime.
+
+33
+00:02:48,680 --> 00:02:49,640
+This is canceled.
+
+34
+00:02:50,320 --> 00:02:51,900
+This term is not canceled.
+
+35
+00:02:51,900 --> 00:02:52,900
+It is canceled.
+
+36
+00:02:53,120 --> 00:02:54,540
+So we have a Ui prime.
+
+37
+00:02:54,540 --> 00:03:02,820
+And it is divided by 2 delta x, which makes it delta x squared over 6 Ui triple prime.
+
+38
+00:03:05,580 --> 00:03:08,800
+Plus O, in this case, O delta x cubed.
+
+39
+00:03:09,060 --> 00:03:11,300
+Don't forget, it is divided by delta x.
+
+40
+00:03:13,160 --> 00:03:13,720
+Yes?
+
+41
+00:03:17,040 --> 00:03:17,880
+Oh, yeah.
+
+42
+00:03:18,020 --> 00:03:20,300
+This fourth order is also canceled completely.
+
+43
+00:03:20,300 --> 00:03:20,800
+Yes.
+
+44
+00:03:20,800 --> 00:03:32,220
+So this turns out to be delta x to the fourth because U quad prime is canceled.
+
+45
+00:03:34,420 --> 00:03:35,600
+That's a good point.
+
+46
+00:03:36,420 --> 00:03:40,300
+Now, if you look at the modified equation, it's partial U partial t.
+
+47
+00:03:41,460 --> 00:03:42,500
+This is still here.
+
+48
+00:03:42,700 --> 00:03:45,020
+Plus U partial U partial x.
+
+49
+00:03:45,180 --> 00:03:46,380
+This is partial U partial x.
+
+50
+00:03:46,380 --> 00:03:50,520
+And now plus U times delta x squared over 6.
+
+51
+00:03:51,420 --> 00:03:54,360
+So that's actually where this acting in this term is connected.
+
+52
+00:03:54,460 --> 00:04:08,900
+And what
+
+53
+00:04:08,900 --> 00:04:09,720
+is that?
+
+54
+00:04:09,720 --> 00:04:10,860
+So what is this affection?
+
+55
+00:04:10,860 --> 00:04:12,820
+Let's modify that equation.
+
+56
+00:04:12,820 --> 00:04:14,820
+Halo.
+
+57
+00:04:14,820 --> 00:04:43,360
+It's this one. Let's copy this thing, paste it here, and call it dudt central. So we still have the same thing, but here it's u2 minus uand divided by 2 delta x, right?
+
+58
+00:04:43,360 --> 00:04:52,580
+And here, instead of 2 to n, we have 2 to n minus 1, because we can't loop all the way to n. We can only loop to n minus 1.
+
+59
+00:04:55,140 --> 00:05:06,860
+Sorry, and this should be modified to i plus 1, so still to n, but like this is 3. And this is i minus 1, which still starts at 1, but ends at n minus 2.
+
+60
+00:05:07,820 --> 00:05:09,860
+Again, divide by 2 delta x.
+
+61
+00:05:11,700 --> 00:05:12,640
+And lastly,
+
+62
+00:05:12,640 --> 00:05:13,040
+like,
+
+63
+00:05:13,360 --> 00:05:14,520
+making them aligned.
+
+64
+00:05:15,640 --> 00:05:16,980
+Lastly, we have
+
+65
+00:05:16,980 --> 00:05:18,280
+u of
+
+66
+00:05:18,280 --> 00:05:21,400
+1 minus u of
+
+67
+00:05:21,400 --> 00:05:22,880
+n minus 1, right?
+
+68
+00:05:23,080 --> 00:05:25,660
+At very end, u1 is i plus 1
+
+69
+00:05:25,660 --> 00:05:27,540
+divided by
+
+70
+00:05:27,540 --> 00:05:29,960
+2 delta x.
+
+71
+00:05:32,460 --> 00:05:33,020
+Alright,
+
+72
+00:05:33,220 --> 00:05:34,820
+any bug you find on this?
+
+73
+00:05:35,520 --> 00:05:36,580
+The name of the function.
+
+74
+00:05:37,020 --> 00:05:38,920
+Oh, the name of the function, thank you.
+
+75
+00:05:39,960 --> 00:05:40,520
+Central.
+
+76
+00:05:40,520 --> 00:05:40,760
+Alright.
+
+77
+00:05:40,760 --> 00:05:41,760
+Alright.
+
+78
+00:05:42,700 --> 00:05:43,500
+Anything else?
+
+79
+00:05:45,000 --> 00:05:45,720
+That's it?
+
+80
+00:05:46,280 --> 00:05:46,560
+Okay.
+
+81
+00:05:47,020 --> 00:05:48,480
+So let's go back to the
+
+82
+00:05:48,480 --> 00:05:52,360
+x equal to
+
+83
+00:05:52,360 --> 00:05:59,040
+n equal to 100 case, because it's easier to see the smaller dispersion error in that case.
+
+84
+00:06:00,480 --> 00:06:05,640
+So let's take u0 to be the same thing, and od45, same thing.
+
+85
+00:06:05,720 --> 00:06:07,240
+We integrate by one period.
+
+86
+00:06:07,240 --> 00:06:10,480
+So let's close the previous one and plot.
+
+87
+00:06:10,760 --> 00:06:11,760
+So let's take u0 first.
+
+88
+00:06:11,760 --> 00:06:21,640
+Okay, so that's still the analytical solution after the wave being advected for any integer period.
+
+89
+00:06:21,640 --> 00:06:23,640
+Let's hold on.
+
+90
+00:06:23,640 --> 00:06:25,640
+Hold off.
+
+91
+00:06:25,640 --> 00:06:33,640
+And plot this first using red.
+
+92
+00:06:33,640 --> 00:06:35,640
+No?
+
+93
+00:06:35,640 --> 00:06:37,640
+Oh, I still did upwind.
+
+94
+00:06:37,640 --> 00:06:39,640
+So, sorry.
+
+95
+00:06:39,640 --> 00:06:40,040
+Okay.
+
+96
+00:06:40,040 --> 00:06:41,320
+I think it's still the analytical solution.
+
+97
+00:06:41,320 --> 00:06:43,320
+Should be central.
+
+98
+00:06:43,320 --> 00:06:53,320
+Okay, so let's close this thing, plot u0 first and plot this using red.
+
+99
+00:06:53,320 --> 00:06:55,880
+I didn't hold on.
+
+100
+00:06:55,880 --> 00:06:56,280
+Sorry.
+
+101
+00:06:57,320 --> 00:06:58,520
+Plot this first.
+
+102
+00:06:58,520 --> 00:07:00,040
+Hold on.
+
+103
+00:07:00,040 --> 00:07:01,880
+And plot this at red.
+
+104
+00:07:01,880 --> 00:07:02,360
+Okay.
+
+105
+00:07:03,720 --> 00:07:06,200
+You see, this is a lot more accurate, right?
+
+106
+00:07:06,200 --> 00:07:08,400
+So, there is almost no difference.
+
+107
+00:07:08,400 --> 00:07:09,800
+So, let's advect it for, let's say, 15,000.
+
+108
+00:07:09,800 --> 00:07:17,960
+little bit more time so instead of 2 pi let's do 20 pi all right so we add back
+
+109
+00:07:17,960 --> 00:07:26,840
+the whole thing over 10 periods and now let's take a look now after 10 periods
+
+110
+00:07:26,840 --> 00:07:36,200
+the dispersion error is it's showing its effect so the red one that is close to
+
+111
+00:07:36,200 --> 00:07:43,720
+blue is after one period the one that is away that looks a lot more less a lot less accurate
+
+112
+00:07:43,720 --> 00:07:48,680
+is after 10 periods so what is the dispersion error doing
+
+113
+00:07:56,440 --> 00:07:59,960
+it's introducing additional oscillations that's right
+
+114
+00:08:00,920 --> 00:08:04,200
+and mathematically if you do a fourier series analysis
+
+115
+00:08:05,960 --> 00:08:06,200
+it
+
+116
+00:08:06,200 --> 00:08:15,400
+is adapting different wave numbers or different frequency of waves at different speeds so the
+
+117
+00:08:15,400 --> 00:08:21,560
+first order derivative and that's all different frequencies at the same speed that is why it
+
+118
+00:08:21,560 --> 00:08:27,720
+preserves the shape of the function and a third order derivative at that different frequencies at
+
+119
+00:08:27,720 --> 00:08:34,520
+different speeds that is why it is creating oscillations this is even more obvious let's say
+
+120
+00:08:34,520 --> 00:08:35,960
+let's take a different initial
+
+121
+00:08:35,960 --> 00:08:39,720
+condition so u0 is equal to
+
+122
+00:08:42,040 --> 00:08:48,520
+uh let's take this to be greater than 0.8 so let's see if that works
+
+123
+00:08:50,440 --> 00:08:58,760
+so plot u0 so we get a wave of so so this is the operator that gives me zero or ones
+
+124
+00:08:58,760 --> 00:09:05,080
+right it's okay so basically i get a bunch of one over here and all zeros elsewhere and
+
+125
+00:09:05,080 --> 00:09:13,480
+start going to know if it's a good wave yeah something like this so let's take a look
+
+126
+00:09:13,480 --> 00:09:25,320
+right let's look at the first one okay so Katr's nowPERFOR machine to figure that out
+
+127
+00:09:26,040 --> 00:09:28,360
+there it is yeah it bulb okay
+
+128
+00:09:28,360 --> 00:09:32,080
+well actually it Penghuang has a lot of different functional function
+
+129
+00:09:32,080 --> 00:09:33,560
+entain a sleet
+
+130
+00:09:33,560 --> 00:09:39,160
+of single and double data for T .
+
+131
+00:09:39,160 --> 00:09:45,200
+So let's do U equal to float U .
+
+132
+00:09:45,200 --> 00:09:48,120
+Is that...
+
+133
+00:09:48,120 --> 00:09:50,320
+No.
+
+134
+00:09:50,320 --> 00:09:52,160
+Double.
+
+135
+00:09:52,160 --> 00:09:55,940
+Okay, that works.
+
+136
+00:09:55,940 --> 00:09:58,720
+Okay, so now it works.
+
+137
+00:09:58,720 --> 00:10:04,300
+And let's plot this after one period.
+
+138
+00:10:04,300 --> 00:10:12,280
+So I forgot to hold on, but if you remember what U is, let's hold on and plot X and
+
+139
+00:10:12,280 --> 00:10:13,680
+U .
+
+140
+00:10:13,680 --> 00:10:19,060
+So U is the blue, and the red is after one period.
+
+141
+00:10:19,060 --> 00:10:26,280
+And now it is plain obvious that even after one period, we get wild oscillations almost
+
+142
+00:10:26,280 --> 00:10:28,120
+everywhere.
+
+143
+00:10:28,120 --> 00:10:32,740
+So the very high frequencies in the blue curve gets affected at very different speeds all
+
+144
+00:10:32,740 --> 00:10:34,260
+over the domain.
+
+145
+00:10:34,260 --> 00:10:43,420
+So that's dispersion error.
+
+146
+00:10:43,420 --> 00:10:51,600
+So when you are looking at a numerical solution, your own solver or other people's solver,
+
+147
+00:10:51,600 --> 00:10:56,240
+now you should be able to distinguish or spot these kind of errors.
+
+148
+00:10:56,240 --> 00:10:57,760
+And these kind of errors are for...
+
+149
+00:10:57,760 --> 00:11:05,940
+They are all going to reduce as you refine delta X.
+
+150
+00:11:05,940 --> 00:11:12,060
+But the behavior of them, one is basically smoothing the solution away, and one is creating
+
+151
+00:11:12,060 --> 00:11:16,020
+artificial oscillations that shouldn't be there.
+
+152
+00:11:16,020 --> 00:11:19,280
+Should be plain obvious.
+
+153
+00:11:19,280 --> 00:11:26,040
+And by the way, dissipation error is a lot more difficult to spot than dispersion error,
+
+154
+00:11:26,040 --> 00:11:27,400
+because it makes the solution smooth.
+
+155
+00:11:27,400 --> 00:11:27,600
+It's just a matter of time.
+
+156
+00:11:27,600 --> 00:11:27,720
+Yeah.
+
+157
+00:11:27,720 --> 00:11:27,760
+Yeah.
+
+158
+00:11:27,760 --> 00:11:28,560
+I mean...
+
+159
+00:11:28,560 --> 00:11:28,940
+Yeah.
+
+160
+00:11:28,940 --> 00:11:28,980
+Yeah.
+
+161
+00:11:28,980 --> 00:11:29,080
+Yeah.
+
+162
+00:11:29,080 --> 00:11:29,560
+Who is doing this rookie...
+
+163
+00:11:29,560 --> 00:11:30,100
+All right.
+
+164
+00:11:30,100 --> 00:11:30,160
+All right.
+
+165
+00:11:30,160 --> 00:11:30,240
+That's good news.
+
+166
+00:11:30,240 --> 00:11:30,340
+All right.
+
+167
+00:11:30,340 --> 00:11:30,540
+Looks nice.
+
+168
+00:11:30,540 --> 00:11:30,760
+Next...
+
+169
+00:11:30,760 --> 00:11:30,840
+Does dumb package actually exist?
+
+170
+00:11:30,860 --> 00:11:31,080
+I don't know.
+
+171
+00:11:31,080 --> 00:11:31,120
+Yeah.
+
+172
+00:11:31,120 --> 00:11:32,400
+So only two languages, you have to find a completely namesake with this idea.
+
+173
+00:11:32,400 --> 00:11:33,540
+Just creature name and thepa uh, I don't have an idea of what this...
+
+174
+00:11:33,540 --> 00:11:34,840
+Do you know what I mean by that?
+
+175
+00:11:34,840 --> 00:11:35,200
+And yeah.
+
+176
+00:11:35,200 --> 00:11:43,900
+So
+
+177
+00:11:43,900 --> 00:11:45,820
+Yeah.
+
+178
+00:11:45,820 --> 00:11:46,560
+That's wind complimentary.
+
+179
+00:11:46,560 --> 00:11:46,680
+Yeah.
+
+180
+00:11:46,680 --> 00:11:48,240
+It's all right.
+
+181
+00:11:48,240 --> 00:11:48,600
+All right.
+
+182
+00:11:48,600 --> 00:11:48,700
+Okay.
+
+183
+00:11:48,700 --> 00:11:49,900
+Great.
+
+184
+00:11:49,900 --> 00:11:51,080
+There we go.
+
+185
+00:11:51,080 --> 00:11:53,760
+All right.
+
+186
+00:11:53,760 --> 00:11:54,820
+So thanks again.
+
+187
+00:11:54,820 --> 00:11:56,080
+Our wonderful Anh and the yeah.
+
+188
+00:11:56,080 --> 00:11:57,360
+Thank you all for attending this webinar.
+
+189
+00:11:57,360 --> 00:11:57,480
+I hope everyone enjoyed this video.
+
+190
+00:11:57,480 --> 00:11:57,620
+Thank you all for reading.
+

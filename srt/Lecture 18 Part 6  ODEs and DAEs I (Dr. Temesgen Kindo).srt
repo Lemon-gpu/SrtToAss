@@ -1,0 +1,940 @@
+1
+00:00:00,000 --> 00:00:07,000
+Questions about entering PDEs? Is it clear so far? Yes.
+
+2
+00:00:07,000 --> 00:00:17,000
+So if you wanted an equation with like a fourth order derivative, the weak-sorm level wave option you have is the couple of high order derivatives?
+
+3
+00:00:17,000 --> 00:00:21,000
+I will let you think about it. How can you do it?
+
+4
+00:00:21,000 --> 00:00:30,000
+Let's say you have, how do you solve for example if you have a high order differential equation, say in dynamics?
+
+5
+00:00:30,000 --> 00:00:35,000
+I mean you could reduce it down to the system with lower order equations.
+
+6
+00:00:35,000 --> 00:00:41,000
+Yeah, so before you enter it you have to reduce it to SSL.
+
+7
+00:00:41,000 --> 00:00:44,000
+Okay, that was a good question.
+
+8
+00:00:44,000 --> 00:00:51,000
+So for some of these equations where we know people will have higher order equations,
+
+9
+00:00:51,000 --> 00:00:54,000
+in our own we have pre-implemented this.
+
+10
+00:00:54,000 --> 00:00:59,000
+For example in structural mechanics for membranes, you have like the biharmonic equation.
+
+11
+00:00:59,000 --> 00:01:03,000
+And there we have already taken care of this.
+
+12
+00:01:03,000 --> 00:01:16,000
+But the only thing you have to be careful when you are specifying this is the discretization you are using.
+
+13
+00:01:16,000 --> 00:01:21,000
+Because let's say you have a fourth order derivative.
+
+14
+00:01:21,000 --> 00:01:24,000
+Let's talk about the second order equation.
+
+15
+00:01:24,000 --> 00:01:33,000
+So you have a second order equation that let's say in space you have
+
+16
+00:01:33,000 --> 00:01:43,000
+in 1D, say d squared u over dx squared, but you decided to introduce an auxiliary variable w,
+
+17
+00:01:43,000 --> 00:01:49,000
+such that w is equal to du over dx.
+
+18
+00:01:49,000 --> 00:01:51,000
+Then in your equation instead of this,
+
+19
+00:01:51,000 --> 00:01:57,000
+you are going to write dw over dx is going to be whatever originally you had.
+
+20
+00:01:57,000 --> 00:02:05,000
+And then you are going to have du over dx is equal to, this is actually not anything.
+
+21
+00:02:05,000 --> 00:02:07,000
+This is u itself.
+
+22
+00:02:07,000 --> 00:02:15,000
+Now the question is if you went with this and if you picked a certain interpolation function,
+
+23
+00:02:15,000 --> 00:02:19,000
+for the finite element method you are picking lower order polynomials,
+
+24
+00:02:19,000 --> 00:02:26,000
+which locally is lower order polynomials and continuously stitched together to get your global solution.
+
+25
+00:02:26,000 --> 00:02:33,000
+If you picked a second order polynomial for u,
+
+26
+00:02:33,000 --> 00:02:38,000
+then w is going to be a first order polynomial.
+
+27
+00:02:38,000 --> 00:02:46,000
+Or if u was twice differentiable, you are only going to expect one time differentiability on this.
+
+28
+00:02:46,000 --> 00:02:48,000
+But then when you did this,
+
+29
+00:02:48,000 --> 00:02:54,000
+then you could inadvertently make w and u to be of the same order.
+
+30
+00:02:54,000 --> 00:02:56,000
+But in general they are not.
+
+31
+00:02:56,000 --> 00:03:01,000
+And that choice of how you pick the order of interpolation,
+
+32
+00:03:01,000 --> 00:03:05,000
+especially for mixed problems,
+
+33
+00:03:05,000 --> 00:03:10,000
+is an important topic in finite element analysis.
+
+34
+00:03:10,000 --> 00:03:14,000
+Beautiful.
+
+35
+00:03:14,000 --> 00:03:16,000
+Thank you.
+
+36
+00:03:16,000 --> 00:03:24,000
+Did you guys discuss inf subconditions or something like that in finite element analysis?
+
+37
+00:03:24,000 --> 00:03:29,000
+There are basically existence, uniqueness, stability issues that you might run into numerically
+
+38
+00:03:29,000 --> 00:03:31,000
+when you use a mixed problem.
+
+39
+00:03:31,000 --> 00:03:33,000
+So you are right in terms of splitting,
+
+40
+00:03:33,000 --> 00:03:37,000
+but make sure that you are using the right approximation spaces
+
+41
+00:03:37,000 --> 00:03:40,000
+for the new auxiliary variable you introduced.
+
+42
+00:03:43,000 --> 00:03:44,000
+Yes.
+
+43
+00:03:44,000 --> 00:03:45,000
+Can you break your...
+
+44
+00:03:46,000 --> 00:03:57,000
+Can you do that with user defined function?
+
+45
+00:03:57,000 --> 00:03:58,000
+Yes.
+
+46
+00:03:58,000 --> 00:03:59,000
+Then when you do that,
+
+47
+00:03:59,000 --> 00:04:03,000
+because in the user defined function you define what you are doing,
+
+48
+00:04:03,000 --> 00:04:07,000
+how do you call the value from the previous ?
+
+49
+00:04:07,000 --> 00:04:08,000
+Okay.
+
+50
+00:04:08,000 --> 00:04:13,000
+So this is when you have a one-way coupled problem, is it?
+
+51
+00:04:13,000 --> 00:04:15,000
+Or if I write it in the space,
+
+52
+00:04:15,000 --> 00:04:17,000
+and see if I can do the equation for it.
+
+53
+00:04:17,000 --> 00:04:27,000
+So you are saying maybe you have a problem,
+
+54
+00:04:27,000 --> 00:04:35,000
+c1 u, let me ignore other terms,
+
+55
+00:04:35,000 --> 00:04:38,000
+is equal to some function f,
+
+56
+00:04:38,000 --> 00:04:43,000
+but then I have, I am solving for another equation, let's say,
+
+57
+00:04:43,000 --> 00:04:57,000
+e, w over e plus e to the minus e to w is equal to some function of u.
+
+58
+00:04:57,000 --> 00:05:00,000
+So these equations are coupled,
+
+59
+00:05:00,000 --> 00:05:02,000
+but they are only one-way coupled, right?
+
+60
+00:05:02,000 --> 00:05:08,000
+In that in here you don't have any term containing w,
+
+61
+00:05:08,000 --> 00:05:11,000
+but in here you have a term containing u.
+
+62
+00:05:11,000 --> 00:05:12,000
+So you could...
+
+63
+00:05:13,000 --> 00:05:17,000
+First solve just this one of them,
+
+64
+00:05:17,000 --> 00:05:21,000
+then next time when you are solving this,
+
+65
+00:05:21,000 --> 00:05:25,000
+you want to say I want to use the solution for u in this equation.
+
+66
+00:05:25,000 --> 00:05:26,000
+Is that what you want to do?
+
+67
+00:05:26,000 --> 00:05:27,000
+Yes.
+
+68
+00:05:27,000 --> 00:05:28,000
+Okay.
+
+69
+00:05:28,000 --> 00:05:33,000
+So if that is what you want to do,
+
+70
+00:05:33,000 --> 00:05:39,000
+say in here the first thing is you can add a new equation,
+
+71
+00:05:39,000 --> 00:05:41,000
+like a new physics,
+
+72
+00:05:41,000 --> 00:05:45,000
+so I can come to physics and then I can say add physics,
+
+73
+00:05:45,000 --> 00:05:48,000
+do the same thing of going to mathematics,
+
+74
+00:05:48,000 --> 00:05:50,000
+pd, let's say coefficient form,
+
+75
+00:05:50,000 --> 00:05:55,000
+this time it's c, I will add that.
+
+76
+00:05:55,000 --> 00:05:57,000
+Now here it gives the name c2,
+
+77
+00:05:57,000 --> 00:05:59,000
+you can change the name.
+
+78
+00:05:59,000 --> 00:06:02,000
+Let's say the other one is already,
+
+79
+00:06:02,000 --> 00:06:05,000
+instead of c let me actually rename it.
+
+80
+00:06:05,000 --> 00:06:07,000
+Okay, that's u.
+
+81
+00:06:07,000 --> 00:06:09,000
+And here I want to name this w, right?
+
+82
+00:06:09,000 --> 00:06:13,000
+The dependent variable is w.
+
+83
+00:06:13,000 --> 00:06:17,000
+Now if you come to here in the equation,
+
+84
+00:06:17,000 --> 00:06:20,000
+now you have a template in terms of w, right?
+
+85
+00:06:20,000 --> 00:06:23,000
+Now if you want to enter,
+
+86
+00:06:23,000 --> 00:06:25,000
+you have already entered this equation,
+
+87
+00:06:25,000 --> 00:06:27,000
+you want to enter this.
+
+88
+00:06:27,000 --> 00:06:30,000
+In that template, da is going to be 0,
+
+89
+00:06:30,000 --> 00:06:35,000
+da is going to be 1, right, for the w equation.
+
+90
+00:06:35,000 --> 00:06:38,000
+c is going to be some value.
+
+91
+00:06:38,000 --> 00:06:42,000
+The only thing is I'm going to have this source term,
+
+92
+00:06:42,000 --> 00:06:44,000
+which should contain u, right?
+
+93
+00:06:44,000 --> 00:06:49,000
+And in that, come to the source term here,
+
+94
+00:06:49,000 --> 00:06:51,000
+let's say it was u squared, right?
+
+95
+00:06:51,000 --> 00:06:54,000
+Then just type u squared.
+
+96
+00:06:54,000 --> 00:06:56,000
+And that's it.
+
+97
+00:06:56,000 --> 00:07:01,000
+So in console actually this is the way to make your own physics coupling.
+
+98
+00:07:01,000 --> 00:07:03,000
+If two physics are coupled,
+
+99
+00:07:03,000 --> 00:07:05,000
+the only thing you have to know is
+
+100
+00:07:05,000 --> 00:07:07,000
+which term is going to contain
+
+101
+00:07:07,000 --> 00:07:09,000
+something in terms of the other,
+
+102
+00:07:09,000 --> 00:07:11,000
+and just type that in.
+
+103
+00:07:11,000 --> 00:07:16,000
+And now the catch is,
+
+104
+00:07:16,000 --> 00:07:18,000
+here in the solver,
+
+105
+00:07:18,000 --> 00:07:21,000
+it's going to want to solve both of them together.
+
+106
+00:07:21,000 --> 00:07:24,000
+And that is, we do this for the sake of robustness.
+
+107
+00:07:24,000 --> 00:07:28,000
+Because possibly there is a two-way coupling,
+
+108
+00:07:28,000 --> 00:07:30,000
+and you need to solve it together.
+
+109
+00:07:30,000 --> 00:07:33,000
+But now you, as an analyst,
+
+110
+00:07:33,000 --> 00:07:37,000
+know from your equations that there is only a one-way coupling.
+
+111
+00:07:37,000 --> 00:07:40,000
+Then that one-way coupling, you can enforce it.
+
+112
+00:07:40,000 --> 00:07:42,000
+And the way to enforce it is,
+
+113
+00:07:42,000 --> 00:07:44,000
+here in the study,
+
+114
+00:07:44,000 --> 00:07:46,000
+in the step, add a new study.
+
+115
+00:07:46,000 --> 00:07:48,000
+Let's say I add a new step.
+
+116
+00:07:48,000 --> 00:07:50,000
+So now I have two steps.
+
+117
+00:07:50,000 --> 00:07:52,000
+But then in the first step,
+
+118
+00:07:52,000 --> 00:07:54,000
+I just need to solve for that one.
+
+119
+00:07:54,000 --> 00:07:56,000
+And in the second one,
+
+120
+00:07:56,000 --> 00:07:58,000
+I need to keep only that one.
+
+121
+00:07:58,000 --> 00:08:01,000
+So now what it will do is it will solve the first physics.
+
+122
+00:08:01,000 --> 00:08:04,000
+And then there is a trickle-down mechanism.
+
+123
+00:08:04,000 --> 00:08:07,000
+So you have to order these choices.
+
+124
+00:08:07,000 --> 00:08:10,000
+And then you have to do it appropriately
+
+125
+00:08:10,000 --> 00:08:14,000
+so that the first one doesn't need data from any other equation.
+
+126
+00:08:14,000 --> 00:08:17,000
+And then in the second one, you can just use it.
+
+127
+00:08:17,000 --> 00:08:21,000
+So the principle is that it comes from any place
+
+128
+00:08:21,000 --> 00:08:23,000
+where you could have typed a number,
+
+129
+00:08:23,000 --> 00:08:25,000
+you could type a function,
+
+130
+00:08:25,000 --> 00:08:28,000
+you could type an expression of another null.
+
+131
+00:08:28,000 --> 00:08:31,000
+And that is how you actually make custom coupling.
+
+132
+00:08:31,000 --> 00:08:33,000
+Does that address your question?
+
+133
+00:08:33,000 --> 00:08:35,000
+Other questions?
+
+134
+00:08:35,000 --> 00:08:36,000
+Yes?
+
+135
+00:08:36,000 --> 00:08:42,000
+You don't have to make sure that for that second study
+
+136
+00:08:42,000 --> 00:08:44,000
+that it's dependent on the first study.
+
+137
+00:08:44,000 --> 00:08:46,000
+It will just already know that.
+
+138
+00:08:46,000 --> 00:08:47,000
+Yeah.
+
+139
+00:08:47,000 --> 00:08:51,000
+But sometimes that may not be the case.
+
+140
+00:08:51,000 --> 00:08:54,000
+In this case, if you put them under the same study,
+
+141
+00:08:54,000 --> 00:08:58,000
+it will just know that to get them from above.
+
+142
+00:08:58,000 --> 00:09:00,000
+But sometimes,
+
+143
+00:09:00,000 --> 00:09:02,000
+but then if I'm solving this,
+
+144
+00:09:02,000 --> 00:09:04,000
+I'm solving both of them together.
+
+145
+00:09:04,000 --> 00:09:05,000
+Right?
+
+146
+00:09:05,000 --> 00:09:07,000
+So sometimes you might be in a situation where
+
+147
+00:09:07,000 --> 00:09:09,000
+you solved the first problem,
+
+148
+00:09:09,000 --> 00:09:11,000
+and you know you're not going to change it.
+
+149
+00:09:11,000 --> 00:09:14,000
+And you just now want to quit your second equation.
+
+150
+00:09:14,000 --> 00:09:18,000
+So you don't want to be solving both of them together in two sets,
+
+151
+00:09:18,000 --> 00:09:20,000
+because the first one is dead.
+
+152
+00:09:20,000 --> 00:09:22,000
+You don't want to deal with it, right?
+
+153
+00:09:22,000 --> 00:09:23,000
+In a situation like that,
+
+154
+00:09:23,000 --> 00:09:26,000
+instead of adding a new step,
+
+155
+00:09:26,000 --> 00:09:28,000
+let me delete this,
+
+156
+00:09:28,000 --> 00:09:30,000
+add a completely new study.
+
+157
+00:09:30,000 --> 00:09:32,000
+And let me add a new study.
+
+158
+00:09:32,000 --> 00:09:34,000
+Add study stationary.
+
+159
+00:09:35,000 --> 00:09:37,000
+See the difference?
+
+160
+00:09:37,000 --> 00:09:39,000
+Earlier I had two steps within the same study.
+
+161
+00:09:39,000 --> 00:09:42,000
+But now I have completely different studies.
+
+162
+00:09:42,000 --> 00:09:43,000
+Here it doesn't know.
+
+163
+00:09:43,000 --> 00:09:45,000
+It doesn't know where to get it from.
+
+164
+00:09:45,000 --> 00:09:47,000
+Now in that case,
+
+165
+00:09:47,000 --> 00:09:49,000
+let's say I only keep this.
+
+166
+00:09:49,000 --> 00:09:51,000
+You see these values of dependent variables?
+
+167
+00:09:51,000 --> 00:09:53,000
+If I expand that section,
+
+168
+00:09:53,000 --> 00:09:55,000
+there is values of dependent variables solved for,
+
+169
+00:09:55,000 --> 00:09:58,000
+and values of dependent variables not solved for.
+
+170
+00:09:58,000 --> 00:10:00,000
+Now at this point,
+
+171
+00:10:00,000 --> 00:10:03,000
+the solution from above is something I'm not solving for anymore.
+
+172
+00:10:03,000 --> 00:10:05,000
+I will just be using it as a parameter.
+
+173
+00:10:05,000 --> 00:10:09,000
+So here you come and say you are user controlled.
+
+174
+00:10:09,000 --> 00:10:13,000
+You're getting it from a solution from the first solution.
+
+175
+00:10:13,000 --> 00:10:16,000
+So now you are indicating yourself.
+
+176
+00:10:16,000 --> 00:10:19,000
+Is that the answer?
+
+177
+00:10:19,000 --> 00:10:22,000
+Other questions?
+
+178
+00:10:22,000 --> 00:10:29,000
+So now let's move on to the other topics.
+
+179
+00:10:29,000 --> 00:10:34,000
+Ordinary differential equations and differential algebraic equations.
+
+180
+00:10:34,000 --> 00:10:40,000
+ComSol doesn't make a distinction between ordinary differential equations and differential algebraic equations.
+
+181
+00:10:40,000 --> 00:10:43,000
+It doesn't see any derivative in any of the equations.
+
+182
+00:10:43,000 --> 00:10:46,000
+It just deals with it as an algebraic equation.
+
+183
+00:10:46,000 --> 00:10:50,000
+And it's a derivative that deals with it as a differential equation.
+
+184
+00:10:50,000 --> 00:10:53,000
+Now, when we mean what it is,
+
+185
+00:10:53,000 --> 00:10:58,000
+I want to make it really clear that we actually just mean initial value problems.
+
+186
+00:10:58,000 --> 00:11:01,000
+So if you compare those two equations,
+
+187
+00:11:01,000 --> 00:11:02,000
+they are really the same, right?
+
+188
+00:11:02,000 --> 00:11:04,000
+The first one is in time.
+
+189
+00:11:04,000 --> 00:11:06,000
+The second one is in space.
+
+190
+00:11:06,000 --> 00:11:08,000
+Strictly speaking, mathematically, right,
+
+191
+00:11:08,000 --> 00:11:11,000
+they are both ordinary differential equations.
+
+192
+00:11:11,000 --> 00:11:16,000
+But in numerical analysis, they are treated differently, right?
+
+193
+00:11:16,000 --> 00:11:19,000
+For example, if you were using the finite element method,
+
+194
+00:11:19,000 --> 00:11:22,000
+the special derivatives, you're going to,
+
+195
+00:11:22,000 --> 00:11:27,000
+the special one, you're going to take care of it by the finite element shape function.
+
+196
+00:11:27,000 --> 00:11:29,000
+Whereas for the time derivative,
+
+197
+00:11:29,000 --> 00:11:32,000
+you're going to have a time integration scheme,
+
+198
+00:11:32,000 --> 00:11:34,000
+something like a backward Euler,
+
+199
+00:11:34,000 --> 00:11:37,000
+a time order version of that.
+
+200
+00:11:37,000 --> 00:11:41,000
+So space and time are dealt with differently.
+
+201
+00:11:41,000 --> 00:11:43,000
+And because of that,
+
+202
+00:11:43,000 --> 00:11:46,000
+when we mean initial value problems,
+
+203
+00:11:46,000 --> 00:11:47,000
+or when we mean all E's,
+
+204
+00:11:47,000 --> 00:11:49,000
+we just mean initial value problems,
+
+205
+00:11:49,000 --> 00:11:51,000
+where there is no special derivative.
+
+206
+00:11:51,000 --> 00:11:53,000
+If there is any special derivative,
+
+207
+00:11:53,000 --> 00:11:56,000
+even if you don't have time derivatives,
+
+208
+00:11:56,000 --> 00:12:00,000
+you have to use the PDE integration.
+
+209
+00:12:00,000 --> 00:12:02,000
+Is that distinction clear?
+
+210
+00:12:02,000 --> 00:12:03,000
+So you also need,
+
+211
+00:12:03,000 --> 00:12:05,000
+for example, if you're solving the first equation,
+
+212
+00:12:05,000 --> 00:12:09,000
+the first equation is mostly like a particle dynamics equation,
+
+213
+00:12:09,000 --> 00:12:14,000
+where you would want to specify both the initial location and the initial velocity.
+
+214
+00:12:14,000 --> 00:12:19,000
+Whereas the second one is more or less like an equilibrium problem in 1D,
+
+215
+00:12:19,000 --> 00:12:23,000
+where you want to specify boundary conditions at the two ends.
+
+216
+00:12:23,000 --> 00:12:26,000
+So that is like a two point boundary value problem,
+
+217
+00:12:26,000 --> 00:12:28,000
+whereas the other one is an initial value problem
+
+218
+00:12:28,000 --> 00:12:32,000
+where you specify two initial conditions at one point.
+
+219
+00:12:32,000 --> 00:12:35,000
+So they are different.
+
+220
+00:12:35,000 --> 00:12:37,000
+So when we mean all E's,
+
+221
+00:12:37,000 --> 00:12:39,000
+in the context of console,
+
+222
+00:12:39,000 --> 00:12:42,000
+we mean initial value problems.
+
+223
+00:12:42,000 --> 00:12:46,000
+So between initial value problems and algebraic problems,
+
+224
+00:12:46,000 --> 00:12:48,000
+there is no distinction.
+
+225
+00:12:48,000 --> 00:12:50,000
+You can also have differential algebraic equations, right?
+
+226
+00:12:50,000 --> 00:12:52,000
+You can have ordinary differential equations
+
+227
+00:12:52,000 --> 00:12:56,000
+between which there is an algebraic constraint.
+
+228
+00:12:56,000 --> 00:13:00,000
+And this can be global or lumped.
+
+229
+00:13:00,000 --> 00:13:01,000
+What I mean by global is,
+
+230
+00:13:01,000 --> 00:13:04,000
+you have just one equation.
+
+231
+00:13:04,000 --> 00:13:08,000
+Whereas, I mean global or domain or distributed.
+
+232
+00:13:08,000 --> 00:13:10,000
+What I mean by domain is,
+
+233
+00:13:10,000 --> 00:13:14,000
+when you can have equations,
+
+234
+00:13:14,000 --> 00:13:17,000
+different ODE's every different place.
+
+235
+00:13:17,000 --> 00:13:21,000
+That will become clearer when I get to an example.
+

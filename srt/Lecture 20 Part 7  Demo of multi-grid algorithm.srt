@@ -1,0 +1,220 @@
+1
+00:00:00,000 --> 00:00:05,120
+Okay, now here I'm only using two grids.
+
+2
+00:00:05,120 --> 00:00:12,240
+How about more? The way to involve more
+
+3
+00:00:12,240 --> 00:00:21,480
+grids is on here. So here, instead of only
+
+4
+00:00:21,480 --> 00:00:23,520
+performing iterations on the cost grid
+
+5
+00:00:23,520 --> 00:00:26,040
+calling Gauss-Seidel, I'm going to make a
+
+6
+00:00:26,040 --> 00:00:28,520
+decision of whether just to Gauss-Seidel
+
+7
+00:00:28,520 --> 00:00:33,680
+or call multigrid further on. So what I
+
+8
+00:00:33,680 --> 00:00:36,080
+will be doing is that I still initialize
+
+9
+00:00:36,080 --> 00:00:39,400
+du to zeros and here I have a condition.
+
+10
+00:00:39,400 --> 00:00:46,160
+If the size of RC, let's see the first
+
+11
+00:00:46,160 --> 00:00:51,380
+dimension, is less than what? First
+
+12
+00:00:51,380 --> 00:00:54,040
+dimension, if I have a 2 by 2, I mean the
+
+13
+00:00:54,040 --> 00:00:56,420
+only thing that makes sense for me to do
+
+14
+00:00:56,420 --> 00:00:58,500
+any iteration would be the size
+
+15
+00:00:58,500 --> 00:01:04,780
+would be less or equal to 4, right? So
+
+16
+00:01:04,780 --> 00:01:08,040
+if the size is equal to 3, that means I
+
+17
+00:01:08,040 --> 00:01:11,280
+have a single grid point in the middle I
+
+18
+00:01:11,280 --> 00:01:18,060
+want to solve. So then I do that. Else I
+
+19
+00:01:18,060 --> 00:01:23,700
+do du equal to multigrid of du and RC.
+
+20
+00:01:23,700 --> 00:01:26,500
+So I'm calling this the same function recursively.
+
+21
+00:01:26,500 --> 00:01:27,660
+So I'm calling this the same function recursively.
+
+22
+00:01:28,500 --> 00:01:32,280
+So now let's see what we get.
+
+23
+00:01:32,280 --> 00:01:38,400
+Okay, u is equal to u0 again. For i goes
+
+24
+00:01:38,400 --> 00:01:41,260
+1, 2, 5. Let's do another five iterations.
+
+25
+00:01:41,260 --> 00:01:49,800
+u is equal to multigrid ue. Okay, I'm
+
+26
+00:01:49,800 --> 00:01:55,300
+done and let's make figure. I am show u
+
+27
+00:01:55,300 --> 00:01:56,780
+title multigrid.
+
+28
+00:01:56,780 --> 00:02:03,560
+Here is what I get. So this is
+
+29
+00:02:03,560 --> 00:02:06,500
+this is like the true solution that I
+
+30
+00:02:06,500 --> 00:02:12,320
+have on here and the solution is not
+
+31
+00:02:12,320 --> 00:02:15,440
+new folder. I want to view the folder. The
+
+32
+00:02:15,440 --> 00:02:18,920
+solution is coming from an image.
+
+33
+00:02:18,920 --> 00:02:23,600
+Solution is coming from image airplane dot
+
+34
+00:02:23,600 --> 00:02:26,620
+outside of. So this is the image and
+
+35
+00:02:26,620 --> 00:02:29,580
+this is the image I copied for the
+
+36
+00:02:29,580 --> 00:02:32,320
+solution from and made my right hand
+
+37
+00:02:32,320 --> 00:02:35,340
+side according to this as an exact
+
+38
+00:02:35,340 --> 00:02:37,820
+solution. And we see like after five
+
+39
+00:02:37,820 --> 00:02:39,680
+iterations of multigrid, we get pretty
+
+40
+00:02:39,680 --> 00:02:44,080
+much the solution right. So if you think
+
+41
+00:02:44,080 --> 00:02:48,840
+of how many regulations is equivalent to
+
+42
+00:02:48,840 --> 00:02:51,720
+First of all, the cost grid iterations is
+
+43
+00:02:51,720 --> 00:02:54,520
+a lot more cheaper and I'm performing 10
+
+44
+00:02:54,520 --> 00:02:56,520
+iterations on every grid level. So 120 English digits.
+
+45
+00:02:56,620 --> 00:03:03,800
+means there are 10 levels right so 10 times 10 means each multi-grid iteration
+
+46
+00:03:03,800 --> 00:03:10,800
+is like a hundred iterations including from the closest to find it's great and
+
+47
+00:03:10,800 --> 00:03:22,120
+if you didn't have multi-grid and you just performing 500 Gauss-Seidel
+
+48
+00:03:22,120 --> 00:03:31,600
+iterations first of all it will take longer because all of this 500 is gonna
+
+49
+00:03:31,600 --> 00:03:47,200
+be on the finest grid and second if I am show the U title 500 Gauss-Seidel okay
+
+50
+00:03:47,200 --> 00:03:51,240
+it still hasn't finished but once it finishes you can see that
+
+51
+00:03:51,240 --> 00:03:52,100
+not finished but it's still going to be on the finest grid and then you can see
+
+52
+00:03:52,100 --> 00:04:00,020
+the only slower but the effect of 500 Gauss-Seidel is not nearly as good as
+
+53
+00:04:00,020 --> 00:04:09,420
+five iterations of multi-grid still going on okay right 500 iterations of
+
+54
+00:04:09,420 --> 00:04:16,200
+Gauss-Seidel we only get this and with multi-grid we have a cheaper 500
+
+55
+00:04:16,200 --> 00:04:20,140
+iterations we get almost the exact solution
+

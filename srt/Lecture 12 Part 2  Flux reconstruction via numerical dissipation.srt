@@ -1,0 +1,472 @@
+1
+00:00:00,000 --> 00:00:22,600
+If we do flux reconstruction by numerical dissipation, that is, if we have a finite volume scheme, we have multiple u's or a single u's. It's going to be equivalent. We have i minus 1, i and i plus 1 as cell averages.
+
+2
+00:00:22,600 --> 00:00:45,700
+And we want to compute the flux at i plus half. The flux at i plus half can simply be the average of the flux applied on u i plus the flux applied on u i plus 1.
+
+3
+00:00:45,700 --> 00:00:52,580
+We know if we just do that, we tried that, the central flux scheme, it gives us parable results.
+
+4
+00:00:52,600 --> 00:00:57,400
+Once we create a shockwave, it basically blows up.
+
+5
+00:00:58,400 --> 00:01:11,260
+And we did a stability analysis to show that this scheme conserves the third power of the solution u, and therefore it never allows the shockwave to dissipate the solution.
+
+6
+00:01:13,420 --> 00:01:21,940
+But if we add something on top of it, if we add something on top of it, that is,
+
+7
+00:01:22,600 --> 00:01:35,300
+proportional to delta x, first of all, and that is, and multiplied by the characteristics, which is df du.
+
+8
+00:01:36,720 --> 00:01:47,280
+And here we should be using a sufficient dissipation that is as big as the maximum absolute value of df du within the range u i and u i plus 1.
+
+9
+00:01:48,000 --> 00:01:52,300
+So let me just say a max of df du times a flux.
+
+10
+00:01:52,600 --> 00:01:59,460
+First of all, the derivative of u, which is u i plus 1 minus u i divided by delta x.
+
+11
+00:02:01,780 --> 00:02:04,660
+So why am I taking the first order derivative here?
+
+12
+00:02:06,640 --> 00:02:18,880
+Because when you plug in this term in a finite volume discretization, remember a finite volume discretization, we have du i dt.
+
+13
+00:02:18,880 --> 00:02:31,200
+So we can say that the derivative of u i plus 1 minus u i minus 1 is equal to f of i minus 1 minus f i minus half minus f i plus half divided by delta t.
+
+14
+00:02:32,080 --> 00:02:41,560
+And that is going to give us, first of all, a term corresponding to a central difference in the flux.
+
+15
+00:02:42,460 --> 00:02:47,520
+So u of i plus 1 minus f of u i minus 1.
+
+16
+00:02:47,680 --> 00:02:48,760
+So this is the first term.
+
+17
+00:02:48,880 --> 00:02:56,260
+And the second term is going to give us plus delta x here cancels with delta x here.
+
+18
+00:02:56,380 --> 00:02:57,960
+And there is one more delta x here.
+
+19
+00:02:58,380 --> 00:03:04,920
+So what we get is a term that is proportional to u i plus 1.
+
+20
+00:03:05,060 --> 00:03:08,460
+So this is the i plus half part minus u i.
+
+21
+00:03:08,560 --> 00:03:16,080
+But there is another contribution of u i from the i minus half part plus u i minus 1.
+
+22
+00:03:17,960 --> 00:03:18,040
+Times...
+
+23
+00:03:18,040 --> 00:03:23,020
+Times the df du.
+
+24
+00:03:23,020 --> 00:03:23,280
+Right?
+
+25
+00:03:28,280 --> 00:03:42,060
+So by adding a flux that is proportional to the first order derivative of u, we are essentially adding a second order derivative in the right-hand side of this equation.
+
+26
+00:03:42,780 --> 00:03:47,020
+So here, another way to think about this is...
+
+27
+00:03:47,020 --> 00:03:48,020
+If...
+
+28
+00:03:48,040 --> 00:03:53,320
+We want to use finite volume scheme to discretize a second order spatial derivative,
+
+29
+00:03:54,660 --> 00:03:59,440
+we should be adding a first order derivative in the flux function.
+
+30
+00:04:00,380 --> 00:04:06,040
+And in this case, we want to, in order to achieve the same upwinding effect,
+
+31
+00:04:07,900 --> 00:04:13,940
+here is that, without knowing which side the characteristics comes from,
+
+32
+00:04:14,720 --> 00:04:17,480
+we want to add a numerical dissipation.
+
+33
+00:04:18,040 --> 00:04:22,840
+That is proportional to delta x times the second order derivative of x.
+
+34
+00:04:24,180 --> 00:04:31,880
+Therefore, in the flux, we add a term that is proportional to the first order derivative of u to x times the grid size.
+
+35
+00:04:32,740 --> 00:04:33,760
+It's a very good question.
+
+36
+00:04:33,880 --> 00:04:35,900
+This term is supposed to be delta x squared.
+
+37
+00:04:36,740 --> 00:04:37,800
+Yes, if...
+
+38
+00:04:37,800 --> 00:04:42,180
+If we want to discretize the second order derivative, it should be delta x squared.
+
+39
+00:04:42,620 --> 00:04:46,640
+But in this case, we want to multiply another delta x here.
+
+40
+00:04:46,640 --> 00:04:47,320
+Because...
+
+41
+00:04:47,320 --> 00:04:55,820
+If you remember, the additional dissipation term is proportional to delta x.
+
+42
+00:04:56,120 --> 00:05:00,620
+So what we want to discretize is delta x times the second order derivative.
+
+43
+00:05:01,000 --> 00:05:05,040
+Which means over here, it is okay to have divided by delta x.
+
+44
+00:05:05,600 --> 00:05:05,760
+Right.
+
+45
+00:05:06,860 --> 00:05:07,180
+Yes?
+
+46
+00:05:07,180 --> 00:05:12,400
+Going back to the previous page where you were just showing why we use delta x.
+
+47
+00:05:14,520 --> 00:05:16,100
+The last green line.
+
+48
+00:05:16,600 --> 00:05:17,180
+Where...
+
+49
+00:05:17,180 --> 00:05:19,820
+Where did that arise?
+
+50
+00:05:20,140 --> 00:05:21,420
+Where did that arise?
+
+51
+00:05:21,420 --> 00:05:25,940
+So that arises in the Taylor series analysis of ui minus 1.
+
+52
+00:05:26,380 --> 00:05:28,460
+So let me write it over here.
+
+53
+00:05:28,760 --> 00:05:46,860
+So ui minus 1 is equal to ui minus partial u partial x times delta x plus half of delta x squared partial squared u partial x squared.
+
+54
+00:05:47,180 --> 00:05:48,020
+Right.
+
+55
+00:05:48,020 --> 00:06:04,180
+So if we do that and plug this ui minus 1 into this equation, because we're dividing by delta x, we get this term out.
+
+56
+00:06:04,640 --> 00:06:07,300
+So this term is going to be here.
+
+57
+00:06:08,600 --> 00:06:13,640
+And we also have this term, which we have delta x squared divided by delta x.
+
+58
+00:06:14,060 --> 00:06:17,140
+So we have a term that is proportional to the second order derivative.
+
+59
+00:06:17,180 --> 00:06:22,420
+derivative. So I think I'm missing a half over here. So half is going to be added to
+
+60
+00:06:22,420 --> 00:06:31,880
+delta x. And so if that's the case, I'm probably also missing a half over here. So the appropriate
+
+61
+00:06:31,880 --> 00:06:40,880
+amount of numerical dissipation is half of delta x times the characteristic speed. So
+
+62
+00:06:40,880 --> 00:06:47,600
+here I would also have half of that times the characteristic speed. So the question
+
+63
+00:06:47,600 --> 00:06:54,040
+is why don't we apply upwinding to the linear combinations of variables that has just a
+
+64
+00:06:54,040 --> 00:07:01,760
+single characteristic. The reason that is difficult is because this linear combination
+
+65
+00:07:01,760 --> 00:07:09,140
+changes in time. So for example, if we have a shock wave, then at the next time step,
+
+66
+00:07:09,140 --> 00:07:10,600
+even at the same grid point,
+
+67
+00:07:10,600 --> 00:07:10,700
+the
+
+68
+00:07:10,700 --> 00:07:10,860
+shock
+
+69
+00:07:10,860 --> 00:07:16,900
+wave may have sweeped over the grid point. And therefore, before the time step and after
+
+70
+00:07:16,900 --> 00:07:21,640
+the time step, the particular linear combination, which depends on the matrix, which depends
+
+71
+00:07:21,640 --> 00:07:28,000
+on the solution, can change dramatically. So the particular linear combination you can
+
+72
+00:07:28,000 --> 00:07:35,480
+compute before that time step may become no longer the appropriate linear combination
+
+73
+00:07:35,480 --> 00:07:40,680
+to use for that characteristic after the time step.
+
+74
+00:07:40,680 --> 00:07:50,720
+Ahand Prof. giving a smallúp
+
+75
+00:07:50,720 --> 00:08:05,180
+lên
+
+76
+00:08:05,180 --> 00:08:07,100
+learning CHAESAR oben indulgen empresas
+
+77
+00:08:07,100 --> 00:08:08,580
+If f is a linear function, can we use this?
+
+78
+00:08:08,580 --> 00:08:09,200
+That's right. That's right.
+
+79
+00:08:09,200 --> 00:08:09,300
+if a Retruckeresto a linear function?
+
+80
+00:08:09,300 --> 00:08:12,480
+why is it important to take the maximum DFTU?
+
+81
+00:08:14,460 --> 00:08:20,440
+This is because, again, of the entropy condition.
+
+82
+00:08:21,340 --> 00:08:23,320
+So remember, the entropy condition says that
+
+83
+00:08:23,320 --> 00:08:28,980
+no characteristics can emerge from a discontinuity, right?
+
+84
+00:08:30,200 --> 00:08:36,740
+And in this case, because we had a count example
+
+85
+00:08:36,740 --> 00:08:41,320
+that doesn't satisfy the entropy condition in the Berger's equation.
+
+86
+00:08:41,740 --> 00:08:49,980
+So if we have an inverted shock wave where on the left u is equal to minus 1,
+
+87
+00:08:50,180 --> 00:08:52,300
+on the right u is equal to plus 1.
+
+88
+00:08:53,220 --> 00:09:01,340
+What happens is that the flux on both left and right of the shock wave
+
+89
+00:09:01,340 --> 00:09:02,620
+is going to be the same.
+
+90
+00:09:03,520 --> 00:09:06,320
+So that is going to prevent DUT.
+
+91
+00:09:06,740 --> 00:09:08,280
+DUT to change.
+
+92
+00:09:08,620 --> 00:09:14,740
+That is, prevent u to change by this difference in the flux alone.
+
+93
+00:09:17,060 --> 00:09:20,280
+What's going to, in this scheme, in this scheme,
+
+94
+00:09:20,280 --> 00:09:24,840
+what is enforcing the entropy condition to be satisfied
+
+95
+00:09:24,840 --> 00:09:27,480
+is actually this numerical dissipation here.
+
+96
+00:09:28,600 --> 00:09:31,280
+And the numerical dissipation here,
+
+97
+00:09:31,560 --> 00:09:34,580
+we need to take the maximum DFTU here
+
+98
+00:09:34,580 --> 00:09:36,720
+in order for the numerical dissipation,
+
+99
+00:09:36,740 --> 00:09:40,420
+to be sufficiently strong to satisfy the entropy condition.
+
+100
+00:09:41,600 --> 00:09:43,900
+All right, so for example, the grid point here
+
+101
+00:09:43,900 --> 00:09:46,780
+is going to be pulled downwards.
+
+102
+00:09:46,980 --> 00:09:49,040
+The grid point here is going to be pulled upwards
+
+103
+00:09:49,040 --> 00:09:50,740
+by this numerical dissipation.
+
+104
+00:09:53,520 --> 00:09:54,740
+Does that answer your question?
+
+105
+00:09:55,020 --> 00:09:55,200
+Yes.
+
+106
+00:09:56,260 --> 00:09:58,300
+So in a system of conservation loss,
+
+107
+00:09:59,300 --> 00:10:01,420
+we can apply the same scheme.
+
+108
+00:10:01,640 --> 00:10:04,180
+We can compute the flux as the average
+
+109
+00:10:04,180 --> 00:10:06,700
+between the flux on the left and the flux on the right.
+
+110
+00:10:06,740 --> 00:10:13,480
+Plus a delta x times the maximum of the absolute values
+
+111
+00:10:13,480 --> 00:10:16,140
+of different characteristic speeds.
+
+112
+00:10:17,500 --> 00:10:19,260
+For a shallow water equation,
+
+113
+00:10:20,020 --> 00:10:25,960
+this maximum DFTU would be the absolute value of u plus square root of gh.
+
+114
+00:10:26,800 --> 00:10:32,280
+So this term, times u plus 1 minus ui,
+
+115
+00:10:32,280 --> 00:10:34,200
+is going to be added.
+
+116
+00:10:36,740 --> 00:10:42,380
+So this is the dissipation flux that you want to add
+
+117
+00:10:42,380 --> 00:10:44,480
+to your central average flux
+
+118
+00:10:44,480 --> 00:10:47,040
+to get the appropriate solution.
+

@@ -1,0 +1,72 @@
+1
+00:00:00,000 --> 00:00:05,080
+So everybody should see a screen like that right now, right? So you can look
+
+2
+00:00:05,080 --> 00:00:12,840
+at the project description here. So solve the differential equation partial t
+
+3
+00:00:12,840 --> 00:00:17,960
+partial time equal to a times partial square t partial x square plus a right
+
+4
+00:00:17,960 --> 00:00:22,560
+hand side. So that's basically our project while we're removing one of the
+
+5
+00:00:22,560 --> 00:00:34,140
+terms. And use a, b, and c as specified also tc is here. Initial condition is t
+
+6
+00:00:34,140 --> 00:00:41,100
+equal to 325 for all x. Boundary condition is t at times at x equal to 0
+
+7
+00:00:41,100 --> 00:00:46,800
+is equal to the same 325 and the right hand side is going to be a
+
+8
+00:00:46,800 --> 00:00:51,900
+Newman boundary condition. The derivative is equal to 10.
+
+9
+00:00:52,560 --> 00:01:00,600
+And given the solution at t equal to 300 start by writing a function mini
+
+10
+00:01:00,600 --> 00:01:07,260
+project 1 where n is the number of grid points which include x equal to 0 and x
+
+11
+00:01:07,260 --> 00:01:18,300
+equal to 1 and t is the final time at which the solution is sought. All right.
+
+12
+00:01:18,300 --> 00:01:22,520
+So here we are supposed to write a
+
+13
+00:01:22,520 --> 00:01:22,540
+solution. So we are supposed to write a solution. So we are supposed to write a
+
+14
+00:01:22,540 --> 00:01:25,300
+function.
+
+15
+00:01:28,500 --> 00:01:38,380
+function result is equal to mini project 1, n is the number of grid points
+
+16
+00:01:38,380 --> 00:01:48,880
+and what is 300. Oh and t, t is the time. So you are going to code up a functions
+
+17
+00:01:48,880 --> 00:01:52,500
+basically assign result to t.
+
+18
+00:01:52,500 --> 00:01:55,460
+And then you are going to write a function. So you are going to write a
+

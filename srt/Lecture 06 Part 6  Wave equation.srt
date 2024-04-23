@@ -1,0 +1,256 @@
+1
+00:00:00,000 --> 00:00:04,600
+An example I want to give is the so-called wave equation.
+
+2
+00:00:05,880 --> 00:00:12,480
+So the wave equation doesn't look like a system of equations in the beginning, but somehow it is.
+
+3
+00:00:13,060 --> 00:00:19,980
+The wave equation is an equation involving a second-order derivative in time.
+
+4
+00:00:19,980 --> 00:00:27,460
+Okay, so if we have a first-order derivative, it is the heat equation.
+
+5
+00:00:28,220 --> 00:00:30,060
+It is a parabolic equation.
+
+6
+00:00:31,200 --> 00:00:35,480
+It means the function u is going to diffuse out after time.
+
+7
+00:00:36,360 --> 00:00:41,740
+But if we have a second-order derivative in time, the equation behaves completely differently.
+
+8
+00:00:44,040 --> 00:00:49,740
+To see that, let us use two auxiliary equations.
+
+9
+00:00:49,980 --> 00:00:55,020
+Let's do phi and psi.
+
+10
+00:00:57,040 --> 00:00:59,040
+So let's introduce these two variables.
+
+11
+00:00:59,760 --> 00:01:10,160
+And phi is defined as the derivative of u to t, and psi is defined as the derivative of u to x.
+
+12
+00:01:12,160 --> 00:01:16,960
+So, first of all, just by their definition,
+
+13
+00:01:18,000 --> 00:01:19,960
+we know that partial heat is going to be equal to the derivative of u to t.
+
+14
+00:01:19,960 --> 00:01:19,980
+So we know that partial heat is going to be equal to the derivative of u to x.
+
+15
+00:01:19,980 --> 00:01:28,240
+So we know that partial psi, partial t, is equal to the partial square of u, partial x, partial t, right?
+
+16
+00:01:28,320 --> 00:01:29,480
+Just by definition of psi.
+
+17
+00:01:30,500 --> 00:01:38,020
+Which is actually equal to partial phi, partial x, also by the definition of phi.
+
+18
+00:01:38,860 --> 00:01:42,280
+So that's one equation we obtained through the definition.
+
+19
+00:01:42,280 --> 00:01:42,960
+Okay.
+
+20
+00:01:48,000 --> 00:01:49,280
+Another equation.
+
+21
+00:01:49,980 --> 00:01:52,980
+Another equation we can obtain is from the equation.
+
+22
+00:01:52,980 --> 00:02:02,980
+So the equation partial square u, partial t square can be written as a time derivative of a time derivative,
+
+23
+00:02:03,180 --> 00:02:05,400
+which is time derivative of phi.
+
+24
+00:02:07,300 --> 00:02:14,940
+It is equal to the spatial derivative of u,
+
+25
+00:02:14,940 --> 00:02:19,300
+which is spatial derivative of spatial derivative, that is, partial psi.
+
+26
+00:02:19,300 --> 00:02:20,300
+Partial x.
+
+27
+00:02:20,300 --> 00:02:23,300
+All right.
+
+28
+00:02:23,300 --> 00:02:28,300
+So, we have these two equations, and we can write them down together.
+
+29
+00:02:28,300 --> 00:02:32,300
+Partial psi, partial t is partial phi, partial x.
+
+30
+00:02:32,300 --> 00:02:36,300
+Partial phi, partial t is equal to partial psi, partial x.
+
+31
+00:02:38,300 --> 00:02:40,300
+What an interesting system.
+
+32
+00:02:41,300 --> 00:02:46,300
+It corresponds to our previous example where this matrix,
+
+33
+00:02:47,300 --> 00:02:48,300
+where this matrix,
+
+34
+00:02:49,300 --> 00:02:55,300
+u11, u12, u21, u22 is equal to what?
+
+35
+00:02:59,300 --> 00:03:05,300
+0, 0, because the psi time derivative does not depend on psi spatial derivative.
+
+36
+00:03:05,300 --> 00:03:08,300
+And the phi time derivative doesn't depend on phi spatial derivative.
+
+37
+00:03:08,300 --> 00:03:10,300
+They only have a coupling term.
+
+38
+00:03:11,300 --> 00:03:13,300
+And it's minus 1, minus 1 here, right?
+
+39
+00:03:13,300 --> 00:03:18,300
+Any questions about the derivation from the wave equation?
+
+40
+00:03:18,300 --> 00:03:22,300
+From the wave equation to the system of two equations we are solving here?
+
+41
+00:03:27,300 --> 00:03:28,300
+No?
+
+42
+00:03:30,300 --> 00:03:31,300
+Okay.
+
+43
+00:03:32,300 --> 00:03:37,300
+And what are the eigenvalues of that matrix?
+
+44
+00:03:41,300 --> 00:03:45,300
+Of course, I don't expect you to do that mentally.
+
+45
+00:03:45,300 --> 00:03:49,300
+But if you just file MATLAB,
+
+46
+00:03:52,300 --> 00:03:55,300
+it's minus 1 and 1.
+
+47
+00:04:02,300 --> 00:04:09,300
+So, the eigenvalues of this matrix is minus 1 and 1.
+
+48
+00:04:09,300 --> 00:04:13,300
+And remember our stability analysis.
+
+49
+00:04:13,300 --> 00:04:26,300
+The lambda k1 would be then equal to our e to the jk delta x minus e to the minus jk delta x
+
+50
+00:04:26,300 --> 00:04:29,300
+divided by 2 delta x times 1.
+
+51
+00:04:29,300 --> 00:04:37,300
+Lambda k2 would be equal to the same thing times minus 1.
+
+52
+00:04:39,300 --> 00:04:40,300
+Right?
+
+53
+00:04:40,300 --> 00:04:41,300
+Okay.
+
+54
+00:04:41,300 --> 00:04:50,300
+And if you write the exponential of complex of purely imaginary numbers into sines and cosines,
+
+55
+00:04:50,300 --> 00:04:56,300
+you're going to find them to be purely imaginary numbers.
+
+56
+00:04:56,300 --> 00:05:03,300
+They go like that all the way to, let me see, this is 1 minus 1 divided by delta x.
+
+57
+00:05:03,300 --> 00:05:10,300
+They go all the way to 1 over delta x times, this is imaginary axis.
+
+58
+00:05:10,300 --> 00:05:12,300
+This is real axis.
+
+59
+00:05:12,300 --> 00:05:17,300
+And they go also all the way to minus 1 over delta x on the imaginary axis.
+
+60
+00:05:17,300 --> 00:05:23,300
+So, all the eigenvalues of both lambda k1 and lambda k2 lies in that region.
+
+61
+00:05:26,300 --> 00:05:27,300
+Okay.
+
+62
+00:05:29,300 --> 00:05:33,300
+So, we need something not forward order.
+
+63
+00:05:33,300 --> 00:05:37,300
+We need a Rangakala scheme or something else so that we have a stability region
+
+64
+00:05:37,300 --> 00:05:41,300
+that encompasses the imaginary axis.
+

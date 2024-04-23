@@ -1,0 +1,172 @@
+1
+00:00:00,000 --> 00:00:12,440
+So there is a potential pitfall here. A potential pitfall here is to approximate this solution v using exactly the same numerical method as what I solved for u h.
+
+2
+00:00:12,440 --> 00:00:35,100
+That sometimes doesn't work. Because the pitfall here is that if I solve for a, so let me see, I have a L o of u h minus u, I have already represented as a of u h, u hat, which is the adjoint solution minus L of u hat.
+
+3
+00:00:35,100 --> 00:00:42,420
+So if I approximate this by a of u h.
+
+4
+00:00:42,440 --> 00:00:54,940
+L of u h and u hat of h minus L of u hat of h, where u hat of h is solved using exactly the same method as I solved for this u h.
+
+5
+00:00:56,200 --> 00:01:02,340
+For example, if I have Poisson's equation, remember our a is symmetric, right?
+
+6
+00:01:03,120 --> 00:01:05,500
+So a of u and v is equal to a of v and u.
+
+7
+00:01:06,040 --> 00:01:08,500
+If a is symmetric, what is its adjoint operator?
+
+8
+00:01:11,280 --> 00:01:12,420
+It's itself, right?
+
+9
+00:01:12,440 --> 00:01:15,160
+Symmetric is also called self-adjoint.
+
+10
+00:01:16,360 --> 00:01:24,160
+Okay, and then I can basically replace the right-hand side and solve using exactly the same numerical method.
+
+11
+00:01:24,740 --> 00:01:28,920
+But what is the problem if I do that for approximating this u hat?
+
+12
+00:01:33,600 --> 00:01:35,340
+Yes, this would be zero.
+
+13
+00:01:35,340 --> 00:01:36,120
+Exactly.
+
+14
+00:01:37,120 --> 00:01:42,340
+So if u hat of h belongs to this...
+
+15
+00:01:42,440 --> 00:01:46,620
+This finite dimensional space, xh of v.
+
+16
+00:01:49,140 --> 00:01:57,160
+Then, by definition of the finite element solution, so remember the finite element solution, u h,
+
+17
+00:01:57,960 --> 00:02:07,180
+it's that particular u h in the finite dimensional space that makes the residual equal to zero for any v in this space.
+
+18
+00:02:08,440 --> 00:02:10,940
+My approximate residual is going to be zero.
+
+19
+00:02:10,940 --> 00:02:11,080
+Okay.
+
+20
+00:02:11,080 --> 00:02:20,480
+So I cannot use the same numerical method or the adjoint version of the same numerical method.
+
+21
+00:02:20,480 --> 00:02:26,420
+So for that particular u hat.
+
+22
+00:02:27,600 --> 00:02:33,400
+The normal practice is to have a richer basis, is to have one...
+
+23
+00:02:33,400 --> 00:02:40,900
+For example, if I solve u using piecewise linear basis function, I can solve for u hat using piecewise.
+
+24
+00:02:40,900 --> 00:02:41,000
+Okay.
+
+25
+00:02:41,000 --> 00:02:41,040
+So I can solve u using piecewise linear basis function.
+
+26
+00:02:41,040 --> 00:02:50,100
+And that will give me a higher order solution for this u hat and give me a proper area estimate, a posteriori area estimate.
+
+27
+00:02:51,060 --> 00:02:54,160
+So the posteriori area estimate is not going to be free.
+
+28
+00:02:54,280 --> 00:02:56,420
+You need to spend additional effort to get that.
+
+29
+00:02:57,700 --> 00:02:58,100
+All right.
+
+30
+00:02:59,520 --> 00:03:07,680
+So normally, u hat is approximated...
+
+31
+00:03:07,680 --> 00:03:07,980
+Approximated...
+
+32
+00:03:07,980 --> 00:03:10,820
+Approximated...
+
+33
+00:03:10,820 --> 00:03:17,560
+with higher order solution.
+
+34
+00:03:19,240 --> 00:03:23,380
+Or you can just refine the grid by one more factor
+
+35
+00:03:23,380 --> 00:03:26,860
+and solve for u hat h.
+
+36
+00:03:28,140 --> 00:03:28,460
+All right.
+
+37
+00:03:32,040 --> 00:03:35,740
+Okay, so this finishes our discussion on error estimation.
+
+38
+00:03:37,000 --> 00:03:38,620
+And the remainder of this lecture
+
+39
+00:03:38,620 --> 00:03:40,900
+will go into more than one dimension,
+
+40
+00:03:41,040 --> 00:03:42,840
+go to two-dimensional finite elements
+
+41
+00:03:42,840 --> 00:03:45,120
+to see how do we apply what we have learned
+
+42
+00:03:45,120 --> 00:03:46,780
+into higher dimensions,
+
+43
+00:03:47,200 --> 00:03:49,540
+which can deal with more complex geometry.
+

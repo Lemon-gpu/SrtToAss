@@ -1,0 +1,172 @@
+1
+00:00:00,000 --> 00:00:01,880
+Then, the interior of that circle?
+
+2
+00:00:03,880 --> 00:00:07,520
+Yes, everything interior of that circle is the stability region.
+
+3
+00:00:07,960 --> 00:00:08,680
+So if, yeah.
+
+4
+00:00:09,440 --> 00:00:15,360
+If you are exactly on the edge of the circle, then if you look at the error equation,
+
+5
+00:00:16,560 --> 00:00:19,520
+the error is going to linearly amplify.
+
+6
+00:00:19,960 --> 00:00:26,680
+Because whatever error you have previously, you have the same amount of error in your next iteration
+
+7
+00:00:26,680 --> 00:00:30,140
+plus the additional contribution of the error from the truncation.
+
+8
+00:00:31,100 --> 00:00:36,440
+So that means the worst-case scenario in the growth of the error is going to be linear,
+
+9
+00:00:36,620 --> 00:00:38,060
+but it's still going to be unbounded.
+
+10
+00:00:38,440 --> 00:00:43,860
+It's a lot better than the exponential growth you're going to have if you are outside the circle,
+
+11
+00:00:44,180 --> 00:00:46,900
+but you still can have unbounded growth.
+
+12
+00:00:47,780 --> 00:00:51,940
+While if you are within the circle, then if you look at the error equation,
+
+13
+00:00:51,940 --> 00:00:56,460
+the error without contribution from the truncation error is going to shrink
+
+14
+00:00:56,460 --> 00:00:56,660
+from the exponential growth.
+
+15
+00:00:56,680 --> 00:00:57,420
+So that's the problem for each time step.
+
+16
+00:00:58,300 --> 00:01:01,740
+So even with the addition of the truncation error every time step,
+
+17
+00:01:02,240 --> 00:01:04,440
+your solution error is going to stay bounded.
+
+18
+00:01:06,600 --> 00:01:11,080
+So the edge of the circle is kind of a boundary, like borderline case.
+
+19
+00:01:12,260 --> 00:01:19,620
+So this x, when we are looking at an ODE, is just a notation for, like, a single variable of time.
+
+20
+00:01:20,440 --> 00:01:22,060
+It's the solution of the ODE.
+
+21
+00:01:22,960 --> 00:01:25,520
+So it's not, yeah, so it's not positioned.
+
+22
+00:01:25,520 --> 00:01:26,520
+Sorry for the confusion.
+
+23
+00:01:26,680 --> 00:01:27,780
+Potential confusion.
+
+24
+00:01:27,960 --> 00:01:35,660
+So when we are analyzing ODE, we can use x as a dependent variable of t.
+
+25
+00:01:36,220 --> 00:01:39,980
+But when we get to the PDE, x becomes an independent variable.
+
+26
+00:01:41,680 --> 00:01:46,920
+So that's, yeah, so let's distinguish the ODE case from the PDE analysis.
+
+27
+00:01:47,840 --> 00:01:47,980
+Yes?
+
+28
+00:01:47,980 --> 00:01:49,300
+And then we can also get k.
+
+29
+00:01:50,060 --> 00:01:54,480
+Oh, also again, in the ODE analysis, we use the k to denote time step.
+
+30
+00:01:55,300 --> 00:01:56,460
+And when we become...
+
+31
+00:01:56,460 --> 00:02:00,240
+We go to the PDE case, we can no longer use k to denote time step,
+
+32
+00:02:00,320 --> 00:02:03,640
+and we use m to denote time step.
+
+33
+00:02:03,640 --> 00:02:09,020
+So let's make this forward ODE analysis separate.
+
+34
+00:02:09,440 --> 00:02:10,460
+Let's draw a box.
+
+35
+00:02:11,320 --> 00:02:15,840
+This is x of t, not space.
+
+36
+00:02:17,280 --> 00:02:23,460
+k is the time step, not space.
+
+37
+00:02:24,520 --> 00:02:24,780
+Okay.
+
+38
+00:02:24,780 --> 00:02:24,860
+Okay.
+
+39
+00:02:26,460 --> 00:02:28,340
+Make sure, like, when we are looking at ODE,
+
+40
+00:02:28,620 --> 00:02:34,880
+the set of notation we can use is a lot different,
+
+41
+00:02:35,160 --> 00:02:40,380
+just because there are so many more variables we have to use in PDEs.
+
+42
+00:02:42,640 --> 00:02:43,160
+Yeah.
+
+43
+00:02:44,600 --> 00:02:45,780
+Any other questions?
+

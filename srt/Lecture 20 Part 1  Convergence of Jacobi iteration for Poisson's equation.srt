@@ -1,0 +1,1336 @@
+1
+00:00:00,000 --> 00:00:06,800
+Alright, during our last lecture we looked at Jacobi method for solving
+
+2
+00:00:06,800 --> 00:00:13,160
+linear equations and we applied the Jacobi method to solving the
+
+3
+00:00:13,160 --> 00:00:19,820
+discretized Poisson's equation. We ran a hundred iterations, we see something, a
+
+4
+00:00:19,820 --> 00:00:25,860
+solution that looks qualitatively like what we expect, the exact solution, but
+
+5
+00:00:25,860 --> 00:00:31,080
+there is still a difference. We ran a thousand iterations, now it's pretty much
+
+6
+00:00:31,080 --> 00:00:36,800
+the same as the Poisson's equation. We also apply the same method to the 2D
+
+7
+00:00:36,800 --> 00:00:42,160
+Poisson's equation, and after many iterations we see the difference between
+
+8
+00:00:42,160 --> 00:00:49,220
+the true solution and the intuitive solution we get, or the solution error is
+
+9
+00:00:49,220 --> 00:00:55,640
+more or less like a very smooth function. So today let's perform an
+
+10
+00:00:55,640 --> 00:00:55,740
+analysis.
+
+11
+00:00:55,860 --> 00:01:02,580
+to see why that is the case. In the next lecture we figured out that the solution
+
+12
+00:01:02,580 --> 00:01:09,660
+error, ek, that is defined as the difference between the intuitive solution
+
+13
+00:01:09,660 --> 00:01:18,780
+at iteration k minus the exact solution. It satisfies an equation that is ek plus
+
+14
+00:01:18,780 --> 00:01:25,640
+1 is equal to D inverse minus L plus U times
+
+15
+00:01:25,640 --> 00:01:37,820
+Ek. While this whole matrix here is defined as the Jacobi iteration matrix.
+
+16
+00:01:37,820 --> 00:01:44,880
+This equation is derived by subtracting the iteration equation for Uk,
+
+17
+00:01:44,880 --> 00:01:51,520
+which is Uk plus one at D is equal to L plus U minus times Uk plus the right-hand
+
+18
+00:01:51,520 --> 00:01:54,560
+issue of the equation here. And this entire equation, which is an iteration. In this way we can wäre let's all the times for the course of its same thing so
+
+19
+00:01:54,560 --> 00:01:55,080
+the number of times which can be separate dropatroxially because the numerator also equals the entirety is equal to the top droxiously so well and in terms of general situation we have that now pretty much we can there are only only doubleicked. So let's nu plus y example here. When we'll derive this equation to the upper left column we will have equalY you should have different Claus Grid
+
+20
+00:01:55,080 --> 00:02:04,900
+the right hand side B, from the equation that is satisfied by the exact solution, which is this.
+
+21
+00:02:06,480 --> 00:02:10,500
+So if we subtract these two equations, we derive an equation for the error.
+
+22
+00:02:10,500 --> 00:02:18,580
+And now we started looking at what is the eigenvalues and eigenvectors of this iteration matrix.
+
+23
+00:02:18,580 --> 00:02:26,580
+If we can represent this iteration matrix using eigenvectors and eigenvalues,
+
+24
+00:02:26,580 --> 00:02:32,580
+V is a matrix whose columns are the eigenvectors of the matrix,
+
+25
+00:02:32,580 --> 00:02:38,580
+and lambda is a diagonal matrix whose entries are the eigenvalues of the matrix,
+
+26
+00:02:38,580 --> 00:02:43,580
+and V inverse, that's an eigenvalue decomposition of the matrix.
+
+27
+00:02:43,580 --> 00:02:47,580
+Then we know that E would then be the eigenvalue of the matrix.
+
+28
+00:02:47,580 --> 00:02:48,580
+Then we know that E would then be the eigenvalue decomposition of the matrix.
+
+29
+00:02:48,580 --> 00:03:01,920
+and it can be equal to V times lambda, to the kth power, times V inverse of E zero.
+
+30
+00:03:03,040 --> 00:03:06,220
+This is simply by applying this iteration matrix again and again,
+
+31
+00:03:06,220 --> 00:03:13,140
+and V would cancel with V inverse when you multiply two of the same matrices,
+
+32
+00:03:13,140 --> 00:03:17,080
+so you get lambda to the power of k.
+
+33
+00:03:17,080 --> 00:03:18,080
+We're going to see that,
+
+34
+00:03:18,080 --> 00:03:18,580
+when we run a computer,
+
+35
+00:03:18,580 --> 00:03:26,660
+Whatever lambda is closest to 1 is going to converge the slowest.
+
+36
+00:03:26,660 --> 00:03:31,340
+If there is a lambda that is equal to 1 or greater than 1, the iteration won't converge
+
+37
+00:03:31,340 --> 00:03:32,760
+at all.
+
+38
+00:03:32,760 --> 00:03:38,080
+If all of the lambdas are less than 1, then Jacobi is going to converge.
+
+39
+00:03:38,080 --> 00:03:44,620
+And if there is even a single mode, a single lambda that is very close to 1, then Jacobi
+
+40
+00:03:44,620 --> 00:03:48,160
+would converge slowly.
+
+41
+00:03:48,160 --> 00:03:50,400
+And how slow would it converge?
+
+42
+00:03:50,400 --> 00:03:55,700
+Would depend on how close lambda is to 1.
+
+43
+00:03:55,700 --> 00:04:01,300
+For example, if a particular lambda, let's say lambda 1 is the eigenvalue closest to
+
+44
+00:04:01,300 --> 00:04:07,200
+1, is equal to 1 minus some small epsilon, which means there is one eigenvalue very,
+
+45
+00:04:07,200 --> 00:04:09,840
+very close to 1.
+
+46
+00:04:09,840 --> 00:04:18,140
+Then for, in order for ek to decrease by a significant
+
+47
+00:04:18,140 --> 00:04:28,740
+factor, we have to put enough k such that, so let's say if I want ek to be about half
+
+48
+00:04:28,740 --> 00:04:39,900
+of e0, that would require a k such that 1 minus epsilon to the k is about a half.
+
+49
+00:04:39,900 --> 00:04:47,460
+Do we know an approximation to this number, 1 minus epsilon to a large, so 1 minus a small
+
+50
+00:04:47,460 --> 00:04:47,960
+number?
+
+51
+00:04:48,140 --> 00:04:50,320
+To a large power?
+
+52
+00:04:50,320 --> 00:04:54,380
+Does anybody know a good approximation to what that is?
+
+53
+00:04:54,380 --> 00:04:56,380
+Pardon?
+
+54
+00:04:56,380 --> 00:04:59,320
+1 minus k epsilon.
+
+55
+00:04:59,320 --> 00:05:06,380
+1 minus k epsilon, that is a good approximation when k is small but epsilon, so when epsilon
+
+56
+00:05:06,380 --> 00:05:09,540
+is small but k is not very large.
+
+57
+00:05:09,540 --> 00:05:14,460
+If both epsilon is very small and k is very large, do we know a better approximation to
+
+58
+00:05:14,460 --> 00:05:15,460
+this?
+
+59
+00:05:15,460 --> 00:05:17,460
+Okay, so let me tell you.
+
+60
+00:05:17,460 --> 00:05:25,420
+1 minus epsilon can be approximated by e to the minus epsilon, right?
+
+61
+00:05:25,420 --> 00:05:32,800
+So 1 minus epsilon to the kth power can be approximated by e to the minus epsilon k.
+
+62
+00:05:32,800 --> 00:05:39,460
+So that captures kind of the exponential decay of this iteration while epsilon is a small
+
+63
+00:05:39,460 --> 00:05:41,340
+number.
+
+64
+00:05:41,340 --> 00:05:46,700
+So in order for 1 minus epsilon to the kth power to be small enough.
+
+65
+00:05:46,700 --> 00:05:51,740
+Small enough for the convergence to be visible.
+
+66
+00:05:51,740 --> 00:06:02,740
+k needs to be on the order of 1 over epsilon for e to the minus epsilon k to be visible.
+
+67
+00:06:02,740 --> 00:06:04,820
+Okay.
+
+68
+00:06:04,820 --> 00:06:14,580
+Or in fact, exactly would be log 2 in order for e to the minus epsilon k to be about 1
+
+69
+00:06:14,580 --> 00:06:15,580
+half.
+
+70
+00:06:15,580 --> 00:06:16,580
+Alright.
+
+71
+00:06:16,580 --> 00:06:25,620
+So, a smaller epsilon means a proportionally bigger k for the convergence.
+
+72
+00:06:25,620 --> 00:06:34,900
+So if I move the eigenvalue from, the largest eigenvalue from 0.99 to 0.999, so one more
+
+73
+00:06:34,900 --> 00:06:42,280
+nine, means you approximately requires how many more iterations to converge according
+
+74
+00:06:42,280 --> 00:06:44,660
+to that.
+
+75
+00:06:44,660 --> 00:06:45,980
+If lambda goes from 0.99 to 0.99.
+
+76
+00:06:45,980 --> 00:06:46,460
+Okay.
+
+77
+00:06:46,460 --> 00:06:47,460
+So lambda goes from 0.99 to 0.999.
+
+78
+00:06:47,460 --> 00:06:51,460
+How much bigger of a k is required?
+
+79
+00:06:51,460 --> 00:06:53,460
+10 times bigger.
+
+80
+00:06:53,460 --> 00:06:54,460
+Yeah, that's right.
+
+81
+00:06:54,460 --> 00:06:55,460
+Alright.
+
+82
+00:06:55,460 --> 00:07:02,460
+So now we understand how the eigenvalues and eigen, it's going to influence the Jacobi
+
+83
+00:07:02,460 --> 00:07:04,080
+iteration matrix.
+
+84
+00:07:04,080 --> 00:07:11,340
+Let's figure out what we are seeing on Monday, which is application of the Jacobi iteration
+
+85
+00:07:11,340 --> 00:07:12,980
+to Poisson's equation.
+
+86
+00:07:12,980 --> 00:07:15,860
+So we are, we are going to analyze.
+
+87
+00:07:15,860 --> 00:07:20,580
+We are going to analyze the one-dimensional case, but you can apply the same argument
+
+88
+00:07:20,580 --> 00:07:22,980
+to the two-dimensional case.
+
+89
+00:07:22,980 --> 00:07:32,980
+So for the one-dimensional case, the matrix A we have is 1 over delta x square of minus
+
+90
+00:07:32,980 --> 00:07:38,140
+2, et cetera, minus 2 and 1, 1, et cetera.
+
+91
+00:07:38,140 --> 00:07:43,540
+This is our iteration matrix with zero boundary conditions.
+
+92
+00:07:43,540 --> 00:07:44,860
+My D is.
+
+93
+00:07:44,860 --> 00:07:49,860
+So my D is of course going to be minus 2 times identity, right?
+
+94
+00:07:49,860 --> 00:07:55,680
+So that's times 1 over x square.
+
+95
+00:07:55,680 --> 00:08:04,640
+And my L plus U would be a matrix that is zero on the diagonal and the same one on the
+
+96
+00:08:04,640 --> 00:08:07,460
+lower and upper diagonals.
+
+97
+00:08:07,460 --> 00:08:11,380
+So the Jacobi iteration matrix, which is minus D inverse.
+
+98
+00:08:11,380 --> 00:08:13,860
+Oh, I forgot to multiply 1 over delta x square.
+
+99
+00:08:13,860 --> 00:08:14,860
+The Jacobi iteration matrix.
+
+100
+00:08:14,860 --> 00:08:21,680
+Jacobi iteration matrix, 1 minus D inverse times L plus U would be equal to the delta
+
+101
+00:08:21,680 --> 00:08:27,040
+axis cancel and then the minus cancels with this minus in front of 2.
+
+102
+00:08:27,040 --> 00:08:34,520
+So D inverse times L plus U would be zero still on the diagonal and half on the upper
+
+103
+00:08:34,520 --> 00:08:37,380
+and lower diagonals.
+
+104
+00:08:37,380 --> 00:08:39,180
+Okay.
+
+105
+00:08:39,180 --> 00:08:43,860
+So what is the eigenvalue decomposition of this matrix?
+
+106
+00:08:43,860 --> 00:08:49,980
+Well, of course we can go to MATLAB and figure that out.
+
+107
+00:08:49,980 --> 00:08:57,360
+But there is also an analytical way of figuring out the eigenvalue and eigenvectors.
+
+108
+00:08:57,360 --> 00:09:03,740
+And particularly in this case, we have seen enough probably finite difference operators
+
+109
+00:09:03,740 --> 00:09:08,860
+to know that the eigenvectors are sinusoidals.
+
+110
+00:09:08,860 --> 00:09:10,020
+Okay.
+
+111
+00:09:10,020 --> 00:09:11,440
+So.
+
+112
+00:09:11,440 --> 00:09:12,860
+The eigenvectors of this matrix.
+
+113
+00:09:12,860 --> 00:09:13,860
+Okay.
+
+114
+00:09:13,860 --> 00:09:17,860
+So the eigenvector matrix is going to be.
+
+115
+00:09:17,860 --> 00:09:22,860
+Let me say Vi is the eigen is the ith.
+
+116
+00:09:22,860 --> 00:09:24,860
+Let me see.
+
+117
+00:09:24,860 --> 00:09:25,860
+Already.
+
+118
+00:09:25,860 --> 00:09:27,960
+I want to use I as the index.
+
+119
+00:09:27,960 --> 00:09:31,040
+So let me write.
+
+120
+00:09:31,040 --> 00:09:33,660
+Vi J.
+
+121
+00:09:33,660 --> 00:09:39,780
+Which is exactly the ijth entry of that eigenvector matrix.
+
+122
+00:09:39,780 --> 00:09:42,860
+Would be the value of the.
+
+123
+00:09:42,860 --> 00:09:46,860
+Jth eigenvector at the ijth grid point.
+
+124
+00:09:46,860 --> 00:09:48,860
+Right.
+
+125
+00:09:48,860 --> 00:09:51,160
+So that's the ijth row and jth column.
+
+126
+00:09:51,160 --> 00:09:53,860
+The column corresponds to which eigenvalue it is.
+
+127
+00:09:53,860 --> 00:10:00,220
+The row corresponds to which entry the eigenvector it is.
+
+128
+00:10:00,220 --> 00:10:08,860
+So the ijth entry would correspond to a sinusoidal wave.
+
+129
+00:10:08,860 --> 00:10:09,860
+Sine of.
+
+130
+00:10:09,860 --> 00:10:10,860
+So when.
+
+131
+00:10:10,860 --> 00:10:11,860
+When J is equal to one.
+
+132
+00:10:11,860 --> 00:10:12,860
+One.
+
+133
+00:10:12,860 --> 00:10:14,860
+It'll be a single sinusoidal wave.
+
+134
+00:10:14,860 --> 00:10:15,860
+So it should be.
+
+135
+00:10:15,860 --> 00:10:16,860
+I.
+
+136
+00:10:16,860 --> 00:10:17,860
+Times J.
+
+137
+00:10:17,860 --> 00:10:18,860
+Times pi.
+
+138
+00:10:18,860 --> 00:10:19,860
+Divided by.
+
+139
+00:10:19,860 --> 00:10:20,860
+The length.
+
+140
+00:10:20,860 --> 00:10:21,860
+Which is.
+
+141
+00:10:21,860 --> 00:10:22,860
+N plus one.
+
+142
+00:10:22,860 --> 00:10:23,860
+So.
+
+143
+00:10:23,860 --> 00:10:24,860
+If I draw that.
+
+144
+00:10:24,860 --> 00:10:25,860
+This is.
+
+145
+00:10:25,860 --> 00:10:26,860
+I.
+
+146
+00:10:26,860 --> 00:10:27,860
+Which is the index.
+
+147
+00:10:27,860 --> 00:10:28,860
+And this is the.
+
+148
+00:10:28,860 --> 00:10:29,860
+Vij.
+
+149
+00:10:29,860 --> 00:10:30,860
+Which is the.
+
+150
+00:10:30,860 --> 00:10:31,860
+The ijth.
+
+151
+00:10:31,860 --> 00:10:32,860
+And this is the.
+
+152
+00:10:32,860 --> 00:10:33,860
+The ijth.
+
+153
+00:10:33,860 --> 00:10:34,860
+So.
+
+154
+00:10:34,860 --> 00:10:35,860
+The ijth.
+
+155
+00:10:35,860 --> 00:10:36,860
+Which is the.
+
+156
+00:10:36,860 --> 00:10:37,860
+The ijth.
+
+157
+00:10:37,860 --> 00:10:38,860
+And this is the.
+
+158
+00:10:38,860 --> 00:10:39,860
+The ijth.
+
+159
+00:10:39,860 --> 00:10:40,860
+Which is the.
+
+160
+00:10:40,860 --> 00:10:41,860
+The ijth.
+
+161
+00:10:41,860 --> 00:10:42,860
+So.
+
+162
+00:10:42,860 --> 00:10:43,860
+When.
+
+163
+00:10:43,860 --> 00:10:44,860
+When J.
+
+164
+00:10:44,860 --> 00:10:45,860
+Is equal to one.
+
+165
+00:10:45,860 --> 00:10:46,860
+The sine.
+
+166
+00:10:46,860 --> 00:10:47,860
+Wave.
+
+167
+00:10:47,860 --> 00:10:48,860
+Goes from.
+
+168
+00:10:48,860 --> 00:10:49,860
+The.
+
+169
+00:10:49,860 --> 00:10:50,860
+The argument of the sine wave.
+
+170
+00:10:50,860 --> 00:10:51,860
+When i goes from one to n.
+
+171
+00:10:51,860 --> 00:10:52,860
+Would go from.
+
+172
+00:10:52,860 --> 00:10:53,860
+About zero.
+
+173
+00:10:53,860 --> 00:10:54,860
+To about pi.
+
+174
+00:10:54,860 --> 00:10:55,860
+So the first.
+
+175
+00:10:55,860 --> 00:10:56,860
+Eigen.
+
+176
+00:10:56,860 --> 00:10:57,860
+Value.
+
+177
+00:10:57,860 --> 00:10:58,860
+Would be.
+
+178
+00:10:58,860 --> 00:10:59,860
+Something like this.
+
+179
+00:10:59,860 --> 00:11:00,860
+And remember.
+
+180
+00:11:00,860 --> 00:11:01,860
+This is the mode.
+
+181
+00:11:01,860 --> 00:11:02,860
+This is very.
+
+182
+00:11:02,860 --> 00:11:03,860
+Like the mode.
+
+183
+00:11:03,860 --> 00:11:04,860
+We saw.
+
+184
+00:11:04,860 --> 00:11:05,860
+In the.
+
+185
+00:11:05,860 --> 00:11:06,860
+Error.
+
+186
+00:11:06,860 --> 00:11:07,860
+In the ek.
+
+187
+00:11:07,860 --> 00:11:08,860
+And.
+
+188
+00:11:08,860 --> 00:11:09,860
+This.
+
+189
+00:11:09,860 --> 00:11:10,860
+Is.
+
+190
+00:11:10,860 --> 00:11:11,860
+In the ek.
+
+191
+00:11:11,860 --> 00:11:12,860
+As we take.
+
+192
+00:11:12,860 --> 00:11:13,860
+K.
+
+193
+00:11:13,860 --> 00:11:14,860
+To be very large.
+
+194
+00:11:14,860 --> 00:11:15,860
+Right.
+
+195
+00:11:15,860 --> 00:11:16,860
+We were.
+
+196
+00:11:16,860 --> 00:11:17,860
+You.
+
+197
+00:11:17,860 --> 00:11:18,860
+Probably.
+
+198
+00:11:18,860 --> 00:11:19,860
+Remember.
+
+199
+00:11:19,860 --> 00:11:20,860
+The two dimensional case.
+
+200
+00:11:20,860 --> 00:11:21,860
+When i plot.
+
+201
+00:11:21,860 --> 00:11:22,860
+The error.
+
+202
+00:11:22,860 --> 00:11:23,860
+The error.
+
+203
+00:11:23,860 --> 00:11:24,860
+Looks like.
+
+204
+00:11:24,860 --> 00:11:25,860
+Large in the middle.
+
+205
+00:11:25,860 --> 00:11:26,860
+Zero.
+
+206
+00:11:26,860 --> 00:11:27,860
+On the boundaries.
+
+207
+00:11:27,860 --> 00:11:28,860
+But it's.
+
+208
+00:11:28,860 --> 00:11:29,860
+A very smooth function.
+
+209
+00:11:29,860 --> 00:11:30,860
+It turns out.
+
+210
+00:11:30,860 --> 00:11:31,860
+To be.
+
+211
+00:11:31,860 --> 00:11:32,860
+A sine wave.
+
+212
+00:11:32,860 --> 00:11:33,860
+In the.
+
+213
+00:11:33,860 --> 00:11:34,860
+X.
+
+214
+00:11:34,860 --> 00:11:35,860
+Direction.
+
+215
+00:11:35,860 --> 00:11:36,860
+Multiplied.
+
+216
+00:11:36,860 --> 00:11:37,860
+By another sine wave.
+
+217
+00:11:37,860 --> 00:11:38,860
+In the y.
+
+218
+00:11:38,860 --> 00:11:39,860
+Direction.
+
+219
+00:11:39,860 --> 00:11:40,860
+That corresponds.
+
+220
+00:11:40,860 --> 00:11:41,860
+To the.
+
+221
+00:11:41,860 --> 00:11:42,860
+Y.
+
+222
+00:11:42,860 --> 00:11:43,860
+Matter.
+
+223
+00:11:43,860 --> 00:11:44,860
+Corresponding.
+
+224
+00:11:44,860 --> 00:11:45,860
+To the first.
+
+225
+00:11:45,860 --> 00:11:46,860
+I can.
+
+226
+00:11:46,860 --> 00:11:47,860
+Value.
+
+227
+00:11:47,860 --> 00:11:48,860
+Of the matrix.
+
+228
+00:11:48,860 --> 00:11:49,860
+In 2d.
+
+229
+00:11:49,860 --> 00:11:50,860
+And.
+
+230
+00:11:50,860 --> 00:11:51,860
+Our.
+
+231
+00:11:51,860 --> 00:11:52,860
+Second.
+
+232
+00:11:52,860 --> 00:11:53,860
+Our.
+
+233
+00:11:53,860 --> 00:11:54,860
+Second.
+
+234
+00:11:54,860 --> 00:11:55,860
+Mode.
+
+235
+00:11:55,860 --> 00:11:56,860
+Would.
+
+236
+00:11:56,860 --> 00:11:57,860
+Correspond.
+
+237
+00:11:57,860 --> 00:11:58,860
+To a.
+
+238
+00:11:58,860 --> 00:11:59,860
+Sign.
+
+239
+00:11:59,860 --> 00:12:00,860
+With.
+
+240
+00:12:00,860 --> 00:12:01,860
+J.
+
+241
+00:12:01,860 --> 00:12:02,860
+Equal.
+
+242
+00:12:02,860 --> 00:12:03,860
+To.
+
+243
+00:12:03,860 --> 00:12:04,860
+So.
+
+244
+00:12:04,860 --> 00:12:05,860
+This.
+
+245
+00:12:05,860 --> 00:12:06,860
+Argument.
+
+246
+00:12:06,860 --> 00:12:07,860
+Of the.
+
+247
+00:12:07,860 --> 00:12:08,860
+Sign.
+
+248
+00:12:08,860 --> 00:12:09,860
+Would.
+
+249
+00:12:09,860 --> 00:12:10,860
+Go.
+
+250
+00:12:10,860 --> 00:12:11,860
+To.
+
+251
+00:12:11,860 --> 00:12:12,860
+The.
+
+252
+00:12:12,860 --> 00:12:13,860
+Y.
+
+253
+00:12:13,860 --> 00:12:14,860
+And.
+
+254
+00:12:14,860 --> 00:12:15,860
+The.
+
+255
+00:12:15,860 --> 00:12:16,860
+Y.
+
+256
+00:12:16,860 --> 00:12:17,860
+Is.
+
+257
+00:12:17,860 --> 00:12:18,860
+A.
+
+258
+00:12:18,860 --> 00:12:19,860
+Line.
+
+259
+00:12:19,860 --> 00:12:20,860
+Of.
+
+260
+00:12:20,860 --> 00:12:21,860
+The.
+
+261
+00:12:21,860 --> 00:12:22,860
+Y.
+
+262
+00:12:22,860 --> 00:12:23,860
+Matter.
+
+263
+00:12:23,860 --> 00:12:24,860
+In.
+
+264
+00:12:24,860 --> 00:12:25,860
+The.
+
+265
+00:12:25,860 --> 00:12:26,860
+Y.
+
+266
+00:12:26,860 --> 00:12:27,860
+Matrix.
+
+267
+00:12:27,860 --> 00:12:28,860
+And.
+
+268
+00:12:28,860 --> 00:12:29,860
+The.
+
+269
+00:12:29,860 --> 00:12:30,860
+Y.
+
+270
+00:12:30,860 --> 00:12:31,860
+Is.
+
+271
+00:12:31,860 --> 00:12:32,860
+A.
+
+272
+00:12:32,860 --> 00:12:33,860
+Line.
+
+273
+00:12:33,860 --> 00:12:34,860
+Of.
+
+274
+00:12:34,860 --> 00:12:35,860
+The.
+
+275
+00:12:35,860 --> 00:12:36,860
+Y.
+
+276
+00:12:36,860 --> 00:12:37,860
+Matter.
+
+277
+00:12:37,860 --> 00:12:38,860
+Of.
+
+278
+00:12:38,860 --> 00:12:39,860
+The.
+
+279
+00:12:39,860 --> 00:12:40,860
+Y.
+
+280
+00:12:40,860 --> 00:12:41,860
+Line.
+
+281
+00:12:41,860 --> 00:12:42,860
+Is.
+
+282
+00:12:42,860 --> 00:12:43,860
+The.
+
+283
+00:12:43,860 --> 00:12:44,860
+Y.
+
+284
+00:12:44,860 --> 00:12:45,860
+And.
+
+285
+00:12:45,860 --> 00:12:46,860
+The.
+
+286
+00:12:46,860 --> 00:12:47,860
+Y.
+
+287
+00:12:47,860 --> 00:12:48,860
+Is.
+
+288
+00:12:48,860 --> 00:12:49,860
+A.
+
+289
+00:12:49,860 --> 00:12:50,860
+Line.
+
+290
+00:12:50,860 --> 00:12:51,860
+Of.
+
+291
+00:12:51,860 --> 00:12:52,860
+The.
+
+292
+00:12:52,860 --> 00:12:53,860
+Y.
+
+293
+00:12:53,860 --> 00:12:54,860
+Matter.
+
+294
+00:12:54,860 --> 00:12:55,860
+Of.
+
+295
+00:12:55,860 --> 00:12:56,860
+The.
+
+296
+00:12:56,860 --> 00:12:57,860
+Y.
+
+297
+00:12:57,860 --> 00:12:58,860
+Matter.
+
+298
+00:12:58,860 --> 00:12:59,860
+And.
+
+299
+00:12:59,860 --> 00:13:00,860
+Of.
+
+300
+00:13:00,860 --> 00:13:01,860
+The.
+
+301
+00:13:01,860 --> 00:13:02,860
+Y.
+
+302
+00:13:02,860 --> 00:13:03,860
+Line.
+
+303
+00:13:03,860 --> 00:13:04,860
+Of.
+
+304
+00:13:04,860 --> 00:13:05,860
+The.
+
+305
+00:13:05,860 --> 00:13:06,860
+Matrix.
+
+306
+00:13:06,860 --> 00:13:07,860
+With.
+
+307
+00:13:07,860 --> 00:13:08,860
+The.
+
+308
+00:13:08,860 --> 00:13:11,260
+i j pi over n plus 1.
+
+309
+00:13:12,780 --> 00:13:13,220
+Alright.
+
+310
+00:13:14,520 --> 00:13:14,920
+Okay.
+
+311
+00:13:15,520 --> 00:13:18,540
+So, if you work out what this is,
+
+312
+00:13:20,180 --> 00:13:25,700
+the best way to work this out is to represent this sine wave as a complex exponential.
+
+313
+00:13:25,700 --> 00:13:38,560
+So, if you do that, we can see that the value is half of e to the minus j.
+
+314
+00:13:38,860 --> 00:13:41,760
+Pi and the complex number.
+
+315
+00:13:42,060 --> 00:13:43,340
+I don't have this.
+
+316
+00:13:43,580 --> 00:13:43,880
+So, okay.
+
+317
+00:13:43,880 --> 00:13:51,620
+So, this i, I will use both i to represent the complex, the imaginary, unit imaginary,
+
+318
+00:13:52,200 --> 00:13:58,860
+plus e to the j pi both i, which is the imaginary.
+
+319
+00:14:00,020 --> 00:14:07,420
+So, if you add that up, that will be cosine of,
+
+320
+00:14:07,860 --> 00:14:08,840
+get 2 cosine.
+
+321
+00:14:08,860 --> 00:14:11,340
+Cosine of j pi.
+
+322
+00:14:12,020 --> 00:14:12,360
+Okay.
+
+323
+00:14:12,720 --> 00:14:18,980
+So, cosine of j pi is the corresponding eigenvalue to this eigenvector.
+
+324
+00:14:20,360 --> 00:14:21,120
+Oh, j pi.
+
+325
+00:14:21,240 --> 00:14:21,840
+Sorry, j pi.
+
+326
+00:14:21,940 --> 00:14:23,940
+I forgot to divide by this n plus 1.
+
+327
+00:14:24,060 --> 00:14:26,860
+So, all of this has n plus 1 in it.
+
+328
+00:14:27,560 --> 00:14:29,600
+Cosine j pi divided by n plus 1.
+
+329
+00:14:30,360 --> 00:14:30,660
+Okay.
+
+330
+00:14:31,880 --> 00:14:35,220
+So, cosine of this j pi divided by n plus 1.
+
+331
+00:14:35,220 --> 00:14:38,540
+So, for the red eigenvector,
+
+332
+00:14:38,860 --> 00:14:41,960
+corresponding to a single bump,
+
+333
+00:14:41,960 --> 00:14:46,240
+that is the largest, corresponding to the largest eigenvalue we saw yesterday.
+
+334
+00:14:47,360 --> 00:14:55,760
+The corresponding eigenvalue is cosine of j equal to 1 times pi divided by n plus 1.
+

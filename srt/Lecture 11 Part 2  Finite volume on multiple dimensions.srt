@@ -1,0 +1,624 @@
+1
+00:00:00,000 --> 00:00:05,160
+So multiple dimensions is really a slight extension of the finite volume
+
+2
+00:00:05,160 --> 00:00:11,880
+scheme on a non-uniform grid. So in multiple dimensions, let's write our
+
+3
+00:00:11,880 --> 00:00:20,920
+conservation law as partial u partial t plus the divergence of a flux vector
+
+4
+00:00:20,920 --> 00:00:30,680
+which is a function of the solution u equal to 0. Okay and let's actually make
+
+5
+00:00:30,680 --> 00:00:37,620
+a little bit more general form.
+
+6
+00:00:37,620 --> 00:00:45,480
+Okay is equal to a function g, let's say, which can also be a function
+
+7
+00:00:45,480 --> 00:00:50,920
+few. So g is called the source term, that is the non-conventional
+
+8
+00:00:50,920 --> 00:00:56,600
+conservative part of the equation. So in momentum conservation, for example,
+
+9
+00:00:56,600 --> 00:01:03,760
+g can be a body force, gravity for example. In conservation of energy, g can
+
+10
+00:01:03,760 --> 00:01:09,600
+be a source of energy coming from something else. Let's say if you are
+
+11
+00:01:09,600 --> 00:01:15,980
+showing fluid dynamics equations, g can come from chemical reaction, right?
+
+12
+00:01:15,980 --> 00:01:18,300
+So g is a source term.
+
+13
+00:01:18,300 --> 00:01:20,300
+So u is a scale?
+
+14
+00:01:20,300 --> 00:01:20,800
+Huh?
+
+15
+00:01:20,800 --> 00:01:20,900
+u is a scale.
+
+16
+00:01:20,900 --> 00:01:26,020
+g is a scalar. Yeah, g is also a scalar. f is a vector corresponding to two or three
+
+17
+00:01:26,020 --> 00:01:29,660
+dimensions depending on how many spatial dimensions we have.
+
+18
+00:01:29,660 --> 00:01:33,660
+The gradient of f, the gradient of f.
+
+19
+00:01:33,660 --> 00:01:41,220
+So the gradient, no, this is the divergence. This is not the gradient. So f as a vector of u,
+
+20
+00:01:41,220 --> 00:01:50,780
+I can write it as fx of u, fy of u, fz of u. These are different components.
+
+21
+00:01:50,780 --> 00:01:54,620
+This is a differential equation. So f is a function of x, y, z components of the vector.
+
+22
+00:01:54,620 --> 00:02:04,360
+And the divergence of this vector u is defined as the partial derivative of fx to x plus
+
+23
+00:02:04,360 --> 00:02:14,620
+partial derivative of fy to y plus partial derivative of fz to z.
+
+24
+00:02:14,620 --> 00:02:20,660
+If you apply the chain rule, because f is a function of u and u is a function of x, y and z.
+
+25
+00:02:20,780 --> 00:02:25,900
+If you apply the chain rule, you're going to get partial fx.
+
+26
+00:02:25,900 --> 00:02:30,080
+This is no longer partial because fx is a function of u.
+
+27
+00:02:30,080 --> 00:02:49,360
+In this case, dfx du times partial u partial x plus dfy du times partial u partial y plus dfz du partial u partial z.
+
+28
+00:02:49,360 --> 00:02:50,660
+Right?
+
+29
+00:02:50,660 --> 00:03:04,880
+And this can be written as df vector du dot with the gradient of u,
+
+30
+00:03:04,880 --> 00:03:19,340
+where the gradient of u without the dot is defined as partial u partial x, partial u partial y and partial u partial z.
+
+31
+00:03:20,660 --> 00:03:21,540
+Right?
+
+32
+00:03:22,560 --> 00:03:33,200
+So depending on if you write the second term as the divergence of a flux or equal to a vector field, df du,
+
+33
+00:03:33,960 --> 00:03:36,640
+dot with the gradient of the solution.
+
+34
+00:03:37,780 --> 00:03:41,760
+This is two different differential forms of the same equation.
+
+35
+00:03:43,340 --> 00:03:45,360
+This is the conservative form.
+
+36
+00:03:46,240 --> 00:03:47,960
+This is what form?
+
+37
+00:03:48,960 --> 00:03:50,580
+The primitive form.
+
+38
+00:03:51,580 --> 00:03:52,840
+And that's the derivative form.
+
+39
+00:03:52,840 --> 00:03:56,320
+So, we can write the first step, the derivative form, or the derivative form of the equation.
+
+40
+00:03:56,320 --> 00:03:57,320
+Okay.
+
+41
+00:03:57,320 --> 00:04:05,200
+So the first step in deriving a final volume is to take the conservative form of the equation
+
+42
+00:04:05,200 --> 00:04:09,340
+and integrate to get the integral form.
+
+43
+00:04:09,340 --> 00:04:11,500
+Right.
+
+44
+00:04:11,500 --> 00:04:18,560
+So we take, this is the conservative form.
+
+45
+00:04:18,560 --> 00:04:19,860
+And this is the primitive.
+
+46
+00:04:19,860 --> 00:04:20,540
+Okay?
+
+47
+00:04:20,660 --> 00:04:29,300
+we take the conservative form of equation we integrate
+
+48
+00:04:29,300 --> 00:04:45,500
+integrate over space over a finite volume what we get is integration over a small volume let's say
+
+49
+00:04:45,500 --> 00:04:59,120
+over V partial u partial t plus divergence of f of u is going to be equal to integration over the
+
+50
+00:04:59,120 --> 00:05:13,500
+same V G of u DV let's say DV and the first term because V is a constant volume right in our setup
+
+51
+00:05:13,500 --> 00:05:15,480
+V is a constant volume if V is a constant volume then we integrate over space over a finite volume
+
+52
+00:05:15,480 --> 00:05:22,980
+actually changing as a function of time then there are more terms that is coming out but right
+
+53
+00:05:22,980 --> 00:05:32,360
+now let's say we have a fixed fixed volume we have a fixed mesh and each cell each final volume is a
+
+54
+00:05:32,360 --> 00:05:44,080
+stationary it's stationary in time what we get is DDT of the volume integrated you integrate over
+
+55
+00:05:44,080 --> 00:05:45,460
+the volume plus the volume over the volume and then we integrate over the volume and then we get
+
+56
+00:05:45,460 --> 00:05:56,220
+D and we apply the divergence theorem integral of the divergence of a vector is equal to integral
+
+57
+00:05:56,220 --> 00:06:07,540
+over the boundary right so the the the nabla operator is exchanged is replaced by the normal
+
+58
+00:06:07,540 --> 00:06:15,280
+the outward phase normal at the boundary dot with the same f of u DV becomes D s
+
+59
+00:06:15,460 --> 00:06:20,360
+and this is equal to integration of G dv.
+
+60
+00:06:24,160 --> 00:06:26,120
+Okay, and in final volume,
+
+61
+00:06:26,880 --> 00:06:31,020
+we track something that is closely related
+
+62
+00:06:31,020 --> 00:06:34,780
+to the cell integrals, which is the cell averages.
+
+63
+00:06:35,420 --> 00:06:40,840
+So we divide both sides by the volume of the cell,
+
+64
+00:06:41,320 --> 00:06:43,140
+by the volume of v.
+
+65
+00:06:43,280 --> 00:06:44,680
+Let's just call it v.
+
+66
+00:06:45,460 --> 00:06:50,400
+Right, so this is the volume of the cell.
+
+67
+00:06:51,280 --> 00:06:53,960
+And again, if v is stationary,
+
+68
+00:06:54,340 --> 00:06:56,900
+if the mesh is stationary as a function of time,
+
+69
+00:06:56,960 --> 00:06:59,040
+we can take the v into the time derivative.
+
+70
+00:07:00,540 --> 00:07:03,320
+So in the final volume,
+
+71
+00:07:03,500 --> 00:07:08,360
+so let's say if I have a cell and I discretize,
+
+72
+00:07:08,620 --> 00:07:12,540
+if I have a space where I want the solution,
+
+73
+00:07:12,540 --> 00:07:15,380
+if I divide the space into v,
+
+74
+00:07:15,460 --> 00:07:21,660
+v1, v2, v3, v4, v5, v6, v7, et cetera,
+
+75
+00:07:22,240 --> 00:07:26,320
+then the d dt of ui,
+
+76
+00:07:26,760 --> 00:07:30,400
+where ui is defined as 1 over vi,
+
+77
+00:07:30,960 --> 00:07:33,660
+the cell size,
+
+78
+00:07:34,780 --> 00:07:39,020
+times the 1 over vi times the cell integral,
+
+79
+00:07:40,020 --> 00:07:43,440
+this plus 1 over vi,
+
+80
+00:07:43,440 --> 00:07:43,520
+right?
+
+81
+00:07:45,460 --> 00:07:49,360
+Integrated over the boundary of vi.
+
+82
+00:07:49,460 --> 00:07:53,000
+So for v1, the boundary is like this.
+
+83
+00:07:53,260 --> 00:07:55,420
+For v2, the boundary is like this.
+
+84
+00:07:55,580 --> 00:07:57,660
+For v3, the boundary is like this.
+
+85
+00:07:58,040 --> 00:08:12,260
+Okay? The surface normal dot with the flux vector ds is equal to gi,
+
+86
+00:08:12,720 --> 00:08:14,780
+which is the cell average of d.
+
+87
+00:08:14,780 --> 00:08:14,840
+Okay?
+
+88
+00:08:14,840 --> 00:08:15,220
+So this is the normal.
+
+89
+00:08:15,220 --> 00:08:15,280
+So this is the normal.
+
+90
+00:08:15,280 --> 00:08:15,380
+So this is the normal.
+
+91
+00:08:15,380 --> 00:08:15,440
+So this is the normal.
+
+92
+00:08:15,680 --> 00:08:18,840
+g computed on the ith volume.
+
+93
+00:08:19,940 --> 00:08:22,120
+So up to now this is still exact.
+
+94
+00:08:23,360 --> 00:08:26,040
+And now we start the approximation.
+
+95
+00:08:30,760 --> 00:08:33,500
+So this is still exact.
+
+96
+00:08:35,440 --> 00:08:38,440
+The approximation is the following.
+
+97
+00:08:39,080 --> 00:08:41,100
+We're going to approximate two things.
+
+98
+00:08:41,400 --> 00:08:44,500
+We're going to approximate, first of all,
+
+99
+00:08:44,500 --> 00:08:53,440
+this integral over the boundary of a cell, we're going to approximate the
+
+100
+00:08:53,440 --> 00:08:58,680
+boundary as a piecewise constant. We are going to approximate this f as a
+
+101
+00:08:58,680 --> 00:09:07,300
+piecewise constant function. So for example, let's take v2 as an
+
+102
+00:09:07,300 --> 00:09:13,960
+example. v2 has one part of boundary interfacing with v1. It has one part of
+
+103
+00:09:13,960 --> 00:09:20,740
+the boundary interfacing with v3, one part interfacing with v4, and one part
+
+104
+00:09:20,740 --> 00:09:30,940
+interfacing with v5. And we can split up this integral over the entire boundary
+
+105
+00:09:30,940 --> 00:09:41,320
+of vi into a summation of integrals. And the summation is over all the cells, all
+
+106
+00:09:41,320 --> 00:09:43,920
+the boundaries.
+
+107
+00:09:43,960 --> 00:09:51,240
+That over all the cells that are neighbor of that particular i. So I'm
+
+108
+00:09:51,240 --> 00:09:58,720
+going to write it as j inside the neighbor mbr of i. j is defined as a
+
+109
+00:09:58,720 --> 00:10:06,940
+neighbor of i if i and j shares a non-trivial interface. Right, so if the
+
+110
+00:10:06,940 --> 00:10:13,840
+flow can go from cell i to cell j through a boundary.
+
+111
+00:10:13,960 --> 00:10:28,280
+And this is the phase normal between i and j. So this is the average phase
+
+112
+00:10:28,280 --> 00:10:38,960
+normal between i and j. The dot with the flux between i and j and ds is going to
+
+113
+00:10:38,960 --> 00:10:41,200
+be s i and j.
+
+114
+00:10:41,200 --> 00:10:43,840
+Okay, this normal is the normal.
+
+115
+00:10:43,960 --> 00:10:53,200
+This normal is the average, the normal of the interface s is the total amount of interface
+
+116
+00:10:53,200 --> 00:10:57,480
+length.
+
+117
+00:10:57,480 --> 00:11:03,060
+In particular this approximation is approximating this f as piecewise constant.
+
+118
+00:11:03,060 --> 00:11:12,280
+Right so, and if we do that we can, we can say that the integration over partial, let
+
+119
+00:11:12,280 --> 00:11:13,280
+me,
+
+120
+00:11:13,280 --> 00:11:26,120
+over partial, over the boundary of i and j of n ds is going to be defined as n i j which
+
+121
+00:11:26,120 --> 00:11:31,460
+is a unit vector times s i j which is a scalar.
+
+122
+00:11:31,460 --> 00:11:37,680
+Okay so, so if we, if we say f of u is a constant over the interface we can pull that f out of
+
+123
+00:11:37,680 --> 00:11:41,800
+the integral and the integral is a purely geometric.
+
+124
+00:11:41,800 --> 00:11:42,800
+Okay.
+
+125
+00:11:43,280 --> 00:11:44,680
+So, weultan that f is just going to be plane on this surface, right.
+
+126
+00:11:44,680 --> 00:11:47,720
+So, we can wonder that what's going on over here when we put沒有 i z to where's this
+
+127
+00:11:47,720 --> 00:11:49,040
+particular, okay.
+
+128
+00:11:49,040 --> 00:12:01,120
+Remember we can't do that, you can't
+
+129
+00:12:01,120 --> 00:12:03,740
+sticking your finger over the edge of this.
+
+130
+00:12:03,740 --> 00:12:06,580
+So, we have a point S
+
+131
+00:12:06,580 --> 00:12:08,320
+in the boundary, so creative delay, right?
+
+132
+00:12:08,320 --> 00:12:10,360
+Yes, and I want to figure out how to want to Personalize
+
+133
+00:12:10,360 --> 00:12:11,120
+this data so what we're going to do is several times within this darren, that's why the big
+
+134
+00:12:11,120 --> 00:12:12,120
+point.
+
+135
+00:12:12,120 --> 00:12:13,120
+Okay, let's do it very quickly.
+
+136
+00:12:13,120 --> 00:12:24,580
+is exactly orthogonal to the line connecting these two points. Okay.
+
+137
+00:12:24,580 --> 00:12:34,740
+Oh that's a very good point. I'm thinking in two dimensions. If you have
+
+138
+00:12:34,740 --> 00:12:41,080
+multiple dimensions, yes it's a plane, it's not just a line. So you will be
+
+139
+00:12:41,080 --> 00:12:49,400
+integrating the face normal over a potentially non-trivial surface and the
+
+140
+00:12:49,400 --> 00:12:55,360
+magnitude of that integral is going to be Sij, the direction of that integral is
+
+141
+00:12:55,360 --> 00:13:04,240
+going to be your Nij. One of the trivial cases is when, let me go to
+
+142
+00:13:04,240 --> 00:13:10,260
+the mesh then. So this plus this is equal to, if we also approximate Gi as
+
+143
+00:13:10,260 --> 00:13:18,780
+piecewise constant, then we are going to be applying G onto Ui. The function G
+
+144
+00:13:18,780 --> 00:13:25,680
+applied into Ui is going to be my right hand side. So here if I can approximate
+
+145
+00:13:25,680 --> 00:13:38,820
+the piecewise constant surface flux, if I can approximate Fij as a numerical flux,
+
+146
+00:13:40,260 --> 00:13:45,760
+this is theistol motion. What happens is our final result, second figure we
+
+147
+00:13:45,760 --> 00:13:50,640
+found, a tangential form. What happens is if you can dominated by Fij
+
+148
+00:13:50,640 --> 00:13:58,380
+by's vast enough tovous or am skull's mass of Ja, then My feelings that
+
+149
+00:13:58,380 --> 00:14:05,920
+we 행복 that is computed from Ui NJ then my finite volume scheme works.
+
+150
+00:14:05,920 --> 00:14:08,960
+Right question so far?
+
+151
+00:14:10,260 --> 00:14:17,220
+between any pairs of neighboring cells. And we are approximating the flux in
+
+152
+00:14:17,220 --> 00:14:23,400
+between these neighboring pair of cells using the cell averages on these two
+
+153
+00:14:23,400 --> 00:14:34,680
+cells. Yes? What do you mean by a non-trivial boundary? A non-trivial boundary is a boundary that has
+
+154
+00:14:34,680 --> 00:14:43,700
+length more than zero. It's not a point. Yes. So for example, if you have a
+
+155
+00:14:43,700 --> 00:14:52,300
+grid like that, these and these are neighbors, but these and these are not
+
+156
+00:14:52,300 --> 00:14:55,280
+called neighbors.
+

@@ -1,0 +1,560 @@
+1
+00:00:00,000 --> 00:00:11,000
+Now we have the matrix and given a right hand side we can solve the equation for U.
+
+2
+00:00:11,000 --> 00:00:22,000
+So let's just try it. What kind of right hand side would you like to try?
+
+3
+00:00:22,000 --> 00:00:25,000
+Anybody give a suggestion?
+
+4
+00:00:25,000 --> 00:00:27,000
+A sinusoidal one.
+
+5
+00:00:27,000 --> 00:00:39,000
+A sinusoidal one? Okay, so you want F to be...
+
+6
+00:00:39,000 --> 00:00:45,000
+Sine of what?
+
+7
+00:00:45,000 --> 00:00:47,000
+Huh?
+
+8
+00:00:47,000 --> 00:00:54,000
+X times Y? So we don't have any X or Y yet. So let's do this. Let's construct the X and Y.
+
+9
+00:00:54,000 --> 00:00:57,000
+So, is mesh grid in 2D?
+
+10
+00:00:57,000 --> 00:01:05,000
+Yeah, okay, so let's look at... I think mesh grid is what can help you to construct X and Y.
+
+11
+00:01:05,000 --> 00:01:12,000
+It returns a 2D grid coordinate based on vectors X and Y.
+
+12
+00:01:12,000 --> 00:01:21,000
+So, okay, so let's say X is equal to 1 to NX minus 1 times DX.
+
+13
+00:01:21,000 --> 00:01:24,000
+Y is equal to 1 to NY minus 1.
+
+14
+00:01:24,000 --> 00:01:26,000
+Come on, minus 1 times DX.
+
+15
+00:01:26,000 --> 00:01:27,000
+Okay.
+
+16
+00:01:27,000 --> 00:01:36,000
+And I think that's it. I think just do big X and big Y equal to mesh grid X and Y.
+
+17
+00:01:36,000 --> 00:01:39,000
+So let's see if I get the right thing.
+
+18
+00:01:39,000 --> 00:01:43,000
+Big X is going to be a 31 by 31 matrix.
+
+19
+00:01:43,000 --> 00:01:52,000
+So...
+
+20
+00:01:52,000 --> 00:01:56,000
+It's actually the opposite of what I wanted to get.
+
+21
+00:01:56,000 --> 00:02:03,000
+So I want... So this is the first index. I want the first index to correspond to the X direction.
+
+22
+00:02:03,000 --> 00:02:06,000
+I want the second index to correspond to the Y direction.
+
+23
+00:02:06,000 --> 00:02:08,000
+So...
+
+24
+00:02:08,000 --> 00:02:14,000
+So let me just switch them over. I will just do Y and X.
+
+25
+00:02:14,000 --> 00:02:15,000
+Alright?
+
+26
+00:02:15,000 --> 00:02:20,000
+So this index corresponds to the X direction. This corresponds to the Y direction.
+
+27
+00:02:20,000 --> 00:02:24,000
+That's what we had in this indexing, right?
+
+28
+00:02:24,000 --> 00:02:28,000
+So the first index corresponds to incrementing X.
+
+29
+00:02:28,000 --> 00:02:30,000
+The second index corresponds to incrementing Y.
+
+30
+00:02:30,000 --> 00:02:35,000
+So if you look at Y, it's the other way. It's going this way.
+
+31
+00:02:35,000 --> 00:02:36,000
+Alright?
+
+32
+00:02:36,000 --> 00:02:39,000
+So...
+
+33
+00:02:39,000 --> 00:02:50,000
+I think you wanted F equal to sine X times cosine Y or something.
+
+34
+00:02:50,000 --> 00:02:51,000
+Alright?
+
+35
+00:02:51,000 --> 00:02:53,000
+So we get an F that is 31 by 31.
+
+36
+00:02:53,000 --> 00:03:01,000
+How do you convert the 31 to 31 matrix into this?
+
+37
+00:03:01,000 --> 00:03:04,000
+Huh?
+
+38
+00:03:04,000 --> 00:03:13,000
+So if you do mat to vac...
+
+39
+00:03:13,000 --> 00:03:14,000
+Is it...
+
+40
+00:03:14,000 --> 00:03:21,000
+Yeah, I think reshape is the same as reshape.
+
+41
+00:03:21,000 --> 00:03:22,000
+Yeah.
+
+42
+00:03:22,000 --> 00:03:23,000
+Yeah.
+
+43
+00:03:23,000 --> 00:03:24,000
+Yeah.
+
+44
+00:03:24,000 --> 00:03:25,000
+I think it's the best approach.
+
+45
+00:03:25,000 --> 00:03:32,000
+But like, in order to reshape it to into the format of what we want, because MATLAB does it the other way, right?
+
+46
+00:03:32,000 --> 00:03:34,000
+So we need to do...
+
+47
+00:03:34,000 --> 00:03:39,000
+We need to reshape it of...
+
+48
+00:03:39,000 --> 00:03:48,000
+Let's actually make big F equal to sine X times cosine Y.
+
+49
+00:03:48,000 --> 00:03:51,000
+So that big F is a matrix.
+
+50
+00:03:51,000 --> 00:04:02,000
+So we need to do small F equal to reshape of F transpose into NX minus 1 times NY minus 1.
+
+51
+00:04:02,000 --> 00:04:04,000
+And 1.
+
+52
+00:04:04,000 --> 00:04:05,000
+Alright.
+
+53
+00:04:05,000 --> 00:04:07,000
+So let's see.
+
+54
+00:04:07,000 --> 00:04:11,000
+Huh.
+
+55
+00:04:11,000 --> 00:04:14,000
+Actually, I don't think I can see much from that.
+
+56
+00:04:14,000 --> 00:04:15,000
+Okay.
+
+57
+00:04:15,000 --> 00:04:18,000
+So let's say sine of X times cosine of Y.
+
+58
+00:04:18,000 --> 00:04:20,000
+So in the beginning...
+
+59
+00:04:20,000 --> 00:04:22,000
+In the beginning of the matrix...
+
+60
+00:04:22,000 --> 00:04:27,000
+Of the vector, I should have R equal to 1, right?
+
+61
+00:04:27,000 --> 00:04:33,000
+So I should have R equal to 1 and J increases.
+
+62
+00:04:33,000 --> 00:04:43,000
+So I should have a very small number because it's sine of a very small X times a slowly decaying number.
+
+63
+00:04:43,000 --> 00:04:49,000
+So let's see if that's what I get.
+
+64
+00:04:49,000 --> 00:04:52,000
+Okay.
+
+65
+00:04:52,000 --> 00:04:54,000
+I think that's right.
+
+66
+00:04:54,000 --> 00:04:55,000
+Right?
+
+67
+00:04:55,000 --> 00:05:03,000
+So this is like sine of delta X times cosine of delta X, cosine of 2 delta X, cosine of 3 delta X, etc.
+
+68
+00:05:03,000 --> 00:05:04,000
+Alright?
+
+69
+00:05:04,000 --> 00:05:10,000
+So from the ICE inspection, it looks right.
+
+70
+00:05:10,000 --> 00:05:16,000
+We can also create a surface plot of big F.
+
+71
+00:05:16,000 --> 00:05:18,000
+Let's do X, Y, and F.
+
+72
+00:05:19,000 --> 00:05:24,000
+So that's what my F looks like.
+
+73
+00:05:24,000 --> 00:05:30,000
+So we can do X label X, Y label Y.
+
+74
+00:05:30,000 --> 00:05:32,000
+That'll give me...
+
+75
+00:05:32,000 --> 00:05:37,000
+So this is X, this is Y, and the Z axis is of course my F.
+
+76
+00:05:37,000 --> 00:05:39,000
+Alright?
+
+77
+00:05:39,000 --> 00:05:42,000
+So I think it's the right trend.
+
+78
+00:05:42,000 --> 00:05:47,000
+X increases, sine function increases, and cosine function decreases.
+
+79
+00:05:47,000 --> 00:05:50,000
+So now I have my small F.
+
+80
+00:05:50,000 --> 00:05:58,000
+Let's do U is equal to matrix backslash F.
+
+81
+00:05:58,000 --> 00:06:00,000
+I get my U.
+
+82
+00:06:00,000 --> 00:06:02,000
+Alright?
+
+83
+00:06:02,000 --> 00:06:05,000
+How do I visualize my U?
+
+84
+00:06:05,000 --> 00:06:13,000
+I get my U, which is a 961 by 1 array.
+
+85
+00:06:13,000 --> 00:06:16,000
+So I need to reshape it back to...
+
+86
+00:06:16,000 --> 00:06:19,000
+a matrix before I can visualize it.
+
+87
+00:06:19,000 --> 00:06:25,000
+So let's say my big U is equal to reshape of small u.
+
+88
+00:06:25,000 --> 00:06:29,000
+And again, MATLAB, we need to do...
+
+89
+00:06:29,000 --> 00:06:31,000
+We need to make it...
+
+90
+00:06:31,000 --> 00:06:33,000
+NY minus 1 first.
+
+91
+00:06:33,000 --> 00:06:35,000
+And X minus 1.
+
+92
+00:06:35,000 --> 00:06:37,000
+Transpose.
+
+93
+00:06:37,000 --> 00:06:39,000
+Alright.
+
+94
+00:06:39,000 --> 00:06:44,000
+So when we reshape that way, we transpose first, and then reshape it.
+
+95
+00:06:44,000 --> 00:06:45,000
+In the reverse...
+
+96
+00:06:45,000 --> 00:06:51,000
+In the inverse operation, we need to reshape it into the transposed shape of F.
+
+97
+00:06:51,000 --> 00:06:56,000
+And then transpose it back.
+
+98
+00:06:56,000 --> 00:07:02,000
+So let's do the same serve, but now with U.
+
+99
+00:07:02,000 --> 00:07:06,000
+That's what my solution looks like.
+
+100
+00:07:06,000 --> 00:07:08,000
+Okay?
+
+101
+00:07:08,000 --> 00:07:14,000
+The Laplacian of this U is equal to F.
+
+102
+00:07:15,000 --> 00:07:18,000
+So the Laplacian, which means the X...
+
+103
+00:07:18,000 --> 00:07:22,000
+The second order derivative of X plus the second order derivative of Y.
+
+104
+00:07:22,000 --> 00:07:26,000
+It's some kind of curvature in 2D.
+
+105
+00:07:26,000 --> 00:07:30,000
+And the positive Laplacian curves in a convex way.
+
+106
+00:07:30,000 --> 00:07:31,000
+So curves...
+
+107
+00:07:31,000 --> 00:07:36,000
+This is what a positive Laplacian looks like.
+
+108
+00:07:36,000 --> 00:07:38,000
+And if you rotate it a little bit...
+
+109
+00:07:38,000 --> 00:07:40,000
+Let's maximize and rotate it a little bit.
+
+110
+00:07:40,000 --> 00:07:43,000
+You should also be able to see that...
+
+111
+00:07:43,000 --> 00:07:47,000
+The curvature is larger towards this side.
+
+112
+00:07:47,000 --> 00:07:48,000
+Right?
+
+113
+00:07:48,000 --> 00:07:49,000
+Towards the...
+
+114
+00:07:49,000 --> 00:07:53,000
+Towards the X equal to 1, Y equal to 0 side.
+
+115
+00:07:53,000 --> 00:07:57,000
+So let's do X label, Y label.
+
+116
+00:07:57,000 --> 00:08:01,000
+So X equal to 1, Y equal to 0 side.
+
+117
+00:08:01,000 --> 00:08:03,000
+You see, like the...
+
+118
+00:08:03,000 --> 00:08:08,000
+The bottom of this function shifts...
+
+119
+00:08:08,000 --> 00:08:09,000
+It's not in the center.
+
+120
+00:08:09,000 --> 00:08:12,000
+It shifts towards the X equal to 1, Y equal to 0 side.
+
+121
+00:08:12,000 --> 00:08:16,000
+That's because the curvature is larger in this side.
+
+122
+00:08:16,000 --> 00:08:17,000
+And if you...
+
+123
+00:08:17,000 --> 00:08:18,000
+If you...
+
+124
+00:08:18,000 --> 00:08:26,000
+If you remember the figure we used to look at Y...
+
+125
+00:08:26,000 --> 00:08:28,000
+So this is what Y looks like.
+
+126
+00:08:28,000 --> 00:08:30,000
+It's largest over here.
+
+127
+00:08:30,000 --> 00:08:31,000
+This is what...
+
+128
+00:08:31,000 --> 00:08:32,000
+Ooh.
+
+129
+00:08:32,000 --> 00:08:34,000
+What did I do?
+
+130
+00:08:34,000 --> 00:08:36,000
+Uh...
+
+131
+00:08:36,000 --> 00:08:40,000
+I think I...
+
+132
+00:08:40,000 --> 00:08:41,000
+All right.
+
+133
+00:08:41,000 --> 00:08:42,000
+Okay.
+
+134
+00:08:42,000 --> 00:08:43,000
+So if you look at this figure, it's...
+
+135
+00:08:43,000 --> 00:08:44,000
+The curvature is largest over...
+
+136
+00:08:44,000 --> 00:08:45,000
+Over here.
+
+137
+00:08:45,000 --> 00:08:46,000
+All right.
+
+138
+00:08:46,000 --> 00:08:47,000
+So this...
+
+139
+00:08:47,000 --> 00:08:54,000
+We completed the loop of solving a Poisson's equation in 2D.
+
+140
+00:08:54,000 --> 00:08:59,000
+And that gives us a solution like that.
+

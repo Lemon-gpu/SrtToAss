@@ -1,0 +1,6496 @@
+1
+00:00:30,000 --> 00:00:32,000
+Oh, I have a...
+
+2
+00:00:32,000 --> 00:00:34,000
+I have a...
+
+3
+00:00:34,000 --> 00:00:36,000
+I have a...
+
+4
+00:00:36,000 --> 00:00:38,000
+I have a...
+
+5
+00:00:40,000 --> 00:00:42,000
+No, no, I...
+
+6
+00:00:42,000 --> 00:00:44,000
+The other one.
+
+7
+00:00:44,000 --> 00:00:46,000
+Yeah, I have like one of the new masks.
+
+8
+00:00:46,000 --> 00:00:48,000
+It's like 17 dominoes.
+
+9
+00:00:48,000 --> 00:00:50,000
+Very small thing.
+
+10
+00:00:50,000 --> 00:00:52,000
+Very small thing.
+
+11
+00:00:52,000 --> 00:00:54,000
+Ridiculous.
+
+12
+00:00:54,000 --> 00:00:58,000
+So what's the deal with that thing?
+
+13
+00:00:58,000 --> 00:01:00,000
+No air, no energy?
+
+14
+00:01:00,000 --> 00:01:02,000
+Yeah, it only has the...
+
+15
+00:01:02,000 --> 00:01:04,000
+It only has the...
+
+16
+00:01:04,000 --> 00:01:06,000
+This one at least has a hip in there.
+
+17
+00:01:06,000 --> 00:01:08,000
+Yeah, okay.
+
+18
+00:01:08,000 --> 00:01:10,000
+I feel like I'm...
+
+19
+00:01:10,000 --> 00:01:12,000
+Your iPhone 7 has a new mat
+
+20
+00:01:12,000 --> 00:01:14,000
+and I feel like now I have a thousand dominoes.
+
+21
+00:01:14,000 --> 00:01:16,000
+Okay.
+
+22
+00:01:24,000 --> 00:01:26,000
+Okay.
+
+23
+00:01:54,000 --> 00:01:56,000
+Okay.
+
+24
+00:02:24,000 --> 00:02:26,000
+Okay.
+
+25
+00:02:54,000 --> 00:02:56,000
+Okay.
+
+26
+00:03:24,000 --> 00:03:26,000
+Okay.
+
+27
+00:03:54,000 --> 00:03:56,000
+Okay.
+
+28
+00:04:24,000 --> 00:04:26,000
+Okay.
+
+29
+00:04:26,000 --> 00:04:28,000
+Okay.
+
+30
+00:04:28,000 --> 00:04:30,000
+Okay.
+
+31
+00:04:30,000 --> 00:04:32,000
+Okay.
+
+32
+00:04:32,000 --> 00:04:34,000
+Have any of you looked at the videos on YouTube?
+
+33
+00:04:34,000 --> 00:04:36,000
+Did they look okay?
+
+34
+00:04:36,000 --> 00:04:38,000
+Did the cycle sound okay?
+
+35
+00:04:38,000 --> 00:04:40,000
+Yeah.
+
+36
+00:04:40,000 --> 00:04:42,000
+Okay, does it read the blackboard alright?
+
+37
+00:04:42,000 --> 00:04:44,000
+Yep.
+
+38
+00:04:44,000 --> 00:04:46,000
+iPhone 7.
+
+39
+00:04:46,000 --> 00:04:48,000
+It's a great camera.
+
+40
+00:04:48,000 --> 00:04:50,000
+Phone, not so much.
+
+41
+00:04:50,000 --> 00:04:52,000
+Phone, not so much.
+
+42
+00:04:52,000 --> 00:04:54,000
+Yeah.
+
+43
+00:04:54,000 --> 00:04:56,000
+Okay.
+
+44
+00:05:16,000 --> 00:05:18,000
+So in this lecture we're gonna
+
+45
+00:05:18,000 --> 00:05:20,000
+bring together some of the pieces
+
+46
+00:05:20,000 --> 00:05:22,000
+in the first and the second lecture
+
+47
+00:05:22,000 --> 00:05:24,000
+and talk about
+
+48
+00:05:24,000 --> 00:05:26,000
+second kind equations.
+
+49
+00:05:26,000 --> 00:05:28,000
+I'll tell you a little bit about
+
+50
+00:05:28,000 --> 00:05:30,000
+these two types of equations,
+
+51
+00:05:30,000 --> 00:05:32,000
+but the end of this is gonna be a numerical method
+
+52
+00:05:32,000 --> 00:05:34,000
+that uses the Gauss projector
+
+53
+00:05:34,000 --> 00:05:36,000
+that we talked about last time
+
+54
+00:05:36,000 --> 00:05:38,000
+to solve integral equations in 2D.
+
+55
+00:05:38,000 --> 00:05:40,000
+It's a very effective technique,
+
+56
+00:05:40,000 --> 00:05:42,000
+very widely used in practice,
+
+57
+00:05:42,000 --> 00:05:44,000
+but also difficult to extend
+
+58
+00:05:44,000 --> 00:05:46,000
+to three dimensions.
+
+59
+00:05:46,000 --> 00:05:48,000
+So it isn't the only topic we talk about,
+
+60
+00:05:48,000 --> 00:05:50,000
+but it is certainly an important one
+
+61
+00:05:50,000 --> 00:05:52,000
+and it's such an effective method in 2D.
+
+62
+00:05:52,000 --> 00:05:54,000
+It's good that you know about it, even though it's not a good one.
+
+63
+00:05:54,000 --> 00:05:56,000
+Even though many of us are probably dealing with
+
+64
+00:05:56,000 --> 00:05:58,000
+structures for which 2D doesn't
+
+65
+00:05:58,000 --> 00:06:00,000
+really make a lot of physical sense.
+
+66
+00:06:00,000 --> 00:06:02,000
+I'm gonna drag on that 14 for a minute.
+
+67
+00:06:02,000 --> 00:06:04,000
+And I'm just gonna remind you,
+
+68
+00:06:04,000 --> 00:06:06,000
+you know, in 2D one of the things that makes it
+
+69
+00:06:06,000 --> 00:06:08,000
+difficult to get a handle on
+
+70
+00:06:08,000 --> 00:06:10,000
+the physical insight is
+
+71
+00:06:10,000 --> 00:06:12,000
+the 2D problem means it's infinite in the third dimension
+
+72
+00:06:12,000 --> 00:06:14,000
+and that means
+
+73
+00:06:14,000 --> 00:06:16,000
+the Green's function you're familiar with
+
+74
+00:06:16,000 --> 00:06:18,000
+with the potential produced by
+
+75
+00:06:18,000 --> 00:06:20,000
+a point charge that dies like
+
+76
+00:06:20,000 --> 00:06:22,000
+one over the distance turns into
+
+77
+00:06:22,000 --> 00:06:24,000
+this log function that was supposed to
+
+78
+00:06:24,000 --> 00:06:26,000
+do what you expect it to far away
+
+79
+00:06:26,000 --> 00:06:28,000
+or nearby, but it is
+
+80
+00:06:28,000 --> 00:06:30,000
+the way you get for the
+
+81
+00:06:30,000 --> 00:06:32,000
+Green's function and what goes into the integral
+
+82
+00:06:32,000 --> 00:06:34,000
+when we talk about calculating
+
+83
+00:06:34,000 --> 00:06:36,000
+the potentials from densities.
+
+84
+00:06:36,000 --> 00:06:38,000
+We're thinking about the densities,
+
+85
+00:06:38,000 --> 00:06:40,000
+it looks like points in the 2D space
+
+86
+00:06:40,000 --> 00:06:42,000
+but in three dimensions it means that
+
+87
+00:06:42,000 --> 00:06:44,000
+each point corresponds to a long,
+
+88
+00:06:44,000 --> 00:06:46,000
+infinitely long, two-dimensional charge.
+
+89
+00:06:46,000 --> 00:06:48,000
+So,
+
+90
+00:06:48,000 --> 00:06:50,000
+we're gonna talk a little bit about these 2D problems
+
+91
+00:06:50,000 --> 00:06:52,000
+in particular, we're gonna say
+
+92
+00:06:52,000 --> 00:06:54,000
+a little bit about, I'm just gonna remind you
+
+93
+00:06:54,000 --> 00:06:56,000
+how we discretize,
+
+94
+00:06:56,000 --> 00:06:58,000
+or one of the ways we talk about discretizing
+
+95
+00:06:58,000 --> 00:07:00,000
+in 2D and then by the end of this lecture
+
+96
+00:07:00,000 --> 00:07:02,000
+we're gonna completely
+
+97
+00:07:02,000 --> 00:07:04,000
+abandon this approach
+
+98
+00:07:04,000 --> 00:07:06,000
+even though we'll come back to it when we talk about
+
+99
+00:07:06,000 --> 00:07:08,000
+3D problems. So the idea
+
+100
+00:07:08,000 --> 00:07:10,000
+was if you're doing 2D problems
+
+101
+00:07:10,000 --> 00:07:12,000
+then your surface
+
+102
+00:07:12,000 --> 00:07:14,000
+for the 2D problem,
+
+103
+00:07:14,000 --> 00:07:16,000
+remember we're
+
+104
+00:07:16,000 --> 00:07:18,000
+imagining in the
+
+105
+00:07:18,000 --> 00:07:20,000
+2D problem that we have
+
+106
+00:07:20,000 --> 00:07:22,000
+Laplace's equation outside
+
+107
+00:07:22,000 --> 00:07:24,000
+Laplace's equation
+
+108
+00:07:24,000 --> 00:07:26,000
+for the potential outside is equal to zero.
+
+109
+00:07:26,000 --> 00:07:28,000
+We have
+
+110
+00:07:28,000 --> 00:07:30,000
+a boundary condition
+
+111
+00:07:30,000 --> 00:07:32,000
+U in infinity
+
+112
+00:07:32,000 --> 00:07:34,000
+goes to zero
+
+113
+00:07:34,000 --> 00:07:36,000
+and I apologize for the blinking
+
+114
+00:07:36,000 --> 00:07:38,000
+when I think it's
+
+115
+00:07:38,000 --> 00:07:40,000
+it keeps on persisting
+
+116
+00:07:40,000 --> 00:07:42,000
+I'll try to do something about it.
+
+117
+00:07:42,000 --> 00:07:44,000
+And the way we're gonna try to
+
+118
+00:07:44,000 --> 00:07:46,000
+represent this solution
+
+119
+00:07:46,000 --> 00:07:48,000
+is that we're gonna put densities
+
+120
+00:07:48,000 --> 00:07:50,000
+on the surface
+
+121
+00:07:52,000 --> 00:07:54,000
+a sigma
+
+122
+00:07:54,000 --> 00:07:56,000
+of x where x is
+
+123
+00:07:56,000 --> 00:07:58,000
+element of the surface gamma
+
+124
+00:07:58,000 --> 00:08:00,000
+and this domain omega
+
+125
+00:08:00,000 --> 00:08:02,000
+is our x-serial domain
+
+126
+00:08:02,000 --> 00:08:04,000
+and we'll presume that we know
+
+127
+00:08:04,000 --> 00:08:06,000
+something like
+
+128
+00:08:06,000 --> 00:08:08,000
+the potential that U
+
+129
+00:08:08,000 --> 00:08:10,000
+for
+
+130
+00:08:10,000 --> 00:08:12,000
+du, dm
+
+131
+00:08:12,000 --> 00:08:14,000
+is given.
+
+132
+00:08:16,000 --> 00:08:18,000
+And we're gonna
+
+133
+00:08:18,000 --> 00:08:20,000
+say that the potential is
+
+134
+00:08:20,000 --> 00:08:22,000
+equal to this integral of the density
+
+135
+00:08:22,000 --> 00:08:24,000
+times
+
+136
+00:08:24,000 --> 00:08:26,000
+the Green's function
+
+137
+00:08:28,000 --> 00:08:30,000
+integrated over
+
+138
+00:08:30,000 --> 00:08:32,000
+gamma
+
+139
+00:08:32,000 --> 00:08:34,000
+and that's gonna give us
+
+140
+00:08:34,000 --> 00:08:36,000
+this potential. So that's our
+
+141
+00:08:36,000 --> 00:08:38,000
+setup and the way we're gonna try to
+
+142
+00:08:38,000 --> 00:08:40,000
+deal with this kind of exterior
+
+143
+00:08:40,000 --> 00:08:42,000
+problem
+
+144
+00:08:46,000 --> 00:08:48,000
+is we're gonna try to solve
+
+145
+00:08:48,000 --> 00:08:50,000
+for the densities by making sure
+
+146
+00:08:50,000 --> 00:08:52,000
+they produce the potentials or their normal
+
+147
+00:08:52,000 --> 00:08:54,000
+derivatives and that's the given
+
+148
+00:08:54,000 --> 00:08:56,000
+by the equation of boundary.
+
+149
+00:08:56,000 --> 00:08:58,000
+So that meant we represented the
+
+150
+00:08:58,000 --> 00:09:00,000
+density as piecewise constants on the
+
+151
+00:09:00,000 --> 00:09:02,000
+surface and
+
+152
+00:09:02,000 --> 00:09:04,000
+we wrote down a system of equations
+
+153
+00:09:04,000 --> 00:09:06,000
+by either co-locating
+
+154
+00:09:06,000 --> 00:09:08,000
+or using Galerkin methods
+
+155
+00:09:08,000 --> 00:09:10,000
+for most of today we're gonna be thinking about
+
+156
+00:09:10,000 --> 00:09:12,000
+co-location which is you think of
+
+157
+00:09:12,000 --> 00:09:14,000
+alpha as the weights for the base
+
+158
+00:09:14,000 --> 00:09:16,000
+assumptions, these piecewise constant densities
+
+159
+00:09:16,000 --> 00:09:18,000
+and we're gonna try to set up this system of
+
+160
+00:09:18,000 --> 00:09:20,000
+equations where we calculate
+
+161
+00:09:20,000 --> 00:09:22,000
+the density
+
+162
+00:09:22,000 --> 00:09:24,000
+by putting, making sure
+
+163
+00:09:24,000 --> 00:09:26,000
+it matches test points
+
+164
+00:09:26,000 --> 00:09:28,000
+and so we have a density
+
+165
+00:09:28,000 --> 00:09:30,000
+sigma
+
+166
+00:09:30,000 --> 00:09:32,000
+and we'll evaluate its potential
+
+167
+00:09:32,000 --> 00:09:34,000
+at some test point
+
+168
+00:09:34,000 --> 00:09:36,000
+u of x and we'll match it to the boundary condition
+
+169
+00:09:36,000 --> 00:09:38,000
+or if we're doing norming conditions
+
+170
+00:09:38,000 --> 00:09:40,000
+we would take the derivative of this
+
+171
+00:09:40,000 --> 00:09:42,000
+how would we go about
+
+172
+00:09:42,000 --> 00:09:44,000
+taking the derivative? The way
+
+173
+00:09:44,000 --> 00:09:46,000
+this is set up is I know the
+
+174
+00:09:46,000 --> 00:09:48,000
+potentials and I calculate the
+
+175
+00:09:48,000 --> 00:09:50,000
+coefficients of the
+
+176
+00:09:50,000 --> 00:09:52,000
+piecewise constant representation
+
+177
+00:09:52,000 --> 00:09:54,000
+by making sure it produces
+
+178
+00:09:54,000 --> 00:09:56,000
+the potentials that match given values
+
+179
+00:09:56,000 --> 00:09:58,000
+of test points. Suppose this is
+
+180
+00:09:58,000 --> 00:10:00,000
+a Neumann problem, how would I
+
+181
+00:10:00,000 --> 00:10:02,000
+change this in order to be able to
+
+182
+00:10:02,000 --> 00:10:04,000
+set up a problem where I calculate
+
+183
+00:10:04,000 --> 00:10:06,000
+the, instead of
+
+184
+00:10:06,000 --> 00:10:08,000
+matching the potential of these test points
+
+185
+00:10:08,000 --> 00:10:10,000
+I want to match its normal derivative
+
+186
+00:10:10,000 --> 00:10:12,000
+what do I have to do to that system of equations?
+
+187
+00:10:12,000 --> 00:10:14,000
+What change do I have to make?
+
+188
+00:10:14,000 --> 00:10:16,000
+Green's function
+
+189
+00:10:16,000 --> 00:10:18,000
+So you can think of it as a green's function
+
+190
+00:10:18,000 --> 00:10:20,000
+you're gonna have to differentiate
+
+191
+00:10:20,000 --> 00:10:22,000
+this potential with respect to the normal
+
+192
+00:10:22,000 --> 00:10:24,000
+you're gonna differentiate this potential
+
+193
+00:10:24,000 --> 00:10:26,000
+at this point x with respect to the normal
+
+194
+00:10:26,000 --> 00:10:28,000
+and you can think of that
+
+195
+00:10:28,000 --> 00:10:30,000
+as being another
+
+196
+00:10:30,000 --> 00:10:32,000
+green's function which is the normal
+
+197
+00:10:32,000 --> 00:10:34,000
+derivative of the potential
+
+198
+00:10:34,000 --> 00:10:36,000
+as a function of distance
+
+199
+00:10:36,000 --> 00:10:38,000
+so if we're dealing with 3D
+
+200
+00:10:38,000 --> 00:10:40,000
+potential dies like 1 over r
+
+201
+00:10:40,000 --> 00:10:42,000
+the field, the normal derivative
+
+202
+00:10:42,000 --> 00:10:44,000
+dies like what would you expect
+
+203
+00:10:44,000 --> 00:10:46,000
+in 3D
+
+204
+00:10:46,000 --> 00:10:48,000
+if potential's dying like 1 over r
+
+205
+00:10:48,000 --> 00:10:50,000
+what would its normal derivative die
+
+206
+00:10:50,000 --> 00:10:52,000
+so we move away from point chart
+
+207
+00:10:52,000 --> 00:10:54,000
+1 over r squared
+
+208
+00:10:54,000 --> 00:10:56,000
+so we could set all this
+
+209
+00:10:56,000 --> 00:10:58,000
+machinery up and we could set up
+
+210
+00:10:58,000 --> 00:11:00,000
+a norman problem this way
+
+211
+00:11:00,000 --> 00:11:02,000
+we'll talk a little bit about those different
+
+212
+00:11:02,000 --> 00:11:04,000
+formulations but today I want to talk about
+
+213
+00:11:04,000 --> 00:11:06,000
+another way of thinking about this
+
+214
+00:11:06,000 --> 00:11:08,000
+that you use very often in 2D
+
+215
+00:11:08,000 --> 00:11:10,000
+that is
+
+216
+00:11:10,000 --> 00:11:12,000
+we're not gonna deal with the
+
+217
+00:11:12,000 --> 00:11:14,000
+piecewise constant
+
+218
+00:11:14,000 --> 00:11:16,000
+centroid co-location
+
+219
+00:11:16,000 --> 00:11:18,000
+we instead last time
+
+220
+00:11:18,000 --> 00:11:20,000
+we talked about another way
+
+221
+00:11:20,000 --> 00:11:22,000
+of representing integral
+
+222
+00:11:22,000 --> 00:11:24,000
+and that was using this idea of
+
+223
+00:11:24,000 --> 00:11:26,000
+a gauss quadrature algorithm
+
+224
+00:11:26,000 --> 00:11:28,000
+and I want to remind you a little bit about this
+
+225
+00:11:28,000 --> 00:11:30,000
+so why don't I want to remind you about
+
+226
+00:11:30,000 --> 00:11:32,000
+the integral equations
+
+227
+00:11:32,000 --> 00:11:34,000
+that was the set up
+
+228
+00:11:34,000 --> 00:11:36,000
+these are the integral equations
+
+229
+00:11:36,000 --> 00:11:38,000
+I also wanted to remind you about a gauss quadrature
+
+230
+00:11:38,000 --> 00:11:40,000
+and gauss quadrature would say
+
+231
+00:11:40,000 --> 00:11:42,000
+I evaluate an integral by using
+
+232
+00:11:42,000 --> 00:11:44,000
+a weighted combination with the integrands
+
+233
+00:11:44,000 --> 00:11:46,000
+evaluated in test points
+
+234
+00:11:46,000 --> 00:11:48,000
+so we have these two ideas
+
+235
+00:11:52,000 --> 00:11:56,000
+what gauss quadrature says
+
+236
+00:11:56,000 --> 00:11:58,000
+if I want to know the integral of
+
+237
+00:11:58,000 --> 00:12:00,000
+some function of x
+
+238
+00:12:00,000 --> 00:12:02,000
+integrated over dx
+
+239
+00:12:02,000 --> 00:12:04,000
+I'm going to represent it as the sum of
+
+240
+00:12:04,000 --> 00:12:06,000
+weights
+
+241
+00:12:06,000 --> 00:12:08,000
+and points
+
+242
+00:12:18,000 --> 00:12:20,000
+so we're going to have points and weights
+
+243
+00:12:20,000 --> 00:12:22,000
+and we're going to figure out the points and weights
+
+244
+00:12:22,000 --> 00:12:24,000
+by matching higher order polynomial
+
+245
+00:12:36,000 --> 00:12:38,000
+so that was the idea of what we did last time
+
+246
+00:12:38,000 --> 00:12:40,000
+we talked about gauss quadrature
+
+247
+00:12:40,000 --> 00:12:42,000
+we said we're going to go ahead
+
+248
+00:12:42,000 --> 00:12:44,000
+and we can figure out where the points are
+
+249
+00:12:44,000 --> 00:12:46,000
+the points are the roots of a polynomial
+
+250
+00:12:50,000 --> 00:12:52,000
+and the points are
+
+251
+00:12:52,000 --> 00:12:54,000
+and the weights were a solution to a system of equations
+
+252
+00:13:02,000 --> 00:13:04,000
+that's what we did last time
+
+253
+00:13:04,000 --> 00:13:06,000
+so
+
+254
+00:13:06,000 --> 00:13:08,000
+today we're going to put these two pictures together
+
+255
+00:13:08,000 --> 00:13:10,000
+but we're going to have to go through a little bit of analysis first
+
+256
+00:13:10,000 --> 00:13:12,000
+so
+
+257
+00:13:12,000 --> 00:13:14,000
+we have an integral in the top picture
+
+258
+00:13:14,000 --> 00:13:16,000
+and we're calculating the integral
+
+259
+00:13:16,000 --> 00:13:18,000
+not by using points and weights
+
+260
+00:13:18,000 --> 00:13:20,000
+what are we doing in the top case?
+
+261
+00:13:20,000 --> 00:13:22,000
+we're going to do this integral by assuming it's
+
+262
+00:13:22,000 --> 00:13:24,000
+the integrand is piecewise constant
+
+263
+00:13:26,000 --> 00:13:28,000
+in the bottom case we're evaluating the integral
+
+264
+00:13:28,000 --> 00:13:30,000
+by points and weights
+
+265
+00:13:30,000 --> 00:13:32,000
+now the top one involves calculating
+
+266
+00:13:32,000 --> 00:13:34,000
+integrals over lines
+
+267
+00:13:34,000 --> 00:13:36,000
+which we can do at the bottom and do quadrature
+
+268
+00:13:36,000 --> 00:13:38,000
+but the question is
+
+269
+00:13:38,000 --> 00:13:40,000
+so we have these points and weights
+
+270
+00:13:40,000 --> 00:13:42,000
+doing the integral and we have this integral
+
+271
+00:13:42,000 --> 00:13:44,000
+that we're representing with piecewise constant lines
+
+272
+00:13:44,000 --> 00:13:46,000
+it seems like we ought to be able to marry these two
+
+273
+00:13:46,000 --> 00:13:48,000
+and in some cases you can
+
+274
+00:13:48,000 --> 00:13:50,000
+talk a little bit about this quadrature thing
+
+275
+00:13:50,000 --> 00:13:52,000
+because at the end of last time
+
+276
+00:13:52,000 --> 00:13:54,000
+there's sort of a punchline about these algorithms
+
+277
+00:13:54,000 --> 00:13:56,000
+and I wanted to look at them
+
+278
+00:13:56,000 --> 00:13:58,000
+by looking at a few different functions
+
+279
+00:13:58,000 --> 00:14:00,000
+so we're going to look at just using
+
+280
+00:14:00,000 --> 00:14:02,000
+this gauss quadrature scheme
+
+281
+00:14:02,000 --> 00:14:04,000
+this idea of using points and weights
+
+282
+00:14:04,000 --> 00:14:06,000
+where the points are the roots of a polynomial
+
+283
+00:14:06,000 --> 00:14:08,000
+and the weights are the solutions of this linear system
+
+284
+00:14:08,000 --> 00:14:10,000
+this does the exact for very high order polynomials
+
+285
+00:14:10,000 --> 00:14:12,000
+and we're going to look at the
+
+286
+00:14:12,000 --> 00:14:14,000
+error versus order
+
+287
+00:14:14,000 --> 00:14:16,000
+for these test functions
+
+288
+00:14:16,000 --> 00:14:18,000
+now as you look at these test functions
+
+289
+00:14:18,000 --> 00:14:20,000
+you'll see that I have a function
+
+290
+00:14:20,000 --> 00:14:22,000
+where x goes from 0 to 2 pi
+
+291
+00:14:22,000 --> 00:14:24,000
+and I want to ask you about these functions
+
+292
+00:14:24,000 --> 00:14:26,000
+what can you guess about these functions
+
+293
+00:14:26,000 --> 00:14:28,000
+what do you know about them
+
+294
+00:14:28,000 --> 00:14:30,000
+before I start writing down the plots
+
+295
+00:14:30,000 --> 00:14:32,000
+obviously I'm picking these five functions
+
+296
+00:14:32,000 --> 00:14:34,000
+because they're going to do something different
+
+297
+00:14:34,000 --> 00:14:36,000
+with these different quadrature schemes
+
+298
+00:14:36,000 --> 00:14:38,000
+and I want to point at that
+
+299
+00:14:38,000 --> 00:14:40,000
+and make one additional point
+
+300
+00:14:40,000 --> 00:14:42,000
+just as a reminder
+
+301
+00:14:42,000 --> 00:14:44,000
+of what we did last time
+
+302
+00:14:44,000 --> 00:14:46,000
+so what can you tell me about
+
+303
+00:14:46,000 --> 00:14:48,000
+the derivatives of these functions
+
+304
+00:14:48,000 --> 00:14:50,000
+do any of them have funny behaviors
+
+305
+00:14:50,000 --> 00:14:52,000
+when you start taking their derivatives
+
+306
+00:14:52,000 --> 00:14:54,000
+so what about the first one
+
+307
+00:14:54,000 --> 00:14:56,000
+f1, what can you tell me about the derivative of that
+
+308
+00:14:56,000 --> 00:15:00,000
+in particular as we go through 0
+
+309
+00:15:00,000 --> 00:15:02,000
+oh sorry
+
+310
+00:15:02,000 --> 00:15:04,000
+x goes from 0 to pi
+
+311
+00:15:04,000 --> 00:15:06,000
+f1 of x is
+
+312
+00:15:06,000 --> 00:15:08,000
+what happens to it
+
+313
+00:15:08,000 --> 00:15:10,000
+maybe a divergent point
+
+314
+00:15:10,000 --> 00:15:12,000
+somewhere in between
+
+315
+00:15:12,000 --> 00:15:14,000
+yeah remember the score where you take the derivative
+
+316
+00:15:14,000 --> 00:15:16,000
+the derivative is something to the minus one half
+
+317
+00:15:16,000 --> 00:15:18,000
+which means it blows something
+
+318
+00:15:18,000 --> 00:15:20,000
+up when the argument is 0
+
+319
+00:15:20,000 --> 00:15:22,000
+which it will do
+
+320
+00:15:28,000 --> 00:15:30,000
+so we're going to look at some of these functions
+
+321
+00:15:30,000 --> 00:15:32,000
+I'm going to plot them first
+
+322
+00:15:32,000 --> 00:15:34,000
+and then I'm going to ask you about the quadrature of each of these
+
+323
+00:15:34,000 --> 00:15:36,000
+so here are all these functions
+
+324
+00:15:36,000 --> 00:15:38,000
+on this interval of 0 to 2 pi
+
+325
+00:15:38,000 --> 00:15:40,000
+and it just so happens
+
+326
+00:15:40,000 --> 00:15:42,000
+I picked some of them
+
+327
+00:15:42,000 --> 00:15:44,000
+this one with the square root
+
+328
+00:15:44,000 --> 00:15:46,000
+you can see which one is the square root
+
+329
+00:15:46,000 --> 00:15:48,000
+which color is it
+
+330
+00:15:48,000 --> 00:15:50,000
+can you all see
+
+331
+00:15:50,000 --> 00:15:52,000
+which one is this one
+
+332
+00:15:52,000 --> 00:15:54,000
+that is the square root function
+
+333
+00:15:54,000 --> 00:15:56,000
+the one that does this
+
+334
+00:15:56,000 --> 00:15:58,000
+that's the blue one
+
+335
+00:15:58,000 --> 00:16:00,000
+it was x minus pi
+
+336
+00:16:00,000 --> 00:16:02,000
+and we go from
+
+337
+00:16:02,000 --> 00:16:04,000
+x equals 0 to 2 pi
+
+338
+00:16:04,000 --> 00:16:06,000
+so the argument to the square root
+
+339
+00:16:06,000 --> 00:16:08,000
+was going from minus pi to pi
+
+340
+00:16:08,000 --> 00:16:10,000
+what about these other functions
+
+341
+00:16:10,000 --> 00:16:12,000
+so they all have
+
+342
+00:16:12,000 --> 00:16:14,000
+somewhat different properties
+
+343
+00:16:14,000 --> 00:16:16,000
+they all look a little smoother
+
+344
+00:16:16,000 --> 00:16:18,000
+but they're not the same
+
+345
+00:16:18,000 --> 00:16:20,000
+but there are going to be some interesting things about them
+
+346
+00:16:20,000 --> 00:16:22,000
+and we're going to look at
+
+347
+00:16:22,000 --> 00:16:24,000
+just doing the quadrature algorithm
+
+348
+00:16:24,000 --> 00:16:26,000
+and I'm going to compare it to
+
+349
+00:16:26,000 --> 00:16:28,000
+this is what's called the trapezoidal rule
+
+350
+00:16:28,000 --> 00:16:30,000
+so the trapezoidal rule was
+
+351
+00:16:30,000 --> 00:16:32,000
+the midpoint rule
+
+352
+00:16:32,000 --> 00:16:34,000
+so you use points and weights
+
+353
+00:16:34,000 --> 00:16:36,000
+and it turns out when we're doing something like 0 to 2 pi
+
+354
+00:16:36,000 --> 00:16:38,000
+we're kind of at these endpoints
+
+355
+00:16:38,000 --> 00:16:40,000
+we're using a half
+
+356
+00:16:40,000 --> 00:16:42,000
+we can either shift around or use half weights on the end
+
+357
+00:16:42,000 --> 00:16:44,000
+it's equivalent
+
+358
+00:16:44,000 --> 00:16:46,000
+we're going to use that particular approach
+
+359
+00:16:46,000 --> 00:16:48,000
+to doing this, the trapezoidal rule
+
+360
+00:16:48,000 --> 00:16:50,000
+and then we're also going to do
+
+361
+00:16:50,000 --> 00:16:52,000
+Gaussian quadrature
+
+362
+00:16:52,000 --> 00:16:54,000
+we're just going to pick it for a very high limit
+
+363
+00:16:54,000 --> 00:16:56,000
+so trap convergence
+
+364
+00:16:56,000 --> 00:16:58,000
+that was the second order method
+
+365
+00:16:58,000 --> 00:17:00,000
+we use the trapezoidal rule, we use the midpoints
+
+366
+00:17:00,000 --> 00:17:02,000
+we expect for all those functions
+
+367
+00:17:02,000 --> 00:17:04,000
+to go down, what do you expect the error for it to be
+
+368
+00:17:04,000 --> 00:17:06,000
+as you increase the number of points
+
+369
+00:17:06,000 --> 00:17:08,000
+if I increase the number of points
+
+370
+00:17:08,000 --> 00:17:10,000
+by an order of magnitude
+
+371
+00:17:10,000 --> 00:17:12,000
+what do I expect the error to do
+
+372
+00:17:12,000 --> 00:17:14,000
+if I use 10 times as many points
+
+373
+00:17:14,000 --> 00:17:16,000
+what's the error in the interval going to be
+
+374
+00:17:16,000 --> 00:17:18,000
+so again
+
+375
+00:17:18,000 --> 00:17:20,000
+I'm just looking to see how accurately I've computed this integral
+
+376
+00:17:20,000 --> 00:17:22,000
+for each of those test functions
+
+377
+00:17:22,000 --> 00:17:24,000
+and all of them
+
+378
+00:17:24,000 --> 00:17:26,000
+behave roughly
+
+379
+00:17:28,000 --> 00:17:30,000
+like the error is second order
+
+380
+00:17:30,000 --> 00:17:32,000
+I just use 10 times as many points
+
+381
+00:17:32,000 --> 00:17:34,000
+the error drops by a factor of 100
+
+382
+00:17:34,000 --> 00:17:36,000
+that's what you'd expect from the trapezoidal rule
+
+383
+00:17:36,000 --> 00:17:38,000
+this midpoint rule
+
+384
+00:17:38,000 --> 00:17:40,000
+one of them doesn't do that
+
+385
+00:17:40,000 --> 00:17:42,000
+guess which one it is
+
+386
+00:17:46,000 --> 00:17:48,000
+well alright two of them do it
+
+387
+00:17:48,000 --> 00:17:50,000
+one of them does worse
+
+388
+00:17:50,000 --> 00:17:52,000
+and one of them does much better
+
+389
+00:17:52,000 --> 00:17:54,000
+one that somebody mentioned
+
+390
+00:17:54,000 --> 00:17:56,000
+the one that does much better is the periodic function
+
+391
+00:17:56,000 --> 00:17:58,000
+there's something about the trapezoidal rule
+
+392
+00:17:58,000 --> 00:18:00,000
+and the periodic function
+
+393
+00:18:00,000 --> 00:18:02,000
+so we're going to come back to that at the very end of today's class
+
+394
+00:18:02,000 --> 00:18:04,000
+this one that does worse
+
+395
+00:18:04,000 --> 00:18:06,000
+which one is it
+
+396
+00:18:06,000 --> 00:18:08,000
+let me go back and look at those curves again
+
+397
+00:18:08,000 --> 00:18:10,000
+which of these curves do you think
+
+398
+00:18:10,000 --> 00:18:12,000
+didn't get that kind of second order convergence
+
+399
+00:18:14,000 --> 00:18:16,000
+which one would you expect to not do very well
+
+400
+00:18:16,000 --> 00:18:18,000
+with the midpoint rule
+
+401
+00:18:18,000 --> 00:18:20,000
+the square root one
+
+402
+00:18:20,000 --> 00:18:22,000
+yeah the square root one because it has this derivative
+
+403
+00:18:22,000 --> 00:18:24,000
+so it's a continuous function
+
+404
+00:18:24,000 --> 00:18:26,000
+but its derivative goes to infinity
+
+405
+00:18:26,000 --> 00:18:28,000
+and so the slope
+
+406
+00:18:28,000 --> 00:18:30,000
+as you go into where the square root shows up
+
+407
+00:18:30,000 --> 00:18:32,000
+goes to infinity
+
+408
+00:18:32,000 --> 00:18:34,000
+and that even messes up a simple midpoint rule
+
+409
+00:18:34,000 --> 00:18:36,000
+what about
+
+410
+00:18:36,000 --> 00:18:38,000
+the four-in-a-von
+
+411
+00:18:38,000 --> 00:18:40,000
+so that was the trapezoidal rule
+
+412
+00:18:40,000 --> 00:18:42,000
+and we don't understand why for the periodic function
+
+413
+00:18:42,000 --> 00:18:44,000
+it does this very fast convergence
+
+414
+00:18:44,000 --> 00:18:46,000
+and I'm not going to necessarily give you all the details
+
+415
+00:18:46,000 --> 00:18:48,000
+of why that's the case
+
+416
+00:18:48,000 --> 00:18:50,000
+but its second order convergence
+
+417
+00:18:50,000 --> 00:18:52,000
+is sort of what we expect from all these functions
+
+418
+00:18:52,000 --> 00:18:54,000
+now I'm going to try using the Gauss quadrature
+
+419
+00:18:54,000 --> 00:18:56,000
+where we pick the points and weights
+
+420
+00:18:56,000 --> 00:18:58,000
+to get the optimal convergence
+
+421
+00:18:58,000 --> 00:19:00,000
+what do you think is going to change in these curves
+
+422
+00:19:00,000 --> 00:19:02,000
+what are they going to look like
+
+423
+00:19:04,000 --> 00:19:06,000
+are they all going to get better
+
+424
+00:19:12,000 --> 00:19:14,000
+so here are the Gauss and quadrature points and weights
+
+425
+00:19:14,000 --> 00:19:16,000
+so for this interval
+
+426
+00:19:16,000 --> 00:19:18,000
+you can see the points
+
+427
+00:19:18,000 --> 00:19:20,000
+are spread out in the center
+
+428
+00:19:20,000 --> 00:19:22,000
+and more packed together near the sides
+
+429
+00:19:22,000 --> 00:19:24,000
+and the weights also have this non-uniformity
+
+430
+00:19:24,000 --> 00:19:26,000
+so they're spread out more in the center
+
+431
+00:19:26,000 --> 00:19:28,000
+and they're more heavily weighted in the center
+
+432
+00:19:28,000 --> 00:19:30,000
+they're more tightly packed in the ends
+
+433
+00:19:30,000 --> 00:19:32,000
+and they're weighted less heavily in the ends
+
+434
+00:19:32,000 --> 00:19:34,000
+so if we take those points and weights
+
+435
+00:19:34,000 --> 00:19:36,000
+for this is the Gauss-Ludon theorem
+
+436
+00:19:36,000 --> 00:19:38,000
+and then use that
+
+437
+00:19:38,000 --> 00:19:40,000
+we see the following curves
+
+438
+00:19:44,000 --> 00:19:46,000
+y
+
+439
+00:19:46,000 --> 00:19:48,000
+so obviously
+
+440
+00:19:48,000 --> 00:19:50,000
+I didn't pick those functions at random
+
+441
+00:19:50,000 --> 00:19:52,000
+because you pick five
+
+442
+00:19:52,000 --> 00:19:54,000
+functions out of a bag
+
+443
+00:19:54,000 --> 00:19:56,000
+the chance that they will produce
+
+444
+00:19:56,000 --> 00:19:58,000
+five different convergence curves
+
+445
+00:19:58,000 --> 00:20:00,000
+for Gauss and Ludonga
+
+446
+00:20:00,000 --> 00:20:02,000
+that's a very low probability
+
+447
+00:20:02,000 --> 00:20:04,000
+so I've obviously
+
+448
+00:20:04,000 --> 00:20:06,000
+picked them very carefully
+
+449
+00:20:06,000 --> 00:20:08,000
+what's different about those functions
+
+450
+00:20:08,000 --> 00:20:10,000
+that might explain this behavior
+
+451
+00:20:10,000 --> 00:20:12,000
+so what do we know
+
+452
+00:20:12,000 --> 00:20:14,000
+should be true about Gauss-Ludonga
+
+453
+00:20:14,000 --> 00:20:16,000
+how fast should it converge
+
+454
+00:20:16,000 --> 00:20:18,000
+should it go like
+
+455
+00:20:18,000 --> 00:20:20,000
+if I increase the points by
+
+456
+00:20:20,000 --> 00:20:22,000
+an order of magnitude
+
+457
+00:20:22,000 --> 00:20:24,000
+do I affect
+
+458
+00:20:24,000 --> 00:20:26,000
+is it like n squared
+
+459
+00:20:26,000 --> 00:20:28,000
+is it like n cubed
+
+460
+00:20:28,000 --> 00:20:30,000
+is it second order, third order, fourth order
+
+461
+00:20:30,000 --> 00:20:32,000
+which of these curves do you expect to be like
+
+462
+00:20:32,000 --> 00:20:34,000
+the Gaussian Legendre
+
+463
+00:20:34,000 --> 00:20:36,000
+based on what we talked about last time
+
+464
+00:20:36,000 --> 00:20:38,000
+yeah
+
+465
+00:20:38,000 --> 00:20:40,000
+to rapidly
+
+466
+00:20:40,000 --> 00:20:42,000
+these two very rapidly decaying ones
+
+467
+00:20:42,000 --> 00:20:44,000
+that's spectral convergence
+
+468
+00:20:44,000 --> 00:20:46,000
+this is a log plot of the error
+
+469
+00:20:46,000 --> 00:20:48,000
+versus number of points
+
+470
+00:20:48,000 --> 00:20:50,000
+so if you look at the log plot
+
+471
+00:20:50,000 --> 00:20:52,000
+the Gauss-Ludonga
+
+472
+00:20:52,000 --> 00:20:54,000
+it's spectrally accurate
+
+473
+00:20:54,000 --> 00:20:56,000
+which means it has a curve that goes
+
+474
+00:20:56,000 --> 00:20:58,000
+faster and faster and faster
+
+475
+00:20:58,000 --> 00:21:00,000
+and that was true for only two of the functions
+
+476
+00:21:00,000 --> 00:21:02,000
+and not these other three
+
+477
+00:21:02,000 --> 00:21:04,000
+what was wrong with those other three
+
+478
+00:21:04,000 --> 00:21:06,000
+and why did they have three different convergence rates
+
+479
+00:21:08,000 --> 00:21:10,000
+so how did we get the error estimate
+
+480
+00:21:10,000 --> 00:21:12,000
+for Gauss-Ludonga last time
+
+481
+00:21:12,000 --> 00:21:14,000
+what technique did we use
+
+482
+00:21:14,000 --> 00:21:16,000
+Taylor series
+
+483
+00:21:16,000 --> 00:21:18,000
+Taylor series counts on
+
+484
+00:21:18,000 --> 00:21:20,000
+the derivatives being
+
+485
+00:21:20,000 --> 00:21:22,000
+bounded
+
+486
+00:21:22,000 --> 00:21:24,000
+now let's go back and look at those functions
+
+487
+00:21:24,000 --> 00:21:26,000
+now alright
+
+488
+00:21:26,000 --> 00:21:28,000
+so maybe the square root one
+
+489
+00:21:28,000 --> 00:21:30,000
+so you can figure out
+
+490
+00:21:30,000 --> 00:21:32,000
+the square root one with that cusp there
+
+491
+00:21:32,000 --> 00:21:34,000
+that's probably the one that's really converging slowly
+
+492
+00:21:34,000 --> 00:21:36,000
+but what about the others
+
+493
+00:21:36,000 --> 00:21:38,000
+the others look pretty smooth
+
+494
+00:21:38,000 --> 00:21:40,000
+then you have to look at the analytic form for them
+
+495
+00:21:40,000 --> 00:21:42,000
+and you can see the game on play
+
+496
+00:21:42,000 --> 00:21:44,000
+I have x to the one half
+
+497
+00:21:44,000 --> 00:21:46,000
+you take one derivative and you get x to the minus
+
+498
+00:21:46,000 --> 00:21:48,000
+one half and that blows up
+
+499
+00:21:48,000 --> 00:21:50,000
+you take one derivative and you get x to the one half
+
+500
+00:21:50,000 --> 00:21:52,000
+take a second derivative and what happens to the derivative
+
+501
+00:21:52,000 --> 00:21:54,000
+what happens to the second derivative
+
+502
+00:21:54,000 --> 00:21:56,000
+for the second function
+
+503
+00:21:56,000 --> 00:21:58,000
+blows up two in the end
+
+504
+00:21:58,000 --> 00:22:00,000
+what about the third function
+
+505
+00:22:00,000 --> 00:22:02,000
+how many derivatives do you get to take before it blows up
+
+506
+00:22:02,000 --> 00:22:04,000
+you take two and the third derivative blows up
+
+507
+00:22:04,000 --> 00:22:06,000
+so now we go back to these functions
+
+508
+00:22:06,000 --> 00:22:08,000
+and you can see which is which
+
+509
+00:22:08,000 --> 00:22:10,000
+square root function
+
+510
+00:22:10,000 --> 00:22:12,000
+three halves function
+
+511
+00:22:12,000 --> 00:22:14,000
+five halves function
+
+512
+00:22:14,000 --> 00:22:16,000
+right
+
+513
+00:22:16,000 --> 00:22:18,000
+so you can see that the derivative is two
+
+514
+00:22:18,000 --> 00:22:20,000
+however many derivatives you have
+
+515
+00:22:20,000 --> 00:22:22,000
+that don't blow up
+
+516
+00:22:22,000 --> 00:22:24,000
+is the order of convergence you get with Gauss-Lavigne curve
+
+517
+00:22:24,000 --> 00:22:26,000
+and if the function is infinitely continuously differentiable
+
+518
+00:22:26,000 --> 00:22:28,000
+you get this curve
+
+519
+00:22:28,000 --> 00:22:30,000
+so you get this curve
+
+520
+00:22:30,000 --> 00:22:32,000
+and your function is really smooth
+
+521
+00:22:32,000 --> 00:22:34,000
+when you have a derivative discontinuity
+
+522
+00:22:34,000 --> 00:22:36,000
+a second derivative discontinuity
+
+523
+00:22:36,000 --> 00:22:38,000
+a third derivative discontinuity
+
+524
+00:22:38,000 --> 00:22:40,000
+and all is lost in these methods
+
+525
+00:22:40,000 --> 00:22:42,000
+so the really great methods
+
+526
+00:22:42,000 --> 00:22:44,000
+where your functions have to be really c infinitive
+
+527
+00:22:44,000 --> 00:22:46,000
+they have to be continuously differentiable
+
+528
+00:22:46,000 --> 00:22:48,000
+and if they are
+
+529
+00:22:48,000 --> 00:22:50,000
+and the two functions
+
+530
+00:22:50,000 --> 00:22:52,000
+the one that was periodic
+
+531
+00:22:52,000 --> 00:22:54,000
+and the one that is infinitely continuous
+
+532
+00:22:54,000 --> 00:22:56,000
+and differentiable but not periodic
+
+533
+00:22:56,000 --> 00:22:58,000
+both of them have the same function
+
+534
+00:22:58,000 --> 00:23:00,000
+that was just a reminder
+
+535
+00:23:00,000 --> 00:23:02,000
+ok so
+
+536
+00:23:02,000 --> 00:23:04,000
+we now have a couple things
+
+537
+00:23:04,000 --> 00:23:06,000
+we have a method for solving
+
+538
+00:23:06,000 --> 00:23:08,000
+these two dimensional integral equations
+
+539
+00:23:08,000 --> 00:23:10,000
+by breaking the surface up
+
+540
+00:23:10,000 --> 00:23:12,000
+and the piecewise constants
+
+541
+00:23:12,000 --> 00:23:14,000
+and then solving for
+
+542
+00:23:14,000 --> 00:23:16,000
+the weight
+
+543
+00:23:16,000 --> 00:23:18,000
+or how we can solve
+
+544
+00:23:18,000 --> 00:23:20,000
+how dense each of those line charges are
+
+545
+00:23:20,000 --> 00:23:22,000
+and we can use that to discretize
+
+546
+00:23:22,000 --> 00:23:24,000
+in 2D and solve
+
+547
+00:23:24,000 --> 00:23:26,000
+an exterior Laplace problem
+
+548
+00:23:26,000 --> 00:23:28,000
+we're going to talk
+
+549
+00:23:28,000 --> 00:23:30,000
+a little bit about
+
+550
+00:23:30,000 --> 00:23:32,000
+that and we're going to compare
+
+551
+00:23:32,000 --> 00:23:34,000
+a couple things
+
+552
+00:23:34,000 --> 00:23:36,000
+then the second thing we have
+
+553
+00:23:36,000 --> 00:23:38,000
+is this other way of calculating integrals
+
+554
+00:23:38,000 --> 00:23:40,000
+which maybe we could use to calculate
+
+555
+00:23:40,000 --> 00:23:42,000
+those line charges
+
+556
+00:23:42,000 --> 00:23:44,000
+and
+
+557
+00:23:44,000 --> 00:23:46,000
+we're going to see that we can marry
+
+558
+00:23:46,000 --> 00:23:48,000
+these two ideas together but only in certain
+
+559
+00:23:48,000 --> 00:23:50,000
+circumstances with what are called
+
+560
+00:23:50,000 --> 00:23:52,000
+Nystrom methods and we're going to talk a little bit about that
+
+561
+00:23:52,000 --> 00:23:54,000
+and I'll show you an example
+
+562
+00:23:54,000 --> 00:23:56,000
+and this is what you're going to do the project on
+
+563
+00:23:56,000 --> 00:23:58,000
+on Wednesday and Thursday
+
+564
+00:23:58,000 --> 00:24:00,000
+afternoons, is that what we're finding the slip on?
+
+565
+00:24:00,000 --> 00:24:02,000
+or evenings rather?
+
+566
+00:24:02,000 --> 00:24:04,000
+so we're going to have one problem set
+
+567
+00:24:04,000 --> 00:24:06,000
+there's also a project due so
+
+568
+00:24:06,000 --> 00:24:08,000
+we're not going to have your hand in very much
+
+569
+00:24:08,000 --> 00:24:10,000
+so please come to one of the evening sessions
+
+570
+00:24:10,000 --> 00:24:12,000
+to do the problem set
+
+571
+00:24:12,000 --> 00:24:14,000
+you can probably do it there and get checked off
+
+572
+00:24:14,000 --> 00:24:16,000
+and then you won't have anything to hand in
+
+573
+00:24:16,000 --> 00:24:18,000
+so we're trying to make it so you get a chance to play with it
+
+574
+00:24:18,000 --> 00:24:20,000
+these ideas but not
+
+575
+00:24:20,000 --> 00:24:22,000
+put a lot of extra work on your queue
+
+576
+00:24:22,000 --> 00:24:24,000
+so I want to talk about
+
+577
+00:24:24,000 --> 00:24:26,000
+trying to marry these together
+
+578
+00:24:26,000 --> 00:24:28,000
+and I want to talk about it in the context
+
+579
+00:24:28,000 --> 00:24:30,000
+of thinking about certain kinds of equations
+
+580
+00:24:30,000 --> 00:24:32,000
+and we'll
+
+581
+00:24:32,000 --> 00:24:34,000
+dig into this
+
+582
+00:24:34,000 --> 00:24:36,000
+in a little more detail next week
+
+583
+00:24:36,000 --> 00:24:38,000
+we'll talk about
+
+584
+00:24:38,000 --> 00:24:40,000
+some more of the details of this
+
+585
+00:24:40,000 --> 00:24:42,000
+but for the moment I want to just get at this idea
+
+586
+00:24:42,000 --> 00:24:44,000
+of the difference between first and second
+
+587
+00:24:44,000 --> 00:24:46,000
+kind equations
+
+588
+00:24:46,000 --> 00:24:48,000
+and then we'll do something on second kind equations
+
+589
+00:24:48,000 --> 00:24:50,000
+so here's one
+
+590
+00:24:50,000 --> 00:24:52,000
+one
+
+591
+00:24:52,000 --> 00:24:54,000
+d representation of an integral equation
+
+592
+00:24:54,000 --> 00:24:56,000
+so I have a potential
+
+593
+00:24:56,000 --> 00:24:58,000
+I want to solve
+
+594
+00:24:58,000 --> 00:25:00,000
+I know it on this integral from minus one to one
+
+595
+00:25:00,000 --> 00:25:02,000
+and I want to calculate what the density is
+
+596
+00:25:02,000 --> 00:25:04,000
+and the density is plugged into
+
+597
+00:25:04,000 --> 00:25:06,000
+this integral whose
+
+598
+00:25:06,000 --> 00:25:08,000
+Green's function if you want to call it that
+
+599
+00:25:08,000 --> 00:25:10,000
+is x minus x prime
+
+600
+00:25:10,000 --> 00:25:12,000
+in absolute value
+
+601
+00:25:12,000 --> 00:25:14,000
+so
+
+602
+00:25:14,000 --> 00:25:16,000
+we want to calculate the density
+
+603
+00:25:16,000 --> 00:25:18,000
+and we're given a potential and we want to compute
+
+604
+00:25:18,000 --> 00:25:20,000
+the density which we don't know
+
+605
+00:25:20,000 --> 00:25:22,000
+and we're going to figure out a density that gives us that potential
+
+606
+00:25:22,000 --> 00:25:24,000
+on this unit of infinity
+
+607
+00:25:24,000 --> 00:25:26,000
+so how do we do that
+
+608
+00:25:26,000 --> 00:25:28,000
+well we do piecewise constant centroid
+
+609
+00:25:28,000 --> 00:25:30,000
+collocation
+
+610
+00:25:32,000 --> 00:25:34,000
+bless you
+
+611
+00:25:34,000 --> 00:25:36,000
+let me do it again
+
+612
+00:25:38,000 --> 00:25:40,000
+so
+
+613
+00:25:42,000 --> 00:25:44,000
+the piecewise constant centroid collocation
+
+614
+00:25:44,000 --> 00:25:46,000
+says we
+
+615
+00:25:46,000 --> 00:25:48,000
+for each of these intervals
+
+616
+00:25:48,000 --> 00:25:50,000
+we're going to construct
+
+617
+00:25:50,000 --> 00:25:52,000
+a density at each of those intervals
+
+618
+00:25:52,000 --> 00:25:54,000
+and we're going to pick that density
+
+619
+00:25:54,000 --> 00:25:56,000
+so that we
+
+620
+00:25:56,000 --> 00:25:58,000
+satisfy this equation
+
+621
+00:25:58,000 --> 00:26:00,000
+that is
+
+622
+00:26:00,000 --> 00:26:02,000
+it gives us the potential
+
+623
+00:26:02,000 --> 00:26:04,000
+at these test points
+
+624
+00:26:04,000 --> 00:26:06,000
+and what we have to calculate
+
+625
+00:26:06,000 --> 00:26:08,000
+is this integral from
+
+626
+00:26:08,000 --> 00:26:10,000
+x j minus one
+
+627
+00:26:10,000 --> 00:26:12,000
+to x j
+
+628
+00:26:12,000 --> 00:26:14,000
+of x of
+
+629
+00:26:14,000 --> 00:26:16,000
+collocation of
+
+630
+00:26:16,000 --> 00:26:18,000
+x j minus one to x j
+
+631
+00:26:18,000 --> 00:26:20,000
+minus x prime
+
+632
+00:26:20,000 --> 00:26:22,000
+ds prime
+
+633
+00:26:22,000 --> 00:26:24,000
+so we're going to integrate
+
+634
+00:26:24,000 --> 00:26:26,000
+this line integral
+
+635
+00:26:26,000 --> 00:26:28,000
+we need to calculate that in order to calculate
+
+636
+00:26:28,000 --> 00:26:30,000
+what are these matrix entries
+
+637
+00:26:30,000 --> 00:26:32,000
+so we're going to have to calculate
+
+638
+00:26:32,000 --> 00:26:34,000
+these intervals
+
+639
+00:26:34,000 --> 00:26:36,000
+how do we calculate those intervals
+
+640
+00:26:36,000 --> 00:26:38,000
+we need to calculate those
+
+641
+00:26:46,000 --> 00:26:48,000
+so how should we calculate these intervals
+
+642
+00:26:48,000 --> 00:26:52,000
+we've got to calculate
+
+643
+00:26:52,000 --> 00:26:54,000
+we've got a bunch of those to calculate
+
+644
+00:26:54,000 --> 00:26:56,000
+we've got to calculate
+
+645
+00:26:56,000 --> 00:26:58,000
+how many of these do we have to calculate
+
+646
+00:27:02,000 --> 00:27:04,000
+what has to be true for
+
+647
+00:27:04,000 --> 00:27:06,000
+how many j's
+
+648
+00:27:06,000 --> 00:27:08,000
+for what i's
+
+649
+00:27:08,000 --> 00:27:10,000
+and for what j's
+
+650
+00:27:16,000 --> 00:27:18,000
+how many of these are going to have
+
+651
+00:27:18,000 --> 00:27:20,000
+to be true for each density on each line
+
+652
+00:27:20,000 --> 00:27:22,000
+so the density
+
+653
+00:27:22,000 --> 00:27:24,000
+in the jth section
+
+654
+00:27:24,000 --> 00:27:26,000
+it affects the potential
+
+655
+00:27:26,000 --> 00:27:28,000
+of how many test points
+
+656
+00:27:28,000 --> 00:27:30,000
+so if i imagine
+
+657
+00:27:30,000 --> 00:27:32,000
+i'm going to have to make this
+
+658
+00:27:32,000 --> 00:27:34,000
+i'm going to have to calculate
+
+659
+00:27:34,000 --> 00:27:36,000
+this integral
+
+660
+00:27:36,000 --> 00:27:38,000
+for every test point
+
+661
+00:27:38,000 --> 00:27:40,000
+so that's for i equals one
+
+662
+00:27:40,000 --> 00:27:42,000
+to n
+
+663
+00:27:42,000 --> 00:27:44,000
+and how many values of j
+
+664
+00:27:44,000 --> 00:27:46,000
+how many different
+
+665
+00:27:46,000 --> 00:27:48,000
+ones of these are going to be true
+
+666
+00:27:48,000 --> 00:27:50,000
+what is this going to have to do
+
+667
+00:27:50,000 --> 00:27:52,000
+so i take one section
+
+668
+00:27:52,000 --> 00:27:54,000
+i imagine
+
+669
+00:27:54,000 --> 00:27:56,000
+here's my
+
+670
+00:27:56,000 --> 00:27:58,000
+piecewise constant collocation scheme
+
+671
+00:27:58,000 --> 00:28:00,000
+here's my interval
+
+672
+00:28:00,000 --> 00:28:02,000
+here's my one interval
+
+673
+00:28:02,000 --> 00:28:04,000
+this is the jth interval
+
+674
+00:28:04,000 --> 00:28:06,000
+and it contributes
+
+675
+00:28:06,000 --> 00:28:08,000
+to all the collocation points
+
+676
+00:28:08,000 --> 00:28:10,000
+in the problem
+
+677
+00:28:10,000 --> 00:28:12,000
+including its own
+
+678
+00:28:18,000 --> 00:28:20,000
+so i have for each of these
+
+679
+00:28:20,000 --> 00:28:22,000
+intervals i'm going to have to calculate
+
+680
+00:28:22,000 --> 00:28:24,000
+this i'm going to have to do this
+
+681
+00:28:24,000 --> 00:28:26,000
+for every single interval
+
+682
+00:28:26,000 --> 00:28:28,000
+so i've got all these
+
+683
+00:28:28,000 --> 00:28:30,000
+integrals to calculate
+
+684
+00:28:30,000 --> 00:28:32,000
+i've got one to n
+
+685
+00:28:32,000 --> 00:28:34,000
+for each level
+
+686
+00:28:34,000 --> 00:28:36,000
+so i have how many integrals
+
+687
+00:28:36,000 --> 00:28:38,000
+to calculate
+
+688
+00:28:38,000 --> 00:28:40,000
+n, n squared and
+
+689
+00:28:40,000 --> 00:28:42,000
+n to the nth
+
+690
+00:28:42,000 --> 00:28:44,000
+so i have
+
+691
+00:28:44,000 --> 00:28:46,000
+how many integrals
+
+692
+00:28:46,000 --> 00:28:48,000
+to calculate
+
+693
+00:28:48,000 --> 00:28:50,000
+n to the nth
+
+694
+00:28:50,000 --> 00:28:52,000
+how many do you
+
+695
+00:28:52,000 --> 00:28:54,000
+how many vote for n squared
+
+696
+00:28:54,000 --> 00:28:56,000
+how many vote for n
+
+697
+00:28:56,000 --> 00:28:58,000
+oh good
+
+698
+00:28:58,000 --> 00:29:00,000
+because truth is democracy
+
+699
+00:29:00,000 --> 00:29:02,000
+no
+
+700
+00:29:02,000 --> 00:29:04,000
+ok so
+
+701
+00:29:04,000 --> 00:29:06,000
+we have this system of equations
+
+702
+00:29:06,000 --> 00:29:08,000
+that we're going to generate
+
+703
+00:29:08,000 --> 00:29:10,000
+and we could
+
+704
+00:29:10,000 --> 00:29:12,000
+calculate these integrals
+
+705
+00:29:12,000 --> 00:29:14,000
+how are we going to calculate these integrals
+
+706
+00:29:14,000 --> 00:29:16,000
+we're going to calculate these integrals
+
+707
+00:29:16,000 --> 00:29:18,000
+we're going to calculate these integrals
+
+708
+00:29:18,000 --> 00:29:20,000
+can we use the gauss quadrature scheme
+
+709
+00:29:20,000 --> 00:29:22,000
+for those integrals
+
+710
+00:29:22,000 --> 00:29:24,000
+why not
+
+711
+00:29:24,000 --> 00:29:26,000
+it's just an integral
+
+712
+00:29:26,000 --> 00:29:28,000
+it's 1d we know how to do it
+
+713
+00:29:28,000 --> 00:29:30,000
+is there going to be a problem
+
+714
+00:29:30,000 --> 00:29:32,000
+using the gauss quadrature for that integral
+
+715
+00:29:36,000 --> 00:29:38,000
+is that function continuous everywhere
+
+716
+00:29:38,000 --> 00:29:40,000
+it's an absolute value
+
+717
+00:29:40,000 --> 00:29:42,000
+what does it look like when you cross zero
+
+718
+00:29:42,000 --> 00:29:44,000
+it's like this right
+
+719
+00:29:44,000 --> 00:29:46,000
+so is that going to have
+
+720
+00:29:46,000 --> 00:29:48,000
+infinite continuous derivatives
+
+721
+00:29:48,000 --> 00:29:50,000
+no
+
+722
+00:29:50,000 --> 00:29:52,000
+the only term we have to worry about
+
+723
+00:29:52,000 --> 00:29:54,000
+is the self term
+
+724
+00:29:54,000 --> 00:29:56,000
+all the other terms it's fine
+
+725
+00:29:56,000 --> 00:29:58,000
+so we can use gauss quadrature
+
+726
+00:29:58,000 --> 00:30:00,000
+or you could probably do that one more time
+
+727
+00:30:00,000 --> 00:30:02,000
+ok so we calculate these integrals
+
+728
+00:30:02,000 --> 00:30:04,000
+then we have this charge density representation
+
+729
+00:30:04,000 --> 00:30:06,000
+so we're representing the density
+
+730
+00:30:06,000 --> 00:30:08,000
+with a weighted combination of piecewise constants
+
+731
+00:30:08,000 --> 00:30:10,000
+so we've got a piecewise constant
+
+732
+00:30:10,000 --> 00:30:12,000
+and density representation
+
+733
+00:30:12,000 --> 00:30:14,000
+we can go ahead and plug it into the integral
+
+734
+00:30:14,000 --> 00:30:16,000
+where we get
+
+735
+00:30:16,000 --> 00:30:18,000
+for this collocation discretization
+
+736
+00:30:18,000 --> 00:30:20,000
+we get
+
+737
+00:30:20,000 --> 00:30:22,000
+all these entries
+
+738
+00:30:22,000 --> 00:30:24,000
+we have each one of the entries in the matrix
+
+739
+00:30:24,000 --> 00:30:26,000
+takes us from one density
+
+740
+00:30:26,000 --> 00:30:28,000
+to one potential
+
+741
+00:30:28,000 --> 00:30:30,000
+so we have one column for each density value
+
+742
+00:30:30,000 --> 00:30:32,000
+that's taking the jth density
+
+743
+00:30:32,000 --> 00:30:34,000
+and calculating its potential
+
+744
+00:30:34,000 --> 00:30:36,000
+at all the collocation points
+
+745
+00:30:36,000 --> 00:30:38,000
+we have one row for each collocation point
+
+746
+00:30:38,000 --> 00:30:40,000
+that's the contribution of every density
+
+747
+00:30:40,000 --> 00:30:42,000
+to a particular collocation point
+
+748
+00:30:42,000 --> 00:30:44,000
+so if we imagine
+
+749
+00:30:44,000 --> 00:30:46,000
+we have all these entries
+
+750
+00:30:46,000 --> 00:30:48,000
+and we have these densities
+
+751
+00:30:48,000 --> 00:30:50,000
+and we have one collocation point
+
+752
+00:30:50,000 --> 00:30:52,000
+they all have to contribute to the collocation point
+
+753
+00:30:58,000 --> 00:31:00,000
+all these densities
+
+754
+00:31:02,000 --> 00:31:04,000
+so this is one row
+
+755
+00:31:06,000 --> 00:31:08,000
+and this is one column
+
+756
+00:31:12,000 --> 00:31:14,000
+so you can keep in mind those pictures
+
+757
+00:31:14,000 --> 00:31:16,000
+one column says all the dead points
+
+758
+00:31:16,000 --> 00:31:24,040
+one density contributes to all� lou
+
+759
+00:31:24,040 --> 00:31:25,300
+one row, all the densities contribute to all the collocation points
+
+760
+00:31:25,300 --> 00:31:26,600
+one column, one density contributes to all the collocation points
+
+761
+00:31:26,600 --> 00:31:27,520
+and one row all the density contribute to one collocation points
+
+762
+00:31:27,520 --> 00:31:28,000
+a lot
+
+763
+00:31:28,000 --> 00:31:33,700
+so that's what the matrix looks like
+
+764
+00:31:33,700 --> 00:31:37,240
+and now we start to refine the discretization
+
+765
+00:31:37,240 --> 00:31:40,000
+so we have this integral
+
+766
+00:31:40,000 --> 00:31:42,000
+we break it up into n sections
+
+767
+00:31:42,000 --> 00:31:44,000
+we break it up to 2n sections
+
+768
+00:31:44,000 --> 00:31:45,100
+we break it up to 4n sections
+
+769
+00:31:45,100 --> 00:31:46,000
+we break it up communauté sent all the means into a structure
+
+770
+00:31:46,000 --> 00:31:52,000
+And because we're so used to this, we expect that as we increase the number of sections,
+
+771
+00:31:52,000 --> 00:31:53,000
+the answer should get better.
+
+772
+00:31:53,000 --> 00:31:56,000
+We should converge to the correct solution.
+
+773
+00:31:56,000 --> 00:31:59,000
+And that isn't actually what happens.
+
+774
+00:31:59,000 --> 00:32:06,000
+When you solve this first kind integral equation and you refine the discretization, the answers
+
+775
+00:32:06,000 --> 00:32:11,000
+actually get worse.
+
+776
+00:32:11,000 --> 00:32:13,000
+Why is that?
+
+777
+00:32:13,000 --> 00:32:18,000
+What's happening in this problem that causes that to occur?
+
+778
+00:32:18,000 --> 00:32:25,000
+Well, it turns out that's just true of first kind integral equations generally.
+
+779
+00:32:25,000 --> 00:32:27,000
+We're going to go back and look at that a little bit more carefully, although we're
+
+780
+00:32:27,000 --> 00:32:30,000
+not going to focus on it too much today.
+
+781
+00:32:30,000 --> 00:32:33,000
+But we're going to look at another type of equation.
+
+782
+00:32:33,000 --> 00:32:38,000
+So the first kind equation is, I know the output of an integral and I want to figure
+
+783
+00:32:38,000 --> 00:32:39,000
+out its input.
+
+784
+00:32:39,000 --> 00:32:42,000
+I know the potential, I want to figure out the density.
+
+785
+00:32:42,000 --> 00:32:43,000
+Okay.
+
+786
+00:32:43,000 --> 00:32:48,000
+So there are many integral equations that turn out, come up with a different form in
+
+787
+00:32:48,000 --> 00:32:55,000
+which you know the potential and the density shows up both inside and outside the integral.
+
+788
+00:32:55,000 --> 00:33:00,000
+That is, the density shows up directly and also inside the integral.
+
+789
+00:33:00,000 --> 00:33:03,000
+This equation is called the second kind equation.
+
+790
+00:33:03,000 --> 00:33:07,000
+So first kind means the density shows up only in the integral.
+
+791
+00:33:07,000 --> 00:33:12,000
+Second kind means it shows up in two ways, inside and outside the integral.
+
+792
+00:33:12,000 --> 00:33:14,000
+So it's a very simple equation.
+
+793
+00:33:14,000 --> 00:33:16,000
+You just need to look at it from a different perspective.
+
+794
+00:33:16,000 --> 00:33:18,000
+What do I mean by this?
+
+795
+00:33:18,000 --> 00:33:20,000
+You can just look at it in a different perspective.
+
+796
+00:33:20,000 --> 00:33:22,000
+But it's a case of a different kind of equation.
+
+797
+00:33:22,000 --> 00:33:23,000
+So what about this equation?
+
+798
+00:33:23,000 --> 00:33:24,000
+What's different?
+
+799
+00:33:24,000 --> 00:33:25,000
+So we go through and we say, oh, all right, we'll use our piecewise constant centroid
+
+800
+00:33:25,000 --> 00:33:29,000
+collocation method, even though in the first kind case it produced a method that, as we
+
+801
+00:33:29,000 --> 00:33:30,000
+refine the discretization, the answers did not convert.
+
+802
+00:33:30,000 --> 00:33:31,000
+They got worse.
+
+803
+00:33:31,000 --> 00:33:36,000
+But we're going to do it anyway and see if it works for these kinds of equations.
+
+804
+00:33:36,000 --> 00:33:40,000
+And what we see is there's one extra piece to this.
+
+805
+00:33:40,000 --> 00:33:41,000
+Okay.
+
+806
+00:33:41,000 --> 00:33:47,340
+to this, which is because the density shows up outside, as well as inside the integral
+
+807
+00:33:47,340 --> 00:33:53,340
+equation, we see this sigma ni, the self-term, showing up along with the summation.
+
+808
+00:33:53,560 --> 00:33:57,240
+So all the rest of this looks just like the first kind of equation, and the only extra
+
+809
+00:33:57,240 --> 00:33:58,560
+piece is the sigma ni.
+
+810
+00:34:00,300 --> 00:34:05,300
+When I write down the matrix that represents the linear system I'm going to solve to compute
+
+811
+00:34:05,300 --> 00:34:08,080
+those coefficients, what's going to change?
+
+812
+00:34:08,080 --> 00:34:11,680
+What will be different?
+
+813
+00:34:13,260 --> 00:34:18,600
+So this is exactly the same matrix we set up for the first kind of equation.
+
+814
+00:34:18,840 --> 00:34:24,220
+Each column corresponds to the contribution of a density to all the collocation points.
+
+815
+00:34:24,880 --> 00:34:31,460
+Each row corresponds to the contributions of all the densities to a given collocation
+
+816
+00:34:31,460 --> 00:34:31,820
+point.
+
+817
+00:34:31,820 --> 00:34:36,280
+And the extra piece that the second kind of equation added to it is what?
+
+818
+00:34:38,080 --> 00:34:40,080
+Just these ones.
+
+819
+00:34:40,080 --> 00:34:47,080
+And that's because the second kind of equation had the density showing up both outside the
+
+820
+00:34:47,580 --> 00:34:51,040
+integral equation and inside the integral equation.
+
+821
+00:34:51,040 --> 00:34:54,260
+So what happens in this case when we find the discretization?
+
+822
+00:34:54,260 --> 00:35:00,140
+Well, and it's really hard to see in this picture, as you increase the order the answers
+
+823
+00:35:00,140 --> 00:35:02,260
+get better and better.
+
+824
+00:35:02,260 --> 00:35:04,260
+It converges.
+
+825
+00:35:04,260 --> 00:35:07,400
+The first kind of equation didn't converge.
+
+826
+00:35:07,400 --> 00:35:07,760
+It converges.
+
+827
+00:35:07,760 --> 00:35:07,880
+It converges.
+
+828
+00:35:07,880 --> 00:35:08,380
+It converges.
+
+829
+00:35:08,380 --> 00:35:08,880
+It converges.
+
+830
+00:35:08,880 --> 00:35:09,380
+It converges.
+
+831
+00:35:09,380 --> 00:35:13,820
+So we're going to think a little bit about how this happened now, and then we're going
+
+832
+00:35:13,820 --> 00:35:16,400
+to try to take advantage of that.
+
+833
+00:35:16,400 --> 00:35:23,100
+So the question is, of course, the ones you probably think of or the ones you know are
+
+834
+00:35:23,100 --> 00:35:26,440
+I know the potential, and I want to calculate the density.
+
+835
+00:35:26,440 --> 00:35:29,880
+These are the ones that often come up when you write them down physically in 3D.
+
+836
+00:35:29,880 --> 00:35:34,800
+But there are other kinds of formulations of those problems that generate second kind
+
+837
+00:35:34,800 --> 00:35:37,560
+equations, and we're going to do that in a moment.
+
+838
+00:35:37,560 --> 00:35:48,180
+So we need to think about what this integral operator does, and we're going to try to develop
+
+839
+00:35:48,180 --> 00:35:49,180
+some intuition.
+
+840
+00:35:49,180 --> 00:35:52,340
+I'm not going to be very formal, but I'm going to try to give you some intuition about what's
+
+841
+00:35:52,340 --> 00:35:54,280
+going on.
+
+842
+00:35:54,280 --> 00:35:58,040
+So what does the integral operator do?
+
+843
+00:35:58,040 --> 00:36:03,040
+When you put something into an integral, you really only get to see what's under the curve.
+
+844
+00:36:03,040 --> 00:36:09,920
+So the area under the curve is kind of an averaging of a function.
+
+845
+00:36:09,920 --> 00:36:16,660
+So we might imagine that this integral operator actually takes lots of functions and produces
+
+846
+00:36:16,660 --> 00:36:19,240
+the same output.
+
+847
+00:36:19,240 --> 00:36:23,340
+If that were a linear system, we'd think of it as being singular, and it is true and singular
+
+848
+00:36:23,340 --> 00:36:25,860
+in the case of this integral operator.
+
+849
+00:36:25,860 --> 00:36:32,200
+That is, if I imagine a function that is non-zero only at one point, and I put it inside an
+
+850
+00:36:32,200 --> 00:36:32,980
+integral.
+
+851
+00:36:32,980 --> 00:36:38,280
+So instead the term is multiplied by, it doesn't blow up, it doesn't go to infinity, then the
+
+852
+00:36:38,280 --> 00:36:39,280
+output is zero.
+
+853
+00:36:39,280 --> 00:36:44,320
+The area under the curve for a function like this is zero.
+
+854
+00:36:44,320 --> 00:36:49,040
+So imagine I have a line, and then I put all these needles on it.
+
+855
+00:36:49,040 --> 00:37:01,040
+So imagine, I don't know, imagine a porcupine compared to an armadillo.
+
+856
+00:37:01,040 --> 00:37:02,960
+One has a smooth surface.
+
+857
+00:37:02,960 --> 00:37:06,880
+So these methods can't tell the difference between the two, because the porcupine has
+
+858
+00:37:06,880 --> 00:37:09,300
+quills, and these quills have no area under them.
+
+859
+00:37:09,300 --> 00:37:14,200
+So from an integral operator, you can't tell the difference between a porcupine and an armadillo.
+
+860
+00:37:14,200 --> 00:37:17,140
+You can, if you pick it up, you get stuck.
+
+861
+00:37:17,140 --> 00:37:24,240
+And that's sort of the problem, is that when you look at this, you have all these functions.
+
+862
+00:37:24,240 --> 00:37:30,520
+So if I come up with a density that satisfies my integral equation, that is, produces an
+
+863
+00:37:30,520 --> 00:37:31,520
+output.
+
+864
+00:37:32,960 --> 00:37:37,460
+And I also have, so if I've got a density that satisfies my integral equation, and I
+
+865
+00:37:37,460 --> 00:37:43,840
+also have all these densities, all these quills, if you like, that I can add to my function,
+
+866
+00:37:43,840 --> 00:37:47,580
+and I can still satisfy the integral equation, because once I plug them into the integral,
+
+867
+00:37:47,580 --> 00:37:49,140
+they come out as zero.
+
+868
+00:37:49,140 --> 00:37:54,700
+It means if I've got one solution, I have an infinite number of solutions.
+
+869
+00:37:54,700 --> 00:38:01,960
+So that's why in 1D, when we refine the discretization, we're getting the same thing.
+
+870
+00:38:01,960 --> 00:38:02,960
+Right?
+
+871
+00:38:02,960 --> 00:38:07,800
+And we're getting this problem that when we do this collocation operation, and we start
+
+872
+00:38:07,800 --> 00:38:14,480
+to refine the discretization, we discover that we're picking up the case of the quills.
+
+873
+00:38:14,480 --> 00:38:21,720
+So we're, imagine taking an integral and making it into shorter and shorter integrals.
+
+874
+00:38:21,720 --> 00:38:30,840
+So we're taking this interval, and we're basically taking these boxcars, and when we refine the
+
+875
+00:38:30,840 --> 00:38:31,960
+discretization, we take those quills.
+
+876
+00:38:31,960 --> 00:38:40,460
+We take those boxcars and we make them into smaller boxcars.
+
+877
+00:38:40,460 --> 00:38:42,960
+And even smaller boxcars.
+
+878
+00:38:42,960 --> 00:38:55,700
+And as we go down in the discretization, we're getting closer and closer to these functions
+
+879
+00:38:55,700 --> 00:38:59,140
+which are one point, but they're non-zero.
+
+880
+00:38:59,140 --> 00:39:00,960
+The two quills.
+
+881
+00:39:00,960 --> 00:39:01,960
+Right?
+
+882
+00:39:01,960 --> 00:39:02,960
+So we have a bunch of them.
+
+883
+00:39:02,960 --> 00:39:03,960
+And we have lots of them.
+
+884
+00:39:03,960 --> 00:39:04,960
+Right?
+
+885
+00:39:04,960 --> 00:39:05,960
+They can be anywhere.
+
+886
+00:39:05,960 --> 00:39:06,960
+We can have one here in the middle.
+
+887
+00:39:06,960 --> 00:39:07,960
+We can put a quill, we can put lots and lots of them.
+
+888
+00:39:07,960 --> 00:39:08,960
+In fact there are an infinite number of them.
+
+889
+00:39:08,960 --> 00:39:21,960
+So we're going to need to be, in a few minutes, a little bit more formal about it, and what
+
+890
+00:39:21,960 --> 00:39:26,960
+we're going to think about is k, the operator, the integral operator, takes functions to
+
+891
+00:39:26,960 --> 00:39:27,960
+functions.
+
+892
+00:39:27,960 --> 00:39:31,960
+k with an underbar under it takes vectors to vectors.
+
+893
+00:39:31,960 --> 00:39:36,960
+And we're going to have to be a little careful about that because when we do the discretization,
+
+894
+00:39:36,960 --> 00:39:41,460
+we're going to worry about whether we're talking about the operator, the operator applied to
+
+895
+00:39:41,460 --> 00:39:45,960
+piecewise constant representations, or actually the matrix.
+
+896
+00:39:45,960 --> 00:39:50,460
+So let's have a look at what happens.
+
+897
+00:39:50,460 --> 00:39:57,420
+So we're going to look at the matrix and see what happens as we start to refine the discretization.
+
+898
+00:39:57,420 --> 00:40:00,960
+So it's a little bit hard to see here, but what's happening is when n equals 10, you're
+
+899
+00:40:00,960 --> 00:40:03,960
+going to have 10 eigenvalues of that matrix.
+
+900
+00:40:03,960 --> 00:40:07,960
+That's the collocation matrix.
+
+901
+00:40:07,960 --> 00:40:10,960
+So imagine, calculate the eigenvalues when n equals 10.
+
+902
+00:40:10,960 --> 00:40:14,960
+Calculate the eigenvalues when n equals 20, you'll get 20 of them.
+
+903
+00:40:14,960 --> 00:40:18,960
+Calculate the eigenvalues when n equals 40, then you'll have 40 eigenvalues.
+
+904
+00:40:18,960 --> 00:40:21,460
+And then plot them all together.
+
+905
+00:40:21,460 --> 00:40:28,960
+And you'll see that when n equals 10, the first 10 eigenvalues go from somewhere around
+
+906
+00:40:28,960 --> 00:40:29,960
+2 or 3 down to, I don't know, 10.
+
+907
+00:40:29,960 --> 00:40:30,960
+So you'll see that when n equals 10, you'll have 10 eigenvalues.
+
+908
+00:40:30,960 --> 00:40:31,960
+10 to the minus 2.
+
+909
+00:40:31,960 --> 00:40:34,960
+And then when n equals 20, it goes down a little further.
+
+910
+00:40:34,960 --> 00:40:37,960
+And then when n equals 40, they go down a little further.
+
+911
+00:40:37,960 --> 00:40:42,960
+And as we refine the discretization more and more, what's happening in the eigenvalues
+
+912
+00:40:42,960 --> 00:40:45,960
+is they're going closer and closer to 0.
+
+913
+00:40:45,960 --> 00:40:50,960
+So the more you refine the discretization, not only are the eigenvalues going to 0, there
+
+914
+00:40:50,960 --> 00:40:52,960
+are more and more of them.
+
+915
+00:40:52,960 --> 00:40:58,960
+So if you infinitely refine the discretization, you end up with an infinite number of 0 eigenvalues,
+
+916
+00:40:58,960 --> 00:40:59,960
+which means the matrix is infinite.
+
+917
+00:40:59,960 --> 00:41:03,960
+And the matrix is incredibly singular.
+
+918
+00:41:03,960 --> 00:41:09,960
+So that's what goes wrong when we try to converge this problem.
+
+919
+00:41:09,960 --> 00:41:15,960
+So what do you think happens to the eigenvalue picture when we go to the second kind of question?
+
+920
+00:41:15,960 --> 00:41:19,960
+What happens to the eigenvalues of a matrix when you add the identity to it?
+
+921
+00:41:29,960 --> 00:41:37,960
+So how many of you know the spectral mapping theorem?
+
+922
+00:41:37,960 --> 00:41:40,960
+Have you heard the spectral mapping theorem?
+
+923
+00:41:40,960 --> 00:41:43,960
+The most useful theorem you'll ever learn.
+
+924
+00:41:43,960 --> 00:41:48,960
+It says if I take a function of a matrix, if I want to know the eigenvalues of a function
+
+925
+00:41:48,960 --> 00:41:53,960
+of a matrix, it's the function of the eigenvalues of the original matrix.
+
+926
+00:41:53,960 --> 00:41:58,960
+And that works for any analytic function, any function you can represent with a Taylor series.
+
+927
+00:41:58,960 --> 00:42:11,960
+So if we have i plus a, then the eigenvalues of i plus a equal the eigenvalues of a with
+
+928
+00:42:11,960 --> 00:42:13,960
+the 1 interval.
+
+929
+00:42:13,960 --> 00:42:15,960
+This is a function of a matrix.
+
+930
+00:42:15,960 --> 00:42:17,960
+We're adding the identity to it.
+
+931
+00:42:17,960 --> 00:42:22,960
+And it says that the eigenvalues of this matrix are the same function adding 1 to it to the
+
+932
+00:42:22,960 --> 00:42:24,960
+eigenvalues.
+
+933
+00:42:24,960 --> 00:42:27,960
+What happens if I add 1 to those eigenvalues?
+
+934
+00:42:27,960 --> 00:42:30,960
+Do they go to the 0 anymore?
+
+935
+00:42:30,960 --> 00:42:33,960
+So now we have this problem.
+
+936
+00:42:33,960 --> 00:42:39,960
+Our first kind of integral equation generates a matrix that is progressively worse conditioned.
+
+937
+00:42:39,960 --> 00:42:42,960
+And we see it because the eigenvalues are approaching 0.
+
+938
+00:42:42,960 --> 00:42:47,960
+And the other way to see it is to think of this discretization, this progressively refined
+
+939
+00:42:47,960 --> 00:42:53,960
+discretization, where as we increase the number of sections we're breaking the interval into,
+
+940
+00:42:53,960 --> 00:42:57,960
+they get thinner and thinner and they start to look like needles, like quills.
+
+941
+00:42:57,960 --> 00:43:01,960
+These things that when you put them into an integral you get 0 out of them.
+
+942
+00:43:01,960 --> 00:43:04,960
+So that's the intuition.
+
+943
+00:43:04,960 --> 00:43:11,960
+And then the great thing about the second kind of equation is it's the same operator plus the identity.
+
+944
+00:43:11,960 --> 00:43:16,960
+Which means all those eigenvalues that are accumulating around 0, what are they going to accumulate around?
+
+945
+00:43:16,960 --> 00:43:19,960
+1.
+
+946
+00:43:19,960 --> 00:43:26,960
+So what does that mean about the second kind of equation as you refine the discretization?
+
+947
+00:43:27,960 --> 00:43:34,960
+Does it get worse conditioned as you refine the discretization for the second kind of equation?
+
+948
+00:43:34,960 --> 00:43:36,960
+So what are all the eigenvalues?
+
+949
+00:43:36,960 --> 00:43:38,960
+So I keep refining and refining.
+
+950
+00:43:38,960 --> 00:43:40,960
+Finding elements, finding value methods.
+
+951
+00:43:40,960 --> 00:43:42,960
+What happens as you refine the discretization?
+
+952
+00:43:42,960 --> 00:43:44,960
+What happens to the matrix?
+
+953
+00:43:44,960 --> 00:43:46,960
+It gets worse conditioned.
+
+954
+00:43:46,960 --> 00:43:48,960
+And worse and worse and worse.
+
+955
+00:43:48,960 --> 00:43:52,960
+Second kind of internal equations, what happens when you refine the discretization?
+
+956
+00:43:52,960 --> 00:43:57,960
+The operator has eigenvalues that approach 0 and then it's shifted by 1.
+
+957
+00:43:57,960 --> 00:44:04,960
+So it doesn't matter how fine you make the discretization, the second kind of integral equations in fact don't convert.
+
+958
+00:44:04,960 --> 00:44:11,960
+And the way to think about it is when you have the identity plus k applied to a smooth function plus a quill,
+
+959
+00:44:11,960 --> 00:44:16,960
+what comes out, the quill still shows up because it shows up through the identity operator.
+
+960
+00:44:16,960 --> 00:44:24,960
+So that means second kind operator identity plus k can tell the difference between an armadillo and a porcupine.
+
+961
+00:44:24,960 --> 00:44:26,960
+And you, you have to pick them up.
+
+962
+00:44:26,960 --> 00:44:38,960
+So that simple intuition is behind why when we look at the eigenvalues of the second kind integral equation
+
+963
+00:44:38,960 --> 00:44:43,960
+and we increase the discretization, the first ten, well, the first few are wherever they are.
+
+964
+00:44:43,960 --> 00:44:49,960
+Then, and then the next ten, well, they're by that point really close to 0.
+
+965
+00:44:49,960 --> 00:44:53,960
+And then after that, they all just, all the operator eigenvalues are close to 0,
+
+966
+00:44:53,960 --> 00:44:55,960
+which means the second kind operator, they're all really close to 0.
+
+967
+00:44:55,960 --> 00:44:56,960
+So that's the first kind of integral equation.
+
+968
+00:44:56,960 --> 00:44:59,960
+The second kind of integral equation is always close to 1.
+
+969
+00:44:59,960 --> 00:45:06,960
+So if I apply something like a Krylov subspace method to this problem, how badly conditioned is it?
+
+970
+00:45:06,960 --> 00:45:10,960
+How fast is that going to convert?
+
+971
+00:45:10,960 --> 00:45:13,960
+Is this an ill-conditioned matrix ever?
+
+972
+00:45:13,960 --> 00:45:16,960
+No matter how fine you make the discretization?
+
+973
+00:45:16,960 --> 00:45:19,960
+No, it's the second kind integral equation.
+
+974
+00:45:19,960 --> 00:45:23,960
+It's always well conditioned.
+
+975
+00:45:23,960 --> 00:45:25,960
+Almost.
+
+976
+00:45:25,960 --> 00:45:32,960
+So, we're going to look at some issues about the first eigenvalues, and we'll talk about that in a moment.
+
+977
+00:45:32,960 --> 00:45:37,960
+So, we're going to look a little bit at this theory,
+
+978
+00:45:37,960 --> 00:45:41,960
+and I'm not going to go through the theory in that much detail here in class.
+
+979
+00:45:41,960 --> 00:45:47,960
+I'm going to flip through a bunch of the slides and leave the notes for you on the website.
+
+980
+00:45:47,960 --> 00:45:52,960
+There are a lot of details about tracking the differences between what's the integral operator,
+
+981
+00:45:52,960 --> 00:45:54,960
+what's the integral operator applied to these basis functions,
+
+982
+00:45:54,960 --> 00:45:57,960
+and what's actually the matrix.
+
+983
+00:45:57,960 --> 00:46:00,960
+And we're going to need to track that carefully,
+
+984
+00:46:00,960 --> 00:46:05,960
+and I'm going to sort of wave my hands over some of those details and let you read them,
+
+985
+00:46:05,960 --> 00:46:08,960
+because it's just not that interesting to watch in class.
+
+986
+00:46:08,960 --> 00:46:11,960
+But you can look at the details, you can go through them,
+
+987
+00:46:11,960 --> 00:46:15,960
+but it's not a good class to exercise.
+
+988
+00:46:15,960 --> 00:46:19,960
+So, we're going to come up with three things.
+
+989
+00:46:19,960 --> 00:46:21,960
+We have the matrix, which has a bar underneath it.
+
+990
+00:46:21,960 --> 00:46:23,960
+We have the operator, which has nothing next to it.
+
+991
+00:46:23,960 --> 00:46:24,960
+And the matrix.
+
+992
+00:46:24,960 --> 00:46:29,960
+And the operator applied to a piecewise constant discretization with n basis functions.
+
+993
+00:46:29,960 --> 00:46:32,960
+So we've got these three different operators.
+
+994
+00:46:32,960 --> 00:46:39,960
+And we're going to try to do that so that we can compare the discretization of piecewise constant density
+
+995
+00:46:39,960 --> 00:46:43,960
+to the original operator and write down the difference between them.
+
+996
+00:46:43,960 --> 00:46:47,960
+And that's really what we're going to try to show.
+
+997
+00:46:47,960 --> 00:46:53,960
+We can write down, if we represent the density as a weighted combination of basis functions,
+
+998
+00:46:53,960 --> 00:46:57,960
+where the basis functions in this case were orthogonal.
+
+999
+00:46:57,960 --> 00:47:01,960
+Are the piecewise constant basis functions orthogonal?
+
+1000
+00:47:01,960 --> 00:47:05,960
+If I have two functions, one that looks like this,
+
+1001
+00:47:05,960 --> 00:47:10,960
+and another one that looks like the second case, a shifted pulse,
+
+1002
+00:47:10,960 --> 00:47:16,960
+are these orthogonal to each other?
+
+1003
+00:47:16,960 --> 00:47:21,960
+Is the integral of basis one times basis two,
+
+1004
+00:47:23,960 --> 00:47:28,960
+equal to zero?
+
+1005
+00:47:28,960 --> 00:47:32,960
+If I take the product of these two and integrate, is their result zero?
+
+1006
+00:47:32,960 --> 00:47:33,960
+Yeah.
+
+1007
+00:47:33,960 --> 00:47:35,960
+Okay, so these are orthogonal.
+
+1008
+00:47:35,960 --> 00:47:38,960
+If I start to do rooftop basis functions, they won't be.
+
+1009
+00:47:38,960 --> 00:47:42,960
+But we're going to assume that just because it makes it a little easier to think about
+
+1010
+00:47:42,960 --> 00:47:44,960
+how to do things like projecting.
+
+1011
+00:47:44,960 --> 00:47:48,960
+So we can project a given density onto the basis function
+
+1012
+00:47:48,960 --> 00:47:51,960
+just by projecting it onto the orthogonal basis.
+
+1013
+00:47:51,960 --> 00:47:52,960
+You don't have to set up a system equation.
+
+1014
+00:47:52,960 --> 00:47:54,960
+You just project.
+
+1015
+00:47:54,960 --> 00:47:57,960
+And once we've done that, once we've done this projection,
+
+1016
+00:47:57,960 --> 00:48:02,960
+we can then think about writing down the integral operator in terms of these projections.
+
+1017
+00:48:02,960 --> 00:48:04,960
+And this is the point where I'm going to wave my hands,
+
+1018
+00:48:04,960 --> 00:48:07,960
+because at this point you can go through the details of this,
+
+1019
+00:48:07,960 --> 00:48:12,960
+but what we're trying to do is to see some way of comparing the exact integral operator
+
+1020
+00:48:12,960 --> 00:48:17,960
+to what we get when we introduce this piecewise constant density discretization.
+
+1021
+00:48:17,960 --> 00:48:19,960
+And we're going to see that we get this projection,
+
+1022
+00:48:19,960 --> 00:48:21,960
+and we're going to have to keep track of that.
+
+1023
+00:48:22,960 --> 00:48:29,960
+But what we get out of this is that we have a representation of,
+
+1024
+00:48:29,960 --> 00:48:33,960
+if we start with a density that's piecewise constant,
+
+1025
+00:48:33,960 --> 00:48:36,960
+it's a density that's defined everywhere.
+
+1026
+00:48:36,960 --> 00:48:38,960
+We have an operator that's defined everywhere.
+
+1027
+00:48:38,960 --> 00:48:39,960
+This is not the matrix.
+
+1028
+00:48:39,960 --> 00:48:44,960
+Now it takes a piecewise constant density, which is defined over space,
+
+1029
+00:48:44,960 --> 00:48:47,960
+and maps it into a potential that's defined over space,
+
+1030
+00:48:47,960 --> 00:48:51,960
+and set it equal to a set of another potential that's piecewise constant.
+
+1031
+00:48:52,960 --> 00:48:55,960
+These are all functions of space.
+
+1032
+00:48:55,960 --> 00:48:59,960
+We can then compare the two, and we can ask the question.
+
+1033
+00:48:59,960 --> 00:49:05,960
+So if we start with a second kind integral operator,
+
+1034
+00:49:05,960 --> 00:49:08,960
+and then we introduce a discretization,
+
+1035
+00:49:08,960 --> 00:49:14,960
+so that the piecewise constant discretization,
+
+1036
+00:49:14,960 --> 00:49:18,960
+and we say that the original integral operator is solvable,
+
+1037
+00:49:18,960 --> 00:49:21,960
+so we say that I plus K inverse is,
+
+1038
+00:49:21,960 --> 00:49:23,960
+is bounded.
+
+1039
+00:49:23,960 --> 00:49:26,960
+That means there really is a solution to the second kind integral operator.
+
+1040
+00:49:26,960 --> 00:49:30,960
+If there is one,
+
+1041
+00:49:30,960 --> 00:49:34,960
+and we also describe the discrete equivalent,
+
+1042
+00:49:34,960 --> 00:49:37,960
+that is, we introduce a piecewise constant density,
+
+1043
+00:49:37,960 --> 00:49:39,960
+and come up with a discrete operator,
+
+1044
+00:49:39,960 --> 00:49:41,960
+we get these two things.
+
+1045
+00:49:41,960 --> 00:49:44,960
+If we have consistency,
+
+1046
+00:49:44,960 --> 00:49:47,960
+meaning if the continuous operator
+
+1047
+00:49:47,960 --> 00:49:50,960
+and the operator projected onto the discrete basis set,
+
+1048
+00:49:50,960 --> 00:49:53,960
+if they apply to any test density,
+
+1049
+00:49:53,960 --> 00:49:54,960
+goes to zero,
+
+1050
+00:49:54,960 --> 00:49:56,960
+that just says the two operators,
+
+1051
+00:49:56,960 --> 00:49:58,960
+the discrete and the continuous one,
+
+1052
+00:49:58,960 --> 00:50:01,960
+do the same thing as the n goes to infinity,
+
+1053
+00:50:01,960 --> 00:50:03,960
+if it goes to zero,
+
+1054
+00:50:03,960 --> 00:50:06,960
+and we do the same thing with the right-hand side,
+
+1055
+00:50:06,960 --> 00:50:11,960
+then the discretization converges.
+
+1056
+00:50:11,960 --> 00:50:16,960
+So that's all we need.
+
+1057
+00:50:16,960 --> 00:50:17,960
+Now to prove that,
+
+1058
+00:50:17,960 --> 00:50:18,960
+it's a collection of steps,
+
+1059
+00:50:18,960 --> 00:50:20,960
+and I'm not going to try to drag you through this,
+
+1060
+00:50:20,960 --> 00:50:22,960
+but I'm going to try to get you through it.
+
+1061
+00:50:22,960 --> 00:50:25,960
+And it has a collection of technical points,
+
+1062
+00:50:25,960 --> 00:50:27,960
+many of which are,
+
+1063
+00:50:27,960 --> 00:50:30,960
+sort of get us lost in the details.
+
+1064
+00:50:30,960 --> 00:50:35,960
+What I want to say is this.
+
+1065
+00:50:35,960 --> 00:50:42,960
+As long as your representation of the integral operator converges,
+
+1066
+00:50:42,960 --> 00:50:44,960
+that is, it will give you the same result
+
+1067
+00:50:44,960 --> 00:50:46,960
+as the original integral operator
+
+1068
+00:50:46,960 --> 00:50:49,960
+when you refine,
+
+1069
+00:50:49,960 --> 00:50:50,960
+that is,
+
+1070
+00:50:50,960 --> 00:50:53,960
+as long as you have a way of evaluating the integral that's accurate,
+
+1071
+00:50:53,960 --> 00:50:55,960
+and gets progressively more accurate,
+
+1072
+00:50:55,960 --> 00:50:57,960
+then the density will converge.
+
+1073
+00:50:57,960 --> 00:51:01,960
+And the accuracy with which you represent the integral operator,
+
+1074
+00:51:01,960 --> 00:51:03,960
+the rate within that it converges,
+
+1075
+00:51:03,960 --> 00:51:06,960
+will be the same as the way the density converges.
+
+1076
+00:51:06,960 --> 00:51:09,960
+So, what does this mean?
+
+1077
+00:51:09,960 --> 00:51:13,960
+So, I didn't take you through the details.
+
+1078
+00:51:13,960 --> 00:51:18,960
+It says that if I have a second-count integral equation,
+
+1079
+00:51:18,960 --> 00:51:20,960
+and I accurately compute the number of points,
+
+1080
+00:51:20,960 --> 00:51:22,960
+and I accurately compute the integrals
+
+1081
+00:51:22,960 --> 00:51:24,960
+in the second-count integral equation,
+
+1082
+00:51:24,960 --> 00:51:26,960
+that's all I have to do.
+
+1083
+00:51:26,960 --> 00:51:29,960
+As long as I've computed those integrals accurately,
+
+1084
+00:51:29,960 --> 00:51:30,960
+I will get convergence,
+
+1085
+00:51:30,960 --> 00:51:32,960
+and the rate at which the thing will converge
+
+1086
+00:51:32,960 --> 00:51:36,960
+is dependent entirely on the rate at which
+
+1087
+00:51:36,960 --> 00:51:40,960
+the evaluation of the integral converges.
+
+1088
+00:51:40,960 --> 00:51:42,960
+With that in mind,
+
+1089
+00:51:42,960 --> 00:51:45,960
+what method should you use to evaluate the integral?
+
+1090
+00:51:45,960 --> 00:51:49,960
+The Gauss plot of the curve.
+
+1091
+00:51:49,960 --> 00:51:51,960
+Yeah, the Gauss plot of the curve.
+
+1092
+00:51:51,960 --> 00:51:54,960
+Because that gives us exponential convergence.
+
+1093
+00:51:54,960 --> 00:51:57,960
+That means if we're solving a second-count integral equation,
+
+1094
+00:51:57,960 --> 00:52:02,960
+we should get exponential convergence for the integral equation.
+
+1095
+00:52:02,960 --> 00:52:06,960
+So, this is the thing about second-count equations.
+
+1096
+00:52:06,960 --> 00:52:09,960
+This is what is so amazing about them,
+
+1097
+00:52:09,960 --> 00:52:12,960
+and why for years they were very popular,
+
+1098
+00:52:12,960 --> 00:52:17,960
+until the problem with the dense matrices they generated
+
+1099
+00:52:17,960 --> 00:52:18,960
+became an issue,
+
+1100
+00:52:18,960 --> 00:52:21,960
+and then we switched to methods that produced sparse matrices.
+
+1101
+00:52:21,960 --> 00:52:23,960
+And now we have other methods with sparse Y and Bs,
+
+1102
+00:52:23,960 --> 00:52:25,960
+so we use them again too.
+
+1103
+00:52:25,960 --> 00:52:28,960
+But let's try this out.
+
+1104
+00:52:28,960 --> 00:52:30,960
+Right, so this is what we're going to do.
+
+1105
+00:52:30,960 --> 00:52:33,960
+We're going to say we have an integral equation.
+
+1106
+00:52:33,960 --> 00:52:35,960
+We have a second-count integral equation,
+
+1107
+00:52:35,960 --> 00:52:39,960
+and we're going to apply a quadrature to the collocation equation.
+
+1108
+00:52:39,960 --> 00:52:40,960
+So here are my collocation equations.
+
+1109
+00:52:40,960 --> 00:52:42,960
+Here's my test point, XI,
+
+1110
+00:52:42,960 --> 00:52:44,960
+here's my Green's function, my unknown density,
+
+1111
+00:52:44,960 --> 00:52:46,960
+and we're going to replace this integral
+
+1112
+00:52:46,960 --> 00:52:48,960
+with a graph.
+
+1113
+00:52:48,960 --> 00:52:50,960
+So we have a quadrature approximation.
+
+1114
+00:52:50,960 --> 00:52:51,960
+We have the evaluation points,
+
+1115
+00:52:51,960 --> 00:52:53,960
+X prime gets replaced by XK,
+
+1116
+00:52:53,960 --> 00:52:55,960
+the weights for that quadrature point,
+
+1117
+00:52:55,960 --> 00:52:59,960
+and remember, XI is the collocation point.
+
+1118
+00:52:59,960 --> 00:53:01,960
+So all we did was to say,
+
+1119
+00:53:01,960 --> 00:53:03,960
+let's do the integral equation,
+
+1120
+00:53:03,960 --> 00:53:07,960
+let's say we don't know what the density is,
+
+1121
+00:53:07,960 --> 00:53:09,960
+but we can write down what that integral operator is
+
+1122
+00:53:09,960 --> 00:53:13,960
+using the quadrature scheme.
+
+1123
+00:53:13,960 --> 00:53:16,960
+So can I just solve this?
+
+1124
+00:53:16,960 --> 00:53:18,960
+Well, I got two things.
+
+1125
+00:53:18,960 --> 00:53:22,960
+I've got, I need the density of the collocation points,
+
+1126
+00:53:22,960 --> 00:53:26,960
+and I also need the density of the quadrature points.
+
+1127
+00:53:26,960 --> 00:53:29,960
+Then I only have, so I can pick with n collocation points,
+
+1128
+00:53:29,960 --> 00:53:31,960
+I can get n equations,
+
+1129
+00:53:31,960 --> 00:53:33,960
+but I have two n unknowns.
+
+1130
+00:53:33,960 --> 00:53:35,960
+The density of the quadrature points,
+
+1131
+00:53:35,960 --> 00:53:37,960
+which I have n,
+
+1132
+00:53:37,960 --> 00:53:40,960
+and the density of the collocation points,
+
+1133
+00:53:40,960 --> 00:53:44,960
+which I have another n.
+
+1134
+00:53:44,960 --> 00:53:47,960
+So,
+
+1135
+00:53:47,960 --> 00:53:52,960
+what should I do?
+
+1136
+00:53:52,960 --> 00:53:58,960
+Where should I put the quadrature points?
+
+1137
+00:53:58,960 --> 00:54:09,960
+So suppose now I decide,
+
+1138
+00:54:09,960 --> 00:54:14,960
+I have this surface.
+
+1139
+00:54:14,960 --> 00:54:15,960
+I have the density on this surface,
+
+1140
+00:54:15,960 --> 00:54:16,960
+sigma of X,
+
+1141
+00:54:16,960 --> 00:54:18,960
+and I'm going to calculate,
+
+1142
+00:54:18,960 --> 00:54:20,960
+and I know the potential.
+
+1143
+00:54:20,960 --> 00:54:22,960
+I know the potential,
+
+1144
+00:54:22,960 --> 00:54:24,960
+psi of X,
+
+1145
+00:54:24,960 --> 00:54:27,960
+for X elements of the surface.
+
+1146
+00:54:27,960 --> 00:54:31,960
+And now I say that the potential at X
+
+1147
+00:54:31,960 --> 00:54:33,960
+is given by the density at X
+
+1148
+00:54:33,960 --> 00:54:36,960
+plus this integral
+
+1149
+00:54:36,960 --> 00:54:38,960
+of some g of X,
+
+1150
+00:54:38,960 --> 00:54:39,960
+comma X bar,
+
+1151
+00:54:39,960 --> 00:54:41,960
+of the density of X bar,
+
+1152
+00:54:41,960 --> 00:54:44,960
+integrated over this gamma.
+
+1153
+00:54:44,960 --> 00:54:46,960
+Now I say I'm going to do this,
+
+1154
+00:54:46,960 --> 00:54:48,960
+I'm going to replace this
+
+1155
+00:54:48,960 --> 00:54:50,960
+with a quadrature representation.
+
+1156
+00:54:50,960 --> 00:54:52,960
+A sum of w i's,
+
+1157
+00:54:52,960 --> 00:54:54,960
+g of w j,
+
+1158
+00:54:54,960 --> 00:54:56,960
+so g of X i,
+
+1159
+00:54:56,960 --> 00:54:58,960
+comma X j,
+
+1160
+00:54:58,960 --> 00:55:03,960
+sigma of X j,
+
+1161
+00:55:03,960 --> 00:55:07,960
+plus sigma of X i,
+
+1162
+00:55:07,960 --> 00:55:10,960
+is equal to the potential of X i.
+
+1163
+00:55:10,960 --> 00:55:13,960
+So I'm picking a particular point,
+
+1164
+00:55:13,960 --> 00:55:15,960
+sigma of X i,
+
+1165
+00:55:15,960 --> 00:55:17,960
+and I'm saying now we're going to pick
+
+1166
+00:55:17,960 --> 00:55:21,960
+these quadrature points
+
+1167
+00:55:21,960 --> 00:55:24,960
+to evaluate the integral.
+
+1168
+00:55:24,960 --> 00:55:27,960
+And the problem is I have all these test points
+
+1169
+00:55:27,960 --> 00:55:35,960
+and all these quadrature points.
+
+1170
+00:55:35,960 --> 00:55:38,960
+So for each of my collocation equations,
+
+1171
+00:55:38,960 --> 00:55:44,960
+of which I have n,
+
+1172
+00:55:44,960 --> 00:55:48,960
+and for each of my quadrature points,
+
+1173
+00:55:48,960 --> 00:55:56,960
+j equals one to n,
+
+1174
+00:55:56,960 --> 00:56:01,960
+I have n equations in 2n unknowns.
+
+1175
+00:56:01,960 --> 00:56:03,960
+How can I fix this?
+
+1176
+00:56:03,960 --> 00:56:05,960
+How can I get it so that I have
+
+1177
+00:56:05,960 --> 00:56:09,960
+only one set of equations?
+
+1178
+00:56:09,960 --> 00:56:10,960
+Well, one set of unknowns?
+
+1179
+00:56:10,960 --> 00:56:12,960
+I have one set of equations.
+
+1180
+00:56:12,960 --> 00:56:14,960
+How do I get one set of unknowns?
+
+1181
+00:56:14,960 --> 00:56:17,960
+You can make the quadrature points
+
+1182
+00:56:17,960 --> 00:56:18,960
+from inside the...
+
+1183
+00:56:18,960 --> 00:56:19,960
+No, you can't.
+
+1184
+00:56:19,960 --> 00:56:21,960
+You want to put the quadrature points in...
+
+1185
+00:56:21,960 --> 00:56:22,960
+You want to make the quadrature points
+
+1186
+00:56:22,960 --> 00:56:23,960
+and the collocation points
+
+1187
+00:56:23,960 --> 00:56:25,960
+be the same points?
+
+1188
+00:56:25,960 --> 00:56:26,960
+Yeah, but how do we pick
+
+1189
+00:56:26,960 --> 00:56:28,960
+the collocation points?
+
+1190
+00:56:28,960 --> 00:56:29,960
+What was the rule for picking
+
+1191
+00:56:29,960 --> 00:56:33,960
+the collocation points?
+
+1192
+00:56:33,960 --> 00:56:34,960
+We had a rule for picking
+
+1193
+00:56:34,960 --> 00:56:37,960
+the collocation points, didn't we?
+
+1194
+00:56:37,960 --> 00:56:39,960
+Well, we had this idea that if you broke it
+
+1195
+00:56:39,960 --> 00:56:40,960
+into piecewise straight sections,
+
+1196
+00:56:40,960 --> 00:56:42,960
+you should pick the midpoint
+
+1197
+00:56:42,960 --> 00:56:44,960
+or the endpoint or something like that.
+
+1198
+00:56:44,960 --> 00:56:47,960
+All right, maybe it's okay.
+
+1199
+00:56:47,960 --> 00:56:48,960
+I have a very good way of picking
+
+1200
+00:56:48,960 --> 00:56:49,960
+the collocation points.
+
+1201
+00:56:49,960 --> 00:56:50,960
+Why not make them equal
+
+1202
+00:56:50,960 --> 00:56:52,960
+to the quadrature points?
+
+1203
+00:56:52,960 --> 00:56:59,960
+If we do that, what do we get?
+
+1204
+00:56:59,960 --> 00:57:04,960
+If you did this in somewhere in the 1800s,
+
+1205
+00:57:04,960 --> 00:57:06,960
+you'd get to name the method.
+
+1206
+00:57:06,960 --> 00:57:08,960
+So if you say,
+
+1207
+00:57:08,960 --> 00:57:13,960
+we've got these collocation points,
+
+1208
+00:57:13,960 --> 00:57:14,960
+and we've got the collocation points
+
+1209
+00:57:14,960 --> 00:57:15,960
+and the quadrature points,
+
+1210
+00:57:15,960 --> 00:57:16,960
+and they're the same.
+
+1211
+00:57:16,960 --> 00:57:19,960
+If we set them equal to each other,
+
+1212
+00:57:19,960 --> 00:57:21,960
+you get a method that's referred to
+
+1213
+00:57:21,960 --> 00:57:27,960
+as the Nystrom method.
+
+1214
+00:57:27,960 --> 00:57:29,960
+We just go ahead and say,
+
+1215
+00:57:29,960 --> 00:57:31,960
+we'll use as the quadrature points,
+
+1216
+00:57:31,960 --> 00:57:36,960
+we'll just make them the same.
+
+1217
+00:57:36,960 --> 00:57:38,960
+So we're going to co-locate
+
+1218
+00:57:38,960 --> 00:57:42,960
+the quadrature and collocation points.
+
+1219
+00:57:43,960 --> 00:57:50,960
+Because we've got a very good way
+
+1220
+00:57:50,960 --> 00:57:52,960
+of picking the collocation points anyway.
+
+1221
+00:57:52,960 --> 00:57:54,960
+Why not make them the same?
+
+1222
+00:57:54,960 --> 00:58:01,960
+It gives us a set of n equations and unknowns.
+
+1223
+00:58:01,960 --> 00:58:03,960
+If we do that,
+
+1224
+00:58:03,960 --> 00:58:06,960
+we're still evaluating the integrals
+
+1225
+00:58:06,960 --> 00:58:09,960
+spectrally accurately.
+
+1226
+00:58:09,960 --> 00:58:10,960
+And what does that mean
+
+1227
+00:58:10,960 --> 00:58:13,960
+is the convergence of these methods.
+
+1228
+00:58:13,960 --> 00:58:19,960
+So here's the other thing.
+
+1229
+00:58:19,960 --> 00:58:22,960
+So the first time you tell this to a student,
+
+1230
+00:58:22,960 --> 00:58:24,960
+after, so I used to give out a problem set
+
+1231
+00:58:24,960 --> 00:58:25,960
+where everybody would have to calculate
+
+1232
+00:58:25,960 --> 00:58:27,960
+these line integrals,
+
+1233
+00:58:27,960 --> 00:58:28,960
+and then I'd show them the Nystrom method
+
+1234
+00:58:28,960 --> 00:58:29,960
+and say, well look,
+
+1235
+00:58:29,960 --> 00:58:30,960
+you know all that time you spent
+
+1236
+00:58:30,960 --> 00:58:31,960
+doing those line integrals?
+
+1237
+00:58:31,960 --> 00:58:32,960
+Well that was a waste of time
+
+1238
+00:58:32,960 --> 00:58:33,960
+because you could just give them
+
+1239
+00:58:33,960 --> 00:58:34,960
+the Nystrom methods,
+
+1240
+00:58:34,960 --> 00:58:37,960
+in which case you only need points and weights.
+
+1241
+00:58:37,960 --> 00:58:40,960
+And oh, that would make people furious.
+
+1242
+00:58:40,960 --> 00:58:42,960
+So I stopped doing it.
+
+1243
+00:58:43,960 --> 00:58:46,960
+Well it's good for you to calculate integrals
+
+1244
+00:58:46,960 --> 00:58:49,960
+over lines, although maybe not that good.
+
+1245
+00:58:49,960 --> 00:58:53,960
+But not only is the method spectrally accurate,
+
+1246
+00:58:53,960 --> 00:58:55,960
+the piecewise constant collocation,
+
+1247
+00:58:55,960 --> 00:58:58,960
+this is at best a second order method.
+
+1248
+00:58:58,960 --> 00:59:03,960
+The Nystrom method, it's spectrally accurate.
+
+1249
+00:59:03,960 --> 00:59:06,960
+That means when we refine the discretization
+
+1250
+00:59:06,960 --> 00:59:08,960
+and we look at how well we're converging,
+
+1251
+00:59:08,960 --> 00:59:11,960
+and compare it to piecewise constant collocation,
+
+1252
+00:59:11,960 --> 00:59:16,960
+we get, we'll get a method,
+
+1253
+00:59:16,960 --> 00:59:18,960
+because of the spectral accuracy
+
+1254
+00:59:18,960 --> 00:59:20,960
+of our representation of the integral operator
+
+1255
+00:59:20,960 --> 00:59:21,960
+because of that theorem,
+
+1256
+00:59:21,960 --> 00:59:23,960
+we'll get something that converges
+
+1257
+00:59:23,960 --> 00:59:25,960
+spectrally accurate.
+
+1258
+00:59:25,960 --> 00:59:27,960
+So here's a Nystrom method
+
+1259
+00:59:27,960 --> 00:59:30,960
+applied to an integral equation.
+
+1260
+00:59:30,960 --> 00:59:32,960
+And we're looking at the top curve,
+
+1261
+00:59:32,960 --> 00:59:33,960
+which you can barely see it in the curve,
+
+1262
+00:59:33,960 --> 00:59:35,960
+is the piecewise constant collocation scheme
+
+1263
+00:59:35,960 --> 00:59:38,960
+where we broke it up into 4 through 11 integrals.
+
+1264
+00:59:38,960 --> 00:59:41,960
+And then we did the Gauss-Cobb-Zern-Nystrom
+
+1265
+00:59:41,960 --> 00:59:42,960
+method.
+
+1266
+00:59:42,960 --> 00:59:44,960
+And by 11 integrals,
+
+1267
+00:59:44,960 --> 00:59:45,960
+we're almost at machine precision
+
+1268
+00:59:45,960 --> 00:59:46,960
+for the Nystrom method.
+
+1269
+00:59:46,960 --> 00:59:48,960
+And for the piecewise constant collocation,
+
+1270
+00:59:48,960 --> 00:59:55,960
+we barely got the error down to 10%.
+
+1271
+00:59:55,960 --> 00:59:59,960
+But I did something here
+
+1272
+00:59:59,960 --> 01:00:01,960
+and made it different than the original Green's function.
+
+1273
+01:00:01,960 --> 01:00:04,960
+What did I do?
+
+1274
+01:00:04,960 --> 01:00:05,960
+Why is this Green's function different
+
+1275
+01:00:05,960 --> 01:00:09,960
+from the one I started the lecture with?
+
+1276
+01:00:09,960 --> 01:00:10,960
+Remember the one at the beginning of the lecture?
+
+1277
+01:00:10,960 --> 01:00:11,960
+What Green's function?
+
+1278
+01:00:11,960 --> 01:00:14,960
+It was x minus x prime and absolute value.
+
+1279
+01:00:14,960 --> 01:00:17,960
+And I've changed it to be x minus x prime squared.
+
+1280
+01:00:17,960 --> 01:00:19,960
+Why did I do that?
+
+1281
+01:00:19,960 --> 01:00:22,960
+Because the curve with absolute value
+
+1282
+01:00:22,960 --> 01:00:25,960
+that has a discontinuity in it,
+
+1283
+01:00:25,960 --> 01:00:28,960
+and when you have an integral with a discontinuity in it,
+
+1284
+01:00:28,960 --> 01:00:31,960
+what's true about Gauss-Cobb's curve?
+
+1285
+01:00:31,960 --> 01:00:33,960
+You lose the spectral convergence.
+
+1286
+01:00:33,960 --> 01:00:37,960
+All right, so I used a little sleight of hand
+
+1287
+01:00:37,960 --> 01:00:40,960
+to get the integral to be the same.
+
+1288
+01:00:40,960 --> 01:00:43,960
+I picked the example very carefully.
+
+1289
+01:00:43,960 --> 01:00:45,960
+So the question is now,
+
+1290
+01:00:45,960 --> 01:00:47,960
+is that a practical method?
+
+1291
+01:00:47,960 --> 01:00:50,960
+So we now have this Nystrom method,
+
+1292
+01:00:50,960 --> 01:00:52,960
+which has exponential convergence.
+
+1293
+01:00:52,960 --> 01:00:54,960
+And the answer is,
+
+1294
+01:00:54,960 --> 01:00:55,960
+if it has exponential convergence
+
+1295
+01:00:55,960 --> 01:00:57,960
+for non-singular kernels,
+
+1296
+01:00:57,960 --> 01:00:59,960
+why don't we use it always?
+
+1297
+01:00:59,960 --> 01:01:01,960
+Why don't we teach you anything other than,
+
+1298
+01:01:01,960 --> 01:01:02,960
+why don't we start this lecture
+
+1299
+01:01:02,960 --> 01:01:03,960
+with the first overview
+
+1300
+01:01:03,960 --> 01:01:04,960
+when we talk about panels
+
+1301
+01:01:04,960 --> 01:01:05,960
+and integrating over panels?
+
+1302
+01:01:05,960 --> 01:01:06,960
+Why don't we use it always?
+
+1303
+01:01:06,960 --> 01:01:07,960
+Why don't we use it always?
+
+1304
+01:01:07,960 --> 01:01:08,960
+Why don't we use it always?
+
+1305
+01:01:08,960 --> 01:01:09,960
+Why don't we use it always?
+
+1306
+01:01:09,960 --> 01:01:10,960
+Because it's really good because
+
+1307
+01:01:11,960 --> 01:01:12,960
+it's because most physical problems
+
+1308
+01:01:12,960 --> 01:01:14,960
+and interests have singular integrals,
+
+1309
+01:01:14,960 --> 01:01:15,960
+singular kernels.
+
+1310
+01:01:15,960 --> 01:01:17,960
+One over r is like a r over r
+
+1311
+01:01:17,960 --> 01:01:19,960
+if you're doing Helmholtz problems.
+
+1312
+01:01:19,960 --> 01:01:20,960
+So, if you're going to match potential
+
+1313
+01:01:20,960 --> 01:01:22,960
+flow or most of the physical problems,
+
+1314
+01:01:22,960 --> 01:01:24,960
+you're interested in Laplace's equation,
+
+1315
+01:01:24,960 --> 01:01:25,960
+Helmholtz's equation,
+
+1316
+01:01:25,960 --> 01:01:27,960
+that's the one the PDEs have integrals,
+
+1317
+01:01:27,960 --> 01:01:29,960
+have kernels,
+
+1318
+01:01:29,960 --> 01:01:31,960
+the thing that goes inside the integral.
+
+1319
+01:01:31,960 --> 01:01:33,960
+They do have singularities in them,
+
+1320
+01:01:33,960 --> 01:01:36,960
+which means these Nystrom methods don't work.
+
+1321
+01:01:36,960 --> 01:01:38,960
+Well,
+
+1322
+01:01:38,960 --> 01:01:46,200
+So we're going to stop here and then I'm going to talk a little bit about one
+
+1323
+01:01:46,200 --> 01:01:51,000
+particular case. I'm going to show you a little bit of the details of this in
+
+1324
+01:01:51,000 --> 01:01:58,900
+order to give you a sense of the fact that there are interesting interval operators that do,
+
+1325
+01:01:58,900 --> 01:02:02,900
+for which this is the case.
+
+1326
+01:02:03,840 --> 01:02:07,900
+And we'll do this as part of the project.
+
+1327
+01:02:08,960 --> 01:02:17,900
+So when we think about trying to solve an integral equation, imagine in 2D, bless you,
+
+1328
+01:02:17,900 --> 01:02:23,900
+we're trying to solve a Dirichlet problem. So we imagine that we know the potential at
+
+1329
+01:02:23,900 --> 01:02:29,900
+each point x and it's given to us by an integral of now the 2D Green function,
+
+1330
+01:02:29,900 --> 01:02:36,900
+which I'm going to write as x prime and sigma of x prime d gamma.
+
+1331
+01:02:36,900 --> 01:02:38,900
+So we're going to think of this as,
+
+1332
+01:02:38,900 --> 01:02:38,940
+well, we're going to think of this as a,
+
+1333
+01:02:38,940 --> 01:02:44,940
+we have the pluses equation outside and we want to know the density and we know,
+
+1334
+01:02:44,940 --> 01:02:51,940
+we know the potential on the surface.
+
+1335
+01:02:51,940 --> 01:02:59,940
+And we're trying to solve this problem. This is the Dirichlet problem.
+
+1336
+01:03:08,940 --> 01:03:13,940
+So what kind is this? Is this first kind or second kind?
+
+1337
+01:03:13,940 --> 01:03:16,940
+So this is first kind.
+
+1338
+01:03:27,940 --> 01:03:33,940
+So we're not going to be able to use our Easter method for the first kind equation because one,
+
+1339
+01:03:33,940 --> 01:03:38,940
+it's only the second kind for which we have that area about the quadr- the,
+
+1340
+01:03:38,940 --> 01:03:44,940
+the integral equation solution picking up the same asymptotic behavior as the,
+
+1341
+01:03:44,940 --> 01:03:50,940
+or the same accuracy as the quadrature. So we can't use it for a first kind equation.
+
+1342
+01:03:50,940 --> 01:03:53,940
+So we're not going to be able to solve this Dirichlet problem.
+
+1343
+01:03:53,940 --> 01:04:03,940
+What about a Neumann problem? Suppose I have the same interval, the same equation,
+
+1344
+01:04:03,940 --> 01:04:07,940
+and instead I have partial psi, partial n.
+
+1345
+01:04:07,940 --> 01:04:11,940
+And then, it's given, and x is given.
+
+1346
+01:04:20,940 --> 01:04:23,940
+What's the integral equation I write down then?
+
+1347
+01:04:23,940 --> 01:04:28,940
+Well, it's still true that potential is given by the screen function,
+
+1348
+01:04:28,940 --> 01:04:31,940
+multiplied by density.
+
+1349
+01:04:34,940 --> 01:04:36,940
+Except I don't know what this is.
+
+1350
+01:04:36,940 --> 01:04:41,940
+So how can I turn that equation into one that I can use for the Neumann problem?
+
+1351
+01:04:41,940 --> 01:04:44,940
+What could I do?
+
+1352
+01:04:44,940 --> 01:04:46,940
+So here's my Neumann problem.
+
+1353
+01:04:53,940 --> 01:04:55,940
+Just differentiate the whole thing.
+
+1354
+01:04:55,940 --> 01:04:58,940
+You could differentiate the whole thing. Alright, so let's differentiate the whole thing.
+
+1355
+01:04:58,940 --> 01:05:02,940
+So we're going to calculate d by the n of psi of x.
+
+1356
+01:05:02,940 --> 01:05:05,940
+And we're going to note that this is the n of x.
+
+1357
+01:05:05,940 --> 01:05:07,940
+And we're going to keep track of that.
+
+1358
+01:05:07,940 --> 01:05:09,940
+And we're going to leave that in the moment.
+
+1359
+01:05:22,940 --> 01:05:24,940
+So is that helping us at all?
+
+1360
+01:05:24,940 --> 01:05:26,940
+What is this thing?
+
+1361
+01:05:26,940 --> 01:05:30,940
+Can I pull the dn dx inside the integral?
+
+1362
+01:05:30,940 --> 01:05:36,940
+Yes.
+
+1363
+01:05:36,940 --> 01:05:38,940
+Can you?
+
+1364
+01:05:38,940 --> 01:05:40,940
+The integration is over a different variable.
+
+1365
+01:05:40,940 --> 01:05:41,940
+Say again?
+
+1366
+01:05:41,940 --> 01:05:43,940
+The integration is over a different variable.
+
+1367
+01:05:43,940 --> 01:05:45,940
+The integration is over a different variable.
+
+1368
+01:05:45,940 --> 01:05:47,940
+So can I pull that inside?
+
+1369
+01:05:47,940 --> 01:05:49,940
+If I do, what does it mean?
+
+1370
+01:05:49,940 --> 01:05:52,940
+So I can pull that normal derivative inside.
+
+1371
+01:05:52,940 --> 01:05:55,940
+But then, what happens to it?
+
+1372
+01:05:55,940 --> 01:05:58,940
+You have 3n of...
+
+1373
+01:05:58,940 --> 01:05:59,940
+So now, let's...
+
+1374
+01:05:59,940 --> 01:06:02,940
+Let's imagine what that potential looks like.
+
+1375
+01:06:02,940 --> 01:06:05,940
+And see if we can think out what it might look like.
+
+1376
+01:06:19,940 --> 01:06:23,940
+So I might expect that if I write down the potential,
+
+1377
+01:06:23,940 --> 01:06:25,940
+as I approach a density...
+
+1378
+01:06:25,940 --> 01:06:28,940
+So I'm approaching... I want to know what the potential looks like.
+
+1379
+01:06:29,940 --> 01:06:31,940
+As I approach this density.
+
+1380
+01:06:33,940 --> 01:06:37,940
+What do I expect the potential to look like as I approach this density?
+
+1381
+01:06:40,940 --> 01:06:42,940
+In 3D, it's easy to think about.
+
+1382
+01:06:42,940 --> 01:06:45,940
+So let's think about it in 3D.
+
+1383
+01:06:47,940 --> 01:06:49,940
+And we can get some intuition from 3D.
+
+1384
+01:06:49,940 --> 01:06:53,940
+And then I'll stop there and we'll do it a little bit more precisely at the beginning of next class.
+
+1385
+01:06:55,940 --> 01:06:57,940
+What do you think it would look like in 3D?
+
+1386
+01:06:57,940 --> 01:06:58,940
+So remember that...
+
+1387
+01:06:58,940 --> 01:07:00,940
+I have this density.
+
+1388
+01:07:00,940 --> 01:07:05,940
+And now this potential is equal to the integral of that density.
+
+1389
+01:07:05,940 --> 01:07:09,940
+x prime divided by x minus x prime.
+
+1390
+01:07:09,940 --> 01:07:12,940
+Integrated over some shortage.
+
+1391
+01:07:12,940 --> 01:07:16,940
+Say, x1 to x2.
+
+1392
+01:07:20,940 --> 01:07:22,940
+If I plot this potential...
+
+1393
+01:07:22,940 --> 01:07:26,940
+...
+
+1394
+01:07:26,940 --> 01:07:28,940
+I can get the potential here.
+
+1395
+01:07:28,940 --> 01:07:30,940
+So I can look at the potential...
+
+1396
+01:07:30,940 --> 01:07:31,940
+Now, let's see...
+
+1397
+01:07:31,940 --> 01:07:32,940
+Let's use a different variable here.
+
+1398
+01:07:32,940 --> 01:07:33,940
+R, where R is...
+
+1399
+01:07:33,940 --> 01:07:35,940
+We're just going to look at the potential on this line, R.
+
+1400
+01:07:35,940 --> 01:07:40,940
+And where R is equal to zero, that's where this line is.
+
+1401
+01:07:40,940 --> 01:07:44,940
+Although, if we're thinking about it now in 3D, that's not a line.
+
+1402
+01:07:44,940 --> 01:07:46,940
+Oh, I just want to say one.
+
+1403
+01:07:47,940 --> 01:07:49,940
+So here's my charge panel.
+
+1404
+01:07:49,940 --> 01:07:50,940
+I'm asking...
+
+1405
+01:07:50,940 --> 01:07:52,940
+I'm looking at the potential as I approach this line.
+
+1406
+01:07:52,940 --> 01:07:55,940
+Yeah, then you went off that time, didn't you?
+
+1407
+01:07:55,940 --> 01:08:00,420
+So we go, we're approaching this charge, and then we're coming out the other side.
+
+1408
+01:08:00,840 --> 01:08:02,840
+If I plot that potential, what's it going to look like?
+
+1409
+01:08:06,600 --> 01:08:08,460
+So suppose this is a positive charge.
+
+1410
+01:08:09,120 --> 01:08:14,980
+Then on, if I hold it this way, so on the right side, what's the potential going to be?
+
+1411
+01:08:15,000 --> 01:08:16,060
+Is it going to be positive or negative?
+
+1412
+01:08:17,680 --> 01:08:20,700
+If it's a positive charge, I'm looking at the potential as I move away from the panel.
+
+1413
+01:08:21,260 --> 01:08:22,820
+Is the potential positive or negative?
+
+1414
+01:08:24,400 --> 01:08:24,760
+Positive.
+
+1415
+01:08:25,000 --> 01:08:25,320
+Positive.
+
+1416
+01:08:26,140 --> 01:08:29,180
+If I'm looking on the left side and I plot the potential, what's it going to do?
+
+1417
+01:08:29,240 --> 01:08:30,300
+Is it going to be positive or negative?
+
+1418
+01:08:30,880 --> 01:08:31,160
+Positive.
+
+1419
+01:08:31,560 --> 01:08:31,880
+Positive.
+
+1420
+01:08:32,340 --> 01:08:34,560
+And in both directions, it's going to do what?
+
+1421
+01:08:34,620 --> 01:08:35,380
+Go up or go down?
+
+1422
+01:08:36,000 --> 01:08:36,240
+Down.
+
+1423
+01:08:36,700 --> 01:08:37,020
+Down.
+
+1424
+01:08:38,120 --> 01:08:42,180
+Right, so this is, again, in 3D, this is what the potential is going to look like.
+
+1425
+01:08:43,720 --> 01:08:47,400
+It's not going to blow up as we actually approach this charge density sheet.
+
+1426
+01:08:47,720 --> 01:08:53,500
+That we proved in the very first lecture by calculating out a hole in it.
+
+1427
+01:08:54,760 --> 01:08:55,000
+So if that's a...
+
+1428
+01:08:55,000 --> 01:09:01,820
+So if that's a plot of the potential as you approach this surface, what does the derivative
+
+1429
+01:09:01,820 --> 01:09:03,600
+of the potential look like?
+
+1430
+01:09:10,380 --> 01:09:11,200
+So what's it going to do?
+
+1431
+01:09:11,200 --> 01:09:16,260
+As r is increasing, as I approach the panel, as r increasing, what's happening?
+
+1432
+01:09:16,260 --> 01:09:17,260
+The potential is increasing.
+
+1433
+01:09:18,040 --> 01:09:19,200
+What happens to its normal...
+
+1434
+01:09:19,500 --> 01:09:21,300
+The derivative in the normal direction?
+
+1435
+01:09:21,300 --> 01:09:22,680
+Now I have to pick which direction is normal.
+
+1436
+01:09:23,360 --> 01:09:24,320
+So let's say the normal direction is in the normal direction.
+
+1437
+01:09:24,320 --> 01:09:24,400
+Okay.
+
+1438
+01:09:24,400 --> 01:09:24,580
+So what happens if the derivative is in the normal direction?
+
+1439
+01:09:24,580 --> 01:09:24,700
+Now I have to pick which direction is normal.
+
+1440
+01:09:24,700 --> 01:09:25,440
+So what happens if the derivative is in the positive?
+
+1441
+01:09:25,440 --> 01:09:27,300
+What happens to this?
+
+1442
+01:09:27,460 --> 01:09:28,720
+So this is the normal.
+
+1443
+01:09:30,100 --> 01:09:34,320
+So what happens when I take the derivative of this potential in that normal direction?
+
+1444
+01:09:38,560 --> 01:09:39,960
+Is it increasing or decreasing?
+
+1445
+01:09:39,960 --> 01:09:40,400
+Is it going...
+
+1446
+01:09:40,740 --> 01:09:41,780
+So now I have to be a little careful.
+
+1447
+01:09:41,780 --> 01:09:45,080
+So we're talking about perturbing it in the normal direction.
+
+1448
+01:09:45,740 --> 01:09:45,940
+Right?
+
+1449
+01:09:45,940 --> 01:09:50,360
+So we're going to ask what happens when we look at the derivative potentials
+
+1450
+01:09:50,360 --> 01:09:52,200
+and point a little bit in the normal direction.
+
+1451
+01:09:53,020 --> 01:09:54,700
+So we're going to take the difference between the two.
+
+1452
+01:09:54,700 --> 01:09:58,580
+So if we look at that, it looks like it goes up.
+
+1453
+01:10:00,160 --> 01:10:01,780
+The slope here is infinite.
+
+1454
+01:10:02,400 --> 01:10:03,800
+It goes to some finite value.
+
+1455
+01:10:04,760 --> 01:10:06,880
+Then what happens after we cross the axis?
+
+1456
+01:10:09,700 --> 01:10:10,500
+There's a jump.
+
+1457
+01:10:10,940 --> 01:10:11,780
+There's a jump.
+
+1458
+01:10:15,940 --> 01:10:17,220
+How big is that jump?
+
+1459
+01:10:24,700 --> 01:10:35,460
+So we're going to do a little bit more with that next time.
+
+1460
+01:10:35,460 --> 01:10:41,180
+I'm sorry, I glossed over a few too many details in the derivation of the convergence theory
+
+1461
+01:10:41,180 --> 01:10:43,000
+for the second time equation.
+
+1462
+01:10:43,000 --> 01:10:46,060
+So I'm going to stop a little earlier.
+
+1463
+01:10:46,060 --> 01:10:47,880
+But I don't want to go any further than this.
+
+1464
+01:10:47,880 --> 01:10:49,220
+But I want to ask this question.
+
+1465
+01:10:49,700 --> 01:10:54,260
+If I calculate this derivative, it has to have this change.
+
+1466
+01:10:54,260 --> 01:10:56,100
+It has to have this jump in it.
+
+1467
+01:10:56,100 --> 01:10:57,100
+How big is that jump?
+
+1468
+01:10:57,100 --> 01:10:59,680
+What's it going to be proportional to?
+
+1469
+01:10:59,680 --> 01:11:00,180
+Yeah?
+
+1470
+01:11:00,180 --> 01:11:02,300
+The charge, the search charge.
+
+1471
+01:11:02,300 --> 01:11:04,580
+Yeah, it's going to be proportional to the density.
+
+1472
+01:11:04,580 --> 01:11:07,020
+So what do you expect this thing to generate for you?
+
+1473
+01:11:11,060 --> 01:11:12,060
+So we have this jump.
+
+1474
+01:11:12,060 --> 01:11:15,040
+So we're on the other side of the jump.
+
+1475
+01:11:15,040 --> 01:11:17,400
+The density is going to show up.
+
+1476
+01:11:17,400 --> 01:11:23,800
+So you're going to have some alpha times the density plus an integral of this derivative.
+
+1477
+01:11:23,800 --> 01:11:24,260
+Right?
+
+1478
+01:11:24,260 --> 01:11:29,260
+So you're going to have some alpha times the density plus an integral of this derivative.
+
+1479
+01:11:29,260 --> 01:11:33,260
+So you're going to have some alpha times the density plus an integral of this derivative.
+
+1480
+01:11:33,260 --> 01:11:36,260
+What kind of equation is this?
+
+1481
+01:11:36,260 --> 01:11:39,140
+First or second con?
+
+1482
+01:11:39,140 --> 01:11:41,080
+It's second con.
+
+1483
+01:11:41,080 --> 01:11:41,580
+All right.
+
+1484
+01:11:41,580 --> 01:11:45,260
+So I'm going to pick this up next time because I need to get this far.
+
+1485
+01:11:45,260 --> 01:11:50,900
+And now to have you hang on to it, I need to have some slides so you can see the picture
+
+1486
+01:11:50,900 --> 01:11:51,740
+in a little more detail.
+
+1487
+01:11:51,740 --> 01:11:53,800
+It's too hard to decipher it from my chalk writing.
+
+1488
+01:11:53,800 --> 01:11:55,460
+But I just want to give you the sense of this.
+
+1489
+01:11:55,460 --> 01:12:00,240
+So what we're going to do next time is we're going to pick up from here.
+
+1490
+01:12:00,240 --> 01:12:05,180
+And we're going to look and see if we ever get second kind equations that we can use
+
+1491
+01:12:05,180 --> 01:12:06,180
+this Neistrom for.
+
+1492
+01:12:06,180 --> 01:12:11,180
+And we're going to see that Norman problems generate second kind integral equations.
+
+1493
+01:12:11,180 --> 01:12:15,740
+And those Norman problems generate second kind integral equations we can solve with
+
+1494
+01:12:15,740 --> 01:12:17,280
+Neistrom methods.
+
+1495
+01:12:17,280 --> 01:12:22,480
+And then we'll end up looking at this issue of what happens when we generate those kinds
+
+1496
+01:12:22,480 --> 01:12:23,480
+of matrices.
+
+1497
+01:12:23,800 --> 01:12:26,880
+And we can figure out something to do with those things.
+
+1498
+01:12:26,880 --> 01:12:27,880
+So we're going to pick this up next time.
+
+1499
+01:12:27,880 --> 01:12:32,880
+But I want to give you this idea that we have this quadrature scheme.
+
+1500
+01:12:32,880 --> 01:12:38,300
+When we use this quadrature scheme in integral equations, we can come up with this Neistrom
+
+1501
+01:12:38,300 --> 01:12:39,300
+method.
+
+1502
+01:12:39,300 --> 01:12:44,860
+But the Neistrom method counts on a kernel that's smooth and a second kind integral equation.
+
+1503
+01:12:44,860 --> 01:12:48,200
+And the ones you naturally write down, the Dirichlet problems you naturally write down
+
+1504
+01:12:48,200 --> 01:12:52,040
+with Green's functions having to do with PDEs, are not second kind equations.
+
+1505
+01:12:52,040 --> 01:12:53,040
+And they don't have smooth kernels.
+
+1506
+01:12:53,800 --> 01:12:58,120
+But I'm going to show you that if you're solving Norman problems, you can do it with
+
+1507
+01:12:58,120 --> 01:13:01,120
+the, you can generate a second kind equation.
+
+1508
+01:13:01,120 --> 01:13:04,120
+And in 2D, you get a smooth kernel.
+
+1509
+01:13:04,120 --> 01:13:06,120
+And to see that, we're going to need to move one more time.
+
+1510
+01:13:06,120 --> 01:13:08,520
+So let me stop there, and we'll pick it up next time.
+
+1511
+01:13:08,520 --> 01:13:13,400
+Let me remind you that we're going to do some evening class hours, Wednesday evening and
+
+1512
+01:13:13,400 --> 01:13:14,400
+Thursday evening.
+
+1513
+01:13:14,400 --> 01:13:15,400
+If these don't fit with your schedule, complain.
+
+1514
+01:13:15,400 --> 01:13:16,400
+Because we'll make the next one.
+
+1515
+01:13:16,400 --> 01:13:17,400
+Yep?
+
+1516
+01:13:17,400 --> 01:13:18,400
+Wasn't it Monday, today, Wednesday?
+
+1517
+01:13:18,400 --> 01:13:19,400
+Was it as a...
+
+1518
+01:13:19,400 --> 01:13:20,400
+So we kind of shifted the schedule.
+
+1519
+01:13:20,400 --> 01:13:21,400
+So we kind of shifted the schedule.
+
+1520
+01:13:21,400 --> 01:13:22,400
+So we kind of shifted the schedule.
+
+1521
+01:13:22,400 --> 01:13:23,400
+So we kind of shifted the schedule.
+
+1522
+01:13:23,400 --> 01:13:24,400
+So we kind of shifted the schedule.
+
+1523
+01:13:24,400 --> 01:13:25,400
+So we kind of shifted the schedule.
+
+1524
+01:13:25,400 --> 01:13:26,400
+So we kind of shifted the schedule.
+
+1525
+01:13:26,400 --> 01:13:27,400
+So we kind of shifted the schedule.
+
+1526
+01:13:27,400 --> 01:13:28,400
+We kind of shifted the schedule.
+
+1527
+01:13:28,400 --> 01:13:29,400
+And so we kind of shifted it around, I think.
+
+1528
+01:13:29,400 --> 01:13:30,400
+Which did you...
+
+1529
+01:13:30,400 --> 01:13:31,400
+Which did we end up with?
+
+1530
+01:13:31,400 --> 01:13:32,400
+So...
+
+1531
+01:13:32,400 --> 01:13:33,400
+It is Wednesday, and Tuesday.
+
+1532
+01:13:33,400 --> 01:13:34,400
+Yeah, I think...
+
+1533
+01:13:34,400 --> 01:13:35,400
+We talked about...
+
+1534
+01:13:35,400 --> 01:13:37,220
+So if it doesn't work for you, we'll do another session on Monday.
+
+1535
+01:13:37,220 --> 01:13:41,220
+The problem is we can't really have something else to do other than the project that next
+
+1536
+01:13:41,220 --> 01:13:42,220
+week.
+
+1537
+01:13:42,220 --> 01:13:46,240
+So there were rules about what we're allowed to do in the last week of classes.
+
+1538
+01:13:46,240 --> 01:13:52,800
+But if you can't make the Monday or Wednesday or Thursday of this week, we'll make a session
+
+1539
+01:13:52,800 --> 01:13:53,400
+of Monday.
+
+1540
+01:13:53,400 --> 01:13:59,400
+So anybody who has a conflict, if you can't make one of those days, that's on us.
+
+1541
+01:13:59,400 --> 01:14:02,400
+Just let us know and we'll make an extra session.
+
+1542
+01:14:02,400 --> 01:14:07,400
+And the idea is to try to make this so it's a good experience for you and so that you can try some things out.
+
+1543
+01:14:07,400 --> 01:14:11,400
+Not to add another thing to your queue of many end of term duties.
+
+1544
+01:14:11,400 --> 01:14:18,400
+But please, if Wednesday and Thursday turn out to be problematic to you, and problematic means you have a Friday problem set due,
+
+1545
+01:14:18,400 --> 01:14:24,400
+or anything in that range, any reason you want to push it off to the following week, we'll accept.
+
+1546
+01:14:24,400 --> 01:14:29,400
+So we're not, this is for your convenience, not to be an extra thing.
+
+1547
+01:14:29,400 --> 01:14:31,400
+Alright, we'll pick this up next time.
+
+1548
+01:14:31,400 --> 01:14:37,400
+So when there are evening classes, which days do we have evening classes?
+
+1549
+01:14:37,400 --> 01:14:41,400
+Which days in this week do we have evening classes?
+
+1550
+01:14:41,400 --> 01:14:43,400
+So we'll have them Wednesday and Thursday.
+
+1551
+01:14:43,400 --> 01:14:46,400
+It's Wednesday evening and Thursday evening this week.
+
+1552
+01:14:46,400 --> 01:14:47,400
+And we'll do a...
+
+1553
+01:14:47,400 --> 01:14:48,400
+Okay.
+
+1554
+01:14:48,400 --> 01:14:50,400
+A replacement session Monday evening of next week.
+
+1555
+01:14:50,400 --> 01:14:53,400
+And we'll put another one if that doesn't solve it for everybody.
+
+1556
+01:14:53,400 --> 01:14:55,400
+Okay, and it's here?
+
+1557
+01:14:55,400 --> 01:14:56,400
+Yeah, we'll do it here.
+
+1558
+01:14:56,400 --> 01:14:58,400
+And seven to nine?
+
+1559
+01:14:58,400 --> 01:14:59,400
+Yeah, seven.
+
+1560
+01:14:59,400 --> 01:15:00,400
+Seven to nine.
+
+1561
+01:15:00,400 --> 01:15:03,400
+And we'll get it posted, we'll make it clear, we'll post it again on the web.
+
+1562
+01:15:03,400 --> 01:15:07,400
+I think we talked about a few different alternatives to do this.
+
+1563
+01:15:07,400 --> 01:15:09,400
+If you make sure it's up on the...
+
+1564
+01:15:09,400 --> 01:15:11,400
+Yeah, it is actually on here.
+
+1565
+01:15:11,400 --> 01:15:12,400
+It is, okay.
+
+1566
+01:15:12,400 --> 01:15:13,400
+Okay.
+
+1567
+01:15:13,400 --> 01:15:17,400
+And there is people who are requesting doing the final project in Council.
+
+1568
+01:15:17,400 --> 01:15:18,400
+So if you are interested, you can do that.
+
+1569
+01:15:18,400 --> 01:15:20,400
+If you are interested, can you just email me?
+
+1570
+01:15:20,400 --> 01:15:25,400
+I just need a count of how many students, so I know how many simultaneous sessions I
+
+1571
+01:15:25,400 --> 01:15:28,400
+need to get on the Council license.
+
+1572
+01:15:28,400 --> 01:15:29,400
+All right?
+
+1573
+01:15:29,400 --> 01:15:30,400
+Thanks.
+
+1574
+01:15:30,400 --> 01:15:31,400
+Is it a jury?
+
+1575
+01:15:31,400 --> 01:15:32,400
+I thought it was a jury.
+
+1576
+01:15:32,400 --> 01:15:33,400
+I thought it was a jury.
+
+1577
+01:15:33,400 --> 01:15:34,400
+I just...
+
+1578
+01:15:34,400 --> 01:15:35,400
+I just...
+
+1579
+01:15:35,400 --> 01:15:36,400
+I just...
+
+1580
+01:15:36,400 --> 01:15:37,400
+I just...
+
+1581
+01:15:37,400 --> 01:15:38,400
+I just...
+
+1582
+01:15:38,400 --> 01:15:39,400
+I just...
+
+1583
+01:15:39,400 --> 01:15:40,400
+I just...
+
+1584
+01:15:40,400 --> 01:15:41,400
+I just...
+
+1585
+01:15:41,400 --> 01:15:42,400
+I just...
+
+1586
+01:15:42,400 --> 01:15:43,400
+I just...
+
+1587
+01:15:43,400 --> 01:15:44,400
+I just...
+
+1588
+01:15:44,400 --> 01:15:45,400
+I just...
+
+1589
+01:15:45,400 --> 01:15:46,400
+I just...
+
+1590
+01:15:46,400 --> 01:15:47,400
+I just...
+
+1591
+01:15:47,400 --> 01:15:48,400
+I just...
+
+1592
+01:15:48,400 --> 01:15:49,400
+I just...
+
+1593
+01:15:49,400 --> 01:15:50,400
+I just...
+
+1594
+01:15:50,400 --> 01:15:51,400
+I just...
+
+1595
+01:15:51,400 --> 01:15:52,400
+I just...
+
+1596
+01:15:52,400 --> 01:15:53,400
+I just...
+
+1597
+01:15:53,400 --> 01:15:54,400
+nasıl...
+
+1598
+01:15:55,400 --> 01:15:59,400
+But, um, I think, our continuity concerns a lot.
+
+1599
+01:15:59,400 --> 01:16:00,400
+Uh, I just feel like...
+
+1600
+01:16:00,400 --> 01:16:03,400
+I don't know if likely because it's important and I wish it was the same, I just feel like
+
+1601
+01:16:03,400 --> 01:16:04,400
+you were interested in technology...
+
+1602
+01:16:04,400 --> 01:16:05,400
+Um, I was looking at the next question about, something like...
+
+1603
+01:16:05,400 --> 01:16:06,400
+Oh, sure.
+
+1604
+01:16:06,400 --> 01:16:07,400
+And also this one, you probably have all of our ....
+
+1605
+01:16:07,400 --> 01:16:08,400
+Oh, , and is this going to be?
+
+1606
+01:16:08,400 --> 01:16:09,400
+So, you have.
+
+1607
+01:16:09,400 --> 01:16:11,400
+Well, we're not going to have discussions, present many of, um, all of the...
+
+1608
+01:16:11,400 --> 01:16:12,400
+The question is that there needs to be a new meeting in this section that you have
+
+1609
+01:16:12,400 --> 01:16:13,400
+to come glorify.
+
+1610
+01:16:13,400 --> 01:16:14,400
+Yeah.
+
+1611
+01:16:14,400 --> 01:16:15,400
+And particularly in the office.
+
+1612
+01:16:15,400 --> 01:16:16,400
+Any questions you want to come and discuss?
+
+1613
+01:16:16,400 --> 01:16:46,380
+Thank you.
+
+1614
+01:16:46,400 --> 01:17:16,380
+Thank you.
+
+1615
+01:17:16,400 --> 01:17:46,380
+Thank you.
+
+1616
+01:17:46,400 --> 01:18:16,380
+Thank you.
+
+1617
+01:18:16,400 --> 01:18:18,400
+Thank you.
+
+1618
+01:18:46,400 --> 01:19:16,380
+Thank you.
+
+1619
+01:19:16,400 --> 01:19:46,380
+Thank you.
+
+1620
+01:19:46,400 --> 01:20:16,380
+Thank you.
+
+1621
+01:20:16,400 --> 01:20:46,380
+Thank you.
+
+1622
+01:20:46,400 --> 01:21:16,380
+Thank you.
+
+1623
+01:21:16,400 --> 01:21:18,400
+Thank you.
+
+1624
+01:21:18,400 --> 01:21:29,100
+Thank you.
+

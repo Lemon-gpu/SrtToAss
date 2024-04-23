@@ -1,0 +1,640 @@
+1
+00:00:00,000 --> 00:00:03,420
+so for the remaining time let's go into
+
+2
+00:00:03,420 --> 00:00:11,220
+MATLAB and try to implement at least
+
+3
+00:00:11,220 --> 00:00:14,960
+one of the limiters and see how to
+
+4
+00:00:14,960 --> 00:00:22,440
+integrate what we learned together so
+
+5
+00:00:22,440 --> 00:00:24,260
+we're going to use Berger's equation
+
+6
+00:00:24,260 --> 00:00:29,180
+not Berger but Berger's equation as an
+
+7
+00:00:29,180 --> 00:00:40,400
+example t and u du dt so any finite
+
+8
+00:00:40,400 --> 00:00:42,800
+volume scheme we are going to compute n
+
+9
+00:00:42,800 --> 00:00:46,400
+is equal to length of u and dx is equal
+
+10
+00:00:46,400 --> 00:00:49,720
+to 1 divided by n
+
+11
+00:00:54,260 --> 00:01:00,380
+so we are going to reconstruct u of i
+
+12
+00:01:00,380 --> 00:01:08,720
+plus half and left and we are going to
+
+13
+00:01:08,720 --> 00:01:11,360
+also reconstruct the u of i plus half
+
+14
+00:01:11,360 --> 00:01:12,500
+right
+
+15
+00:01:12,500 --> 00:01:18,440
+alright and once we reconstruct this we
+
+16
+00:01:18,440 --> 00:01:21,260
+are going to apply apply good enough
+
+17
+00:01:21,260 --> 00:01:23,380
+scheme
+
+18
+00:01:24,260 --> 00:01:32,500
+to compute f and this is f at the
+
+19
+00:01:32,500 --> 00:01:36,620
+interfaces and I'm going to say f is
+
+20
+00:01:36,620 --> 00:01:42,860
+equal to 0 f 0 so that gets us are gives
+
+21
+00:01:42,860 --> 00:01:46,140
+us all the boundaries we need and the
+
+22
+00:01:46,140 --> 00:01:49,760
+du dt would be equal to for any final
+
+23
+00:01:49,760 --> 00:01:53,380
+volume schemes du dt would be equal to f
+
+24
+00:01:53,380 --> 00:02:01,360
+2 1 2 n- 1 minus f 2 2 n divided by the x
+
+25
+00:02:01,360 --> 00:02:05,360
+so that's the grand scheme of how to
+
+26
+00:02:05,360 --> 00:02:10,500
+compute things so before we do any
+
+27
+00:02:10,500 --> 00:02:13,960
+reconstruction that's compute the ui
+
+28
+00:02:13,960 --> 00:02:22,500
+minus 1 and ui the ui and ui-1s right so
+
+29
+00:02:22,500 --> 00:02:26,480
+So let's consider ui plus half left.
+
+30
+00:02:27,100 --> 00:02:38,140
+We first do ui minus 1 is equal to, so let's still imagine zero bounded conditions.
+
+31
+00:02:38,360 --> 00:02:41,480
+We put zero and u of 1 to n minus 1.
+
+32
+00:02:42,540 --> 00:02:44,860
+So this is my ui minus 1.
+
+33
+00:02:44,860 --> 00:02:47,340
+I'm just constructing this as an array.
+
+34
+00:02:48,660 --> 00:02:48,980
+All right.
+
+35
+00:02:48,980 --> 00:02:52,620
+And I also need ui plus 1.
+
+36
+00:02:55,380 --> 00:02:58,740
+It is equal to u from 2 to n.
+
+37
+00:03:00,560 --> 00:03:03,120
+And I also put a zero at the end.
+
+38
+00:03:03,360 --> 00:03:05,260
+That's the value beyond the boundary.
+
+39
+00:03:06,140 --> 00:03:06,400
+Okay.
+
+40
+00:03:08,140 --> 00:03:17,400
+So my ratio here would be ui plus 1 minus ui.
+
+41
+00:03:18,720 --> 00:03:18,960
+Okay.
+
+42
+00:03:19,040 --> 00:03:31,040
+Divide by ui minus 1, u minus ui minus 1.
+
+43
+00:03:31,900 --> 00:03:33,620
+So this is my r.
+
+44
+00:03:34,280 --> 00:03:34,700
+Okay.
+
+45
+00:03:35,760 --> 00:03:37,840
+So if I use Van Leer limiter.
+
+46
+00:03:38,420 --> 00:03:41,300
+So let's just use a general limiter function.
+
+47
+00:03:41,520 --> 00:03:45,260
+phi is equal to limiter of r.
+
+48
+00:03:45,580 --> 00:03:47,360
+So I'm going to write a limiter here.
+
+49
+00:03:47,360 --> 00:03:49,240
+So I'm going to write a function.
+
+50
+00:03:50,100 --> 00:03:54,320
+phi is equal to limiter r.
+
+51
+00:03:56,640 --> 00:03:57,400
+Okay.
+
+52
+00:03:58,000 --> 00:04:00,680
+So for example, if I want the Van Leer limiter,
+
+53
+00:04:01,860 --> 00:04:08,680
+I would be saying phi is going to be equal to,
+
+54
+00:04:10,480 --> 00:04:13,380
+let's look at what we have.
+
+55
+00:04:13,380 --> 00:04:16,580
+It's either zero or 2r divided by 1 plus r.
+
+56
+00:04:16,580 --> 00:04:21,920
+So let's first compute 2r divided by 1 plus r.
+
+57
+00:04:23,080 --> 00:04:29,120
+And phi of whenever r is less or equal to zero would be equal to zero.
+
+58
+00:04:30,280 --> 00:04:31,120
+All right.
+
+59
+00:04:33,060 --> 00:04:40,660
+Another case we want to take care of is when r is going to be a zero divided by zero,
+
+60
+00:04:40,780 --> 00:04:41,640
+which is not a number.
+
+61
+00:04:43,520 --> 00:04:46,400
+So phi of any not is finite.
+
+62
+00:04:46,580 --> 00:04:50,520
+So if I write r, I'm going to set it to zero.
+
+63
+00:04:50,520 --> 00:04:55,160
+Because remember when we actually use the limiter,
+
+64
+00:04:55,160 --> 00:04:59,620
+phi is going to be multiplied with the difference.
+
+65
+00:05:00,240 --> 00:05:00,920
+Where is phi?
+
+66
+00:05:01,920 --> 00:05:08,080
+When we use the limiter, phi is going to be multiplied with the ui minus ui minus 1.
+
+67
+00:05:08,560 --> 00:05:13,320
+So if we get a divide by zero, we are also in r.
+
+68
+00:05:13,320 --> 00:05:16,360
+When we use phi, phi is going to be multiplied by 1.
+
+69
+00:05:16,360 --> 00:05:18,860
+So phi is going to be multiplied by zero.
+
+70
+00:05:18,860 --> 00:05:22,860
+So in that case, when r is equal to not a number infinity,
+
+71
+00:05:22,860 --> 00:05:26,860
+it doesn't matter what the value of phi is as long as it's not a number.
+
+72
+00:05:26,860 --> 00:05:27,360
+I am fine.
+
+73
+00:05:27,360 --> 00:05:31,860
+So this is going to be my implementation of the Van Leer Limiter.
+
+74
+00:05:31,860 --> 00:05:32,860
+Any questions?
+
+75
+00:05:32,860 --> 00:05:35,860
+Pardon?
+
+76
+00:05:35,860 --> 00:05:39,860
+Line 9 has to be dotted by line 9.
+
+77
+00:05:39,860 --> 00:05:40,860
+Line 9?
+
+78
+00:05:40,860 --> 00:05:41,860
+Oh, yeah.
+
+79
+00:05:41,860 --> 00:05:42,860
+Thank you.
+
+80
+00:05:42,860 --> 00:05:43,860
+All right.
+
+81
+00:05:43,860 --> 00:05:44,860
+Okay.
+
+82
+00:05:44,860 --> 00:05:45,860
+So what we're going to do is we're going to do a little bit of a test.
+
+83
+00:05:45,860 --> 00:05:53,360
+So once I compute the phi, I can compute ui plus half left.
+
+84
+00:05:53,360 --> 00:06:07,360
+It's going to be, according to my formula, it's going to be ui plus half of ui minus ui minus 1.
+
+85
+00:06:10,360 --> 00:06:14,360
+ui minus ui minus 1.
+
+86
+00:06:14,360 --> 00:06:17,860
+And I'm going to compute the next one, which is ui plus 1, right?
+
+87
+00:06:17,860 --> 00:06:20,860
+times my phi.
+
+88
+00:06:20,860 --> 00:06:26,360
+That completes my reconstruction of the flux at the left.
+
+89
+00:06:28,360 --> 00:06:32,360
+Reconstructing the flux at the right is very similar, but I go from the right.
+
+90
+00:06:32,360 --> 00:06:37,360
+So instead of ui minus 1, so I already have ui minus 1.
+
+91
+00:06:37,360 --> 00:06:43,360
+So what I need here, the equivalence of ui minus 1 is ui plus 2, right?
+
+92
+00:06:44,360 --> 00:06:49,040
+So that's the cell away on the right and away from the interface.
+
+93
+00:06:49,600 --> 00:06:55,360
+It's equal to ui plus 1, 2 to the end, 0.
+
+94
+00:06:57,580 --> 00:07:01,600
+So I further shifted using ui plus 1.
+
+95
+00:07:03,600 --> 00:07:04,320
+Okay.
+
+96
+00:07:05,260 --> 00:07:13,600
+And my r in this case is going to be...
+
+97
+00:07:13,600 --> 00:07:19,600
+Okay, instead of ui plus 1 minus u, I have ui minus 1 minus...
+
+98
+00:07:20,240 --> 00:07:22,120
+Wait, is that ui plus 1?
+
+99
+00:07:23,060 --> 00:07:23,800
+Okay.
+
+100
+00:07:25,000 --> 00:07:30,000
+So let me write down the formula first for the right reconstruction.
+
+101
+00:07:40,000 --> 00:07:40,480
+Otherwise...
+
+102
+00:07:40,480 --> 00:07:43,580
+So ui plus half left.
+
+103
+00:07:43,600 --> 00:07:51,480
+Is equal to ui plus ui minus ui minus 1 divided by 2.
+
+104
+00:07:51,660 --> 00:07:53,880
+That's the slope times dx.
+
+105
+00:07:54,940 --> 00:08:03,560
+Times phi of ui plus 1 minus ui divided by ui minus ui minus 1.
+
+106
+00:08:04,280 --> 00:08:09,600
+And ui plus half from the right is equal to...
+
+107
+00:08:09,600 --> 00:08:13,580
+In this case, i plus 1.
+
+108
+00:08:13,600 --> 00:08:15,700
+i plus 2.
+
+109
+00:08:16,220 --> 00:08:22,580
+So this is going to be playing the role of ui minus 1.
+
+110
+00:08:23,120 --> 00:08:26,100
+Ui plus 1 is going to play the role of ui.
+
+111
+00:08:26,720 --> 00:08:29,740
+And i is going to play the role of...
+
+112
+00:08:29,740 --> 00:08:30,580
+Not here.
+
+113
+00:08:31,480 --> 00:08:34,320
+i is going to play the role of ui plus 1.
+
+114
+00:08:34,700 --> 00:08:34,880
+Right?
+
+115
+00:08:37,060 --> 00:08:38,420
+So I'm looking at here.
+
+116
+00:08:38,420 --> 00:08:43,580
+When I'm constructing the left, I'm looking at these three cells.
+
+117
+00:08:43,600 --> 00:08:47,820
+So when I'm constructing the right, I'm looking at these three cells.
+
+118
+00:08:48,540 --> 00:08:54,880
+So on the right would be ui plus 1 plus half of...
+
+119
+00:08:54,880 --> 00:08:58,140
+Instead of ui, I have ui plus 1.
+
+120
+00:08:58,860 --> 00:09:04,240
+Instead of minus ui minus 1, I have minus ui plus 2.
+
+121
+00:09:04,860 --> 00:09:06,600
+Times phi of...
+
+122
+00:09:07,840 --> 00:09:09,600
+Instead of ui plus 1, I have ui.
+
+123
+00:09:09,600 --> 00:09:13,580
+Instead of ui, I have ui plus 1.
+
+124
+00:09:13,600 --> 00:09:21,780
+And ui minus ui minus 1 would be ui plus 1 minus ui plus 2.
+
+125
+00:09:22,120 --> 00:09:22,320
+Right?
+
+126
+00:09:24,420 --> 00:09:25,360
+Does it make sense?
+
+127
+00:09:25,420 --> 00:09:27,920
+I'm just flipping the indices.
+
+128
+00:09:29,920 --> 00:09:30,200
+Okay.
+
+129
+00:09:31,200 --> 00:09:38,200
+So my r would be equal to this value, ui minus ui plus 1...
+
+130
+00:09:40,840 --> 00:09:41,200
+...
+
+131
+00:09:41,960 --> 00:09:42,200
+...
+
+132
+00:09:42,920 --> 00:09:43,080
+...
+
+133
+00:09:43,080 --> 00:09:43,140
+...
+
+134
+00:09:43,140 --> 00:09:43,200
+...
+
+135
+00:09:43,200 --> 00:09:43,260
+...
+
+136
+00:09:43,260 --> 00:09:43,280
+...
+
+137
+00:09:43,280 --> 00:09:43,300
+...
+
+138
+00:09:43,300 --> 00:09:43,320
+...
+
+139
+00:09:43,320 --> 00:09:43,340
+...
+
+140
+00:09:43,340 --> 00:09:43,360
+...
+
+141
+00:09:43,360 --> 00:09:43,380
+...
+
+142
+00:09:43,380 --> 00:09:43,400
+...
+
+143
+00:09:43,400 --> 00:09:43,420
+...
+
+144
+00:09:43,420 --> 00:09:43,440
+...
+
+145
+00:09:43,440 --> 00:09:43,460
+...
+
+146
+00:09:43,460 --> 00:09:43,480
+...
+
+147
+00:09:43,600 --> 00:09:44,280
+...
+
+148
+00:09:44,280 --> 00:09:47,460
+...
+
+149
+00:09:47,460 --> 00:09:47,760
+...
+
+150
+00:09:47,760 --> 00:09:48,260
+...
+
+151
+00:09:48,260 --> 00:09:48,760
+...
+
+152
+00:09:48,760 --> 00:10:05,000
+...
+
+153
+00:10:05,000 --> 00:10:05,780
+...
+
+154
+00:10:05,780 --> 00:10:09,820
+...
+
+155
+00:10:09,820 --> 00:10:10,920
+...
+
+156
+00:10:10,920 --> 00:10:13,000
+...
+
+157
+00:10:13,000 --> 00:10:13,300
+...
+
+158
+00:10:13,300 --> 00:10:27,900
+ui plus 1 minus ui plus 2 times 5. Alright, any questions so far?
+
+159
+00:10:27,900 --> 00:10:34,840
+Here should be dot multiply, here should be dot multiply. Any other bugs you see
+
+160
+00:10:34,840 --> 00:10:37,240
+in here?
+

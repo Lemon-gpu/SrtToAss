@@ -1,0 +1,800 @@
+1
+00:00:00,000 --> 00:00:07,560
+I will demonstrate this with an example. Is it clear so far?
+
+2
+00:00:07,560 --> 00:00:10,140
+Yeah?
+
+3
+00:00:10,140 --> 00:00:18,840
+You can make it non-dimensional.
+
+4
+00:00:18,840 --> 00:00:19,240
+Yeah.
+
+5
+00:00:19,240 --> 00:00:21,600
+For the conversion, which one is better?
+
+6
+00:00:21,600 --> 00:00:29,840
+If you normalize the data, it's not because the conversion or it's because the T is too
+
+7
+00:00:29,840 --> 00:00:30,840
+hard or something?
+
+8
+00:00:30,840 --> 00:00:31,840
+OK.
+
+9
+00:00:31,840 --> 00:00:38,140
+So if I get your question properly, you're asking if you don't non-dimensionalize in
+
+10
+00:00:38,140 --> 00:00:44,440
+the convergence, the quantity of the error it's calculating is going to be dimensional.
+
+11
+00:00:44,440 --> 00:00:46,600
+And how is that then going to be handled?
+
+12
+00:00:46,600 --> 00:00:47,600
+Yeah.
+
+13
+00:00:47,600 --> 00:00:48,600
+OK.
+
+14
+00:00:48,600 --> 00:00:49,600
+That's a good question.
+
+15
+00:00:49,600 --> 00:00:51,600
+So how it is handled is if you don't dimensionalize.
+
+16
+00:00:51,600 --> 00:00:59,080
+In the solver sequence, you pick a scaling for your independent file.
+
+17
+00:00:59,080 --> 00:01:02,540
+So you can specify a scaling, how it should scale it.
+
+18
+00:01:02,540 --> 00:01:07,780
+So it will actually divide the solver when it calculates the error before it puts it
+
+19
+00:01:07,780 --> 00:01:09,240
+into a tolerance.
+
+20
+00:01:09,240 --> 00:01:11,240
+It will divide it by the scaling you provide.
+
+21
+00:01:11,240 --> 00:01:14,240
+Then I don't need to change my equation, right?
+
+22
+00:01:14,240 --> 00:01:15,240
+No.
+
+23
+00:01:15,240 --> 00:01:19,240
+Just use the, all of them in the term of the habit dimensions?
+
+24
+00:01:19,240 --> 00:01:20,240
+Yeah.
+
+25
+00:01:20,240 --> 00:01:21,240
+You have dimensions and you can change it.
+
+26
+00:01:21,240 --> 00:01:21,280
+OK.
+
+27
+00:01:21,600 --> 00:01:24,080
+And then in the convergence check, you would put a scaling.
+
+28
+00:01:24,080 --> 00:01:25,080
+OK.
+
+29
+00:01:25,080 --> 00:01:26,080
+Yeah.
+
+30
+00:01:26,080 --> 00:01:27,080
+Does that answer the question?
+
+31
+00:01:27,080 --> 00:01:28,080
+OK.
+
+32
+00:01:28,080 --> 00:01:33,420
+So let's say we want to model the Poisson equation to start simple with a boundary
+
+33
+00:01:33,420 --> 00:01:38,420
+condition 0, a boundary condition 0 everywhere.
+
+34
+00:01:38,420 --> 00:01:44,080
+Now the way you use this template is by just matching the templates with the equation you
+
+35
+00:01:44,080 --> 00:01:45,080
+have.
+
+36
+00:01:45,080 --> 00:01:46,080
+What is the template?
+
+37
+00:01:46,080 --> 00:01:48,760
+The template is this, what we have in the domain.
+
+38
+00:01:48,760 --> 00:01:50,080
+But what is your equation?
+
+39
+00:01:50,080 --> 00:01:51,080
+Your equation.
+
+40
+00:01:51,080 --> 00:01:52,560
+It's the first equation.
+
+41
+00:01:52,560 --> 00:01:54,560
+So you don't have all these terms.
+
+42
+00:01:54,560 --> 00:01:55,560
+What do we have?
+
+43
+00:01:55,560 --> 00:02:02,560
+If you have c is equal to 1 and f is equal to 1 and everything else 0 in that equation,
+
+44
+00:02:02,560 --> 00:02:04,840
+you get the Poisson equation, right?
+
+45
+00:02:04,840 --> 00:02:07,240
+With the source term being 1.
+
+46
+00:02:07,240 --> 00:02:11,060
+So then you have your set in the domain.
+
+47
+00:02:11,060 --> 00:02:14,940
+Then now you want to pick what happens in the boundary.
+
+48
+00:02:14,940 --> 00:02:18,600
+So for what happens in the boundary, this is going to be a Drischli boundary condition.
+
+49
+00:02:18,600 --> 00:02:19,600
+The template is going to be u is equal to 1.
+
+50
+00:02:19,600 --> 00:02:20,600
+So you have the first equation.
+
+51
+00:02:20,600 --> 00:02:21,600
+If you have a set of 2, you have the second one.
+
+52
+00:02:21,600 --> 00:02:22,600
+So if you have r is equal to 0, then you get the Poisson equation.
+
+53
+00:02:22,600 --> 00:02:23,600
+Thank you.
+
+54
+00:02:23,600 --> 00:02:24,600
+So what happens is that you get r is equal to 0.
+
+55
+00:02:24,600 --> 00:02:25,600
+But then if you don't have it, for what?
+
+56
+00:02:25,600 --> 00:02:26,600
+If you had r is equal to r, then here what we have is r is equal to 0.
+
+57
+00:02:26,600 --> 00:02:28,980
+So just put r is equal to 0 and you are done.
+
+58
+00:02:28,980 --> 00:02:34,960
+So I will now go into the software and show how to enter this.
+
+59
+00:02:34,960 --> 00:02:37,480
+Is it clear so far?
+
+60
+00:02:37,480 --> 00:02:38,480
+Okay.
+
+61
+00:02:38,480 --> 00:02:45,520
+So if I start the software here, when you start a new model, as you would have seen
+
+62
+00:02:45,520 --> 00:02:48,600
+on Monday, you can start with a model wizard or a blank wizard.
+
+63
+00:02:48,600 --> 00:02:49,600
+If you started with a model wizard, you can becomes a model wizard on Monday.
+
+64
+00:02:49,600 --> 00:02:50,600
+It's pretty easy.
+
+65
+00:02:50,600 --> 00:02:53,660
+The first thing is you have to select your special dimension.
+
+66
+00:02:54,000 --> 00:02:55,860
+Let's say we are going to do a 2D problem.
+
+67
+00:02:57,000 --> 00:02:58,040
+Then you pick 2D.
+
+68
+00:02:59,240 --> 00:03:05,340
+Then you pick your physics, but in this case, you're not going to use any of the pre-built physics-based interfaces.
+
+69
+00:03:05,800 --> 00:03:09,240
+You are going to use the mathematics interface.
+
+70
+00:03:09,840 --> 00:03:12,320
+And you come here, you come to PDE.
+
+71
+00:03:12,880 --> 00:03:14,880
+We're going to use the coefficient form now.
+
+72
+00:03:15,080 --> 00:03:16,560
+I'll show you the general form later.
+
+73
+00:03:16,560 --> 00:03:20,560
+So you use the coefficient form, add that.
+
+74
+00:03:21,980 --> 00:03:25,760
+And here you can decide what to call the independent variable.
+
+75
+00:03:26,140 --> 00:03:28,320
+So by default, it wants to call it U.
+
+76
+00:03:28,660 --> 00:03:31,380
+But if you're, for example, solving a temperature problem,
+
+77
+00:03:31,740 --> 00:03:41,340
+and you want this to be similar to the variable name you are using often, then you can rename it.
+
+78
+00:03:42,040 --> 00:03:46,180
+And here you specify the units for the dimension and for the source there.
+
+79
+00:03:46,560 --> 00:03:50,880
+So let's leave this as it is now.
+
+80
+00:03:51,620 --> 00:03:51,920
+Study.
+
+81
+00:03:52,300 --> 00:03:53,460
+Then you pick your study type.
+
+82
+00:03:53,560 --> 00:03:55,760
+Are you doing a stationary study?
+
+83
+00:03:55,920 --> 00:03:59,820
+Is this an equilibrium problem where the time derivatives are all zero now?
+
+84
+00:04:00,120 --> 00:04:03,440
+Or is this a time-dependent problem, an eigenvalue problem?
+
+85
+00:04:03,740 --> 00:04:05,480
+So let's say this is a stationary problem.
+
+86
+00:04:08,480 --> 00:04:09,000
+Yes?
+
+87
+00:04:09,000 --> 00:04:13,720
+The equation is stationary, but it's not finding.
+
+88
+00:04:14,020 --> 00:04:14,960
+I just can call it a function.
+
+89
+00:04:15,480 --> 00:04:16,080
+Yeah.
+
+90
+00:04:16,560 --> 00:04:20,620
+But at this point, we haven't really specified the equation.
+
+91
+00:04:21,020 --> 00:04:24,260
+All we have said is we want to use equation-based modeling.
+
+92
+00:04:24,960 --> 00:04:25,140
+Right?
+
+93
+00:04:25,600 --> 00:04:26,080
+Yeah.
+
+94
+00:04:27,120 --> 00:04:28,420
+But that's a good concern.
+
+95
+00:04:28,520 --> 00:04:29,440
+I'll show you what happens.
+
+96
+00:04:29,900 --> 00:04:32,320
+So here you would define your geometry.
+
+97
+00:04:32,720 --> 00:04:35,480
+Let's say we just want to solve this on a unit square.
+
+98
+00:04:36,640 --> 00:04:43,200
+And I right-click on geometry, pick square, pick the dimensions, one by one.
+
+99
+00:04:43,460 --> 00:04:44,660
+Let's say the default was one.
+
+100
+00:04:44,660 --> 00:04:46,260
+So this is my domain.
+
+101
+00:04:46,560 --> 00:04:51,260
+Now the next thing is if I, there are three nodes here.
+
+102
+00:04:51,980 --> 00:04:56,980
+Your equation, your default boundary condition, and your initial condition.
+
+103
+00:04:57,580 --> 00:04:59,860
+Now let's go to the equation.
+
+104
+00:05:00,180 --> 00:05:01,080
+This is the equation.
+
+105
+00:05:01,180 --> 00:05:04,860
+And if you expand this equation section here, you will see the template.
+
+106
+00:05:06,320 --> 00:05:09,500
+So it's saying it wants to solve this.
+
+107
+00:05:09,840 --> 00:05:12,980
+Now you have to specify what is c.
+
+108
+00:05:13,120 --> 00:05:14,360
+C is in our case one.
+
+109
+00:05:14,360 --> 00:05:16,100
+So we keep c is equal to one.
+
+110
+00:05:16,560 --> 00:05:22,580
+If we had no source term, we will come back and put this f to zero.
+
+111
+00:05:23,340 --> 00:05:29,280
+Then, okay, now I have ea set to zero by default, ba to one.
+
+112
+00:05:30,100 --> 00:05:32,220
+But these values are zero, right?
+
+113
+00:05:32,280 --> 00:05:35,520
+I can type zero, but I can also not type them.
+
+114
+00:05:36,060 --> 00:05:39,880
+Because in a stationary study, it will ignore the time derivatives.
+
+115
+00:05:39,880 --> 00:05:44,580
+So let's say I actually had a non-zero mass term.
+
+116
+00:05:45,060 --> 00:05:46,480
+First, I want to solve it.
+
+117
+00:05:46,560 --> 00:05:49,580
+For a stationary case.
+
+118
+00:05:50,020 --> 00:05:52,300
+Next, I want to solve it for a time-dependent case.
+
+119
+00:05:52,380 --> 00:06:00,520
+So instead of putting the equation twice, I can just add another study, but make that study time-dependent.
+
+120
+00:06:00,720 --> 00:06:03,140
+So the stationary study will ignore the time derivative.
+
+121
+00:06:03,840 --> 00:06:06,700
+The transient study will keep the time derivative.
+
+122
+00:06:07,180 --> 00:06:08,480
+Does that address your question?
+
+123
+00:06:09,100 --> 00:06:16,000
+So, yes, I can put this to zero, but the time derivatives are ignored anyway in a stationary study.
+
+124
+00:06:16,560 --> 00:06:21,440
+And then you can check this other coefficient.
+
+125
+00:06:21,440 --> 00:06:22,340
+They are all zero.
+
+126
+00:06:22,660 --> 00:06:23,800
+What we want is this.
+
+127
+00:06:23,800 --> 00:06:27,740
+Now, actually, we're just solving the Laplace equation since I put f is equal to zero.
+
+128
+00:06:28,420 --> 00:06:30,800
+Then the next thing is the boundary condition.
+
+129
+00:06:31,200 --> 00:06:36,500
+The boundary conditions are setting the Neumann boundary condition to zero.
+
+130
+00:06:36,500 --> 00:06:37,280
+That's the default.
+
+131
+00:06:37,800 --> 00:06:42,920
+So basically, physics-wise, that's no flux of the quantity you are conserving.
+
+132
+00:06:43,080 --> 00:06:46,340
+So in a chemical reaction problem, this would be no concentration,
+
+133
+00:06:46,340 --> 00:06:46,540
+cross-division, no flux.
+
+134
+00:06:46,540 --> 00:06:53,520
+So in the boundary, in a structural mechanics problem, the momentum flux being stress, it would mean free of stress.
+
+135
+00:06:53,900 --> 00:06:58,140
+But if your boundary conditions are different from the default, you specify them.
+
+136
+00:06:58,480 --> 00:07:06,660
+So if I right-click here, right, on the physics or on the equation, these ones are things I could do on the domain.
+
+137
+00:07:07,400 --> 00:07:09,360
+But these ones are boundary condition.
+
+138
+00:07:09,660 --> 00:07:11,740
+So in our case, we have a Richelieu boundary condition.
+
+139
+00:07:11,840 --> 00:07:12,400
+I click that.
+
+140
+00:07:12,400 --> 00:07:16,500
+Then you choose where to apply this.
+
+141
+00:07:16,540 --> 00:07:23,300
+I could keep clicking, but if you are applying them for all boundary, you can also use this all boundaries.
+
+142
+00:07:23,840 --> 00:07:26,160
+Then what is this?
+
+143
+00:07:26,300 --> 00:07:28,940
+What is your solution outside?
+
+144
+00:07:29,520 --> 00:07:35,160
+We are using here u is equal to zero.
+
+145
+00:07:35,540 --> 00:07:39,620
+So if I specify that, that is already zero.
+
+146
+00:07:40,060 --> 00:07:43,740
+Then you build your mesh, and now you solve.
+
+147
+00:07:46,540 --> 00:07:51,660
+Now this is going to give me a zero solution back.
+
+148
+00:07:51,740 --> 00:07:54,660
+I'm solving the Laplace equation with zero boundary conditions.
+
+149
+00:07:54,860 --> 00:07:56,980
+But what we wanted to do was the Poisson equation.
+
+150
+00:07:56,980 --> 00:08:05,980
+So if I go back to the coefficient form and put f is equal to one and solve that.
+
+151
+00:08:09,920 --> 00:08:10,420
+What?
+
+152
+00:08:14,320 --> 00:08:16,160
+I put the boundary condition.
+
+153
+00:08:16,540 --> 00:08:19,540
+Oh, I put constraints.
+
+154
+00:08:21,360 --> 00:08:24,260
+I should have put the Richelieu boundary condition.
+
+155
+00:08:25,780 --> 00:08:26,580
+All boundaries.
+
+156
+00:08:26,660 --> 00:08:26,880
+Okay.
+
+157
+00:08:33,500 --> 00:08:37,380
+So this is Poisson equation with source terms equal to one.
+
+158
+00:08:37,520 --> 00:08:42,040
+I mean, here I can post-process it for other quantities, maybe make a contour plot
+
+159
+00:08:42,040 --> 00:08:45,660
+or maybe here instead of just surface.
+
+160
+00:08:45,660 --> 00:08:45,760
+Okay.
+
+161
+00:08:45,760 --> 00:08:46,320
+So I can do that.
+
+162
+00:08:46,320 --> 00:08:49,560
+So I can do the surface, add a height expression.
+
+163
+00:08:51,220 --> 00:08:52,660
+This would be my solution.
+
+164
+00:08:56,060 --> 00:09:04,400
+But the idea is if you're using the coefficient form, you just come here in the equations template,
+
+165
+00:09:05,080 --> 00:09:13,700
+and then you fill in these terms so that the template matches the equation you have.
+
+166
+00:09:14,700 --> 00:09:16,300
+Here I have initial values.
+
+167
+00:09:16,300 --> 00:09:23,300
+In the time-dependent, in a time-dependent problem, those are physically meaningful quantities
+
+168
+00:09:23,300 --> 00:09:25,060
+of where did you start?
+
+169
+00:09:25,060 --> 00:09:26,240
+Where are you starting?
+
+170
+00:09:26,580 --> 00:09:31,060
+What was the state of your problem at t is equal to zero or whenever you start solving
+
+171
+00:09:31,060 --> 00:09:31,640
+this problem?
+
+172
+00:09:32,140 --> 00:09:39,140
+But for a stationary problem, they don't have any physical meaning.
+
+173
+00:09:39,660 --> 00:09:43,200
+But can you think of a way they can be useful?
+
+174
+00:09:43,200 --> 00:09:45,300
+Any guess?
+
+175
+00:09:46,300 --> 00:09:49,780
+Yeah, can you make it more, can you elaborate more?
+
+176
+00:09:49,780 --> 00:09:54,780
+Convergence and next configuration?
+
+177
+00:09:54,780 --> 00:09:56,400
+Exactly.
+
+178
+00:09:56,400 --> 00:09:59,260
+So these equations are potentially nonlinear, right?
+
+179
+00:09:59,260 --> 00:10:04,240
+In this case, you win the first time.
+
+180
+00:10:04,240 --> 00:10:11,460
+In this case, we are solving a linear problem but think of solving this nonlinear problem.
+
+181
+00:10:11,460 --> 00:10:12,460
+What happens?
+
+182
+00:10:12,460 --> 00:10:14,100
+The weak form will convert this and then when you add the finite element it's going to tell
+
+183
+00:10:14,100 --> 00:10:15,100
+this.
+
+184
+00:10:15,100 --> 00:10:16,100
+So what happens?
+
+185
+00:10:16,100 --> 00:10:22,100
+at the end what you will have is a system of nonlinear algebraic equations for the nodal
+
+186
+00:10:22,100 --> 00:10:23,100
+values.
+
+187
+00:10:23,100 --> 00:10:27,980
+So when you have nonlinear algebraic equations, you're going to solve them using a Newton-Raphson
+
+188
+00:10:27,980 --> 00:10:30,600
+or other method like that.
+
+189
+00:10:30,600 --> 00:10:36,380
+And there, you are going to start with an initial value and iteratively try to get to
+
+190
+00:10:36,380 --> 00:10:37,800
+your solution.
+
+191
+00:10:37,800 --> 00:10:42,540
+So even though this initial value is not, it's physically meaningless for a stationary
+
+192
+00:10:42,540 --> 00:10:44,860
+problem, you can nudge it.
+
+193
+00:10:44,860 --> 00:10:49,660
+If you have any a priori information, if you have some estimate about your solution, you
+
+194
+00:10:49,660 --> 00:10:56,300
+can type that in and then it will help the solver converge faster.
+
+195
+00:10:56,300 --> 00:11:00,120
+Or this is assuming you have a unique solution.
+
+196
+00:11:00,120 --> 00:11:05,000
+In cases where you have multiple solutions, you can also use this initial value to sort
+
+197
+00:11:05,000 --> 00:11:06,000
+of bias, right?
+
+198
+00:11:06,000 --> 00:11:11,840
+It will most likely converge to the solution closer to the initial value you are putting
+
+199
+00:11:11,840 --> 00:11:12,340
+in.
+
+200
+00:11:12,540 --> 00:11:15,040
+Okay.
+

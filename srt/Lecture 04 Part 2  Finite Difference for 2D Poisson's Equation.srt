@@ -1,0 +1,344 @@
+1
+00:00:00,000 --> 00:00:07,280
+Alright, so find a difference approximation of the 2D Poisson's operator,
+
+2
+00:00:07,280 --> 00:00:12,160
+the 2D Laplace operator. The Laplace operator is basically the partial
+
+3
+00:00:12,160 --> 00:00:19,880
+square over partial x square plus partial square over partial y square. It
+
+4
+00:00:19,880 --> 00:00:26,920
+appears a lot in mathematics, particularly in differential equations.
+
+5
+00:00:26,920 --> 00:00:35,560
+So this is just a summation of two one-dimensional differential operators.
+
+6
+00:00:35,560 --> 00:00:44,080
+The first dimension is in x, the second dimension is y, right? And remember in the
+
+7
+00:00:44,080 --> 00:00:49,860
+1D case, the second derivative of u can
+
+8
+00:00:49,860 --> 00:00:56,840
+be approximated by u of i plus 1 plus u such as i minus 1 plus 2u x divided by
+
+9
+00:00:56,840 --> 00:01:05,480
+delta x squared, and we used Taylor's series analysis to either derive this or
+
+10
+00:01:05,480 --> 00:01:12,700
+analyze its order of accuracy, and just to remind order of accuracy means as
+
+11
+00:01:12,700 --> 00:01:19,480
+Delta x goes to zero how fast does the area of this approximation go to zero.
+
+12
+00:01:19,480 --> 00:01:23,920
+and do we remember what is the order of accuracy of this scheme?
+
+13
+00:01:27,740 --> 00:01:30,680
+It's second order, which means the truncation error,
+
+14
+00:01:30,780 --> 00:01:32,200
+the error of this approximation,
+
+15
+00:01:33,000 --> 00:01:36,020
+scales like delta x squared.
+
+16
+00:01:38,040 --> 00:01:41,340
+If it scales like delta x, it's called first order.
+
+17
+00:01:41,820 --> 00:01:44,860
+If it scales like delta x cubed, it's called third order.
+
+18
+00:01:45,960 --> 00:01:48,360
+All right, so this operator is second order.
+
+19
+00:01:48,360 --> 00:01:51,200
+The truncation error, left minus right,
+
+20
+00:01:51,800 --> 00:01:54,020
+scales with delta x squared,
+
+21
+00:01:54,680 --> 00:01:56,380
+a constant times delta x squared.
+
+22
+00:01:57,720 --> 00:02:00,620
+Now in 2D, we can do the same thing.
+
+23
+00:02:04,800 --> 00:02:07,840
+Okay, we can do the same thing.
+
+24
+00:02:12,860 --> 00:02:15,880
+The partial square u, partial x squared,
+
+25
+00:02:16,880 --> 00:02:18,340
+plus partial square u,
+
+26
+00:02:18,500 --> 00:02:19,780
+partial y squared.
+
+27
+00:02:20,420 --> 00:02:22,740
+Now we have more than the index i.
+
+28
+00:02:23,180 --> 00:02:27,540
+We have ui plus 1 and j
+
+29
+00:02:27,540 --> 00:02:30,580
+plus ui minus 1 and j.
+
+30
+00:02:30,780 --> 00:02:34,240
+So they are taking the finite difference operator
+
+31
+00:02:34,240 --> 00:02:38,820
+at the same j to approximate the x derivative.
+
+32
+00:02:40,160 --> 00:02:40,320
+Okay.
+
+33
+00:02:41,620 --> 00:02:44,700
+And we also add this up with
+
+34
+00:02:44,700 --> 00:02:47,660
+ui of j plus 1 plus ui of y plus 1.
+
+35
+00:02:48,360 --> 00:02:53,620
+So we have ui of j minus 1 minus 2 uij divided by now delta y squared,
+
+36
+00:02:54,440 --> 00:03:00,460
+where delta x is the distance between two adjacent x grid points.
+
+37
+00:03:01,280 --> 00:03:05,820
+And delta y is the distance between two adjacent y grid points.
+
+38
+00:03:08,300 --> 00:03:09,240
+All right.
+
+39
+00:03:11,460 --> 00:03:15,140
+So now we have an approximation to this operator.
+
+40
+00:03:15,140 --> 00:03:15,260
+So,
+
+41
+00:03:15,260 --> 00:03:18,180
+if,
+
+42
+00:03:18,360 --> 00:03:19,980
+I have the Poisson's equation,
+
+43
+00:03:20,100 --> 00:03:21,920
+which means this is equal to f.
+
+44
+00:03:23,580 --> 00:03:24,100
+Okay.
+
+45
+00:03:24,520 --> 00:03:25,380
+That means,
+
+46
+00:03:25,540 --> 00:03:26,500
+let me write approximation.
+
+47
+00:03:26,500 --> 00:03:33,860
+That means this finite difference operator can be equalized to f of ij.
+
+48
+00:03:38,860 --> 00:03:40,520
+So this equation,
+
+49
+00:03:41,700 --> 00:03:42,660
+which means,
+
+50
+00:03:43,120 --> 00:03:43,320
+which,
+
+51
+00:03:43,900 --> 00:03:47,500
+which is written out as a linear combination of,
+
+52
+00:03:48,360 --> 00:03:56,540
+of five different values of u at five grid points is equal to fij.
+
+53
+00:03:58,260 --> 00:03:59,820
+So let's say this is,
+
+54
+00:04:00,600 --> 00:04:03,860
+if this is ij under consideration,
+
+55
+00:04:04,920 --> 00:04:05,400
+okay,
+
+56
+00:04:07,060 --> 00:04:14,400
+the value of f at these grid points is equal to a linear combination of ui plus 1j,
+
+57
+00:04:14,620 --> 00:04:16,120
+which is this point.
+
+58
+00:04:16,420 --> 00:04:18,160
+This is ui plus 1j.
+
+59
+00:04:18,360 --> 00:04:21,380
+Right?
+
+60
+00:04:22,200 --> 00:04:23,600
+Ui minus 1j,
+
+61
+00:04:23,800 --> 00:04:27,440
+these grid points minus two uij.
+
+62
+00:04:27,440 --> 00:04:30,560
+So this grid points and uij plus one,
+
+63
+00:04:30,560 --> 00:04:31,300
+that's here.
+
+64
+00:04:31,640 --> 00:04:33,260
+Uij minus one,
+
+65
+00:04:33,260 --> 00:04:33,980
+that's here.
+
+66
+00:04:34,180 --> 00:04:35,860
+And uij again is here.
+
+67
+00:04:37,600 --> 00:04:38,900
+So we have five,
+
+68
+00:04:40,660 --> 00:04:46,880
+we have five grid points and five different coefficients to multiply with the u at these grid points.
+
+69
+00:04:47,620 --> 00:04:48,240
+Add them together,
+
+70
+00:04:48,240 --> 00:04:48,340
+Add them together,
+
+71
+00:04:48,340 --> 00:04:54,340
+they should equal to F at the center grid points. And the same equation should
+
+72
+00:04:54,340 --> 00:05:05,500
+apply to every single interior grid point, right? So if we have nx minus 1
+
+73
+00:05:05,500 --> 00:05:12,280
+interior grid points in X, we have n y minus 1 interior grid points in Y. This
+
+74
+00:05:12,280 --> 00:05:19,280
+is not a single equation. This is nx minus 1 times n y minus 1 equations.
+
+75
+00:05:19,280 --> 00:05:28,540
+Okay? Again, how many unknowns do we have? If we know the boundary conditions u of i,
+
+76
+00:05:28,540 --> 00:05:41,020
+j equal to 0, if i is equal to 0, or i is equal to nx, or j is equal to 0, or j is
+
+77
+00:05:41,020 --> 00:05:42,020
+equal to ny.
+
+78
+00:05:42,020 --> 00:05:42,120
+Okay?
+
+79
+00:05:42,280 --> 00:05:46,180
+So if we have this boundary condition, the simplest type of boundary condition,
+
+80
+00:05:46,340 --> 00:05:48,360
+how many unknowns do we have?
+
+81
+00:05:54,860 --> 00:06:06,260
+Exactly. So this gives us nx minus 1 times n y minus 1 equations for the same
+
+82
+00:06:06,260 --> 00:06:08,220
+number of unknowns.
+
+83
+00:06:12,280 --> 00:06:20,100
+Okay? And all these equations are linear equations, right? So by this finite difference
+
+84
+00:06:20,100 --> 00:06:25,880
+approximation of the 2D Laplace operator, we converted the partial differential equation
+
+85
+00:06:25,880 --> 00:06:32,240
+into a set of linear equations that uniquely, that combines with the boundary condition,
+
+86
+00:06:32,240 --> 00:06:36,080
+I need to say, uniquely determines the numerical solution.
+
